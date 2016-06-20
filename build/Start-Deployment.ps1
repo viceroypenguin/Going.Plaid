@@ -13,6 +13,9 @@ This script depends on the psake module.
 
 Param(
     [Parameter()]
+    [string]$NugetKey = "ba2b3405-5416-4c78-addd-da65ef116c6c",
+
+    [Parameter()]
     [string[]]$TaskList = @("default")
 )
 
@@ -39,7 +42,8 @@ Invoke-psake `
     -taskList $TaskList `
     -framework 4.5.2 `
     -properties @{
-        "NugetEXE" = $nuget
+        "NugetEXE" = $nuget;
+        "NugetKey" = $NugetKey;
     };
 
 Pop-Location;
