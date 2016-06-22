@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace Gigobyte.Plaid.Model
+namespace Gigobyte.Plaid.Contract
 {
     /// <summary>
-    /// Represents an account balance.
+    /// Represents an <see cref="Account"/> balance.
     /// </summary>
     /// <remarks>
     /// The Current Balance is the total amount of funds in the account. The Available Balance is the
@@ -13,7 +13,7 @@ namespace Gigobyte.Plaid.Model
     /// value of null or only return a Current Balance.
     /// </remarks>
     [JsonObject]
-    public class Balance
+    public struct Balance
     {
         /// <summary>
         /// Gets or sets the available balance.

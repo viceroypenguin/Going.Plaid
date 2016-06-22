@@ -40,16 +40,25 @@
     <None Include="Plaid.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\Mfa.cs" />
     <Compile Include="Environment.cs" />
-    <Compile Include="Model\Account.cs" />
-    <Compile Include="Model\AccountSubtype.cs" />
-    <Compile Include="Model\AccountType.cs" />
-    <Compile Include="Model\Balance.cs" />
-    <Compile Include="Model\Credential.cs" />
-    <Compile Include="Model\InstitutionType.cs" />
-    <Compile Include="Model\AccountMetadata.cs" />
-    <Compile Include="Model\SubmitOptions.cs" />
-    <Compile Include="Model\Transaction.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Contract\Account.cs" />
+    <Compile Include="Contract\AccountSubtype.cs" />
+    <Compile Include="Contract\AccountType.cs" />
+    <Compile Include="Contract\Balance.cs" />
+    <Compile Include="Contract\PlaidConnectRequest.cs" />
+    <Compile Include="Contract\PlaidConnectResponse.cs" />
+    <Compile Include="Contract\Coordinate.cs" />
+    <Compile Include="Contract\Credential.cs" />
+    <Compile Include="Contract\InstitutionType.cs" />
+    <Compile Include="Contract\AccountMetadata.cs" />
+    <Compile Include="Contract\Location.cs" />
+    <Compile Include="Contract\Score.cs" />
+    <Compile Include="Contract\SubmitOptions.cs" />
+    <Compile Include="Contract\Transaction.cs" />
+    <Compile Include="Contract\TransactionMetadata.cs" />
+    <Compile Include="Contract\TransactionType.cs" />
     <Compile Include="PlaidConnectClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlaidClientBase.cs" />

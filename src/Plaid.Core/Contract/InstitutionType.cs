@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gigobyte.Plaid.Model
+namespace Gigobyte.Plaid.Contract
 {
-    public class SubmitOptions
+    public enum InstitutionType
     {
     }
 }

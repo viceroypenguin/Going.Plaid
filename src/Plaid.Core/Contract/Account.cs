@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Gigobyte.Plaid.Model
+namespace Gigobyte.Plaid.Contract
 {
     /// <summary>
     /// Represents a user bank account.
@@ -53,7 +53,8 @@ namespace Gigobyte.Plaid.Model
         /// Gets or sets the account subtype id.
         /// </summary>
         /// <remarks>
-        /// A more detailed classification of the <see cref="AccountType"/>. When unavailable, this field will not be returned. See <see cref="AccountSubtype"/> for a list of common subtype values.
+        /// A more detailed classification of the <see cref="AccountType"/>. When unavailable, this
+        /// field will not be returned. See <see cref="AccountSubtype"/> for a list of common subtype values.
         /// </remarks>
         /// <value>The account subtype.</value>
         [JsonProperty("subtype")]
@@ -62,6 +63,7 @@ namespace Gigobyte.Plaid.Model
         /// <summary>
         /// Gets the account type.
         /// </summary>
+        /// <value>The type.</value>
         public AccountType Type
         {
             get
@@ -102,6 +104,7 @@ namespace Gigobyte.Plaid.Model
         /// <summary>
         /// Gets the account subtype.
         /// </summary>
+        /// <value>The account subtype.</value>
         public AccountSubtype SubType
         {
             get

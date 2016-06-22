@@ -1,4 +1,4 @@
-﻿namespace Gigobyte.Plaid.Model
+﻿namespace Gigobyte.Plaid.Contract
 {
     public enum AccountSubtype
     {

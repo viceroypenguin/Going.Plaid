@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Gigobyte.Plaid.Model
+namespace Gigobyte.Plaid.Contract
 {
     public class Credential
     {

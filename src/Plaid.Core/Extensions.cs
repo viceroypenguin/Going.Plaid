@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gigobyte.Plaid.Model
+namespace Gigobyte.Plaid
 {
-    public enum InstitutionType
+    public static class Extensions
     {
+        
     }
 }
