@@ -40,7 +40,11 @@
     <None Include="Plaid.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\Extensions.cs" />
     <Compile Include="Contract\Mfa.cs" />
+    <Compile Include="Contract\MfaType.cs" />
+    <Compile Include="Contract\ResponseCodes.cs" />
+    <Compile Include="Contract\DeliveryOption.cs" />
     <Compile Include="Environment.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Contract\Account.cs" />
@@ -59,6 +63,7 @@
     <Compile Include="Contract\Transaction.cs" />
     <Compile Include="Contract\TransactionMetadata.cs" />
     <Compile Include="Contract\TransactionType.cs" />
+    <Compile Include="Plaid.cs" />
     <Compile Include="PlaidConnectClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlaidClientBase.cs" />

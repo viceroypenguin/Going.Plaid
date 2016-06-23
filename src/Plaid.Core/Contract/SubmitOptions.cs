@@ -42,7 +42,8 @@ namespace Gigobyte.Plaid.Contract
         public bool LoginOnly { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="SubmitOptions"/> is list.
+        /// Gets or sets a value indicating whether the <see cref="PlaidConnectRequest"/> will list
+        /// the available delivery methods for code-based MFA.
         /// </summary>
         /// <value><c>true</c> if list; otherwise, <c>false</c>.</value>
         /// <remarks>

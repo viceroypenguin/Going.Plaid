@@ -3,7 +3,7 @@
 namespace Gigobyte.Plaid.Contract
 {
     /// <summary>
-    /// Represents a response message of the Plaid Connect API.
+    /// Represents a response message of the Plaid Connect endpoint.
     /// </summary>
     [JsonObject]
     public class PlaidConnectResponse
@@ -28,5 +28,34 @@ namespace Gigobyte.Plaid.Contract
         /// <value>The access token.</value>
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }
+
+        /// <summary>
+        /// Gets or sets the MFA requirements.
+        /// </summary>
+        /// <value>The MFA.</value>
+        [JsonProperty("mfa")]
+        public Mfa Mfa { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the type of MFA.
+        /// </summary>
+        /// <value>The MFA type.</value>
+        [JsonProperty("type")]
+        public string MfaTypeId { get; set; }
+
+        /// <summary>
+        /// Gets the type of the MFA.
+        /// </summary>
+        /// <value>The MFA type.</value>
+        public MfaType MfaType
+        {
+            get { return MfaTypeId.AsMfaType(); }
+        }
+
+        /// <summary>
+        /// Gets or sets the HTTP status code.
+        /// </summary>
+        /// <value>The HTTP status code.</value>
+        public System.Net.HttpStatusCode StatusCode { get; set; }
     }
 }
