@@ -28,5 +28,30 @@ namespace Gigobyte.Plaid.Contract
         /// <value>The access token.</value>
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }
+
+        [JsonProperty("mfa")]
+        public Mfa[] Mfa { get; set; }
+
+        /// <summary>
+        /// Gets or sets the MFA type.
+        /// </summary>
+        /// <value>The type.</value>
+        [JsonProperty("type")]
+        public string MfaTypeId { get; set; }
+
+        /// <summary>
+        /// Gets the type of the MFA type.
+        /// </summary>
+        /// <value>The type of the MFA.</value>
+        public MfaType MfaType
+        {
+            get { return MfaTypeId.AsMfaType(); }
+        }
+
+        /// <summary>
+        /// Gets or sets the HTTP status code.
+        /// </summary>
+        /// <value>The HTTP status code.</value>
+        public System.Net.HttpStatusCode StatusCode { get; set; }
     }
 }

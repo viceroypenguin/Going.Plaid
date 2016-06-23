@@ -40,7 +40,11 @@
     <None Include="Plaid.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\Extensions.cs" />
     <Compile Include="Contract\Mfa.cs" />
+    <Compile Include="Contract\MfaType.cs" />
+    <Compile Include="Contract\ResponseCodes.cs" />
+    <Compile Include="Contract\SendOption.cs" />
     <Compile Include="Environment.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Contract\Account.cs" />

@@ -13,13 +13,17 @@ namespace Gigobyte.Plaid
         {
             _environment = environment;
 
+#if DEBUG
+            _environment = Environment.Development;
             _serializerSettings = new JsonSerializerSettings()
             {
                 DateFormatString = "yyyy-MM-dd",
-#if DEBUG
                 Formatting = Formatting.Indented
-#endif
             };
+#else
+            _environment = environment;
+            _serializerSettings = new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd" };
+#endif
         }
 
         [JsonProperty("pin")]
@@ -31,19 +35,7 @@ namespace Gigobyte.Plaid
         [JsonProperty("options")]
         public SubmitOptions Options { get; set; }
 
-        public Task<bool> AddUserAsync(Credential credential, string institutionType)
-        {
-            var request = new PlaidConnectRequest()
-            {
-                Secret = base.Secret,
-                Credential = credential,
-                ClientId = base.ClientId,
-                InstitutionType = institutionType
-            };
-            return AddUser(request);
-        }
-
-        public async Task<bool> AddUser(PlaidConnectRequest request)
+        public async Task<PlaidConnectResponse> AddUserAsync(PlaidConnectRequest request)
         {
             request.Options.LoginOnly = true;
 
@@ -56,23 +48,43 @@ namespace Gigobyte.Plaid
                 {
                     if (response.IsSuccessStatusCode)
                     {
-                        string json = await response.Content.ReadAsStringAsync();
-                        System.Diagnostics.Debug.WriteLine(json);
-                        //var plaidReply = (PlaidConnectResponse)JsonConvert.DeserializeObject(json, typeof(PlaidConnectResponse));
-
-
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<PlaidConnectResponse>(responseBody);
+                        result.StatusCode = response.StatusCode;
+                        return result;
                     }
                     else throw new HttpRequestException(response.ReasonPhrase);
                 }
             }
-
-            return true;
         }
-        
+
+        public Task<PlaidConnectResponse> AddUserAsync(Credential credential, string institutionType)
+        {
+            var request = new PlaidConnectRequest()
+            {
+                Secret = base.Secret,
+                Credential = credential,
+                ClientId = base.ClientId,
+                InstitutionType = institutionType
+            };
+            return AddUserAsync(request);
+        }
+
+        public Task<PlaidConnectResponse> AddUserAsync(string username, string password, string institutionType)
+        {
+            var request = new PlaidConnectRequest()
+            {
+                Secret = base.Secret,
+                ClientId = base.ClientId,
+                InstitutionType = institutionType,
+                Credential = new Credential(username, password)
+            };
+            return AddUserAsync(request);
+        }
+
         #region Private Members
 
         private Environment _environment;
-
         private JsonSerializerSettings _serializerSettings;
 
         #endregion Private Members
