@@ -48,9 +48,14 @@ namespace Gigobyte.Plaid
 
         public struct Endpoint
         {
-            public static string Institution(Environment environment = Environment.Production)
+            public static Uri Institution(Environment environment = Environment.Production)
             {
-                return GetEndpoint(environment, "institution").AbsoluteUri;
+                return GetEndpoint(environment, "institutions");
+            }
+
+            public static Uri Institution(string id, Environment enviroment = Environment.Production)
+            {
+                return GetEndpoint(enviroment, $"institutions/{id}");
             }
 
             public static string Connect(Environment environment = Environment.Production)
