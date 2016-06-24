@@ -1,7 +1,7 @@
 ﻿namespace Gigobyte.Plaid.Contract
 {
     /// <summary>
-    /// Multi-Factor Authentication (MFA) type
+    /// Multi-Factor Authentication (MFA) type.
     /// </summary>
     public enum MfaType
     {

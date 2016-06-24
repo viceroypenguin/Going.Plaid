@@ -1,7 +1,5 @@
 ﻿using Gigobyte.Plaid.Contract;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +12,12 @@ namespace Gigobyte.Plaid
         public PlaidConnectClient(string clientId, string secret, Environment environment = Environment.Production) : base(clientId, secret)
         {
 #if DEBUG
-            _environment = Environment.Development;
-            _serializerSettings = new JsonSerializerSettings()
-            {
-                DateFormatString = "yyyy-MM-dd",
-                Formatting = Formatting.Indented
-            };
+            _serializerSettings = new JsonSerializerSettings() { Formatting = Formatting.Indented };
 #else
-            _environment = environment;
-            _serializerSettings = new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd" };
+            _serializerSettings = new JsonSerializerSettings();
 #endif
+            _environment = environment;
+            _serializerSettings.DateFormatString = "yyyy-MM-dd";
         }
 
         [JsonProperty("pin")]
@@ -39,28 +33,11 @@ namespace Gigobyte.Plaid
         {
             request.Options.LoginOnly = true;
 
-            using (var client = new HttpClient())
+            using (var http = new HttpClient())
             {
-                string url = GetEndpoint(_environment, "connect").AbsoluteUri;
+                string url = Plaid.Endpoint.Connect(_environment);
                 string requestBody = JsonConvert.SerializeObject(request, _serializerSettings);
-
-                using (var response = await client.PostAsync(url, new StringContent(requestBody, Encoding.UTF8, ContentType)))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string responseBody = await response.Content.ReadAsStringAsync();
-                        dynamic r = new JRaw(responseBody);
-                        System.Diagnostics.Debug.WriteLine(r.Root);
-
-#if DEBUG
-                        System.Diagnostics.Debug.WriteLine(responseBody);
-#endif
-                        var result = JsonConvert.DeserializeObject<PlaidConnectResponse>(responseBody);
-                        result.StatusCode = response.StatusCode;
-                        return result;
-                    }
-                    else throw new HttpRequestException(response.ReasonPhrase);
-                }
+                return await Deserialize<PlaidConnectResponse>(response: (await http.PostAsync(url, new StringContent(requestBody, Encoding.UTF8, ContentType))));
             }
         }
 
@@ -90,8 +67,8 @@ namespace Gigobyte.Plaid
 
         #region Private Members
 
+        private readonly JsonSerializerSettings _serializerSettings;
         private Environment _environment;
-        private JsonSerializerSettings _serializerSettings;
 
         #endregion Private Members
     }

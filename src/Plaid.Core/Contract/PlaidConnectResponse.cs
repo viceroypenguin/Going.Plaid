@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Gigobyte.Plaid.Contract
 {
@@ -6,7 +7,7 @@ namespace Gigobyte.Plaid.Contract
     /// Represents a response message of the Plaid Connect endpoint.
     /// </summary>
     [JsonObject]
-    public class PlaidConnectResponse
+    public class PlaidConnectResponse : PlaidResponseBase
     {
         /// <summary>
         /// Gets or sets the user's accounts.
@@ -34,8 +35,8 @@ namespace Gigobyte.Plaid.Contract
         /// </summary>
         /// <value>The MFA.</value>
         [JsonProperty("mfa")]
-        public Mfa Mfa { get; set; }
-        
+        public JToken Mfa { get; set; }
+
         /// <summary>
         /// Gets or sets the type of MFA.
         /// </summary>
@@ -51,11 +52,5 @@ namespace Gigobyte.Plaid.Contract
         {
             get { return MfaTypeId.AsMfaType(); }
         }
-
-        /// <summary>
-        /// Gets or sets the HTTP status code.
-        /// </summary>
-        /// <value>The HTTP status code.</value>
-        public System.Net.HttpStatusCode StatusCode { get; set; }
     }
 }

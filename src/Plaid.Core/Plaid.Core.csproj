@@ -43,9 +43,10 @@
     <Compile Include="Contract\Extensions.cs" />
     <Compile Include="Contract\Mfa.cs" />
     <Compile Include="Contract\MfaType.cs" />
-    <Compile Include="Contract\ResponseCodes.cs" />
     <Compile Include="Contract\DeliveryOption.cs" />
+    <Compile Include="Contract\PlaidResponseBase.cs" />
     <Compile Include="Environment.cs" />
+    <Compile Include="Exceptions\PlaidException.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Contract\Account.cs" />
     <Compile Include="Contract\AccountSubtype.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="PlaidConnectClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlaidClientBase.cs" />
+    <Compile Include="Serialization\MfaJsonSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

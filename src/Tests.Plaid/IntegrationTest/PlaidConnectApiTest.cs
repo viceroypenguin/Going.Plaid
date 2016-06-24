@@ -9,13 +9,15 @@ namespace Tests.Plaid.IntegrationTest
     [UseApprovalSubdirectory(nameof(ApprovalTests))]
     public class PlaidConnectApiTest
     {
+        internal Environment Environment = Environment.Development;
+
         [TestMethod]
         [Owner(Dev.Ackara)]
         [TestCategory(Trait.Integration)]
         public async Task AddUser_creates_a_new_plaid_connect_account_when_no_mfa_is_needed()
         {
             // Arrange
-            var sut = new PlaidConnectClient(PlaidSandbox.ClientId, PlaidSandbox.Secret);
+            var sut = new PlaidConnectClient(PlaidSandbox.ClientId, PlaidSandbox.Secret, Environment);
 
             // Act
             var response = await sut.AddUserAsync(PlaidSandbox.StandardUser, PlaidSandbox.Password, "amex");
@@ -32,7 +34,7 @@ namespace Tests.Plaid.IntegrationTest
         public async Task AddUser_creates_a_new_plaid_connect_account_when_question_based_mfa_is_needed()
         {
             // Arrange
-            var sut = new PlaidConnectClient(PlaidSandbox.ClientId, PlaidSandbox.Secret);
+            var sut = new PlaidConnectClient(PlaidSandbox.ClientId, PlaidSandbox.Secret, Environment);
 
             // Act
             var response = await sut.AddUserAsync(PlaidSandbox.StandardUser, PlaidSandbox.Password, "td");
@@ -49,7 +51,7 @@ namespace Tests.Plaid.IntegrationTest
         public async Task AddUser_creates_a_new_plaid_connect_account_when_code_based_mfa_is_needed()
         {
             // Arrange
-            var sut = new PlaidConnectClient(PlaidSandbox.ClientId, PlaidSandbox.Secret);
+            var sut = new PlaidConnectClient(PlaidSandbox.ClientId, PlaidSandbox.Secret, Environment);
 
             // Act
             var response = await sut.AddUserAsync(PlaidSandbox.StandardUser, PlaidSandbox.Password, "chase");
