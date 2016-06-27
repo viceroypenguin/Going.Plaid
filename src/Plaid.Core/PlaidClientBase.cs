@@ -49,7 +49,7 @@ namespace Gigobyte.Plaid
                 string responseBody = await response.Content?.ReadAsStringAsync();
 #if DEBUG
                 System.Diagnostics.Debug.WriteLine("response");
-                System.Diagnostics.Debug.WriteLine("----------------");
+                System.Diagnostics.Debug.WriteLine("----------");
                 System.Diagnostics.Debug.WriteLine(responseBody);
 #endif
                 if (response.IsSuccessStatusCode)
@@ -61,7 +61,7 @@ namespace Gigobyte.Plaid
                 else
                 {
                     var json = JToken.Parse(responseBody);
-                    throw new Exceptions.PlaidException(json["resolve"].Value<string>(), json["code"].Value<int>());
+                    throw new Exceptions.PlaidException($"({json["message"].Value<string>().ToUpper()}) {json["resolve"].Value<string>()}", json["code"].Value<int>());
                 }
             }
         }

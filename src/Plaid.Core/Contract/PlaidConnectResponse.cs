@@ -54,10 +54,10 @@ namespace Gigobyte.Plaid.Contract
         {
             get { return MfaTypeId.AsMfaType(); }
         }
-        
+
         public bool CheckForMfaConfirmation(out string message)
         {
-            if(Mfa.HasValues && MfaTypeId.Equals("device", StringComparison.CurrentCultureIgnoreCase))
+            if (Mfa.HasValues && MfaTypeId.Equals("device", StringComparison.CurrentCultureIgnoreCase))
             {
                 message = Mfa["message"].Value<string>();
                 return true;
@@ -88,13 +88,13 @@ namespace Gigobyte.Plaid.Contract
         /// Gets the authentication methods that can be used for MFA.
         /// </summary>
         /// <returns>IEnumerable&lt;DeliveryOption&gt;.</returns>
-        public IEnumerable<DeliveryOption> GetAuthenticationMethods()
+        public IEnumerable<AuthenticationMethod> GetAuthenticationMethods()
         {
             if (Mfa.HasValues && (MfaTypeId.AsMfaType() == MfaType.Code))
             {
                 foreach (var item in Mfa.Value<JArray>())
                 {
-                    if (item.HasValues) yield return item.ToObject<DeliveryOption>();
+                    if (item.HasValues) yield return item.ToObject<AuthenticationMethod>();
                 }
             }
         }

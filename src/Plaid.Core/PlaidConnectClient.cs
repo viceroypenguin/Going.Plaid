@@ -1,6 +1,5 @@
 ﻿using Gigobyte.Plaid.Contract;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,21 +10,15 @@ namespace Gigobyte.Plaid
     {
         public PlaidConnectClient(string clientId, string secret, Environment environment = Environment.Production) : base(clientId, secret)
         {
-#if DEBUG
-            _serializerSettings = new JsonSerializerSettings() { Formatting = Formatting.Indented };
-#else
-            _serializerSettings = new JsonSerializerSettings();
-#endif
             _environment = environment;
-            _serializerSettings.DateFormatString = "yyyy-MM-dd";
         }
 
         public async Task<PlaidConnectResponse> AddUserAsync(PlaidConnectRequest request)
         {
             using (var http = new HttpClient())
             {
-                System.Uri uri = Plaid.Endpoint.Connect(_environment);
-                string requestBody = JsonConvert.SerializeObject(request, _serializerSettings);
+                string uri = Plaid.Endpoint.Connect(_environment).AbsoluteUri;
+                string requestBody = JsonConvert.SerializeObject(request, SerializerSettings);
 #if DEBUG
                 System.Diagnostics.Debug.WriteLine("request");
                 System.Diagnostics.Debug.WriteLine("----------");
@@ -34,6 +27,8 @@ namespace Gigobyte.Plaid
                 return await Deserialize<PlaidConnectResponse>(response: (await http.PostAsync(uri, new StringContent(requestBody, Encoding.UTF8, ContentType))));
             }
         }
+
+        /* connect */
 
         public Task<PlaidConnectResponse> AddUserAsync(Credential credential, string institutionType)
         {
@@ -83,6 +78,8 @@ namespace Gigobyte.Plaid
             });
         }
 
+        /* connect/step */
+
         public async Task<PlaidConnectResponse> AuthenticateUserAsync(PlaidConnectRequest request)
         {
             using (var http = new HttpClient())
@@ -122,11 +119,39 @@ namespace Gigobyte.Plaid
             });
         }
 
+        public Task<PlaidConnectResponse> AuthenticateUserAsync(Credential credential, string accessToken, AuthenticationMethod method, string mfa)
+        {
+            return AuthenticateUserAsync(new PlaidConnectRequest()
+            {
+                Mfa = mfa,
+                Secret = base.Secret,
+                Credential = credential,
+                ClientId = base.ClientId,
+                AccessToken = accessToken,
+                AuthenticationMethod = method
+            });
+        }
+
+        public Task<PlaidConnectResponse> AuthenticateUserAsync(string username, string password, string accessToken, AuthenticationMethod method, string mfa)
+        {
+            return AuthenticateUserAsync(new PlaidConnectRequest()
+            {
+                Mfa = mfa,
+                Secret = base.Secret,
+                ClientId = base.ClientId,
+                AccessToken = accessToken,
+                AuthenticationMethod = method,
+                Credential = new Credential(username, password)
+            });
+        }
+
+        /* connect/get */
+
         public async Task<PlaidConnectResponse> RetrieveTransactionsAsync(PlaidConnectRequest request)
         {
             using (var http = new HttpClient())
             {
-                System.Uri uri = Plaid.Endpoint.ConnectGet(_environment);
+                string uri = Plaid.Endpoint.ConnectGet(_environment).AbsoluteUri;
                 string requestBody = JsonConvert.SerializeObject(request, SerializerSettings);
                 return await Deserialize<PlaidConnectResponse>(response: (await http.PostAsync(uri, new StringContent(requestBody, Encoding.UTF8, ContentType))));
             }
@@ -136,7 +161,6 @@ namespace Gigobyte.Plaid
 
         private readonly Environment _environment;
         private readonly Credential _userCredentials;
-        private readonly JsonSerializerSettings _serializerSettings;
 
         #endregion Private Members
     }
