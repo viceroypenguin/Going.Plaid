@@ -6,6 +6,11 @@
     public enum MfaType
     {
         /// <summary>
+        /// No MFA requirement.
+        /// </summary>
+        None,
+
+        /// <summary>
         /// Question-Based MFA.
         /// </summary>
         /// <remarks>
@@ -22,8 +27,8 @@
         /// <remarks>
         /// Some institutions require an MFA code that is sent to your email or phone. If there are
         /// multiple potential delivery methods, we allow you to specify which you'd like to use. To
-        /// see a list of delivery options, specify { <see cref="SubmitOptions.List"/>:true.
+        /// see a list of delivery options, specify { <see cref="ConnectOptions.List"/>:true.
         /// </remarks>
-        Code
+        Code,
     }
 }

@@ -8,7 +8,7 @@ namespace Gigobyte.Plaid.Contract
     {
         [JsonProperty("mask")]
         public string Mask { get; set; }
-
+        
         [JsonProperty("type")]
         public string Type { get; set; }
     }

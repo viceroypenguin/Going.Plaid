@@ -73,14 +73,25 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Dev.cs" />
-    <Compile Include="IntegrationTest\PlaidConnectApiTest.cs" />
+    <Compile Include="IntegrationTests\PlaidConnectClientTest.cs" />
+    <Compile Include="IntegrationTests\PlaidInstitutionClientTest.cs" />
     <Compile Include="PlaidSandbox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleData.cs" />
+    <Compile Include="Sample.cs" />
     <Compile Include="Trait.cs" />
+    <Compile Include="UnitTests\PlaidConnectResponseTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Sample Data\code-based mfa.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Sample Data\institution-search.json" />
+    <None Include="Sample Data\institution.json" />
+    <None Include="Sample Data\plaid-exception.json" />
+    <None Include="Sample Data\question-based mfa.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plaid.Core\Plaid.Core.csproj">
@@ -88,8 +99,9 @@
       <Name>Plaid.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Sample Data\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

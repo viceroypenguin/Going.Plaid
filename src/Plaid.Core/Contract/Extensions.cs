@@ -4,7 +4,7 @@
     {
         public static MfaType AsMfaType(this string value)
         {
-            switch (value.ToLower())
+            switch ((value ?? string.Empty).ToLower())
             {
                 case "questions":
                     return MfaType.Question;
@@ -13,7 +13,7 @@
                     return MfaType.Code;
 
                 default:
-                    throw new System.ArgumentException($"'{value}' is not a valid {nameof(MfaType)} enum value.", nameof(value));
+                    return MfaType.None;
             }
         }
     }

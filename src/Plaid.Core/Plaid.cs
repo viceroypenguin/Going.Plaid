@@ -4,46 +4,10 @@ namespace Gigobyte.Plaid
 {
     public static class Plaid
     {
-        internal static Uri GetEndpoint(Environment environment, string path)
+        internal static Uri GetEndpoint(Environment environment, string path, string query = null)
         {
             string host = (environment == Environment.Development ? "tartan.plaid.com" : "api.plaid.com");
-            return new UriBuilder("https", host) { Path = path }.Uri;
-        }
-
-        /// <summary>
-        /// The Plaid API HTTP response codes.
-        /// </summary>
-        public enum ResponseCodes
-        {
-            /// <summary>
-            /// 200: Success.
-            /// </summary>
-            Success = 200,
-
-            /// <summary>
-            /// 201: MFA Required.
-            /// </summary>
-            MfaRequired = 201,
-
-            /// <summary>
-            /// 400: Bad Request.
-            /// </summary>
-            BadRequest = 400,
-
-            /// <summary>
-            /// 401: Unauthorized.
-            /// </summary>
-            Unauthorized = 401,
-
-            /// <summary>
-            /// 402: Request Failed.
-            /// </summary>
-            RequestFailed = 402,
-
-            /// <summary>
-            /// 404: Cannot be Found.
-            /// </summary>
-            NotFound = 404
+            return new UriBuilder("https", host) { Path = path, Query = query }.Uri;
         }
 
         public struct Endpoint
@@ -53,19 +17,39 @@ namespace Gigobyte.Plaid
                 return GetEndpoint(environment, "institutions");
             }
 
-            public static Uri Institution(string id, Environment enviroment = Environment.Production)
+            public static Uri Institution(string id, Environment environment = Environment.Production)
             {
-                return GetEndpoint(enviroment, $"institutions/{id}");
+                return GetEndpoint(environment, $"institutions/{id}");
             }
 
-            public static string Connect(Environment environment = Environment.Production)
+            public static Uri InstitutionSearch(string query, Environment environment = Environment.Production)
             {
-                return GetEndpoint(environment, "connect").AbsoluteUri;
+                return GetEndpoint(environment, "institutions/search", $"q={query}");
             }
 
-            public static string ConnectStep(Environment environment = Environment.Production)
+            public static Uri InstitutionSearch(string query, string product, Environment environment = Environment.Production)
             {
-                return GetEndpoint(environment, "connect/step").AbsoluteUri;
+                return GetEndpoint(environment, "institutions/search", $"q={query}&p={product}");
+            }
+
+            public static Uri Connect(Environment environment = Environment.Production)
+            {
+                return GetEndpoint(environment, "connect");
+            }
+
+            public static Uri ConnectStep(Environment environment = Environment.Production)
+            {
+                return GetEndpoint(environment, "connect/step");
+            }
+
+            public static Uri ConnectGet(Environment environment = Environment.Production)
+            {
+                return GetEndpoint(environment, "connect/get");
+            }
+
+            public static Uri Balance(Environment environment = Environment.Production)
+            {
+                return GetEndpoint(environment, "balance");
             }
         }
     }

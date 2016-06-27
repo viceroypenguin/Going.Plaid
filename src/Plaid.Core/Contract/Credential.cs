@@ -14,10 +14,10 @@ namespace Gigobyte.Plaid.Contract
             Password = password;
         }
 
-        [JsonProperty(PropertyName = "username")]
+        [JsonProperty("username")]
         public string Username { get; set; }
 
-        [JsonProperty(PropertyName = "password")]
+        [JsonProperty("password")]
         public string Password { get; set; }
     }
 }

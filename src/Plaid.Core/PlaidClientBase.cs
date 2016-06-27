@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
+using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,17 +13,19 @@ namespace Gigobyte.Plaid
             ClientId = clientId;
 
 #if DEBUG
-            _serializerSettings = new JsonSerializerSettings()
+            SerializerSettings = new JsonSerializerSettings()
             {
                 DateFormatString = "yyyy-MM-dd",
                 Formatting = Formatting.Indented
             };
 #else
-            _serializerSettings = new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd" };
+            SerializerSettings = new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd" };
 #endif
         }
 
         protected const string ContentType = "application/json";
+
+        protected readonly JsonSerializerSettings SerializerSettings;
 
         [JsonProperty("secret")]
         protected string Secret { get; set; }
@@ -34,6 +36,13 @@ namespace Gigobyte.Plaid
         [JsonProperty("access_token")]
         protected string AccessToken { get; set; }
 
+        /// <summary>
+        /// Deserialize the response message to the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response">The response.</param>
+        /// <returns>Task&lt;T&gt;.</returns>
+        /// <exception cref="Exceptions.PlaidException"></exception>
         protected async Task<T> Deserialize<T>(HttpResponseMessage response) where T : Contract.PlaidResponseBase, new()
         {
             using (response)
@@ -46,16 +55,16 @@ namespace Gigobyte.Plaid
 #endif
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonConvert.DeserializeObject<T>(responseBody);
+                    var result = JsonConvert.DeserializeObject<T>(responseBody, SerializerSettings);
                     result.StatusCode = response.StatusCode;
                     return result;
                 }
-                else throw new HttpRequestException(response.ReasonPhrase);
+                else
+                {
+                    var json = JToken.Parse(responseBody);
+                    throw new Exceptions.PlaidException(json["resolve"].Value<string>(), json["code"].Value<int>());
+                }
             }
         }
-
-        #region Private Members
-        private readonly JsonSerializerSettings _serializerSettings;
-        #endregion
     }
 }

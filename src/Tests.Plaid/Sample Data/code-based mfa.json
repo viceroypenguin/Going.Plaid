@@ -1,0 +1,18 @@
+﻿{
+  "type": "list",
+  "mfa": [
+    {
+      "mask": "t..t@plaid.com",
+      "type": "email"
+    },
+    {
+      "mask": "xxx-xxx-5309",
+      "type": "phone"
+    },
+    {
+      "mask": "SafePass Card",
+      "type": "card"
+    }
+  ],
+  "access_token": "xxxxx"
+}

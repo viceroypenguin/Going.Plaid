@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
 
 namespace Gigobyte.Plaid.Contract
 {
@@ -51,6 +53,50 @@ namespace Gigobyte.Plaid.Contract
         public MfaType MfaType
         {
             get { return MfaTypeId.AsMfaType(); }
+        }
+        
+        public bool CheckForMfaConfirmation(out string message)
+        {
+            if(Mfa.HasValues && MfaTypeId.Equals("device", StringComparison.CurrentCultureIgnoreCase))
+            {
+                message = Mfa["message"].Value<string>();
+                return true;
+            }
+            else
+            {
+                message = string.Empty;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets the security question(s) to be answered for MFA.
+        /// </summary>
+        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
+        public IEnumerable<string> GetSecurityQuestions()
+        {
+            if (Mfa.HasValues && (MfaTypeId.AsMfaType() == MfaType.Question))
+            {
+                foreach (var item in Mfa.Value<JArray>())
+                {
+                    if (item.HasValues) yield return item["question"].Value<string>();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the authentication methods that can be used for MFA.
+        /// </summary>
+        /// <returns>IEnumerable&lt;DeliveryOption&gt;.</returns>
+        public IEnumerable<DeliveryOption> GetAuthenticationMethods()
+        {
+            if (Mfa.HasValues && (MfaTypeId.AsMfaType() == MfaType.Code))
+            {
+                foreach (var item in Mfa.Value<JArray>())
+                {
+                    if (item.HasValues) yield return item.ToObject<DeliveryOption>();
+                }
+            }
         }
     }
 }

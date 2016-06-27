@@ -8,14 +8,6 @@ namespace Gigobyte.Plaid.Contract
     public class PlaidConnectRequest
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlaidConnectRequest"/> class.
-        /// </summary>
-        public PlaidConnectRequest()
-        {
-            Options = new SubmitOptions();
-        }
-
-        /// <summary>
         /// Gets or sets your Plaid client identifier.
         /// </summary>
         /// <value>The client identifier.</value>
@@ -44,13 +36,6 @@ namespace Gigobyte.Plaid.Contract
         public string AccessToken { get; set; }
 
         /// <summary>
-        /// Gets or sets the user's account pin.
-        /// </summary>
-        /// <value>The pin.</value>
-        [JsonProperty("pin")]
-        public string Pin { get; set; }
-
-        /// <summary>
         /// Gets or sets the institution type.
         /// </summary>
         /// <value>The institution type.</value>
@@ -62,6 +47,20 @@ namespace Gigobyte.Plaid.Contract
         /// </summary>
         /// <value>The options.</value>
         [JsonProperty("options")]
-        public SubmitOptions Options { get; set; }
+        public ConnectOptions Options { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user's account pin.
+        /// </summary>
+        /// <value>The pin.</value>
+        [JsonProperty("pin")]
+        public string Pin { get; set; }
+
+        /// <summary>
+        /// Gets or sets the MFA information.
+        /// </summary>
+        /// <value>The mfa.</value>
+        [JsonProperty("mfa")]
+        public string Mfa { get; set; }
     }
 }

@@ -1,0 +1,9 @@
+﻿{
+  "type": "questions",
+  "mfa": [
+    {
+      "question": "You say tomato, I say...?"
+    }
+  ],
+  "access_token": "test_td"
+}

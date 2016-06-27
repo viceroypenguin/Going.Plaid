@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-namespace Gigobyte.Plaid.Contract
+﻿namespace Gigobyte.Plaid.Contract
 {
     public abstract class PlaidResponseBase
     {
@@ -10,9 +7,5 @@ namespace Gigobyte.Plaid.Contract
         /// </summary>
         /// <value>The HTTP status code.</value>
         public System.Net.HttpStatusCode StatusCode { get; set; }
-
-        
-
-       
     }
 }
