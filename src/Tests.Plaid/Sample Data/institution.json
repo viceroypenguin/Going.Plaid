@@ -1,0 +1,23 @@
+﻿{
+  "credentials": {
+    "username": "Online ID",
+    "password": "Password"
+  },
+  "has_mfa": true,
+  "id": "5301a93ac140de84910000e0",
+  "mfa": [
+    "code",
+    "list",
+    "questions(3)"
+  ],
+  "name": "Bank of America",
+  "products": [
+    "connect",
+    "auth",
+    "balance",
+    "info",
+    "income",
+    "risk"
+  ],
+  "type": "bofa"
+}
