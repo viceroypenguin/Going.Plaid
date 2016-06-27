@@ -11,7 +11,6 @@ namespace Gigobyte.Plaid
         {
             Secret = secret;
             ClientId = clientId;
-
 #if DEBUG
             SerializerSettings = new JsonSerializerSettings()
             {

@@ -1,6 +1,6 @@
 ﻿namespace Gigobyte.Plaid.Exceptions
 {
-    public static class Extentions
+    public static class Extensions
     {
         public static ResponseCode AsResponseCode(this int code)
         {
