@@ -4,7 +4,7 @@ namespace Gigobyte.Plaid.Contract
 
 {
     [JsonObject]
-    public class DeliveryOption
+    public class AuthenticationMethod
     {
         [JsonProperty("mask")]
         public string Mask { get; set; }

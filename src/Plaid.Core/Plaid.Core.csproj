@@ -42,9 +42,8 @@
   <ItemGroup>
     <Compile Include="Contract\Extensions.cs" />
     <Compile Include="Contract\Institution.cs" />
-    <Compile Include="Contract\Mfa.cs" />
     <Compile Include="Contract\MfaType.cs" />
-    <Compile Include="Contract\DeliveryOption.cs" />
+    <Compile Include="Contract\AuthenticationMethod.cs" />
     <Compile Include="Contract\PlaidResponseBase.cs" />
     <Compile Include="Environment.cs" />
     <Compile Include="Exceptions\Extentions.cs" />

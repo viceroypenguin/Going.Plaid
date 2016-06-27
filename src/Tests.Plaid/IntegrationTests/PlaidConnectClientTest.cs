@@ -2,8 +2,6 @@
 using Gigobyte.Plaid;
 using Gigobyte.Plaid.Contract;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json.Linq;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -128,10 +126,13 @@ namespace Tests.Plaid.IntegrationTests
 
             // Act
             var response = await sut.AddUserAsync(credentials, institutionType, options);
-            var authMethods = response.GetAuthenticationMethods().First();
+            var authenticationMethod = response.GetAuthenticationMethods().First();
 
-            response = await sut.AuthenticateUserAsync(credentials, response.AccessToken, "");
-            
+            if (authenticationMethod != null)
+            {
+                response = await sut.AuthenticateUserAsync(credentials, response.AccessToken, authenticationMethod, mfa: "1234");
+                handledAuthentication = true;
+            }
 
             // Assert
             Assert.IsTrue(handledAuthentication);
