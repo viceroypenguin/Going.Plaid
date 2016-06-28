@@ -1,6 +1,6 @@
-﻿using Gigobyte.Plaid.Contract;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
+using Gigobyte.Plaid.Contract;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -24,8 +24,7 @@ namespace Gigobyte.Plaid
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
 #if DEBUG
-                    System.Diagnostics.Debug.WriteLine("response");
-                    System.Diagnostics.Debug.WriteLine("---------------");
+                    System.Diagnostics.Debug.WriteLine("{0}\nRESPONSE\n{0}", string.Concat(System.Linq.Enumerable.Repeat("=", 7)));
                     System.Diagnostics.Debug.WriteLine(responseContent);
 #endif
                     return JsonConvert.DeserializeObject<Institution>(responseContent);
@@ -45,8 +44,7 @@ namespace Gigobyte.Plaid
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
 #if DEBUG
-                    System.Diagnostics.Debug.WriteLine("response");
-                    System.Diagnostics.Debug.WriteLine("---------------");
+                    System.Diagnostics.Debug.WriteLine("{0}\nRESPONSE\n{0}", string.Concat(System.Linq.Enumerable.Repeat("=", 7)));
                     System.Diagnostics.Debug.WriteLine(responseContent);
 #endif
                     return JsonConvert.DeserializeObject<Institution[]>(responseContent);

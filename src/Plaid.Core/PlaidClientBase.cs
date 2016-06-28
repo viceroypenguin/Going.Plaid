@@ -5,8 +5,16 @@ using System.Threading.Tasks;
 
 namespace Gigobyte.Plaid
 {
+    /// <summary>
+    /// Reprsents an base abstract for making Plaid API request.
+    /// </summary>
     public abstract class PlaidClientBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaidClientBase"/> class.
+        /// </summary>
+        /// <param name="clientId">The client identifier.</param>
+        /// <param name="secret">The secret.</param>
         public PlaidClientBase(string clientId, string secret)
         {
             Secret = secret;
@@ -22,16 +30,40 @@ namespace Gigobyte.Plaid
 #endif
         }
 
+        /// <summary>
+        /// The default HTTP content type.
+        /// </summary>
         protected const string ContentType = "application/json";
 
+        /// <summary>
+        /// The default JSON serializer settings.
+        /// </summary>
         protected readonly JsonSerializerSettings SerializerSettings;
 
+        /// <summary>
+        /// Gets or sets the your secret.
+        /// </summary>
+        /// <value>
+        /// The secret.
+        /// </value>
         [JsonProperty("secret")]
         protected string Secret { get; set; }
 
+        /// <summary>
+        /// Gets or sets the your client id.
+        /// </summary>
+        /// <value>
+        /// The client id.
+        /// </value>
         [JsonProperty("client_id")]
         protected string ClientId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the access token.
+        /// </summary>
+        /// <value>
+        /// The access token.
+        /// </value>
         [JsonProperty("access_token")]
         protected string AccessToken { get; set; }
 
@@ -48,8 +80,7 @@ namespace Gigobyte.Plaid
             {
                 string responseBody = await response.Content?.ReadAsStringAsync();
 #if DEBUG
-                System.Diagnostics.Debug.WriteLine("response");
-                System.Diagnostics.Debug.WriteLine("--------");
+                System.Diagnostics.Debug.WriteLine("{0}\nRESPONSE\n{0}", string.Concat(System.Linq.Enumerable.Repeat("=", 7)));
                 System.Diagnostics.Debug.WriteLine(responseBody);
 #endif
                 if (response.IsSuccessStatusCode)

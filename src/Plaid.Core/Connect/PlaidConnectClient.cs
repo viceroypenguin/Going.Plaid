@@ -20,8 +20,7 @@ namespace Gigobyte.Plaid.Connect
                 string uri = Plaid.Endpoint.Connect(_environment).AbsoluteUri;
                 string requestBody = JsonConvert.SerializeObject(request, SerializerSettings);
 #if DEBUG
-                System.Diagnostics.Debug.WriteLine("request");
-                System.Diagnostics.Debug.WriteLine("-------");
+                System.Diagnostics.Debug.WriteLine("{0}\nREQUEST\n{0}", string.Concat(System.Linq.Enumerable.Repeat("=", 6)));
                 System.Diagnostics.Debug.WriteLine(requestBody);
 #endif
                 return await Deserialize<PlaidConnectResponse>(response: (await http.PostAsync(uri, new StringContent(requestBody, Encoding.UTF8, ContentType))));
@@ -91,8 +90,7 @@ namespace Gigobyte.Plaid.Connect
                 string url = Plaid.Endpoint.ConnectStep(_environment).AbsoluteUri;
                 string requestBody = JsonConvert.SerializeObject(request, SerializerSettings);
 #if DEBUG
-                System.Diagnostics.Debug.WriteLine("request");
-                System.Diagnostics.Debug.WriteLine("----------");
+                System.Diagnostics.Debug.WriteLine("{0}\nREQUEST\n{0}", string.Concat(System.Linq.Enumerable.Repeat("=", 6)));
                 System.Diagnostics.Debug.WriteLine(requestBody);
 #endif
                 return await Deserialize<PlaidConnectResponse>(response: (await http.PostAsync(url, new StringContent(requestBody, Encoding.UTF8, ContentType))));
@@ -162,8 +160,7 @@ namespace Gigobyte.Plaid.Connect
                 string uri = Plaid.Endpoint.ConnectGet(_environment).AbsoluteUri;
                 string requestBody = JsonConvert.SerializeObject(request, SerializerSettings);
 #if DEBUG
-                System.Diagnostics.Debug.WriteLine("request");
-                System.Diagnostics.Debug.WriteLine("-------");
+                System.Diagnostics.Debug.WriteLine("{0}\nREQUEST\n{0}", string.Concat(System.Linq.Enumerable.Repeat("=", 6)));
                 System.Diagnostics.Debug.WriteLine(requestBody);
 #endif
                 return await Deserialize<PlaidConnectResponse>(response: (await http.PostAsync(uri, new StringContent(requestBody, Encoding.UTF8, ContentType))));
