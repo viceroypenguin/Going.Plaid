@@ -92,6 +92,7 @@
     <None Include="Sample Data\question-based mfa.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Sample Data\transaction.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plaid.Core\Plaid.Core.csproj">

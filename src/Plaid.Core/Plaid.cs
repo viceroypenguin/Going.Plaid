@@ -2,6 +2,9 @@
 
 namespace Gigobyte.Plaid
 {
+    /// <summary>
+    /// Provides methods to retrieve static resources and variables.
+    /// </summary>
     public static class Plaid
     {
         internal static Uri GetEndpoint(Environment environment, string path, string query = null)
@@ -10,6 +13,9 @@ namespace Gigobyte.Plaid
             return new UriBuilder("https", host) { Path = path, Query = query }.Uri;
         }
 
+        /// <summary>
+        /// Provides methods to get an endpoint.
+        /// </summary>
         public struct Endpoint
         {
             public static Uri Institution(Environment environment = Environment.Production)

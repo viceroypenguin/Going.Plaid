@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Gigobyte.Plaid.Contract
+namespace Gigobyte.Plaid.Connect
 {
     public class ConnectOptions
     {
-       
         /// <summary>
         /// Gets or sets the web hook.
         /// </summary>
@@ -69,5 +68,16 @@ namespace Gigobyte.Plaid.Contract
         /// <value>The end date.</value>
         [JsonProperty("end_date")]
         public DateTime EndDate { get; set; } = DateTime.Now;
+
+        /// <summary>
+        /// Gets or sets the account identifier.
+        /// </summary>
+        /// <value>The account identifier.</value>
+        /// <remarks>
+        /// Collect transactions for a specific account only, using an account _id returned from the
+        /// original Add Connect User submission.
+        /// </remarks>
+        [JsonProperty("account")]
+        public string AccountId { get; set; }
     }
 }

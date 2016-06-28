@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Gigobyte.Plaid.Contract;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
-namespace Gigobyte.Plaid.Contract
+namespace Gigobyte.Plaid.Connect
 {
     /// <summary>
     /// Represents a response message of the Plaid Connect endpoint.

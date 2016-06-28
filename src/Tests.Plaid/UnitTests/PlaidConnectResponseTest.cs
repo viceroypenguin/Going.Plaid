@@ -1,4 +1,5 @@
-﻿using Gigobyte.Plaid.Contract;
+﻿using Gigobyte.Plaid.Connect;
+using Gigobyte.Plaid.Contract;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Linq;

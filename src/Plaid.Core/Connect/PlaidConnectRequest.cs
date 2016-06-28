@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Gigobyte.Plaid.Contract;
+using Newtonsoft.Json;
 
-namespace Gigobyte.Plaid.Contract
+namespace Gigobyte.Plaid.Connect
 {
     /// <summary>
     /// Represents a Plaid Connect service request.

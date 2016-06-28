@@ -1,5 +1,6 @@
 ﻿using ApprovalTests.Namers;
 using Gigobyte.Plaid;
+using Gigobyte.Plaid.Connect;
 using Gigobyte.Plaid.Contract;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
@@ -137,6 +138,26 @@ namespace Tests.Plaid.IntegrationTests
             // Assert
             Assert.IsTrue(handledAuthentication);
             Assert.AreEqual(200, (int)response.StatusCode);
+        }
+
+        [TestMethod]
+        [TestCategory(Trait.Integration)]
+        public async Task RetrieveTransactionsAsync_should_return_a_list_of_transactions_when_an_access_token_is_provided()
+        {
+            // Arrange
+            var options = new ConnectOptions()
+            {
+                StartDate = System.DateTime.Now
+            };
+            var accessToken = "test_amex";
+            var sut = new PlaidConnectClient(PlaidSandbox.ClientId, PlaidSandbox.Secret, Environment);
+            
+            // Act
+            var response = await sut.RetrieveTransactionsAsync(accessToken, options);
+
+            // Assert
+            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.IsTrue(response.Transactions.Length > 0);
         }
 
         #region Private Members

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 
 namespace Gigobyte.Plaid.Contract
@@ -34,17 +35,15 @@ namespace Gigobyte.Plaid.Contract
         /// </summary>
         /// <value>The category identifier.</value>
         [JsonProperty("category_id")]
-        public string CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         /// <summary>
         /// Gets or sets the numeric representation of Plaid's confidence in the meta data they
         /// attached to the transaction.
         /// </summary>
         /// <value>The score.</value>
-        //[JsonProperty("score")]
-        //public string Score { get; set; }
-
-        
+        [JsonProperty("score")]
+        public JToken Score { get; set; }
 
         /// <summary>
         /// Gets or sets the settled dollar value.

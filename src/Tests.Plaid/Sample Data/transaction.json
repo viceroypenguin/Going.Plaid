@@ -1,0 +1,32 @@
+﻿{
+  "_account": "nban4wnPKEtnmEpaKzbYFYQvA7D7pnCaeDBMy",
+  "_id": "DAE3Yo3wXgskjXV1JqBDIrDBVvjMLDCQ4rMQdR",
+  "amount": 3.19,
+  "date": "2014-06-21",
+  "name": "Gregorys Coffee",
+  "meta": {
+    "location": {
+      "address": "874 Avenue of the Americas",
+      "city": "New York",
+      "state": "NY"
+    }
+  },
+  "pending": false,
+  "type": {
+    "primary": "place"
+  },
+  "category": [
+    "Food and Drink",
+    "Restaurants",
+    "Coffee Shop"
+  ],
+  "category_id": "13005043",
+  "score": {
+    "location": {
+      "address": 1,
+      "city": 1,
+      "state": 1
+    },
+    "name": 0.2
+  }
+}
