@@ -37,16 +37,16 @@
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
     <None Include="packages.config" />
-    <None Include="Plaid.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contract\Extensions.cs" />
+    <Compile Include="Contract\CredentialLabels.cs" />
     <Compile Include="Contract\Institution.cs" />
-    <Compile Include="Contract\MfaType.cs" />
     <Compile Include="Contract\AuthenticationMethod.cs" />
+    <Compile Include="Contract\AuthenticationOption.cs" />
     <Compile Include="Contract\PlaidResponseBase.cs" />
     <Compile Include="Environment.cs" />
-    <Compile Include="Exceptions\Extentions.cs" />
+    <Compile Include="Exceptions\Extensions.cs" />
     <Compile Include="Exceptions\PlaidException.cs" />
     <Compile Include="Exceptions\ResponseCode.cs" />
     <Compile Include="Extensions.cs" />
@@ -54,17 +54,15 @@
     <Compile Include="Contract\AccountSubtype.cs" />
     <Compile Include="Contract\AccountType.cs" />
     <Compile Include="Contract\Balance.cs" />
-    <Compile Include="Contract\PlaidConnectRequest.cs" />
-    <Compile Include="Contract\PlaidConnectResponse.cs" />
+    <Compile Include="Connect\PlaidConnectRequest.cs" />
+    <Compile Include="Connect\PlaidConnectResponse.cs" />
     <Compile Include="Contract\Coordinate.cs" />
     <Compile Include="Contract\Credential.cs" />
-    <Compile Include="Contract\InstitutionType.cs" />
     <Compile Include="Contract\AccountMetadata.cs" />
     <Compile Include="Contract\Location.cs" />
-    <Compile Include="Contract\ConnectOptions.cs" />
+    <Compile Include="Connect\ConnectOptions.cs" />
     <Compile Include="Contract\Transaction.cs" />
     <Compile Include="Contract\TransactionMetadata.cs" />
-    <Compile Include="Contract\TransactionType.cs" />
     <Compile Include="Plaid.cs" />
     <Compile Include="PlaidConnectClient.cs" />
     <Compile Include="PlaidInstitutionClient.cs" />
@@ -80,6 +78,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

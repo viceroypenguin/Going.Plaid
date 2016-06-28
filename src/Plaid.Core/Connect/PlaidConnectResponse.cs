@@ -50,9 +50,9 @@ namespace Gigobyte.Plaid.Contract
         /// Gets the type of the MFA.
         /// </summary>
         /// <value>The MFA type.</value>
-        public MfaType MfaType
+        public AuthenticationMethod MfaType
         {
-            get { return MfaTypeId.AsMfaType(); }
+            get { return MfaTypeId.ConvertToMfaType(); }
         }
 
         public bool CheckForMfaConfirmation(out string message)
@@ -75,7 +75,7 @@ namespace Gigobyte.Plaid.Contract
         /// <returns>IEnumerable&lt;System.String&gt;.</returns>
         public IEnumerable<string> GetSecurityQuestions()
         {
-            if (Mfa.HasValues && (MfaTypeId.AsMfaType() == MfaType.Question))
+            if (Mfa.HasValues && (MfaTypeId.ConvertToMfaType() == AuthenticationMethod.SecurityQuestions))
             {
                 foreach (var item in Mfa.Value<JArray>())
                 {
@@ -88,13 +88,13 @@ namespace Gigobyte.Plaid.Contract
         /// Gets the authentication methods that can be used for MFA.
         /// </summary>
         /// <returns>IEnumerable&lt;DeliveryOption&gt;.</returns>
-        public IEnumerable<AuthenticationMethod> GetAuthenticationMethods()
+        public IEnumerable<AuthenticationOption> GetAuthenticationMethods()
         {
-            if (Mfa.HasValues && (MfaTypeId.AsMfaType() == MfaType.Code))
+            if (Mfa.HasValues && (MfaTypeId.ConvertToMfaType() == AuthenticationMethod.SendCode))
             {
                 foreach (var item in Mfa.Value<JArray>())
                 {
-                    if (item.HasValues) yield return item.ToObject<AuthenticationMethod>();
+                    if (item.HasValues) yield return item.ToObject<AuthenticationOption>();
                 }
             }
         }

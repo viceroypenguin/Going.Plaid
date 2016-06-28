@@ -1,5 +1,8 @@
 ﻿namespace Gigobyte.Plaid.Contract
 {
+    /// <summary>
+    /// Represents an abstract plaid API response message.
+    /// </summary>
     public abstract class PlaidResponseBase
     {
         /// <summary>

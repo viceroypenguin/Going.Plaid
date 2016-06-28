@@ -119,7 +119,7 @@ namespace Gigobyte.Plaid
             });
         }
 
-        public Task<PlaidConnectResponse> AuthenticateUserAsync(Credential credential, string accessToken, AuthenticationMethod method, string mfa)
+        public Task<PlaidConnectResponse> AuthenticateUserAsync(Credential credential, string accessToken, AuthenticationOption method, string mfa)
         {
             return AuthenticateUserAsync(new PlaidConnectRequest()
             {
@@ -132,7 +132,7 @@ namespace Gigobyte.Plaid
             });
         }
 
-        public Task<PlaidConnectResponse> AuthenticateUserAsync(string username, string password, string accessToken, AuthenticationMethod method, string mfa)
+        public Task<PlaidConnectResponse> AuthenticateUserAsync(string username, string password, string accessToken, AuthenticationOption method, string mfa)
         {
             return AuthenticateUserAsync(new PlaidConnectRequest()
             {

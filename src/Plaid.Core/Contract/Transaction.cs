@@ -44,13 +44,7 @@ namespace Gigobyte.Plaid.Contract
         //[JsonProperty("score")]
         //public string Score { get; set; }
 
-        /// <summary>
-        /// Gets or sets the transaction type.
-        /// </summary>
-        /// <value>The transaction type.</value>
-        /// <remarks>Can one of following Place, Digital, Special, or Unresolved.</remarks>
-        [JsonProperty("type")]
-        public TransactionType Type { get; set; }
+        
 
         /// <summary>
         /// Gets or sets the settled dollar value.

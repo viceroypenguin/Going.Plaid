@@ -38,7 +38,7 @@ namespace Tests.Plaid.IntegrationTests
         [TestMethod]
         [Owner(Dev.Ackara)]
         [TestCategory(Trait.Integration)]
-        [TestProperty(_institution, "td")]
+        [TestProperty(_institution, PlaidSandbox.Institution.BankOfAmerica)]
         public async Task AddUserAsync_should_detect_a_question_based_mfa_is_needed()
         {
             // Arrange
@@ -51,7 +51,7 @@ namespace Tests.Plaid.IntegrationTests
             // Assert
             Assert.IsNotNull(response.Mfa);
             Assert.AreEqual(201, (int)response.StatusCode);
-            Assert.AreEqual(MfaType.Question, response.MfaType);
+            Assert.AreEqual(AuthenticationMethod.SecurityQuestions, response.MfaType);
         }
 
         [TestMethod]
@@ -71,7 +71,7 @@ namespace Tests.Plaid.IntegrationTests
             // Assert
             Assert.IsNotNull(response.Mfa);
             Assert.AreEqual(201, (int)response.StatusCode);
-            Assert.AreEqual(MfaType.Code, response.MfaType);
+            Assert.AreEqual(AuthenticationMethod.SendCode, response.MfaType);
         }
 
         [TestMethod]

@@ -3,7 +3,7 @@
 namespace Gigobyte.Plaid.Contract
 {
     /// <summary>
-    /// Represents a user bank account.
+    /// Represents a bank account.
     /// </summary>
     public class Account
     {
@@ -22,9 +22,16 @@ namespace Gigobyte.Plaid.Contract
         public string Item { get; set; }
 
         /// <summary>
-        /// Gets or sets the balance.
+        /// Gets or sets the account balance.
         /// </summary>
         /// <value>The balance.</value>
+        /// <remarks>
+        /// The Current Balance is the total amount of funds in the account. The Available Balance is
+        /// the Current Balance less any outstanding holds or debits that have not yet posted to the
+        /// account. Note that not all institutions calculate the Available Balance. In the case that
+        /// Available Balance is unavailable from the institution, Plaid will either return an
+        /// Available Balance value of null or only return a Current Balance.
+        /// </remarks>
         [JsonProperty("balance")]
         public Balance Balance { get; set; }
 
@@ -43,14 +50,14 @@ namespace Gigobyte.Plaid.Contract
         public string InstitutionType { get; set; }
 
         /// <summary>
-        /// Gets or sets the account type id.
+        /// Gets or sets the account type.
         /// </summary>
         /// <value>The account type.</value>
         [JsonProperty("type")]
         public string TypeId { get; set; }
 
         /// <summary>
-        /// Gets or sets the account subtype id.
+        /// Gets or sets the account subtype.
         /// </summary>
         /// <remarks>
         /// A more detailed classification of the <see cref="AccountType"/>. When unavailable, this
@@ -66,39 +73,7 @@ namespace Gigobyte.Plaid.Contract
         /// <value>The type.</value>
         public AccountType Type
         {
-            get
-            {
-                AccountType value;
-                switch (TypeId.ToLower())
-                {
-                    default:
-                    case "depository":
-                        value = AccountType.Brokerage;
-                        break;
-
-                    case "credit":
-                        value = AccountType.Credit;
-                        break;
-
-                    case "loan":
-                        value = AccountType.Depository;
-                        break;
-
-                    case "mortgage":
-                        value = AccountType.Loan;
-                        break;
-
-                    case "brokerage":
-                        value = AccountType.Mortgage;
-                        break;
-
-                    case "other":
-                        value = AccountType.Other;
-                        break;
-                }
-
-                return value;
-            }
+            get { return TypeId.ConvertToAccountType(); }
         }
 
         /// <summary>
@@ -107,79 +82,7 @@ namespace Gigobyte.Plaid.Contract
         /// <value>The account subtype.</value>
         public AccountSubtype SubType
         {
-            get
-            {
-                AccountSubtype value;
-                switch (SubtypeId.ToLower())
-                {
-                    default:
-                    case "checking":
-                        value = AccountSubtype.Checking;
-                        break;
-
-                    case "savings":
-                        value = AccountSubtype.Savings;
-                        break;
-
-                    case "prepaid":
-                        value = AccountSubtype.Prepaid;
-                        break;
-
-                    case "credit":
-                        value = AccountSubtype.Credit;
-                        break;
-
-                    case "credit card":
-                        value = AccountSubtype.CreditCard;
-                        break;
-
-                    case "line of credit":
-                        value = AccountSubtype.LineOfCredit;
-                        break;
-
-                    case "auto":
-                        value = AccountSubtype.Auto;
-                        break;
-
-                    case "home":
-                        value = AccountSubtype.Home;
-                        break;
-
-                    case "installment":
-                        value = AccountSubtype.Installment;
-                        break;
-
-                    case "mortgage":
-                        value = AccountSubtype.Mortgage;
-                        break;
-
-                    case "brokerage":
-                        value = AccountSubtype.Brokerage;
-                        break;
-
-                    case "cash management":
-                        value = AccountSubtype.CashManagement;
-                        break;
-
-                    case "ira":
-                        value = AccountSubtype.Ira;
-                        break;
-
-                    case "cd":
-                        value = AccountSubtype.CD;
-                        break;
-
-                    case "certificate of deposit":
-                        value = AccountSubtype.CertificateOfDeposit;
-                        break;
-
-                    case "mutual fund":
-                        value = AccountSubtype.MutualFund;
-                        break;
-                }
-
-                return value;
-            }
+            get { return SubtypeId.ConvertToAccountSubtype(); }
         }
     }
 }

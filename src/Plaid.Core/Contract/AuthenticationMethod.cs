@@ -1,15 +1,34 @@
-﻿using Newtonsoft.Json;
-
-namespace Gigobyte.Plaid.Contract
-
+﻿namespace Gigobyte.Plaid.Contract
 {
-    [JsonObject]
-    public class AuthenticationMethod
+    /// <summary>
+    /// Multi-Factor Authentication (MFA) method.
+    /// </summary>
+    public enum AuthenticationMethod
     {
-        [JsonProperty("mask")]
-        public string Mask { get; set; }
-        
-        [JsonProperty("type")]
-        public string Type { get; set; }
+        /// <summary>
+        /// No MFA requirement.
+        /// </summary>
+        None,
+
+        /// <summary>
+        /// Question-Based MFA.
+        /// </summary>
+        /// <remarks>
+        /// Question-based authentication ( <see cref="PlaidConnectResponse.MfaTypeId"/>=questions)
+        /// requires the user to answer a security question. With some financial institutions,
+        /// multiple security questions may be required. To handle multiple security questions, it is
+        /// recommended that you continue to post to the route until an http code 200 is received.
+        /// </remarks>
+        SecurityQuestions,
+
+        /// <summary>
+        /// The codeCode-Based MFA
+        /// </summary>
+        /// <remarks>
+        /// Some institutions require an MFA code that is sent to your email or phone. If there are
+        /// multiple potential delivery methods, we allow you to specify which you'd like to use. To
+        /// see a list of delivery options, specify { <see cref="ConnectOptions.List"/>:true.
+        /// </remarks>
+        SendCode,
     }
 }

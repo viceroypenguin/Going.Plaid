@@ -5,11 +5,7 @@ namespace Gigobyte.Plaid.Contract
 {
     public class ConnectOptions
     {
-        public static ConnectOptions Default = new ConnectOptions()
-        {
-            List = true
-        };
-
+       
         /// <summary>
         /// Gets or sets the web hook.
         /// </summary>

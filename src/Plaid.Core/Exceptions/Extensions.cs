@@ -1,8 +1,16 @@
 ﻿namespace Gigobyte.Plaid.Exceptions
 {
+    /// <summary>
+    /// Provides extension methods for the <see cref="Exceptions"/> namespace.
+    /// </summary>
     public static class Extensions
     {
-        public static ResponseCode AsResponseCode(this int code)
+        /// <summary>
+        /// Converts to an integer to a plaid <see cref="ResponseCode"/>.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns>ResponseCode.</returns>
+        public static ResponseCode ConvertToResponseCode(this int code)
         {
             switch (code)
             {

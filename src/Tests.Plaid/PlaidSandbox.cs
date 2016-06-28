@@ -1,6 +1,4 @@
-﻿using Gigobyte.Plaid.Contract;
-
-namespace Tests.Plaid
+﻿namespace Tests.Plaid
 {
     public class PlaidSandbox
     {
@@ -15,6 +13,7 @@ namespace Tests.Plaid
 
         public struct Institution
         {
+            public const string USAA = "usaa";
             public const string Chase = "chase";
             public const string BancoPopular = "1437";
             public const string BankOfAmerica = "bofa";

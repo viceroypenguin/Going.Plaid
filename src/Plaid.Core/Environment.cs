@@ -1,8 +1,18 @@
 ﻿namespace Gigobyte.Plaid
 {
+    /// <summary>
+    /// Plaid API environment.
+    /// </summary>
     public enum Environment
     {
-        Development,
-        Production
+        /// <summary>
+        /// https://api.plaid.com/ (production).
+        /// </summary>
+        Production,
+
+        /// <summary>
+        /// https://tartan.plaid.com/ (development).
+        /// </summary>
+        Development
     }
 }

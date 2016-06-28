@@ -64,6 +64,6 @@ namespace Gigobyte.Plaid.Contract
         public string Mfa { get; set; }
 
         [JsonProperty("send_method")]
-        public AuthenticationMethod AuthenticationMethod { get; set; }
+        public AuthenticationOption AuthenticationMethod { get; set; }
     }
 }
