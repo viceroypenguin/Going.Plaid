@@ -1,0 +1,167 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.IO" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Xml.XPath" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Acklann.Plaid.MSTest
+{
+	[TestClass]
+	public class ApprovalTestsCleaner
+	{
+		[AssemblyInitialize]
+		public static void Cleanup(TestContext context) => ApprovalTests.Maintenance.ApprovalMaintenance.CleanUpAbandonedFiles();
+	}
+
+	public static class TestFile
+	{
+		<# GenerateTestFiles(); #>
+	}
+
+	public static class DataFile
+	{
+		<# GenerateDataFiles(); #>
+	}
+}
+<#+
+string DataFolderName = "TestData";
+
+void GenerateTestDataDirectoryMethods()
+{
+	var testDataDir = Path.Combine(Path.GetDirectoryName(Host.TemplateFile), DataFolderName);
+
+	PushIndent("\t\t");
+	foreach (var file in new DirectoryInfo(testDataDir).GetFiles("*", SearchOption.AllDirectories))
+	{
+		string relativeDir = file.DirectoryName.Replace(testDataDir, "").Trim('\\', ' ');
+		string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.Name);
+		string path = Path.Combine(relativeDir, file.Name);
+
+		WriteLine($"public static FileInfo Get{fileNameWithoutExtension}() {{ return GetFile(@\"{path}\"); }}");
+	}
+	PopIndent();
+}
+
+void GenerateTestFiles()
+{
+	var testDataDir = Path.Combine(Path.GetDirectoryName(Host.TemplateFile), DataFolderName);
+
+	PushIndent("\t\t");
+	foreach (var file in new DirectoryInfo(testDataDir).GetFiles("*", SearchOption.AllDirectories))
+	{
+		string relativeDir = file.DirectoryName.Replace(testDataDir, "").Trim('\\', ' ');
+		string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.Name);
+		string path = Path.Combine(relativeDir, file.Name);
+
+		WriteLine($"public const string {fileNameWithoutExtension.ToUpper()} = @\"{path}\";");
+	}
+	PopIndent();
+}
+
+void GenerateDataFiles()
+{
+	string appConfigPath = Host.ResolvePath("app.config");
+	var testDataDir = Path.Combine(Path.GetDirectoryName(Host.TemplateFile), DataFolderName);
+	var dataFiles = new DirectoryInfo(testDataDir).GetFiles("*.csv", SearchOption.AllDirectories);
+
+	if (File.Exists(appConfigPath))
+	{
+		InitializeAppConfig(out XDocument appConfig, out XElement connectionStrings, out XElement dataSources);
+
+		PushIndent("\t\t");
+		foreach (var file in dataFiles)
+		{
+			string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.Name);
+			WriteLine($"public const string {fileNameWithoutExtension.ToUpper()} = \"{fileNameWithoutExtension}\";");
+			
+			AppendToDataSources(file, connectionStrings, dataSources);
+		}
+		PopIndent();
+		appConfig.Save(appConfigPath);
+	}
+}
+
+void InitializeAppConfig(out XDocument appConfig, out XElement connectionStrings, out XElement dataSources)
+{
+	string appConfigPath = Host.ResolvePath("app.config");
+
+	appConfig = XDocument.Load(appConfigPath);
+	var configSections = appConfig.XPathSelectElement(".//configSections");
+	if (configSections == null)
+	{
+		configSections = new XElement("configSections");
+		appConfig.Root.AddFirst(configSections);
+	}
+	
+	string sectionName = "microsoft.visualstudio.testtools";
+	var section = appConfig.XPathSelectElement($".//configSections/section[@name='{sectionName}']");
+	if (section == null)
+	{
+		configSections.Add(new XElement("section",
+			new XAttribute("name", sectionName),
+			new XAttribute("type", "Microsoft.VisualStudio.TestTools.UnitTesting.TestConfigurationSection, Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions")));
+	}
+
+	connectionStrings = appConfig.XPathSelectElement(".//connectionStrings");
+	if (connectionStrings == null)
+	{
+		connectionStrings = new XElement("connectionStrings");
+		appConfig.Root.Add(connectionStrings);
+	}
+	
+	var testTools = appConfig.XPathSelectElement($".//{sectionName}");
+	if (testTools == null)
+	{
+		testTools = new XElement(sectionName);
+		appConfig.Root.Add(testTools);
+	}
+	
+	dataSources = appConfig.XPathSelectElement($".//{sectionName}/dataSources");
+	if (dataSources == null)
+	{
+		dataSources = new XElement("dataSources");
+		testTools.Add(dataSources);
+	}
+}
+
+void AppendToDataSources(FileInfo file, XElement connectionStrings, XElement dataSources)
+{
+	string dataTableName = file.Name;
+	string name = Path.GetFileNameWithoutExtension(file.Name);
+
+	var item = connectionStrings.XPathSelectElement($"./add[@name='{name}']");
+	if (item == null)
+	{
+		connectionStrings.Add(new XElement("add",
+			new XAttribute("name", name),
+			new XAttribute("connectionString", $"|DataDirectory|\\{file.Name}"),
+			new XAttribute("providerName", "Microsoft.VisualStudio.TestTools.DataSource.CSV")));
+	}
+
+	item = dataSources.XPathSelectElement($"./add[@name='{name}']");
+	if (item == null)
+	{
+		dataSources.Add(new XElement("add",
+			new XAttribute("name", name),
+			new XAttribute("connectionString", name),
+			new XAttribute("dataTableName", file.Name),
+			new XAttribute("dataAccessMethod", "Sequential")));
+	}
+}
+
+void Print(object value)
+{
+	WriteLine($"// {value}");
+}
+
+#>

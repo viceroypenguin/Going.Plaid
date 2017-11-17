@@ -1,0 +1,9 @@
+{
+  "commands": {
+    "tasks": {
+      "fileName": "powershell.exe",
+      "workingDirectory": ".",
+      "arguments": "-ExecutionPolicy Bypass -NonInteractive -File build\\tasks.ps1"
+    }
+  }
+}
