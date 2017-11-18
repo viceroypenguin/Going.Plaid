@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plaid", "src\Plaid\Plaid.csproj", "{D9080ED3-10BA-4CCF-A6A6-203B7E92459B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plaid.MSTest", "tests\Plaid.MSTest\Plaid.MSTest.csproj", "{B9C93CF7-88FF-45FF-850E-A8A20FF32E9E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51} = {6CAFC0C6-A428-4D30-A9F9-700E829FEA51}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".root", ".root", "{5B75FA3C-948A-452C-B57A-74423429A422}"
 	ProjectSection(SolutionItems) = preProject

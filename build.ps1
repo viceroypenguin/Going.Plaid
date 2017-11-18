@@ -1,52 +1,35 @@
 <#
 .SYNOPSIS
-This is a [psake]() bootstrap script designed to be run on a windows machine or a [VSTS]() enviroment.
-
-.PARAMETER Tasks
-
-.PARAMETER Secrets
-
-.PARAMETER BuildConfiguration
-
-.PARAMETER NugetVersion
-
-.PARAMETER Major
-
-.PARAMETER Minor
-
-.PARAMETER Help
-
-.PARAMETER SkipCompliation
-
-.PARAMETER InteractiveMode
-
+This is a psake bootstrap script designed to be run on a windows machine or a enviroment.
 #>
 
 Param(
-    [Alias("t")]
+    [Alias('t')]
 	[string[]]$Tasks = @("default"),
 
-	[Alias("s")]
+	[Alias('s')]
 	[hashtable]$Secrets = @{},
 
-	[Alias("c")]
-	[string]$BuildConfiguration = "Release",
+	[Alias('c')]
+	[string]$Configuration = "Release",
 
-    [Alias("n", "nuget")]
-    [string]$NugetVersion = "latest",
+    [Alias('n', "nuget")]
+    [string]$NugetVersion = "4.3.0",
+
+	[Alias("sc", "sk")]
+	[switch]$SkipCompilation,
 
 	[switch]$Major,
 	[switch]$Minor,
 	[switch]$Help,
-	[switch]$SkipCompilation,
 	[switch]$InteractiveMode
 )
 
 Write-Host "user: $env:USERNAME";
 Write-Host "machine: $env:COMPUTERNAME";
-Write-Host "configuration: $BuildConfiguration";
+Write-Host "configuration: $Configuration";
 
-# Assign Variables
+# Assigning Variables
 $branchName = $env:BUILD_SOURCEBRANCHNAME;
 if ([string]::IsNullOrEmpty($branchName))
 {
@@ -56,33 +39,32 @@ if ([string]::IsNullOrEmpty($branchName))
 }
 Write-Host "branch: '$branchName'";
 
-# Restore packages
+# Restoring packages
 $nuget = "$PSScriptRoot\tools\NuGet\$NugetVersion\nuget.exe";
 if (-not (Test-Path $nuget -PathType Leaf))
 {
 	$nugetDir = Split-Path $nuget -Parent;
 	if (-not (Test-Path $nugetDir -PathType Container)) { New-Item $nugetDir -ItemType Directory | Out-Null; }
-	Invoke-WebRequest https://dist.nuget.org/win-x86-commandline/$NugetVersion/nuget.exe -OutFile $nuget;
+	Invoke-WebRequest "https://dist.nuget.org/win-x86-commandline/v$NugetVersion/nuget.exe" -OutFile $nuget;
 }
 
-& $nuget restore "$((Get-Item "$PSScriptRoot\*.sln").FullName)" | Out-Null;
+if (-not $SkipCompilation) { &$nuget restore "$((Get-Item "$PSScriptRoot\*.sln").FullName)" | Out-Null; }
 
-# Invoke Psake
+# Invoking Psake
 Get-Item "$PSScriptRoot\packages\psake*\tools\psake.psd1" | Import-Module -Force;
 $taskFile = "$PSScriptRoot\build\tasks.ps1";
 
 if ($Help) { Invoke-psake -buildFile $taskFile -docs; }
 else
 {
-	Write-Host "";
-	Invoke-psake $taskFile -taskList $Tasks -nologo -notr `
+	Invoke-psake $taskFile -taskList $Tasks -nologo `
 		-properties @{
 			"Nuget"=$nuget;
+			"Secrets"=$Secrets;
 			"BranchName"=$branchName;
 			"Major"=$Major.IsPresent;
 			"Minor"=$Minor.IsPresent;
-			"Secrets"=$Secrets;
-			"BuildConfiguration"=$BuildConfiguration;
+			"Configuration"=$Configuration;
 			"SkipCompilation"=$SkipCompilation.IsPresent;
 			"InteractiveMode"=$InteractiveMode.IsPresent;
 		}
