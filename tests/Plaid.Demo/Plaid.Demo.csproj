@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Acklann.Plaid.Demo</AssemblyName>
+    <RootNamespace>Acklann.Plaid.Demo</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="..\..\build\secrets.json" Link="secrets.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExtensionMethods.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Plaid\Plaid.csproj" />
+  </ItemGroup>
+
+  <Target Name="RestorePackages" BeforeTargets="Build">
+    <Exec Command="npm install" />
+  </Target>
+
+</Project>

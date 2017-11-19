@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Plaid Integration Demo</title>
+    <link rel="stylesheet" type="text/css" href="node_modules/flexboxgrid/dist/flexboxgrid.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <header>
+        <h1>Plaid Link Demo</h1>
+        <h5>Explore Plaid with Plaid.NET</h5>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <div>
+        <ul id="notification-list"></ul>
+    </div>
+
+    <script src="node_modules/knockout/build/output/knockout-latest.debug.js"></script>
+    <script src="~/scripts/app.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
