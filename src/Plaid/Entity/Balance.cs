@@ -5,9 +5,12 @@ namespace Acklann.Plaid.Entity
     public struct Balance
     {
         [JsonProperty("current")]
-        public decimal Current { get; set; }
+        public float Current { get; set; }
 
         [JsonProperty("available")]
-        public decimal Available { get; set; }
+        public float? Available { get; set; }
+
+        [JsonProperty("limit")]
+        public float? Limit { get; set; }
     }
 }

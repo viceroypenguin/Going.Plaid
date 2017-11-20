@@ -70,28 +70,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BandId.cs" />
     <Compile Include="config.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>config.tt</DependentUpon>
     </Compile>
-    <Compile Include="TestRequest.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestDataDirecotry.cs" />
-    <Compile Include="Tests\PlaidConnectApiTest.cs" />
+    <Compile Include="TestDataDirectory.cs" />
+    <Compile Include="Tests\PlaidClientTest.cs" />
     <Compile Include="Tests\SerializationTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\build\plaid.config">
-      <Link>plaid.config</Link>
+    <Content Include="..\..\build\secrets.json">
+      <Link>secrets.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="TestData\connect_test_wells_response.json" />
+    <None Include="TestData\institution_response.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\transactions_full_response.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\transactions_simplified_response.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

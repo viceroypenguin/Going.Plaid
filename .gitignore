@@ -242,7 +242,7 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 # GhostDoc plugin setting file
-*.GhostDoc.xml
+*.GhostDoc.*
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
@@ -309,5 +309,6 @@ OpenCover/
 *.received.*
 
 # Sensitive Files
-secrets.*
+[Ss]ecret*
+[Cc]redential*
 plaid.config

@@ -8,7 +8,7 @@
     <Content Include="..\..\build\secrets.json" Link="secrets.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ExtensionMethods.cs" />
+    <Content Include="Middleware\ApplicationBuilderExtension.cs" />
   </ItemGroup>
 
   <ItemGroup>

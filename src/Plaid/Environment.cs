@@ -4,6 +4,8 @@
     {
         Production,
         Development,
-        Sandbox
+        Sandbox,
+        Lagacy,
+        Tartan
     }
 }

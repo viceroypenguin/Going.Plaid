@@ -1,4 +1,4 @@
-﻿using Acklann.Plaid.Token;
+﻿using Acklann.Plaid.Management;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Acklann.Plaid.Demo.Controllers
@@ -16,7 +16,7 @@ namespace Acklann.Plaid.Demo.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetAccessToken(Environment environment, [FromBody]CreateItemResponse metadata)
+        public IActionResult GetAccessToken(Environment environment, [FromBody]PlaidLinkResponse metadata)
         {
             var client = new PlaidClient(environment);
             ExchangeTokenResponse result = client.ExchangeTokenAsync(new ExchangeTokenRequest()

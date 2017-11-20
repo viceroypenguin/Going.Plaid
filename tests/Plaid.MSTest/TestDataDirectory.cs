@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Acklann.Plaid.MSTest
 {
-    public static class TestDataDirecotry
+    public static class TestDataDirectory
     {
         public const string FOLDER_NAME = "TestData";
 

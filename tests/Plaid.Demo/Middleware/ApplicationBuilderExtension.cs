@@ -2,9 +2,9 @@
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 
-namespace Acklann.Plaid.Demo
+namespace Acklann.Plaid.Demo.Middleware
 {
-    public static class ExtensionMethods
+    public static class ApplicationBuilderExtension
     {
         public static IApplicationBuilder UseNodeModules(this IApplicationBuilder app, string rootDir)
         {

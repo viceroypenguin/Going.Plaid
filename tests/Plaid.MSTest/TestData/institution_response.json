@@ -1,0 +1,71 @@
+﻿{
+    
+  "institutions":  [
+        
+    {
+            
+      "credentials":  [
+                
+        {
+                    
+          "label":  "Username",
+                    
+          "name":  "username",
+                    
+          "type":  "text"
+        
+                },
+
+        {
+
+          "label": "Password",
+
+          "name": "password",
+
+          "type": "password"
+
+        }
+      
+            ],
+            
+      "has_mfa":  true,
+            
+      "institution_id":  "ins_109511",
+            
+      "mfa":  [
+                
+        "code",
+                
+        "list",
+                
+        "questions",
+                
+        "selections"
+      
+            ],
+            
+      "name":  "Tartan Bank",
+            
+      "products":  [
+                
+        "auth",
+                
+        "balance",
+                
+        "transactions",
+                
+        "credit_details",
+                
+        "income",
+                
+        "identity"
+      
+            ]
+    
+        }
+  
+    ],
+    
+  "request_id":  "zXXOA"
+
+}

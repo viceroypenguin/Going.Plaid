@@ -12,6 +12,19 @@
             </div>
 
             <div class="input">
+                @foreach (var product in new string[] { "Transactions", "Auth", "Identity", "Income" })
+                {
+                    <label class="container">
+                        @product
+                        <input class="product-box" type="checkbox" data-value="@product.ToLower()" />
+                        <span class="checkmark"></span>
+                    </label>
+                }
+            </div>
+
+            <hr />
+
+            <div class="input">
                 <label><a href="https://dashboard.plaid.com/account/keys" target="_blank">public_key:</a></label>
                 <input type="text" data-bind="value: publicKey" />
             </div>
@@ -42,16 +55,32 @@
             self.publicKey = ko.observable("@Model.PublicKey");
             self.accessToken = ko.observable("@Model.AccessToken");
 
+            self.products = function () { 
+                let transactions = [];
+                let elements = document.getElementsByClassName("product-box");
+                for (let i = 0; i < elements.length; i++) {
+                    if (elements[i].checked) {
+                        let value = elements[i].getAttribute("data-value");
+                        transactions.push(value);
+                    }
+                }
+                return transactions;
+            };
+
             self.hasAccessToken = ko.observable(function () {
                 return self.isNullOrEmpty(this.accessToken);
             }, this);
-            
+
+            self.isNullOrEmpty = function (text) {
+                return (!text || text.length === 0);
+            }
+
             self.showPlaidLink = function () {
                 var handler = Plaid.create({
                     clientName: 'Plaid Walkthrough Demo',
                     env: self.environment().toLowerCase(),
                     key: self.publicKey(),
-                    product: ['transactions'],
+                    product: self.products(),
                     webhook: 'https://requestb.in',/* Optional, use webhooks to get transaction and error updates */
                     onLoad: function () {
                         // Optional, called when Link loads
@@ -102,16 +131,13 @@
                 });
                 handler.open();
             };
-
-            self.isNullOrEmpty = function (text) {
-                return (!text || text.length === 0);
-            }
         }
 
         var vm = null;
         (function () {
             vm = new ViewModel();
             ko.applyBindings(vm);
+            document.getElementsByClassName("product-box")[0].checked = true;
         })();
     </script>
 }
