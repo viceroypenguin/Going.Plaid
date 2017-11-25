@@ -88,7 +88,7 @@ Task "Run-Tests" -alias "test" -description "This task runs all tests." `
 
 Task "Update-VersionNumber" -alias "version" -description "This task updates all projects' version numbers." `
 -depends @("restore") -action {
-	$results = ($ManifestJson | Get-BuildboxManifest | Update-ProjectManifests "$RootDir\src" -Major:$Major -Minor:$Minor);
+	$results = ($ManifestJson | Get-BuildboxManifest | Update-ProjectManifests "$RootDir\src" -Major:$Major -Minor:$Minor -Tag -Commit);
 	Write-Host "$Tab* incremented solution version number to '$($results.Manifest.Version.ToString())'";
 	foreach ($file in $results.ModifiedFiles)
 	{
@@ -142,7 +142,7 @@ Task "Publish-NuGetPackages" -alias "push-nuget" -description "This task publish
 	
 	foreach ($nupkg in (Get-ChildItem $ArtifactsDir -Recurse -Filter "*.nupkg"))
 	{
-		#Exec { &$nuget push $nupkg.FullName -ApiKey $apiKey; }
+		Exec { &$nuget push $nupkg.FullName -Source "https://www.nuget.org/api/v2/package" -ApiKey $apiKey; }
 	}
 }
 
