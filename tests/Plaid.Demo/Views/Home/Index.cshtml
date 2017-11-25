@@ -55,7 +55,7 @@
             self.publicKey = ko.observable("@Model.PublicKey");
             self.accessToken = ko.observable("@Model.AccessToken");
 
-            self.products = function () { 
+            self.products = function () {
                 let transactions = [];
                 let elements = document.getElementsByClassName("product-box");
                 for (let i = 0; i < elements.length; i++) {

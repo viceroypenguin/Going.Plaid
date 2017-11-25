@@ -278,7 +278,7 @@ namespace Acklann.Plaid
         private static void Log(string message, string title = "RESPONSE")
         {
 #if DEBUG
-            var line = string.Concat(Enumerable.Repeat('-', 100));
+            var line = string.Concat(System.Linq.Enumerable.Repeat('-', 100));
             int n = (title.Length > line.Length) ? line.Length : (line.Length - title.Length + 2);
 
             System.Diagnostics.Debug.WriteLine(line.Substring(0, n).Insert(5, $" {title} "));

@@ -1,20 +1,20 @@
 ﻿{
-  "title": null,
-  "version": {
-    "major": 1,
-    "minor": 1,
-    "patch": 0
+  "version":
+  {
+    "major": 0,
+    "minor": 0,
+    "patch": 3
   },
-  "authors": null,
-  "owner": null,
-  "projectUrl": null,
-  "iconUri": null,
-  "licenseUri": null,
-  "copyright": null,
-  "tags": null,
-  "releaseNotes": null,
-  "branchSuffixMap": {
-    "master": "",
+  "owner": "Ackara",
+  "authors": "Ackara",
+  "tags": "plaid banking rest api",
+  "copyright": "All rights reserved",
+  "projectUrl": "https://github.com/Ackara/Plaid.NET",
+  "iconUri": "https://github.com/Ackara/Plaid.NET/raw/master/art/icon.png",
+  "licenseUri": "https://github.com/Ackara/Plaid.NET/blob/master/LICENSE",
+  "branchSuffixMap":
+  {
+    "master": "rc",
     "*": "beta"
   }
 }

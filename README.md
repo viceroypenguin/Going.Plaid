@@ -1,13 +1,27 @@
 # Plaid.NET
-|**Master**|**Development**|
-|---------------|----------|
-|![master](https://gigobyte.visualstudio.com/_apis/public/build/definitions/c0ac7b33-0b3f-4b18-82bc-6eb07a259743/23/badge)|![dev](https://gigobyte.visualstudio.com/_apis/public/build/definitions/c0ac7b33-0b3f-4b18-82bc-6eb07a259743/24/badge)|
+[![NuGet](https://img.shields.io/nuget/v/Acklann.Plaid.svg?style=plastic)](https://www.nuget.org/packages/Acklann.Plaid/)
+---
 
-## Overview
-A portable class library that allows you to retrieve banking data using the [Plaid](https://www.plaid.com/docs/) RESTful API.
+## What is Plaid.NET?
+Plaid.NET is a .netstandard library for interacting with [Plaid's](https://plaid.com/) banking APIs. See their documentation [here](https://plaid.com/docs/api/).
 
-## Example
+### Where can I get it?
+Plaid.NET is available at [nuget.org](https://www.nuget.org/packages/Acklann.Plaid). 
 
-## Getting Started
+Package Manager `PM > Install-Package Acklann.Plaid.NET`
 
+### How it works?
+You can make all calls to Plaid's API via the `Acklann.Plaid.PlaidClient` class.
+
+```c#
+var client = new PlaidClient();
+// Retrieving a user's recent transactions.
+var result = client.FetchTransactionsAsync(new GetTransactionsRequest()
+{
+    Secret = "your_secret",
+    ClientId = "your_client_id",
+    AccessToken = "your_token",
+    ...
+};
+```
 

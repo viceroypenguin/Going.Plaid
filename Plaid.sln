@@ -22,7 +22,7 @@ Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "build", "build\build.psspro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D79CDC6A-E826-4BF5-AB5B-E8A842658BD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plaid.Demo", "tests\Plaid.Demo\Plaid.Demo.csproj", "{5FBDC2B1-A139-4685-99C1-6FF862C602FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plaid.Demo", "tests\Plaid.Demo\Plaid.Demo.csproj", "{5FBDC2B1-A139-4685-99C1-6FF862C602FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

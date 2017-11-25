@@ -46,7 +46,7 @@ namespace Acklann.Plaid.MSTest
 
         #region Private Members
 
-        internal const string your_public_key_do_not_have_access_contact_plaid = "Error authenticating public key. This public key is not enabled for products \"identity\" and \"income\". Please contact Support (https://dashboard.plaid.com/support/new) to be enabled.";
+        internal const string your_public_key_do_not_have_access_contact_plaid = "Error authenticating public key. Your public key is not enabled for products \"identity\" and \"income\". Please contact Support (https://dashboard.plaid.com/support/new) to be enabled.";
         private static JToken _plaid;
 
         #endregion Private Members

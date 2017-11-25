@@ -12,7 +12,9 @@ namespace Acklann.Plaid.MSTest
 
 	public static class TestFile
 	{
-		public const string CONNECT_TEST_WELLS_RESPONSE = @"connect_test_wells_response.json";
+		public const string INSTITUTION_RESPONSE = @"institution_response.json";
+		public const string TRANSACTIONS_FULL_RESPONSE = @"transactions_full_response.json";
+		public const string TRANSACTIONS_SIMPLIFIED_RESPONSE = @"transactions_simplified_response.json";
 	}
 
 	public static class DataFile
