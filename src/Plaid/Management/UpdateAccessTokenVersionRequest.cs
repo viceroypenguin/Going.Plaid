@@ -10,7 +10,7 @@ namespace Acklann.Plaid.Management
     public class UpdateAccessTokenVersionRequest : SerializableContent
     {
         /// <summary>
-        /// Gets or sets the client identifier.
+        /// Gets or sets the client_id.
         /// </summary>
         /// <value>The client identifier.</value>
         [JsonProperty("client_id")]

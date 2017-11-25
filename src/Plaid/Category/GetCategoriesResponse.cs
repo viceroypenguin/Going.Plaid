@@ -6,6 +6,10 @@
     /// <seealso cref="Acklann.Plaid.ResponseBase" />
     public class GetCategoriesResponse : ResponseBase
     {
+        /// <summary>
+        /// Gets or sets the categories.
+        /// </summary>
+        /// <value>The categories.</value>
         public Entity.Category[] Categories { get; set; }
     }
 }

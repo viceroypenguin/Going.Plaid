@@ -40,7 +40,7 @@ namespace Acklann.Plaid.Entity
         public string[] Categories { get; set; }
 
         /// <summary>
-        /// Gets or sets the id of the category to which this transaction belongs. See <seealso cref="https://plaid.com/docs/api/undefined#categories"/>
+        /// Gets or sets the id of the category to which this transaction belongs. See https://plaid.com/docs/api/#categories.
         /// </summary>
         /// <value>The category identifier.</value>
         [JsonProperty("category_id")]
@@ -102,6 +102,19 @@ namespace Acklann.Plaid.Entity
         /// <value>The account owner.</value>
         [JsonProperty("account_owner")]
         public string AccountOwner { get; set; }
+
+        /// <summary>
+        /// Gets the transaction type.
+        /// </summary>
+        /// <value>The transaction type.</value>
+        public TransactionType Type
+        {
+            get
+            {
+                bool valid = Enum.TryParse(TransactionType, out TransactionType type);
+                return valid ? type : Entity.TransactionType.Unresolved;
+            }
+        }
 
         /// <summary>
         /// Represents a geographical location.

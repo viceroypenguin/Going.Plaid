@@ -1,23 +1,39 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Acklann.Plaid
 {
+    /// <summary>
+    /// Provides methods for sending request to and receiving data from Plaid banking API.
+    /// </summary>
     public class PlaidClient
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaidClient"/> class.
+        /// </summary>
         public PlaidClient() : this(null, null, null, Plaid.Environment.Production)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaidClient"/> class.
+        /// </summary>
+        /// <param name="environment">The environment.</param>
         public PlaidClient(Plaid.Environment environment) : this(null, null, null, environment)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaidClient"/> class.
+        /// </summary>
+        /// <param name="clientId">The client identifier.</param>
+        /// <param name="secret">The secret.</param>
+        /// <param name="accessToken">The access token.</param>
+        /// <param name="environment">The environment.</param>
         public PlaidClient(string clientId, string secret, string accessToken, Plaid.Environment environment = Plaid.Environment.Production)
         {
             _secret = secret;
@@ -28,31 +44,61 @@ namespace Acklann.Plaid
 
         /* Item Management */
 
+        /// <summary>
+        /// Retrieves information about the status of an <see cref="Entity.Item"/>. Endpoint '/item/get'.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Management.GetItemResponse&gt;.</returns>
         public Task<Management.GetItemResponse> FetchItemAsync(Management.GetItemRequest request)
         {
             return PostAsync<Management.GetItemResponse>("item/get", request);
         }
 
+        /// <summary>
+        /// Delete an <see cref="Entity.Item"/>. Once deleted, the access_token associated with the <see cref="Entity.Item"/> is no longer valid and cannot be used to access any data that was associated with the <see cref="Entity.Item"/>.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Management.DeleteItemResponse&gt;.</returns>
         public Task<Management.DeleteItemResponse> DeleteItemAsync(Management.DeleteItemRequest request)
         {
             return PostAsync<Management.DeleteItemResponse>("item/delete", request);
         }
 
+        /// <summary>
+        /// Updates the webhook associated with an <see cref="Entity.Item"/>. This request triggers a WEBHOOK_UPDATE_ACKNOWLEDGED webhook.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Management.UpdateWebhookResponse&gt;.</returns>
         public Task<Management.UpdateWebhookResponse> UpdateWebhookAsync(Management.UpdateWebhookRequest request)
         {
             return PostAsync<Management.UpdateWebhookResponse>("item/webhook/update", request);
         }
 
+        /// <summary>
+        /// Exchanges a Link public_token for an API access_token.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Management.ExchangeTokenResponse&gt;.</returns>
         public Task<Management.ExchangeTokenResponse> ExchangeTokenAsync(Management.ExchangeTokenRequest request)
         {
             return PostAsync<Management.ExchangeTokenResponse>("item/public_token/exchange", request);
         }
 
+        /// <summary>
+        /// Rotates the access_token associated with an <see cref="Entity.Item"/>. The endpoint returns a new access_token and immediately invalidates the previous access_token.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Management.RotateAccessTokenResponse&gt;.</returns>
         public Task<Management.RotateAccessTokenResponse> RotateAccessTokenAsync(Management.RotateAccessTokenRequest request)
         {
             return PostAsync<Management.RotateAccessTokenResponse>("item/access_token/invalidate", request);
         }
 
+        /// <summary>
+        /// Updates an access_token from the legacy version of Plaid’s API, you can use method to generate an access_token for the Item that works with the current API.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Management.UpdateAccessTokenVersionResponse&gt;.</returns>
         public Task<Management.UpdateAccessTokenVersionResponse> UpdateAccessTokenVersion(Management.UpdateAccessTokenVersionRequest request)
         {
             return PostAsync<Management.UpdateAccessTokenVersionResponse>("item/access_token/update_version", request);
@@ -60,11 +106,21 @@ namespace Acklann.Plaid
 
         /* Institutions */
 
+        /// <summary>
+        /// Retrieves the institutions that match the query parameters.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Institution.SearchResponse&gt;.</returns>
         public Task<Institution.SearchResponse> FetchInstitutionsAsync(Institution.SearchRequest request)
         {
             return PostAsync<Institution.SearchResponse>("institutions/search", request);
         }
 
+        /// <summary>
+        /// Retrieves the institutions that match the id.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Institution.SearchByIdResponse&gt;.</returns>
         public Task<Institution.SearchByIdResponse> FetchInstitutionByIdAsync(Institution.SearchByIdRequest request)
         {
             return PostAsync<Institution.SearchByIdResponse>("institutions/get_by_id", request);
@@ -72,6 +128,11 @@ namespace Acklann.Plaid
 
         /* Income */
 
+        /// <summary>
+        /// Retrieves information pertaining to a <see cref="Entity.Item"/>’s income. In addition to the annual income, detailed information will be provided for each contributing income stream (or job).
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Income.GetIncomeResponse&gt;.</returns>
         public Task<Income.GetIncomeResponse> FetchUserIncomeAsync(Income.GetIncomeRequest request)
         {
             return PostAsync<Income.GetIncomeResponse>("income/get", request);
@@ -79,6 +140,11 @@ namespace Acklann.Plaid
 
         /* Auth */
 
+        /// <summary>
+        /// Retrieves the bank account and routing numbers associated with an <see cref="Entity.Item"/>’s checking and savings accounts, along with high-level account data and balances.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Auth.GetAccountInfoResponse&gt;.</returns>
         public Task<Auth.GetAccountInfoResponse> FetchAccountInfoAsync(Auth.GetAccountInfoRequest request)
         {
             return PostAsync<Auth.GetAccountInfoResponse>("auth/get", request);
@@ -86,6 +152,11 @@ namespace Acklann.Plaid
 
         /* Balance */
 
+        /// <summary>
+        ///  Retrieves the real-time balance for each of an <see cref="Entity.Item"/>’s accounts.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Balance.GetBalanceResponse&gt;.</returns>
         public Task<Balance.GetBalanceResponse> FetchAccountBalanceAsync(Balance.GetBalanceRequest request)
         {
             return PostAsync<Balance.GetBalanceResponse>("accounts/balance/get", request);
@@ -93,6 +164,11 @@ namespace Acklann.Plaid
 
         /* Categories */
 
+        /// <summary>
+        ///  Retrieves detailed information on categories returned by Plaid.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Category.GetCategoriesResponse&gt;.</returns>
         public Task<Category.GetCategoriesResponse> FetchCategoriesAsync(Category.GetCategoriesRequest request)
         {
             return PostAsync<Category.GetCategoriesResponse>("categories/get", request);
@@ -100,6 +176,11 @@ namespace Acklann.Plaid
 
         /* Identity */
 
+        /// <summary>
+        /// Retrieves various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Identity.GetUserIdentityResponse&gt;.</returns>
         public Task<Identity.GetUserIdentityResponse> FetchUserIdentityAsync(Identity.GetUserIdentityRequest request)
         {
             return PostAsync<Identity.GetUserIdentityResponse>("identity/get", request);
@@ -107,6 +188,11 @@ namespace Acklann.Plaid
 
         /* Transactions */
 
+        /// <summary>
+        ///  Retrieves user-authorized transaction data for credit and depository-type <see cref="Entity.Account"/>.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Transactions.GetTransactionsResponse&gt;.</returns>
         public Task<Transactions.GetTransactionsResponse> FetchTransactionsAsync(Transactions.GetTransactionsRequest request)
         {
             return PostAsync<Transactions.GetTransactionsResponse>("transactions/get", request);
@@ -114,7 +200,7 @@ namespace Acklann.Plaid
 
         /* ***** */
 
-        public string GetEndpoint(string path)
+        internal string GetEndpoint(string path)
         {
             string subDomain = "";
             switch (_environment)
@@ -131,18 +217,6 @@ namespace Acklann.Plaid
                 case Environment.Sandbox:
                     subDomain = "sandbox.";
                     break;
-
-                case Environment.Tartan:
-                    subDomain = "tartan.";
-                    break;
-
-                case Environment.Lagacy:
-#if DEBUG
-                    subDomain = "tartan.";
-#else
-                    subDomain = "api.";
-#endif
-                    break;
             }
 
             return new UriBuilder()
@@ -153,7 +227,7 @@ namespace Acklann.Plaid
             }.Uri.AbsoluteUri;
         }
 
-        public async Task<TResponse> PostAsync<TResponse>(string path, SerializableContent request) where TResponse : ResponseBase
+        internal async Task<TResponse> PostAsync<TResponse>(string path, SerializableContent request) where TResponse : ResponseBase
         {
             EnsureCredentials(request);
 

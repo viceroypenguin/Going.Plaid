@@ -56,6 +56,9 @@ namespace Acklann.Plaid.Management
         [JsonProperty("new_webhook")]
         public string NewWebhook { get; set; }
 
+        /// <summary>
+        /// Represents an error.
+        /// </summary>
         public struct ErrorDetails
         {
             /// <summary>

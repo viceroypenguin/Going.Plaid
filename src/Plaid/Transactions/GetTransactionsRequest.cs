@@ -39,6 +39,9 @@ namespace Acklann.Plaid.Transactions
         [JsonProperty("options")]
         public PaginationOptions Options { get; set; }
 
+        /// <summary>
+        /// Represents pagination options.
+        /// </summary>
         public class PaginationOptions
         {
             /// <summary>

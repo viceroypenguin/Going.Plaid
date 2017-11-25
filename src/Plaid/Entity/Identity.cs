@@ -31,6 +31,9 @@
 
         #region Structs
 
+        /// <summary>
+        /// Represents a <see cref="Identity"/> phone number.
+        /// </summary>
         public struct Phone
         {
             /// <summary>
@@ -52,6 +55,9 @@
             public string Type { get; set; }
         }
 
+        /// <summary>
+        /// Represents and <see cref="Identity"/> email.
+        /// </summary>
         public struct Email
         {
             /// <summary>
@@ -73,6 +79,9 @@
             public string Type { get; set; }
         }
 
+        /// <summary>
+        /// Represents an <see cref="Identity"/> address.
+        /// </summary>
         public struct Address
         {
             /// <summary>
@@ -93,6 +102,9 @@
             /// <value>The information.</value>
             public Data Info { get; set; }
 
+            /// <summary>
+            /// Represents the fields of an address.
+            /// </summary>
             public struct Data
             {
                 /// <summary>

@@ -2,6 +2,9 @@
 
 namespace Acklann.Plaid.Entity
 {
+    /// <summary>
+    /// Represents a Plaid item. A set of credentials at a financial institution.
+    /// </summary>
     public class Item
     {
         /// <summary>
