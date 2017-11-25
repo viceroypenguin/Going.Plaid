@@ -4,11 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Acklann.Plaid</AssemblyName>
     <RootNamespace>Acklann.Plaid</RootNamespace>
-    <AssemblyVersion>0.0.3</AssemblyVersion>
-    <PackageVersion>0.0.3</PackageVersion>
+    <AssemblyVersion>0.0.6</AssemblyVersion>
+    <PackageVersion>0.0.6</PackageVersion>
     <Authors>Ackara</Authors>
     <Company>Ackara</Company>
-    <PackageTags>plaid banking api</PackageTags>
+    <PackageTags>plaid banking rest api</PackageTags>
     <Copyright>All rights reserved</Copyright>
     <PackageProjectUrl>https://github.com/Ackara/Plaid.NET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/Ackara/Plaid.NET/blob/master/LICENSE</PackageLicenseUrl>
@@ -16,6 +16,7 @@
     <RepositoryUrl>https://github.com/Ackara/Plaid.NET.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>This is a .NET standard port of the [plaid](https://plaid.com/) banking API.</Description>
+    <PackageIconUrl>https://github.com/Ackara/Plaid.NET/raw/master/art/icon.png</PackageIconUrl>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\Acklann.Plaid.xml</DocumentationFile>
