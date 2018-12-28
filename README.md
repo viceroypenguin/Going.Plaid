@@ -22,6 +22,6 @@ var result = client.FetchTransactionsAsync(new GetTransactionsRequest()
     ClientId = "your_client_id",
     AccessToken = "your_token",
     ...
-};
+});
 ```
 
