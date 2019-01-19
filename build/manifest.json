@@ -2,7 +2,7 @@
     "version":  {
                     "Major":  0,
                     "Minor":  0,
-                    "Patch":  6
+                    "Patch":  7
                 },
     "authors":  "Ackara",
     "owner":  "Ackara",
@@ -14,5 +14,16 @@
     "branchSuffixMap":  {
                             "*":  "beta",
                             "master":  "rc"
-                        }
+                        },
+    "Id":  "",
+    "Name":  "",
+    "Summary":  "",
+    "Description":  "",
+    "Author":  "",
+    "Company":  "",
+    "License":  "",
+    "Icon":  "",
+    "Website":  "",
+    "RepositoryUrl":  "",
+    "ReleaseNotes":  ""
 }

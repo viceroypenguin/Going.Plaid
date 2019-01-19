@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Acklann.Plaid</AssemblyName>
     <RootNamespace>Acklann.Plaid</RootNamespace>
-    <AssemblyVersion>0.0.6</AssemblyVersion>
-    <PackageVersion>0.0.6</PackageVersion>
+    <AssemblyVersion>0.0.7</AssemblyVersion>
+    <PackageVersion>0.0.7</PackageVersion>
     <Authors>Ackara</Authors>
     <Company>Ackara</Company>
     <PackageTags>plaid banking rest api</PackageTags>
