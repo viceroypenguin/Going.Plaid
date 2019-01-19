@@ -305,6 +305,9 @@ __pycache__/
 # OpenCover UI analysis results
 OpenCover/
 
+# Generated files
+package-*.json
+
 # Approval Tests
 *.received.*
 
