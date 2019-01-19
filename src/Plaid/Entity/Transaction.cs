@@ -61,6 +61,26 @@ namespace Acklann.Plaid.Entity
         public float Amount { get; set; }
 
         /// <summary>
+        /// The ISO currency code of the transaction, either USD or CAD. Always null if unofficial_currency_code is non-null.
+        /// </summary>
+        /// <value>The ISO currency code.</value>
+        [JsonProperty("iso_currency_code")]
+        public string IsoCurrencyCode { get; set; }
+
+        /// <summary>
+        /// The unofficial currency code associated with the transaction. Always null if iso_currency_code is non-null.
+        /// </summary>
+        /// <value>The unofficial currency code.</value>
+        [JsonProperty("unofficial_currency_code")]
+        public string UnofficialCurrencyCode { get; set; }
+
+        /// <summary>
+        /// Gets the currency code from either IsoCurrencyCode or UnofficialCurrencyCode. If non-null, IsoCurrencyCode is returned, else if non-null, UnofficialCurrencyCode, else null is returned.
+        /// </summary>
+        /// <value>Either available currency code.</value>
+        public string CurrencyCode => IsoCurrencyCode ?? UnofficialCurrencyCode ?? null;
+
+        /// <summary>
         /// Gets or sets the date of the transaction.
         /// </summary>
         /// <value>The date.</value>
