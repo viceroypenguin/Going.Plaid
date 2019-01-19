@@ -27,7 +27,27 @@ namespace Acklann.Plaid.Auth
         /// </summary>
         /// <value>The numbers.</value>
         [JsonProperty("numbers")]
-        public AccountIdentifier[] Numbers { get; set; }
+        public AccountIdentifiers Numbers { get; set; }
+
+        /// <summary>
+        /// Seperates account types into ACH and EFT types.
+        /// </summary>
+        public struct AccountIdentifiers
+        {
+            /// <summary>
+            /// Gets or sets an array of ACH account numbers.
+            /// </summary>
+            /// <value>The array of ACH numbers.</value>
+            [JsonProperty("ach")]
+            public AccountIdentifier[] ACH { get; set; }
+
+            /// <summary>
+            /// Gets or sets an array of EFT account numbers.
+            /// </summary>
+            /// <value>The array of EFT numbers.</value>
+            [JsonProperty("eft")]
+            public AccountIdentifier[] EFT { get; set; }
+        }
 
         /// <summary>
         /// Represents the bank account and routing numbers associated with an <see cref="Entity.Item"/>’s checking and savings accounts.
