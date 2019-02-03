@@ -27,5 +27,12 @@ namespace Acklann.Plaid.Entity
         /// <value>The limit.</value>
         [JsonProperty("limit")]
         public float? Limit { get; set; }
+
+        /// <summary>
+        /// Gets or sets the iso currency code.
+        /// </summary>
+        /// <value>currency code.</value>
+        [JsonProperty("iso_currency_code")]
+        public string ISOCurrencyCode { get; set; }
     }
 }
