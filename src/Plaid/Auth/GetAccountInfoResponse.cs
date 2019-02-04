@@ -39,20 +39,20 @@ namespace Acklann.Plaid.Auth
             /// </summary>
             /// <value>The array of ACH numbers.</value>
             [JsonProperty("ach")]
-            public AccountIdentifier[] ACH { get; set; }
+            public AchAccountNumbers[] ACH { get; set; }
 
             /// <summary>
             /// Gets or sets an array of EFT account numbers.
             /// </summary>
             /// <value>The array of EFT numbers.</value>
             [JsonProperty("eft")]
-            public AccountIdentifier[] EFT { get; set; }
+            public EtfAccountNumbers[] EFT { get; set; }
         }
 
         /// <summary>
-        /// Represents the bank account and routing numbers associated with an <see cref="Entity.Item"/>’s checking and savings accounts.
+        /// Represents the bank account and routing numbers associated with an ACH account on a item.
         /// </summary>
-        public struct AccountIdentifier
+        public struct AchAccountNumbers
         {
             /// <summary>
             /// Gets or sets the plaid account identifier.
@@ -81,6 +81,40 @@ namespace Acklann.Plaid.Auth
             /// <value>The wire routing number.</value>
             [JsonProperty("wire_routing")]
             public string WireRoutingNumber { get; set; }
+        }
+
+        /// <summary>
+        /// Represents the bank account and institution/branch associated with an EFT account on a item.
+        /// </summary>
+        public struct EtfAccountNumbers
+        {
+            /// <summary>
+            /// Gets or sets the Plaid account ID associated with the account numbers.
+            /// </summary>
+            /// <value>The account identifier.</value>
+            [JsonProperty("account_id")]
+            public string AccountId { get; set; }
+
+            /// <summary>
+            /// Gets or sets the EFT account number for the account.
+            /// </summary>
+            /// <value>The account number.</value>
+            [JsonProperty("account")]
+            public string AccountNumber { get; set; }
+
+            /// <summary>
+            /// Gets or sets the EFT institution number for the account.
+            /// </summary>
+            /// <value>The institution identifier.</value>
+            [JsonProperty("institution")]
+            public string Institution { get; set; }
+
+            /// <summary>
+            /// Gets or sets the EFT branch number for the account.
+            /// </summary>
+            /// <value>The branch number.</value>
+            [JsonProperty("branch")]
+            public string Branch { get; set; }
         }
     }
 }

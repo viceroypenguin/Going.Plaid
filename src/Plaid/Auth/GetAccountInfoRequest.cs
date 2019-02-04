@@ -11,6 +11,23 @@ namespace Acklann.Plaid.Auth
     /// <seealso cref="Acklann.Plaid.RequestBase" />
     public class GetAccountInfoRequest : RequestBase
     {
+        
+        /// <summary>
+        /// Gets or sets the options attached to the request
+        /// </summary>
+        /// <value>The account ids.</value>
+        [JsonProperty("options")]
+        public GetAccountInfoOptions Options { get; set; }
+    }
+
+    /// <summary>
+    /// The container object for options associated with a GetAccountInfoRequest.
+    /// </summary>
+    /// <remarks>
+    /// This is outside the GetAccountInfoRequest class because it is required to build the request.
+    /// </remarks>
+    public struct GetAccountInfoOptions
+    {
         /// <summary>
         /// Gets or sets the list of account_ids to retrieve for the Item. Note: An error will be returned if a provided account_id is not associated with the Item.
         /// </summary>
