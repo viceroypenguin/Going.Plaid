@@ -198,6 +198,19 @@ namespace Acklann.Plaid
             return PostAsync<Transactions.GetTransactionsResponse>("transactions/get", request);
         }
 
+
+        /* Stripe */
+        /// <summary>
+        ///  Exchanges a Link access_token for an Stripe API stripe_bank_account_token.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>Task&lt;Management.StripeTokenResponse&gt;.</returns>
+        public Task<Management.StripeTokenResponse> FetchStripeTokenAsync(Management.StripeTokenRequest request)
+        {
+            return PostAsync<Management.StripeTokenResponse>("processor/stripe/bank_account_token/create", request);
+        }
+
+
         /* ***** */
 
         internal string GetEndpoint(string path)
