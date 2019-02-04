@@ -1,73 +1,92 @@
-<#
+﻿<#
 .SYNOPSIS
-This is a psake bootstrap script designed to be run on a windows machine or a enviroment.
+A psake bootstraper; This script runs one or more tasks defined in the psake file.
+
+.EXAMPLE
+.\build.ps1 -Help;
+This example prints a list of all the available tasks.
 #>
 
 Param(
-    [Alias('t')]
+	[Alias('t')]
 	[string[]]$Tasks = @("default"),
 
-	[Alias('s')]
+    [Alias('s', "keys")]
 	[hashtable]$Secrets = @{},
 
 	[Alias('c')]
+	[ValidateSet("Debug", "Release")]
 	[string]$Configuration = "Release",
 
-    [Alias('n', "nuget")]
-    [string]$NugetVersion = "4.3.0",
+    [Alias('p')]
+    [string]$Platform = "AnyCPU",
 
-	[Alias("sc", "sk")]
+	[Alias("sc", "no-build")]
 	[switch]$SkipCompilation,
 
+    [Alias('h', '?')]
+    [switch]$Help,
+
+    [Alias('no-commit')]
+    [switch]$NoCommit,
+	
+	[string]$TaskFile = "$PSScriptRoot/build/_.psake.ps1",
+    [switch]$DeleteExistingFiles,
+	[switch]$NonInteractive,
+    [switch]$SkipClean,
+	[switch]$Debug,
 	[switch]$Major,
-	[switch]$Minor,
-	[switch]$Help,
-	[switch]$InteractiveMode
+	[switch]$Minor
 )
 
-Write-Host "user: $env:USERNAME";
-Write-Host "machine: $env:COMPUTERNAME";
-Write-Host "configuration: $Configuration";
+if ($Debug) { $Configuration = "Debug"; }
 
-# Assigning Variables
+# Getting the current branch of source control.
 $branchName = $env:BUILD_SOURCEBRANCHNAME;
 if ([string]::IsNullOrEmpty($branchName))
 {
-	$results = (& git branch);
-	$regex = New-Object Regex('\*\s*(?<name>\w+)');
-	if ($regex.IsMatch($results)) { $branchName = $regex.Match($results).Groups["name"].Value; }
+	$match = [Regex]::Match((& git branch), '\*\s*(?<name>\w+)');
+	if ($match.Success) { $branchName = $match.Groups["name"].Value; }
 }
-Write-Host "branch: '$branchName'";
 
-# Restoring packages
-$nuget = "$PSScriptRoot\tools\NuGet\$NugetVersion\nuget.exe";
-if (-not (Test-Path $nuget -PathType Leaf))
+# Installing then invoking the Psake tasks.
+$toolsDir = "$PSScriptRoot/tools";
+$psakeModule = Join-Path $toolsDir "psake/*/*.psd1";
+if (-not (Test-Path $psakeModule))
+{ 
+	if (-not (Test-Path $toolsDir)) { New-Item $toolsDir -ItemType Directory | Out-Null; }
+	Save-Module "psake" -Path $toolsDir; 
+}
+Import-Module $psakeModule -Force;
+
+if ($Help) 
 {
-	$nugetDir = Split-Path $nuget -Parent;
-	if (-not (Test-Path $nugetDir -PathType Container)) { New-Item $nugetDir -ItemType Directory | Out-Null; }
-	Invoke-WebRequest "https://dist.nuget.org/win-x86-commandline/v$NugetVersion/nuget.exe" -OutFile $nuget;
+    Invoke-Psake -buildFile $TaskFile -docs;
 }
-
-if (-not $SkipCompilation) { &$nuget restore "$((Get-Item "$PSScriptRoot\*.sln").FullName)" | Out-Null; }
-
-# Invoking Psake
-Get-Item "$PSScriptRoot\packages\psake*\tools\psake.psd1" | Import-Module -Force;
-$taskFile = "$PSScriptRoot\build\tasks.ps1";
-
-if ($Help) { Invoke-psake -buildFile $taskFile -docs; }
 else
 {
-	Invoke-psake $taskFile -taskList $Tasks -nologo `
-		-properties @{
-			"Nuget"=$nuget;
-			"Secrets"=$Secrets;
-			"BranchName"=$branchName;
-			"Major"=$Major.IsPresent;
-			"Minor"=$Minor.IsPresent;
-			"Configuration"=$Configuration;
-			"SkipCompilation"=$SkipCompilation.IsPresent;
-			"InteractiveMode"=$InteractiveMode.IsPresent;
-		}
+    Write-Host -ForegroundColor DarkGray "OS:            $([Environment]::OSVersion.Platform)";
+	Write-Host -ForegroundColor DarkGray "User:          $([Environment]::UserName)@$([Environment]::MachineName)";
+    Write-Host -ForegroundColor DarkGray "Branch:        $branchName";
+    Write-Host -ForegroundColor DarkGray "Configuration: $Configuration | $Platform";
 
-    if(-not $psake.build_success) { exit 1; }
+	Invoke-psake $taskFile -nologo -taskList $Tasks -properties @{
+        "Secrets"=$Secrets;
+		"Branch"=$branchName;
+        "Platform"=$Platform;
+        "ToolsDir"=$toolsDir;
+        "RootDir"=$PSScriptRoot;
+		"Major"=$Major.IsPresent;
+		"Minor"=$Minor.IsPresent;
+		"Debug"=$Debug.IsPresent;
+		"Configuration"=$Configuration;
+        "SkipClean"=$SkipClean.IsPresent;
+        "Commit"=(-not $NoCommit.IsPresent);
+		"NonInteractive"=$NonInteractive.IsPresent;
+        "TempDir"=([System.IO.Path]::GetTempPath());
+		"SkipCompilation"=$SkipCompilation.IsPresent;
+        "SolutionName"=(Split-Path $PSScriptRoot -Leaf);
+        "DeleteExistingFiles"=$DeleteExistingFiles.IsPresent;
+	}
+	if (-not $psake.build_success) { exit 1; }
 }
