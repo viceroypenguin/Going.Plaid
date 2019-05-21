@@ -16,7 +16,7 @@ You can make all calls to Plaid's API via the `Acklann.Plaid.PlaidClient` class.
 ```c#
 var client = new PlaidClient();
 // Retrieving a user's recent transactions.
-var result = client.FetchTransactionsAsync(new GetTransactionsRequest()
+var result = await client.FetchTransactionsAsync(new GetTransactionsRequest()
 {
     Secret = "your_secret",
     ClientId = "your_client_id",
