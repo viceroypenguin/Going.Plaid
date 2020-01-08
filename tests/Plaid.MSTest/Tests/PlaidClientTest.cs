@@ -1,10 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 
-namespace Acklann.Plaid.MSTest.Tests
+namespace Acklann.Plaid.Tests
 {
     [TestClass]
-    //[UseReporter(typeof(FileLauncherReporter))]
     public class PlaidClientTest
     {
         [TestMethod]

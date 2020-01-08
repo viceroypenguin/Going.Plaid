@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>Acklann.Plaid.Demo</AssemblyName>
-    <RootNamespace>Acklann.Plaid.Demo</RootNamespace>
+    <RootNamespace>Acklann.Plaid</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="..\..\build\secrets.json" Link="secrets.json">

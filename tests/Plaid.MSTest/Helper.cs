@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Acklann.Plaid.MSTest
+namespace Acklann.Plaid
 {
     public static class Helper
     {
