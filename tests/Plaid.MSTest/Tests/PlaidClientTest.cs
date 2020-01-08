@@ -72,7 +72,7 @@ namespace Acklann.Plaid.Tests
             // Act
             var request = new Institution.SearchRequest()
             {
-                Query = "tartan"
+                Query = "citi",
             }.UseDefaults();
 
             var result = sut.FetchInstitutionsAsync(request).Result;
@@ -168,14 +168,13 @@ namespace Acklann.Plaid.Tests
 
             // Act
             var result = sut.FetchUserIdentityAsync(request).Result;
-            bool publicKeyDontHaveAccess = result.Exception.ErrorCode == "INVALID_PRODUCT";
+            bool publicKeyDontHaveAccess = result.Exception?.ErrorCode == "INVALID_PRODUCT";
             if (publicKeyDontHaveAccess) Assert.Inconclusive(Helper.your_public_key_do_not_have_access_contact_plaid);
 
             // Assert
             result.IsSuccessStatusCode.ShouldBeTrue();
             result.RequestId.ShouldNotBeNullOrEmpty();
             result.Accounts.Length.ShouldBeGreaterThan(0);
-            result.Identity.Names.Length.ShouldBeGreaterThan(0);
             result.Item.ShouldNotBeNull();
         }
 
@@ -190,7 +189,7 @@ namespace Acklann.Plaid.Tests
 
             // Act
             var result = sut.FetchUserIncomeAsync(request).Result;
-            bool publicKeyDontHaveAccess = result.Exception.ErrorCode == "INVALID_PRODUCT";
+            bool publicKeyDontHaveAccess = result.Exception?.ErrorCode == "INVALID_PRODUCT";
             if (publicKeyDontHaveAccess) Assert.Inconclusive(Helper.your_public_key_do_not_have_access_contact_plaid);
 
             // Assert
@@ -198,7 +197,6 @@ namespace Acklann.Plaid.Tests
             result.RequestId.ShouldNotBeNullOrEmpty();
             result.Income.Streams.Length.ShouldBeGreaterThan(0);
             result.Income.LastYearIncome.ShouldBeGreaterThan(0);
-            result.Item.ShouldNotBeNull();
         }
     }
 }
