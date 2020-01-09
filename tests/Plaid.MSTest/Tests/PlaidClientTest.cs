@@ -153,7 +153,7 @@ namespace Acklann.Plaid.Tests
             result.IsSuccessStatusCode.ShouldBeTrue();
             result.RequestId.ShouldNotBeNullOrEmpty();
             result.Accounts.Length.ShouldBeGreaterThan(0);
-            //result.Numbers.Length.ShouldBeGreaterThan(0);
+            (result.Numbers.ACH.Length + result.Numbers.EFT.Length + result.Numbers.International.Length + result.Numbers.BACS.Length).ShouldBeGreaterThan(0);
             result.Item.ShouldNotBeNull();
         }
 

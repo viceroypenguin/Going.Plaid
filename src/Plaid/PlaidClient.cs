@@ -34,12 +34,18 @@ namespace Acklann.Plaid
         /// <param name="secret">The secret.</param>
         /// <param name="accessToken">The access token.</param>
         /// <param name="environment">The environment.</param>
-        public PlaidClient(string clientId, string secret, string accessToken, Plaid.Environment environment = Plaid.Environment.Production)
+        /// <param name="apiVersion">The Plaid API version.</param>
+        public PlaidClient(string clientId,
+                           string secret,
+                           string accessToken,
+                           Plaid.Environment environment = Plaid.Environment.Production,
+                           string apiVersion = "2019-05-29")
         {
             _secret = secret;
             _clientId = clientId;
             _accessToken = accessToken;
             _environment = environment;
+            _apiVersion = apiVersion;
         }
 
         /* Item Management */
@@ -260,6 +266,8 @@ namespace Acklann.Plaid
                 string json = request.ToJson();
                 Log(json, $"POST: '{url}'");
 
+                var body = Body(json);
+                body.Headers.Add("Plaid-Version", this._apiVersion);
                 using (HttpResponseMessage response = await http.PostAsync(url, Body(json)))
                 {
                     json = await response.Content.ReadAsStringAsync();
@@ -290,8 +298,7 @@ namespace Acklann.Plaid
         #region Private Members
 
         private readonly Plaid.Environment _environment;
-
-        private readonly string _clientId, _secret, _accessToken;
+        private readonly string _clientId, _secret, _accessToken, _apiVersion;
 
         private static HttpContent Body(string json)
         {

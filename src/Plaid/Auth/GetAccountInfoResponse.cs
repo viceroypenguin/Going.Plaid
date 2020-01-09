@@ -36,6 +36,7 @@ namespace Acklann.Plaid.Auth
         {
             /// <summary>
             /// Gets or sets an array of ACH account numbers.
+            /// These are used for US accounts.
             /// </summary>
             /// <value>The array of ACH numbers.</value>
             [JsonProperty("ach")]
@@ -43,10 +44,27 @@ namespace Acklann.Plaid.Auth
 
             /// <summary>
             /// Gets or sets an array of EFT account numbers.
+            /// These are used for Canadian accounts.
             /// </summary>
             /// <value>The array of EFT numbers.</value>
             [JsonProperty("eft")]
             public EtfAccountNumbers[] EFT { get; set; }
+
+            /// <summary>
+            /// Gets or sets an array of international account numbers.
+            /// These are used for standard international accounts.
+            /// </summary>
+            /// <value>The array of international numbers.</value>
+            [JsonProperty("international")]
+            public EtfAccountNumbers[] International { get; set; }
+
+            /// <summary>
+            /// Gets or sets an array of BACS account numbers.
+            /// These are used for British accounts.
+            /// </summary>
+            /// <value>The array of BACS numbers.</value>
+            [JsonProperty("bacs")]
+            public EtfAccountNumbers[] BACS { get; set; }
         }
 
         /// <summary>
