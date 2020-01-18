@@ -19,15 +19,32 @@ namespace Acklann.Plaid
             ClientId = _plaid["client_id"].Value<string>();
             PublicKey = _plaid["public_key"].Value<string>();
             AccessToken = _plaid?["access_token"]?.Value<string>();
+            IntlAccessToken = _plaid?["intl_access_token"]?.Value<string>();
         }
 
-        public static readonly string ClientId, Secret, AccessToken, PublicKey;
+        public static readonly string ClientId, Secret, AccessToken, IntlAccessToken, PublicKey;
 
         public static TRequest UseDefaults<TRequest>(this TRequest request)
         {
             PropertyInfo[] properties = request.GetType().GetTypeInfo().GetRuntimeProperties().ToArray();
             setProperty(nameof(Institution.SearchRequest.PublicKey), PublicKey);
             setProperty(nameof(RequestBase.AccessToken), AccessToken);
+            setProperty(nameof(RequestBase.ClientId), ClientId);
+            setProperty(nameof(RequestBase.Secret), Secret);
+            return request;
+
+            void setProperty(string name, object value)
+            {
+                PropertyInfo target = properties.FirstOrDefault(p => p.Name == name);
+                if (target != null) target.SetValue(request, value);
+            }
+        }
+
+        public static TRequest UseIntlDefaults<TRequest>(this TRequest request)
+        {
+            PropertyInfo[] properties = request.GetType().GetTypeInfo().GetRuntimeProperties().ToArray();
+            setProperty(nameof(Institution.SearchRequest.PublicKey), PublicKey);
+            setProperty(nameof(RequestBase.AccessToken), IntlAccessToken);
             setProperty(nameof(RequestBase.ClientId), ClientId);
             setProperty(nameof(RequestBase.Secret), Secret);
             return request;
