@@ -32,7 +32,6 @@
     </Content>
     <Content Include="manifest.json" />
     <Content Include="packages.config" />
-    <Content Include="secrets.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\build.ps1">
