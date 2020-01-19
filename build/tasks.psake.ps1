@@ -1,113 +1,112 @@
-# Project-Specific tasks.
+# SYNOPSIS: This is a psake task file.
+Join-Path $PSScriptRoot "toolkit.psm1" | Import-Module -Force;
+FormatTaskName "$(Out-StringHeader)`r`n  {0}`r`n$(Out-StringHeader)";
 
 Properties {
-    $Packages = @("Ncrement", "VSSetup", "Pester");
-	#[string]$MigrationDirectory = (Join-Path $RootDir "src/*/*Migrations" | Resolve-Path);
+	$Dependencies = @("Ncrement");
+
+	# Files & Folders
+	$SolutionFolder = (Split-Path $PSScriptRoot -Parent);
+	$SolutionName =   (Split-Path $SolutionFolder -Leaf);
+	$ArtifactsFolder = (Join-Path $SolutionFolder "artifacts");
+	$ManifestFilePath = (Join-Path $PSScriptRoot  "manifest.json");
+	$SecretsFilePath = "";
+	$ToolsFolder = "";
+	$MSBuildExe = "";
+
+	# Arguments
+    $ShouldCommitChanges = $true;
+	$Interactive = $true;
+	$CurrentBranch = "";
+	$Configuration = "";
+	$Filter = $null;
+	$DryRun = $false;
+	$Major = $false;
+	$Minor = $false;
+	$Force = $false;
 }
 
-Task "Default" -depends @("clean", "msbuild", "mstest", "pack");
+Task "Default" -depends @("configure", "compile", "test", "pack");
 
-Task "Deploy" -alias "publish" -description "This task publishes all packages to their respective platforms." `
--depends @("clean", "configure", "version", "msbuild", "mstest", "pack", "push-nuget", "push-db", "push-web", "push-ps", "tag");
+Task "Publish" -depends @("clean", "version", "compile", "test", "pack", "push-nuget", "tag") `
+-description "This task compiles, test then publish all packages to their respective destination.";
 
-# ==============================
+# ======================================================================
 
-
-Task "Initialize-Solution" -alias "configure" -description "This task creates all missing user-specific artifacts." `
+Task "Configure Local Environment" -alias "configure" -description "This task generates all files required for development." `
 -depends @("restore") -action {
-    # Create the 'secrets.json' file.
-    if (-not (Test-Path $SecretsJson))
-    {
-        $credentials = '{ "jdbcurl": "jdbc:mysql://{0}/{1}", "userStore": "server=;user=;password=;database=;", "database": "server=;user=;password=;database=;" }';
-        [string]::Format('{{ "nugetKey": null, "psGalleryKey": null, "local": {0}, "preview": {0} }}', $credentials) | Out-File $SecretsJson -Encoding utf8;
-    }
+	# Generating the build manifest file.
+	if (-not (Test-Path $ManifestFilePath)) { New-NcrementManifest | ConvertTo-Json | Out-File $ManifestFilePath -Encoding utf8; }
+	Write-Host "  * added 'build/$(Split-Path $ManifestFilePath -Leaf)' to the solution.";
+
+	# Generating a secrets file template to store sensitive information.
+	if (-not (Test-Path $SecretsFilePath))
+	{
+		$content = "{ `"nugetKey`": null }";
+		$content | Out-File $SecretsFilePath -Encoding utf8;
+	}
+	Write-Host "  * added '$(Split-Path $SecretsFilePath -Leaf)' to the solution.";
 }
 
-
-Task "Clean-Solution" -alias "clean" -description "This task removes all generated artifacts from the solution." `
--precondition { return (-not $SkipClean); } -action {
-    $transientFolders = @($ArtifactsDir);
-    $transientFolders += (Join-Path $RootDir "packages");
+Task "Package Solution" -alias "pack" -description "This task generates all deployment packages." `
+-depends @("restore") -action {
+	if (Test-Path $ArtifactsFolder) { Remove-Item $ArtifactsFolder -Recurse -Force; }
+	New-Item $ArtifactsFolder -ItemType Directory | Out-Null;
 	
-	foreach ($proj in Get-ChildItem $RootDir -Recurse -Filter "*.*proj")
-	{
-		$transientFolders += (Join-Path $proj.DirectoryName "bin");
-		$transientFolders += (Join-Path $proj.DirectoryName "obj");
-		$transientFolders += (Join-Path $proj.DirectoryName "node_modules");
-		$transientFolders += (Join-Path $proj.DirectoryName "package-lock.json");
-	}
+	$version = $ManifestFilePath | Select-NcrementVersionNumber $CurrentBranch;
+	$proj = Join-Path $SolutionFolder "src/*/*.*proj" | Get-Item;
 
-	foreach ($folder in $transientFolders)
+	Write-Header "dotnet pack '$($proj.BaseName).$version'";
+	Exec { &dotnet pack $proj.FullName --output $ArtifactsFolder --configuration $Configuration -p:PackageVersion=$version; }
+}
+
+#region ----- COMPILATION ----------------------------------------------
+
+Task "Clean" -description "This task removes all generated files and folders from the solution." `
+-action {
+	Join-Path $SolutionFolder "*.sln" | Get-Item | Remove-GeneratedProjectItem -AdditionalItems @("artifacts");
+	Get-ChildItem $SolutionFolder -Recurse -File -Filter "*.*proj" | Remove-GeneratedProjectItem;
+}
+
+Task "Import Build Dependencies" -alias "restore" -description "This task imports all build dependencies." `
+-action {
+	foreach ($moduleId in $Dependencies)
 	{
-		if (Test-Path $folder)
-		{
-			Remove-Item $folder -Recurse -Force -ErrorAction SilentlyContinue | Out-Null;
-			Write-Host "  * removed '$folder'";
-		}
+		$modulePath = Join-Path $ToolsFolder "$moduleId/*/*.psd1";
+		if (-not (Test-Path $modulePath)) { Save-Module $moduleId -Path $ToolsFolder; }
+		Import-Module $modulePath -Force;
+		Write-Host "  * imported the '$moduleId-$(Split-Path (Get-Item $modulePath).DirectoryName -Leaf)' powershell module.";
 	}
 }
 
-# ==============================
-
-Task "Package-Solution" -alias "pack" -description "This task generates all deployment packages." `
+Task "Increment Version Number" -alias "version" -description "This task increments all of the projects version number." `
 -depends @("restore") -action {
-	if (Test-Path $ArtifactsDir) { Remove-Item $ArtifactsDir -Recurse -Force; }
-	New-Item $ArtifactsDir -ItemType Directory | Out-Null;
-	
-	$proj = Get-Item "$RootDir\src\*\*.csproj";
-	Write-Header "dotnet: pack '$($proj.BaseName)'";
-    $version = Get-NcrementManifest $ManifestJson | Convert-NcrementVersionNumberToString $Branch -AppendSuffix;
-	Exec { &dotnet pack $proj.FullName --output $ArtifactsDir --configuration $Configuration /p:PackageVersion=$version; }
+	$manifest = $ManifestFilePath | Step-NcrementVersionNumber -Major:$Major -Minor:$Minor -Patch | Edit-NcrementManifest $ManifestFilePath -Stage:$ShouldCommitChanges;
+	$newVersion = $ManifestFilePath | Select-NcrementVersionNumber $CurrentBranch;
+
+	Join-Path $SolutionFolder "src/*/*.*proj" | Get-ChildItem | Update-NcrementProjectFile $ManifestFilePath -Commit:$ShouldCommitChanges | Split-Path -Leaf `
+		| Out-StringFormat "  * incremented '{0}' version number to '$newVersion'." | Write-Host;
 }
 
+Task "Build Solution" -alias "compile" -description "This task compiles projects in the solution." `
+-action { Get-Item "$SolutionFolder/*.sln" | Invoke-MSBuild $Configuration; }
 
-Task "Rebuild-FlywayLocalDb" -alias "rebuild-db" -description "This task rebuilds the local database using flyway." `
--depends @("restore") -action{
-	[string]$flyway = Get-Flyway;
-	$credential = Get-Secret "local";
-	Assert (-not [string]::IsNullOrEmpty($credential.database)) "A connection string for your local database was not provided.";
+Task "Run Tests" -alias "test" -description "This task invoke all tests within the 'tests' folder." `
+-action { Join-Path $SolutionFolder "tests" | Get-ChildItem -Recurse -File -Filter "*MSTest.*proj" | Invoke-MSTest $Configuration; }
 
-	$db = [ConnectionInfo]::new($credential, $credential.database);
-	Write-Header "flyway: clean ($($db.ToFlywayUrl()))";
-	Exec { &$flyway clean $db.ToFlywayUrl() $db.ToFlyUser() $db.ToFlyPassword(); }
-	Write-Header "flyway: migrate ($($db.ToFlywayUrl()))";
-	Exec { &$flyway migrate $db.ToFlywayUrl() $db.ToFlyUser() $db.ToFlyPassword() $([ConnectionInfo]::ConvertToFlywayLocation($MigrationDirectory)); }
-	Exec { &$flyway info $db.ToFlywayUrl() $db.ToFlyUser() $db.ToFlyPassword() $([ConnectionInfo]::ConvertToFlywayLocation($MigrationDirectory)); }
-}
+Task "Run Benchmarks" -alias "benchmark" -description "This task invoke all benchmark tests within the 'tests' folder." `
+-action { $projectFile = Join-Path $SolutionFolder "tests/*.Benchmark/*.*proj" | Get-Item | Invoke-BenchmarkDotNet -Filter $Filter -DryRun:$DryRun; }
 
+#endregion
 
-Task "Run-Benchmarks" -alias "benchmark" -description "This task runs all project benchmarks." `
--depends @("restore") -action {
-	$benchmarkProject = Get-ChildItem "$RootDir/tests" -Recurse -Filter "*Benchmark.csproj" | Select-Object -First 1;
+#region ----- PUBLISHING -----------------------------------------------
 
-	if (Test-Path $benchmarkProject.FullName)
-	{
-		Write-Header "dotnet: clean + build";
-        [string]$sln = Resolve-Path "$RootDir/*.sln";
-		Exec { &dotnet clean $sln; }
-		Exec { &dotnet build $sln --configuration Release; }
+Task "Publish NuGet Packages" -alias "push-nuget" -description "This task publish all nuget packages to nuget.org." `
+-precondition { return ($Configuration -ieq "Release") -and (Test-Path $ArtifactsFolder -PathType Container) } `
+-action { Get-ChildItem $ArtifactsFolder -Recurse -Filter "*.nupkg" | Publish-NugetPackage $SecretsFilePath "nugetKey"; }
 
-		try
-		{
-			$dll = Get-ChildItem "$($benchmarkProject.DirectoryName)/bin/Release" -Recurse -Filter "*Benchmark.dll" | Select-Object -First 1;
-			Push-Location $dll.DirectoryName;
+Task "Add-GitReleaseTag" -alias "tag" -description "This task tags the last commit with the version number." `
+-precondition { return $CurrentBranch -eq "master"; } `
+-depends @("restore") -action { $ManifestFilePath | Select-NcrementVersionNumber -Format "C" | New-Tag; }
 
-			Write-Header "dotnet: run benchmarks";
-			Exec { &dotnet $dll.FullName; }
-
-			# Copying benchmark results to report.
-			$reportFile = Get-Item "$($benchmarkProject.DirectoryName)/*.md";
-			if (Test-Path $reportFile)
-			{
-				$summary = Get-Item "$($dll.DirectoryName)/*artifacts*/*/*.md" | Get-Content | Out-String;
-				$report = $reportFile | Get-Content | Out-String;
-				$match = [Regex]::Match($report, '(?i)#+\s+(Summary|Results?|Report)');
-				$report = $report.Substring(0, ($match.Index + $match.Length));
-				"$report`r`n`r`n$summary" | Out-File $reportFile -Encoding utf8;
-				Get-Item "$($dll.DirectoryName)/*artifacts*/*/*.html" | Invoke-Item;
-			}
-		}
-		finally { Pop-Location; }
-	}
-    else { Write-Host " no benchmarks found." -ForegroundColor Yellow; }
-}
+#endregion

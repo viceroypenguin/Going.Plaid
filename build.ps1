@@ -8,85 +8,90 @@ This example prints a list of all the available tasks.
 #>
 
 Param(
-	[Alias('t')]
+	[ValidateNotNullorEmpty()]
 	[string[]]$Tasks = @("default"),
 
-    [Alias('s', "keys")]
-	[hashtable]$Secrets = @{},
+	[Alias('f', "desc")]
+	[ValidateNotNullorEmpty()]
+	[string]$Filter = "*",
+
+	[Alias("secrets")]
+	[string]$SecretsFilePath,
 
 	[Alias('c')]
-	[ValidateSet("Debug", "Release")]
-	[string]$Configuration = "Release",
+	[string]$Configuration = "Debug",
 
-    [Alias('p')]
-    [string]$Platform = "AnyCPU",
+	[Alias("nc", "no-commit")]
+	[switch]$SkipCommit,
 
-	[Alias("sc", "no-build")]
-	[switch]$SkipCompilation,
+	[Alias('h', '?')]
+	[switch]$Help,
 
-    [Alias('h', '?')]
-    [switch]$Help,
+	[Alias('d', "dry")]
+	[switch]$DryRun,
 
-    [Alias('no-commit')]
-    [switch]$NoCommit,
-	
-	[string]$TaskFile = "$PSScriptRoot/build/_.psake.ps1",
-    [switch]$DeleteExistingFiles,
+	[Alias('i')]
 	[switch]$NonInteractive,
-    [switch]$SkipClean,
-	[switch]$Debug,
+
+	[switch]$Release,
 	[switch]$Major,
-	[switch]$Minor
+	[switch]$Minor,
+	[switch]$Force
 )
 
-if ($Debug) { $Configuration = "Debug"; }
+# Ensuring we have our Dependencies installed.
+if(-not ((&node --version) -match 'v\d+.\d+')) { throw "'nodejs' is not accessible on this machine."; }
+if(-not ((&dotnet --version) -match '\d+.\d+')) { throw "'dotnet' is not accessible on this machine."; }
+if (-not ((&git --version) -match 'git version \d+\.\d+')) { throw "'git' is not accessible on this machine."; }
 
-# Getting the current branch of source control.
-$branchName = $env:BUILD_SOURCEBRANCHNAME;
+# Initializing our default variables.
+if (($Tasks.Length -gt 0) -and ($Tasks[0] -like "publish")) { $Configuration = "Release"; }
+if ($Release) { $Configuration = "Release"; }
+
+$SecretsFilePath = (Join-Path $PSScriptRoot "secrets.json");
+$msbuild = try { (&cmd /c where msbuild); } catch { return $null; }
+
+# Getting the current branch from source control.
+$branchName = ([Environment]::GetEnvironmentVariable("BUILD_SOURCEBRANCHNAME"));
 if ([string]::IsNullOrEmpty($branchName))
 {
 	$match = [Regex]::Match((& git branch), '\*\s*(?<name>\w+)');
 	if ($match.Success) { $branchName = $match.Groups["name"].Value; }
 }
 
-# Installing then invoking the Psake tasks.
-$toolsDir = "$PSScriptRoot/tools";
-$psakeModule = Join-Path $toolsDir "psake/*/*.psd1";
+# Invoking the Psake tasks.
+$toolsFolder = Join-Path $PSScriptRoot "tools";
+$psakeModule = Join-Path $toolsFolder "psake/*/*.psd1";
 if (-not (Test-Path $psakeModule))
-{ 
-	if (-not (Test-Path $toolsDir)) { New-Item $toolsDir -ItemType Directory | Out-Null; }
-	Save-Module "psake" -Path $toolsDir; 
+{
+	if (-not (Test-Path $toolsFolder)) { New-Item $toolsFolder -ItemType Directory | Out-Null; }
+	Save-Module "psake" -Path $toolsFolder;
 }
 Import-Module $psakeModule -Force;
 
-if ($Help) 
-{
-    Invoke-Psake -buildFile $TaskFile -docs;
-}
+$taskFile = Join-Path $PSScriptRoot "build/tasks.psake.ps1";
+if ($Help) { Invoke-Psake -buildFile $taskFile -docs; }
 else
 {
-    Write-Host -ForegroundColor DarkGray "OS:            $([Environment]::OSVersion.Platform)";
 	Write-Host -ForegroundColor DarkGray "User:          $([Environment]::UserName)@$([Environment]::MachineName)";
-    Write-Host -ForegroundColor DarkGray "Branch:        $branchName";
-    Write-Host -ForegroundColor DarkGray "Configuration: $Configuration | $Platform";
-
+	Write-Host -ForegroundColor DarkGray "OS:            $([Environment]::OSVersion.Platform)";
+	Write-Host -ForegroundColor DarkGray "Branch:        $branchName";
+	Write-Host -ForegroundColor DarkGray "Configuration: $Configuration";
+	Write-Host "";
 	Invoke-psake $taskFile -nologo -taskList $Tasks -properties @{
-        "Secrets"=$Secrets;
-		"Branch"=$branchName;
-        "Platform"=$Platform;
-        "ToolsDir"=$toolsDir;
-        "RootDir"=$PSScriptRoot;
+		"Filter"=$Filter;
+		"MSBuildExe"=$msbuild;
 		"Major"=$Major.IsPresent;
 		"Minor"=$Minor.IsPresent;
-		"Debug"=$Debug.IsPresent;
+		"Force"=$Force.IsPresent;
+		"DryRun"=$DryRun.IsPresent;
+		"ToolsFolder"=$toolsFolder;
+		"CurrentBranch"=$branchName;
 		"Configuration"=$Configuration;
-        "SkipClean"=$SkipClean.IsPresent;
-        "Commit"=(-not $NoCommit.IsPresent);
-		"NonInteractive"=$NonInteractive.IsPresent;
-        "TempDir"=([System.IO.Path]::GetTempPath());
-		"SkipCompilation"=$SkipCompilation.IsPresent;
-        "SolutionName"=(Split-Path $PSScriptRoot -Leaf);
-        "DeleteExistingFiles"=$DeleteExistingFiles.IsPresent;
+		"SolutionFolder"=$PSScriptRoot;
+		"SecretsFilePath"=$SecretsFilePath;
+		"Interactive"=(-not $NonInteractive.IsPresent);
+		"ShouldCommitChanges"=(-not $SkipCommit.IsPresent);
 	}
 	if (-not $psake.build_success) { exit 1; }
 }

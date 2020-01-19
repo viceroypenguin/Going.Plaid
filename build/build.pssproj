@@ -39,6 +39,7 @@
       <Link>build.ps1</Link>
     </Compile>
     <Compile Include="tasks.psake.ps1" />
+    <Compile Include="toolkit.psm1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build">
