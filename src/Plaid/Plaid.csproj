@@ -24,7 +24,7 @@
     <AssemblyFileVersion>0.0.11</AssemblyFileVersion>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReleaseNotes>https://github.com/Ackara/Plaid.NET/blob/master/changelog.md</PackageReleaseNotes>
-    <PackageLicenseFile>https://github.com/Ackara/Plaid.NET/blob/master/LICENSE</PackageLicenseFile>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -32,5 +32,21 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup Label="Package">
+    <Content Include="..\..\license.txt">
+      <Visible>false</Visible>
+      <PackagePath></PackagePath>
+    </Content>
+
+    <Content Include="..\..\art\icon.png">
+      <Visible>false</Visible>
+      <PackagePath></PackagePath>
+    </Content>
+
+    <Content Include="..\..\art\icon.png">
+      <PackagePath></PackagePath>
+    </Content>
   </ItemGroup>
 </Project>
