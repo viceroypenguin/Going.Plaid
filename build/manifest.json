@@ -4,14 +4,14 @@
   "version": {
     "major": 0,
     "minor": 0,
-    "patch": 10
+    "patch": 11
   },
   "authors": "Ackara",
   "company": "Ackara",
   "copyright": "Copyright {year} {company}, All Rights Reserved.",
-  "license": "license.md",
   "website": "https://github.com/{company}/{name}",
   "repository": "https://github.com/{company}/{name}.git",
+  "license": "https://github.com/{company}/{name}/blob/master/LICENSE",
   "releaseNotes": "https://github.com/{company}/{name}/blob/master/changelog.md",
   "icon": "icon.png",
   "tags": "plaid banking api",

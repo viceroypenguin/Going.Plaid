@@ -1,36 +1,36 @@
-
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Acklann.Plaid</AssemblyName>
     <RootNamespace>Acklann.Plaid</RootNamespace>
-    <AssemblyVersion>0.0.10</AssemblyVersion>
+    <AssemblyVersion>0.0.11</AssemblyVersion>
     <PackageVersion>0.0.9</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
     <Authors>Ackara</Authors>
     <Company>Ackara</Company>
     <PackageTags>plaid banking api</PackageTags>
     <Copyright>Copyright 2020 Ackara, All Rights Reserved.</Copyright>
     <PackageProjectUrl>https://github.com/Ackara/Plaid.NET</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/Ackara/Plaid.NET/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/Ackara/Plaid.NET.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>A client api for plaid.com banking service.</Description>
     <PackageIconUrl>https://github.com/Ackara/Plaid.NET/raw/master/art/icon.png</PackageIconUrl>
-  
-<Title>Plaid.NET</Title>
-<Version>0.0.10</Version>
-<AssemblyFileVersion>0.0.10</AssemblyFileVersion>
-<PackageIcon>icon.png</PackageIcon>
-<PackageReleaseNotes>https://github.com/Ackara/Plaid.NET/blob/master/changelog.md</PackageReleaseNotes>
-<PackageLicenseFile>license.md</PackageLicenseFile>
-</PropertyGroup>
+
+    <Title>Plaid.NET</Title>
+    <Version>0.0.11</Version>
+    <AssemblyFileVersion>0.0.11</AssemblyFileVersion>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>https://github.com/Ackara/Plaid.NET/blob/master/changelog.md</PackageReleaseNotes>
+    <PackageLicenseFile>https://github.com/Ackara/Plaid.NET/blob/master/LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\Acklann.Plaid.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
-
-
 </Project>
