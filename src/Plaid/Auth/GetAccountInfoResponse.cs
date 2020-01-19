@@ -56,7 +56,7 @@ namespace Acklann.Plaid.Auth
             /// </summary>
             /// <value>The array of international numbers.</value>
             [JsonProperty("international")]
-            public EtfAccountNumbers[] International { get; set; }
+            public InternationalAccountNumbers[] International { get; set; }
 
             /// <summary>
             /// Gets or sets an array of BACS account numbers.
@@ -64,7 +64,7 @@ namespace Acklann.Plaid.Auth
             /// </summary>
             /// <value>The array of BACS numbers.</value>
             [JsonProperty("bacs")]
-            public EtfAccountNumbers[] BACS { get; set; }
+            public BacsAccountNumbers[] BACS { get; set; }
         }
 
         /// <summary>
@@ -133,6 +133,60 @@ namespace Acklann.Plaid.Auth
             /// <value>The branch number.</value>
             [JsonProperty("branch")]
             public string Branch { get; set; }
+        }
+
+        /// <summary>
+        /// Represents the bank account and routing numbers associated with an international account on a item.
+        /// </summary>
+        public struct InternationalAccountNumbers
+        {
+            /// <summary>
+            /// Gets or sets the plaid account identifier.
+            /// </summary>
+            /// <value>The account identifier.</value>
+            [JsonProperty("account_id")]
+            public string AccountId { get; set; }
+
+            /// <summary>
+            /// Gets or sets the International Bank Account Number for the account.
+            /// </summary>
+            /// <value>The International Bank Account Number (IBAN).</value>
+            [JsonProperty("iban")]
+            public string Iban { get; set; }
+
+            /// <summary>
+            /// Gets or sets the Bank Identifier Code for the account.
+            /// </summary>
+            /// <value>The Bank Identifier Code (BIC)</value>
+            [JsonProperty("bic")]
+            public string Bic { get; set; }
+        }
+
+        /// <summary>
+        /// Represents the bank account and routing numbers associated with an ACH account on a item.
+        /// </summary>
+        public struct BacsAccountNumbers
+        {
+            /// <summary>
+            /// Gets or sets the plaid account identifier.
+            /// </summary>
+            /// <value>The account identifier.</value>
+            [JsonProperty("account_id")]
+            public string AccountId { get; set; }
+
+            /// <summary>
+            /// Gets or sets the BACS account number for the account.
+            /// </summary>
+            /// <value>The BACS account number.</value>
+            [JsonProperty("account")]
+            public string AccountNumber { get; set; }
+
+            /// <summary>
+            /// Gets or sets the BACS sort code for the account.
+            /// </summary>
+            /// <value>The BACS sort code.</value>
+            [JsonProperty("sort_code")]
+            public string RoutingNumber { get; set; }
         }
     }
 }

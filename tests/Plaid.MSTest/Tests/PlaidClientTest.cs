@@ -158,6 +158,27 @@ namespace Acklann.Plaid.Tests
         }
 
         [TestMethod]
+        public void FetchAccountInfoAsync_International_Bacs_should_retrieve_the_routing_numbers_of_an_user_accounts()
+        {
+            // Arrange
+            var sut = new PlaidClient(Environment.Sandbox);
+            var request = new Auth.GetAccountInfoRequest()
+            {
+            }.UseIntlDefaults();
+
+            // Act
+            var result = sut.FetchAccountInfoAsync(request).Result;
+
+            // Assert
+            result.IsSuccessStatusCode.ShouldBeTrue();
+            result.RequestId.ShouldNotBeNullOrEmpty();
+            result.Accounts.Length.ShouldBeGreaterThan(0);
+            result.Numbers.International.Length.ShouldBeGreaterThan(0);
+            result.Numbers.BACS.Length.ShouldBeGreaterThan(0);
+            result.Item.ShouldNotBeNull();
+        }
+
+        [TestMethod]
         public void FetchUserIdentityAsync_should_retrieve_the_personal_info_of_an_user()
         {
             // Arrange
