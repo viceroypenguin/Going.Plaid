@@ -144,6 +144,16 @@ namespace Acklann.Plaid
             return PostAsync<Income.GetIncomeResponse>("income/get", request);
         }
 
+        /* Investments */
+
+        /// <summary>
+        /// Retrieves information pertaining to a <see cref="Entity.Item"/>'s investment holdings.
+        /// </summary>
+        public Task<Investments.GetInvestmentHoldingsResponse> FetchInvestmentHoldingsAsync(Investments.GetInvestmentHoldingsRequest request)
+        {
+            return PostAsync<Investments.GetInvestmentHoldingsResponse>("investments/holdings/get", request);
+        }
+
         /* Auth */
 
         /// <summary>
