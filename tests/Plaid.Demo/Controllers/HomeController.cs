@@ -31,6 +31,21 @@ namespace Acklann.Plaid.Demo.Controllers
             return Ok(result);
         }
 
+        [HttpPost]
+        public IActionResult GetPublicToken(Environment environment)
+        {
+            var client = new PlaidClient(environment);
+            var result = client.CreatePublicTokenAsync(new CreatePublicTokenRequest()
+            {
+                Secret = _credentials.Secret,
+                ClientId = _credentials.ClientId,
+                AccessToken = _credentials.AccessToken,
+            }).Result;
+            System.Diagnostics.Debug.WriteLine($"public_token: '{result.PublicToken}'");
+
+            return Ok(result);
+        }
+
         #region Private Members
 
         private Middleware.PlaidCredentials _credentials;
