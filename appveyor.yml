@@ -13,8 +13,8 @@ after_test:
     - cmd: dotnet pack ./src/Plaid/Plaid.csproj -c Release
 
 artifacts:
-  - path: src\Plaid\bin\Release\netstandard2.0\Plaid.dll
-    name: Plaid.dll
+  - path: src\Plaid\bin\Release\netstandard2.0\Going.Plaid.dll
+    name: Going.Plaid.dll
   - path: '**\*.nupkg'
   - path: '**\*.snupkg'
 
@@ -29,16 +29,13 @@ deploy:
     skip_symbols: false
     artifact: /.*(\.|\.s)nupkg/
     on: 
-        branch: master
         APPVEYOR_REPO_TAG: true        # deploy on tag push only
 
  -  provider: GitHub
     auth_token:
         secure: gLjuy01aV234sOjDtHTsqYPwox1c1Qj6uHYSIg0ToLcBDdbGePs30M6Dx/fmFdyX
-    tag: $(appveyor_build_version)
-    name: Release $(appveyor_build_version)
-    description: Release $(appveyor_build_version)
+    name: Release $(APPVEYOR_REPO_TAG_NAME)
+    description: Release $(APPVEYOR_REPO_TAG_NAME)
     artifact: /.*(\.|\.s)nupkg/
     on: 
-        branch: master
         APPVEYOR_REPO_TAG: true        # deploy on tag push only
