@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Entity
+namespace Going.Plaid.Entity
 {
     /// <summary>
     /// Represents a Plaid item. A set of credentials at a financial institution.

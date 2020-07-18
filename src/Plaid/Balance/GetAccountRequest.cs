@@ -1,8 +1,8 @@
-﻿namespace Acklann.Plaid.Balance
+﻿namespace Going.Plaid.Balance
 {
     /// <summary>
     /// Represents a request for plaid's '/accounts/get' endpoint.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.RequestBase" />
+    /// <seealso cref="Going.Plaid.RequestBase" />
     public class GetAccountRequest : RequestBase { }
 }

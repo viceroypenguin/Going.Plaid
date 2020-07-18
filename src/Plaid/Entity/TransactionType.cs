@@ -1,4 +1,4 @@
-﻿namespace Acklann.Plaid.Entity
+﻿namespace Going.Plaid.Entity
 {
     /// <summary>
     /// A type of transaction.

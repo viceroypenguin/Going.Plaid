@@ -1,4 +1,4 @@
-﻿namespace Acklann.Plaid
+﻿namespace Going.Plaid
 {
     /// <summary>
     /// A Plaid Environment.

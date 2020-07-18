@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Acklann.Plaid.Entity
+namespace Going.Plaid.Entity
 {
 	public enum InvestmentTransactionSubType
 	{

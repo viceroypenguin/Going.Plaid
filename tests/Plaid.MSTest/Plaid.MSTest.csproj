@@ -5,7 +5,7 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>Acklann.Plaid</RootNamespace>
+    <RootNamespace>Going.Plaid</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

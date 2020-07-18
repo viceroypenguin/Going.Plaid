@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Acklann.Plaid.Transactions
+namespace Going.Plaid.Transactions
 {
     /// <summary>
     /// Represents a request for plaid's '/transactions/get' endpoint. The '/transactions/get' endpoint allows developers to receive user-authorized transaction data for credit and depository-type Accounts. Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.

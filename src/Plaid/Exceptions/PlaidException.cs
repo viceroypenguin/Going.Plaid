@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Acklann.Plaid.Exceptions
+namespace Going.Plaid.Exceptions
 {
     /// <summary>
     /// The exception that is thrown when a response from the Plaid API contains an error.

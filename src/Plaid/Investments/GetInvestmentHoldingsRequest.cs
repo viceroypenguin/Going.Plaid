@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Acklann.Plaid.Investments
+namespace Going.Plaid.Investments
 {
     /// <summary>
     /// Represents a request for plaid's '/investments/holdings/get' endpoint. The '/investments/holdings/get' endpoint allows developers to receive user-authorized stock position data for investment-type Accounts. Holding data is standardized across financial institutions, and Holdings are linked to Securities.

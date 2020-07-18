@@ -1,9 +1,9 @@
-﻿namespace Acklann.Plaid.Balance
+﻿namespace Going.Plaid.Balance
 {
     /// <summary>
     /// Represents a response from plaid's '/accounts/get' endpoint.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.ResponseBase" />
+    /// <seealso cref="Going.Plaid.ResponseBase" />
     public class GetAccountResponse : ResponseBase
     {
         /// <summary>

@@ -1,7 +1,7 @@
-﻿using Acklann.Plaid.Management;
+﻿using Going.Plaid.Management;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Acklann.Plaid.Demo.Controllers
+namespace Going.Plaid.Demo.Controllers
 {
     public class HomeController : Controller
     {

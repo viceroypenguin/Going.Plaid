@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Institution
+namespace Going.Plaid.Institution
 {
     /// <summary>
     /// Represents a request for plaid's '/institutions/search' endpoints. The '/institutions/search' endpoint to retrieve a complete list of supported institutions that match the query.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.SerializableContent" />
+    /// <seealso cref="Going.Plaid.SerializableContent" />
     public class SearchRequest : SerializableContent
     {
         /// <summary>

@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Management
+namespace Going.Plaid.Management
 {
     /// <summary>
     /// Represents a response from plaid's '/item/public_token/exchange' endpoint. Exchange a Link public_token for an API access_token.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.ResponseBase" />
+    /// <seealso cref="Going.Plaid.ResponseBase" />
     public class ExchangeTokenResponse : ResponseBase
     {
         /// <summary>

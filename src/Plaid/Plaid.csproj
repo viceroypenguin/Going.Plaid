@@ -1,52 +1,62 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Acklann.Plaid</AssemblyName>
-    <RootNamespace>Acklann.Plaid</RootNamespace>
-    <AssemblyVersion>0.0.11</AssemblyVersion>
-    <PackageVersion>0.0.9</PackageVersion>
+    <AssemblyName>Going.Plaid</AssemblyName>
+    <RootNamespace>Going.Plaid</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet">
-    <Authors>Ackara</Authors>
-    <Company>Ackara</Company>
-    <PackageTags>plaid banking api</PackageTags>
-    <Copyright>Copyright 2020 Ackara, All Rights Reserved.</Copyright>
-    <PackageProjectUrl>https://github.com/Ackara/Plaid.NET</PackageProjectUrl>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <RepositoryUrl>https://github.com/Ackara/Plaid.NET.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
+    <Title>Going.Plaid.NET</Title>
     <Description>A client api for plaid.com banking service.</Description>
-    <PackageIconUrl>https://github.com/Ackara/Plaid.NET/raw/master/art/icon.png</PackageIconUrl>
+    
+    <Authors>viceroypenguin; Ackara</Authors>
+    <PackageTags>plaid banking api</PackageTags>
+    <Copyright>Copyright 2020 Turning Code, LLC; Ackara</Copyright>
 
-    <Title>Plaid.NET</Title>
-    <Version>0.0.11</Version>
-    <AssemblyFileVersion>0.0.11</AssemblyFileVersion>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageReleaseNotes>https://github.com/Ackara/Plaid.NET/blob/master/changelog.md</PackageReleaseNotes>
-    <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <RepositoryUrl>https://github.com/viceroypenguin/Going.Plaid.NET.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\art\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\Acklann.Plaid.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\Going.Plaid.xml</DocumentationFile>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="MinVer" Version="2.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.*" />
   </ItemGroup>
 
-  <ItemGroup Label="Package">
-    <Content Include="..\..\license.txt">
-      <Visible>false</Visible>
-      <PackagePath></PackagePath>
-    </Content>
+  <PropertyGroup Label="MinVer">
+    <MinVerAutoIncrement>minor</MinVerAutoIncrement>
+    <MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+  </PropertyGroup>
 
-    <Content Include="..\..\art\icon.png">
-      <Visible>false</Visible>
-      <PackagePath></PackagePath>
-    </Content>
+  <Target Name="MyTarget" AfterTargets="MinVer" Condition="'$(APPVEYOR_PULL_REQUEST_NUMBER)' != ''" >
+    <PropertyGroup>
+      <PackageVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)-pr.$(APPVEYOR_PULL_REQUEST_NUMBER).build-id.$(APPVEYOR_BUILD_ID).$(MinVerPreRelease)</PackageVersion>
+      <PackageVersion Condition="'$(MinVerBuildMetadata)' != ''">$(PackageVersion)+$(MinVerBuildMetadata)</PackageVersion>
+      <Version>$(PackageVersion)</Version>
+    </PropertyGroup>
+  </Target>
 
-    <Content Include="..\..\art\icon.png">
-      <PackagePath></PackagePath>
-    </Content>
-  </ItemGroup>
+  <Target Name="MyTarget" AfterTargets="MinVer">
+    <PropertyGroup>
+      <APPVEYOR_BUILD_NUMBER Condition="'$(APPVEYOR_BUILD_NUMBER)' == ''">0</APPVEYOR_BUILD_NUMBER>
+      <FileVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(APPVEYOR_BUILD_NUMBER)</FileVersion>
+    </PropertyGroup>
+  </Target>
 </Project>

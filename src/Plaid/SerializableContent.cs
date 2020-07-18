@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid
+namespace Going.Plaid
 {
     /// <summary>
     /// Provide an method for converting an object to a JSON string.

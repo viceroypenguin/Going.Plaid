@@ -1,9 +1,9 @@
-﻿namespace Acklann.Plaid.Management
+﻿namespace Going.Plaid.Management
 {
     /// <summary>
     /// Represents a response from plaid's '/item/get' endpoint. The POST /item/get endpoint returns information about the status of an <see cref="Entity.Item"/>.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.ResponseBase" />
+    /// <seealso cref="Going.Plaid.ResponseBase" />
     public class GetItemResponse : ResponseBase
     {
         /// <summary>

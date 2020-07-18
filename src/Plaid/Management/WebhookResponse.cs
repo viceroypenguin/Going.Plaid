@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Management
+namespace Going.Plaid.Management
 {
     /// <summary>
     /// Represents a response from plaid's webhook.

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Management
+namespace Going.Plaid.Management
 {
     /// <summary>
     /// Represents a response from plaid's '/item/access_token/update_version' endpoint. If you have an access_token from the legacy version of Plaid’s API, you can use the '/item/access_token/update_version' endpoint to generate an access_token for the Item that works with the current API.

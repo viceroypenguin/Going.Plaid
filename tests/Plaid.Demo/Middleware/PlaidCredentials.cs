@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.IO;
 
-namespace Acklann.Plaid.Demo.Middleware
+namespace Going.Plaid.Demo.Middleware
 {
     public class PlaidCredentials
     {

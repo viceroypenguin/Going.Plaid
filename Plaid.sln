@@ -7,13 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plaid", "src\Plaid\Plaid.cs
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".root", ".root", "{5B75FA3C-948A-452C-B57A-74423429A422}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.gitignore = .gitignore
-		build.ps1 = build.ps1
-		commands.json = commands.json
+		appveyor.yml = appveyor.yml
 		README.md = README.md
 	EndProjectSection
-EndProject
-Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "build", "build\build.pssproj", "{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D79CDC6A-E826-4BF5-AB5B-E8A842658BD3}"
 EndProject
@@ -31,10 +29,6 @@ Global
 		{D9080ED3-10BA-4CCF-A6A6-203B7E92459B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9080ED3-10BA-4CCF-A6A6-203B7E92459B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9080ED3-10BA-4CCF-A6A6-203B7E92459B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5FBDC2B1-A139-4685-99C1-6FF862C602FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5FBDC2B1-A139-4685-99C1-6FF862C602FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FBDC2B1-A139-4685-99C1-6FF862C602FC}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid
+namespace Going.Plaid
 {
     /// <summary>
     /// Provides methods and properties for making a standard request.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.SerializableContent" />
+    /// <seealso cref="Going.Plaid.SerializableContent" />
     public abstract class RequestBase : SerializableContent
     {
         /// <summary>

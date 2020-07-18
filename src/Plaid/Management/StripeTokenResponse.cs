@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Acklann.Plaid.Management
+namespace Going.Plaid.Management
 {
     /// <summary>
     /// Represents a response from plaid's '/processor/stripe/bank_account_token/create' endpoint. Exchange a Link access_token for an Stripe API stripe_bank_account_token.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.ResponseBase" />
+    /// <seealso cref="Going.Plaid.ResponseBase" />
     public class StripeTokenResponse : ResponseBase
     {
 

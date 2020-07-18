@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
 
-namespace Acklann.Plaid
+namespace Going.Plaid
 {
     /// <summary>
     /// Provides common members for all Plaid API responses.

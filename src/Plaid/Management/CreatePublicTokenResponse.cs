@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Management
+namespace Going.Plaid.Management
 {
     /// <summary>
     /// Represents a response from plaid's '/item/public_token/create' endpoint. Create a public_token from an access_token for use with Plaid LInk's update mode.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.ResponseBase" />
+    /// <seealso cref="Going.Plaid.ResponseBase" />
     public class CreatePublicTokenResponse : ResponseBase
     {
         /// <summary>

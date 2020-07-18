@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Acklann.Plaid
+namespace Going.Plaid
 {
     public static class Helper
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 
-namespace Acklann.Plaid.Tests
+namespace Going.Plaid.Tests
 {
     [TestClass]
     public class PlaidClientTest

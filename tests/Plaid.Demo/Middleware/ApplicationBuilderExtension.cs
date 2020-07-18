@@ -2,7 +2,7 @@
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 
-namespace Acklann.Plaid.Demo.Middleware
+namespace Going.Plaid.Demo.Middleware
 {
     public static class ApplicationBuilderExtension
     {

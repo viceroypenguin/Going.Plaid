@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Institution
+namespace Going.Plaid.Institution
 {
     /// <summary>
     /// Represents a request for plaid's '/institutions/get_by_id' endpoint. The '/institutions/get_by_id' endpoint to retrieve a <see cref="Entity.Institution"/> with the specified id.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.SerializableContent" />
+    /// <seealso cref="Going.Plaid.SerializableContent" />
     public class SearchByIdRequest : SerializableContent
     {
         /// <summary>

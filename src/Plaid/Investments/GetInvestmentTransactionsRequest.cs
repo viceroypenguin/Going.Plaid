@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Acklann.Plaid.Investments
+namespace Going.Plaid.Investments
 {
     /// <summary>
     /// Represents a request for plaid's '/investments/transactions/get' endpoint. The /investments/transactions/get endpoint allows developers to retrieve user-authorized transaction data for investment accounts. Transaction data is standardized across financial institutions, and InvestmentTransactions are related to Securities, which are included in the response and conform to the Security schema.

@@ -1,13 +1,13 @@
-﻿using Acklann.Plaid.Entity;
+﻿using Going.Plaid.Entity;
 using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Investments
+namespace Going.Plaid.Investments
 {
     /// <summary>
     /// Represents a response from plaid's '/investments/transactions/get' endpoint. The /investments/transactions/get endpoint allows developers to retrieve user-authorized transaction data for investment accounts. Transaction data is standardized across financial institutions, and InvestmentTransactions are related to Securities, which are included in the response and conform to the Security schema.
     /// </summary>
     /// <remarks>Due to the potentially large number of transactions associated with an <see cref="Entity.Item"/>, results are paginated. Manipulate the count and offset parameters in conjunction with the total_transactions response body field to fetch all available Transactions.</remarks>
-    /// <seealso cref="Acklann.Plaid.ResponseBase" />
+    /// <seealso cref="Going.Plaid.ResponseBase" />
     public class GetInvestmentTransactionsResponse : ResponseBase
     {
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Acklann.Plaid.Entity
+namespace Going.Plaid.Entity
 {
     /// <summary>
     /// Represents a banking transaction.

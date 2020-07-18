@@ -1,14 +1,14 @@
-﻿using Acklann.Plaid.Entity;
+﻿using Going.Plaid.Entity;
 using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Investments
+namespace Going.Plaid.Investments
 {
     /// <summary>
     /// Represents a response from plaid's '/investments/holdings/get' endpoint. The '/investments/holdings/get' endpoint allows developers to receive user-authorized stock position data for investment-type Accounts. Holding data is standardized across financial institutions, and Holdings are linked to Securities.
     /// 
     /// Every /investments/holdings/get response will contain a list of Securities, providing definitions for all security_id references in the response.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.ResponseBase" />
+    /// <seealso cref="Going.Plaid.ResponseBase" />
     public class GetInvestmentHoldingsResponse : ResponseBase
     {
         /// <summary>

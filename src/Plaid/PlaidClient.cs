@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Acklann.Plaid
+namespace Going.Plaid
 {
     /// <summary>
     /// Provides methods for sending request to and receiving data from Plaid banking API.

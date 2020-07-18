@@ -1,9 +1,9 @@
-﻿using Acklann.Plaid.Demo.Middleware;
+﻿using Going.Plaid.Demo.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Acklann.Plaid.Demo
+namespace Going.Plaid.Demo
 {
     public class Startup
     {

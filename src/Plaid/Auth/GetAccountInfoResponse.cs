@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace Acklann.Plaid.Auth
+namespace Going.Plaid.Auth
 {
     /// <summary>
     /// Represents a response from plaid's '/auth/get' endpoint. The /auth/get endpoint allows you to retrieve the bank account and routing numbers associated with an <see cref="Entity.Item"/>’s checking and savings accounts, along with high-level account data and balances.
     /// </summary>
-    /// <seealso cref="Acklann.Plaid.ResponseBase" />
+    /// <seealso cref="Going.Plaid.ResponseBase" />
     public class GetAccountInfoResponse : ResponseBase
     {
         /// <summary>

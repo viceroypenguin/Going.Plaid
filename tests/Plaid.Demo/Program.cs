@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Acklann.Plaid.Demo
+namespace Going.Plaid.Demo
 {
     public class Program
     {
