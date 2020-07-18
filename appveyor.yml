@@ -1,3 +1,4 @@
+version: '{build}'
 image: Visual Studio 2019
 clone_depth: 50
 
@@ -7,9 +8,6 @@ before_build:
 
 build_script:
     - cmd: dotnet publish ./src/Plaid/Plaid.csproj -c Release
-
-test_script:
-    - cmd: dotnet test
 
 after_test:
     - cmd: dotnet pack ./src/Plaid/Plaid.csproj -c Release
@@ -31,7 +29,7 @@ deploy:
     skip_symbols: false
     artifact: /.*(\.|\.s)nupkg/
     on: 
-        branch: release
+        branch: master
         APPVEYOR_REPO_TAG: true        # deploy on tag push only
 
  -  provider: GitHub
@@ -42,5 +40,5 @@ deploy:
     description: Release $(appveyor_build_version)
     artifact: /.*(\.|\.s)nupkg/
     on: 
-        branch: release
+        branch: master
         APPVEYOR_REPO_TAG: true        # deploy on tag push only

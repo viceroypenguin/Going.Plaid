@@ -1,5 +1,6 @@
 # Plaid.NET
-
+[![Build status](https://ci.appveyor.com/api/projects/status/ff2ciq6rfn7225oi?svg=true)](https://ci.appveyor.com/project/viceroypenguin/going-plaid-net)
+[![NuGet](https://img.shields.io/nuget/v/Going.Plaid.NET.svg?style=plastic)](https://www.nuget.org/packages/Going.Plaid.NET/)
 ---
 
 ## What is Plaid.NET?
