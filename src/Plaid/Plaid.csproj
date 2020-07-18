@@ -43,6 +43,7 @@
     <MinVerAutoIncrement>minor</MinVerAutoIncrement>
     <MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
     <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerBuildMetadata Condition="'$(APPVEYOR_REPO_COMMIT)' != ''">commit.$(APPVEYOR_REPO_COMMIT)</MinVerBuildMetadata>
   </PropertyGroup>
 
   <Target Name="MyTarget" AfterTargets="MinVer" Condition="'$(APPVEYOR_PULL_REQUEST_NUMBER)' != ''" >
