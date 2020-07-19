@@ -3,6 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Going.Plaid</AssemblyName>
     <RootNamespace>Going.Plaid</RootNamespace>
+
+		<LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet">
@@ -32,11 +34,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MinVer" Version="2.*">
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.6" />
+    <PackageReference Include="MinVer" Version="2.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="12.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <PropertyGroup Label="MinVer">
@@ -46,7 +50,7 @@
     <MinVerBuildMetadata Condition="'$(APPVEYOR_REPO_COMMIT)' != ''">commit.$(APPVEYOR_REPO_COMMIT)</MinVerBuildMetadata>
   </PropertyGroup>
 
-  <Target Name="MyTarget" AfterTargets="MinVer" Condition="'$(APPVEYOR_PULL_REQUEST_NUMBER)' != ''" >
+  <Target Name="MyTarget" AfterTargets="MinVer" Condition="'$(APPVEYOR_PULL_REQUEST_NUMBER)' != ''">
     <PropertyGroup>
       <PackageVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)-pr.$(APPVEYOR_PULL_REQUEST_NUMBER).build-id.$(APPVEYOR_BUILD_ID).$(MinVerPreRelease)</PackageVersion>
       <PackageVersion Condition="'$(MinVerBuildMetadata)' != ''">$(PackageVersion)+$(MinVerBuildMetadata)</PackageVersion>
