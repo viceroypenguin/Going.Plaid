@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Going.Plaid.Entity
 {
+	/// <summary>
+	/// Subtype of investment transaction
+	/// </summary>
 	public enum InvestmentTransactionSubType
 	{
 		/// <summary>

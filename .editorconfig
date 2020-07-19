@@ -210,6 +210,12 @@ csharp_prefer_simple_using_statement = false:silent
 # IDE0063: Use simple 'using' statement
 csharp_prefer_simple_using_statement = false:silent
 
+# CS1573: Missing XML comment for parameter
+dotnet_diagnostic.CS1573.severity = error
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = error
+
 # CS1998: Async method lacks 'await' operators and will run synchronously
 dotnet_diagnostic.CS1998.severity = error
 

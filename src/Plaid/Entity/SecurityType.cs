@@ -5,54 +5,57 @@ using System.Text;
 
 namespace Going.Plaid.Entity
 {
-    public enum SecurityType
-    {
-        /// <summary>
-        /// Cash, currency, and money market funds.
-        /// </summary>
-        [EnumMember(Value = "cash")]
-        Cash,
+	/// <summary>
+	/// Security type enumeration
+	/// </summary>
+	public enum SecurityType
+	{
+		/// <summary>
+		/// Cash, currency, and money market funds.
+		/// </summary>
+		[EnumMember(Value = "cash")]
+		Cash,
 
-        /// <summary>
-        /// Options, warrants, and other derivative instruments.
-        /// </summary>
-        [EnumMember(Value = "derivative")]
-        Derivative,
+		/// <summary>
+		/// Options, warrants, and other derivative instruments.
+		/// </summary>
+		[EnumMember(Value = "derivative")]
+		Derivative,
 
-        /// <summary>
-        /// Domestic and foreign equities.
-        /// </summary>
-        [EnumMember(Value = "equity")]
-        Equity,
+		/// <summary>
+		/// Domestic and foreign equities.
+		/// </summary>
+		[EnumMember(Value = "equity")]
+		Equity,
 
-        /// <summary>
-        /// Multi-asset investment funds traded on exchanges.
-        /// </summary>
-        [EnumMember(Value = "etf")]
-        Etf,
+		/// <summary>
+		/// Multi-asset investment funds traded on exchanges.
+		/// </summary>
+		[EnumMember(Value = "etf")]
+		Etf,
 
-        /// <summary>
-        /// Bonds and CDs.
-        /// </summary>
-        [EnumMember(Value = "fixed income")]
-        FixedIncome,
+		/// <summary>
+		/// Bonds and CDs.
+		/// </summary>
+		[EnumMember(Value = "fixed income")]
+		FixedIncome,
 
-        /// <summary>
-        /// Loans and loan receivables.
-        /// </summary>
-        [EnumMember(Value = "loan")]
-        Loan,
+		/// <summary>
+		/// Loans and loan receivables.
+		/// </summary>
+		[EnumMember(Value = "loan")]
+		Loan,
 
-        /// <summary>
-        /// Open- and closed-end vehicles pooling funds of multiple investors.
-        /// </summary>
-        [EnumMember(Value = "mutual fund")]
-        MutualFund,
+		/// <summary>
+		/// Open- and closed-end vehicles pooling funds of multiple investors.
+		/// </summary>
+		[EnumMember(Value = "mutual fund")]
+		MutualFund,
 
-        /// <summary>
-        /// Any unknown or unclassified investment vehicle.
-        /// </summary>
-        [EnumMember(Value = "other")]
-        Other,
-    }
+		/// <summary>
+		/// Any unknown or unclassified investment vehicle.
+		/// </summary>
+		[EnumMember(Value = "other")]
+		Other,
+	}
 }

@@ -9,7 +9,10 @@ namespace Going.Plaid
 	public abstract class ResponseBase
 	{
 #if DEBUG
-		internal string _RawJsonForDebugging;
+		/// <summary>
+		/// Holds the raw json returned by the server
+		/// </summary>
+		internal string RawJsonForDebugging { get; set; }
 #endif
 		/// <summary>
 		/// The Error

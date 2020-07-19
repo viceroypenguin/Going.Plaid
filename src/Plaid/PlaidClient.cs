@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -19,10 +20,12 @@ namespace Going.Plaid
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PlaidClient"/> class.
 		/// </summary>
+		/// <param name="environment">The environment.</param>
 		/// <param name="clientId">The client identifier.</param>
 		/// <param name="secret">The secret.</param>
 		/// <param name="accessToken">The access token.</param>
-		/// <param name="environment">The environment.</param>
+		/// <param name="httpClientFactory">A factory instance used to create <see cref="HttpClient" /> instances. If one is not provided, a service collection will be created and used instead. For more information, see <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests"/> for more information.</param>
+		/// <param name="logger">A logging instance. Log entries will be provided at Information level at completion of each api call; and at Trace level with request and content details at the start and end of each api call. If not provided, a <see cref="NullLogger" /> instance will be used.</param>
 		/// <param name="apiVersion">The Plaid API version.</param>
 		public PlaidClient(
 			Environment environment,
@@ -61,7 +64,7 @@ namespace Going.Plaid
 			else
 				_clientFactory = httpClientFactory;
 
-			_logger = logger ?? new Microsoft.Extensions.Logging.Abstractions.NullLogger<PlaidClient>();
+			_logger = logger ?? new NullLogger<PlaidClient>();
 		}
 
 		private readonly string _baseUrl, _apiVersion;
@@ -73,9 +76,14 @@ namespace Going.Plaid
 		private readonly JsonSerializer _jsonSerializer = new JsonSerializer();
 
 #if DEBUG
+		/// <summary>
+		/// Debug option to include the raw json in the returned DTO
+		/// </summary>
 		public bool ShowRawJsonValues { get; set; } = false;
 #endif
 		#endregion
+
+		#region API calls
 
 		/* Item Management */
 
@@ -84,70 +92,56 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.GetItemResponse&gt;.</returns>
-		public Task<Management.GetItemResponse> FetchItemAsync(Management.GetItemRequest request)
-		{
-			return PostAsync<Management.GetItemResponse>("item/get", request);
-		}
+		public Task<Management.GetItemResponse> FetchItemAsync(Management.GetItemRequest request) =>
+			PostAsync<Management.GetItemResponse>("item/get", request);
 
 		/// <summary>
 		/// Delete an <see cref="Entity.Item"/>. Once deleted, the access_token associated with the <see cref="Entity.Item"/> is no longer valid and cannot be used to access any data that was associated with the <see cref="Entity.Item"/>.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.DeleteItemResponse&gt;.</returns>
-		public Task<Management.DeleteItemResponse> DeleteItemAsync(Management.DeleteItemRequest request)
-		{
-			return PostAsync<Management.DeleteItemResponse>("item/delete", request);
-		}
+		public Task<Management.DeleteItemResponse> DeleteItemAsync(Management.DeleteItemRequest request) =>
+			PostAsync<Management.DeleteItemResponse>("item/delete", request);
 
 		/// <summary>
 		/// Updates the webhook associated with an <see cref="Entity.Item"/>. This request triggers a WEBHOOK_UPDATE_ACKNOWLEDGED webhook.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.UpdateWebhookResponse&gt;.</returns>
-		public Task<Management.UpdateWebhookResponse> UpdateWebhookAsync(Management.UpdateWebhookRequest request)
-		{
-			return PostAsync<Management.UpdateWebhookResponse>("item/webhook/update", request);
-		}
+		public Task<Management.UpdateWebhookResponse> UpdateWebhookAsync(Management.UpdateWebhookRequest request) =>
+			PostAsync<Management.UpdateWebhookResponse>("item/webhook/update", request);
 
 		/// <summary>
 		/// Exchanges a Link public_token for an API access_token.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.ExchangeTokenResponse&gt;.</returns>
-		public Task<Management.CreatePublicTokenResponse> CreatePublicTokenAsync(Management.CreatePublicTokenRequest request)
-		{
-			return PostAsync<Management.CreatePublicTokenResponse>("item/public_token/create", request);
-		}
+		public Task<Management.CreatePublicTokenResponse> CreatePublicTokenAsync(Management.CreatePublicTokenRequest request) =>
+			PostAsync<Management.CreatePublicTokenResponse>("item/public_token/create", request);
 
 		/// <summary>
 		/// Exchanges a Link public_token for an API access_token.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.ExchangeTokenResponse&gt;.</returns>
-		public Task<Management.ExchangeTokenResponse> ExchangeTokenAsync(Management.ExchangeTokenRequest request)
-		{
-			return PostAsync<Management.ExchangeTokenResponse>("item/public_token/exchange", request);
-		}
+		public Task<Management.ExchangeTokenResponse> ExchangeTokenAsync(Management.ExchangeTokenRequest request) =>
+			PostAsync<Management.ExchangeTokenResponse>("item/public_token/exchange", request);
 
 		/// <summary>
 		/// Rotates the access_token associated with an <see cref="Entity.Item"/>. The endpoint returns a new access_token and immediately invalidates the previous access_token.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.RotateAccessTokenResponse&gt;.</returns>
-		public Task<Management.RotateAccessTokenResponse> RotateAccessTokenAsync(Management.RotateAccessTokenRequest request)
-		{
-			return PostAsync<Management.RotateAccessTokenResponse>("item/access_token/invalidate", request);
-		}
+		public Task<Management.RotateAccessTokenResponse> RotateAccessTokenAsync(Management.RotateAccessTokenRequest request) =>
+			PostAsync<Management.RotateAccessTokenResponse>("item/access_token/invalidate", request);
 
 		/// <summary>
 		/// Updates an access_token from the legacy version of Plaid’s API, you can use method to generate an access_token for the Item that works with the current API.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.UpdateAccessTokenVersionResponse&gt;.</returns>
-		public Task<Management.UpdateAccessTokenVersionResponse> UpdateAccessTokenVersion(Management.UpdateAccessTokenVersionRequest request)
-		{
-			return PostAsync<Management.UpdateAccessTokenVersionResponse>("item/access_token/update_version", request);
-		}
+		public Task<Management.UpdateAccessTokenVersionResponse> UpdateAccessTokenVersion(Management.UpdateAccessTokenVersionRequest request) =>
+			PostAsync<Management.UpdateAccessTokenVersionResponse>("item/access_token/update_version", request);
 
 		/* Institutions */
 
@@ -156,20 +150,16 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Institution.SearchResponse&gt;.</returns>
-		public Task<Institution.SearchResponse> FetchInstitutionsAsync(Institution.SearchRequest request)
-		{
-			return PostAsync<Institution.SearchResponse>("institutions/search", request);
-		}
+		public Task<Institution.SearchResponse> FetchInstitutionsAsync(Institution.SearchRequest request) =>
+			PostAsync<Institution.SearchResponse>("institutions/search", request);
 
 		/// <summary>
 		/// Retrieves the institutions that match the id.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Institution.SearchByIdResponse&gt;.</returns>
-		public Task<Institution.SearchByIdResponse> FetchInstitutionByIdAsync(Institution.SearchByIdRequest request)
-		{
-			return PostAsync<Institution.SearchByIdResponse>("institutions/get_by_id", request);
-		}
+		public Task<Institution.SearchByIdResponse> FetchInstitutionByIdAsync(Institution.SearchByIdRequest request) =>
+			PostAsync<Institution.SearchByIdResponse>("institutions/get_by_id", request);
 
 		/* Income */
 
@@ -178,28 +168,22 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Income.GetIncomeResponse&gt;.</returns>
-		public Task<Income.GetIncomeResponse> FetchUserIncomeAsync(Income.GetIncomeRequest request)
-		{
-			return PostAsync<Income.GetIncomeResponse>("income/get", request);
-		}
+		public Task<Income.GetIncomeResponse> FetchUserIncomeAsync(Income.GetIncomeRequest request) =>
+			PostAsync<Income.GetIncomeResponse>("income/get", request);
 
 		/* Investments */
 
 		/// <summary>
 		/// Retrieves information pertaining to a <see cref="Entity.Item"/>'s investment holdings.
 		/// </summary>
-		public Task<Investments.GetInvestmentHoldingsResponse> FetchInvestmentHoldingsAsync(Investments.GetInvestmentHoldingsRequest request)
-		{
-			return PostAsync<Investments.GetInvestmentHoldingsResponse>("investments/holdings/get", request);
-		}
+		public Task<Investments.GetInvestmentHoldingsResponse> FetchInvestmentHoldingsAsync(Investments.GetInvestmentHoldingsRequest request) =>
+			PostAsync<Investments.GetInvestmentHoldingsResponse>("investments/holdings/get", request);
 
 		/// <summary>
 		/// Retrieves information pertaining to a <see cref="Entity.Item"/>'s investment transactions.
 		/// </summary>
-		public Task<Investments.GetInvestmentTransactionsResponse> FetchInvestmentTransactionsAsync(Investments.GetInvestmentTransactionsRequest request)
-		{
-			return PostAsync<Investments.GetInvestmentTransactionsResponse>("investments/transactions/get", request);
-		}
+		public Task<Investments.GetInvestmentTransactionsResponse> FetchInvestmentTransactionsAsync(Investments.GetInvestmentTransactionsRequest request) =>
+			PostAsync<Investments.GetInvestmentTransactionsResponse>("investments/transactions/get", request);
 
 		/* Auth */
 
@@ -208,10 +192,8 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Auth.GetAccountInfoResponse&gt;.</returns>
-		public Task<Auth.GetAccountInfoResponse> FetchAccountInfoAsync(Auth.GetAccountInfoRequest request)
-		{
-			return PostAsync<Auth.GetAccountInfoResponse>("auth/get", request);
-		}
+		public Task<Auth.GetAccountInfoResponse> FetchAccountInfoAsync(Auth.GetAccountInfoRequest request) =>
+			PostAsync<Auth.GetAccountInfoResponse>("auth/get", request);
 
 		/* Balance */
 
@@ -220,20 +202,16 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Balance.GetAccountResponse&gt;.</returns>
-		public Task<Balance.GetAccountResponse> FetchAccountAsync(Balance.GetAccountRequest request)
-		{
-			return PostAsync<Balance.GetAccountResponse>("accounts/get", request);
-		}
+		public Task<Balance.GetAccountResponse> FetchAccountAsync(Balance.GetAccountRequest request) =>
+			PostAsync<Balance.GetAccountResponse>("accounts/get", request);
 
 		/// <summary>
 		///  Retrieves the real-time balance for each of an <see cref="Entity.Item"/>’s accounts.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Balance.GetBalanceResponse&gt;.</returns>
-		public Task<Balance.GetBalanceResponse> FetchAccountBalanceAsync(Balance.GetBalanceRequest request)
-		{
-			return PostAsync<Balance.GetBalanceResponse>("accounts/balance/get", request);
-		}
+		public Task<Balance.GetBalanceResponse> FetchAccountBalanceAsync(Balance.GetBalanceRequest request) =>
+			PostAsync<Balance.GetBalanceResponse>("accounts/balance/get", request);
 
 		/* Categories */
 
@@ -242,10 +220,8 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Category.GetCategoriesResponse&gt;.</returns>
-		public Task<Category.GetCategoriesResponse> FetchCategoriesAsync(Category.GetCategoriesRequest request)
-		{
-			return PostAsync<Category.GetCategoriesResponse>("categories/get", request);
-		}
+		public Task<Category.GetCategoriesResponse> FetchCategoriesAsync(Category.GetCategoriesRequest request) =>
+			PostAsync<Category.GetCategoriesResponse>("categories/get", request);
 
 		/* Identity */
 
@@ -254,10 +230,8 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Identity.GetUserIdentityResponse&gt;.</returns>
-		public Task<Identity.GetUserIdentityResponse> FetchUserIdentityAsync(Identity.GetUserIdentityRequest request)
-		{
-			return PostAsync<Identity.GetUserIdentityResponse>("identity/get", request);
-		}
+		public Task<Identity.GetUserIdentityResponse> FetchUserIdentityAsync(Identity.GetUserIdentityRequest request) =>
+			PostAsync<Identity.GetUserIdentityResponse>("identity/get", request);
 
 		/* Transactions */
 
@@ -266,23 +240,20 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Transactions.GetTransactionsResponse&gt;.</returns>
-		public Task<Transactions.GetTransactionsResponse> FetchTransactionsAsync(Transactions.GetTransactionsRequest request)
-		{
-			return PostAsync<Transactions.GetTransactionsResponse>("transactions/get", request);
-		}
-
+		public Task<Transactions.GetTransactionsResponse> FetchTransactionsAsync(Transactions.GetTransactionsRequest request) =>
+			PostAsync<Transactions.GetTransactionsResponse>("transactions/get", request);
 
 		/* Stripe */
+
 		/// <summary>
 		///  Exchanges a Link access_token for an Stripe API stripe_bank_account_token.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.StripeTokenResponse&gt;.</returns>
-		public Task<Management.StripeTokenResponse> FetchStripeTokenAsync(Management.StripeTokenRequest request)
-		{
-			return PostAsync<Management.StripeTokenResponse>("processor/stripe/bank_account_token/create", request);
-		}
+		public Task<Management.StripeTokenResponse> FetchStripeTokenAsync(Management.StripeTokenRequest request) =>
+			PostAsync<Management.StripeTokenResponse>("processor/stripe/bank_account_token/create", request);
 
+		#endregion
 
 		#region Private Members
 
@@ -323,7 +294,7 @@ namespace Going.Plaid
 				{
 					var json = await response.Content.ReadAsStringAsync();
 					var result = JsonConvert.DeserializeObject<TResponse>(json);
-					result._RawJsonForDebugging = json;
+					result.RawJsonForDebugging = json;
 					return result;
 				}
 				else
