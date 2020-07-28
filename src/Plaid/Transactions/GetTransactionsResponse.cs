@@ -1,41 +1,42 @@
 ﻿using Going.Plaid.Entity;
+using Going.Plaid.Options;
 using Newtonsoft.Json;
 
 namespace Going.Plaid.Transactions
 {
-    /// <summary>
-    /// Represents a response from plaid's '/transactions/get' endpoint. The /transactions/get endpoint allows developers to receive user-authorized transaction data for credit and depository-type Accounts. Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.
-    /// </summary>
-    /// <remarks>Due to the potentially large number of transactions associated with an <see cref="Entity.Item"/>, results are paginated. Manipulate the count and offset parameters in conjunction with the total_transactions response body field to fetch all available Transactions.</remarks>
-    /// <seealso cref="Going.Plaid.ResponseBase" />
-    public class GetTransactionsResponse : ResponseBase
-    {
-        /// <summary>
-        /// Gets or sets the number of transactions returned.
-        /// </summary>
-        /// <value>The number of transactions returned.</value>
-        [JsonProperty("total_transactions")]
-        public int TransactionsReturned { get; set; }
+	/// <summary>
+	/// Represents a response from plaid's '<c>/transactions/get</c>' endpoint. The <c>/transactions/get</c> endpoint allows developers to receive user-authorized transaction data for credit and depository-type Accounts. Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.
+	/// </summary>
+	/// <remarks>Due to the potentially large number of transactions associated with an <see cref="Entity.Item"/>, results are paginated. Manipulate the count and offset parameters in conjunction with the total_transactions response body field to fetch all available Transactions.</remarks>
+	/// <seealso cref="Going.Plaid.ResponseBase" />
+	public class GetTransactionsResponse : ResponseBase
+	{
+		/// <summary>
+		/// The total number of transactions that satisfy the request.
+		/// </summary>
+		/// <remarks>
+		/// If this value is greater than the number of transactions in <see cref="Transactions"/>, 
+		/// then re-issue the request with updated <see cref="PaginationOptions.Offset"/> value.
+		/// </remarks>
+		[JsonProperty("total_transactions")]
+		public int TotalTransactions { get; set; }
 
-        /// <summary>
-        /// Gets or sets the transactions.
-        /// </summary>
-        /// <value>The transactions.</value>
-        [JsonProperty("transactions")]
-        public Transaction[] Transactions { get; set; }
+		/// <summary>
+		/// The transactions that match the request.
+		/// </summary>
+		[JsonProperty("transactions")]
+		public Transaction[] Transactions { get; set; } = null!;
 
-        /// <summary>
-        /// Gets or sets the item.
-        /// </summary>
-        /// <value>The item.</value>
-        [JsonProperty("item")]
-        public Item Item { get; set; }
+		/// <summary>
+		/// The item about which information is requested.
+		/// </summary>
+		[JsonProperty("item")]
+		public Item Item { get; set; } = null!;
 
-        /// <summary>
-        /// Gets or sets the accounts.
-        /// </summary>
-        /// <value>The accounts.</value>
-        [JsonProperty("accounts")]
-        public Account[] Accounts { get; set; }
-    }
+		/// <summary>
+		/// The accounts about which information is requested.
+		/// </summary>
+		[JsonProperty("accounts")]
+		public Account[] Accounts { get; set; } = null!;
+	}
 }

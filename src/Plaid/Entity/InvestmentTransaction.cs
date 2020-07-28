@@ -14,19 +14,19 @@ namespace Going.Plaid.Entity
 		/// The ID of the Investment transaction, unique across all Plaid transactions.
 		/// </summary>
 		[JsonProperty("investment_transaction_id")]
-		public string InvestmentTransactionId { get; set; }
+		public string InvestmentTransactionId { get; set; } = null!;
 
 		/// <summary>
 		/// The ID of the account against which this transaction posted.
 		/// </summary>
 		[JsonProperty("account_id")]
-		public string AccountId { get; set; }
+		public string AccountId { get; set; } = null!;
 
 		/// <summary>
 		/// The ID of the security to which this transaction is related.
 		/// </summary>
 		[JsonProperty("security_id")]
-		public string SecurityId { get; set; }
+		public string? SecurityId { get; set; }
 
 		/// <summary>
 		/// The ISO-8601 posting date for the transaction, or transacted date for pending transactions.
@@ -38,25 +38,25 @@ namespace Going.Plaid.Entity
 		/// The Institution’s description of the transaction.
 		/// </summary>
 		[JsonProperty("name")]
-		public string Name { get; set; }
+		public string Name { get; set; } = null!;
 
 		/// <summary>
 		/// The Amount of the security involved in this transaction.
 		/// </summary>
 		[JsonProperty("quantity")]
-		public float Quantity { get; set; }
+		public double Quantity { get; set; }
 
 		/// <summary>
 		/// The complete value of the transaction.Positive values when cash is debited, e.g.purchases of stock; negative values when cash is credited, e.g.sales of stock.Treatment remains the same for cash-only movements unassociated with securities.
 		/// </summary>
 		[JsonProperty("amount")]
-		public float Amount { get; set; }
+		public double Amount { get; set; }
 
 		/// <summary>
 		/// The price of the security at which this transaction occurred.
 		/// </summary>
 		[JsonProperty("price")]
-		public float Price { get; set; }
+		public double Price { get; set; }
 
 		/// <summary>
 		/// The combined value of all fees applied to this transaction.
@@ -80,18 +80,18 @@ namespace Going.Plaid.Entity
 		/// The ISO-4217 currency code of the holding. Always null if unofficial_currency_code is non-null.
 		/// </summary>
 		[JsonProperty("iso_currency_code")]
-		public string IsoCurrencyCode { get; set; }
+		public string? IsoCurrencyCode { get; set; }
 
 		/// <summary>
 		/// The unofficial currency of the holding. Always null if iso_currency_code is non-null. This is present if the price is denominated in an unrecognized currency e.g. Bitcoin, rewards points.
 		/// </summary>
 		[JsonProperty("unofficial_currency_code")]
-		public string UnofficialCurrencyCode { get; set; }
+		public string? UnofficialCurrencyCode { get; set; }
 
 		/// <summary>
 		/// Gets the currency code from either IsoCurrencyCode or UnofficialCurrencyCode. If non-null, IsoCurrencyCode is returned, else if non-null, UnofficialCurrencyCode, else null is returned.
 		/// </summary>
 		/// <value>Either available currency code.</value>
-		public string CurrencyCode => IsoCurrencyCode ?? UnofficialCurrencyCode;
+		public string? CurrencyCode => IsoCurrencyCode ?? UnofficialCurrencyCode;
 	}
 }

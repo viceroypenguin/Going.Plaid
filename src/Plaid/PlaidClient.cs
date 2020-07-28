@@ -29,11 +29,11 @@ namespace Going.Plaid
 		/// <param name="apiVersion">The Plaid API version.</param>
 		public PlaidClient(
 			Environment environment,
-			string clientId = null,
-			string secret = null,
-			string accessToken = null,
-			IHttpClientFactory httpClientFactory = null,
-			ILogger<PlaidClient> logger = null,
+			string? clientId = null,
+			string? secret = null,
+			string? accessToken = null,
+			IHttpClientFactory? httpClientFactory = null,
+			ILogger<PlaidClient>? logger = null,
 			ApiVersion apiVersion = ApiVersion.v20190529)
 		{
 			var subDomain = environment switch
@@ -68,9 +68,9 @@ namespace Going.Plaid
 		}
 
 		private readonly string _baseUrl, _apiVersion;
-		private readonly string _clientId, _secret, _accessToken;
+		private readonly string? _clientId, _secret, _accessToken;
 		private readonly IHttpClientFactory _clientFactory;
-		private readonly IServiceProvider _serviceProvider;
+		private readonly IServiceProvider? _serviceProvider;
 		private readonly ILogger _logger;
 
 		private readonly JsonSerializer _jsonSerializer = new JsonSerializer();
@@ -88,7 +88,7 @@ namespace Going.Plaid
 		/* Item Management */
 
 		/// <summary>
-		/// Retrieves information about the status of an <see cref="Entity.Item"/>. Endpoint '/item/get'.
+		/// Retrieves information about the status of an <see cref="Entity.Item"/>. Endpoint '<c>/item/get</c>'.
 		/// </summary>
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.GetItemResponse&gt;.</returns>
@@ -311,12 +311,12 @@ namespace Going.Plaid
 				var error = JObject.Parse(json);
 				var result = new TResponse
 				{
-					Exception = new Exceptions.PlaidException(error["error_message"].Value<string>())
+					Exception = new Exceptions.PlaidException(error["error_message"]!.Value<string>())
 					{
 						HelpLink = "https://plaid.com/docs/api/#errors-overview",
-						DisplayMessage = error["display_message"].Value<string>(),
-						ErrorType = error["error_type"].Value<string>(),
-						ErrorCode = error["error_code"].Value<string>(),
+						DisplayMessage = error["display_message"]!.Value<string>(),
+						ErrorType = error["error_type"]!.Value<string>(),
+						ErrorCode = error["error_code"]!.Value<string>(),
 						Source = url,
 					}
 				};
@@ -330,7 +330,7 @@ namespace Going.Plaid
 			using (var streamReader = new StreamReader(responseStream))
 			using (var jsonTextReader = new JsonTextReader(streamReader))
 			{
-				return _jsonSerializer.Deserialize<TResponse>(jsonTextReader);
+				return _jsonSerializer.Deserialize<TResponse>(jsonTextReader)!;
 			}
 		}
 
@@ -338,9 +338,9 @@ namespace Going.Plaid
 		{
 			if (request is RequestBase req)
 			{
-				if (string.IsNullOrEmpty(req.Secret)) req.Secret = _secret;
-				if (string.IsNullOrEmpty(req.ClientId)) req.ClientId = _clientId;
-				if (string.IsNullOrEmpty(req.AccessToken)) req.AccessToken = _accessToken;
+				if (string.IsNullOrWhiteSpace(req.Secret)) req.Secret = _secret;
+				if (string.IsNullOrWhiteSpace(req.ClientId)) req.ClientId = _clientId;
+				if (string.IsNullOrWhiteSpace(req.AccessToken)) req.AccessToken = _accessToken;
 			}
 		}
 

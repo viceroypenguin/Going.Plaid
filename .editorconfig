@@ -222,5 +222,11 @@ dotnet_diagnostic.CS1998.severity = error
 # CS4014: Because this call is not awaited, execution of the current method continues before the call is completed
 dotnet_diagnostic.CS4014.severity = error
 
+# CS8603: Possible null reference return
+dotnet_diagnostic.CS8603.severity = error
+
 # CS8618: Non-nullable field is uninitialized. Consider declaring as nullable.
 dotnet_diagnostic.CS8618.severity = error
+
+# CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+dotnet_diagnostic.CS8632.severity = none

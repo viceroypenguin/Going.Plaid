@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;netstandard2.0</TargetFrameworks>
     <AssemblyName>Going.Plaid</AssemblyName>
     <RootNamespace>Going.Plaid</RootNamespace>
 
 		<LangVersion>latest</LangVersion>
+		<Nullable Condition="'$(TargetFramework)' != 'netstandard2.0'">enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet">

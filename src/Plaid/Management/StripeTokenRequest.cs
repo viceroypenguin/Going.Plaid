@@ -5,39 +5,35 @@ using System.Text;
 
 namespace Going.Plaid.Management
 {
-    /// <summary>
-    /// Represents a request for plaid's '/processor/stripe/bank_account_token/create' endpoint. Exchange a Link access_token for an Stripe API stripe_bank_account_token and request_id. 
-    /// </summary>
-    /// <seealso cref="Going.Plaid.SerializableContent" />
-    public class StripeTokenRequest : SerializableContent
-    {
-        /// <summary>
-        /// Gets or sets the access_token.
-        /// </summary>
-        /// <value>The access token.</value>
-        [JsonProperty("access_token")]
-        public string AccessToken { get; set; }
+	/// <summary>
+	/// Represents a request for plaid's '<c>/processor/stripe/bank_account_token/create</c>' endpoint. Exchange a Link access_token for an Stripe API stripe_bank_account_token and request_id. 
+	/// </summary>
+	/// <seealso cref="Going.Plaid.SerializableContent" />
+	public class StripeTokenRequest : SerializableContent
+	{
+		/// <summary>
+		/// The access_token.
+		/// </summary>
+		[JsonProperty("access_token")]
+		public string AccessToken { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Gets or sets the client identifier.
-        /// </summary>
-        /// <value>The client identifier.</value>
-        [JsonProperty("client_id")]
-        public string ClientId { get; set; }
+		/// <summary>
+		/// The client identifier.
+		/// </summary>
+		[JsonProperty("client_id")]
+		public string ClientId { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Gets or sets the secret.
-        /// </summary>
-        /// <value>The secret.</value>
-        [JsonProperty("secret")]
-        public string Secret { get; set; }
+		/// <summary>
+		/// The secret.
+		/// </summary>
+		[JsonProperty("secret")]
+		public string Secret { get; set; } = string.Empty;
 
 
-        /// <summary>
-        /// Gets or sets the account id.
-        /// </summary>
-        /// <value>The account id.</value>
-        [JsonProperty("account_id")]
-        public string AccountId { get; set; }
-    }
+		/// <summary>
+		/// The account id.
+		/// </summary>
+		[JsonProperty("account_id")]
+		public string AccountId { get; set; } = string.Empty;
+	}
 }

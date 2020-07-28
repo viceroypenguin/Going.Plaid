@@ -2,92 +2,81 @@
 
 namespace Going.Plaid.Entity
 {
-    /// <summary>
-    /// Represents an user earnings.
-    /// </summary>
-    public class Income
-    {
-        /// <summary>
-        /// Gets or sets the last year income.
-        /// </summary>
-        /// <value>The last year income.</value>
-        [JsonProperty("last_year_income")]
-        public float LastYearIncome { get; set; }
+	/// <summary>
+	/// Represents an user earnings.
+	/// </summary>
+	public class Income
+	{
+		/// <summary>
+		/// The sum of the <see cref="Item"/>’s income over the past 365 days. If we have less than 365 days of data this will be less than a full year's income.
+		/// </summary>
+		[JsonProperty("last_year_income")]
+		public double LastYearIncome { get; set; }
 
-        /// <summary>
-        /// Gets or sets the last year income before tax.
-        /// </summary>
-        /// <value>The last year income before tax.</value>
-        [JsonProperty("last_year_income_before_tax")]
-        public float LastYearIncomeBeforeTax { get; set; }
+		/// <summary>
+		/// <see cref="LastYearIncome"/> interpolated to value before taxes. This is the minimum pre-tax salary that assumes a filing status of single with zero dependents.
+		/// </summary>
+		[JsonProperty("last_year_income_before_tax")]
+		public double LastYearIncomeBeforeTax { get; set; }
 
-        /// <summary>
-        /// Gets or sets the projected yearly income.
-        /// </summary>
-        /// <value>The projected yearly income.</value>
-        [JsonProperty("projected_yearly_income")]
-        public float ProjectedYearlyIncome { get; set; }
+		/// <summary>
+		/// <see cref="Item"/>’s income extrapolated over a year based on current, active income streams. Income streams become inactive if they have not recurred for more than two cycles. For example, if a weekly paycheck hasn’t been seen for the past two weeks, it's no longer active.
+		/// </summary>
+		[JsonProperty("projected_yearly_income")]
+		public double ProjectedYearlyIncome { get; set; }
 
-        /// <summary>
-        /// Gets or sets the projected yearly income before tax.
-        /// </summary>
-        /// <value>The projected yearly income before tax.</value>
-        [JsonProperty("projected_yearly_income_before_tax")]
-        public float ProjectedYearlyIncomeBeforeTax { get; set; }
+		/// <summary>
+		/// <see cref="ProjectedYearlyIncome"/> interpolated to value before taxes. This is the minimum pre-tax salary that assumes a filing status of single with zero dependents.
+		/// </summary>
+		[JsonProperty("projected_yearly_income_before_tax")]
+		public double ProjectedYearlyIncomeBeforeTax { get; set; }
 
-        /// <summary>
-        /// Gets or sets the maximum number of overlapping income streams.
-        /// </summary>
-        /// <value>The maximum number of overlapping income streams.</value>
-        [JsonProperty("max_number_of_overlapping_income_streams")]
-        public int MaxNumberOfOverlappingIncomeStreams { get; set; }
+		/// <summary>
+		/// Max number of income streams present at the same time over the past 365 days.
+		/// </summary>
+		[JsonProperty("max_number_of_overlapping_income_streams")]
+		public int MaxNumberOfOverlappingIncomeStreams { get; set; }
 
-        /// <summary>
-        /// Gets or sets the total income streams.
-        /// </summary>
-        /// <value>The total income streams.</value>
-        [JsonProperty("number_of_income_streams")]
-        public int TotalIncomeStreams { get; set; }
+		/// <summary>
+		/// Total number of distinct income streams received over the past 365 days.
+		/// </summary>
+		[JsonProperty("number_of_income_streams")]
+		public int TotalIncomeStreams { get; set; }
 
-        /// <summary>
-        /// Gets or sets the icome streams.
-        /// </summary>
-        /// <value>The streams.</value>
-        [JsonProperty("income_streams")]
-        public Stream[] Streams { get; set; }
+		/// <summary>
+		/// An array of income streams with detailed information on each.
+		/// </summary>
+		[JsonProperty("income_streams")]
+		public Stream[] Streams { get; set; } = null!;
 
-        /// <summary>
-        /// Represents an income stream.
-        /// </summary>
-        public struct Stream
-        {
-            /// <summary>
-            /// Gets or sets the name.
-            /// </summary>
-            /// <value>The name.</value>
-            [JsonProperty("name")]
-            public string Name { get; set; }
+		/// <summary>
+		/// Represents an income stream.
+		/// </summary>
+		public class Stream
+		{
+			/// <summary>
+			/// Name of the entity associated with this income stream.
+			/// </summary>
+			[JsonProperty("name")]
+			public string Name { get; set; } = null!;
 
-            /// <summary>
-            /// Gets or sets the days.
-            /// </summary>
-            /// <value>The days.</value>
-            [JsonProperty("days")]
-            public int Days { get; set; }
+			/// <summary>
+			/// Extent of data found for this income stream.
+			/// </summary>
+			[JsonProperty("days")]
+			public int Days { get; set; }
 
-            /// <summary>
-            /// Gets or sets the monthly income.
-            /// </summary>
-            /// <value>The monthly income.</value>
-            [JsonProperty("monthly_income")]
-            public float MonthlyIncome { get; set; }
+			/// <summary>
+			/// The monthly income associated with the income stream.
+			/// </summary>
+			[JsonProperty("monthly_income")]
+			public double MonthlyIncome { get; set; }
 
-            /// <summary>
-            /// Gets or sets the confidence.
-            /// </summary>
-            /// <value>The confidence.</value>
-            [JsonProperty("confidence")]
-            public float Confidence { get; set; }
-        }
-    }
+			/// <summary>
+			/// A numeric representation of our confidence in the income data associated with this particular income stream, with 0 being the lowest confidence and 1 being the highest.
+			/// </summary>
+			[JsonProperty("confidence")]
+			public double Confidence { get; set; }
+		}
+	}
 }

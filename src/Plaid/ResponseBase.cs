@@ -12,28 +12,26 @@ namespace Going.Plaid
 		/// <summary>
 		/// Holds the raw json returned by the server
 		/// </summary>
-		internal string RawJsonForDebugging { get; set; }
+		internal string? RawJsonForDebugging { get; set; }
 #endif
 		/// <summary>
 		/// The Error
 		/// </summary>
-		public Exceptions.PlaidException Exception { get; internal set; }
+		public Exceptions.PlaidException? Exception { get; internal set; }
 
 		/// <summary>
-		/// Gets or sets the request identifier.
+		/// The request identifier.
 		/// </summary>
-		/// <value>The request identifier.</value>
 		[JsonProperty("request_id")]
-		public string RequestId { get; set; }
+		public string? RequestId { get; internal set; }
 
 		/// <summary>
-		/// Gets the http status code.
+		/// The http status code.
 		/// </summary>
-		/// <value>The status code.</value>
 		public HttpStatusCode StatusCode { get; internal set; }
 
 		/// <summary>
-		/// Gets a value indicating whether this instance is success status code.
+		/// A value indicating whether this instance is success status code.
 		/// </summary>
 		/// <value><c>true</c> if this instance is success status code.</value>
 		public bool IsSuccessStatusCode => StatusCode == HttpStatusCode.OK;
