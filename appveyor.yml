@@ -7,7 +7,7 @@ before_build:
     - cmd: dotnet restore --verbosity m
 
 build_script:
-    - cmd: dotnet publish ./src/Plaid/Plaid.csproj -c Release
+    - cmd: dotnet build ./src/Plaid/Plaid.csproj -c Release
 
 after_test:
     - cmd: dotnet pack ./src/Plaid/Plaid.csproj -c Release
