@@ -52,7 +52,7 @@ namespace Going.Plaid.Entity
 		/// The settled dollar value. Positive values when money moves out of the account; negative values when money moves in. For example, purchases are positive; credit card payments, direct deposits, refunds are negative.
 		/// </summary>
 		[JsonProperty("amount")]
-		public double Amount { get; set; }
+		public decimal Amount { get; set; }
 
 		/// <summary>
 		/// The ISO currency code of the transaction, either USD or CAD. Always <c>null</c> if unofficial_currency_code is non-<c>null</c>.
@@ -148,14 +148,14 @@ namespace Going.Plaid.Entity
 			/// </summary>
 			/// <value>The latitude.</value>
 			[JsonProperty("lat")]
-			public double? Latitude { get; set; }
+			public decimal? Latitude { get; set; }
 
 			/// <summary>
 			/// Gets or sets the longitude (y-coordinate).
 			/// </summary>
 			/// <value>The longitude.</value>
 			[JsonProperty("lon")]
-			public double? Longitude { get; set; }
+			public decimal? Longitude { get; set; }
 
 			/// <summary>
 			/// Gets or sets the store number.

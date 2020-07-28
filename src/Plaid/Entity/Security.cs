@@ -80,7 +80,7 @@ namespace Going.Plaid.Entity
 		/// Price of the security at the close of the previous trading session. null for non-public securities.
 		/// </summary>
 		[JsonProperty("close_price")]
-		public float? ClosePrice { get; set; }
+		public decimal? ClosePrice { get; set; }
 
 		/// <summary>
 		/// Date for which close_price is accurate. Always <c>null</c> if <see cref="ClosePrice"/> is <c>null</c>.

@@ -11,25 +11,25 @@ namespace Going.Plaid.Entity
 		/// The sum of the <see cref="Item"/>’s income over the past 365 days. If we have less than 365 days of data this will be less than a full year's income.
 		/// </summary>
 		[JsonProperty("last_year_income")]
-		public double LastYearIncome { get; set; }
+		public decimal LastYearIncome { get; set; }
 
 		/// <summary>
 		/// <see cref="LastYearIncome"/> interpolated to value before taxes. This is the minimum pre-tax salary that assumes a filing status of single with zero dependents.
 		/// </summary>
 		[JsonProperty("last_year_income_before_tax")]
-		public double LastYearIncomeBeforeTax { get; set; }
+		public decimal LastYearIncomeBeforeTax { get; set; }
 
 		/// <summary>
 		/// <see cref="Item"/>’s income extrapolated over a year based on current, active income streams. Income streams become inactive if they have not recurred for more than two cycles. For example, if a weekly paycheck hasn’t been seen for the past two weeks, it's no longer active.
 		/// </summary>
 		[JsonProperty("projected_yearly_income")]
-		public double ProjectedYearlyIncome { get; set; }
+		public decimal ProjectedYearlyIncome { get; set; }
 
 		/// <summary>
 		/// <see cref="ProjectedYearlyIncome"/> interpolated to value before taxes. This is the minimum pre-tax salary that assumes a filing status of single with zero dependents.
 		/// </summary>
 		[JsonProperty("projected_yearly_income_before_tax")]
-		public double ProjectedYearlyIncomeBeforeTax { get; set; }
+		public decimal ProjectedYearlyIncomeBeforeTax { get; set; }
 
 		/// <summary>
 		/// Max number of income streams present at the same time over the past 365 days.
@@ -70,13 +70,13 @@ namespace Going.Plaid.Entity
 			/// The monthly income associated with the income stream.
 			/// </summary>
 			[JsonProperty("monthly_income")]
-			public double MonthlyIncome { get; set; }
+			public decimal MonthlyIncome { get; set; }
 
 			/// <summary>
 			/// A numeric representation of our confidence in the income data associated with this particular income stream, with 0 being the lowest confidence and 1 being the highest.
 			/// </summary>
 			[JsonProperty("confidence")]
-			public double Confidence { get; set; }
+			public decimal Confidence { get; set; }
 		}
 	}
 }

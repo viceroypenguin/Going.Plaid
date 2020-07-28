@@ -26,7 +26,7 @@ namespace Going.Plaid.Entity
 		/// The last price given by the institution for this security.
 		/// </summary>
 		[JsonProperty("institution_price")]
-		public double InstitutionPrice { get; set; }
+		public decimal InstitutionPrice { get; set; }
 
 		/// <summary>
 		/// The date at which institution_price was current.
@@ -38,19 +38,19 @@ namespace Going.Plaid.Entity
 		/// The value of the holding, as stated by the institution.
 		/// </summary>
 		[JsonProperty("institution_value")]
-		public double InstitutionValue { get; set; }
+		public decimal InstitutionValue { get; set; }
 
 		/// <summary>
 		/// The total cost of acquiring the holding.
 		/// </summary>
 		[JsonProperty("cost_basis")]
-		public float? CostBasis { get; set; }
+		public decimal? CostBasis { get; set; }
 
 		/// <summary>
 		/// The total quantity of the asset held, as reported by the financial institution.
 		/// </summary>
 		[JsonProperty("quantity")]
-		public double Quantity { get; set; }
+		public decimal Quantity { get; set; }
 
 		/// <summary>
 		/// The ISO-4217 currency code of the holding. Always null if unofficial_currency_code is non-null.

@@ -11,19 +11,19 @@ namespace Going.Plaid.Entity
 		/// The current balance of the account.
 		/// </summary>
 		[JsonProperty("current")]
-		public double Current { get; set; }
+		public decimal Current { get; set; }
 
 		/// <summary>
 		/// The available balance of the account.
 		/// </summary>
 		[JsonProperty("available")]
-		public float? Available { get; set; }
+		public decimal? Available { get; set; }
 
 		/// <summary>
 		/// The limit of the account.
 		/// </summary>
 		[JsonProperty("limit")]
-		public float? Limit { get; set; }
+		public decimal? Limit { get; set; }
 
 		/// <summary>
 		/// The iso currency code of the balance, if known officially.

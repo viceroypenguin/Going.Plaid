@@ -44,25 +44,25 @@ namespace Going.Plaid.Entity
 		/// The Amount of the security involved in this transaction.
 		/// </summary>
 		[JsonProperty("quantity")]
-		public double Quantity { get; set; }
+		public decimal Quantity { get; set; }
 
 		/// <summary>
 		/// The complete value of the transaction.Positive values when cash is debited, e.g.purchases of stock; negative values when cash is credited, e.g.sales of stock.Treatment remains the same for cash-only movements unassociated with securities.
 		/// </summary>
 		[JsonProperty("amount")]
-		public double Amount { get; set; }
+		public decimal Amount { get; set; }
 
 		/// <summary>
 		/// The price of the security at which this transaction occurred.
 		/// </summary>
 		[JsonProperty("price")]
-		public double Price { get; set; }
+		public decimal Price { get; set; }
 
 		/// <summary>
 		/// The combined value of all fees applied to this transaction.
 		/// </summary>
 		[JsonProperty("fees")]
-		public float? Fees { get; set; }
+		public decimal? Fees { get; set; }
 
 		/// <summary>
 		/// Transaction Type
