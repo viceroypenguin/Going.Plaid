@@ -13,8 +13,6 @@ after_test:
     - cmd: dotnet pack ./src/Plaid/Plaid.csproj -c Release
 
 artifacts:
-  - path: src\Plaid\bin\Release\netstandard2.0\Going.Plaid.dll
-    name: Going.Plaid.dll
   - path: '**\*.nupkg'
   - path: '**\*.snupkg'
 
