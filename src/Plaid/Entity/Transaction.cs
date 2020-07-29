@@ -116,32 +116,34 @@ namespace Going.Plaid.Entity
 		public class LocationInfo
 		{
 			/// <summary>
-			/// Gets or sets the address.
+			/// The street address where the transaction occurred.
 			/// </summary>
-			/// <value>The address.</value>
 			[JsonProperty("address")]
 			public string? Address { get; set; }
 
 			/// <summary>
-			/// Gets or sets the city.
+			/// The city where the transaction occurred.
 			/// </summary>
-			/// <value>The city.</value>
 			[JsonProperty("city")]
 			public string? City { get; set; }
 
 			/// <summary>
-			/// Gets or sets the state.
+			/// The region or state where the transaction occurred.
 			/// </summary>
-			/// <value>The state.</value>
-			[JsonProperty("state")]
+			[JsonProperty("region")]
 			public string? State { get; set; }
 
 			/// <summary>
-			/// Gets or sets the zip.
+			/// The postal code where the transaction occurred.
 			/// </summary>
-			/// <value>The zip.</value>
-			[JsonProperty("zip")]
+			[JsonProperty("postal_code")]
 			public string? Zip { get; set; }
+
+			/// <summary>
+			/// The ISO 3166-1 alpha-2 country code where the transaction occurred.
+			/// </summary>
+			[JsonProperty("country")]
+			public string? Country { get; set; }
 
 			/// <summary>
 			/// Gets or sets the latitude (x-coordinate).
@@ -158,9 +160,8 @@ namespace Going.Plaid.Entity
 			public decimal? Longitude { get; set; }
 
 			/// <summary>
-			/// Gets or sets the store number.
+			/// The merchant defined store number where the transaction occurred.
 			/// </summary>
-			/// <value>The store number.</value>
 			[JsonProperty("store_number")]
 			public string? StoreNumber { get; set; }
 		}
