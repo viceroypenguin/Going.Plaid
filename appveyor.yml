@@ -3,6 +3,7 @@ image: Visual Studio 2019
 clone_depth: 50
 
 environment:
+  plaid_config_environment: Sandbox
   plaid_config_client_id:
     secure: LHaNof6xreYofWfu9NxtrzBdzyZGtMEBB4NMQeAIKVQ=
   plaid_config_secret:
