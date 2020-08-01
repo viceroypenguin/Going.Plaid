@@ -312,6 +312,4 @@ package-*.json
 *.received.*
 
 # Sensitive Files
-[Ss]ecret*
-[Cc]redential*
-plaid.config
+secrets.json

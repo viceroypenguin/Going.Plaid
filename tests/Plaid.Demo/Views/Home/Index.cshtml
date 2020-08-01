@@ -4,11 +4,7 @@
         <div id="form">
             <div class="input">
                 <label><a>environment:</a></label>
-                <select data-bind="value: environment">
-                    <option selected>Sandbox</option>
-                    <option>Development</option>
-                    <option>Production</option>
-                </select>
+                <span data-bind="text: environment"></span>
             </div>
 
             <div class="input">
@@ -16,18 +12,13 @@
                 {
                     <label class="container">
                         @product
-                        <input class="product-box" type="checkbox" data-value="@product.ToLower()" />
+                        <input class="product-box" type="checkbox" data-value="@product" />
                         <span class="checkmark"></span>
                     </label>
                 }
             </div>
 
             <hr />
-
-            <div class="input">
-                <label><a href="https://dashboard.plaid.com/account/keys" target="_blank">public_key:</a></label>
-                <input type="text" data-bind="value: publicKey" />
-            </div>
 
             <div class="input">
                 <label>access_token:</label>
@@ -48,13 +39,13 @@
 @section scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
-    <script type="text/javascript">
+	<script type="text/javascript">
         function ViewModel () {
             var self = this;
 
             self.environment = ko.observable("Sandbox");
-            self.publicKey = ko.observable("@Model.PublicKey");
-            self.accessToken = ko.observable("@Model.AccessToken");
+            self.linkToken = ko.observable("@Model.LinkToken");
+            self.accessToken = ko.observable();
 
             self.products = function () {
                 let transactions = [];
@@ -76,38 +67,42 @@
                 return (!text || text.length === 0);
             }
 
-            self.showPlaidLink = function () {
-                var handler = Plaid.create({
-                    clientName: 'Plaid Walkthrough Demo',
-                    env: self.environment().toLowerCase(),
-                    key: self.publicKey(),
-                    product: self.products(),
-                    webhook: 'https://requestb.in',/* Optional, use webhooks to get transaction and error updates */
-                    onLoad: function () {
-                        // Optional, called when Link loads
-                    },
-                    onSuccess: function (public_token, metadata) {
+            self.showPlaidLink = async function () {
+				const fetchLinkToken = async () => {
+                    const response = await fetch('/home/getlinktoken', {
+                        method: 'POST',
+                        headers: {
+							'Content-Type': 'application/json'
+						},
+                        body: JSON.stringify(self.products()),
+                    });
+					const responseJSON = await response.json();
+					return responseJSON.linkToken;
+				};
+
+				const configs = {
+					// Required, fetch a link token from your server and pass it
+					// back to your app to initialize Link.
+					token: await fetchLinkToken(),
+					onLoad: function () {
+						// Optional, called when Link loads
+					},
+                    onSuccess: async function (public_token, metadata) {
                         console.log("public_token: " + public_token);
+
                         // Send the public_token to your app server.
                         // The metadata object contains info about the institution the
                         // user selected and the account ID, if the Account Select view
                         // is enabled.
-
-                        var data = {
-                            public_token: public_token,
-                            accounts: metadata.accounts,
-                            institution: metadata.institution,
-                            link_session_id: metadata.link_session_id
-                        };
-                        app.post(("/home/getaccesstoken?environment=" + self.environment()), data, function (result) {
-                            console.log(result);
-                            if (result.isSuccessStatusCode) {
-                                self.accessToken(result.access_token);
-                                console.debug("token: " + result.access_token);
-                            } else {
-
-                            }
+                        const response = await fetch("/home/getaccesstoken", {
+                            method: 'POST',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+                            body: JSON.stringify(public_token)
                         });
+						const responseJSON = await response.json();
+                        self.accessToken(responseJSON.accessToken);
                     },
                     onExit: function (err, metadata) {
                         // The user exited the Link flow.
@@ -130,7 +125,9 @@
                         //   view_name:       "MFA",
                         // }
                     }
-                });
+                };
+
+                let handler = Plaid.create(configs);
                 handler.open();
             };
 
@@ -139,7 +136,6 @@
                     var handler = Plaid.create({
                         clientName: 'Plaid Walkthrough Demo',
                         env: self.environment().toLowerCase(),
-                        key: self.publicKey(),
                         product: self.products(),
                         webhook: 'https://requestb.in',/* Optional, use webhooks to get transaction and error updates */
                         token: result.public_token,
@@ -182,5 +178,5 @@
             ko.applyBindings(vm);
             document.getElementsByClassName("product-box")[0].checked = true;
         })();
-    </script>
+	</script>
 }

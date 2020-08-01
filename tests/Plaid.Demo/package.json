@@ -1,9 +1,0 @@
-{
-  "private": true,
-  "name": "plaid.demo",
-  "version": "0.0.1",
-  "dependencies": {
-    "flexboxgrid": "6.3.1",
-    "knockout": "3.4.2"
-  }
-}

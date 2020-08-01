@@ -1,24 +1,26 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace Going.Plaid.Demo.Middleware
 {
-    public class PlaidCredentials
-    {
-        public PlaidCredentials()
-        {
-            string secretPath = Path.Combine(System.AppContext.BaseDirectory, "secrets.json");
-            var plaid = JObject.Parse(File.ReadAllText(secretPath))["plaid"];
-            AccessToken = plaid?["access_token"]?.Value<string>();
-            PublicKey = plaid["public_key"].Value<string>();
-            ClientId = plaid["client_id"].Value<string>();
-            Secret = plaid["secret"].Value<string>();
-        }
+	public class PlaidCredentials
+	{
+		public PlaidCredentials()
+		{
+			var secretPath = Path.Combine(System.AppContext.BaseDirectory, "secrets.json");
+			var plaid = JObject.Parse(File.ReadAllText(secretPath));
 
-        public readonly string Secret;
-        public readonly string ClientId;
-        public readonly string PublicKey;
+			Environment = Enum.Parse<Environment>(plaid["Environment"].Value<string>());
+			ClientId = plaid["ClientId"].Value<string>();
+			Secret = plaid["Secret"].Value<string>();
+		}
 
-        public string AccessToken;
-    }
+		public Environment Environment { get; }
+		public string Secret { get; }
+		public string ClientId { get; }
+
+		public string LinkToken { get; set; }
+		public string AccessToken { get; set; }
+	}
 }
