@@ -17,7 +17,7 @@ namespace Going.Plaid.Institution
 		public string InstitutionId { get; set; } = null!;
 
 		/// <summary>
-		/// 
+		/// Options for searching Institutions
 		/// </summary>
 		[JsonProperty("options")]
 		public InstitutionSearchOptions? Options { get; set; }

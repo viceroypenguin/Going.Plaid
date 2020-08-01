@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Going.Plaid.Entity
 {
@@ -56,7 +57,7 @@ namespace Going.Plaid.Entity
 		/// </summary>
 		/// <value>The type of the sub.</value>
 		[JsonProperty("subtype")]
-		public AccountSubtype SubType { get; set; }
+		public AccountSubType SubType { get; set; }
 
 		/// <summary>
 		/// Balance information about the account. The current balance is the total amount of funds in the account. The available balance is the current balance less any outstanding holds or debits that have not yet posted to the account.

@@ -3,6 +3,7 @@ using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Going.Plaid.Entity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -27,6 +28,12 @@ namespace Going.Plaid
 		/// <param name="httpClientFactory">A factory instance used to create <see cref="HttpClient" /> instances. If one is not provided, a service collection will be created and used instead. For more information, see <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests"/> for more information.</param>
 		/// <param name="logger">A logging instance. Log entries will be provided at Information level at completion of each api call; and at Trace level with request and content details at the start and end of each api call. If not provided, a <see cref="NullLogger" /> instance will be used.</param>
 		/// <param name="apiVersion">The Plaid API version.</param>
+		/// <remarks>
+		/// Usage patterns: 
+		/// A single <see cref="PlaidClient"/> may be used for all API calls, or a separate one may be used for each <see cref="Item"/>. 
+		/// If the <paramref name="accessToken"/> is provided, it will be used on every call unless overridden.
+		/// However, if not provided here, it may be provided directly for each API call.
+		/// </remarks>
 		public PlaidClient(
 			Environment environment,
 			string? clientId = null,
@@ -73,7 +80,7 @@ namespace Going.Plaid
 		private readonly IServiceProvider? _serviceProvider;
 		private readonly ILogger _logger;
 
-		private readonly JsonSerializer _jsonSerializer = new JsonSerializer();
+		private readonly JsonSerializer _jsonSerializer = new JsonSerializer() { Converters = { new EnumMemberEnumConverter(), }, };
 
 #if DEBUG
 		/// <summary>
@@ -91,7 +98,6 @@ namespace Going.Plaid
 		/// Retrieves information about the status of an <see cref="Entity.Item"/>. Endpoint '<c>/item/get</c>'.
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.GetItemResponse&gt;.</returns>
 		public Task<Management.GetItemResponse> FetchItemAsync(Management.GetItemRequest request) =>
 			PostAsync<Management.GetItemResponse>("item/get", request);
 
@@ -99,15 +105,20 @@ namespace Going.Plaid
 		/// Delete an <see cref="Entity.Item"/>. Once deleted, the access_token associated with the <see cref="Entity.Item"/> is no longer valid and cannot be used to access any data that was associated with the <see cref="Entity.Item"/>.
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.DeleteItemResponse&gt;.</returns>
 		public Task<Management.DeleteItemResponse> DeleteItemAsync(Management.DeleteItemRequest request) =>
 			PostAsync<Management.DeleteItemResponse>("item/delete", request);
+
+		/// <summary>
+		/// Creates a token that can be used with the Link tool in the web client. 
+		/// </summary>
+		/// <param name="request"></param>
+		public Task<Management.CreateLinkTokenResponse> CreateLinkTokenAsync(Management.CreateLinkTokenRequest request) =>
+			PostAsync<Management.CreateLinkTokenResponse>("link/token/create", request);
 
 		/// <summary>
 		/// Updates the webhook associated with an <see cref="Entity.Item"/>. This request triggers a WEBHOOK_UPDATE_ACKNOWLEDGED webhook.
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.UpdateWebhookResponse&gt;.</returns>
 		public Task<Management.UpdateWebhookResponse> UpdateWebhookAsync(Management.UpdateWebhookRequest request) =>
 			PostAsync<Management.UpdateWebhookResponse>("item/webhook/update", request);
 
@@ -115,7 +126,6 @@ namespace Going.Plaid
 		/// Exchanges a Link public_token for an API access_token.
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.ExchangeTokenResponse&gt;.</returns>
 		public Task<Management.CreatePublicTokenResponse> CreatePublicTokenAsync(Management.CreatePublicTokenRequest request) =>
 			PostAsync<Management.CreatePublicTokenResponse>("item/public_token/create", request);
 
@@ -131,25 +141,22 @@ namespace Going.Plaid
 		/// Rotates the access_token associated with an <see cref="Entity.Item"/>. The endpoint returns a new access_token and immediately invalidates the previous access_token.
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.RotateAccessTokenResponse&gt;.</returns>
 		public Task<Management.RotateAccessTokenResponse> RotateAccessTokenAsync(Management.RotateAccessTokenRequest request) =>
 			PostAsync<Management.RotateAccessTokenResponse>("item/access_token/invalidate", request);
 
+		/* Institutions */
+
 		/// <summary>
-		/// Updates an access_token from the legacy version of Plaid’s API, you can use method to generate an access_token for the Item that works with the current API.
+		/// Retrieves all institutions (the results will be paginated).
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.UpdateAccessTokenVersionResponse&gt;.</returns>
-		public Task<Management.UpdateAccessTokenVersionResponse> UpdateAccessTokenVersion(Management.UpdateAccessTokenVersionRequest request) =>
-			PostAsync<Management.UpdateAccessTokenVersionResponse>("item/access_token/update_version", request);
-
-		/* Institutions */
+		public Task<Institution.GetAllInstitutionsResponse> FetchAllInstitutionsAsync(Institution.GetAllInstitutionsRequest request) =>
+			PostAsync<Institution.GetAllInstitutionsResponse>("institutions/get", request);
 
 		/// <summary>
 		/// Retrieves the institutions that match the query parameters.
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Institution.SearchResponse&gt;.</returns>
 		public Task<Institution.SearchResponse> FetchInstitutionsAsync(Institution.SearchRequest request) =>
 			PostAsync<Institution.SearchResponse>("institutions/search", request);
 
@@ -157,7 +164,6 @@ namespace Going.Plaid
 		/// Retrieves the institutions that match the id.
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Institution.SearchByIdResponse&gt;.</returns>
 		public Task<Institution.SearchByIdResponse> FetchInstitutionByIdAsync(Institution.SearchByIdRequest request) =>
 			PostAsync<Institution.SearchByIdResponse>("institutions/get_by_id", request);
 
@@ -167,7 +173,6 @@ namespace Going.Plaid
 		/// Retrieves information pertaining to a <see cref="Entity.Item"/>’s income. In addition to the annual income, detailed information will be provided for each contributing income stream (or job).
 		/// </summary>
 		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Income.GetIncomeResponse&gt;.</returns>
 		public Task<Income.GetIncomeResponse> FetchUserIncomeAsync(Income.GetIncomeRequest request) =>
 			PostAsync<Income.GetIncomeResponse>("income/get", request);
 
@@ -257,7 +262,7 @@ namespace Going.Plaid
 
 		#region Private Members
 
-		private async Task<TResponse> PostAsync<TResponse>(string path, SerializableContent request) where TResponse : ResponseBase, new()
+		private async Task<TResponse> PostAsync<TResponse>(string path, RequestBase request) where TResponse : ResponseBase, new()
 		{
 			EnsureCredentials(request);
 
@@ -293,8 +298,18 @@ namespace Going.Plaid
 				if (ShowRawJsonValues)
 				{
 					var json = await response.Content.ReadAsStringAsync();
-					var result = JsonConvert.DeserializeObject<TResponse>(json);
-					result.RawJsonForDebugging = json;
+					var result = JsonConvert.DeserializeObject<TResponse>(
+						json,
+						new JsonSerializerSettings()
+						{
+							DateFormatString = "yyyy-MM-dd",
+							NullValueHandling = NullValueHandling.Ignore,
+							Converters =
+							{
+								new EnumMemberEnumConverter(),
+							},
+						});
+					result!.RawJsonForDebugging = json;
 					return result;
 				}
 				else
@@ -334,14 +349,11 @@ namespace Going.Plaid
 			}
 		}
 
-		private void EnsureCredentials(object request)
+		private void EnsureCredentials(RequestBase req)
 		{
-			if (request is RequestBase req)
-			{
-				if (string.IsNullOrWhiteSpace(req.Secret)) req.Secret = _secret;
-				if (string.IsNullOrWhiteSpace(req.ClientId)) req.ClientId = _clientId;
-				if (string.IsNullOrWhiteSpace(req.AccessToken)) req.AccessToken = _accessToken;
-			}
+			if (string.IsNullOrWhiteSpace(req.Secret)) req.Secret = _secret;
+			if (string.IsNullOrWhiteSpace(req.ClientId)) req.ClientId = _clientId;
+			if (string.IsNullOrWhiteSpace(req.AccessToken)) req.AccessToken = _accessToken;
 		}
 
 		#endregion Private Members

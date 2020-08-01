@@ -1,38 +1,38 @@
 ﻿namespace Going.Plaid.Entity
 {
-    /// <summary>
-    /// Enum AccountType
-    /// </summary>
-    public enum AccountType
-    {
-        /// <summary>
-        /// Brokerage account.
-        /// </summary>
-        Brokerage,
+	/// <summary>
+	/// Enum AccountType
+	/// </summary>
+	public enum AccountType
+	{
+		/// <summary>
+		/// Brokerage account.
+		/// </summary>
+		Brokerage,
 
-        /// <summary>
-        /// Credit card.
-        /// </summary>
-        Credit,
+		/// <summary>
+		/// Credit card.
+		/// </summary>
+		Credit,
 
-        /// <summary>
-        /// Checking or Savings accounts.
-        /// </summary>
-        Depository,
+		/// <summary>
+		/// Checking or Savings accounts.
+		/// </summary>
+		Depository,
 
-        /// <summary>
-        /// Loan account.
-        /// </summary>
-        Loan,
+		/// <summary>
+		/// Loan account.
+		/// </summary>
+		Loan,
 
-        /// <summary>
-        /// Mortgage account.
-        /// </summary>
-        Mortgage,
+		/// <summary>
+		/// Mortgage account.
+		/// </summary>
+		Mortgage,
 
-        /// <summary>
-        /// Non-specified account type
-        /// </summary>
-        Other
-    }
+		/// <summary>
+		/// Non-specified account type
+		/// </summary>
+		Other
+	}
 }
