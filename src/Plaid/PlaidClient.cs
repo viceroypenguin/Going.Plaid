@@ -126,13 +126,6 @@ namespace Going.Plaid
 		/// Exchanges a Link public_token for an API access_token.
 		/// </summary>
 		/// <param name="request">The request.</param>
-		public Task<Management.CreatePublicTokenResponse> CreatePublicTokenAsync(Management.CreatePublicTokenRequest request) =>
-			PostAsync<Management.CreatePublicTokenResponse>("item/public_token/create", request);
-
-		/// <summary>
-		/// Exchanges a Link public_token for an API access_token.
-		/// </summary>
-		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.ExchangeTokenResponse&gt;.</returns>
 		public Task<Management.ExchangeTokenResponse> ExchangeTokenAsync(Management.ExchangeTokenRequest request) =>
 			PostAsync<Management.ExchangeTokenResponse>("item/public_token/exchange", request);
