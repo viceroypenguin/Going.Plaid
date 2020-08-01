@@ -2,15 +2,26 @@ version: '{build}'
 image: Visual Studio 2019
 clone_depth: 50
 
+environment:
+  plaid_config_client_id:
+    secure: LHaNof6xreYofWfu9NxtrzBdzyZGtMEBB4NMQeAIKVQ=
+  plaid_config_secret:
+    secure: MCc8PeEdf8QmYIsEGe9B57fVM14HDQbExL9HJFVAhaA=
+  plaid_config_access_token:
+    secure: DcAYLk/mgGHvSpR7g+WDjGFTW2VO43sgHEi5RbXJoh4bd2zPzdbmM4m82jA2GHTyqDDFj9eZOmLjd2yvKTzH/w==
+
 before_build:
-    - cmd: dotnet --version
-    - cmd: dotnet restore --verbosity m
+  - cmd: dotnet --version
+  - cmd: dotnet restore --verbosity m
 
 build_script:
-    - cmd: dotnet build ./src/Plaid/Plaid.csproj -c Release
+  - cmd: dotnet build ./src/Plaid/Plaid.csproj -c Release
+
+test_script:
+  - cmd: dotnet test
 
 after_test:
-    - cmd: dotnet pack ./src/Plaid/Plaid.csproj -c Release
+  - cmd: dotnet pack ./src/Plaid/Plaid.csproj -c Release
 
 artifacts:
   - path: '**\*.nupkg'
@@ -21,19 +32,19 @@ cache:
   - '%LocalAppData%\NuGet\v3-cache' # NuGet v3
 
 deploy:
- -  provider: NuGet
+  - provider: NuGet
     api_key:
-        secure: PXXLxEGnQq6BGX+BDU+ll6IJplwZ3MdiSyGM2VTtP67ru2QvCyBXACs68quskxGo
+    secure: PXXLxEGnQq6BGX+BDU+ll6IJplwZ3MdiSyGM2VTtP67ru2QvCyBXACs68quskxGo
     skip_symbols: false
     artifact: /.*(\.|\.s)nupkg/
     on: 
-        APPVEYOR_REPO_TAG: true        # deploy on tag push only
+      APPVEYOR_REPO_TAG: true        # deploy on tag push only
 
- -  provider: GitHub
+  - provider: GitHub
     auth_token:
-        secure: gLjuy01aV234sOjDtHTsqYPwox1c1Qj6uHYSIg0ToLcBDdbGePs30M6Dx/fmFdyX
+      secure: gLjuy01aV234sOjDtHTsqYPwox1c1Qj6uHYSIg0ToLcBDdbGePs30M6Dx/fmFdyX
     name: Release $(APPVEYOR_REPO_TAG_NAME)
     description: Release $(APPVEYOR_REPO_TAG_NAME)
     artifact: /.*(\.|\.s)nupkg/
     on: 
-        APPVEYOR_REPO_TAG: true        # deploy on tag push only
+      APPVEYOR_REPO_TAG: true        # deploy on tag push only

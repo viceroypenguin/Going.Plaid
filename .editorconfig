@@ -4,6 +4,15 @@
 indent_style = tab
 insert_final_newline = true
 
+# Test/Verify files
+[*.verified.txt]
+insert_final_newline = false
+
+# Build scripts
+[*.{yml,yaml}]
+indent_style = spaces
+indent_size = 2
+
 # Code files
 [*.{cs,csx,vb,vbx}]
 indent_size = 4
