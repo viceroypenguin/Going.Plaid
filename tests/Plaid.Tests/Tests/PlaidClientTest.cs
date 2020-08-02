@@ -93,5 +93,15 @@ namespace Going.Plaid.Tests
 				});
 			await Verify(result);
 		}
+
+		/* Income */
+
+		[Fact]
+		public async Task FetchUserIncomeAsync()
+		{
+			var result = await PlaidClient.FetchUserIncomeAsync(
+				new Income.GetIncomeRequest());
+			await Verify(result);
+		}
 	}
 }
