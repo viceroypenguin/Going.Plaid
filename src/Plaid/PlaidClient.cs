@@ -303,6 +303,7 @@ namespace Going.Plaid
 							},
 						});
 					result!.RawJsonForDebugging = json;
+					result.StatusCode = response.StatusCode;
 					return result;
 				}
 				else
