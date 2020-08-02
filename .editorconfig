@@ -234,6 +234,9 @@ dotnet_diagnostic.CS4014.severity = error
 # CS8603: Possible null reference return
 dotnet_diagnostic.CS8603.severity = error
 
+# CS8604: Possible null reference argument
+dotnet_diagnostic.CS8604.severity = error
+
 # CS8618: Non-nullable field is uninitialized. Consider declaring as nullable.
 dotnet_diagnostic.CS8618.severity = error
 

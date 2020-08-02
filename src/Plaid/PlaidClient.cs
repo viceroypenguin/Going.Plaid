@@ -257,7 +257,7 @@ namespace Going.Plaid
 
 		private async Task<TResponse> PostAsync<TResponse>(string path, RequestBase request) where TResponse : ResponseBase, new()
 		{
-			EnsureCredentials(request);
+			request.SetCredentials(_secret, _clientId, _accessToken);
 
 			var client = _clientFactory.CreateClient();
 			var url = _baseUrl + path;
@@ -341,20 +341,6 @@ namespace Going.Plaid
 			{
 				return _jsonSerializer.Deserialize<TResponse>(jsonTextReader)!;
 			}
-		}
-
-		private void EnsureCredentials(RequestBase req)
-		{
-			if (string.IsNullOrWhiteSpace(req.Secret)) req.Secret = _secret;
-			if (string.IsNullOrWhiteSpace(req.ClientId)) req.ClientId = _clientId;
-
-			if (req.UseAccessToken)
-			{
-				if (string.IsNullOrWhiteSpace(req.AccessToken))
-					req.AccessToken = _accessToken;
-			}
-			else
-				req.AccessToken = null;
 		}
 
 		#endregion Private Members

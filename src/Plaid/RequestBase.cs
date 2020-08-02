@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Going.Plaid
 {
@@ -49,8 +48,20 @@ namespace Going.Plaid
 		public string? AccessToken { get; set; }
 
 		/// <summary>
-		/// Determines whether the AccessToken is automatically passed to the server.
+		/// Updates the credential values if they have
+		/// not already been provided.
 		/// </summary>
-		protected internal virtual bool UseAccessToken => true;
+		/// <param name="secret"></param>
+		/// <param name="clientId"></param>
+		/// <param name="accessToken"></param>
+		public virtual void SetCredentials(
+			string? secret,
+			string? clientId,
+			string? accessToken)
+		{
+			if (string.IsNullOrWhiteSpace(Secret)) Secret = secret;
+			if (string.IsNullOrWhiteSpace(ClientId)) ClientId = clientId;
+			if (string.IsNullOrWhiteSpace(AccessToken)) AccessToken = accessToken;
+		}
 	}
 }

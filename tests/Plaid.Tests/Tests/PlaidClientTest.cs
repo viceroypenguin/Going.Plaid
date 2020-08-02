@@ -149,5 +149,25 @@ namespace Going.Plaid.Tests
 				new Balance.GetBalanceRequest());
 			await Verify(result);
 		}
+
+		/* Categories */
+
+		[Fact]
+		public async Task FetchCategoriesAsync()
+		{
+			var result = await PlaidClient.FetchCategoriesAsync(
+				new Category.GetCategoriesRequest());
+			await Verify(result);
+		}
+
+		/* Identity */
+
+		[Fact]
+		public async Task FetchUserIdentityAsync()
+		{
+			var result = await PlaidClient.FetchUserIdentityAsync(
+				new Identity.GetUserIdentityRequest());
+			await Verify(result);
+		}
 	}
 }

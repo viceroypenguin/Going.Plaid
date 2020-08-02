@@ -37,9 +37,12 @@ namespace Going.Plaid.Institution
 		[JsonProperty("options")]
 		public InstitutionSearchOptions? Options { get; set; }
 
-		/// <summary>
-		/// SearchById does not accept <c>access_token</c>
-		/// </summary>
-		protected internal override bool UseAccessToken => false;
+		/// <inheritdoc/>
+		public override void SetCredentials(string? secret, string? clientId, string? accessToken)
+		{
+			if (string.IsNullOrWhiteSpace(Secret)) Secret = secret;
+			if (string.IsNullOrWhiteSpace(ClientId)) ClientId = clientId;
+			AccessToken = null;
+		}
 	}
 }
