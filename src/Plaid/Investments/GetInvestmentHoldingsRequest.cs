@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Going.Plaid.Options;
+using Newtonsoft.Json;
 using System;
 
 namespace Going.Plaid.Investments
@@ -14,19 +15,6 @@ namespace Going.Plaid.Investments
 		/// Gets or sets the holdings options.
 		/// </summary>
 		[JsonProperty("options")]
-		public HoldingsOptions? Options { get; set; }
-
-		/// <summary>
-		/// Represents holdings options.
-		/// </summary>
-		public class HoldingsOptions
-		{
-			/// <summary>
-			/// The list of account ids to retrieve for the <see cref="Entity.Item" />.
-			/// </summary>
-			/// <remarks>An error will be returned if a provided account_id is not associated with the <see cref="Entity.Item" />.</remarks>
-			[JsonProperty("account_ids")]
-			public string[] AccountIds { get; set; } = Array.Empty<string>();
-		}
+		public AccountOptions? Options { get; set; }
 	}
 }

@@ -118,7 +118,11 @@ namespace Going.Plaid.Tests
 		public async Task FetchInvestmentTransactionsAsync()
 		{
 			var result = await PlaidClient.FetchInvestmentTransactionsAsync(
-				new Investments.GetInvestmentTransactionsRequest());
+				new Investments.GetInvestmentTransactionsRequest()
+				{
+					StartDate = Convert.ToDateTime("2020-07-01"),
+					EndDate = Convert.ToDateTime("2020-07-31"),
+				});
 			await Verify(result);
 		}
 
@@ -167,6 +171,20 @@ namespace Going.Plaid.Tests
 		{
 			var result = await PlaidClient.FetchUserIdentityAsync(
 				new Identity.GetUserIdentityRequest());
+			await Verify(result);
+		}
+
+		/* Transactions */
+
+		[Fact]
+		public async Task FetchTransactionsAsync()
+		{
+			var result = await PlaidClient.FetchTransactionsAsync(
+				new Transactions.GetTransactionsRequest()
+				{
+					StartDate = Convert.ToDateTime("2020-07-01"),
+					EndDate = Convert.ToDateTime("2020-07-31"),
+				});
 			await Verify(result);
 		}
 	}
