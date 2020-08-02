@@ -1,0 +1,386 @@
+{
+  total_investment_transactions: 11,
+  investment_transactions: [
+    {
+      investment_transaction_id: 'Jo3wPEpX9wSrrLv6M9QGuMkm53ea8pId69PK4',
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      security_id: 'eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ',
+      date: DateTime_1,
+      name: 'INCOME DIV DIVIDEND RECEIVED',
+      amount: -8.72,
+      fees: 0.0,
+      type: 'cash',
+      subtype: 'dividend',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: '5qWnZol86nInnzoVkPKqFNbvABEg9GiZKWm4n',
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      security_id: 'JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP',
+      date: DateTime_2,
+      name: 'SELL Matthews Pacific Tiger Fund Insti Class',
+      quantity: 47.74104242992852,
+      amount: -1289.01,
+      price: 27.53,
+      fees: 7.99,
+      type: 'sell',
+      subtype: 'sell',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: 'wr4RBKPZJRC119PRQ54eUqvMpnQLmgcrZ58yG',
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      security_id: 'NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk',
+      date: DateTime_3,
+      name: 'BUY DoubleLine Total Return Bond Fund',
+      quantity: 0.7388014749727547,
+      amount: 7.7,
+      price: 10.42,
+      fees: 7.99,
+      subtype: 'buy',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: 'VKMZ8W3JrZHee1JanD9lTjWPKM4R9luWgwr54',
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      security_id: 'MD9eKXeplrt5yKRlzLqXiavwb6wrdxUb3wdnM',
+      date: DateTime_4,
+      name: 'SELL Cambiar International Equity Institutional',
+      quantity: 0.008902867462305952,
+      amount: -0.22,
+      price: 25.0,
+      fees: 5.0,
+      type: 'sell',
+      subtype: 'sell',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: 'DQln38eXVncee9kdPKRQTQXELlZ8yGcvWkMlP',
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      security_id: 'KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy',
+      date: DateTime_5,
+      name: 'BUY Achillion Pharmaceuticals Inc.',
+      quantity: 0.520877874205698,
+      amount: 1.1,
+      price: 2.16,
+      fees: 7.99,
+      subtype: 'buy',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: 'joDLMbWzPLSeeEjMbDJXTZz7GWa1nAc1WBedM',
+      account_id: 'eZ9Mjvpn1MuJJex3odKmC7WxbkwJgeTL1lwaz',
+      security_id: '8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb',
+      date: DateTime_6,
+      name: 'BUY NFLX DERIVATIVE',
+      quantity: 4211.152345617756,
+      amount: 46.32,
+      price: 0.01,
+      fees: 5.0,
+      subtype: 'buy',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: '7rGR1pKklRCgg3aQ87WrhmenaxqEzBugJmqPQ',
+      account_id: 'eZ9Mjvpn1MuJJex3odKmC7WxbkwJgeTL1lwaz',
+      security_id: 'd6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are',
+      date: DateTime_6,
+      name: 'INVBANKTRAN DEP CO CONTR CURRENT YR EMPLOYER CU CO CONTR CURRENT YR EMPLOYER CUR YR',
+      amount: -1200.0,
+      fees: 0.0,
+      type: 'cash',
+      subtype: 'deposit',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: 'PGPkMblVokCaa4BEnM87sRW8vP6MbpF769Rae',
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      security_id: 'eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ',
+      date: DateTime_7,
+      name: 'SELL Southside Bancshares Inc.',
+      quantity: 430.80867509953123,
+      amount: -14961.99,
+      price: 34.12,
+      fees: 0.0,
+      type: 'sell',
+      subtype: 'sell',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: 'NW48QREXg8TxxQvBoPmqiELvk4BWopIW6gwd3',
+      account_id: 'eZ9Mjvpn1MuJJex3odKmC7WxbkwJgeTL1lwaz',
+      security_id: 'abJamDazkgfvBkVGgnnLUWXoxnomp5up8llg4',
+      date: DateTime_7,
+      name: 'SELL iShares Inc MSCI Brazil',
+      quantity: 49.02909689729298,
+      amount: -2066.58,
+      price: 41.62,
+      fees: 0.0,
+      type: 'sell',
+      subtype: 'sell',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: '6KAnMgqDdnH66mVJ8QvKIvkGweB3EgigDy5aB',
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      security_id: 'nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN',
+      date: DateTime_8,
+      name: 'BUY FIDELITY INDEX 1055',
+      quantity: 33.99208384602773,
+      amount: 466.71,
+      price: 13.57,
+      fees: 1.95,
+      subtype: 'buy',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      investment_transaction_id: 'XkLbl8dJBbIZZzeQmMq1CkLbvwx5rZFdK3aMR',
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      security_id: 'd6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are',
+      date: DateTime_8,
+      name: 'INVBANKTRAN DEP INTEREST EARNED INTEREST EARNED',
+      amount: -0.1,
+      fees: 0.0,
+      type: 'cash',
+      subtype: 'interest',
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    }
+  ],
+  securities: [
+    {
+      security_id: '8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb',
+      ticker_symbol: 'NFLX180201C00355000',
+      name: 'Nflx Feb 01\'18 $355 Call',
+      type: 'derivative',
+      close_price: 0.011,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      security_id: 'JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP',
+      isin: 'US5771308344',
+      cusip: '577130834',
+      ticker_symbol: 'MIPTX',
+      name: 'Matthews Pacific Tiger Fund Insti Class',
+      type: 'mutual fund',
+      close_price: 27.0,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      security_id: 'KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy',
+      isin: 'US00448Q2012',
+      cusip: '00448Q201',
+      ticker_symbol: 'ACHN',
+      name: 'Achillion Pharmaceuticals Inc.',
+      type: 'equity',
+      close_price: 2.11,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      security_id: 'MD9eKXeplrt5yKRlzLqXiavwb6wrdxUb3wdnM',
+      isin: 'US00769G5430',
+      cusip: '00769G543',
+      ticker_symbol: 'CAMYX',
+      name: 'Cambiar International Equity Institutional',
+      type: 'mutual fund',
+      close_price: 24.5,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      security_id: 'NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk',
+      isin: 'US2586201038',
+      cusip: '258620103',
+      ticker_symbol: 'DBLTX',
+      name: 'DoubleLine Total Return Bond Fund',
+      type: 'mutual fund',
+      close_price: 10.42,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      security_id: 'abJamDazkgfvBkVGgnnLUWXoxnomp5up8llg4',
+      isin: 'US4642864007',
+      cusip: '464286400',
+      ticker_symbol: 'EWZ',
+      name: 'iShares Inc MSCI Brazil',
+      type: 'etf',
+      close_price: 42.15,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      security_id: 'd6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are',
+      ticker_symbol: 'USD',
+      name: 'U S Dollar',
+      is_cash_equivalent: true,
+      close_price: 1.0,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      security_id: 'eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ',
+      isin: 'US84470P1093',
+      cusip: '84470P109',
+      ticker_symbol: 'SBSI',
+      name: 'Southside Bancshares Inc.',
+      type: 'equity',
+      close_price: 34.73,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    },
+    {
+      security_id: 'nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN',
+      institution_security_id: 'NHX105509',
+      institution_id: 'ins_54',
+      ticker_symbol: 'NHX105509',
+      name: 'NH PORTFOLIO 1055 (FIDELITY INDEX)',
+      type: 'etf',
+      close_price: 13.73,
+      iso_currency_code: 'USD',
+      CurrencyCode: 'USD'
+    }
+  ],
+  item: {
+    item_id: 'pGrM85B49MCAA7nJR3NaIEXp6V6Jp6uLj6yby',
+    available_products: [
+      'assets',
+      'balance',
+      'credit_details',
+      'liabilities'
+    ],
+    billed_products: [
+      'auth',
+      'identity',
+      'income',
+      'investments',
+      'transactions'
+    ],
+    institution_id: 'ins_3',
+    webhook: 'https://example.com'
+  },
+  accounts: [
+    {
+      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      name: 'Plaid Checking',
+      mask: '0000',
+      official_name: 'Plaid Gold Standard 0% Interest Checking',
+      type: 'Depository',
+      subtype: 'checking',
+      balances: {
+        current: 110.0,
+        available: 100.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'NW48QREXg8TxxQvBoPmqiELbanlBjWIWmq1ye',
+      name: 'Plaid Saving',
+      mask: '1111',
+      official_name: 'Plaid Silver Standard 0.1% Interest Saving',
+      type: 'Depository',
+      subtype: 'savings',
+      balances: {
+        current: 210.0,
+        available: 200.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'PGPkMblVokCaa4BEnM87sRW4aK36kMu7Zr4Xz',
+      name: 'Plaid CD',
+      mask: '2222',
+      official_name: 'Plaid Bronze Standard 0.2% Interest CD',
+      type: 'Depository',
+      subtype: 'cd',
+      balances: {
+        current: 1000.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      name: 'Plaid Credit Card',
+      mask: '3333',
+      official_name: 'Plaid Diamond 12.5% APR Interest Credit Card',
+      type: 'Credit',
+      balances: {
+        current: 410.0,
+        limit: 2000.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: '7rGR1pKklRCgg3aQ87WrhmedA4QqlEfgLKG8e',
+      name: 'Plaid Money Market',
+      mask: '4444',
+      official_name: 'Plaid Platinum Standard 1.85% Interest Money Market',
+      type: 'Depository',
+      subtype: 'money market',
+      balances: {
+        current: 43200.0,
+        available: 43200.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'eZ9Mjvpn1MuJJex3odKmC7WxbkwJgeTL1lwaz',
+      name: 'Plaid IRA',
+      mask: '5555',
+      type: 'Investment',
+      subtype: 'ira',
+      balances: {
+        current: 320.76,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      name: 'Plaid 401k',
+      mask: '6666',
+      type: 'Investment',
+      subtype: '401k',
+      balances: {
+        current: 23631.9805,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'Z3oEKq4ReEivv85ynAMqCrWm5Pj67QigVDjJV',
+      name: 'Plaid Student Loan',
+      mask: '7777',
+      type: 'Loan',
+      subtype: 'student',
+      balances: {
+        current: 65262.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'Mkage78XogI33EyJpNxRhKmMAVW7lBu9V8o4P',
+      name: 'Plaid Mortgage',
+      mask: '8888',
+      type: 'Loan',
+      subtype: 'mortgage',
+      balances: {
+        current: 56302.06,
+        iso_currency_code: 'USD'
+      }
+    }
+  ],
+  StatusCode: 'OK',
+  IsSuccessStatusCode: true
+}

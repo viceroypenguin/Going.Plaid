@@ -103,5 +103,23 @@ namespace Going.Plaid.Tests
 				new Income.GetIncomeRequest());
 			await Verify(result);
 		}
+
+		/* Investments */
+
+		[Fact]
+		public async Task FetchInvestmentHoldingsAsync()
+		{
+			var result = await PlaidClient.FetchInvestmentHoldingsAsync(
+				new Investments.GetInvestmentHoldingsRequest());
+			await Verify(result);
+		}
+
+		[Fact]
+		public async Task FetchInvestmentTransactionsAsync()
+		{
+			var result = await PlaidClient.FetchInvestmentTransactionsAsync(
+				new Investments.GetInvestmentTransactionsRequest());
+			await Verify(result);
+		}
 	}
 }

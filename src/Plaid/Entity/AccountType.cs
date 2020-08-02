@@ -21,6 +21,11 @@
 		Depository,
 
 		/// <summary>
+		/// Investment accounts.
+		/// </summary>
+		Investment,
+
+		/// <summary>
 		/// Loan account.
 		/// </summary>
 		Loan,

@@ -66,13 +66,13 @@ namespace Going.Plaid
 					{
 						var ema = value.GetCustomAttribute<EnumMemberAttribute>();
 						if (ema != null && ema.Value.Equals(enumText, StringComparison.OrdinalIgnoreCase))
-							return value;
+							return Enum.Parse(t, value.Name);
 					}
 
-					foreach (var value in t.GetMembers())
+					foreach (var value in t.GetEnumNames())
 					{
-						if (value.Name.Equals(enumText, StringComparison.OrdinalIgnoreCase))
-							return value;
+						if (value.Equals(enumText, StringComparison.OrdinalIgnoreCase))
+							return Enum.Parse(t, value);
 					}
 				}
 			}
