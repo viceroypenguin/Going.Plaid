@@ -346,7 +346,14 @@ namespace Going.Plaid
 		{
 			if (string.IsNullOrWhiteSpace(req.Secret)) req.Secret = _secret;
 			if (string.IsNullOrWhiteSpace(req.ClientId)) req.ClientId = _clientId;
-			if (string.IsNullOrWhiteSpace(req.AccessToken)) req.AccessToken = _accessToken;
+
+			if (req.UseAccessToken)
+			{
+				if (string.IsNullOrWhiteSpace(req.AccessToken))
+					req.AccessToken = _accessToken;
+			}
+			else
+				req.AccessToken = null;
 		}
 
 		#endregion Private Members

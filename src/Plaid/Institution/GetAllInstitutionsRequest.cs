@@ -36,5 +36,10 @@ namespace Going.Plaid.Institution
 		/// </summary>
 		[JsonProperty("options")]
 		public InstitutionSearchOptions? Options { get; set; }
+
+		/// <summary>
+		/// SearchById does not accept <c>access_token</c>
+		/// </summary>
+		protected internal override bool UseAccessToken => false;
 	}
 }

@@ -47,5 +47,10 @@ namespace Going.Plaid
 		/// <value>The access token.</value>
 		[JsonProperty("access_token")]
 		public string? AccessToken { get; set; }
+
+		/// <summary>
+		/// Determines whether the AccessToken is automatically passed to the server.
+		/// </summary>
+		protected internal virtual bool UseAccessToken => true;
 	}
 }

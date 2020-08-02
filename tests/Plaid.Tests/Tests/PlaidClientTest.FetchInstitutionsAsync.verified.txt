@@ -1,0 +1,75 @@
+{
+  institutions: [
+    {
+      institution_id: 'ins_3',
+      name: 'Chase',
+      products: [
+        'assets',
+        'auth',
+        'balance',
+        'transactions',
+        'credit_details',
+        'income',
+        'identity',
+        'investments',
+        'liabilities'
+      ],
+      routing_numbers: [
+        '021000021',
+        '021100361',
+        '021202337',
+        '022300173',
+        '044000037',
+        '051900366',
+        '061092387',
+        '065400137',
+        '071000013',
+        '072000326',
+        '074000010',
+        '075000019',
+        '083000137',
+        '102001017',
+        '103000648',
+        '111000614',
+        '122100024',
+        '123271978',
+        '124001545',
+        '267084131',
+        '322271627',
+        '325070760'
+      ]
+    },
+    {
+      institution_id: 'ins_118129',
+      name: 'Chase - Connect',
+      products: [
+        'assets',
+        'auth',
+        'balance',
+        'transactions',
+        'credit_details',
+        'income',
+        'identity',
+        'investments',
+        'liabilities'
+      ]
+    },
+    {
+      institution_id: 'ins_114625',
+      name: 'The Chasewood Bank',
+      products: [
+        'assets',
+        'auth',
+        'balance',
+        'transactions',
+        'income',
+        'identity'
+      ],
+      routing_numbers: [
+        '113012163'
+      ]
+    }
+  ],
+  StatusCode: 'OK',
+  IsSuccessStatusCode: true
+}

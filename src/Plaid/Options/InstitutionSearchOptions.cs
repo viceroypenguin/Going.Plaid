@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Going.Plaid.Entity;
 using Newtonsoft.Json;
 
 namespace Going.Plaid.Options
@@ -26,7 +27,7 @@ namespace Going.Plaid.Options
 		/// Filter the <see cref="Entity.Institution"/> based on whether they support all products listed in <see cref="Products"/>.
 		/// </summary>
 		[JsonProperty("products")]
-		public string[]? Products { get; set; }
+		public Product[]? Products { get; set; }
 
 		/// <summary>
 		/// Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard.

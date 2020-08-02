@@ -11,7 +11,7 @@ namespace Going.Plaid.Institution
 		/// <summary>
 		/// The list of institutions returned by the server.
 		/// </summary>
-		[JsonProperty("institution")]
+		[JsonProperty("institutions")]
 		public Entity.Institution[] Institutions { get; set; } = null!;
 	}
 }
