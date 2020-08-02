@@ -1,0 +1,131 @@
+{
+  accounts: [
+    {
+      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      name: 'Plaid Checking',
+      mask: '0000',
+      official_name: 'Plaid Gold Standard 0% Interest Checking',
+      type: 'Depository',
+      subtype: 'checking',
+      balances: {
+        current: 110.0,
+        available: 100.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'NW48QREXg8TxxQvBoPmqiELbanlBjWIWmq1ye',
+      name: 'Plaid Saving',
+      mask: '1111',
+      official_name: 'Plaid Silver Standard 0.1% Interest Saving',
+      type: 'Depository',
+      subtype: 'savings',
+      balances: {
+        current: 210.0,
+        available: 200.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'PGPkMblVokCaa4BEnM87sRW4aK36kMu7Zr4Xz',
+      name: 'Plaid CD',
+      mask: '2222',
+      official_name: 'Plaid Bronze Standard 0.2% Interest CD',
+      type: 'Depository',
+      subtype: 'cd',
+      balances: {
+        current: 1000.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      name: 'Plaid Credit Card',
+      mask: '3333',
+      official_name: 'Plaid Diamond 12.5% APR Interest Credit Card',
+      type: 'Credit',
+      balances: {
+        current: 410.0,
+        limit: 2000.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: '7rGR1pKklRCgg3aQ87WrhmedA4QqlEfgLKG8e',
+      name: 'Plaid Money Market',
+      mask: '4444',
+      official_name: 'Plaid Platinum Standard 1.85% Interest Money Market',
+      type: 'Depository',
+      subtype: 'money market',
+      balances: {
+        current: 43200.0,
+        available: 43200.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'eZ9Mjvpn1MuJJex3odKmC7WxbkwJgeTL1lwaz',
+      name: 'Plaid IRA',
+      mask: '5555',
+      type: 'Investment',
+      subtype: 'ira',
+      balances: {
+        current: 320.76,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      name: 'Plaid 401k',
+      mask: '6666',
+      type: 'Investment',
+      subtype: '401k',
+      balances: {
+        current: 23631.9805,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'Z3oEKq4ReEivv85ynAMqCrWm5Pj67QigVDjJV',
+      name: 'Plaid Student Loan',
+      mask: '7777',
+      type: 'Loan',
+      subtype: 'student',
+      balances: {
+        current: 65262.0,
+        iso_currency_code: 'USD'
+      }
+    },
+    {
+      account_id: 'Mkage78XogI33EyJpNxRhKmMAVW7lBu9V8o4P',
+      name: 'Plaid Mortgage',
+      mask: '8888',
+      type: 'Loan',
+      subtype: 'mortgage',
+      balances: {
+        current: 56302.06,
+        iso_currency_code: 'USD'
+      }
+    }
+  ],
+  item: {
+    item_id: 'pGrM85B49MCAA7nJR3NaIEXp6V6Jp6uLj6yby',
+    available_products: [
+      'assets',
+      'balance',
+      'credit_details',
+      'liabilities'
+    ],
+    billed_products: [
+      'auth',
+      'identity',
+      'income',
+      'investments',
+      'transactions'
+    ],
+    institution_id: 'ins_3',
+    webhook: 'https://example.com'
+  },
+  StatusCode: 'OK',
+  IsSuccessStatusCode: true
+}

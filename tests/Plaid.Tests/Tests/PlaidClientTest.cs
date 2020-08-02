@@ -121,5 +121,33 @@ namespace Going.Plaid.Tests
 				new Investments.GetInvestmentTransactionsRequest());
 			await Verify(result);
 		}
+
+		/* Auth */
+
+		[Fact]
+		public async Task FetchAccountInfoAsync()
+		{
+			var result = await PlaidClient.FetchAccountInfoAsync(
+				new Auth.GetAccountInfoRequest());
+			await Verify(result);
+		}
+
+		/* Balance */
+
+		[Fact]
+		public async Task FetchAccountAsync()
+		{
+			var result = await PlaidClient.FetchAccountAsync(
+				new Balance.GetAccountRequest());
+			await Verify(result);
+		}
+
+		[Fact]
+		public async Task FetchAccountBalanceAsync()
+		{
+			var result = await PlaidClient.FetchAccountBalanceAsync(
+				new Balance.GetBalanceRequest());
+			await Verify(result);
+		}
 	}
 }
