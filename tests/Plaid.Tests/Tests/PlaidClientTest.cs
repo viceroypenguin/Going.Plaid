@@ -42,7 +42,7 @@ namespace Going.Plaid.Tests
 				{
 					throw new InvalidOperationException($"Environment configuration via PLAID_CONFIG_ENVIRONMENT is not valid. " +
 						$"Actual: {configuration["ENVIRONMENT"]} ... " +
-						$"Valid: {Enum.GetNames(typeof(Environment)).Aggregate((x,y) => $"{x}, {y}")}");
+						$"Valid: {Enum.GetNames(typeof(Environment)).Aggregate((x, y) => $"{x}, {y}")}");
 				}
 				else
 				{

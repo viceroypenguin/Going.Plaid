@@ -52,22 +52,5 @@ namespace Going.Plaid
 		/// See: https://plaid.com/docs/quickstart/#api-enviroments
 		/// </remarks>
 		public Environment Environment { get; set; } = Environment.Sandbox;
-
-
-		/// <summary>
-		/// Convert the <see cref="Environment"/> string field into a <see cref="Plaid.Environment"/> value.
-		/// </summary>
-		/// <returns>the <see cref="Plaid.Environment"/> value equivalent of the <see cref="Environment"/> field (ignoring case)</returns>
-		/// <exception cref="ArgumentOutOfRangeException">If the <see cref="Environment"/> value is not null and not one of the <see cref="Plaid.Environment"/> values</exception>
-		/// <exception cref="ArgumentNullException">If the <see cref="Environment"/> value is null</exception>
-		//public Environment GetEnvironment()
-		//{
-		//	if (Environment is null) throw new ArgumentNullException(nameof(Environment), "Environment is null in PlaidOptions");
-		//	if (!Enum.TryParse<Environment>(Environment, true, out Environment env))
-		//	{
-		//		throw new ArgumentOutOfRangeException(nameof(Environment), "Invalid Environment value in PlaidOptions. Must be one of Going.Plaid.Environment enum values.");
-		//	}
-		//	return env;
-		//}
 	}
 }
