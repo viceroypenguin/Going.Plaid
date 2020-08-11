@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Going.Plaid.Entity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using VerifyTests;
 using VerifyXunit;
 using Xunit;
@@ -24,21 +25,19 @@ namespace Going.Plaid.Tests
 				.AddEnvironmentVariables("PLAID_CONFIG_")
 				.AddJsonFile("secrets.json", optional: true)
 				.Build();
+			PlaidOptions plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>();
 
-			if (string.IsNullOrWhiteSpace(configuration["Environment"]))
+			if (string.IsNullOrWhiteSpace(plaidOptions.Environment))
 				throw new InvalidOperationException("Please provide Environment configuration via PLAID_CONFIG_ENVIRONMENT or secrets.json.");
-			if (string.IsNullOrWhiteSpace(configuration["Client_Id"]))
+			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))
 				throw new InvalidOperationException("Please provide Client_Id configuration via PLAID_CONFIG_CLIENT_ID or secrets.json.");
-			if (string.IsNullOrWhiteSpace(configuration["Secret"]))
+			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))
 				throw new InvalidOperationException("Please provide Secret configuration via PLAID_CONFIG_SECRET or secrets.json.");
-			if (string.IsNullOrWhiteSpace(configuration["Access_Token"]))
+			if (string.IsNullOrWhiteSpace(plaidOptions.DefaultAccessToken))
 				throw new InvalidOperationException("Please provide Access_Token configuration via PLAID_CONFIG_ACCESS_TOKEN or secrets.json.");
 
-			PlaidClient = new PlaidClient(
-				Enum.Parse<Environment>(configuration["Environment"]),
-				configuration["Client_Id"],
-				configuration["Secret"],
-				configuration["Access_Token"]);
+			IOptions<PlaidOptions> iPlaidOptions = Microsoft.Extensions.Options.Options.Create<PlaidOptions>(plaidOptions);
+			PlaidClient = new PlaidClient(iPlaidOptions);
 		}
 
 		[Fact]
