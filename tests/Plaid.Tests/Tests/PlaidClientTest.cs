@@ -28,17 +28,17 @@ namespace Going.Plaid.Tests
 			PlaidOptions plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>()
 				?? new PlaidOptions()
 				{
-					ClientId = configuration["CLIENT_ID"],
-					Secret = configuration["SECRET"],
-					DefaultAccessToken = configuration["ACCESS_TOKEN"]
+					ClientId = configuration["Client_Id"],
+					Secret = configuration["Secret"],
+					DefaultAccessToken = configuration["Access_Token"]
 				};
 
 			// Since the default value of the PlaidOptions.Environment property is Sandbox, only allow the PLAID_CONFIG_ENVIRONMENT 
 			// to override a Sandbox value. Otherwise, the non-default value was read from secrets.json so we do not need to override 
 			// (as non of the other environment vars are used either)
-			if (!string.IsNullOrWhiteSpace(configuration["ENVIRONMENT"]) && plaidOptions.Environment == Environment.Sandbox)
+			if (!string.IsNullOrWhiteSpace(configuration["Environment"]) && plaidOptions.Environment == Environment.Sandbox)
 			{
-				if (!Enum.TryParse<Environment>(configuration["ENVIRONMENT"], true, out Environment env))
+				if (!Enum.TryParse<Environment>(configuration["Environment"], true, out Environment env))
 				{
 					throw new InvalidOperationException($"Environment configuration via PLAID_CONFIG_ENVIRONMENT is not valid. " +
 						$"Actual: {configuration["ENVIRONMENT"]} ... " +
