@@ -78,6 +78,7 @@ namespace Going.Plaid
 			_secret = string.IsNullOrWhiteSpace(secret) ? null : secret;
 			_clientId = string.IsNullOrWhiteSpace(clientId) ? null : clientId;
 			_accessToken = string.IsNullOrWhiteSpace(accessToken) ? null : accessToken;
+			_environment = environment;
 			_apiVersion = apiVersion switch
 			{
 				ApiVersion.v20190529 => "2019-05-29",
