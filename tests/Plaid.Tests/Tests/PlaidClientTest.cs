@@ -25,10 +25,30 @@ namespace Going.Plaid.Tests
 				.AddEnvironmentVariables("PLAID_CONFIG_")
 				.AddJsonFile("secrets.json", optional: true)
 				.Build();
-			PlaidOptions plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>();
+			PlaidOptions plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>()
+				?? new PlaidOptions()
+				{
+					ClientId = configuration["CLIENT_ID"],
+					Secret = configuration["SECRET"],
+					DefaultAccessToken = configuration["ACCESS_TOKEN"]
+				};
 
-			if (string.IsNullOrWhiteSpace(plaidOptions.Environment))
-				throw new InvalidOperationException("Please provide Environment configuration via PLAID_CONFIG_ENVIRONMENT or secrets.json.");
+			// Since the default value of the PlaidOptions.Environment property is Sandbox, only allow the PLAID_CONFIG_ENVIRONMENT 
+			// to override a Sandbox value. Otherwise, the non-default value was read from secrets.json so we do not need to override 
+			// (as non of the other environment vars are used either)
+			if (!string.IsNullOrWhiteSpace(configuration["ENVIRONMENT"]) && plaidOptions.Environment == Environment.Sandbox)
+			{
+				if (!Enum.TryParse<Environment>(configuration["ENVIRONMENT"], true, out Environment env))
+				{
+					throw new InvalidOperationException($"Environment configuration via PLAID_CONFIG_ENVIRONMENT is not valid. " +
+						$"Actual: {configuration["ENVIRONMENT"]} ... " +
+						$"Valid: {Enum.GetNames(typeof(Environment)).Aggregate((x,y) => $"{x}, {y}")}");
+				}
+				else
+				{
+					plaidOptions.Environment = env;
+				}
+			}
 			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))
 				throw new InvalidOperationException("Please provide Client_Id configuration via PLAID_CONFIG_CLIENT_ID or secrets.json.");
 			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))

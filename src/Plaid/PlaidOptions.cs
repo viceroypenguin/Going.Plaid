@@ -17,15 +17,19 @@ namespace Going.Plaid
 		/// <summary>
 		/// client_id is the same across all environments
 		/// !!! THIS SHOULD NEVER BE SHARED IN CLIENT-SIDE CODE !!!
-		/// See: https://plaid.com/docs/quickstart/#api-keys
 		/// </summary>
+		/// <remarks>
+		/// See: https://plaid.com/docs/quickstart/#api-keys
+		/// </remarks>
 		public string? ClientId { get; set; } = null;
 
 		/// <summary>
 		/// you have a unique secret for each API environment
 		/// !!! THIS SHOULD NEVER BE SHARED IN CLIENT-SIDE CODE !!!
-		/// See: https://plaid.com/docs/quickstart/#api-keys
 		/// </summary>
+		/// <remarks>
+		/// See: https://plaid.com/docs/quickstart/#api-keys
+		/// </remarks>
 		public string? Secret { get; set; } = null;
 
 		/// <summary>
@@ -42,10 +46,12 @@ namespace Going.Plaid
 		private string? _defaultAccessToken;
 
 		/// <summary>
-		/// Sandbox | Development | Production
-		/// See: https://plaid.com/docs/quickstart/#api-enviroments
+		/// <see cref="Environment"/>: Sandbox | Development | Production
 		/// </summary>
-		public string Environment { get; set; } = Plaid.Environment.Sandbox.ToString();
+		/// <remarks>
+		/// See: https://plaid.com/docs/quickstart/#api-enviroments
+		/// </remarks>
+		public Environment Environment { get; set; } = Environment.Sandbox;
 
 
 		/// <summary>
@@ -54,14 +60,14 @@ namespace Going.Plaid
 		/// <returns>the <see cref="Plaid.Environment"/> value equivalent of the <see cref="Environment"/> field (ignoring case)</returns>
 		/// <exception cref="ArgumentOutOfRangeException">If the <see cref="Environment"/> value is not null and not one of the <see cref="Plaid.Environment"/> values</exception>
 		/// <exception cref="ArgumentNullException">If the <see cref="Environment"/> value is null</exception>
-		public Environment GetEnvironment()
-		{
-			if (Environment is null) throw new ArgumentNullException(nameof(Environment), "Environment is null in PlaidOptions");
-			if (!Enum.TryParse<Environment>(Environment, true, out Environment env))
-			{
-				throw new ArgumentOutOfRangeException(nameof(Environment), "Invalid Environment value in PlaidOptions. Must be one of Going.Plaid.Environment enum values.");
-			}
-			return env;
-		}
+		//public Environment GetEnvironment()
+		//{
+		//	if (Environment is null) throw new ArgumentNullException(nameof(Environment), "Environment is null in PlaidOptions");
+		//	if (!Enum.TryParse<Environment>(Environment, true, out Environment env))
+		//	{
+		//		throw new ArgumentOutOfRangeException(nameof(Environment), "Invalid Environment value in PlaidOptions. Must be one of Going.Plaid.Environment enum values.");
+		//	}
+		//	return env;
+		//}
 	}
 }

@@ -31,14 +31,14 @@ namespace Going.Plaid
 			IHttpClientFactory? httpClientFactory = null,
 			ILogger<PlaidClient>? logger = null)
 			: this(
-				  options.Value.GetEnvironment(),
+				  options.Value.Environment,
 				  options.Value.ClientId,
 				  options.Value.Secret,
 				  options.Value.DefaultAccessToken,
 				  httpClientFactory: httpClientFactory,
 				  logger: logger)
 		{
-			_options = options.Value;
+			Options = options.Value;
 		}
 
 		/// <summary>
@@ -84,17 +84,6 @@ namespace Going.Plaid
 				_ => throw new ArgumentOutOfRangeException(nameof(ApiVersion), "Invalid API version provided."),
 			};
 
-			// Somewhat superfluous. Could just set _options to 'null' but the object is low-memory so 
-			// initialize it in case other methods use it (they can assume it has a value regardless of 
-			// the constructor).
-			_options = new PlaidOptions()
-			{
-				ClientId = _clientId,
-				Secret = _secret,
-				DefaultAccessToken = _accessToken,
-				Environment = subDomain
-			};
-
 			if (httpClientFactory == null)
 			{
 				var collection = new ServiceCollection();
@@ -110,10 +99,30 @@ namespace Going.Plaid
 
 		private readonly string _baseUrl, _apiVersion;
 		private readonly string? _clientId, _secret, _accessToken;
+		private readonly Environment _environment;
 		private readonly IHttpClientFactory _clientFactory;
 		private readonly IServiceProvider? _serviceProvider;
 		private readonly ILogger _logger;
-		private readonly PlaidOptions _options;
+		private PlaidOptions? _options = null;
+		/// <summary>
+		/// The PlaidOptions used to initialize this client, or an instance created using the properties from the expanded constructor.
+		/// Sub-classes can override the accessor, but not the setter as the internal values used by this client are not dynamic 
+		/// (you can't change them for an existing client) therfore you cannot set new PlaidOptions either.
+		/// </summary>
+		protected virtual PlaidOptions Options
+		{
+			get => _options ??= new PlaidOptions()
+			{
+				ClientId = _clientId,
+				Secret = _secret,
+				DefaultAccessToken = _accessToken,
+				Environment = _environment
+			};
+			private set
+			{
+				_options = value ?? throw new ArgumentNullException("Cannot set a null PlaidOptions");
+			}
+		}
 
 		private readonly JsonSerializer _jsonSerializer = new JsonSerializer() { Converters = { new EnumMemberEnumConverter(), }, };
 
