@@ -7,6 +7,7 @@ using Going.Plaid.Entity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -18,6 +19,28 @@ namespace Going.Plaid
 	public class PlaidClient
 	{
 		#region Initialization
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PlaidClient"/> class using parameters that can all come from Dependency Injextion.
+		/// </summary>
+		/// <param name="options"><see cref="PlaidOptions"/> initialized from an IConfiguration section</param>
+		/// <param name="httpClientFactory">A factory instance used to create <see cref="HttpClient" /> instances. If one is not provided, a service collection will be created and used instead. For more information, see <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests"/> for more information.</param>
+		/// <param name="logger">A logging instance. Log entries will be provided at Information level at completion of each api call; and at Trace level with request and content details at the start and end of each api call. If not provided, a <see cref="NullLogger" /> instance will be used.</param>
+		public PlaidClient(
+			IOptions<PlaidOptions> options,
+			IHttpClientFactory? httpClientFactory = null,
+			ILogger<PlaidClient>? logger = null)
+			: this(
+				  options.Value.GetEnvironment(),
+				  options.Value.ClientId,
+				  options.Value.Secret,
+				  options.Value.DefaultAccessToken,
+				  httpClientFactory: httpClientFactory,
+				  logger: logger)
+		{
+			_options = options.Value;
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PlaidClient"/> class.
 		/// </summary>
@@ -52,13 +75,24 @@ namespace Going.Plaid
 			};
 			_baseUrl = $"https://{subDomain}.plaid.com/";
 
-			_secret = secret;
-			_clientId = clientId;
-			_accessToken = accessToken;
+			_secret = string.IsNullOrWhiteSpace(secret) ? null : secret;
+			_clientId = string.IsNullOrWhiteSpace(clientId) ? null : clientId;
+			_accessToken = string.IsNullOrWhiteSpace(accessToken) ? null : accessToken;
 			_apiVersion = apiVersion switch
 			{
 				ApiVersion.v20190529 => "2019-05-29",
 				_ => throw new ArgumentOutOfRangeException(nameof(ApiVersion), "Invalid API version provided."),
+			};
+
+			// Somewhat superfluous. Could just set _options to 'null' but the object is low-memory so 
+			// initialize it in case other methods use it (they can assume it has a value regardless of 
+			// the constructor).
+			_options = new PlaidOptions()
+			{
+				ClientId = _clientId,
+				Secret = _secret,
+				DefaultAccessToken = _accessToken,
+				Environment = subDomain
 			};
 
 			if (httpClientFactory == null)
@@ -79,6 +113,7 @@ namespace Going.Plaid
 		private readonly IHttpClientFactory _clientFactory;
 		private readonly IServiceProvider? _serviceProvider;
 		private readonly ILogger _logger;
+		private readonly PlaidOptions _options;
 
 		private readonly JsonSerializer _jsonSerializer = new JsonSerializer() { Converters = { new EnumMemberEnumConverter(), }, };
 

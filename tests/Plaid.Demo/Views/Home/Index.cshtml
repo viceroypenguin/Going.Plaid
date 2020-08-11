@@ -4,25 +4,28 @@
         <div id="form">
             <div class="input">
                 <label><a>environment:</a></label>
-                <span data-bind="text: environment"></span>
+                <span data-bind="text: environment" style="font-weight: 700"></span>
             </div>
 
-            <div class="input">
-                @foreach (var product in new string[] { "Transactions", "Auth", "Identity", "Income", "Investments", })
+            <hr />
+ 
+            <div class="input" style="width: fit-content; margin: auto; text-align: right;">
+                @foreach (var product in Enum.GetNames(typeof(Going.Plaid.Entity.Product)))
                 {
                     <label class="container">
                         @product
                         <input class="product-box" type="checkbox" data-value="@product" />
                         <span class="checkmark"></span>
                     </label>
+                    <br/>
                 }
             </div>
-
+            
             <hr />
 
             <div class="input">
                 <label>access_token:</label>
-                <input type="text" data-bind="value: accessToken" placeholder="click link button to get a token" />
+                <input type="text" data-bind="value: accessToken" placeholder="click 'link account' button to get a token" style="width: 250px"/>
             </div>
 
             <button data-bind="click: showPlaidLink">Link Account</button>
