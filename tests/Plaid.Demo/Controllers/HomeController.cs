@@ -5,14 +5,15 @@ using System.Threading.Tasks;
 using Going.Plaid.Entity;
 using Going.Plaid.Management;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace Going.Plaid.Demo.Controllers
 {
 	public class HomeController : Controller
 	{
-		public HomeController(Middleware.PlaidCredentials credentials, PlaidClient client)
+		public HomeController(IOptions<Middleware.PlaidCredentials> credentials, PlaidClient client)
 		{
-			_credentials = credentials;
+			_credentials = credentials.Value;
 			_client = client;
 		}
 
@@ -27,7 +28,7 @@ namespace Going.Plaid.Demo.Controllers
 				{
 					User = new User { ClientUserId = Guid.NewGuid().ToString(), },
 					ClientName = "Going.Plaid.Net Walkthrough Demo ",
-					Products = products.Select(p => Enum.Parse<Product>(p)).ToArray(),
+					Products = products.Select(p => Enum.Parse<Product>(p, true)).ToArray(),
 					Language = Language.English,
 					CountryCodes = new[] { "US" },
 				});

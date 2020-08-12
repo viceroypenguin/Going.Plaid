@@ -7,6 +7,7 @@ using VerifyTests;
 using VerifyXunit;
 using Xunit;
 using static VerifyXunit.Verifier;
+using MOptions = Microsoft.Extensions.Options.Options;
 
 namespace Going.Plaid.Tests
 {
@@ -21,24 +22,20 @@ namespace Going.Plaid.Tests
 			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "request_id");
 
 			var configuration = new ConfigurationBuilder()
-				.AddEnvironmentVariables("PLAID_CONFIG_")
+				.AddEnvironmentVariables()
 				.AddJsonFile("secrets.json", optional: true)
 				.Build();
+			var plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>();
 
-			if (string.IsNullOrWhiteSpace(configuration["Environment"]))
-				throw new InvalidOperationException("Please provide Environment configuration via PLAID_CONFIG_ENVIRONMENT or secrets.json.");
-			if (string.IsNullOrWhiteSpace(configuration["Client_Id"]))
-				throw new InvalidOperationException("Please provide Client_Id configuration via PLAID_CONFIG_CLIENT_ID or secrets.json.");
-			if (string.IsNullOrWhiteSpace(configuration["Secret"]))
-				throw new InvalidOperationException("Please provide Secret configuration via PLAID_CONFIG_SECRET or secrets.json.");
-			if (string.IsNullOrWhiteSpace(configuration["Access_Token"]))
-				throw new InvalidOperationException("Please provide Access_Token configuration via PLAID_CONFIG_ACCESS_TOKEN or secrets.json.");
+			if (string.IsNullOrWhiteSpace(plaidOptions?.ClientId))
+				throw new InvalidOperationException("Please provide ClientId configuration via PLAID__CLIENTID environment variable or Plaid:ClientId in secrets.json.");
+			if (string.IsNullOrWhiteSpace(plaidOptions?.Secret))
+				throw new InvalidOperationException("Please provide Secret configuration via PLAID__SECRET or Plaid:Secret in secrets.json.");
+			if (string.IsNullOrWhiteSpace(plaidOptions?.DefaultAccessToken))
+				throw new InvalidOperationException("Please provide DefaultAccessToken configuration via PLAID__DEFAULTACCESSTOKEN or Plaid:DefaultAccessToken in secrets.json.");
 
 			PlaidClient = new PlaidClient(
-				Enum.Parse<Environment>(configuration["Environment"]),
-				configuration["Client_Id"],
-				configuration["Secret"],
-				configuration["Access_Token"]);
+				MOptions.Create(plaidOptions));
 		}
 
 		[Fact]
@@ -111,6 +108,8 @@ namespace Going.Plaid.Tests
 		{
 			var result = await PlaidClient.FetchInvestmentHoldingsAsync(
 				new Investments.GetInvestmentHoldingsRequest());
+
+			FixSecurity(result.Securities);
 			await Verify(result);
 		}
 
@@ -123,7 +122,23 @@ namespace Going.Plaid.Tests
 					StartDate = Convert.ToDateTime("2020-07-01"),
 					EndDate = Convert.ToDateTime("2020-07-31"),
 				});
+
+			FixSecurity(result.Securities);
 			await Verify(result);
+		}
+
+		private void FixSecurity(Security[] securities)
+		{
+			// fixes a bug in the returned security data set
+			// Plaid returns a different Institution ID for 
+			// the same security in Sandbox.
+			// working correctly in dev/prod.
+			var s = securities.FirstOrDefault(s => s.SecurityId == "nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN");
+			if (s == default)
+				return;
+
+			// forces institution id to ins_3 for consistency
+			s.InstitutionId = "ins_3";
 		}
 
 		/* Auth */
