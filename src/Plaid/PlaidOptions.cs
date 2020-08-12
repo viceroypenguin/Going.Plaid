@@ -10,13 +10,16 @@ namespace Going.Plaid
 	public class PlaidOptions
 	{
 		/// <summary>
-		/// The section name in the IConfiguration that contains PlaidOptions settings
+		/// A default name in the IConfiguration that contains PlaidOptions settings
 		/// </summary>
+		/// <remarks>
+		/// Section name in configuration is configurable. This default is offered for
+		/// convenience only.
+		/// </remarks>
 		public const string SectionKey = "Plaid";
 
 		/// <summary>
 		/// client_id is the same across all environments
-		/// !!! THIS SHOULD NEVER BE SHARED IN CLIENT-SIDE CODE !!!
 		/// </summary>
 		/// <remarks>
 		/// See: https://plaid.com/docs/quickstart/#api-keys
@@ -25,7 +28,6 @@ namespace Going.Plaid
 
 		/// <summary>
 		/// you have a unique secret for each API environment
-		/// !!! THIS SHOULD NEVER BE SHARED IN CLIENT-SIDE CODE !!!
 		/// </summary>
 		/// <remarks>
 		/// See: https://plaid.com/docs/quickstart/#api-keys
@@ -34,16 +36,13 @@ namespace Going.Plaid
 
 		/// <summary>
 		/// OPTIONAL: Use to specify a default AccessToken for ALL requests that do not provide their own AccessToken 
-		/// NOTE: If you are acting as a User in a session (e.g. on a Web API), you probably don't want to set this system-wide. 
-		///       It would be safer to use one <see cref="PlaidClient"/> for system-level operations, and a different client instance 
-		///       to act as the User to ensure that the default access token is never attached on User-specific requests.
 		/// </summary>
-		public string? DefaultAccessToken
-		{
-			get => _defaultAccessToken;
-			set => _defaultAccessToken = string.IsNullOrWhiteSpace(value) ? null : value;
-		}
-		private string? _defaultAccessToken;
+		/// <remarks>
+		/// NOTE: If you are acting as a User in a session (e.g. on a Web API), you probably don't want to set this system-wide. 
+		///       It would be safer to use one <see cref="PlaidClient"/> system-wide and provide the AccessToken on each 
+		///       API call.
+		/// </remarks>
+		public string? DefaultAccessToken { get; set; }
 
 		/// <summary>
 		/// <see cref="Environment"/>: Sandbox | Development | Production

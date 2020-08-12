@@ -3,11 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Going.Plaid.Entity;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using VerifyTests;
 using VerifyXunit;
 using Xunit;
 using static VerifyXunit.Verifier;
+using MOptions = Microsoft.Extensions.Options.Options;
 
 namespace Going.Plaid.Tests
 {
@@ -22,22 +22,20 @@ namespace Going.Plaid.Tests
 			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "request_id");
 
 			var configuration = new ConfigurationBuilder()
-				.AddEnvironmentVariables("PLAID_")
+				.AddEnvironmentVariables()
 				.AddJsonFile("secrets.json", optional: true)
 				.Build();
-			PlaidOptions plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>();
+			var plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>();
 
-			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))
-				throw new InvalidOperationException("Please provide Client_Id configuration via PLAID_CONFIG_CLIENT_ID or secrets.json.");
-			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))
-				throw new InvalidOperationException("Please provide Secret configuration via PLAID_CONFIG_SECRET or secrets.json.");
-			if (string.IsNullOrWhiteSpace(plaidOptions.DefaultAccessToken))
-				throw new InvalidOperationException("Please provide Access_Token configuration via PLAID_CONFIG_ACCESS_TOKEN or secrets.json.");
+			if (string.IsNullOrWhiteSpace(plaidOptions?.ClientId))
+				throw new InvalidOperationException("Please provide ClientId configuration via PLAID__CLIENTID environment variable or Plaid:ClientId in secrets.json.");
+			if (string.IsNullOrWhiteSpace(plaidOptions?.Secret))
+				throw new InvalidOperationException("Please provide Secret configuration via PLAID__SECRET or Plaid:Secret in secrets.json.");
+			if (string.IsNullOrWhiteSpace(plaidOptions?.DefaultAccessToken))
+				throw new InvalidOperationException("Please provide DefaultAccessToken configuration via PLAID__DEFAULTACCESSTOKEN or Plaid:DefaultAccessToken in secrets.json.");
 
-			// NOTE: PlaidOptions.Environment defaults to Environment.Sandbox so there is always a value there
-
-			IOptions<PlaidOptions> iPlaidOptions = Microsoft.Extensions.Options.Options.Create<PlaidOptions>(plaidOptions);
-			PlaidClient = new PlaidClient(iPlaidOptions);
+			PlaidClient = new PlaidClient(
+				MOptions.Create(plaidOptions));
 		}
 
 		[Fact]
