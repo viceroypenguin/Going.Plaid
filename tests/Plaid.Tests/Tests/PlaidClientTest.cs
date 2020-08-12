@@ -22,39 +22,19 @@ namespace Going.Plaid.Tests
 			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "request_id");
 
 			var configuration = new ConfigurationBuilder()
-				.AddEnvironmentVariables("PLAID_CONFIG_")
+				.AddEnvironmentVariables("PLAID_")
 				.AddJsonFile("secrets.json", optional: true)
 				.Build();
-			PlaidOptions plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>()
-				?? new PlaidOptions()
-				{
-					ClientId = configuration["Client_Id"],
-					Secret = configuration["Secret"],
-					DefaultAccessToken = configuration["Access_Token"]
-				};
+			PlaidOptions plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>();
 
-			// Since the default value of the PlaidOptions.Environment property is Sandbox, only allow the PLAID_CONFIG_ENVIRONMENT 
-			// to override a Sandbox value. Otherwise, the non-default value was read from secrets.json so we do not need to override 
-			// (as non of the other environment vars are used either)
-			if (!string.IsNullOrWhiteSpace(configuration["Environment"]) && plaidOptions.Environment == Environment.Sandbox)
-			{
-				if (!Enum.TryParse<Environment>(configuration["Environment"], true, out Environment env))
-				{
-					throw new InvalidOperationException($"Environment configuration via PLAID_CONFIG_ENVIRONMENT is not valid. " +
-						$"Actual: {configuration["ENVIRONMENT"]} ... " +
-						$"Valid: {Enum.GetNames(typeof(Environment)).Aggregate((x, y) => $"{x}, {y}")}");
-				}
-				else
-				{
-					plaidOptions.Environment = env;
-				}
-			}
 			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))
 				throw new InvalidOperationException("Please provide Client_Id configuration via PLAID_CONFIG_CLIENT_ID or secrets.json.");
 			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))
 				throw new InvalidOperationException("Please provide Secret configuration via PLAID_CONFIG_SECRET or secrets.json.");
 			if (string.IsNullOrWhiteSpace(plaidOptions.DefaultAccessToken))
 				throw new InvalidOperationException("Please provide Access_Token configuration via PLAID_CONFIG_ACCESS_TOKEN or secrets.json.");
+
+			// NOTE: PlaidOptions.Environment defaults to Environment.Sandbox so there is always a value there
 
 			IOptions<PlaidOptions> iPlaidOptions = Microsoft.Extensions.Options.Options.Create<PlaidOptions>(plaidOptions);
 			PlaidClient = new PlaidClient(iPlaidOptions);
