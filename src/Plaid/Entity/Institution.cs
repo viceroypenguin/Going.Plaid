@@ -58,7 +58,7 @@ namespace Going.Plaid.Entity
 		public string[]? MFA { get; set; }
 
 		/// <summary>
-		/// The URL for the institution's website.
+		/// Tht type of MFA used but this Institution.
 		/// </summary>
 		[JsonProperty("mfa_code_type")]
 		public string? MFACodeType { get; set; }
