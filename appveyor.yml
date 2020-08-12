@@ -29,7 +29,6 @@ artifacts:
   - path: '**\*.snupkg'
 
 cache:
-  - '%LocalAppData%\NuGet\Cache'    # NuGet < v3
   - '%LocalAppData%\NuGet\v3-cache' # NuGet v3
 
 deploy:
@@ -38,8 +37,8 @@ deploy:
       secure: GJVmu2j1exMpBljCZYYxq0OfX2Ug2TK/GM50LxmJg02jGRVmJJ98kGT/aMoNAwxC
     skip_symbols: false
     artifact: /.*(\.|\.s)nupkg/
-#    on: 
-#      APPVEYOR_REPO_TAG: true        # deploy on tag push only
+    on: 
+      APPVEYOR_REPO_TAG: true        # deploy on tag push only
 
   - provider: GitHub
     auth_token:
