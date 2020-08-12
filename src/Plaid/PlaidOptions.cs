@@ -22,7 +22,7 @@ namespace Going.Plaid
 		/// client_id is the same across all environments
 		/// </summary>
 		/// <remarks>
-		/// See: https://plaid.com/docs/quickstart/#api-keys
+		/// See: <see href="https://plaid.com/docs/quickstart/#api-keys" />
 		/// </remarks>
 		public string? ClientId { get; set; } = null;
 
@@ -30,7 +30,7 @@ namespace Going.Plaid
 		/// you have a unique secret for each API environment
 		/// </summary>
 		/// <remarks>
-		/// See: https://plaid.com/docs/quickstart/#api-keys
+		/// See: <see href="https://plaid.com/docs/quickstart/#api-keys" />
 		/// </remarks>
 		public string? Secret { get; set; } = null;
 
@@ -45,11 +45,19 @@ namespace Going.Plaid
 		public string? DefaultAccessToken { get; set; }
 
 		/// <summary>
-		/// <see cref="Environment"/>: Sandbox | Development | Production
+		/// <see cref="Going.Plaid.Environment"/>: Sandbox | Development | Production
 		/// </summary>
 		/// <remarks>
-		/// See: https://plaid.com/docs/quickstart/#api-enviroments
+		/// See: <see href="https://plaid.com/docs/quickstart/#api-enviroments" />
 		/// </remarks>
 		public Environment Environment { get; set; } = Environment.Sandbox;
+
+		/// <summary>
+		/// <see cref="Going.Plaid.ApiVersion"/>: v20190529
+		/// </summary>
+		/// <remarks>
+		/// See: <see href="https://plaid.com/docs/api-upgrades/"/>
+		/// </remarks>
+		public ApiVersion ApiVersion { get; set; } = ApiVersion.v20190529;
 	}
 }

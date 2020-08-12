@@ -16,7 +16,7 @@ namespace Going.Plaid
 	/// <summary>
 	/// Provides methods for sending request to and receiving data from Plaid banking API.
 	/// </summary>
-	public class PlaidClient
+	public sealed class PlaidClient
 	{
 		#region Initialization
 
@@ -35,11 +35,10 @@ namespace Going.Plaid
 				  options.Value.ClientId,
 				  options.Value.Secret,
 				  options.Value.DefaultAccessToken,
+				  apiVersion: options.Value.ApiVersion,
 				  httpClientFactory: httpClientFactory,
 				  logger: logger)
-		{
-			Options = options.Value;
-		}
+		{ }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PlaidClient"/> class.
@@ -104,26 +103,6 @@ namespace Going.Plaid
 		private readonly IHttpClientFactory _clientFactory;
 		private readonly IServiceProvider? _serviceProvider;
 		private readonly ILogger _logger;
-		private PlaidOptions? _options = null;
-		/// <summary>
-		/// The PlaidOptions used to initialize this client, or an instance created using the properties from the expanded constructor.
-		/// Sub-classes can override the accessor, but not the setter as the internal values used by this client are not dynamic 
-		/// (you can't change them for an existing client) therfore you cannot set new PlaidOptions either.
-		/// </summary>
-		protected virtual PlaidOptions Options
-		{
-			get => _options ??= new PlaidOptions()
-			{
-				ClientId = _clientId,
-				Secret = _secret,
-				DefaultAccessToken = _accessToken,
-				Environment = _environment
-			};
-			private set
-			{
-				_options = value ?? throw new ArgumentNullException("Cannot set a null PlaidOptions");
-			}
-		}
 
 		private readonly JsonSerializer _jsonSerializer = new JsonSerializer() { Converters = { new EnumMemberEnumConverter(), }, };
 

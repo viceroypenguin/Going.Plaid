@@ -47,6 +47,16 @@ var result = await client.FetchTransactionsAsync(
 This will allow you to save a single `PlaidClient` in the DI system without tracking `secret` and `clientId` separately.
 `PlaidClient` is comfortable being used as a single-instance class in this manner.
 
+#### .NET Core Configuration Options
+
+You can also provide options via your configuration file by configuring a `PlaidOptions` object
+by calling `services.Configure<PlaidOptions>(_config.GetSection(PlaidOptions.SectionKey));` in your
+`ConfigureServices(IServiceCollection services)` method. This expects the options to be created
+under the `"Plaid"` section key. However, you may choose to configure from any section that provides
+the values used by the `PlaidOptions` object.
+
+Once done, you can then add `PlaidClient` as a singleton by calling `services.AddSingleton<PlaidClient>()`.
+
 ### IHttpClientFactory
 
 Going.Plaid supports the `IHttpClientFactory` for correct usage of `HttpClient`, as described [here](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
