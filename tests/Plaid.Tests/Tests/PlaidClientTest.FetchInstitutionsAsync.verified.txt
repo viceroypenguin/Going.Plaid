@@ -37,7 +37,17 @@
         '267084131',
         '322271627',
         '325070760'
-      ]
+      ],
+      country_codes: [
+        'US'
+      ],
+      oauth: false,
+      has_mfa: true,
+      mfa: [
+        'code',
+        'list'
+      ],
+      mfa_code_type: 'numeric'
     },
     {
       institution_id: 'ins_118129',
@@ -52,7 +62,19 @@
         'identity',
         'investments',
         'liabilities'
-      ]
+      ],
+      country_codes: [
+        'US'
+      ],
+      oauth: false,
+      has_mfa: true,
+      mfa: [
+        'code',
+        'list',
+        'questions',
+        'selections'
+      ],
+      mfa_code_type: 'numeric'
     },
     {
       institution_id: 'ins_114625',
@@ -67,7 +89,19 @@
       ],
       routing_numbers: [
         '113012163'
-      ]
+      ],
+      country_codes: [
+        'US'
+      ],
+      oauth: false,
+      has_mfa: true,
+      mfa: [
+        'code',
+        'list',
+        'questions',
+        'selections'
+      ],
+      mfa_code_type: 'numeric'
     }
   ],
   StatusCode: 'OK',
