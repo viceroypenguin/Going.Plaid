@@ -43,6 +43,11 @@ namespace Going.Plaid.Tests
 		{
 			var result = await PlaidClient.FetchItemAsync(
 				new Management.GetItemRequest());
+
+			// because values will change regularly and we don't want
+			// to have to update output json for that.
+			result.Status = null!;
+
 			await Verify(result);
 		}
 
