@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 using Going.Plaid.Exceptions;
 using Going.Plaid.Utilities;
 
-//using CapitalGainsCalculator.Extensions;
-//using CapitalGainsCalculator.Json;
 using Newtonsoft.Json;
 
 namespace Going.Plaid.Link
