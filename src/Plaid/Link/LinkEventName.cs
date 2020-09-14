@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Going.Plaid.Management
+namespace Going.Plaid.Link
 {
 	/// <summary>
 	/// 
 	/// </summary>
 	/// <remarks>See: <see href="https://plaid.com/docs/#event-names"/></remarks>
-	public enum PlaidLinkEventName
+	public enum LinkEventName
 	{
 		/// <summary>
 		/// The user closed the third-party website or mobile app without completing the OAuth flow.
