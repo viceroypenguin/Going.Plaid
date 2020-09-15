@@ -25,8 +25,8 @@ namespace Going.Plaid.Entity
 		public WebhookCode WebhookCode { get; set; }
 
 		/// <summary>
-		/// The identifier of the <see cref="Item"/> for which this 
-		/// webhook payload is triggered.
+		/// The <see cref="Item.Id"/> of the <see cref="Item"/> associated 
+		/// with this webhook, warning, or error
 		/// </summary>
 		[JsonProperty("item_id")]
 		public string ItemId { get; set; } = null!;
@@ -36,18 +36,71 @@ namespace Going.Plaid.Entity
 		/// is triggered.
 		/// </summary>
 		[JsonProperty("error")]
-		public PlaidException Error { get; set; } = null!;
+		public PlaidException? Error { get; set; }
+
+		#region ITEM Properties
+		/// <summary>
+		/// The new webhook URL
+		/// </summary>
+		[JsonProperty("new_webhook_url")]
+		public string? NewWebhookUrl { get; set; }
 
 		/// <summary>
-		/// The number of new transactions available.
+		/// The date and time at which the Item's access consent will expire.
+		/// </summary>
+		[JsonProperty("consent_expiration_time")]
+		public DateTime? ConsentExpirationTime { get; set; }
+		#endregion
+
+		#region TRANSACTIONS Properties
+		/// <summary>
+		/// The number of new transactions detected since the last time this webhook was fired.
 		/// </summary>
 		[JsonProperty("new_transactions")]
-		public int NewTransactions { get; set; }
+		public int NewTransactionsCount { get; set; }
 
 		/// <summary>
 		/// The list of transactions that have been removed by the Bank.
 		/// </summary>
 		[JsonProperty("removed_transactions")]
 		public IReadOnlyList<string> RemovedTransactions { get; set; } = Array.Empty<string>();
+		#endregion
+
+		#region AUTH Properties
+		/// <summary>
+		/// The <see cref="Account.AccountId"/> of the <see cref="Account"/> 
+		/// associated with the webhook
+		/// </summary>
+		[JsonProperty("account_id")]
+		public string? AccountId { get; set; }
+		#endregion
+
+		#region HOLDINGS Properties
+		/// <summary>
+		/// The number of new holdings reported since the last time this webhook was fired.
+		/// </summary>
+		[JsonProperty("new_holdings")]
+		public int? NewHoldingsCount { get; set; }
+
+		/// <summary>
+		/// The number of updated holdings reported since the last time this webhook was fired.
+		/// </summary>
+		[JsonProperty("updated_holdings")]
+		public int? UpdatedHoldingsCount { get; set; }
+		#endregion
+
+		#region INVESTMENTS_TRANSACTIONS Properties
+		/// <summary>
+		/// The number of new transactions reported since the last time this webhook was fired.
+		/// </summary>
+		[JsonProperty("new_investments_transactions")]
+		public int? NewInvestmentsTransactionsCount { get; set; }
+
+		/// <summary>
+		/// The number of canceled transactions reported since the last time this webhook was fired.
+		/// </summary>
+		[JsonProperty("canceled_investments_transactions")]
+		public int? CanceledInvestmentsTransactionsCount { get; set; }
+		#endregion
 	}
 }
