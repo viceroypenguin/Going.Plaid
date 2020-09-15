@@ -26,10 +26,6 @@ namespace Going.Plaid.Management
 		/// </summary>
 		/// <value>The accounts.</value>
 		[JsonProperty("accounts")]
-		[System.Diagnostics.CodeAnalysis.SuppressMessage(
-			"Performance",
-			"CA1819:Properties should not return arrays",
-			Justification = "Matching the data structure from the Plaid API")]
 		public AccountInfo[] Accounts { get; set; } = null!;
 
 		/// <summary>
