@@ -46,7 +46,7 @@ namespace Going.Plaid.Entity
 		public string? NewWebhookUrl { get; set; }
 
 		/// <summary>
-		/// The date and time at which the Item's access consent will expire.
+		/// The date and time at which the <see cref="Item"/>'s access consent will expire.
 		/// </summary>
 		[JsonProperty("consent_expiration_time")]
 		public DateTime? ConsentExpirationTime { get; set; }
