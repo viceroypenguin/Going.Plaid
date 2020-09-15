@@ -29,15 +29,16 @@ namespace Going.Plaid.Management
 		public AccountInfo[] Accounts { get; set; } = null!;
 
 		/// <summary>
-		/// The account object is not null in the onSuccess callback when 
+		/// The <see cref="AccountInfo"/> object is not null in the onSuccess callback when 
 		/// your users connect a specific bank account via the Select Account 
 		/// pane in Link. You can enable this behavior in the Plaid Dashboard 
 		/// or by integrating with all Auth features.
-		/// 
+		/// </summary>
+		/// <remarks>
 		/// Note: If Select Account is enabled for multiple accounts, account 
 		/// will contain only the first account. All accounts selected by the 
 		/// user will be present in the accounts object.
-		/// </summary>
+		/// </remarks>
 		[JsonProperty("account")]
 		public AccountInfo Account { get; set; } = null!;
 
@@ -52,10 +53,6 @@ namespace Going.Plaid.Management
 		/// <summary>
 		/// Represents an <see cref="Entity.Account"/> metadata.
 		/// </summary>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage(
-			"Design",
-			"CA1034:Nested types should not be visible",
-			Justification = "Required for Json deserialization?")]
 		public class AccountInfo
 		{
 			/// <summary>
@@ -77,10 +74,6 @@ namespace Going.Plaid.Management
 		/// <summary>
 		/// Represents an <see cref="Entity.Institution"/> metadata.
 		/// </summary>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage(
-			"Design",
-			"CA1034:Nested types should not be visible",
-			Justification = "Required for Json deserialization?")]
 		public class InstitutionInfo
 		{
 			/// <summary>
