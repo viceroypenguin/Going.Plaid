@@ -29,7 +29,7 @@ namespace Going.Plaid.Entity
 		/// with this webhook, warning, or error
 		/// </summary>
 		[JsonProperty("item_id")]
-		public string ItemId { get; set; } = null!;
+		public string? ItemId { get; set; }
 
 		/// <summary>
 		/// Additional details about the error for which this webhook
