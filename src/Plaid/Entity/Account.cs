@@ -16,15 +16,15 @@ namespace Going.Plaid.Entity
 
 		/// <summary>
 		/// Plaid’s unique identifier for the <see cref="Item"/>.
-		/// This is not included in: /auth/get
 		/// </summary>
+		/// <remarks>This is not included in: /auth/get</remarks>
 		[JsonProperty("item_id")]
 		public string ItemId { get; set; } = null!;
 
 		/// <summary>
 		/// The financial <see cref="Institution"/> associated with the item.
-		/// This is not included in: /auth/get
 		/// </summary>
+		/// <remarks>This is not included in: /auth/get</remarks>
 		[JsonProperty("institution_id")]
 		public string InstitutionId { get; set; } = null!;
 
@@ -70,8 +70,8 @@ namespace Going.Plaid.Entity
 
 		/// <summary>
 		/// Owner information from the institution.
-		/// This is not included in: /auth/get
 		/// </summary>
+		/// <remarks>This is not included in: /auth/get</remarks>
 		[JsonProperty("owners")]
 		public Identity[]? Identity { get; set; }
 	}
