@@ -7,7 +7,7 @@ namespace Going.Plaid.Entity
 	/// </summary>
 	public enum ErrorCode
 	{
-		#region ITEM_ERROR codes
+		#region ITEM_ERROR Codes
 		/// <summary>
 		/// The financial institution indicated that the credentials provided were invalid.
 		/// </summary>
@@ -145,6 +145,52 @@ namespace Going.Plaid.Entity
 		/// <remarks><see href="https://plaid.com/docs-beta/errors/item/#product_not_ready"/></remarks>
 		[EnumMember(Value = "PRODUCT_NOT_READY")]
 		ProductNotReady,
+		#endregion
+
+		#region API_ERROR Codes
+		/// <summary>
+		/// Plaid was unable to process the request
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/api/#internal_server_error-or-plaid-internal-error"/></remarks>
+		[EnumMember(Value = "INTERNAL_SERVER_ERROR")]
+		InternalServerError,
+
+		/// <summary>
+		/// Plaid's systems are undergoing maintenance and API operations are disabled
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/api/#planned_maintenance"/></remarks>
+		[EnumMember(Value = "PLANNED_MAINTENANCE")]
+		PlannedMaintenance,
+		#endregion
+
+		#region INSTITUTION_ERROR Codes
+		/// <summary>
+		/// The financial institution is down, either for maintenance or due to an infrastructure issue with their systems.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/institution/#institution_down"/></remarks>
+		[EnumMember(Value = "INSTITUTION_DOWN")]
+		InstitutionDown,
+
+		/// <summary>
+		/// The financial institution is failing to respond to some of our requests. Your user may be successful if they retry another time.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/institution/#institution_not_responding"/></remarks>
+		[EnumMember(Value = "INSTITUTION_NOT_RESPONDING")]
+		InstitutionNotResponding,
+
+		/// <summary>
+		/// The financial institution is not available this time.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/institution/#institution_not_available"/></remarks>
+		[EnumMember(Value = "INSTITUTION_NOT_AVAILABLE")]
+		InstitutionNotAvailable,
+
+		/// <summary>
+		/// Plaid no longer supports this financial institution.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/institution/#institution_no_longer_supported"/></remarks>
+		[EnumMember(Value = "INSTITUTION_NO_LONGER_SUPPORTED")]
+		InstitutionNoLongerSupported,
 		#endregion
 	}
 }
