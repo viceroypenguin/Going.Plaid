@@ -192,5 +192,184 @@ namespace Going.Plaid.Entity
 		[EnumMember(Value = "INSTITUTION_NO_LONGER_SUPPORTED")]
 		InstitutionNoLongerSupported,
 		#endregion
+
+		#region INVALID_REQUEST Codes
+		/// <summary>
+		/// The request was missing one or more required fields.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#missing_fields"/></remarks>
+		[EnumMember(Value = "MISSING_FIELDS")]
+		MissingFields,
+
+		/// <summary>
+		/// The request included a field that is not recognized by the endpoint.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#unknown_fields"/></remarks>
+		[EnumMember(Value = "UNKNOWN_FIELDS")]
+		UnknownFields,
+
+		/// <summary>
+		/// One or more of the request body fields was improperly formatted or an invalid type
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#invalid_field"/></remarks>
+		[EnumMember(Value = "INVALID_FIELD")]
+		InvalidField,
+
+		/// <summary>
+		/// The request uses fields that are not compatible with the API version being used.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#incompatible_api_version"/></remarks>
+		[EnumMember(Value = "INCOMPATIBLE_API_VERSION")]
+		IncompatibleApiVersion,
+
+		/// <summary>
+		/// The request body was invalid.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#invalid_body"/></remarks>
+		[EnumMember(Value = "INVALID_BODY")]
+		InvalidBody,
+
+		/// <summary>
+		/// The request was missing a required header.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#invalid_headers"/></remarks>
+		[EnumMember(Value = "INVALID_HEADERS")]
+		InvalidHeaders,
+
+		/// <summary>
+		/// The endpoint requested does not exist.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#not_found"/></remarks>
+		[EnumMember(Value = "NOT_FOUND")]
+		NotFound,
+
+		/// <summary>
+		/// The endpoint requested is not available in the API version being used.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#no_longer_available"/></remarks>
+		[EnumMember(Value = "NO_LONGER_AVAILABLE")]
+		NoLongerAvailable,
+
+		/// <summary>
+		/// The requested endpoint is only available in Sandbox.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#sandbox_only"/></remarks>
+		[EnumMember(Value = "SANDBOX_ONLY")]
+		SandboxOnly,
+
+		/// <summary>
+		/// The provided account number was invalid.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-request/#invalid_account_number"/></remarks>
+		[EnumMember(Value = "INVALID_ACCOUNT_NUMBER")]
+		InvalidAccountNumber,
+		#endregion
+
+		#region INVALID_INPUT Codes
+		/// <summary>
+		/// The user attempted to verify their Manual Same-Day micro-deposit amounts more than 3 times and their Item is now permanently locked. The user must retry submitting their account information in Link.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#too_many_verification_attempts"/></remarks>
+		[EnumMember(Value = "TOO_MANY_VERIFICATION_ATTEMPTS")]
+		TooManyVerificationAttempts,
+
+		/// <summary>
+		/// The user submitted incorrect Manual Same-Day micro-deposit amounts during Item verification in Link.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#incorrect_deposit_amounts"/></remarks>
+		[EnumMember(Value = "INCORRECT_DEPOSIT_AMOUNTS")]
+		IncorrectDepositAmounts,
+
+		/// <summary>
+		/// Your client ID does not have access to this API environment. See which environments you are enabled for from the Dashboard.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#unauthorized_environment"/></remarks>
+		[EnumMember(Value = "UNAUTHORIZED_ENVIRONMENT")]
+		UnauthorizedEnvironment,
+
+		/// <summary>
+		/// Your client ID does not have access to this product.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_product"/></remarks>
+		[EnumMember(Value = "INVALID_PRODUCT")]
+		InvalidProduct,
+
+		/// <summary>
+		/// Your client ID does not have access to this route.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#unauthorized_route_access"/></remarks>
+		[EnumMember(Value = "UNAUTHORIZED_ROUTE_ACCESS")]
+		UnauthorizedRouteAccess,
+
+		/// <summary>
+		/// An attempt was made to create an Item without using Link.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#direct_integration_not_enabled"/></remarks>
+		[EnumMember(Value = "DIRECT_INTEGRATION_NOT_ENABLED")]
+		DirectIntegrationNotEnabled,
+
+		/// <summary>
+		/// The client ID and secret included in the request body were invalid. Find your API keys in the Dashboard.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_api_keys"/></remarks>
+		[EnumMember(Value = "INVALID_API_KEYS")]
+		InvalidApiKeys,
+
+		/// <summary>
+		/// The access_token included in the request was invalid.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_access_token"/></remarks>
+		[EnumMember(Value = "INVALID_ACCESS_TOKEN")]
+		InvalidAccessToken,
+
+		/// <summary>
+		/// The public_token included in the request was invalid.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_public_token"/></remarks>
+		[EnumMember(Value = "INVALID_PUBLIC_TOKEN")]
+		InvalidPublicToken,
+
+		/// <summary>
+		/// The link_token provided to initialize Link was invalid.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_link_token"/></remarks>
+		[EnumMember(Value = "INVALID_LINK_TOKEN")]
+		InvalidLinkToken,
+
+		/// <summary>
+		/// The processor_token provided to initialize Link was invalid.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_processor_token"/></remarks>
+		[EnumMember(Value = "INVALID_PROCESSOR_TOKEN")]
+		InvalidProcessorToken,
+
+		/// <summary>
+		/// The audit copy token supplied to the server was invalid.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_audit_copy_token"/></remarks>
+		[EnumMember(Value = "INVALID_AUDIT_COPY_TOKEN")]
+		InvalidAuditCopyToken,
+
+		/// <summary>
+		/// The supplied account_id is not valid
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_account_id"/></remarks>
+		[EnumMember(Value = "INVALID_ACCOUNT_ID")]
+		InvalidAccountId,
+
+		/// <summary>
+		/// The institution_id specified is invalid or does not exist.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_institution"/></remarks>
+		[EnumMember(Value = "INVALID_INSTITUTION")]
+		InvalidInstitution,
+
+		/// <summary>
+		/// The credential fields provided do not match the requirements of the institution.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/invalid-input/#invalid_credential_fields"/></remarks>
+		[EnumMember(Value = "INVALID_CREDENTIAL_FIELDS")]
+		InvalidCredentialFields,
+		#endregion
 	}
 }
