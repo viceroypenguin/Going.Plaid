@@ -371,5 +371,120 @@ namespace Going.Plaid.Entity
 		[EnumMember(Value = "INVALID_CREDENTIAL_FIELDS")]
 		InvalidCredentialFields,
 		#endregion
+
+		#region RATE_LIMIT_EXCEEDED Codes
+		/// <summary>
+		/// Too many requests were made to the /accounts/get endpoint.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/rate-limit-exceeded/#accounts_limit"/></remarks>
+		[EnumMember(Value = "ACCOUNTS_LIMIT")]
+		AccountsLimit,
+
+		/// <summary>
+		/// You have exceeded your addition limit in our Development environment. To increase it, or raise it from zero, contact us.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/rate-limit-exceeded/#addition_limit"/></remarks>
+		[EnumMember(Value = "ADDITION_LIMIT")]
+		AdditionLimit,
+
+		/// <summary>
+		/// Too many requests were made to the /auth/get endpoint.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/rate-limit-exceeded/#auth_limit"/></remarks>
+		[EnumMember(Value = "AUTH_LIMIT")]
+		AuthLimit,
+
+		/// <summary>
+		/// Too many requests were made to the /accounts/balance/get endpoint.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/rate-limit-exceeded/#balance_limit"/></remarks>
+		[EnumMember(Value = "BALANCE_LIMIT")]
+		BalanceLimit,
+
+		/// <summary>
+		/// Too many requests were made to the /identity/get endpoint.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/rate-limit-exceeded/#identity_limit"/></remarks>
+		[EnumMember(Value = "IDENTITY_LIMIT")]
+		IdentityLimit,
+
+		/// <summary>
+		/// Too many requests were made to the /item/get endpoint.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/rate-limit-exceeded/#item_get_limit"/></remarks>
+		[EnumMember(Value = "ITEM_GET_LIMIT")]
+		ItemGetLimit,
+
+		/// <summary>
+		/// Too many requests were made.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/rate-limit-exceeded/#rate_limit"/></remarks>
+		[EnumMember(Value = "RATE_LIMIT")]
+		RateLimit,
+
+		/// <summary>
+		/// Too many requests were made to the /transactions/get endpoint.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/rate-limit-exceeded/#transactions_limit"/></remarks>
+		[EnumMember(Value = "TRANSACTIONS_LIMIT")]
+		TransactionsLimit,
+		#endregion
+
+		#region RECAPTCHA_ERROR Codes
+		/// <summary>
+		/// The request was flagged by Plaid's fraud system, and requires additional verification to ensure they are not a bot.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/recaptcha/#recaptcha_required"/></remarks>
+		[EnumMember(Value = "RECAPTCHA_REQUIRED")]
+		RecaptchaRequired,
+
+		/// <summary>
+		/// The provided challenge response was denied.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/recaptcha/#recaptcha_bad"/></remarks>
+		[EnumMember(Value = "RECAPTCHA_BAD")]
+		RecaptchaBad,
+		#endregion
+
+		#region LINK_ERROR Codes
+		/// <summary>
+		/// The user is trying to link to an institution with poor Plaid connectivity health.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/link/#institution-poor-health-error"/></remarks>
+		[EnumMember(Value = "institution-poor-health-error")]
+		InstitutionPoorHealthError,
+		#endregion
+
+		#region OAUTH_ERROR Codes
+		/// <summary>
+		/// An incorrect OAuth nonce was supplied when re-initializing Link.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/oauth/#incorrect_oauth_nonce"/></remarks>
+		[EnumMember(Value = "INCORRECT_OAUTH_NONCE")]
+		IncorrectOauthNonce,
+
+		/// <summary>
+		/// The OAuth state has already been processed.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/oauth/#oauth_state_id_already_processed"/></remarks>
+		[EnumMember(Value = "OAUTH_STATE_ID_ALREADY_PROCESSED")]
+		OauthStateIdAlreadyProcessed,
+		#endregion
+
+		#region SANDBOX_ERROR Codes
+		/// <summary>
+		/// The requested product is not enabled for an Item
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/sandbox/#sandbox_product_not_enabled"/></remarks>
+		[EnumMember(Value = "SANDBOX_PRODUCT_NOT_ENABLED")]
+		SandboxProductNotEnabled,
+
+		/// <summary>
+		/// The request to fire a Sandbox webhook failed.
+		/// </summary>
+		/// <remarks><see href="https://plaid.com/docs-beta/errors/sandbox/#sandbox_webhook_invalid"/></remarks>
+		[EnumMember(Value = "SANDBOX_WEBHOOK_INVALID")]
+		SandboxWebhookInvalid,
+		#endregion
 	}
 }

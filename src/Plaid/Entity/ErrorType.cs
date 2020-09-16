@@ -56,6 +56,12 @@ namespace Going.Plaid.Entity
 		RecaptchaError,
 
 		/// <summary>
+		/// Occurs when there are errors from Link on the web platform only
+		/// </summary>
+		[EnumMember(Value = "LINK_ERROR")]
+		LinkError,
+
+		/// <summary>
 		/// Occurs when there is an error while making a payment.
 		/// </summary>
 		[EnumMember(Value = "PAYMENT_ERROR")]
