@@ -8,43 +8,9 @@ namespace Going.Plaid.Exceptions
 	/// <summary>
 	/// The exception that is thrown when a response from the Plaid API contains an error.
 	/// </summary>
-	/// <seealso cref="System.Exception" />
 	[Serializable]
-	public class PlaidException : Exception
+	public class PlaidException
 	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="PlaidException"/> class.
-		/// </summary>
-		public PlaidException()
-		{
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="PlaidException"/> class.
-		/// </summary>
-		/// <param name="message">The message that describes the error.</param>
-		public PlaidException(string message) : base(message)
-		{
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="PlaidException"/> class.
-		/// </summary>
-		/// <param name="message">The message.</param>
-		/// <param name="inner">The inner.</param>
-		public PlaidException(string message, Exception inner) : base(message, inner)
-		{
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="PlaidException"/> class.
-		/// </summary>
-		/// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"></see> that holds the serialized object data about the exception being thrown.</param>
-		/// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"></see> that contains contextual information about the source or destination.</param>
-		protected PlaidException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
-		{
-		}
-
 		/// <summary>
 		/// A broad categorization of the error.
 		/// </summary>
@@ -61,8 +27,8 @@ namespace Going.Plaid.Exceptions
 		/// A developer-friendly representation of the error code.
 		/// </summary>
 		/// <remarks>This may change over time and is not safe for programmatic use.</remarks>
-		[JsonProperty("developer_message")]
-		public string DeveloperMessage { get; set; } = null!;
+		[JsonProperty("error_message")]
+		public string ErrorMessage { get; set; } = null!;
 
 		/// <summary>
 		/// A user-friendly representation of the error code. <c>null</c> if the error is not related to user action.
