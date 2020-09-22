@@ -29,7 +29,7 @@ namespace Going.Plaid.Options
 			get => _count;
 			set => _count =
 				value == 0 ? throw new ArgumentOutOfRangeException(nameof(Count), "Count cannot be set to 0.") :
-				value > CountMax ? throw new ArgumentOutOfRangeException(nameof(Count), $"Count must be set to a number <= {CountMax}.") :
+				value > CountMax ? throw new ArgumentOutOfRangeException(nameof(Count), $"Count must be set to a number <= {CountMax}. {value} was the value provided.") :
 				value;
 		}
 
