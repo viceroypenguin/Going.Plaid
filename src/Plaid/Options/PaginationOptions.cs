@@ -13,7 +13,7 @@ namespace Going.Plaid.Options
 		/// <summary>
 		/// The maximum value allowed for the <see cref="Count"/> property
 		/// </summary>
-		public static readonly uint CountMax = 0;
+		public static readonly uint CountMax = 500;
 
 		/// <summary>
 		/// If not explicitly set, this is the default Count value that will be used.
