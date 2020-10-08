@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Going.Plaid
 {
@@ -104,7 +103,13 @@ namespace Going.Plaid
 		private readonly IServiceProvider? _serviceProvider;
 		private readonly ILogger _logger;
 
-		private readonly JsonSerializer _jsonSerializer = new JsonSerializer() { Converters = { new EnumMemberEnumConverter(), }, };
+		private readonly JsonSerializer _jsonSerializer =
+			new JsonSerializer()
+			{
+				DateFormatString = "yyyy-MM-dd",
+				NullValueHandling = NullValueHandling.Ignore,
+				Converters = { new EnumMemberEnumConverter(), },
+			};
 
 #if DEBUG
 		/// <summary>
@@ -341,17 +346,21 @@ namespace Going.Plaid
 			else
 			{
 				var json = await response.Content.ReadAsStringAsync();
-				var error = JObject.Parse(json);
+				var exception = JsonConvert.DeserializeObject<Exceptions.PlaidException>(
+					json,
+					new JsonSerializerSettings()
+					{
+						DateFormatString = "yyyy-MM-dd",
+						NullValueHandling = NullValueHandling.Ignore,
+						Converters =
+						{
+							new EnumMemberEnumConverter(),
+						},
+					});
 				var result = new TResponse
 				{
-					Exception = new Exceptions.PlaidException(error["error_message"]!.Value<string>())
-					{
-						HelpLink = "https://plaid.com/docs/api/#errors-overview",
-						DisplayMessage = error["display_message"]!.Value<string>(),
-						ErrorType = error["error_type"]!.Value<string>(),
-						ErrorCode = error["error_code"]!.Value<string>(),
-						Source = url,
-					}
+					Exception = exception,
+					StatusCode = response.StatusCode,
 				};
 				return result;
 			}

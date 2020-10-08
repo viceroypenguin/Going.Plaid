@@ -5,7 +5,7 @@ namespace Going.Plaid.Management
 	/// <summary>
 	/// The event that has just occurred in the Link flow.
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs-beta/link/web/#onevent"/></remarks>
+	/// <remarks><see href="https://plaid.com/docs/link/web/#onevent"/></remarks>
 	public enum PlaidLinkEventName
 	{
 		/// <summary>

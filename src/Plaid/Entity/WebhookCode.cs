@@ -32,7 +32,7 @@ namespace Going.Plaid.Entity
 		/// explicit expiration times and we try to relay this when possible to reduce 
 		/// service disruption. This can be resolved by having the user go through Link’s update mode.
 		/// </summary>
-		/// <remarks><see href="https://plaid.com/docs-beta/api/webhooks/#item-pending_expiration"/></remarks>
+		/// <remarks><see href="https://plaid.com/docs/api/webhooks/#item-pending_expiration"/></remarks>
 		[EnumMember(Value = "PENDING_EXPIRATION")]
 		PendingExpiration,
 
@@ -43,7 +43,7 @@ namespace Going.Plaid.Entity
 		/// has been revoked, it cannot be restored. If the user subsequently returns to your
 		/// application, a new <see cref="Item"/> must be created for the user.
 		/// </summary>
-		/// <remarks><see href="https://plaid.com/docs-beta/api/webhooks/#item-user_permission_revoked"/></remarks>
+		/// <remarks><see href="https://plaid.com/docs/api/webhooks/#item-user_permission_revoked"/></remarks>
 		[EnumMember(Value = "USER_PERMISSION_REVOKED")]
 		UserPermissionRevoked,
 
@@ -51,7 +51,7 @@ namespace Going.Plaid.Entity
 		/// Fired when an <see cref="Item"/>'s webhook is updated. This will be sent to the 
 		/// newly specified webhook.
 		/// </summary>
-		/// <remarks><see href="https://plaid.com/docs-beta/api/webhooks/#item-webhook_update_acknowledged"/></remarks>
+		/// <remarks><see href="https://plaid.com/docs/api/webhooks/#item-webhook_update_acknowledged"/></remarks>
 		[EnumMember(Value = "WEBHOOK_UPDATE_ACKNOWLEDGED")]
 		WebhookUpdatedAcknowledged,
 		#endregion
@@ -62,7 +62,7 @@ namespace Going.Plaid.Entity
 		/// communicating to your users when this event is received to notify them that 
 		/// their account is verified and ready for use.
 		/// </summary>
-		/// <remarks><see href="https://plaid.com/docs-beta/api/webhooks/#auth-automatically_verified"/></remarks>
+		/// <remarks><see href="https://plaid.com/docs/api/webhooks/#auth-automatically_verified"/></remarks>
 		[EnumMember(Value = "AUTOMATICALLY_VERIFIED")]
 		AutomaticallyVerified,
 
@@ -70,7 +70,7 @@ namespace Going.Plaid.Entity
 		/// Fired when an <see cref="Item"/> was not verified via micro-deposits after 
 		/// seven days since the micro-deposit was made.
 		/// </summary>
-		/// <remarks><see href="https://plaid.com/docs-beta/api/webhooks/#auth-verification_expired"/></remarks>
+		/// <remarks><see href="https://plaid.com/docs/api/webhooks/#auth-verification_expired"/></remarks>
 		[EnumMember(Value = "VERIFICATION_EXPIRED")]
 		VerificationExpired,
 		#endregion
@@ -81,7 +81,7 @@ namespace Going.Plaid.Entity
 		/// Once this webhook has been fired, transaction data for the most recent 30 days 
 		/// can be fetched for the <see cref="Item"/>.
 		/// </summary>
-		/// <remarks><see href="https://plaid.com/docs-beta/api/webhooks/#transactions-initial_update"/></remarks>
+		/// <remarks><see href="https://plaid.com/docs/api/webhooks/#transactions-initial_update"/></remarks>
 		[EnumMember(Value = "INITIAL_UPDATE")]
 		InitialUpdate,
 
@@ -91,7 +91,7 @@ namespace Going.Plaid.Entity
 		/// this webhook has been fired, transaction data beyond the most recent 30 days 
 		/// can be fetched for the <see cref="Item"/>.
 		/// </summary>
-		/// <remarks><see href="https://plaid.com/docs-beta/api/webhooks/#transactions-historical_update"/></remarks>
+		/// <remarks><see href="https://plaid.com/docs/api/webhooks/#transactions-historical_update"/></remarks>
 		[EnumMember(Value = "HISTORICAL_UPDATE")]
 		HistoricalUpdate,
 
@@ -100,7 +100,7 @@ namespace Going.Plaid.Entity
 		/// IDs are included in the webhook payload. Plaid will typically check for deleted 
 		/// transaction data several times a day.
 		/// </summary>
-		/// <remarks><see href="https://plaid.com/docs-beta/api/webhooks/#transactions-transactions_removed"/></remarks>
+		/// <remarks><see href="https://plaid.com/docs/api/webhooks/#transactions-transactions_removed"/></remarks>
 		[EnumMember(Value = "TRANSACTIONS_REMOVED")]
 		TransactionsRemoved,
 		#endregion
