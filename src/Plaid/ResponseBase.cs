@@ -14,21 +14,23 @@ namespace Going.Plaid
 		/// </summary>
 		internal string? RawJsonForDebugging { get; set; }
 #endif
+
 		/// <summary>
 		/// The Error
 		/// </summary>
-		public Exceptions.PlaidException? Exception { get; internal set; }
+		[JsonProperty("error")]
+		public Exceptions.PlaidException? Exception { get; set; }
 
 		/// <summary>
 		/// The request identifier.
 		/// </summary>
 		[JsonProperty("request_id")]
-		public string? RequestId { get; internal set; }
+		public string? RequestId { get; set; }
 
 		/// <summary>
 		/// The http status code.
 		/// </summary>
-		public HttpStatusCode StatusCode { get; internal set; }
+		public HttpStatusCode StatusCode { get; set; }
 
 		/// <summary>
 		/// A value indicating whether this instance is success status code.
