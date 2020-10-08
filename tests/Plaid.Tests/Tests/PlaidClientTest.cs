@@ -108,7 +108,7 @@ namespace Going.Plaid.Tests
 
 		/* Investments */
 
-		[Fact]
+		[Fact(Skip = "Plaid has consistency problems with returned data from this API")]
 		public async Task FetchInvestmentHoldingsAsync()
 		{
 			var result = await PlaidClient.FetchInvestmentHoldingsAsync(
@@ -118,7 +118,7 @@ namespace Going.Plaid.Tests
 			await Verify(result);
 		}
 
-		[Fact]
+		[Fact(Skip = "Plaid has consistency problems with returned data from this API")]
 		public async Task FetchInvestmentTransactionsAsync()
 		{
 			var result = await PlaidClient.FetchInvestmentTransactionsAsync(
