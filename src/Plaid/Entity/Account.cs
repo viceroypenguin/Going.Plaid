@@ -16,17 +16,17 @@ namespace Going.Plaid.Entity
 
 		/// <summary>
 		/// Plaid’s unique identifier for the <see cref="Item"/>.
-		/// This is not included in: /auth/get
 		/// </summary>
+		/// <remarks>This is not included in: <see cref="PlaidClient.FetchAccountInfoAsync(Auth.GetAccountInfoRequest)"/></remarks>
 		[JsonProperty("item_id")]
-		public string ItemId { get; set; } = null!;
+		public string? ItemId { get; set; }
 
 		/// <summary>
 		/// The financial <see cref="Institution"/> associated with the item.
-		/// This is not included in: /auth/get
 		/// </summary>
+		/// <remarks>This is not included in: <see cref="PlaidClient.FetchAccountInfoAsync(Auth.GetAccountInfoRequest)"/></remarks>
 		[JsonProperty("institution_id")]
-		public string InstitutionId { get; set; } = null!;
+		public string? InstitutionId { get; set; }
 
 		/// <summary>
 		/// The name of the account, either assigned by the user or by the financial institution itself.
@@ -70,8 +70,8 @@ namespace Going.Plaid.Entity
 
 		/// <summary>
 		/// Owner information from the institution.
-		/// This is not included in: /auth/get
 		/// </summary>
+		/// <remarks>This is not included in: /auth/get</remarks>
 		[JsonProperty("owners")]
 		public Identity[]? Identity { get; set; }
 	}
