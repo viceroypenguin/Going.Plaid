@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Going.Plaid.Entity;
 using Going.Plaid.Exceptions;
 using Going.Plaid.Utilities;
 
@@ -33,13 +34,14 @@ namespace Going.Plaid.Link
 		/// </summary>
 		[System.Text.Json.Serialization.JsonIgnore]
 		[Newtonsoft.Json.JsonIgnore]
-		public PlaidException? Exception => !IsError() ? null : new PlaidException(ErrorMessage ?? "")
+		public PlaidException? Exception => IsError() ? null : new PlaidException()
 		{
-#pragma warning disable CS8601 // Possible null reference assignment.
-			ErrorCode = ErrorCode is null ? null : Enum.GetName(typeof(PlaidErrorCode), (PlaidErrorCode)ErrorCode),
-			ErrorType = ErrorType is null ? null : Enum.GetName(typeof(PlaidErrorType), (PlaidErrorType)ErrorType),
+			ErrorMessage = ErrorMessage ?? "",
+#pragma warning disable CS8629 // Nullable value type may be null.
+			ErrorCode = (ErrorCode)ErrorCode,
+			ErrorType = (ErrorType)ErrorType,
+#pragma warning restore CS8629 // Nullable value type may be null.
 			DisplayMessage = DisplayMessage ?? ErrorMessage
-#pragma warning restore CS8601 // Possible null reference assignment.
 		};
 
 
@@ -49,26 +51,17 @@ namespace Going.Plaid.Link
 		[System.Text.Json.Serialization.JsonConverter(typeof(JsonStringEnumMemberConverter))]
 		[JsonProperty("error_code")]
 		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-		public PlaidErrorCode? ErrorCode { get; set; } = null!;
-		public string? ErrorCodeDescription => ErrorCode?.GetDescription();
-
-		private string? _errorMessage;
+		public ErrorCode? ErrorCode { get; set; } = null!;
 
 		[JsonPropertyName("error_message")]
 		[JsonProperty("error_message")]
-		public string? ErrorMessage
-		{
-			get => _errorMessage ?? ErrorCodeDescription ?? ErrorTypeDescription;
-			set => _errorMessage = value;
-		}
+		public string? ErrorMessage { get; set; } = null!;
 
 		[JsonPropertyName("error_type")]
 		[System.Text.Json.Serialization.JsonConverter(typeof(JsonStringEnumMemberConverter))]
 		[JsonProperty("error_type")]
 		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-		public PlaidErrorType? ErrorType { get; set; } = null!;
-
-		public string? ErrorTypeDescription => ErrorType?.GetDescription();
+		public ErrorType? ErrorType { get; set; } = null!;
 
 		[JsonPropertyName("display_message")]
 		[JsonProperty("display_message")]

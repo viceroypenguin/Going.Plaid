@@ -42,11 +42,6 @@ namespace Going.Plaid.Link
 		public LinkExitStatus? Status { get; set; } = null!;
 
 		/// <summary>
-		/// Contains text describing the <see cref="Status"/> value.
-		/// </summary>
-		public string? StatusDescription => Status?.GetDescription();
-
-		/// <summary>
 		/// Gets or sets the institution.
 		/// </summary>
 		/// <value>The institution.</value>

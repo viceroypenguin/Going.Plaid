@@ -42,8 +42,6 @@ namespace Going.Plaid.Link
 		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 		public LinkEventName? EventName { get; set; } = null!;
 
-		public string? EventDescription => EventName?.GetDescription();
-
 		[JsonPropertyName("institution_id")]
 		[JsonProperty("institution_id")]
 		public string InstitutionId { get; set; } = null!;
