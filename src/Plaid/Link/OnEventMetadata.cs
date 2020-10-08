@@ -10,7 +10,11 @@ using Newtonsoft.Json;
 namespace Going.Plaid.Link
 {
 	/// <summary>
-	/// <pre>
+	/// </summary>
+	/// <remarks>
+	/// <example>
+	/// Reference JSON for building this object:
+	/// <code>
 	/// {
 	///   "error_code": String,
 	///   "error_message": String,
@@ -25,8 +29,9 @@ namespace Going.Plaid.Link
 	///   "timestamp": String,
 	///   "view_name": String
 	/// }
-	/// </pre>
-	/// </summary>
+	/// </code>
+	/// </example>
+	/// </remarks>
 	public class OnEventMetadata : LinkMetadata
 	{
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -61,6 +66,8 @@ namespace Going.Plaid.Link
 		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 		public LinkViewName? ViewName { get; set; } = null!;
 
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+
 		/// <summary>
 		/// Only applicable for <see cref="PlaidErrorType.AUTH_ERROR"/>
 		/// </summary>
@@ -69,7 +76,6 @@ namespace Going.Plaid.Link
 		[JsonProperty("account_id")]
 		public string AccountId { get; set; } = null!;
 
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
 	}
 }

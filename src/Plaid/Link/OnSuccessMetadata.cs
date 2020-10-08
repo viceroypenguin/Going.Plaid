@@ -9,7 +9,8 @@ using Newtonsoft.Json;
 namespace Going.Plaid.Link
 {
 	/// <summary>
-	/// 
+	/// Provides a data structure to use to deserialize the Plaid JSON metadata returned when the onSuccess event
+	/// in the Plaid Link flow is triggered. 
 	/// </summary>
 	public class OnSuccessMetadata
 	{

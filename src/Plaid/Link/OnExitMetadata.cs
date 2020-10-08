@@ -11,31 +11,40 @@ using Newtonsoft.Json;
 namespace Going.Plaid.Link
 {
 	/// <summary>
-	/// <pre>
+	/// Provides a data structure to use to deserialize the Plaid JSON metadata returned when the onExit event
+	/// in the Plaid Link flow is triggered.
+	/// </summary>
+	/// <remarks>
+	/// <example>
+	/// Reference JSON for building this object:
+	/// <code>
 	/// {
 	///   "link_session_id": String,
 	///   "request_id": String,
 	///   "institution": {
 	///     "name": String,
 	///     "institution_id": String
-	/// },
+	///   },
 	///   "status": String
 	/// }
-	/// </pre>
-	/// </summary>
+	/// </code>
+	/// </example>
+	/// </remarks>
 	public class OnExitMetadata : LinkMetadata
 	{
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
+		/// <summary>
+		/// Describes the step in the Plaid Link flow where the user exited the flow.
+		/// </summary>
 		[JsonPropertyName("status")]
 		[System.Text.Json.Serialization.JsonConverter(typeof(JsonStringEnumMemberConverter))]
 		[JsonProperty("status")]
 		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 		public LinkExitStatus? Status { get; set; } = null!;
 
+		/// <summary>
+		/// Contains text describing the <see cref="Status"/> value.
+		/// </summary>
 		public string? StatusDescription => Status?.GetDescription();
-
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
 		/// <summary>
 		/// Gets or sets the institution.
