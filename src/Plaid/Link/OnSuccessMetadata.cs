@@ -74,10 +74,6 @@ namespace Going.Plaid.Link
 		/// are ever in the JSON metadata for onSuccess, and the 'id' property 
 		/// is named differently in the raw metadata.
 		/// </remarks>		
-		[System.Diagnostics.CodeAnalysis.SuppressMessage(
-			"Design",
-			"CA1034:Nested types should not be visible",
-			Justification = "Required for Json deserialization?")]
 		public class AccountInfo
 		{
 			/// <summary>
@@ -127,10 +123,6 @@ namespace Going.Plaid.Link
 		/// It's defined separately because <i>only</i> these two properties 
 		/// are ever in the JSON metadata for onSuccess
 		/// </remarks>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage(
-			"Design",
-			"CA1034:Nested types should not be visible",
-			Justification = "Required for Json deserialization?")]
 		public class InstitutionInfo
 		{
 			/// <summary>
