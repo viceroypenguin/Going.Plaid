@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Going.Plaid.Exceptions;
-using Going.Plaid.Management;
-using Going.Plaid.Utilities;
+﻿using Going.Plaid.Exceptions;
 using Newtonsoft.Json;
 
 namespace Going.Plaid.Link
@@ -19,8 +12,6 @@ namespace Going.Plaid.Link
 		/// <summary>
 		/// Describes the step in the Plaid Link flow where the user exited the flow.
 		/// </summary>
-		[JsonPropertyName("status")]
-		[System.Text.Json.Serialization.JsonConverter(typeof(JsonStringEnumMemberConverter))]
 		[JsonProperty("status")]
 		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 		public LinkExitStatus? Status { get; set; } = null!;
@@ -61,7 +52,6 @@ namespace Going.Plaid.Link
 		/// </code>
 		/// </example>
 		/// </summary>
-		[JsonPropertyName("error")]
 		[JsonProperty("error")]
 		public virtual PlaidException? Exception { get; set; } = null!;
 
@@ -70,7 +60,6 @@ namespace Going.Plaid.Link
 		/// The request ID for the last request made by Link. This can be shared with Plaid Support to expedite investigation. <br/>
 		/// Emitted by: all events.
 		/// </summary>
-		[JsonPropertyName("request_id")]
 		[JsonProperty("request_id")]
 		public string RequestId { get; set; } = null!;
 
@@ -79,7 +68,6 @@ namespace Going.Plaid.Link
 		/// It's always available and will stay constant throughout the flow. <br/>
 		/// Emitted by: all events.
 		/// </summary>
-		[JsonPropertyName("link_session_id")]
 		[JsonProperty("link_session_id")]
 		public string LinkSessionId { get; set; } = null!;
 
@@ -87,7 +75,6 @@ namespace Going.Plaid.Link
 		/// Gets or sets the institution.
 		/// </summary>
 		/// <value>The institution.</value>
-		[JsonPropertyName("institution")]
 		[JsonProperty("institution")]
 		public InstitutionInfo Institution { get; set; } = null!;
 
@@ -100,7 +87,6 @@ namespace Going.Plaid.Link
 			/// Gets or sets the <see cref="Going.Plaid.Entity.Institution"/> identifier.
 			/// </summary>
 			/// <value>The identifier.</value>
-			[JsonPropertyName("institution_id")]
 			[JsonProperty("institution_id")]
 			public string Id { get; set; } = null!;
 
@@ -108,7 +94,6 @@ namespace Going.Plaid.Link
 			/// Gets or sets the <see cref="Going.Plaid.Entity.Institution"/> name.
 			/// </summary>
 			/// <value>The name.</value>
-			[JsonPropertyName("name")]
 			[JsonProperty("name")]
 			public string Name { get; set; } = null!;
 		}

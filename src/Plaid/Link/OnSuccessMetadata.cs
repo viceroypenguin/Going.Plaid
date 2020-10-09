@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Going.Plaid.Utilities;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Going.Plaid.Link
 {
@@ -37,7 +31,6 @@ namespace Going.Plaid.Link
 		/// </example>
 		/// </summary>
 		/// <value>The public token.</value>
-		[JsonPropertyName("public_token")]
 		[JsonProperty("public_token")]
 		public string PublicToken { get; set; } = null!;
 
@@ -45,7 +38,6 @@ namespace Going.Plaid.Link
 		/// Gets or sets the link session identifier.
 		/// </summary>
 		/// <value>The link session identifier.</value>
-		[JsonPropertyName("link_session_id")]
 		[JsonProperty("link_session_id")]
 		public string LinkSessionId { get; set; } = null!;
 
@@ -53,7 +45,6 @@ namespace Going.Plaid.Link
 		/// Gets or sets the link session identifier.
 		/// </summary>
 		/// <value>The link session identifier.</value>
-		[JsonPropertyName("account_id")]
 		[JsonProperty("account_id")]
 		public string AccountId { get; set; } = null!;
 
@@ -61,7 +52,6 @@ namespace Going.Plaid.Link
 		/// Gets or sets the accounts info.
 		/// </summary>
 		/// <value>The accounts.</value>
-		[JsonPropertyName("accounts")]
 		[JsonProperty("accounts")]
 		[System.Diagnostics.CodeAnalysis.SuppressMessage(
 			"Performance",
@@ -79,7 +69,6 @@ namespace Going.Plaid.Link
 		/// will contain only the first account. All accounts selected by the 
 		/// user will be present in the accounts object.
 		/// </summary>
-		[JsonPropertyName("account")]
 		[JsonProperty("account")]
 		public AccountInfo Account { get; set; } = null!;
 
@@ -87,7 +76,6 @@ namespace Going.Plaid.Link
 		/// Gets or sets the institution.
 		/// </summary>
 		/// <value>The institution.</value>
-		[JsonPropertyName("institution")]
 		[JsonProperty("institution")]
 		public InstitutionInfo Institution { get; set; } = null!;
 
@@ -105,7 +93,6 @@ namespace Going.Plaid.Link
 			/// Gets or sets the <see cref="Going.Plaid.Entity.Account"/> identifier.
 			/// </summary>
 			/// <value>The identifier.</value>
-			[JsonPropertyName("id")]
 			[JsonProperty("id")]
 			public string Id { get; set; } = null!;
 
@@ -113,7 +100,6 @@ namespace Going.Plaid.Link
 			/// Gets or sets the <see cref="Going.Plaid.Entity.Account"/> name.
 			/// </summary>
 			/// <value>The name.</value>
-			[JsonPropertyName("name")]
 			[JsonProperty("name")]
 			public string Name { get; set; } = null!;
 
@@ -121,7 +107,6 @@ namespace Going.Plaid.Link
 			/// The last 2-4 alphanumeric characters of an account's official account number.
 			/// </summary>
 			/// <remarks>The mask may be non-unique between an Item's accounts, it may also not match the mask that the bank displays to the user.</remarks>
-			[JsonPropertyName("mask")]
 			[JsonProperty("mask")]
 			public string Mask { get; set; } = null!;
 
@@ -129,8 +114,6 @@ namespace Going.Plaid.Link
 			/// Gets or sets the type.
 			/// </summary>
 			/// <value>The type.</value>
-			[JsonPropertyName("type")]
-			[System.Text.Json.Serialization.JsonConverter(typeof(JsonStringEnumMemberConverter))]
 			[JsonProperty("type")]
 			[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 			public Going.Plaid.Entity.AccountType? Type { get; set; } = null!;
@@ -139,8 +122,6 @@ namespace Going.Plaid.Link
 			/// Gets or sets the type of the sub.
 			/// </summary>
 			/// <value>The type of the sub.</value>
-			[JsonPropertyName("subtype")]
-			[System.Text.Json.Serialization.JsonConverter(typeof(JsonStringEnumMemberConverter))]
 			[JsonProperty("subtype")]
 			[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 			public Going.Plaid.Entity.AccountSubType? SubType { get; set; } = null!;
@@ -160,7 +141,6 @@ namespace Going.Plaid.Link
 			/// Gets or sets the <see cref="Going.Plaid.Entity.Institution"/> identifier.
 			/// </summary>
 			/// <value>The identifier.</value>
-			[JsonPropertyName("institution_id")]
 			[JsonProperty("institution_id")]
 			public string Id { get; set; } = null!;
 
@@ -168,7 +148,6 @@ namespace Going.Plaid.Link
 			/// Gets or sets the <see cref="Going.Plaid.Entity.Institution"/> name.
 			/// </summary>
 			/// <value>The name.</value>
-			[JsonPropertyName("name")]
 			[JsonProperty("name")]
 			public string Name { get; set; } = null!;
 		}
