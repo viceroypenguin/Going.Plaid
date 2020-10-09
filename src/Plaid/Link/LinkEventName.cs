@@ -1,12 +1,12 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Going.Plaid.Management
+namespace Going.Plaid.Link
 {
 	/// <summary>
 	/// The event that has just occurred in the Link flow.
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/link/web/#onevent"/></remarks>
-	public enum PlaidLinkEventName
+	/// <remarks>See: <see href="https://plaid.com/docs/#event-names"/></remarks>
+	public enum LinkEventName
 	{
 		/// <summary>
 		/// The user closed the third-party website or mobile app without completing the OAuth flow.
