@@ -66,8 +66,14 @@ namespace Going.Plaid.Link
 
 
 		/// <summary>
-		/// Represents an <see cref="Entity.Account"/> metadata.
+		/// Represents a subset of <see cref="Entity.Account"/> metadata.
 		/// </summary>
+		/// <remarks>
+		/// This is a subset of the <see cref="Entity.Account"/> class. 
+		/// It's defined separately because <i>only</i> these properties 
+		/// are ever in the JSON metadata for onSuccess, and the 'id' property 
+		/// is named differently in the raw metadata.
+		/// </remarks>		
 		[System.Diagnostics.CodeAnalysis.SuppressMessage(
 			"Design",
 			"CA1034:Nested types should not be visible",
@@ -114,8 +120,13 @@ namespace Going.Plaid.Link
 
 
 		/// <summary>
-		/// Represents an <see cref="Entity.Institution"/> metadata.
+		/// Represents a subset of the  <see cref="Entity.Institution"/> metadata.
 		/// </summary>
+		/// <remarks>
+		/// This is a subset of the <see cref="Entity.Institution"/> class. 
+		/// It's defined separately because <i>only</i> these two properties 
+		/// are ever in the JSON metadata for onSuccess
+		/// </remarks>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage(
 			"Design",
 			"CA1034:Nested types should not be visible",
