@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Going.Plaid.Entity;
 using Going.Plaid.Utilities;
 using Newtonsoft.Json;
 
@@ -12,6 +13,7 @@ namespace Going.Plaid.Link
 	/// <summary>
 	/// </summary>
 	/// <remarks>
+	/// See: <see href="https://plaid.com/docs/link/web/#onevent"/><br/>
 	/// <example>
 	/// Reference JSON for building this object:
 	/// <code>
@@ -32,10 +34,11 @@ namespace Going.Plaid.Link
 	/// </code>
 	/// </example>
 	/// </remarks>
-	public class OnEventMetadata : LinkMetadata
+	public class OnEventMetadata
 	{
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
+		/// <summary>
+		/// The Event Name is passed to the onEvent Javascript callback as a separate parameter from 
+		/// the metadata structure itself. It must be manually added to the metadata in order to be 
 		[JsonPropertyName("event_name")]
 		[System.Text.Json.Serialization.JsonConverter(typeof(JsonStringEnumMemberConverter))]
 		[JsonProperty("event_name")]
