@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Text.Json;
 using Going.Plaid.Entity;
 using Going.Plaid.Exceptions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Going.Plaid.Link
 {
@@ -58,7 +58,7 @@ namespace Going.Plaid.Link
 		/// </example>
 		/// </summary>
 		[JsonProperty("event_name")]
-		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public LinkEventName? EventName { get; set; } = null!;
 
 
@@ -68,7 +68,7 @@ namespace Going.Plaid.Link
 		/// Composes a <see cref="PlaidException"/> from the constituant properties of this 
 		/// <see cref="OnEventMetadata"/> object. 
 		/// </summary>
-		[Newtonsoft.Json.JsonIgnore]
+		[JsonIgnore]
 		public PlaidException? Exception =>
 			ErrorCode is null || ErrorType is null
 			? null
@@ -78,7 +78,7 @@ namespace Going.Plaid.Link
 		/// The error code that the user encountered.
 		/// </summary>
 		[JsonProperty("error_code")]
-		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public ErrorCode? ErrorCode { get; set; } = null!;
 
 		/// <summary>
@@ -91,7 +91,7 @@ namespace Going.Plaid.Link
 		/// The error type that the user encountered. 
 		/// </summary>
 		[JsonProperty("error_type")]
-		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public ErrorType? ErrorType { get; set; } = null!;
 
 		#endregion
@@ -138,15 +138,8 @@ namespace Going.Plaid.Link
 		/// Emitted by: TRANSITION_VIEW.
 		/// </summary>
 		[JsonProperty("view_name")]
-		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public LinkViewName? ViewName { get; set; } = null!;
-
-		/// <summary>
-		/// Only applicable for <see cref="PlaidErrorType.AUTH_ERROR"/>
-		/// </summary>
-		/// <remarks>See: <see href="https://plaid.com/docs/#auth-errors"/></remarks>
-		[JsonProperty("account_id")]
-		public string AccountId { get; set; } = null!;
 
 		/// <summary>
 		/// The request ID for the last request made by Link. This can be shared with Plaid Support to expedite investigation. <br/>

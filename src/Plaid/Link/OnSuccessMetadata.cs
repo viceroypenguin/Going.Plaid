@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Going.Plaid.Link
 {
@@ -53,24 +55,7 @@ namespace Going.Plaid.Link
 		/// </summary>
 		/// <value>The accounts.</value>
 		[JsonProperty("accounts")]
-		[System.Diagnostics.CodeAnalysis.SuppressMessage(
-			"Performance",
-			"CA1819:Properties should not return arrays",
-			Justification = "Matching the data structure from the Plaid API")]
-		public AccountInfo[] Accounts { get; set; } = null!;
-
-		/// <summary>
-		/// The account object is not null in the onSuccess callback when 
-		/// your users connect a specific bank account via the Select Account 
-		/// pane in Link. You can enable this behavior in the Plaid Dashboard 
-		/// or by integrating with all Auth features.
-		/// 
-		/// Note: If Select Account is enabled for multiple accounts, account 
-		/// will contain only the first account. All accounts selected by the 
-		/// user will be present in the accounts object.
-		/// </summary>
-		[JsonProperty("account")]
-		public AccountInfo Account { get; set; } = null!;
+		public IReadOnlyList<AccountInfo> Accounts { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or sets the institution.
@@ -90,14 +75,14 @@ namespace Going.Plaid.Link
 		public class AccountInfo
 		{
 			/// <summary>
-			/// Gets or sets the <see cref="Going.Plaid.Entity.Account"/> identifier.
+			/// Gets or sets the <see cref="Entity.Account"/> identifier.
 			/// </summary>
 			/// <value>The identifier.</value>
 			[JsonProperty("id")]
 			public string Id { get; set; } = null!;
 
 			/// <summary>
-			/// Gets or sets the <see cref="Going.Plaid.Entity.Account"/> name.
+			/// Gets or sets the <see cref="Entity.Account"/> name.
 			/// </summary>
 			/// <value>The name.</value>
 			[JsonProperty("name")]
@@ -115,16 +100,16 @@ namespace Going.Plaid.Link
 			/// </summary>
 			/// <value>The type.</value>
 			[JsonProperty("type")]
-			[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-			public Going.Plaid.Entity.AccountType? Type { get; set; } = null!;
+			[JsonConverter(typeof(StringEnumConverter))]
+			public Entity.AccountType? Type { get; set; } = null!;
 
 			/// <summary>
 			/// Gets or sets the type of the sub.
 			/// </summary>
 			/// <value>The type of the sub.</value>
 			[JsonProperty("subtype")]
-			[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-			public Going.Plaid.Entity.AccountSubType? SubType { get; set; } = null!;
+			[JsonConverter(typeof(StringEnumConverter))]
+			public Entity.AccountSubType? SubType { get; set; } = null!;
 		}
 
 
@@ -138,14 +123,14 @@ namespace Going.Plaid.Link
 		public class InstitutionInfo
 		{
 			/// <summary>
-			/// Gets or sets the <see cref="Going.Plaid.Entity.Institution"/> identifier.
+			/// Gets or sets the <see cref="Entity.Institution"/> identifier.
 			/// </summary>
 			/// <value>The identifier.</value>
 			[JsonProperty("institution_id")]
 			public string Id { get; set; } = null!;
 
 			/// <summary>
-			/// Gets or sets the <see cref="Going.Plaid.Entity.Institution"/> name.
+			/// Gets or sets the <see cref="Entity.Institution"/> name.
 			/// </summary>
 			/// <value>The name.</value>
 			[JsonProperty("name")]

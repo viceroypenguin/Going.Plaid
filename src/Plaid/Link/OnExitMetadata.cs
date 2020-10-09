@@ -1,5 +1,6 @@
 ﻿using Going.Plaid.Exceptions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Going.Plaid.Link
 {
@@ -13,7 +14,7 @@ namespace Going.Plaid.Link
 		/// Describes the step in the Plaid Link flow where the user exited the flow.
 		/// </summary>
 		[JsonProperty("status")]
-		[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public LinkExitStatus? Status { get; set; } = null!;
 
 		/// <summary>
@@ -81,17 +82,21 @@ namespace Going.Plaid.Link
 		/// <summary>
 		/// Represents an <see cref="Entity.Institution"/> metadata.
 		/// </summary>
+		[System.Diagnostics.CodeAnalysis.SuppressMessage(
+			"Design",
+			"CA1034:Nested types should not be visible",
+			Justification = "Required for Json deserialization?")]
 		public class InstitutionInfo
 		{
 			/// <summary>
-			/// Gets or sets the <see cref="Going.Plaid.Entity.Institution"/> identifier.
+			/// Gets or sets the <see cref="Entity.Institution"/> identifier.
 			/// </summary>
 			/// <value>The identifier.</value>
 			[JsonProperty("institution_id")]
 			public string Id { get; set; } = null!;
 
 			/// <summary>
-			/// Gets or sets the <see cref="Going.Plaid.Entity.Institution"/> name.
+			/// Gets or sets the <see cref="Entity.Institution"/> name.
 			/// </summary>
 			/// <value>The name.</value>
 			[JsonProperty("name")]
