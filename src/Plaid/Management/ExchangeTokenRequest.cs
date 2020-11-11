@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -11,7 +11,7 @@ namespace Going.Plaid.Management
 		/// <summary>
 		/// The Public Token returned by the Plaid Link Tool.
 		/// </summary>
-		[JsonProperty("public_token")]
+		[JsonPropertyName("public_token")]
 		public string PublicToken { get; set; } = null!;
 	}
 }

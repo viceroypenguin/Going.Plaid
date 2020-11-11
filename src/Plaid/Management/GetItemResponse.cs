@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -18,7 +18,7 @@ namespace Going.Plaid.Management
 		/// <summary>
 		/// Information about the last transaction, webhook statuses of the Item.
 		/// </summary>
-		[JsonProperty("status")]
+		[JsonPropertyName("status")]
 		public ItemStatus Status { get; init; } = null!;
 
 		/// <summary>
@@ -29,13 +29,13 @@ namespace Going.Plaid.Management
 			/// <summary>
 			/// The timestamps of the last successful and failed transactions update for the Item.
 			/// </summary>
-			[JsonProperty("transactions")]
+			[JsonPropertyName("transactions")]
 			public LastTransactionInformation Transactions { get; init; } = null!;
 
 			/// <summary>
 			/// Information about the last webhook fired for the Item.
 			/// </summary>
-			[JsonProperty("last_webhook")]
+			[JsonPropertyName("last_webhook")]
 			public LastWebhook LastWebhook { get; init; } = null!;
 		}
 
@@ -47,13 +47,13 @@ namespace Going.Plaid.Management
 			/// <summary>
 			/// Timestamp of when the webhook was fired.
 			/// </summary>
-			[JsonProperty("sent_at")]
+			[JsonPropertyName("sent_at")]
 			public DateTime? SentAt { get; init; }
 
 			/// <summary>
 			/// The last webhook code sent
 			/// </summary>
-			[JsonProperty("code_sent")]
+			[JsonPropertyName("code_sent")]
 			public string CodeSent { get; init; } = null!;
 		}
 
@@ -65,13 +65,13 @@ namespace Going.Plaid.Management
 			/// <summary>
 			/// Timestamp of the last successful transactions update for the Item.
 			/// </summary>
-			[JsonProperty("last_successful_update")]
+			[JsonPropertyName("last_successful_update")]
 			public DateTime? LastSuccessfulUpdate { get; init; }
 
 			/// <summary>
 			/// Timestamp of the last failed transactions update for the Item.
 			/// </summary>
-			[JsonProperty("last_failed_update")]
+			[JsonPropertyName("last_failed_update")]
 			public DateTime? LastFailedUpdate { get; init; }
 		}
 	}

@@ -1,6 +1,5 @@
-﻿using Going.Plaid.Options;
-using Newtonsoft.Json;
-using System;
+﻿using System.Text.Json.Serialization;
+using Going.Plaid.Options;
 
 namespace Going.Plaid.Investments
 {
@@ -14,7 +13,7 @@ namespace Going.Plaid.Investments
 		/// <summary>
 		/// Gets or sets the holdings options.
 		/// </summary>
-		[JsonProperty("options")]
+		[JsonPropertyName("options")]
 		public AccountOptions? Options { get; set; }
 	}
 }

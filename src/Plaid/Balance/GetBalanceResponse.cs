@@ -1,5 +1,5 @@
-﻿using Going.Plaid.Entity;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using Going.Plaid.Entity;
 
 namespace Going.Plaid.Balance
 {
@@ -13,13 +13,13 @@ namespace Going.Plaid.Balance
 		/// <summary>
 		/// The accounts with balance information included.
 		/// </summary>
-		[JsonProperty("accounts")]
+		[JsonPropertyName("accounts")]
 		public Account[] Accounts { get; init; } = null!;
 
 		/// <summary>
 		/// The item about which information is requested.
 		/// </summary>
-		[JsonProperty("item")]
+		[JsonPropertyName("item")]
 		public Item Item { get; init; } = null!;
 	}
 }

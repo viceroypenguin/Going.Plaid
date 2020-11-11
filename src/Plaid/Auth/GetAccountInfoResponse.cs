@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Auth
 {
@@ -11,20 +11,20 @@ namespace Going.Plaid.Auth
 		/// <summary>
 		/// The item about which information is requested.
 		/// </summary>
-		[JsonProperty("item")]
+		[JsonPropertyName("item")]
 		public Entity.Item Item { get; init; } = null!;
 
 		/// <summary>
 		/// The accounts attached to the <see cref="Item"/>
 		/// </summary>
-		[JsonProperty("accounts")]
+		[JsonPropertyName("accounts")]
 		public Entity.Account[] Accounts { get; init; } = null!;
 
 		/// <summary>
 		/// The routing and account numbers for the accounts.
 		/// </summary>
 		/// <value>The numbers.</value>
-		[JsonProperty("numbers")]
+		[JsonPropertyName("numbers")]
 		public AccountIdentifiers Numbers { get; init; }
 
 		/// <summary>
@@ -36,28 +36,28 @@ namespace Going.Plaid.Auth
 			/// An array of ACH account numbers.
 			/// </summary>
 			/// <remarks>These are used for US accounts.</remarks>
-			[JsonProperty("ach")]
+			[JsonPropertyName("ach")]
 			public AchAccountNumbers[] ACH { get; init; }
 
 			/// <summary>
 			/// Gets or sets an array of EFT account numbers.
 			/// </summary>
 			/// <remarks>These are used for Canadian accounts.</remarks>
-			[JsonProperty("eft")]
+			[JsonPropertyName("eft")]
 			public EtfAccountNumbers[] EFT { get; init; }
 
 			/// <summary>
 			/// Gets or sets an array of international account numbers.
 			/// </summary>
 			/// <remarks>These are used for standard international accounts.</remarks>
-			[JsonProperty("international")]
+			[JsonPropertyName("international")]
 			public InternationalAccountNumbers[] International { get; init; }
 
 			/// <summary>
 			/// Gets or sets an array of BACS account numbers.
 			/// </summary>
 			/// <remarks>These are used for British accounts.</remarks>
-			[JsonProperty("bacs")]
+			[JsonPropertyName("bacs")]
 			public BacsAccountNumbers[] BACS { get; init; }
 		}
 
@@ -70,28 +70,28 @@ namespace Going.Plaid.Auth
 			/// Gets or sets the plaid account identifier.
 			/// </summary>
 			/// <value>The account identifier.</value>
-			[JsonProperty("account_id")]
+			[JsonPropertyName("account_id")]
 			public string AccountId { get; init; }
 
 			/// <summary>
 			/// Gets or sets the account number.
 			/// </summary>
 			/// <value>The account number.</value>
-			[JsonProperty("account")]
+			[JsonPropertyName("account")]
 			public string AccountNumber { get; init; }
 
 			/// <summary>
 			/// Gets or sets the routing number.
 			/// </summary>
 			/// <value>The routing number.</value>
-			[JsonProperty("routing")]
+			[JsonPropertyName("routing")]
 			public string RoutingNumber { get; init; }
 
 			/// <summary>
 			/// Gets or sets the wire routing number.
 			/// </summary>
 			/// <value>The wire routing number.</value>
-			[JsonProperty("wire_routing")]
+			[JsonPropertyName("wire_routing")]
 			public string WireRoutingNumber { get; init; }
 		}
 
@@ -104,28 +104,28 @@ namespace Going.Plaid.Auth
 			/// Gets or sets the Plaid account ID associated with the account numbers.
 			/// </summary>
 			/// <value>The account identifier.</value>
-			[JsonProperty("account_id")]
+			[JsonPropertyName("account_id")]
 			public string AccountId { get; init; }
 
 			/// <summary>
 			/// Gets or sets the EFT account number for the account.
 			/// </summary>
 			/// <value>The account number.</value>
-			[JsonProperty("account")]
+			[JsonPropertyName("account")]
 			public string AccountNumber { get; init; }
 
 			/// <summary>
 			/// Gets or sets the EFT institution number for the account.
 			/// </summary>
 			/// <value>The institution identifier.</value>
-			[JsonProperty("institution")]
+			[JsonPropertyName("institution")]
 			public string Institution { get; init; }
 
 			/// <summary>
 			/// Gets or sets the EFT branch number for the account.
 			/// </summary>
 			/// <value>The branch number.</value>
-			[JsonProperty("branch")]
+			[JsonPropertyName("branch")]
 			public string Branch { get; init; }
 		}
 
@@ -138,21 +138,21 @@ namespace Going.Plaid.Auth
 			/// Gets or sets the plaid account identifier.
 			/// </summary>
 			/// <value>The account identifier.</value>
-			[JsonProperty("account_id")]
+			[JsonPropertyName("account_id")]
 			public string AccountId { get; init; }
 
 			/// <summary>
 			/// Gets or sets the International Bank Account Number for the account.
 			/// </summary>
 			/// <value>The International Bank Account Number (IBAN).</value>
-			[JsonProperty("iban")]
+			[JsonPropertyName("iban")]
 			public string Iban { get; init; }
 
 			/// <summary>
 			/// Gets or sets the Bank Identifier Code for the account.
 			/// </summary>
 			/// <value>The Bank Identifier Code (BIC)</value>
-			[JsonProperty("bic")]
+			[JsonPropertyName("bic")]
 			public string Bic { get; init; }
 		}
 
@@ -165,21 +165,21 @@ namespace Going.Plaid.Auth
 			/// Gets or sets the plaid account identifier.
 			/// </summary>
 			/// <value>The account identifier.</value>
-			[JsonProperty("account_id")]
+			[JsonPropertyName("account_id")]
 			public string AccountId { get; init; }
 
 			/// <summary>
 			/// Gets or sets the BACS account number for the account.
 			/// </summary>
 			/// <value>The BACS account number.</value>
-			[JsonProperty("account")]
+			[JsonPropertyName("account")]
 			public string AccountNumber { get; init; }
 
 			/// <summary>
 			/// Gets or sets the BACS sort code for the account.
 			/// </summary>
 			/// <value>The BACS sort code.</value>
-			[JsonProperty("sort_code")]
+			[JsonPropertyName("sort_code")]
 			public string RoutingNumber { get; init; }
 		}
 	}

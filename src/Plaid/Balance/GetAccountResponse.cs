@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Balance
 {
@@ -11,13 +11,13 @@ namespace Going.Plaid.Balance
 		/// <summary>
 		/// The item about which information is requested.
 		/// </summary>
-		[JsonProperty("item")]
+		[JsonPropertyName("item")]
 		public Entity.Item Item { get; init; } = null!;
 
 		/// <summary>
 		/// The accounts attached to the <see cref="Item"/>
 		/// </summary>
-		[JsonProperty("accounts")]
+		[JsonPropertyName("accounts")]
 		public Entity.Account[] Accounts { get; init; } = null!;
 	}
 }

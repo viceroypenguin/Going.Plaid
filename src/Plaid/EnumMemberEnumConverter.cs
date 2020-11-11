@@ -1,107 +1,106 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid
 {
-	/// <summary>
-	/// Converts an <see cref="Enum"/> to and from its name string value.
-	/// </summary>
-	public class EnumMemberEnumConverter : JsonConverter
+	internal class EnumConvertFactory : JsonConverterFactory
 	{
-		/// <summary>
-		/// Writes the JSON representation of the object.
-		/// </summary>
-		/// <param name="writer">The <see cref="JsonWriter"/> to write to.</param>
-		/// <param name="value">The value.</param>
-		/// <param name="serializer">The calling serializer.</param>
-		public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
+		public override bool CanConvert(Type typeToConvert) => typeToConvert.IsEnum || (Nullable.GetUnderlyingType(typeToConvert)?.IsEnum ?? false);
+		public override JsonConverter? CreateConverter(Type typeToConvert, JsonSerializerOptions options)
 		{
-			if (value == null)
-			{
-				writer.WriteNull();
-				return;
-			}
+			if (_converters.TryGetValue(typeToConvert, out var c))
+				return c;
 
-			var memInfo = value.GetType().GetMember(value.ToString()!);
-			var attr = memInfo[0].GetCustomAttribute<EnumMemberAttribute>();
-			writer.WriteValue(
-				attr?.Value
-				?? value.ToString()!.ToLower());
+			if (typeToConvert.IsEnum)
+			{
+				var converter = (JsonConverter)Activator.CreateInstance(
+					typeof(EnumMemberEnumConverterNotNull<>).MakeGenericType(typeToConvert))!;
+				var d = new Dictionary<Type, JsonConverter>(_converters) { [typeToConvert] = converter, };
+				_converters = d;
+				return converter;
+			}
+			else if (Nullable.GetUnderlyingType(typeToConvert)?.IsEnum ?? false)
+			{
+				var converter = (JsonConverter)Activator.CreateInstance(
+					typeof(EnumMemberEnumConverterNull<>).MakeGenericType(Nullable.GetUnderlyingType(typeToConvert)!))!;
+				var d = new Dictionary<Type, JsonConverter>(_converters) { [typeToConvert] = converter, };
+				_converters = d;
+				return converter;
+			}
+			else
+				throw new InvalidOperationException($"Attempted to create converter for type we cannot convert. Type: {typeToConvert.FullName}");
 		}
 
-		/// <summary>
-		/// Reads the JSON representation of the object.
-		/// </summary>
-		/// <param name="reader">The <see cref="JsonReader"/> to read from.</param>
-		/// <param name="objectType">Type of the object.</param>
-		/// <param name="existingValue">The existing value of object being read.</param>
-		/// <param name="serializer">The calling serializer.</param>
-		/// <returns>The object value.</returns>
-		public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
+		private Dictionary<Type, JsonConverter> _converters = new Dictionary<Type, JsonConverter>();
+
+		internal class EnumMemberEnumConverterNotNull<T> : JsonConverter<T>
+			where T : struct, Enum
 		{
-			var isNullable = IsNullableType(objectType);
-			if (reader.TokenType == JsonToken.Null)
-			{
-				return isNullable
-					? default(object)
-					: throw new InvalidOperationException($"Cannot convert null value to {objectType}.");
-			}
+			public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+				reader.TokenType == JsonTokenType.Null
+					? throw new JsonException($"Expected a non-null enum value, found null.")
+					: EnumMemberEnumConverterNotNull<T>.DoRead(ref reader);
 
-			var t = Nullable.GetUnderlyingType(objectType) ?? objectType;
-
-			try
+			public static T DoRead(ref Utf8JsonReader reader)
 			{
-				if (reader.TokenType == JsonToken.String)
+				if (reader.TokenType == JsonTokenType.Number)
 				{
-					var enumText = reader.Value?.ToString();
-
-					if (string.IsNullOrWhiteSpace(enumText) && isNullable)
-					{
-						return null;
-					}
-
-					foreach (var value in t.GetMembers())
-					{
-						var ema = value.GetCustomAttribute<EnumMemberAttribute>();
-						if (ema != null && ema.Value.Equals(enumText, StringComparison.OrdinalIgnoreCase))
-							return Enum.Parse(t, value.Name);
-					}
-
-					foreach (var value in t.GetEnumNames())
-					{
-						if (value.Equals(enumText, StringComparison.OrdinalIgnoreCase))
-							return Enum.Parse(t, value);
-					}
+					var i = reader.GetInt32();
+					return Unsafe.As<int, T>(ref i);
 				}
+
+				var enumText = reader.GetString();
+				if (Enum.TryParse<T>(enumText, out var e)
+					|| Enum.TryParse<T>(enumText, ignoreCase: true, out e))
+					return e;
+
+				foreach (var value in typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static))
+				{
+					var ema = value.GetCustomAttribute<EnumMemberAttribute>();
+					if (ema?.Value != null && ema.Value.Equals(enumText, StringComparison.OrdinalIgnoreCase))
+						return (T)value.GetRawConstantValue()!;
+				}
+
+				// we don't actually expect to get here.
+				throw new InvalidOperationException($"Unexpected token {enumText} when parsing enum.");
 			}
-			catch (Exception ex)
+
+			public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options) =>
+				EnumMemberEnumConverterNotNull<T>.DoWrite(writer, value);
+
+			public static void DoWrite(Utf8JsonWriter writer, T value)
 			{
-				throw new InvalidOperationException($"Error converting value {reader.Value} to type '{objectType}'.", ex);
+				var memInfo = value.GetType().GetMember(value.ToString()!);
+				var attr = memInfo[0].GetCustomAttribute<EnumMemberAttribute>();
+				writer.WriteStringValue(
+					attr?.Value
+					?? value.ToString()!.ToLower());
 			}
-
-			// we don't actually expect to get here.
-			throw new InvalidOperationException($"Unexpected token {reader.TokenType} when parsing enum.");
 		}
 
-		/// <summary>
-		/// Determines whether this instance can convert the specified object type.
-		/// </summary>
-		/// <param name="objectType">Type of the object.</param>
-		/// <returns>
-		/// <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
-		/// </returns>
-		public override bool CanConvert(Type objectType)
+		internal class EnumMemberEnumConverterNull<T> : JsonConverter<T?>
+			where T : struct, Enum
 		{
-			var t = IsNullableType(objectType)
-				? Nullable.GetUnderlyingType(objectType)
-				: objectType;
+			public override T? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+				reader.TokenType == JsonTokenType.Null
+					? default(T?)
+					: EnumMemberEnumConverterNotNull<T>.DoRead(ref reader);
 
-			return t!.IsEnum;
+			public override void Write(Utf8JsonWriter writer, T? value, JsonSerializerOptions options)
+			{
+				if (value == null)
+				{
+					writer.WriteNullValue();
+					return;
+				}
+
+				EnumMemberEnumConverterNotNull<T>.DoWrite(writer, value.Value);
+			}
 		}
-
-		private static bool IsNullableType(Type t) =>
-			t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>);
 	}
 }

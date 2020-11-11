@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -13,13 +11,13 @@ namespace Going.Plaid.Management
 		/// <summary>
 		/// The link token returned by Plaid. This should be provided directly to the web client for use with the Link tool.
 		/// </summary>
-		[JsonProperty("link_token")]
+		[JsonPropertyName("link_token")]
 		public string LinkToken { get; init; } = null!;
 
 		/// <summary>
 		/// The time at which the associated link token expires. After this time, obtain a new link token.
 		/// </summary>
-		[JsonProperty("expiration")]
+		[JsonPropertyName("expiration")]
 		public DateTime Expiration { get; init; }
 	}
 }

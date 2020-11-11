@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -14,7 +11,7 @@ namespace Going.Plaid.Management
 		/// <summary>
 		/// The account id.
 		/// </summary>
-		[JsonProperty("account_id")]
+		[JsonPropertyName("account_id")]
 		public string AccountId { get; set; } = string.Empty;
 	}
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Entity
 {
@@ -18,7 +15,7 @@ namespace Going.Plaid.Entity
 		/// Using <see cref="ClientUserId"/> will allow for easier debugging in the Dashboard logs.
 		/// You will be able to search for Link logs that belong to one of your end users.
 		/// </summary>
-		[JsonProperty("client_user_id")]
+		[JsonPropertyName("client_user_id")]
 		public string ClientUserId { get; init; } = null!;
 	}
 }

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Entity
 {
@@ -10,31 +10,31 @@ namespace Going.Plaid.Entity
 		/// <summary>
 		/// The current balance of the account.
 		/// </summary>
-		[JsonProperty("current")]
+		[JsonPropertyName("current")]
 		public decimal Current { get; init; }
 
 		/// <summary>
 		/// The available balance of the account.
 		/// </summary>
-		[JsonProperty("available")]
+		[JsonPropertyName("available")]
 		public decimal? Available { get; init; }
 
 		/// <summary>
 		/// The limit of the account.
 		/// </summary>
-		[JsonProperty("limit")]
+		[JsonPropertyName("limit")]
 		public decimal? Limit { get; init; }
 
 		/// <summary>
 		/// The iso currency code of the balance, if known officially.
 		/// </summary>
-		[JsonProperty("iso_currency_code")]
+		[JsonPropertyName("iso_currency_code")]
 		public string? ISOCurrencyCode { get; init; }
 
 		/// <summary>
 		/// The guessed iso currency code of the balance, if not known officially.
 		/// </summary>
-		[JsonProperty("unofficial_currency_code")]
+		[JsonPropertyName("unofficial_currency_code")]
 		public string? UnofficialCurrencyCode { get; init; }
 	}
 }

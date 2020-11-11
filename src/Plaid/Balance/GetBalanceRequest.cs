@@ -1,5 +1,5 @@
-﻿using Going.Plaid.Options;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using Going.Plaid.Options;
 
 namespace Going.Plaid.Balance
 {
@@ -13,7 +13,7 @@ namespace Going.Plaid.Balance
 		/// <summary>
 		/// Optional filters for the request
 		/// </summary>
-		[JsonProperty("options")]
+		[JsonPropertyName("options")]
 		public AccountOptions? Options { get; set; }
 	}
 }

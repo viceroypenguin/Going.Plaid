@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Income
 {
@@ -16,7 +16,7 @@ namespace Going.Plaid.Income
 		/// <summary>
 		/// User income data.
 		/// </summary>
-		[JsonProperty("income")]
+		[JsonPropertyName("income")]
 		public Entity.Income Income { get; init; } = null!;
 	}
 }

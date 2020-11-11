@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System.Net;
+﻿using System.Net;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid
 {
@@ -18,13 +18,13 @@ namespace Going.Plaid
 		/// <summary>
 		/// The Error
 		/// </summary>
-		[JsonProperty("error")]
+		[JsonPropertyName("error")]
 		public Exceptions.PlaidException? Exception { get; init; }
 
 		/// <summary>
 		/// The request identifier.
 		/// </summary>
-		[JsonProperty("request_id")]
+		[JsonPropertyName("request_id")]
 		public string? RequestId { get; init; }
 
 		/// <summary>

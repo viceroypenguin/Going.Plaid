@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -15,7 +12,7 @@ namespace Going.Plaid.Management
 		/// Gets or sets the access token.
 		/// </summary>
 		/// <value>The access token.</value>
-		[JsonProperty("stripe_bank_account_token")]
+		[JsonPropertyName("stripe_bank_account_token")]
 		public string StripeBankAccountToken { get; init; } = string.Empty;
 	}
 }

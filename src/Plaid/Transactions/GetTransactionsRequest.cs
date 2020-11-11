@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Going.Plaid.Options;
-using Newtonsoft.Json;
 
 namespace Going.Plaid.Transactions
 {
@@ -23,21 +23,21 @@ namespace Going.Plaid.Transactions
 		/// Gets or sets the start date.
 		/// </summary>
 		/// <value>The start date.</value>
-		[JsonProperty("start_date")]
+		[JsonPropertyName("start_date")]
 		public DateTime StartDate { get; set; }
 
 		/// <summary>
 		/// Gets or sets the end date.
 		/// </summary>
 		/// <value>The end date.</value>
-		[JsonProperty("end_date")]
+		[JsonPropertyName("end_date")]
 		public DateTime EndDate { get; set; }
 
 		/// <summary>
 		/// Gets or sets the pagination options.
 		/// </summary>
 		/// <value>The pagination options.</value>
-		[JsonProperty("options")]
+		[JsonPropertyName("options")]
 		public PaginationOptions? Options { get; set; }
 	}
 }

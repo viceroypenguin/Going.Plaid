@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -12,14 +12,14 @@ namespace Going.Plaid.Management
 		/// Gets or sets the <see cref="Entity.Item"/> identifier.
 		/// </summary>
 		/// <value>The item identifier.</value>
-		[JsonProperty("item_id")]
+		[JsonPropertyName("item_id")]
 		public string ItemId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the access token.
 		/// </summary>
 		/// <value>The access token.</value>
-		[JsonProperty("access_token")]
+		[JsonPropertyName("access_token")]
 		public string AccessToken { get; init; } = null!;
 	}
 }

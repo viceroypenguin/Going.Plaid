@@ -1,7 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Entity
 {
@@ -13,91 +11,91 @@ namespace Going.Plaid.Entity
 		/// <summary>
 		/// A unique Plaid identifier for the holding.
 		/// </summary>
-		[JsonProperty("security_id")]
+		[JsonPropertyName("security_id")]
 		public string SecurityId { get; init; } = null!;
 
 		/// <summary>
 		/// 12-character ISIN, a globally unique securities identifier. Will be present when either CUSIP or SEDOL are present.
 		/// </summary>
-		[JsonProperty("isin")]
+		[JsonPropertyName("isin")]
 		public string? Isin { get; init; }
 
 		/// <summary>
 		/// 7-character SEDOL, an identifier assigned to securities in the UK.
 		/// </summary>
-		[JsonProperty("sedol")]
+		[JsonPropertyName("sedol")]
 		public string? Sedol { get; init; }
 
 		/// <summary>
 		/// 9-character CUSIP, an identifier assigned to North American securities.
 		/// </summary>
-		[JsonProperty("cusip")]
+		[JsonPropertyName("cusip")]
 		public string? Cusip { get; init; }
 
 		/// <summary>
 		/// An identifier that is meaningful within the institution’s own schema.
 		/// </summary>
-		[JsonProperty("institution_security_id")]
+		[JsonPropertyName("institution_security_id")]
 		public string? InstitutionSecurityId { get; init; }
 
 		/// <summary>
 		/// If institution_security_id is present, this field indicates the Plaid institution_id of the institution referenced.
 		/// </summary>
-		[JsonProperty("institution_id")]
+		[JsonPropertyName("institution_id")]
 		public string? InstitutionId { get; init; }
 
 		/// <summary>
 		/// In certain cases, Plaid will provide the ID of another security whose performance resembles this security—typically when the original security has low volume, or when a private security can be modeled with a publicly traded security.
 		/// </summary>
-		[JsonProperty("proxy_security_id")]
+		[JsonPropertyName("proxy_security_id")]
 		public string? ProxySecurityId { get; init; }
 
 		/// <summary>
 		/// The security’s trading symbol for publicly traded securities, and otherwise a short identifier if available.
 		/// </summary>
-		[JsonProperty("ticker_symbol")]
+		[JsonPropertyName("ticker_symbol")]
 		public string? TickerSymbol { get; init; }
 
 		/// <summary>
 		/// A descriptive name for the security, suitable for display.
 		/// </summary>
-		[JsonProperty("name")]
+		[JsonPropertyName("name")]
 		public string? Name { get; init; }
 
 		/// <summary>
 		/// Indicates that a security is a highly liquid asset, and can be treated as cash.
 		/// </summary>
-		[JsonProperty("is_cash_equivalent")]
+		[JsonPropertyName("is_cash_equivalent")]
 		public bool IsCashEquivalent { get; init; }
 
 		/// <summary>
 		/// The security type of the holding. 
 		/// </summary>
-		[JsonProperty("type")]
+		[JsonPropertyName("type")]
 		public SecurityType Type { get; init; }
 
 		/// <summary>
 		/// Price of the security at the close of the previous trading session. null for non-public securities.
 		/// </summary>
-		[JsonProperty("close_price")]
+		[JsonPropertyName("close_price")]
 		public decimal? ClosePrice { get; init; }
 
 		/// <summary>
 		/// Date for which close_price is accurate. Always <c>null</c> if <see cref="ClosePrice"/> is <c>null</c>.
 		/// </summary>
-		[JsonProperty("close_price_as_of")]
+		[JsonPropertyName("close_price_as_of")]
 		public DateTime? ClosePriceAsOf { get; init; }
 
 		/// <summary>
 		/// The ISO-4217 currency code of the holding. Always null if unofficial_currency_code is non-null.
 		/// </summary>
-		[JsonProperty("iso_currency_code")]
+		[JsonPropertyName("iso_currency_code")]
 		public string? IsoCurrencyCode { get; init; }
 
 		/// <summary>
 		/// The unofficial currency of the holding. Always null if iso_currency_code is non-null. This is present if the price is denominated in an unrecognized currency e.g. Bitcoin, rewards points.
 		/// </summary>
-		[JsonProperty("unofficial_currency_code")]
+		[JsonPropertyName("unofficial_currency_code")]
 		public string? UnofficialCurrencyCode { get; init; }
 
 		/// <summary>

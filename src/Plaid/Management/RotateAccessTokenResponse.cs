@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -11,7 +11,7 @@ namespace Going.Plaid.Management
 		/// <summary>
 		/// The new access token.
 		/// </summary>
-		[JsonProperty("new_access_token")]
+		[JsonPropertyName("new_access_token")]
 		public string NewAccessToken { get; init; } = null!;
 	}
 }

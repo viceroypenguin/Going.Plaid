@@ -1,5 +1,5 @@
-﻿using Going.Plaid.Entity;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using Going.Plaid.Entity;
 
 namespace Going.Plaid.Investments
 {
@@ -14,25 +14,25 @@ namespace Going.Plaid.Investments
 		/// <summary>
 		/// The holdings returned by the server.
 		/// </summary>
-		[JsonProperty("holdings")]
+		[JsonPropertyName("holdings")]
 		public Holding[] Holdings { get; init; } = null!;
 
 		/// <summary>
 		/// The securities returned by the server.
 		/// </summary>
-		[JsonProperty("securities")]
+		[JsonPropertyName("securities")]
 		public Security[] Securities { get; init; } = null!;
 
 		/// <summary>
 		/// The item about which information is requested.
 		/// </summary>
-		[JsonProperty("item")]
+		[JsonPropertyName("item")]
 		public Item Item { get; init; } = null!;
 
 		/// <summary>
 		/// The acounts about which information is requested.
 		/// </summary>
-		[JsonProperty("accounts")]
+		[JsonPropertyName("accounts")]
 		public Account[] Accounts { get; init; } = null!;
 	}
 }

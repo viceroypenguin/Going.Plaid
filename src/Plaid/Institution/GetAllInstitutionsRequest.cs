@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Going.Plaid.Options;
-using Newtonsoft.Json;
 
 namespace Going.Plaid.Institution
 {
@@ -15,7 +15,7 @@ namespace Going.Plaid.Institution
 		/// <summary>
 		/// The number of transactions to fetch, where 0 &lt; count &lt;= 500.
 		/// </summary>
-		[JsonProperty("count")]
+		[JsonPropertyName("count")]
 		public uint Count
 		{
 			get => _count;
@@ -28,13 +28,13 @@ namespace Going.Plaid.Institution
 		/// <summary>
 		/// The number of transactions to skip, where offset &gt;= 0.
 		/// </summary>
-		[JsonProperty("offset")]
+		[JsonPropertyName("offset")]
 		public uint Offset { get; set; }
 
 		/// <summary>
 		/// Search options for filtering the returned institutions
 		/// </summary>
-		[JsonProperty("options")]
+		[JsonPropertyName("options")]
 		public InstitutionSearchOptions? Options { get; set; }
 
 		/// <inheritdoc/>

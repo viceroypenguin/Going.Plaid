@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Institution
 {
@@ -11,7 +11,7 @@ namespace Going.Plaid.Institution
 		/// <summary>
 		/// The institution returned from the server.
 		/// </summary>
-		[JsonProperty("institution")]
+		[JsonPropertyName("institution")]
 		public Entity.Institution Institution { get; init; } = null!;
 	}
 }

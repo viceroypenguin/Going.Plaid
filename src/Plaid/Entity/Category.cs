@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Entity
 {
@@ -10,19 +10,19 @@ namespace Going.Plaid.Entity
 		/// <summary>
 		/// Gets or sets the identifier.
 		/// </summary>
-		[JsonProperty("category_id")]
+		[JsonPropertyName("category_id")]
 		public string CategoryId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the group.
 		/// </summary>
-		[JsonProperty("group")]
+		[JsonPropertyName("group")]
 		public string Group { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the hierarchy or sub-categories.
 		/// </summary>
-		[JsonProperty("hierarchy")]
+		[JsonPropertyName("hierarchy")]
 		public string[] Hierarchy { get; init; } = null!;
 	}
 }

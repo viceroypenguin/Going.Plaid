@@ -1,6 +1,6 @@
-﻿using Going.Plaid.Entity;
+﻿using System.Text.Json.Serialization;
+using Going.Plaid.Entity;
 using Going.Plaid.Options;
-using Newtonsoft.Json;
 
 namespace Going.Plaid.Transactions
 {
@@ -18,25 +18,25 @@ namespace Going.Plaid.Transactions
 		/// If this value is greater than the number of transactions in <see cref="Transactions"/>, 
 		/// then re-issue the request with updated <see cref="PaginationOptions.Offset"/> value.
 		/// </remarks>
-		[JsonProperty("total_transactions")]
+		[JsonPropertyName("total_transactions")]
 		public int TotalTransactions { get; init; }
 
 		/// <summary>
 		/// The transactions that match the request.
 		/// </summary>
-		[JsonProperty("transactions")]
+		[JsonPropertyName("transactions")]
 		public Transaction[] Transactions { get; init; } = null!;
 
 		/// <summary>
 		/// The item about which information is requested.
 		/// </summary>
-		[JsonProperty("item")]
+		[JsonPropertyName("item")]
 		public Item Item { get; init; } = null!;
 
 		/// <summary>
 		/// The accounts about which information is requested.
 		/// </summary>
-		[JsonProperty("accounts")]
+		[JsonPropertyName("accounts")]
 		public Account[] Accounts { get; init; } = null!;
 	}
 }
