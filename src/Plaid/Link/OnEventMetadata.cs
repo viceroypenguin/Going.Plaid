@@ -59,7 +59,7 @@ namespace Going.Plaid.Link
 		/// </summary>
 		[JsonProperty("event_name")]
 		[JsonConverter(typeof(StringEnumConverter))]
-		public LinkEventName? EventName { get; set; } = null!;
+		public LinkEventName? EventName { get; init; } = null!;
 
 
 		#region error_*
@@ -79,20 +79,20 @@ namespace Going.Plaid.Link
 		/// </summary>
 		[JsonProperty("error_code")]
 		[JsonConverter(typeof(StringEnumConverter))]
-		public ErrorCode? ErrorCode { get; set; } = null!;
+		public ErrorCode? ErrorCode { get; init; } = null!;
 
 		/// <summary>
 		/// The error message that the user encountered.
 		/// </summary>
 		[JsonProperty("error_message")]
-		public string? ErrorMessage { get; set; } = null!;
+		public string? ErrorMessage { get; init; } = null!;
 
 		/// <summary>
 		/// The error type that the user encountered. 
 		/// </summary>
 		[JsonProperty("error_type")]
 		[JsonConverter(typeof(StringEnumConverter))]
-		public ErrorType? ErrorType { get; set; } = null!;
+		public ErrorType? ErrorType { get; init; } = null!;
 
 		#endregion
 
@@ -102,28 +102,28 @@ namespace Going.Plaid.Link
 		/// </summary>
 		/// <remarks>See: <see cref="OnExitMetadata.Status"/></remarks>
 		[JsonProperty("exit_status")]
-		public LinkExitStatus? Status { get; set; } = null!;
+		public LinkExitStatus? Status { get; init; } = null!;
 
 		/// <summary>
 		/// The ID of the selected institution. <br/>
 		/// Emitted by: all events.
 		/// </summary>
 		[JsonProperty("institution_id")]
-		public string InstitutionId { get; set; } = null!;
+		public string InstitutionId { get; init; } = null!;
 
 		/// <summary>
 		/// The name of the selected institution. <br/>
 		/// Emitted by: all events.
 		/// </summary>
 		[JsonProperty("institution_name")]
-		public string InstitutionName { get; set; } = null!;
+		public string InstitutionName { get; init; } = null!;
 
 		/// <summary>
 		/// The query used to search for institutions. <br/>
 		/// Emitted by: SEARCH_INSTITUTION.
 		/// </summary>
 		[JsonProperty("institution_search_query")]
-		public string InstitutionSearchQuery { get; set; } = null!;
+		public string InstitutionSearchQuery { get; init; } = null!;
 
 		/// <summary>
 		/// If set, the user has encountered one of the following MFA types: code, device, 
@@ -131,7 +131,7 @@ namespace Going.Plaid.Link
 		/// Emitted by: SUBMIT_MFA and TRANSITION_VIEW when view_name is MFA
 		/// </summary>
 		[JsonProperty("mfa_type")]
-		public string MfaType { get; set; } = null!;
+		public string MfaType { get; init; } = null!;
 
 		/// <summary>
 		/// The name of the view that is being transitioned to. <br/>
@@ -139,14 +139,14 @@ namespace Going.Plaid.Link
 		/// </summary>
 		[JsonProperty("view_name")]
 		[JsonConverter(typeof(StringEnumConverter))]
-		public LinkViewName? ViewName { get; set; } = null!;
+		public LinkViewName? ViewName { get; init; } = null!;
 
 		/// <summary>
 		/// The request ID for the last request made by Link. This can be shared with Plaid Support to expedite investigation. <br/>
 		/// Emitted by: all events.
 		/// </summary>
 		[JsonProperty("request_id")]
-		public string RequestId { get; set; } = null!;
+		public string RequestId { get; init; } = null!;
 
 		/// <summary>
 		/// The link_session_id is a unique identifier for a single session of Link. 
@@ -154,7 +154,7 @@ namespace Going.Plaid.Link
 		/// Emitted by: all events.
 		/// </summary>
 		[JsonProperty("link_session_id")]
-		public string LinkSessionId { get; set; } = null!;
+		public string LinkSessionId { get; init; } = null!;
 
 		/// <summary>
 		/// An ISO 8601 representation of when the event occurred. <br/>
@@ -162,6 +162,6 @@ namespace Going.Plaid.Link
 		/// Emitted by: all events.
 		/// </summary>
 		[JsonProperty("timestamp")]
-		public DateTime Timestamp { get; set; }
+		public DateTime Timestamp { get; init; }
 	}
 }

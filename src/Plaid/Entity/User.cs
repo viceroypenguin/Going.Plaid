@@ -19,6 +19,6 @@ namespace Going.Plaid.Entity
 		/// You will be able to search for Link logs that belong to one of your end users.
 		/// </summary>
 		[JsonProperty("client_user_id")]
-		public string ClientUserId { get; set; } = null!;
+		public string ClientUserId { get; init; } = null!;
 	}
 }

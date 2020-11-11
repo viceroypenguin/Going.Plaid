@@ -11,18 +11,18 @@ namespace Going.Plaid.Entity
 		/// Gets or sets the identifier.
 		/// </summary>
 		[JsonProperty("category_id")]
-		public string CategoryId { get; set; } = null!;
+		public string CategoryId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the group.
 		/// </summary>
 		[JsonProperty("group")]
-		public string Group { get; set; } = null!;
+		public string Group { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the hierarchy or sub-categories.
 		/// </summary>
 		[JsonProperty("hierarchy")]
-		public string[] Hierarchy { get; set; } = null!;
+		public string[] Hierarchy { get; init; } = null!;
 	}
 }

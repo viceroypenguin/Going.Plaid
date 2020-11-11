@@ -15,7 +15,7 @@ namespace Going.Plaid.Link
 		/// </summary>
 		[JsonProperty("status")]
 		[JsonConverter(typeof(StringEnumConverter))]
-		public LinkExitStatus? Status { get; set; } = null!;
+		public LinkExitStatus? Status { get; init; } = null!;
 
 		/// <summary>
 		/// In the case of an Error state, a <see cref="PlaidException"/> object encapsulating the Error.<br/>
@@ -54,7 +54,7 @@ namespace Going.Plaid.Link
 		/// </example>
 		/// </summary>
 		[JsonProperty("error")]
-		public virtual PlaidException? Exception { get; set; } = null!;
+		public virtual PlaidException? Exception { get; init; } = null!;
 
 
 		/// <summary>
@@ -62,7 +62,7 @@ namespace Going.Plaid.Link
 		/// Emitted by: all events.
 		/// </summary>
 		[JsonProperty("request_id")]
-		public string RequestId { get; set; } = null!;
+		public string RequestId { get; init; } = null!;
 
 		/// <summary>
 		/// The link_session_id is a unique identifier for a single session of Link. 
@@ -70,14 +70,14 @@ namespace Going.Plaid.Link
 		/// Emitted by: all events.
 		/// </summary>
 		[JsonProperty("link_session_id")]
-		public string LinkSessionId { get; set; } = null!;
+		public string LinkSessionId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the institution.
 		/// </summary>
 		/// <value>The institution.</value>
 		[JsonProperty("institution")]
-		public InstitutionInfo Institution { get; set; } = null!;
+		public InstitutionInfo Institution { get; init; } = null!;
 
 		/// <summary>
 		/// Represents an <see cref="Entity.Institution"/> metadata.
@@ -93,14 +93,14 @@ namespace Going.Plaid.Link
 			/// </summary>
 			/// <value>The identifier.</value>
 			[JsonProperty("institution_id")]
-			public string Id { get; set; } = null!;
+			public string Id { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the <see cref="Entity.Institution"/> name.
 			/// </summary>
 			/// <value>The name.</value>
 			[JsonProperty("name")]
-			public string Name { get; set; } = null!;
+			public string Name { get; init; } = null!;
 		}
 	}
 }

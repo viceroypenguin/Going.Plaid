@@ -34,35 +34,35 @@ namespace Going.Plaid.Link
 		/// </summary>
 		/// <value>The public token.</value>
 		[JsonProperty("public_token")]
-		public string PublicToken { get; set; } = null!;
+		public string PublicToken { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the link session identifier.
 		/// </summary>
 		/// <value>The link session identifier.</value>
 		[JsonProperty("link_session_id")]
-		public string LinkSessionId { get; set; } = null!;
+		public string LinkSessionId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the link session identifier.
 		/// </summary>
 		/// <value>The link session identifier.</value>
 		[JsonProperty("account_id")]
-		public string AccountId { get; set; } = null!;
+		public string AccountId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the accounts info.
 		/// </summary>
 		/// <value>The accounts.</value>
 		[JsonProperty("accounts")]
-		public IReadOnlyList<AccountInfo> Accounts { get; set; } = null!;
+		public IReadOnlyList<AccountInfo> Accounts { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the institution.
 		/// </summary>
 		/// <value>The institution.</value>
 		[JsonProperty("institution")]
-		public InstitutionInfo Institution { get; set; } = null!;
+		public InstitutionInfo Institution { get; init; } = null!;
 
 
 		/// <summary>
@@ -81,21 +81,21 @@ namespace Going.Plaid.Link
 			/// </summary>
 			/// <value>The identifier.</value>
 			[JsonProperty("id")]
-			public string Id { get; set; } = null!;
+			public string Id { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the <see cref="Entity.Account"/> name.
 			/// </summary>
 			/// <value>The name.</value>
 			[JsonProperty("name")]
-			public string Name { get; set; } = null!;
+			public string Name { get; init; } = null!;
 
 			/// <summary>
 			/// The last 2-4 alphanumeric characters of an account's official account number.
 			/// </summary>
 			/// <remarks>The mask may be non-unique between an Item's accounts, it may also not match the mask that the bank displays to the user.</remarks>
 			[JsonProperty("mask")]
-			public string Mask { get; set; } = null!;
+			public string Mask { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the type.
@@ -103,7 +103,7 @@ namespace Going.Plaid.Link
 			/// <value>The type.</value>
 			[JsonProperty("type")]
 			[JsonConverter(typeof(StringEnumConverter))]
-			public Entity.AccountType? Type { get; set; } = null!;
+			public Entity.AccountType? Type { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the type of the sub.
@@ -111,7 +111,7 @@ namespace Going.Plaid.Link
 			/// <value>The type of the sub.</value>
 			[JsonProperty("subtype")]
 			[JsonConverter(typeof(StringEnumConverter))]
-			public Entity.AccountSubType? SubType { get; set; } = null!;
+			public Entity.AccountSubType? SubType { get; init; } = null!;
 		}
 
 
@@ -130,14 +130,14 @@ namespace Going.Plaid.Link
 			/// </summary>
 			/// <value>The identifier.</value>
 			[JsonProperty("institution_id")]
-			public string Id { get; set; } = null!;
+			public string Id { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the <see cref="Entity.Institution"/> name.
 			/// </summary>
 			/// <value>The name.</value>
 			[JsonProperty("name")]
-			public string Name { get; set; } = null!;
+			public string Name { get; init; } = null!;
 		}
 	}
 }

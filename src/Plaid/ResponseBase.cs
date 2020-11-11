@@ -6,7 +6,7 @@ namespace Going.Plaid
 	/// <summary>
 	/// Provides common members for all Plaid API responses.
 	/// </summary>
-	public abstract class ResponseBase
+	public abstract record ResponseBase
 	{
 #if DEBUG
 		/// <summary>
@@ -19,18 +19,18 @@ namespace Going.Plaid
 		/// The Error
 		/// </summary>
 		[JsonProperty("error")]
-		public Exceptions.PlaidException? Exception { get; set; }
+		public Exceptions.PlaidException? Exception { get; init; }
 
 		/// <summary>
 		/// The request identifier.
 		/// </summary>
 		[JsonProperty("request_id")]
-		public string? RequestId { get; set; }
+		public string? RequestId { get; init; }
 
 		/// <summary>
 		/// The http status code.
 		/// </summary>
-		public HttpStatusCode StatusCode { get; set; }
+		public HttpStatusCode StatusCode { get; internal set; }
 
 		/// <summary>
 		/// A value indicating whether this instance is success status code.

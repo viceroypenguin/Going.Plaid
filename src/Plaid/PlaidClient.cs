@@ -88,7 +88,7 @@ namespace Going.Plaid
 				var collection = new ServiceCollection();
 				collection.AddHttpClient();
 				_serviceProvider = collection.BuildServiceProvider();
-				_clientFactory = _serviceProvider.GetService<IHttpClientFactory>();
+				_clientFactory = _serviceProvider.GetService<IHttpClientFactory>()!;
 			}
 			else
 				_clientFactory = httpClientFactory;
@@ -115,7 +115,7 @@ namespace Going.Plaid
 		/// <summary>
 		/// Debug option to include the raw json in the returned DTO
 		/// </summary>
-		public bool ShowRawJsonValues { get; set; } = false;
+		public bool ShowRawJsonValues { get; init; } = false;
 #endif
 		#endregion
 
