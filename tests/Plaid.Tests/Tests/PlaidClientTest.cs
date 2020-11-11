@@ -69,7 +69,10 @@ namespace Going.Plaid.Tests
 		{
 			// institution list may change over time. don't validate.
 			var result = await PlaidClient.FetchAllInstitutionsAsync(
-				new Institution.GetAllInstitutionsRequest());
+				new Institution.GetAllInstitutionsRequest()
+				{
+					CountryCodes = new[] { "US", },
+				});
 			Assert.Equal(100, result.Institutions.Length);
 		}
 
@@ -81,6 +84,7 @@ namespace Going.Plaid.Tests
 				{
 					Query = "Chase",
 					Products = new[] { Product.Transactions, },
+					CountryCodes = new[] { "US", },
 				});
 			await Verify(result);
 		}
@@ -92,6 +96,7 @@ namespace Going.Plaid.Tests
 				new Institution.SearchByIdRequest
 				{
 					InstitutionId = "ins_3",
+					CountryCodes = new[] { "US", },
 				});
 			await Verify(result);
 		}

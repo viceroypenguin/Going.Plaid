@@ -53,11 +53,11 @@ namespace Going.Plaid
 		public Environment Environment { get; set; } = Environment.Sandbox;
 
 		/// <summary>
-		/// <see cref="Going.Plaid.ApiVersion"/>: v20190529
+		/// <see cref="Going.Plaid.ApiVersion"/>: v20200914
 		/// </summary>
 		/// <remarks>
 		/// See: <see href="https://plaid.com/docs/api-upgrades/"/>
 		/// </remarks>
-		public ApiVersion ApiVersion { get; set; } = ApiVersion.v20190529;
+		public ApiVersion ApiVersion { get; set; } = ApiVersion.v20200914;
 	}
 }

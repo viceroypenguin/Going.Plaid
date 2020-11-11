@@ -27,12 +27,6 @@ namespace Going.Plaid.Options
 		public Product[]? Products { get; set; }
 
 		/// <summary>
-		/// Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard.
-		/// </summary>
-		[JsonPropertyName("country_codes")]
-		public string[]? CountryCodes { get; set; }
-
-		/// <summary>
 		/// Specify an array of routing numbers to filter institutions.
 		/// </summary>
 		[JsonPropertyName("routing_numbers")]

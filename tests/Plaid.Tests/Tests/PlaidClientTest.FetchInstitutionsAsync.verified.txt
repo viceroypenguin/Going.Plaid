@@ -41,13 +41,7 @@
       CountryCodes: [
         'US'
       ],
-      OAuth: false,
-      HasMFA: true,
-      MFA: [
-        'code',
-        'list'
-      ],
-      MFACodeType: 'numeric'
+      OAuth: false
     },
     {
       InstitutionId: 'ins_118129',
@@ -66,15 +60,7 @@
       CountryCodes: [
         'US'
       ],
-      OAuth: false,
-      HasMFA: true,
-      MFA: [
-        'code',
-        'list',
-        'questions',
-        'selections'
-      ],
-      MFACodeType: 'numeric'
+      OAuth: false
     },
     {
       InstitutionId: 'ins_114625',
@@ -93,15 +79,7 @@
       CountryCodes: [
         'US'
       ],
-      OAuth: false,
-      HasMFA: true,
-      MFA: [
-        'code',
-        'list',
-        'questions',
-        'selections'
-      ],
-      MFACodeType: 'numeric'
+      OAuth: false
     }
   ],
   StatusCode: 'OK',

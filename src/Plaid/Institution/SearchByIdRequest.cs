@@ -17,6 +17,12 @@ namespace Going.Plaid.Institution
 		public string InstitutionId { get; set; } = null!;
 
 		/// <summary>
+		/// Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard.
+		/// </summary>
+		[JsonPropertyName("country_codes")]
+		public string[] CountryCodes { get; set; } = null!;
+
+		/// <summary>
 		/// Options for searching Institutions
 		/// </summary>
 		[JsonPropertyName("options")]

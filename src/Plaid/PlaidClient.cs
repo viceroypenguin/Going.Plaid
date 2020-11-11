@@ -64,7 +64,7 @@ namespace Going.Plaid
 			string? accessToken = null,
 			IHttpClientFactory? httpClientFactory = null,
 			ILogger<PlaidClient>? logger = null,
-			ApiVersion apiVersion = ApiVersion.v20190529)
+			ApiVersion apiVersion = ApiVersion.v20200914)
 		{
 			var subDomain = environment switch
 			{
@@ -81,7 +81,7 @@ namespace Going.Plaid
 			_environment = environment;
 			_apiVersion = apiVersion switch
 			{
-				ApiVersion.v20190529 => "2019-05-29",
+				ApiVersion.v20200914 => "2020-09-14",
 				_ => throw new ArgumentOutOfRangeException(nameof(ApiVersion), "Invalid API version provided."),
 			};
 
@@ -139,20 +139,20 @@ namespace Going.Plaid
 				PostAsync("item/get", request));
 
 		/// <summary>
-		/// Delete an <see cref="Entity.Item"/>. Once deleted, the access_token associated with the <see cref="Entity.Item"/> is no longer valid and cannot be used to access any data that was associated with the <see cref="Entity.Item"/>.
-		/// </summary>
-		/// <param name="request">The request.</param>
-		public Task<Management.DeleteItemResponse> DeleteItemAsync(Management.DeleteItemRequest request) =>
-			ParseResponse<Management.DeleteItemResponse>(
-				PostAsync("item/delete", request));
-
-		/// <summary>
 		/// Creates a token that can be used with the Link tool in the web client. 
 		/// </summary>
 		/// <param name="request"></param>
 		public Task<Management.CreateLinkTokenResponse> CreateLinkTokenAsync(Management.CreateLinkTokenRequest request) =>
 			ParseResponse<Management.CreateLinkTokenResponse>(
 				PostAsync("link/token/create", request));
+
+		/// <summary>
+		/// Remove an <see cref="Entity.Item"/>. Once deleted, the access_token associated with the <see cref="Entity.Item"/> is no longer valid and cannot be used to access any data that was associated with the <see cref="Entity.Item"/>.
+		/// </summary>
+		/// <param name="request">The request.</param>
+		public Task<Management.RemoveItemResponse> RemoveItemAsync(Management.RemoveItemRequest request) =>
+			ParseResponse<Management.RemoveItemResponse>(
+				PostAsync("item/remove", request));
 
 		/// <summary>
 		/// Updates the webhook associated with an <see cref="Entity.Item"/>. This request triggers a WEBHOOK_UPDATE_ACKNOWLEDGED webhook.

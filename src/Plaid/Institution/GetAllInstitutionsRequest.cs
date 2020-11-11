@@ -32,6 +32,12 @@ namespace Going.Plaid.Institution
 		public uint Offset { get; set; }
 
 		/// <summary>
+		/// Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard.
+		/// </summary>
+		[JsonPropertyName("country_codes")]
+		public string[] CountryCodes { get; set; } = null!;
+
+		/// <summary>
 		/// Search options for filtering the returned institutions
 		/// </summary>
 		[JsonPropertyName("options")]

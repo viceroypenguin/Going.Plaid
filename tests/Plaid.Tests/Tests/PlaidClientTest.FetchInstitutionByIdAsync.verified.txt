@@ -40,13 +40,7 @@
     CountryCodes: [
       'US'
     ],
-    OAuth: false,
-    HasMFA: true,
-    MFA: [
-      'code',
-      'list'
-    ],
-    MFACodeType: 'numeric'
+    OAuth: false
   },
   StatusCode: 'OK',
   IsSuccessStatusCode: true

@@ -43,28 +43,6 @@ namespace Going.Plaid.Entity
 		[JsonPropertyName("oauth")]
 		public bool? OAuth { get; init; }
 
-		#region MFA
-
-		/// <summary>
-		/// Inidcates if this institution uses MFA
-		/// </summary>
-		[JsonPropertyName("has_mfa")]
-		public bool? HasMFA { get; init; }
-
-		/// <summary>
-		/// A list of mfa types associated with the institution.
-		/// </summary>
-		[JsonPropertyName("mfa")]
-		public string[]? MFA { get; init; }
-
-		/// <summary>
-		/// Tht type of MFA used but this Institution.
-		/// </summary>
-		[JsonPropertyName("mfa_code_type")]
-		public string? MFACodeType { get; init; }
-
-		#endregion
-
 		#region Optional Metadata: include_optional_metadata
 
 		/// <summary>
