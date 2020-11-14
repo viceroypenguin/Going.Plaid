@@ -1,17 +1,17 @@
 {
-  income: {
-    last_year_income: 6000.0,
-    last_year_income_before_tax: 7285.0,
-    projected_yearly_income: 6085.0,
-    projected_yearly_income_before_tax: 7389.0,
-    max_number_of_overlapping_income_streams: 1,
-    number_of_income_streams: 1,
-    income_streams: [
+  Income: {
+    LastYearIncome: 6000.0,
+    LastYearIncomeBeforeTax: 7285.0,
+    ProjectedYearlyIncome: 6085.0,
+    ProjectedYearlyIncomeBeforeTax: 7389.0,
+    MaxNumberOfOverlappingIncomeStreams: 1,
+    TotalIncomeStreams: 1,
+    Streams: [
       {
-        name: 'UNITED AIRLINES',
-        days: 690,
-        monthly_income: 500.0,
-        confidence: 0.99
+        Name: 'UNITED AIRLINES',
+        Days: 690,
+        MonthlyIncome: 500.0,
+        Confidence: 0.99
       }
     ]
   },

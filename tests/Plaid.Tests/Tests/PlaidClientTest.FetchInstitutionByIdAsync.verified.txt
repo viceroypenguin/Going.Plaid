@@ -1,8 +1,8 @@
 {
-  institution: {
-    institution_id: 'ins_3',
-    name: 'Chase',
-    products: [
+  Institution: {
+    InstitutionId: 'ins_3',
+    Name: 'Chase',
+    Products: [
       'assets',
       'auth',
       'balance',
@@ -13,7 +13,7 @@
       'investments',
       'liabilities'
     ],
-    routing_numbers: [
+    RoutingNumbers: [
       '021000021',
       '021100361',
       '021202337',
@@ -37,16 +37,16 @@
       '322271627',
       '325070760'
     ],
-    country_codes: [
+    CountryCodes: [
       'US'
     ],
-    oauth: false,
-    has_mfa: true,
-    mfa: [
+    OAuth: false,
+    HasMFA: true,
+    MFA: [
       'code',
       'list'
     ],
-    mfa_code_type: 'numeric'
+    MFACodeType: 'numeric'
   },
   StatusCode: 'OK',
   IsSuccessStatusCode: true

@@ -19,7 +19,7 @@ namespace Going.Plaid.Tests
 		public PlaidClientTest()
 		{
 			VerifierSettings.DisableClipboard();
-			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "request_id");
+			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "RequestId");
 
 			var configuration = new ConfigurationBuilder()
 				.AddEnvironmentVariables()

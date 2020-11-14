@@ -1,21 +1,21 @@
 {
   Item: {
-    item_id: 'pGrM85B49MCAA7nJR3NaIEXp6V6Jp6uLj6yby',
-    available_products: [
+    Id: 'pGrM85B49MCAA7nJR3NaIEXp6V6Jp6uLj6yby',
+    AvailableProducts: [
       'assets',
       'balance',
       'credit_details',
       'liabilities'
     ],
-    billed_products: [
+    BilledProducts: [
       'auth',
       'identity',
       'income',
       'investments',
       'transactions'
     ],
-    institution_id: 'ins_3',
-    webhook: 'https://example.com'
+    InstitutionId: 'ins_3',
+    Webhook: 'https://example.com'
   },
   StatusCode: 'OK',
   IsSuccessStatusCode: true

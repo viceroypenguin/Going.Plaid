@@ -1,391 +1,391 @@
 {
-  total_transactions: 16,
-  transactions: [
+  TotalTransactions: 16,
+  Transactions: [
     {
-      name: 'United Airlines',
-      transaction_id: 'b7bD4xMngDcAARmo1B6DINW8bjm9JzFVQ14Wn',
-      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
-      category: [
+      Name: 'United Airlines',
+      TransactionId: 'b7bD4xMngDcAARmo1B6DINW8bjm9JzFVQ14Wn',
+      AccountId: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      Categories: [
         'Travel',
         'Airlines and Aviation Services'
       ],
-      category_id: '22001000',
-      payment_channel: 'in store',
-      amount: 500.0,
-      iso_currency_code: 'USD',
+      CategoryId: '22001000',
+      PaymentChannel: 'in store',
+      Amount: 500.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_1,
-      location: {}
+      Date: DateTime_1,
+      Location: {}
     },
     {
-      name: 'Uber 072515 SF**POOL**',
-      transaction_id: '1no6jlR8m6cLLGKgQXnAsdaBJKvpRru5lGwLd',
-      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
-      category: [
+      Name: 'Uber 072515 SF**POOL**',
+      TransactionId: '1no6jlR8m6cLLGKgQXnAsdaBJKvpRru5lGwLd',
+      AccountId: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      Categories: [
         'Travel',
         'Taxi'
       ],
-      category_id: '22016000',
-      payment_channel: 'in store',
-      amount: 6.33,
-      iso_currency_code: 'USD',
+      CategoryId: '22016000',
+      PaymentChannel: 'in store',
+      Amount: 6.33,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_2,
-      location: {}
+      Date: DateTime_2,
+      Location: {}
     },
     {
-      name: 'Tectra Inc',
-      transaction_id: 'mElMp5KxbMcaaGmLbk3gsM8bZAwKxWcLznv1p',
-      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
-      category: [
+      Name: 'Tectra Inc',
+      TransactionId: 'mElMp5KxbMcaaGmLbk3gsM8bZAwKxWcLznv1p',
+      AccountId: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      Categories: [
         'Food and Drink',
         'Restaurants'
       ],
-      category_id: '13005000',
-      payment_channel: 'in store',
-      amount: 500.0,
-      iso_currency_code: 'USD',
+      CategoryId: '13005000',
+      PaymentChannel: 'in store',
+      Amount: 500.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_3,
-      location: {}
+      Date: DateTime_3,
+      Location: {}
     },
     {
-      name: 'AUTOMATIC PAYMENT - THANK',
-      transaction_id: 'vKagzqNQAgHee5al7PZ8Tnd1QVy4vWiWAB38M',
-      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
-      category: [
+      Name: 'AUTOMATIC PAYMENT - THANK',
+      TransactionId: 'vKagzqNQAgHee5al7PZ8Tnd1QVy4vWiWAB38M',
+      AccountId: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      Categories: [
         'Payment'
       ],
-      category_id: '16000000',
-      payment_channel: 'other',
-      amount: 2078.5,
-      iso_currency_code: 'USD',
+      CategoryId: '16000000',
+      PaymentChannel: 'other',
+      Amount: 2078.5,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_4,
-      location: {}
+      Date: DateTime_4,
+      Location: {}
     },
     {
-      name: 'KFC',
-      transaction_id: '9BbRp8zXKRcggv68qopBh5qb8GBPvksRawWZN',
-      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
-      category: [
+      Name: 'KFC',
+      TransactionId: '9BbRp8zXKRcggv68qopBh5qb8GBPvksRawWZN',
+      AccountId: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      Categories: [
         'Food and Drink',
         'Restaurants',
         'Fast Food'
       ],
-      category_id: '13005032',
-      payment_channel: 'in store',
-      amount: 500.0,
-      iso_currency_code: 'USD',
+      CategoryId: '13005032',
+      PaymentChannel: 'in store',
+      Amount: 500.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_4,
-      location: {}
+      Date: DateTime_4,
+      Location: {}
     },
     {
-      name: 'Madison Bicycle Shop',
-      transaction_id: 'yBPkxV715kcnnaV6p3MoFboEwgBpqKcyebqE6',
-      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
-      category: [
+      Name: 'Madison Bicycle Shop',
+      TransactionId: 'yBPkxV715kcnnaV6p3MoFboEwgBpqKcyebqE6',
+      AccountId: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      Categories: [
         'Shops',
         'Sporting Goods'
       ],
-      category_id: '19046000',
-      payment_channel: 'in store',
-      amount: 500.0,
-      iso_currency_code: 'USD',
+      CategoryId: '19046000',
+      PaymentChannel: 'in store',
+      Amount: 500.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_4,
-      location: {}
+      Date: DateTime_4,
+      Location: {}
     },
     {
-      name: 'CREDIT CARD 3333 PAYMENT *//',
-      transaction_id: 'Z3oEKq4ReEivv85ynAMqCrWb7qPKwgFgVDjZn',
-      account_id: 'NW48QREXg8TxxQvBoPmqiELbanlBjWIWmq1ye',
-      category: [
+      Name: 'CREDIT CARD 3333 PAYMENT *//',
+      TransactionId: 'Z3oEKq4ReEivv85ynAMqCrWb7qPKwgFgVDjZn',
+      AccountId: 'NW48QREXg8TxxQvBoPmqiELbanlBjWIWmq1ye',
+      Categories: [
         'Payment',
         'Credit Card'
       ],
-      category_id: '16001000',
-      payment_channel: 'other',
-      amount: 25.0,
-      iso_currency_code: 'USD',
+      CategoryId: '16001000',
+      PaymentChannel: 'other',
+      Amount: 25.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_5,
-      location: {}
+      Date: DateTime_5,
+      Location: {}
     },
     {
-      name: 'Uber 063015 SF**POOL**',
-      transaction_id: 'L8dp7VkXoptBBJ3gLMvohyEPQvZNldCPGyJvX',
-      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
-      category: [
+      Name: 'Uber 063015 SF**POOL**',
+      TransactionId: 'L8dp7VkXoptBBJ3gLMvohyEPQvZNldCPGyJvX',
+      AccountId: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      Categories: [
         'Travel',
         'Taxi'
       ],
-      category_id: '22016000',
-      payment_channel: 'in store',
-      amount: 5.4,
-      iso_currency_code: 'USD',
+      CategoryId: '22016000',
+      PaymentChannel: 'in store',
+      Amount: 5.4,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_5,
-      location: {}
+      Date: DateTime_5,
+      Location: {}
     },
     {
-      name: 'ACH Electronic CreditGUSTO PAY 123456',
-      transaction_id: 'yBPkxV715kcnnaV6p3MoFboEwgBpqKcyebqlr',
-      account_id: '7rGR1pKklRCgg3aQ87WrhmedA4QqlEfgLKG8e',
-      category: [
+      Name: 'ACH Electronic CreditGUSTO PAY 123456',
+      TransactionId: 'yBPkxV715kcnnaV6p3MoFboEwgBpqKcyebqlr',
+      AccountId: '7rGR1pKklRCgg3aQ87WrhmedA4QqlEfgLKG8e',
+      Categories: [
         'Transfer',
         'Debit'
       ],
-      category_id: '21006000',
-      payment_channel: 'other',
-      amount: 5850.0,
-      iso_currency_code: 'USD',
+      CategoryId: '21006000',
+      PaymentChannel: 'other',
+      Amount: 5850.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_6,
-      location: {}
+      Date: DateTime_6,
+      Location: {}
     },
     {
-      name: 'CD DEPOSIT .INITIAL.',
-      transaction_id: '3m8neKR5dnCXXglE84WQFzoP1W6nDEFq3eaom',
-      account_id: 'PGPkMblVokCaa4BEnM87sRW4aK36kMu7Zr4Xz',
-      category: [
+      Name: 'CD DEPOSIT .INITIAL.',
+      TransactionId: '3m8neKR5dnCXXglE84WQFzoP1W6nDEFq3eaom',
+      AccountId: 'PGPkMblVokCaa4BEnM87sRW4aK36kMu7Zr4Xz',
+      Categories: [
         'Transfer',
         'Deposit'
       ],
-      category_id: '21007000',
-      payment_channel: 'other',
-      amount: 1000.0,
-      iso_currency_code: 'USD',
+      CategoryId: '21007000',
+      PaymentChannel: 'other',
+      Amount: 1000.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_6,
-      location: {}
+      Date: DateTime_6,
+      Location: {}
     },
     {
-      name: 'Touchstone Climbing',
-      transaction_id: 'Rb7wL8KnowtNNvWVrAEMinbyle8kA7iR3WvnQ',
-      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
-      category: [
+      Name: 'Touchstone Climbing',
+      TransactionId: 'Rb7wL8KnowtNNvWVrAEMinbyle8kA7iR3WvnQ',
+      AccountId: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      Categories: [
         'Recreation',
         'Gyms and Fitness Centers'
       ],
-      category_id: '17018000',
-      payment_channel: 'in store',
-      amount: 78.5,
-      iso_currency_code: 'USD',
+      CategoryId: '17018000',
+      PaymentChannel: 'in store',
+      Amount: 78.5,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_7,
-      location: {}
+      Date: DateTime_7,
+      Location: {}
     },
     {
-      name: 'United Airlines',
-      transaction_id: 'pGrM85B49MCAA7nJR3NaIEXmM78Kg5HL3Nxyx',
-      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
-      category: [
+      Name: 'United Airlines',
+      TransactionId: 'pGrM85B49MCAA7nJR3NaIEXmM78Kg5HL3Nxyx',
+      AccountId: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      Categories: [
         'Travel',
         'Airlines and Aviation Services'
       ],
-      category_id: '22001000',
-      payment_channel: 'other',
-      amount: -500.0,
-      iso_currency_code: 'USD',
+      CategoryId: '22001000',
+      PaymentChannel: 'other',
+      Amount: -500.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_7,
-      location: {}
+      Date: DateTime_7,
+      Location: {}
     },
     {
-      name: 'McDonald\'s',
-      transaction_id: 'oAK1g5za91Ummzd5bBMWIk91eDqBgNiR8n3xl',
-      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
-      category: [
+      Name: 'McDonald\'s',
+      TransactionId: 'oAK1g5za91Ummzd5bBMWIk91eDqBgNiR8n3xl',
+      AccountId: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      Categories: [
         'Food and Drink',
         'Restaurants',
         'Fast Food'
       ],
-      category_id: '13005032',
-      payment_channel: 'in store',
-      amount: 12.0,
-      iso_currency_code: 'USD',
+      CategoryId: '13005032',
+      PaymentChannel: 'in store',
+      Amount: 12.0,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_8,
-      location: {
-        store_number: '3322'
+      Date: DateTime_8,
+      Location: {
+        StoreNumber: '3322'
       }
     },
     {
-      name: 'Starbucks',
-      transaction_id: 'g1RMebgqkMIAA3lqw4gJI4e6xrMZzmCgqQXab',
-      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
-      category: [
+      Name: 'Starbucks',
+      TransactionId: 'g1RMebgqkMIAA3lqw4gJI4e6xrMZzmCgqQXab',
+      AccountId: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      Categories: [
         'Food and Drink',
         'Restaurants',
         'Coffee Shop'
       ],
-      category_id: '13005043',
-      payment_channel: 'in store',
-      amount: 4.33,
-      iso_currency_code: 'USD',
+      CategoryId: '13005043',
+      PaymentChannel: 'in store',
+      Amount: 4.33,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_8,
-      location: {}
+      Date: DateTime_8,
+      Location: {}
     },
     {
-      name: 'SparkFun',
-      transaction_id: '8znJLprXqJf99pjVlGazIqXWL1gKpvHwjVy4n',
-      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
-      category: [
+      Name: 'SparkFun',
+      TransactionId: '8znJLprXqJf99pjVlGazIqXWL1gKpvHwjVy4n',
+      AccountId: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      Categories: [
         'Food and Drink',
         'Restaurants'
       ],
-      category_id: '13005000',
-      payment_channel: 'in store',
-      amount: 89.4,
-      iso_currency_code: 'USD',
+      CategoryId: '13005000',
+      PaymentChannel: 'in store',
+      Amount: 89.4,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_9,
-      location: {}
+      Date: DateTime_9,
+      Location: {}
     },
     {
-      name: 'INTRST PYMNT',
-      transaction_id: 'Mkage78XogI33EyJpNxRhKmNlnVqQai9V8oaD',
-      account_id: 'NW48QREXg8TxxQvBoPmqiELbanlBjWIWmq1ye',
-      category: [
+      Name: 'INTRST PYMNT',
+      TransactionId: 'Mkage78XogI33EyJpNxRhKmNlnVqQai9V8oaD',
+      AccountId: 'NW48QREXg8TxxQvBoPmqiELbanlBjWIWmq1ye',
+      Categories: [
         'Transfer',
         'Credit'
       ],
-      category_id: '21005000',
-      payment_channel: 'other',
-      amount: -4.22,
-      iso_currency_code: 'USD',
+      CategoryId: '21005000',
+      PaymentChannel: 'other',
+      Amount: -4.22,
+      IsoCurrencyCode: 'USD',
       CurrencyCode: 'USD',
-      date: DateTime_10,
-      location: {}
+      Date: DateTime_10,
+      Location: {}
     }
   ],
-  item: {
-    item_id: 'pGrM85B49MCAA7nJR3NaIEXp6V6Jp6uLj6yby',
-    available_products: [
+  Item: {
+    Id: 'pGrM85B49MCAA7nJR3NaIEXp6V6Jp6uLj6yby',
+    AvailableProducts: [
       'assets',
       'balance',
       'credit_details',
       'liabilities'
     ],
-    billed_products: [
+    BilledProducts: [
       'auth',
       'identity',
       'income',
       'investments',
       'transactions'
     ],
-    institution_id: 'ins_3',
-    webhook: 'https://example.com'
+    InstitutionId: 'ins_3',
+    Webhook: 'https://example.com'
   },
-  accounts: [
+  Accounts: [
     {
-      account_id: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
-      name: 'Plaid Checking',
-      mask: '0000',
-      official_name: 'Plaid Gold Standard 0% Interest Checking',
-      type: 'Depository',
-      subtype: 'checking',
-      balances: {
-        current: 110.0,
-        available: 100.0,
-        iso_currency_code: 'USD'
+      AccountId: '4lEnQrRmGniZZVBW8NqlCB86qKPp5oCd7wxJG',
+      Name: 'Plaid Checking',
+      Mask: '0000',
+      OfficialName: 'Plaid Gold Standard 0% Interest Checking',
+      Type: 'Depository',
+      SubType: 'checking',
+      Balance: {
+        Current: 110.0,
+        Available: 100.0,
+        ISOCurrencyCode: 'USD'
       }
     },
     {
-      account_id: 'NW48QREXg8TxxQvBoPmqiELbanlBjWIWmq1ye',
-      name: 'Plaid Saving',
-      mask: '1111',
-      official_name: 'Plaid Silver Standard 0.1% Interest Saving',
-      type: 'Depository',
-      subtype: 'savings',
-      balances: {
-        current: 210.0,
-        available: 200.0,
-        iso_currency_code: 'USD'
+      AccountId: 'NW48QREXg8TxxQvBoPmqiELbanlBjWIWmq1ye',
+      Name: 'Plaid Saving',
+      Mask: '1111',
+      OfficialName: 'Plaid Silver Standard 0.1% Interest Saving',
+      Type: 'Depository',
+      SubType: 'savings',
+      Balance: {
+        Current: 210.0,
+        Available: 200.0,
+        ISOCurrencyCode: 'USD'
       }
     },
     {
-      account_id: 'PGPkMblVokCaa4BEnM87sRW4aK36kMu7Zr4Xz',
-      name: 'Plaid CD',
-      mask: '2222',
-      official_name: 'Plaid Bronze Standard 0.2% Interest CD',
-      type: 'Depository',
-      subtype: 'cd',
-      balances: {
-        current: 1000.0,
-        iso_currency_code: 'USD'
+      AccountId: 'PGPkMblVokCaa4BEnM87sRW4aK36kMu7Zr4Xz',
+      Name: 'Plaid CD',
+      Mask: '2222',
+      OfficialName: 'Plaid Bronze Standard 0.2% Interest CD',
+      Type: 'Depository',
+      SubType: 'cd',
+      Balance: {
+        Current: 1000.0,
+        ISOCurrencyCode: 'USD'
       }
     },
     {
-      account_id: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
-      name: 'Plaid Credit Card',
-      mask: '3333',
-      official_name: 'Plaid Diamond 12.5% APR Interest Credit Card',
-      type: 'Credit',
-      balances: {
-        current: 410.0,
-        limit: 2000.0,
-        iso_currency_code: 'USD'
+      AccountId: 'joDLMbWzPLSeeEjMbDJXTZzveNKar1f1q83vP',
+      Name: 'Plaid Credit Card',
+      Mask: '3333',
+      OfficialName: 'Plaid Diamond 12.5% APR Interest Credit Card',
+      Type: 'Credit',
+      Balance: {
+        Current: 410.0,
+        Limit: 2000.0,
+        ISOCurrencyCode: 'USD'
       }
     },
     {
-      account_id: '7rGR1pKklRCgg3aQ87WrhmedA4QqlEfgLKG8e',
-      name: 'Plaid Money Market',
-      mask: '4444',
-      official_name: 'Plaid Platinum Standard 1.85% Interest Money Market',
-      type: 'Depository',
-      subtype: 'money market',
-      balances: {
-        current: 43200.0,
-        available: 43200.0,
-        iso_currency_code: 'USD'
+      AccountId: '7rGR1pKklRCgg3aQ87WrhmedA4QqlEfgLKG8e',
+      Name: 'Plaid Money Market',
+      Mask: '4444',
+      OfficialName: 'Plaid Platinum Standard 1.85% Interest Money Market',
+      Type: 'Depository',
+      SubType: 'money market',
+      Balance: {
+        Current: 43200.0,
+        Available: 43200.0,
+        ISOCurrencyCode: 'USD'
       }
     },
     {
-      account_id: 'eZ9Mjvpn1MuJJex3odKmC7WxbkwJgeTL1lwaz',
-      name: 'Plaid IRA',
-      mask: '5555',
-      type: 'Investment',
-      subtype: 'ira',
-      balances: {
-        current: 320.76,
-        iso_currency_code: 'USD'
+      AccountId: 'eZ9Mjvpn1MuJJex3odKmC7WxbkwJgeTL1lwaz',
+      Name: 'Plaid IRA',
+      Mask: '5555',
+      Type: 'Investment',
+      SubType: 'ira',
+      Balance: {
+        Current: 320.76,
+        ISOCurrencyCode: 'USD'
       }
     },
     {
-      account_id: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
-      name: 'Plaid 401k',
-      mask: '6666',
-      type: 'Investment',
-      subtype: '401k',
-      balances: {
-        current: 23631.9805,
-        iso_currency_code: 'USD'
+      AccountId: 'Qnjp1JqympcvvK1QnAypCvJXlregMLcpEWdGW',
+      Name: 'Plaid 401k',
+      Mask: '6666',
+      Type: 'Investment',
+      SubType: '401k',
+      Balance: {
+        Current: 23631.9805,
+        ISOCurrencyCode: 'USD'
       }
     },
     {
-      account_id: 'Z3oEKq4ReEivv85ynAMqCrWm5Pj67QigVDjJV',
-      name: 'Plaid Student Loan',
-      mask: '7777',
-      type: 'Loan',
-      subtype: 'student',
-      balances: {
-        current: 65262.0,
-        iso_currency_code: 'USD'
+      AccountId: 'Z3oEKq4ReEivv85ynAMqCrWm5Pj67QigVDjJV',
+      Name: 'Plaid Student Loan',
+      Mask: '7777',
+      Type: 'Loan',
+      SubType: 'student',
+      Balance: {
+        Current: 65262.0,
+        ISOCurrencyCode: 'USD'
       }
     },
     {
-      account_id: 'Mkage78XogI33EyJpNxRhKmMAVW7lBu9V8o4P',
-      name: 'Plaid Mortgage',
-      mask: '8888',
-      type: 'Loan',
-      subtype: 'mortgage',
-      balances: {
-        current: 56302.06,
-        iso_currency_code: 'USD'
+      AccountId: 'Mkage78XogI33EyJpNxRhKmMAVW7lBu9V8o4P',
+      Name: 'Plaid Mortgage',
+      Mask: '8888',
+      Type: 'Loan',
+      SubType: 'mortgage',
+      Balance: {
+        Current: 56302.06,
+        ISOCurrencyCode: 'USD'
       }
     }
   ],
