@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Going.Plaid.Converters;
 using Going.Plaid.Entity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -115,7 +116,7 @@ namespace Going.Plaid
 #endif
 				DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
 				PropertyNameCaseInsensitive = true,
-				Converters = { new EnumConvertFactory(), new DateTimeConverter(), },
+				Converters = { new EnumConverterFactory(), new DateTimeConverter(), },
 			};
 
 #if DEBUG

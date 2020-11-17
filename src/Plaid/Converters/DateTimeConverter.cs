@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Going.Plaid
+namespace Going.Plaid.Converters
 {
 	internal class DateTimeConverter : JsonConverter<DateTime>
 	{

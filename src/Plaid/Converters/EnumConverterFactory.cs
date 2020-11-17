@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace Going.Plaid
 {
-	internal class EnumConvertFactory : JsonConverterFactory
+	internal class EnumConverterFactory : JsonConverterFactory
 	{
 		public override bool CanConvert(Type typeToConvert) => typeToConvert.IsEnum || (Nullable.GetUnderlyingType(typeToConvert)?.IsEnum ?? false);
 		public override JsonConverter? CreateConverter(Type typeToConvert, JsonSerializerOptions options)
