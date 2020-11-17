@@ -136,7 +136,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		public Task<Management.GetItemResponse> FetchItemAsync(Management.GetItemRequest request) =>
-			ParseResponse<Management.GetItemResponse>(
+			ParseResponseAsync<Management.GetItemResponse>(
 				PostAsync("item/get", request));
 
 		/// <summary>
@@ -144,7 +144,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request"></param>
 		public Task<Management.CreateLinkTokenResponse> CreateLinkTokenAsync(Management.CreateLinkTokenRequest request) =>
-			ParseResponse<Management.CreateLinkTokenResponse>(
+			ParseResponseAsync<Management.CreateLinkTokenResponse>(
 				PostAsync("link/token/create", request));
 
 		/// <summary>
@@ -152,7 +152,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		public Task<Management.RemoveItemResponse> RemoveItemAsync(Management.RemoveItemRequest request) =>
-			ParseResponse<Management.RemoveItemResponse>(
+			ParseResponseAsync<Management.RemoveItemResponse>(
 				PostAsync("item/remove", request));
 
 		/// <summary>
@@ -160,7 +160,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		public Task<Management.UpdateWebhookResponse> UpdateWebhookAsync(Management.UpdateWebhookRequest request) =>
-			ParseResponse<Management.UpdateWebhookResponse>(
+			ParseResponseAsync<Management.UpdateWebhookResponse>(
 				PostAsync("item/webhook/update", request));
 
 		/// <summary>
@@ -169,7 +169,7 @@ namespace Going.Plaid
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.ExchangeTokenResponse&gt;.</returns>
 		public Task<Management.ExchangeTokenResponse> ExchangeTokenAsync(Management.ExchangeTokenRequest request) =>
-			ParseResponse<Management.ExchangeTokenResponse>(
+			ParseResponseAsync<Management.ExchangeTokenResponse>(
 				PostAsync("item/public_token/exchange", request));
 
 		/// <summary>
@@ -177,7 +177,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		public Task<Management.RotateAccessTokenResponse> RotateAccessTokenAsync(Management.RotateAccessTokenRequest request) =>
-			ParseResponse<Management.RotateAccessTokenResponse>(
+			ParseResponseAsync<Management.RotateAccessTokenResponse>(
 				PostAsync("item/access_token/invalidate", request));
 
 		/* Institutions */
@@ -187,7 +187,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		public Task<Institution.GetAllInstitutionsResponse> FetchAllInstitutionsAsync(Institution.GetAllInstitutionsRequest request) =>
-			ParseResponse<Institution.GetAllInstitutionsResponse>(
+			ParseResponseAsync<Institution.GetAllInstitutionsResponse>(
 				PostAsync("institutions/get", request));
 
 		/// <summary>
@@ -195,7 +195,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		public Task<Institution.SearchResponse> FetchInstitutionsAsync(Institution.SearchRequest request) =>
-			ParseResponse<Institution.SearchResponse>(
+			ParseResponseAsync<Institution.SearchResponse>(
 				PostAsync("institutions/search", request));
 
 		/// <summary>
@@ -203,7 +203,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		public Task<Institution.SearchByIdResponse> FetchInstitutionByIdAsync(Institution.SearchByIdRequest request) =>
-			ParseResponse<Institution.SearchByIdResponse>(
+			ParseResponseAsync<Institution.SearchByIdResponse>(
 				PostAsync("institutions/get_by_id", request));
 
 		/* Income */
@@ -213,7 +213,7 @@ namespace Going.Plaid
 		/// </summary>
 		/// <param name="request">The request.</param>
 		public Task<Income.GetIncomeResponse> FetchUserIncomeAsync(Income.GetIncomeRequest request) =>
-			ParseResponse<Income.GetIncomeResponse>(
+			ParseResponseAsync<Income.GetIncomeResponse>(
 				PostAsync("income/get", request));
 
 		/* Investments */
@@ -222,14 +222,14 @@ namespace Going.Plaid
 		/// Retrieves information pertaining to a <see cref="Entity.Item"/>'s investment holdings.
 		/// </summary>
 		public Task<Investments.GetInvestmentHoldingsResponse> FetchInvestmentHoldingsAsync(Investments.GetInvestmentHoldingsRequest request) =>
-			ParseResponse<Investments.GetInvestmentHoldingsResponse>(
+			ParseResponseAsync<Investments.GetInvestmentHoldingsResponse>(
 				PostAsync("investments/holdings/get", request));
 
 		/// <summary>
 		/// Retrieves information pertaining to a <see cref="Entity.Item"/>'s investment transactions.
 		/// </summary>
 		public Task<Investments.GetInvestmentTransactionsResponse> FetchInvestmentTransactionsAsync(Investments.GetInvestmentTransactionsRequest request) =>
-			ParseResponse<Investments.GetInvestmentTransactionsResponse>(
+			ParseResponseAsync<Investments.GetInvestmentTransactionsResponse>(
 				PostAsync("investments/transactions/get", request));
 
 		/* Auth */
@@ -240,7 +240,7 @@ namespace Going.Plaid
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Auth.GetAccountInfoResponse&gt;.</returns>
 		public Task<Auth.GetAccountInfoResponse> FetchAccountInfoAsync(Auth.GetAccountInfoRequest request) =>
-			ParseResponse<Auth.GetAccountInfoResponse>(
+			ParseResponseAsync<Auth.GetAccountInfoResponse>(
 				PostAsync("auth/get", request));
 
 		/* Balance */
@@ -251,7 +251,7 @@ namespace Going.Plaid
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Balance.GetAccountResponse&gt;.</returns>
 		public Task<Balance.GetAccountResponse> FetchAccountAsync(Balance.GetAccountRequest request) =>
-			ParseResponse<Balance.GetAccountResponse>(
+			ParseResponseAsync<Balance.GetAccountResponse>(
 				PostAsync("accounts/get", request));
 
 		/// <summary>
@@ -260,7 +260,7 @@ namespace Going.Plaid
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Balance.GetBalanceResponse&gt;.</returns>
 		public Task<Balance.GetBalanceResponse> FetchAccountBalanceAsync(Balance.GetBalanceRequest request) =>
-			ParseResponse<Balance.GetBalanceResponse>(
+			ParseResponseAsync<Balance.GetBalanceResponse>(
 				PostAsync("accounts/balance/get", request));
 
 		/* Categories */
@@ -271,7 +271,7 @@ namespace Going.Plaid
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Category.GetCategoriesResponse&gt;.</returns>
 		public Task<Category.GetCategoriesResponse> FetchCategoriesAsync(Category.GetCategoriesRequest request) =>
-			ParseResponse<Category.GetCategoriesResponse>(
+			ParseResponseAsync<Category.GetCategoriesResponse>(
 				PostAsync("categories/get", request));
 
 		/* Identity */
@@ -282,7 +282,7 @@ namespace Going.Plaid
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Identity.GetUserIdentityResponse&gt;.</returns>
 		public Task<Identity.GetUserIdentityResponse> FetchUserIdentityAsync(Identity.GetUserIdentityRequest request) =>
-			ParseResponse<Identity.GetUserIdentityResponse>(
+			ParseResponseAsync<Identity.GetUserIdentityResponse>(
 				PostAsync("identity/get", request));
 
 		/* Transactions */
@@ -293,7 +293,7 @@ namespace Going.Plaid
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Transactions.GetTransactionsResponse&gt;.</returns>
 		public Task<Transactions.GetTransactionsResponse> FetchTransactionsAsync(Transactions.GetTransactionsRequest request) =>
-			ParseResponse<Transactions.GetTransactionsResponse>(
+			ParseResponseAsync<Transactions.GetTransactionsResponse>(
 				PostAsync("transactions/get", request));
 
 		/* Stripe */
@@ -304,7 +304,7 @@ namespace Going.Plaid
 		/// <param name="request">The request.</param>
 		/// <returns>Task&lt;Management.StripeTokenResponse&gt;.</returns>
 		public Task<Management.StripeTokenResponse> FetchStripeTokenAsync(Management.StripeTokenRequest request) =>
-			ParseResponse<Management.StripeTokenResponse>(
+			ParseResponseAsync<Management.StripeTokenResponse>(
 				PostAsync("processor/stripe/bank_account_token/create", request));
 
 		#endregion
@@ -332,7 +332,7 @@ namespace Going.Plaid
 			return client.SendAsync(requestMessage);
 		}
 
-		private async Task<TResponse> ParseResponse<TResponse>(Task<HttpResponseMessage> message) where TResponse : ResponseBase, new()
+		private async Task<TResponse> ParseResponseAsync<TResponse>(Task<HttpResponseMessage> message) where TResponse : ResponseBase, new()
 		{
 			using (var response = await message.ConfigureAwait(false))
 			{
