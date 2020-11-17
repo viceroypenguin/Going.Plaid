@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Going.Plaid.Entity;
-using Newtonsoft.Json;
 
 namespace Going.Plaid.Management
 {
@@ -12,28 +12,28 @@ namespace Going.Plaid.Management
 		/// <summary>
 		/// The link session identifier.
 		/// </summary>
-		[JsonProperty("link_session_id")]
-		public string LinkSessionId { get; set; } = null!;
+		[JsonPropertyName("link_session_id")]
+		public string LinkSessionId { get; init; } = null!;
 
 		/// <summary>
 		/// The accounts linked to the <see cref="Item"/>.
 		/// </summary>
-		[JsonProperty("accounts")]
-		public Account[] Accounts { get; set; } = null!;
+		[JsonPropertyName("accounts")]
+		public Account[] Accounts { get; init; } = null!;
 
 		/// <summary>
 		/// Deprecated by Plaid. Use <see cref="Accounts"/> array instead.
 		/// </summary>
-		[JsonProperty("account")]
+		[JsonPropertyName("account")]
 		[Obsolete("Deprecated by Plaid. Use Accounts array instead", true)]
-		public Account? Account { get; set; }
+		public Account? Account { get; init; }
 
 		/// <summary>
 		/// Gets or sets the institution.
 		/// </summary>
 		/// <value>The institution.</value>
-		[JsonProperty("institution")]
-		public InstitutionInfo Institution { get; set; } = null!;
+		[JsonPropertyName("institution")]
+		public InstitutionInfo Institution { get; init; } = null!;
 
 		/// <summary>
 		/// Represents an <see cref="Entity.Institution"/> metadata.
@@ -43,14 +43,14 @@ namespace Going.Plaid.Management
 			/// <summary>
 			/// Gets or sets the <see cref="Entity.Institution"/> identifier.
 			/// </summary>
-			[JsonProperty("institution_id")]
-			public string Id { get; set; } = null!;
+			[JsonPropertyName("institution_id")]
+			public string Id { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the <see cref="Entity.Institution"/> name.
 			/// </summary>
-			[JsonProperty("name")]
-			public string Name { get; set; } = null!;
+			[JsonPropertyName("name")]
+			public string Name { get; init; } = null!;
 		}
 	}
 }

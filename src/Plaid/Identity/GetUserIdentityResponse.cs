@@ -5,16 +5,16 @@
 	/// </summary>
 	/// <remarks>Note: This request may take some time to complete if identity was not specified as an initial product when creating the <see cref="Entity.Item" />. This is because Plaid must communicate directly with the institution to retrieve the data.</remarks>
 	/// <seealso cref="Going.Plaid.ResponseBase" />
-	public class GetUserIdentityResponse : ResponseBase
+	public record GetUserIdentityResponse : ResponseBase
 	{
 		/// <summary>
 		/// The item about which information is requested.
 		/// </summary>
-		public Entity.Item Item { get; set; } = null!;
+		public Entity.Item Item { get; init; } = null!;
 
 		/// <summary>
 		/// The accounts attached to the <see cref="Item"/>
 		/// </summary>
-		public Entity.Account[] Accounts { get; set; } = null!;
+		public Entity.Account[] Accounts { get; init; } = null!;
 	}
 }

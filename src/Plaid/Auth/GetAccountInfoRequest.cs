@@ -1,5 +1,5 @@
-﻿using Going.Plaid.Options;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using Going.Plaid.Options;
 
 namespace Going.Plaid.Auth
 {
@@ -15,7 +15,7 @@ namespace Going.Plaid.Auth
 		/// <summary>
 		/// Optional filters for the request
 		/// </summary>
-		[JsonProperty("options")]
+		[JsonPropertyName("options")]
 		public AccountOptions? Options { get; set; } = null!;
 	}
 }

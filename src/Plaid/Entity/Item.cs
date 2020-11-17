@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Entity
 {
@@ -11,35 +11,35 @@ namespace Going.Plaid.Entity
 		/// Gets or sets the identifier.
 		/// </summary>
 		/// <value>The identifier.</value>
-		[JsonProperty("item_id")]
-		public string Id { get; set; } = null!;
+		[JsonPropertyName("item_id")]
+		public string Id { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the available products.
 		/// </summary>
 		/// <value>The available products.</value>
-		[JsonProperty("available_products")]
-		public string[] AvailableProducts { get; set; } = null!;
+		[JsonPropertyName("available_products")]
+		public string[] AvailableProducts { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the billed products.
 		/// </summary>
 		/// <value>The billed products.</value>
-		[JsonProperty("billed_products")]
-		public string[] BilledProducts { get; set; } = null!;
+		[JsonPropertyName("billed_products")]
+		public string[] BilledProducts { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the <see cref="Entity.Institution"/> identifier.
 		/// </summary>
 		/// <value>The institution identifier.</value>
-		[JsonProperty("institution_id")]
-		public string InstitutionId { get; set; } = null!;
+		[JsonPropertyName("institution_id")]
+		public string InstitutionId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the webhook.
 		/// </summary>
 		/// <value>The webhook.</value>
-		[JsonProperty("webhook")]
-		public string? Webhook { get; set; }
+		[JsonPropertyName("webhook")]
+		public string? Webhook { get; init; }
 	}
 }

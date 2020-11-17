@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Going.Plaid.Options;
-using Newtonsoft.Json;
 
 namespace Going.Plaid.Institution
 {
@@ -15,7 +15,7 @@ namespace Going.Plaid.Institution
 		/// <summary>
 		/// The number of transactions to fetch, where 0 &lt; count &lt;= 500.
 		/// </summary>
-		[JsonProperty("count")]
+		[JsonPropertyName("count")]
 		public uint Count
 		{
 			get => _count;
@@ -28,13 +28,19 @@ namespace Going.Plaid.Institution
 		/// <summary>
 		/// The number of transactions to skip, where offset &gt;= 0.
 		/// </summary>
-		[JsonProperty("offset")]
+		[JsonPropertyName("offset")]
 		public uint Offset { get; set; }
+
+		/// <summary>
+		/// Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard.
+		/// </summary>
+		[JsonPropertyName("country_codes")]
+		public string[] CountryCodes { get; set; } = null!;
 
 		/// <summary>
 		/// Search options for filtering the returned institutions
 		/// </summary>
-		[JsonProperty("options")]
+		[JsonPropertyName("options")]
 		public InstitutionSearchOptions? Options { get; set; }
 
 		/// <inheritdoc/>

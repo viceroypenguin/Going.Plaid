@@ -1,5 +1,5 @@
-﻿using Going.Plaid.Options;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using Going.Plaid.Options;
 
 namespace Going.Plaid.Institution
 {
@@ -13,13 +13,19 @@ namespace Going.Plaid.Institution
 		/// The identifier of the <see cref="Entity.Institution"/> for which to query information.
 		/// </summary>
 		/// <value>The products.</value>
-		[JsonProperty("institution_id")]
+		[JsonPropertyName("institution_id")]
 		public string InstitutionId { get; set; } = null!;
+
+		/// <summary>
+		/// Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard.
+		/// </summary>
+		[JsonPropertyName("country_codes")]
+		public string[] CountryCodes { get; set; } = null!;
 
 		/// <summary>
 		/// Options for searching Institutions
 		/// </summary>
-		[JsonProperty("options")]
+		[JsonPropertyName("options")]
 		public InstitutionSearchOptions? Options { get; set; }
 
 		/// <inheritdoc/>

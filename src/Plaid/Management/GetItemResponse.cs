@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -7,19 +7,19 @@ namespace Going.Plaid.Management
 	/// Represents a response from plaid's '<c>/item/get</c>' endpoint. The POST <c>/item/get</c> endpoint returns information about the status of an <see cref="Entity.Item"/>.
 	/// </summary>
 	/// <seealso cref="Going.Plaid.ResponseBase" />
-	public class GetItemResponse : ResponseBase
+	public record GetItemResponse : ResponseBase
 	{
 		/// <summary>
 		/// Gets or sets the item.
 		/// </summary>
 		/// <value>The item.</value>
-		public Entity.Item Item { get; set; } = null!;
+		public Entity.Item Item { get; init; } = null!;
 
 		/// <summary>
 		/// Information about the last transaction, webhook statuses of the Item.
 		/// </summary>
-		[JsonProperty("status")]
-		public ItemStatus Status { get; set; } = null!;
+		[JsonPropertyName("status")]
+		public ItemStatus Status { get; init; } = null!;
 
 		/// <summary>
 		/// Information about the last transaction, webhook statuses of the Item.
@@ -29,14 +29,14 @@ namespace Going.Plaid.Management
 			/// <summary>
 			/// The timestamps of the last successful and failed transactions update for the Item.
 			/// </summary>
-			[JsonProperty("transactions")]
-			public LastTransactionInformation Transactions { get; set; } = null!;
+			[JsonPropertyName("transactions")]
+			public LastTransactionInformation Transactions { get; init; } = null!;
 
 			/// <summary>
 			/// Information about the last webhook fired for the Item.
 			/// </summary>
-			[JsonProperty("last_webhook")]
-			public LastWebhook LastWebhook { get; set; } = null!;
+			[JsonPropertyName("last_webhook")]
+			public LastWebhook LastWebhook { get; init; } = null!;
 		}
 
 		/// <summary>
@@ -47,14 +47,14 @@ namespace Going.Plaid.Management
 			/// <summary>
 			/// Timestamp of when the webhook was fired.
 			/// </summary>
-			[JsonProperty("sent_at")]
-			public DateTime? SentAt { get; set; }
+			[JsonPropertyName("sent_at")]
+			public DateTime? SentAt { get; init; }
 
 			/// <summary>
 			/// The last webhook code sent
 			/// </summary>
-			[JsonProperty("code_sent")]
-			public string CodeSent { get; set; } = null!;
+			[JsonPropertyName("code_sent")]
+			public string CodeSent { get; init; } = null!;
 		}
 
 		/// <summary>
@@ -65,14 +65,14 @@ namespace Going.Plaid.Management
 			/// <summary>
 			/// Timestamp of the last successful transactions update for the Item.
 			/// </summary>
-			[JsonProperty("last_successful_update")]
-			public DateTime? LastSuccessfulUpdate { get; set; }
+			[JsonPropertyName("last_successful_update")]
+			public DateTime? LastSuccessfulUpdate { get; init; }
 
 			/// <summary>
 			/// Timestamp of the last failed transactions update for the Item.
 			/// </summary>
-			[JsonProperty("last_failed_update")]
-			public DateTime? LastFailedUpdate { get; set; }
+			[JsonPropertyName("last_failed_update")]
+			public DateTime? LastFailedUpdate { get; init; }
 		}
 	}
 }

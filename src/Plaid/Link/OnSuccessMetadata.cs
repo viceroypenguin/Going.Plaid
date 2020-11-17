@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Link
 {
@@ -33,36 +32,36 @@ namespace Going.Plaid.Link
 		/// </example>
 		/// </summary>
 		/// <value>The public token.</value>
-		[JsonProperty("public_token")]
-		public string PublicToken { get; set; } = null!;
+		[JsonPropertyName("public_token")]
+		public string PublicToken { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the link session identifier.
 		/// </summary>
 		/// <value>The link session identifier.</value>
-		[JsonProperty("link_session_id")]
-		public string LinkSessionId { get; set; } = null!;
+		[JsonPropertyName("link_session_id")]
+		public string LinkSessionId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the link session identifier.
 		/// </summary>
 		/// <value>The link session identifier.</value>
-		[JsonProperty("account_id")]
-		public string AccountId { get; set; } = null!;
+		[JsonPropertyName("account_id")]
+		public string AccountId { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the accounts info.
 		/// </summary>
 		/// <value>The accounts.</value>
-		[JsonProperty("accounts")]
-		public IReadOnlyList<AccountInfo> Accounts { get; set; } = null!;
+		[JsonPropertyName("accounts")]
+		public IReadOnlyList<AccountInfo> Accounts { get; init; } = null!;
 
 		/// <summary>
 		/// Gets or sets the institution.
 		/// </summary>
 		/// <value>The institution.</value>
-		[JsonProperty("institution")]
-		public InstitutionInfo Institution { get; set; } = null!;
+		[JsonPropertyName("institution")]
+		public InstitutionInfo Institution { get; init; } = null!;
 
 
 		/// <summary>
@@ -80,38 +79,36 @@ namespace Going.Plaid.Link
 			/// Gets or sets the <see cref="Entity.Account"/> identifier.
 			/// </summary>
 			/// <value>The identifier.</value>
-			[JsonProperty("id")]
-			public string Id { get; set; } = null!;
+			[JsonPropertyName("id")]
+			public string Id { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the <see cref="Entity.Account"/> name.
 			/// </summary>
 			/// <value>The name.</value>
-			[JsonProperty("name")]
-			public string Name { get; set; } = null!;
+			[JsonPropertyName("name")]
+			public string Name { get; init; } = null!;
 
 			/// <summary>
 			/// The last 2-4 alphanumeric characters of an account's official account number.
 			/// </summary>
 			/// <remarks>The mask may be non-unique between an Item's accounts, it may also not match the mask that the bank displays to the user.</remarks>
-			[JsonProperty("mask")]
-			public string Mask { get; set; } = null!;
+			[JsonPropertyName("mask")]
+			public string Mask { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the type.
 			/// </summary>
 			/// <value>The type.</value>
-			[JsonProperty("type")]
-			[JsonConverter(typeof(StringEnumConverter))]
-			public Entity.AccountType? Type { get; set; } = null!;
+			[JsonPropertyName("type")]
+			public Entity.AccountType? Type { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the type of the sub.
 			/// </summary>
 			/// <value>The type of the sub.</value>
-			[JsonProperty("subtype")]
-			[JsonConverter(typeof(StringEnumConverter))]
-			public Entity.AccountSubType? SubType { get; set; } = null!;
+			[JsonPropertyName("subtype")]
+			public Entity.AccountSubType? SubType { get; init; } = null!;
 		}
 
 
@@ -129,15 +126,15 @@ namespace Going.Plaid.Link
 			/// Gets or sets the <see cref="Entity.Institution"/> identifier.
 			/// </summary>
 			/// <value>The identifier.</value>
-			[JsonProperty("institution_id")]
-			public string Id { get; set; } = null!;
+			[JsonPropertyName("institution_id")]
+			public string Id { get; init; } = null!;
 
 			/// <summary>
 			/// Gets or sets the <see cref="Entity.Institution"/> name.
 			/// </summary>
 			/// <value>The name.</value>
-			[JsonProperty("name")]
-			public string Name { get; set; } = null!;
+			[JsonPropertyName("name")]
+			public string Name { get; init; } = null!;
 		}
 	}
 }

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Options
 {
@@ -23,7 +21,7 @@ namespace Going.Plaid.Options
 		/// <summary>
 		/// Gets or sets the number of transactions to fetch, where 0 &lt; count &lt;= 500.
 		/// </summary>
-		[JsonProperty("count")]
+		[JsonPropertyName("count")]
 		public uint Count
 		{
 			get => _count;
@@ -36,14 +34,14 @@ namespace Going.Plaid.Options
 		/// <summary>
 		/// The number of transactions to skip, where offset &gt;= 0.
 		/// </summary>
-		[JsonProperty("offset")]
+		[JsonPropertyName("offset")]
 		public uint Offset { get; set; }
 
 		/// <summary>
 		/// The list of account ids to retrieve for the <see cref="Entity.Item" />. 
 		/// </summary>
 		/// <remarks>An error will be returned if a provided account_id is not associated with the <see cref="Entity.Item" />.</remarks>
-		[JsonProperty("account_ids")]
+		[JsonPropertyName("account_ids")]
 		public string[]? AccountIds { get; set; }
 
 		#region Private Members

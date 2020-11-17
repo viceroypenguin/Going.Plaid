@@ -132,7 +132,7 @@ namespace Going.Plaid.Entity
 
 		/// <summary>
 		/// The Item you requested cannot be found. This Item does not exist, has been previously removed via 
-		/// <see cref="PlaidClient.DeleteItemAsync(Management.DeleteItemRequest)"/>, 
+		/// <see cref="PlaidClient.RemoveItemAsync(Management.RemoveItemRequest)"/>, 
 		/// or has had access removed by the user
 		/// </summary>
 		/// <remarks><see href="https://plaid.com/docs/errors/item/#item_not_found"/></remarks>

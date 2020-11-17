@@ -19,7 +19,7 @@ namespace Going.Plaid.Tests
 		public PlaidClientTest()
 		{
 			VerifierSettings.DisableClipboard();
-			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "request_id");
+			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "RequestId");
 
 			var configuration = new ConfigurationBuilder()
 				.AddEnvironmentVariables()
@@ -46,7 +46,7 @@ namespace Going.Plaid.Tests
 
 			// because values will change regularly and we don't want
 			// to have to update output json for that.
-			result.Status = null!;
+			result = result with { Status = null!, };
 
 			await Verify(result);
 		}
@@ -69,7 +69,10 @@ namespace Going.Plaid.Tests
 		{
 			// institution list may change over time. don't validate.
 			var result = await PlaidClient.FetchAllInstitutionsAsync(
-				new Institution.GetAllInstitutionsRequest());
+				new Institution.GetAllInstitutionsRequest()
+				{
+					CountryCodes = new[] { "US", },
+				});
 			Assert.Equal(100, result.Institutions.Length);
 		}
 
@@ -81,6 +84,7 @@ namespace Going.Plaid.Tests
 				{
 					Query = "Chase",
 					Products = new[] { Product.Transactions, },
+					CountryCodes = new[] { "US", },
 				});
 			await Verify(result);
 		}
@@ -92,6 +96,7 @@ namespace Going.Plaid.Tests
 				new Institution.SearchByIdRequest
 				{
 					InstitutionId = "ins_3",
+					CountryCodes = new[] { "US", },
 				});
 			await Verify(result);
 		}
@@ -114,7 +119,6 @@ namespace Going.Plaid.Tests
 			var result = await PlaidClient.FetchInvestmentHoldingsAsync(
 				new Investments.GetInvestmentHoldingsRequest());
 
-			FixSecurity(result.Securities);
 			await Verify(result);
 		}
 
@@ -128,22 +132,7 @@ namespace Going.Plaid.Tests
 					EndDate = Convert.ToDateTime("2020-07-31"),
 				});
 
-			FixSecurity(result.Securities);
 			await Verify(result);
-		}
-
-		private void FixSecurity(Security[] securities)
-		{
-			// fixes a bug in the returned security data set
-			// Plaid returns a different Institution ID for 
-			// the same security in Sandbox.
-			// working correctly in dev/prod.
-			var s = securities.FirstOrDefault(s => s.SecurityId == "nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN");
-			if (s == default)
-				return;
-
-			// forces institution id to ins_3 for consistency
-			s.InstitutionId = "ins_3";
 		}
 
 		/* Auth */

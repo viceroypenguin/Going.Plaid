@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Management
 {
@@ -12,7 +12,7 @@ namespace Going.Plaid.Management
 		/// Gets or sets the webhook.
 		/// </summary>
 		/// <value>The webhook.</value>
-		[JsonProperty("webhook")]
+		[JsonPropertyName("webhook")]
 		public string Webhook { get; set; } = string.Empty;
 	}
 }

@@ -1,9 +1,9 @@
 {
-  institutions: [
+  Institutions: [
     {
-      institution_id: 'ins_3',
-      name: 'Chase',
-      products: [
+      InstitutionId: 'ins_3',
+      Name: 'Chase',
+      Products: [
         'assets',
         'auth',
         'balance',
@@ -14,7 +14,7 @@
         'investments',
         'liabilities'
       ],
-      routing_numbers: [
+      RoutingNumbers: [
         '021000021',
         '021100361',
         '021202337',
@@ -38,21 +38,15 @@
         '322271627',
         '325070760'
       ],
-      country_codes: [
+      CountryCodes: [
         'US'
       ],
-      oauth: false,
-      has_mfa: true,
-      mfa: [
-        'code',
-        'list'
-      ],
-      mfa_code_type: 'numeric'
+      OAuth: false
     },
     {
-      institution_id: 'ins_118129',
-      name: 'Chase - Connect',
-      products: [
+      InstitutionId: 'ins_118129',
+      Name: 'Chase - Connect',
+      Products: [
         'assets',
         'auth',
         'balance',
@@ -63,23 +57,15 @@
         'investments',
         'liabilities'
       ],
-      country_codes: [
+      CountryCodes: [
         'US'
       ],
-      oauth: false,
-      has_mfa: true,
-      mfa: [
-        'code',
-        'list',
-        'questions',
-        'selections'
-      ],
-      mfa_code_type: 'numeric'
+      OAuth: false
     },
     {
-      institution_id: 'ins_114625',
-      name: 'The Chasewood Bank',
-      products: [
+      InstitutionId: 'ins_114625',
+      Name: 'The Chasewood Bank',
+      Products: [
         'assets',
         'auth',
         'balance',
@@ -87,21 +73,13 @@
         'income',
         'identity'
       ],
-      routing_numbers: [
+      RoutingNumbers: [
         '113012163'
       ],
-      country_codes: [
+      CountryCodes: [
         'US'
       ],
-      oauth: false,
-      has_mfa: true,
-      mfa: [
-        'code',
-        'list',
-        'questions',
-        'selections'
-      ],
-      mfa_code_type: 'numeric'
+      OAuth: false
     }
   ],
   StatusCode: 'OK',

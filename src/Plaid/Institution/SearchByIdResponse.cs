@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Institution
 {
@@ -6,12 +6,12 @@ namespace Going.Plaid.Institution
 	/// Represents a response from plaid's '<c>/institutions/get_by_id</c>' endpoints. The '<c>/institutions/get_by_id</c>' endpoint to retrieve a <see cref="Entity.Institution"/> with the specified id.
 	/// </summary>
 	/// <seealso cref="Going.Plaid.ResponseBase" />
-	public class SearchByIdResponse : ResponseBase
+	public record SearchByIdResponse : ResponseBase
 	{
 		/// <summary>
 		/// The institution returned from the server.
 		/// </summary>
-		[JsonProperty("institution")]
-		public Entity.Institution Institution { get; set; } = null!;
+		[JsonPropertyName("institution")]
+		public Entity.Institution Institution { get; init; } = null!;
 	}
 }

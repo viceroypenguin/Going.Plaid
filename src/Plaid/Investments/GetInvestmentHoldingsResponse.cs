@@ -1,5 +1,5 @@
-﻿using Going.Plaid.Entity;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using Going.Plaid.Entity;
 
 namespace Going.Plaid.Investments
 {
@@ -9,30 +9,30 @@ namespace Going.Plaid.Investments
 	/// Every <c>/investments/holdings/get</c> response will contain a list of Securities, providing definitions for all security_id references in the response.
 	/// </summary>
 	/// <seealso cref="Going.Plaid.ResponseBase" />
-	public class GetInvestmentHoldingsResponse : ResponseBase
+	public record GetInvestmentHoldingsResponse : ResponseBase
 	{
 		/// <summary>
 		/// The holdings returned by the server.
 		/// </summary>
-		[JsonProperty("holdings")]
-		public Holding[] Holdings { get; set; } = null!;
+		[JsonPropertyName("holdings")]
+		public Holding[] Holdings { get; init; } = null!;
 
 		/// <summary>
 		/// The securities returned by the server.
 		/// </summary>
-		[JsonProperty("securities")]
-		public Security[] Securities { get; set; } = null!;
+		[JsonPropertyName("securities")]
+		public Security[] Securities { get; init; } = null!;
 
 		/// <summary>
 		/// The item about which information is requested.
 		/// </summary>
-		[JsonProperty("item")]
-		public Item Item { get; set; } = null!;
+		[JsonPropertyName("item")]
+		public Item Item { get; init; } = null!;
 
 		/// <summary>
 		/// The acounts about which information is requested.
 		/// </summary>
-		[JsonProperty("accounts")]
-		public Account[] Accounts { get; set; } = null!;
+		[JsonPropertyName("accounts")]
+		public Account[] Accounts { get; init; } = null!;
 	}
 }

@@ -80,7 +80,7 @@
                         body: JSON.stringify(self.products()),
                     });
 					const responseJSON = await response.json();
-					return responseJSON.linkToken;
+					return responseJSON.link_token;
 				};
 
 				const configs = {
@@ -105,7 +105,7 @@
                             body: JSON.stringify(public_token)
                         });
 						const responseJSON = await response.json();
-                        self.accessToken(responseJSON.accessToken);
+                        self.accessToken(responseJSON.access_token);
                     },
                     onExit: function (err, metadata) {
                         // The user exited the Link flow.
@@ -144,7 +144,7 @@
                 });
 				const responseJSON = await response.json();
                 var handler = Plaid.create({
-                    token: responseJSON.linkToken,
+                    token: responseJSON.link_token,
                     onLoad: function () {
                         // Optional, called when Link loads
                     },

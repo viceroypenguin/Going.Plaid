@@ -1,8 +1,7 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Going.Plaid.Entity;
 using Going.Plaid.Exceptions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Going.Plaid.Link
 {
@@ -57,10 +56,8 @@ namespace Going.Plaid.Link
 		/// </code>
 		/// </example>
 		/// </summary>
-		[JsonProperty("event_name")]
-		[JsonConverter(typeof(StringEnumConverter))]
-		public LinkEventName? EventName { get; set; } = null!;
-
+		[JsonPropertyName("event_name")]
+		public LinkEventName? EventName { get; init; } = null!;
 
 		#region error_*
 
@@ -77,91 +74,87 @@ namespace Going.Plaid.Link
 		/// <summary>
 		/// The error code that the user encountered.
 		/// </summary>
-		[JsonProperty("error_code")]
-		[JsonConverter(typeof(StringEnumConverter))]
-		public ErrorCode? ErrorCode { get; set; } = null!;
+		[JsonPropertyName("error_code")]
+		public ErrorCode? ErrorCode { get; init; } = null!;
 
 		/// <summary>
 		/// The error message that the user encountered.
 		/// </summary>
-		[JsonProperty("error_message")]
-		public string? ErrorMessage { get; set; } = null!;
+		[JsonPropertyName("error_message")]
+		public string? ErrorMessage { get; init; } = null!;
 
 		/// <summary>
 		/// The error type that the user encountered. 
 		/// </summary>
-		[JsonProperty("error_type")]
-		[JsonConverter(typeof(StringEnumConverter))]
-		public ErrorType? ErrorType { get; set; } = null!;
+		[JsonPropertyName("error_type")]
+		public ErrorType? ErrorType { get; init; } = null!;
 
 		#endregion
-
 
 		/// <summary>
 		/// The status key indicates the point at which the user exited the Link flow. 
 		/// </summary>
 		/// <remarks>See: <see cref="OnExitMetadata.Status"/></remarks>
-		[JsonProperty("exit_status")]
-		public LinkExitStatus? Status { get; set; } = null!;
+		[JsonPropertyName("exit_status")]
+		public LinkExitStatus? Status { get; init; } = null!;
 
 		/// <summary>
 		/// The ID of the selected institution. <br/>
 		/// Emitted by: all events.
 		/// </summary>
-		[JsonProperty("institution_id")]
-		public string InstitutionId { get; set; } = null!;
+		[JsonPropertyName("institution_id")]
+		public string InstitutionId { get; init; } = null!;
 
 		/// <summary>
 		/// The name of the selected institution. <br/>
 		/// Emitted by: all events.
 		/// </summary>
-		[JsonProperty("institution_name")]
-		public string InstitutionName { get; set; } = null!;
+		[JsonPropertyName("institution_name")]
+		public string InstitutionName { get; init; } = null!;
 
 		/// <summary>
 		/// The query used to search for institutions. <br/>
 		/// Emitted by: SEARCH_INSTITUTION.
 		/// </summary>
-		[JsonProperty("institution_search_query")]
-		public string InstitutionSearchQuery { get; set; } = null!;
+		[JsonPropertyName("institution_search_query")]
+		public string InstitutionSearchQuery { get; init; } = null!;
 
 		/// <summary>
 		/// If set, the user has encountered one of the following MFA types: code, device, 
 		/// questions, selections. <br/>
 		/// Emitted by: SUBMIT_MFA and TRANSITION_VIEW when view_name is MFA
 		/// </summary>
-		[JsonProperty("mfa_type")]
-		public string MfaType { get; set; } = null!;
+		[JsonPropertyName("mfa_type")]
+		public string MfaType { get; init; } = null!;
 
 		/// <summary>
 		/// The name of the view that is being transitioned to. <br/>
 		/// Emitted by: TRANSITION_VIEW.
 		/// </summary>
-		[JsonProperty("view_name")]
-		[JsonConverter(typeof(StringEnumConverter))]
-		public LinkViewName? ViewName { get; set; } = null!;
+		[JsonPropertyName("view_name")]
+		public LinkViewName? ViewName { get; init; } = null!;
 
 		/// <summary>
 		/// The request ID for the last request made by Link. This can be shared with Plaid Support to expedite investigation. <br/>
 		/// Emitted by: all events.
 		/// </summary>
-		[JsonProperty("request_id")]
-		public string RequestId { get; set; } = null!;
+		[JsonPropertyName("request_id")]
+		public string RequestId { get; init; } = null!;
 
 		/// <summary>
 		/// The link_session_id is a unique identifier for a single session of Link. 
 		/// It's always available and will stay constant throughout the flow. <br/>
 		/// Emitted by: all events.
 		/// </summary>
-		[JsonProperty("link_session_id")]
-		public string LinkSessionId { get; set; } = null!;
+		[JsonPropertyName("link_session_id")]
+		public string LinkSessionId { get; init; } = null!;
 
 		/// <summary>
 		/// An ISO 8601 representation of when the event occurred. <br/>
 		/// For example 2017-09-14T14:42:19.350Z. <br/>
 		/// Emitted by: all events.
 		/// </summary>
-		[JsonProperty("timestamp")]
-		public DateTime Timestamp { get; set; }
+		[JsonPropertyName("timestamp")]
+		public DateTime Timestamp { get; init; }
 	}
 }
