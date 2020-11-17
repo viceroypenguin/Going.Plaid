@@ -8,25 +8,34 @@ namespace Going.Plaid
 	public abstract class RequestBase
 	{
 		/// <summary>
-		/// Gets or sets the secret.
+		/// The Plaid API secret. Provided in the developer area of the Plaid website.
 		/// </summary>
-		/// <value>The secret.</value>
 		[JsonPropertyName("secret")]
 		public string? Secret { get; set; }
 
 		/// <summary>
-		/// Gets or sets the client_id.
+		/// The Plaid API client_id. Provided in the developer area of the Plaid website.
 		/// </summary>
-		/// <value>The client identifier.</value>
 		[JsonPropertyName("client_id")]
 		public string? ClientId { get; set; }
 
 		/// <summary>
-		/// Gets or sets the access_token.
+		/// The Plaid API access_token. Provided by LINK process to identify an <see cref="Entity.Item"/> from the developer side.
 		/// </summary>
-		/// <value>The access token.</value>
 		[JsonPropertyName("access_token")]
 		public string? AccessToken { get; set; }
+
+		/// <summary>
+		/// Enable to receive the raw JSON provided by the Plaid server.
+		/// Values:
+		/// <list type="table">
+		/// <item><term><c>false</c></term><description>Do not return the raw JSON.</description></item>
+		/// <item><term><c>true</c></term><description>Return the raw JSON.</description></item>
+		/// <item><term><c>null</c>/<c>default</c></term><description>Use the value in <see cref="PlaidClient.ShowRawJson"/>.</description></item>
+		/// </list>
+		/// </summary>
+		[JsonIgnore]
+		public bool? ShowRawJson { get; set; }
 
 		/// <summary>
 		/// Updates the credential values if they have

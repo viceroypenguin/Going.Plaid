@@ -8,12 +8,11 @@ namespace Going.Plaid
 	/// </summary>
 	public abstract record ResponseBase
 	{
-#if DEBUG
 		/// <summary>
 		/// Holds the raw json returned by the server
 		/// </summary>
-		internal string? RawJsonForDebugging { get; set; }
-#endif
+		[JsonIgnore]
+		public string? RawJson { get; set; }
 
 		/// <summary>
 		/// The Error
