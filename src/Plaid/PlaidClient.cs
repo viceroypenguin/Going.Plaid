@@ -333,10 +333,10 @@ namespace Going.Plaid
 		}
 
 		private async Task<TResponse> ParseResponse<TResponse>(Task<HttpResponseMessage> message) where TResponse : ResponseBase, new()
-			{
+		{
 			using (var response = await message.ConfigureAwait(false))
 			{
-				var url = response.RequestMessage.RequestUri.ToString();
+				var url = response!.RequestMessage!.RequestUri!.ToString();
 				_logger.LogInformation("Completed request. Url: {url}, Status Code: {statusCode}.", url, response.StatusCode);
 
 				var result = await BuildResponse<TResponse>(url, response);
