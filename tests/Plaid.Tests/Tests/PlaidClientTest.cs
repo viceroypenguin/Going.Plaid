@@ -196,5 +196,15 @@ namespace Going.Plaid.Tests
 				});
 			await Verify(result);
 		}
+
+		/* Liabilities */
+
+		[Fact]
+		public async Task FetchLiabilitiesAsync()
+		{
+			var result = await PlaidClient.FetchLiabilitiesAsync(
+				new Liabilities.GetLiabilitiesRequest { });
+			await Verify(result);
+		}
 	}
 }
