@@ -113,38 +113,8 @@ namespace Going.Plaid.Entity
 		/// <summary>
 		/// Represents a geographical location.
 		/// </summary>
-		public class LocationInfo
+		public record LocationInfo : Address
 		{
-			/// <summary>
-			/// The street address where the transaction occurred.
-			/// </summary>
-			[JsonPropertyName("address")]
-			public string? Address { get; init; }
-
-			/// <summary>
-			/// The city where the transaction occurred.
-			/// </summary>
-			[JsonPropertyName("city")]
-			public string? City { get; init; }
-
-			/// <summary>
-			/// The region or state where the transaction occurred.
-			/// </summary>
-			[JsonPropertyName("region")]
-			public string? State { get; init; }
-
-			/// <summary>
-			/// The postal code where the transaction occurred.
-			/// </summary>
-			[JsonPropertyName("postal_code")]
-			public string? Zip { get; init; }
-
-			/// <summary>
-			/// The ISO 3166-1 alpha-2 country code where the transaction occurred.
-			/// </summary>
-			[JsonPropertyName("country")]
-			public string? Country { get; init; }
-
 			/// <summary>
 			/// Gets or sets the latitude (x-coordinate).
 			/// </summary>

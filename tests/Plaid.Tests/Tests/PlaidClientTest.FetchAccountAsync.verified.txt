@@ -4,14 +4,14 @@
     AvailableProducts: [
       'assets',
       'balance',
-      'credit_details',
-      'liabilities'
+      'credit_details'
     ],
     BilledProducts: [
       'auth',
       'identity',
       'income',
       'investments',
+      'liabilities',
       'transactions'
     ],
     InstitutionId: 'ins_3',
