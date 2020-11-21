@@ -17,7 +17,7 @@ namespace Going.Plaid.Entity
 		/// A list of addresses associated with the <see cref="Item"/>'s account(s).
 		/// </summary>
 		[JsonPropertyName("addresses")]
-		public Address[] Addresses { get; init; } = null!;
+		public IdentityAddress[] Addresses { get; init; } = null!;
 
 		/// <summary>
 		/// A list of emails associated with the <see cref="Item"/>'s account(s).
@@ -88,7 +88,7 @@ namespace Going.Plaid.Entity
 		/// <summary>
 		/// Represents an <see cref="Identity"/> address.
 		/// </summary>
-		public struct Address
+		public struct IdentityAddress
 		{
 			/// <summary>
 			/// Gets or sets a value indicating whether this instance is the primary address.
@@ -102,44 +102,7 @@ namespace Going.Plaid.Entity
 			/// </summary>
 			/// <value>The information.</value>
 			[JsonPropertyName("data")]
-			public AddressData Data { get; init; }
-
-			/// <summary>
-			/// Represents the fields of an address.
-			/// </summary>
-			public struct AddressData
-			{
-				/// <summary>
-				/// The street of the address.
-				/// </summary>
-				[JsonPropertyName("street")]
-				public string Street { get; init; }
-
-				/// <summary>
-				/// The city of the address
-				/// </summary>
-				[JsonPropertyName("city")]
-				public string City { get; init; }
-
-				/// <summary>
-				/// The state or region of the address
-				/// </summary>
-				[JsonPropertyName("region")]
-				public string State { get; init; }
-
-				/// <summary>
-				/// The Postal Code/Zip Code of the address
-				/// </summary>
-				/// <value>The zip.</value>
-				[JsonPropertyName("postal_code")]
-				public string PostalCode { get; init; }
-
-				/// <summary>
-				/// The country of the address.
-				/// </summary>
-				[JsonPropertyName("country")]
-				public string Country { get; init; }
-			}
+			public Address? Data { get; init; }
 		}
 
 		#endregion Structs

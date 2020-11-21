@@ -305,6 +305,20 @@ namespace Going.Plaid
 			PostAsync("processor/stripe/bank_account_token/create", request)
 				.ParseResponseAsync<Management.StripeTokenResponse>();
 
+		/* Liabilities */
+
+		/// <summary>
+		///  Returns various details about an <see cref="Item"/> with loan or credit accounts. 
+		///  Liabilities is supported for US and Canada accounts only. Currently supported account types 
+		///  are account type credit with account subtype credit card or paypal, and account type loan 
+		///  with account subtype student or mortgage. 
+		/// </summary>
+		/// <param name="request">The request.</param>
+		/// <returns>Task&lt;Management.LiabilitiesResponse&gt;.</returns>
+		public Task<Liabilities.GetLiabilitiesResponse> FetchLiabilitiesAsync(Liabilities.GetLiabilitiesRequest request) =>
+			PostAsync("liabilities/get", request)
+				.ParseResponseAsync<Liabilities.GetLiabilitiesResponse>();
+
 		#endregion
 
 		#region Private Members

@@ -4,14 +4,14 @@
     AvailableProducts: [
       'assets',
       'balance',
-      'credit_details',
-      'liabilities'
+      'credit_details'
     ],
     BilledProducts: [
       'auth',
       'identity',
       'income',
       'investments',
+      'liabilities',
       'transactions'
     ],
     InstitutionId: 'ins_3',
@@ -39,20 +39,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
@@ -109,20 +109,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
@@ -178,20 +178,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
@@ -247,20 +247,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
@@ -317,20 +317,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
@@ -385,20 +385,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
@@ -453,20 +453,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
@@ -521,20 +521,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
@@ -589,20 +589,20 @@
             {
               IsPrimary: true,
               Data: {
-                Street: '2992 Cameron Road',
                 City: 'Malakoff',
-                State: 'NY',
+                Country: 'US',
                 PostalCode: '14236',
-                Country: 'US'
+                Region: 'NY',
+                Street: '2992 Cameron Road'
               }
             },
             {
               Data: {
-                Street: '2493 Leisure Lane',
                 City: 'San Matias',
-                State: 'CA',
+                Country: 'US',
                 PostalCode: '93405-2255',
-                Country: 'US'
+                Region: 'CA',
+                Street: '2493 Leisure Lane'
               }
             }
           ],
