@@ -63,4 +63,4 @@ Going.Plaid supports the `IHttpClientFactory` for correct usage of `HttpClient`,
 You may provide an instance of `IHttpClientFactory` from the DI system, provide your own, or let Going.Plaid create it's own instance of the factory.
 
 ## API Version
-Going.Plaid currently targets Plaid API version `2019-05-29` only.
+Going.Plaid currently targets Plaid API version `2020-09-14` only.
