@@ -26,19 +26,34 @@ namespace Going.Plaid.Entity
 		Identity,
 
 		/// <summary>
-		/// Information pertaining to a <see cref="Item"/>’s income. In addition to the annual income, detailed information will be provided for each contributing income stream (or job).
+		/// Information pertaining to an <see cref="Item"/>’s income. In addition to the annual income, detailed information will be provided for each contributing income stream (or job).
 		/// </summary>
 		[EnumMember(Value = "income")]
 		Income,
 
 		/// <summary>
-		/// Point-in-time snapshots of an <see cref="Item"/> or set of <see cref="Item"/>s, including account balances, historical transactions, and account holder identity information, which we call Asset Reports.
+		/// Information pertaining to an <see cref="Item"/>'s asset list, which we call Asset Reports.
 		/// </summary>
+		/// <remarks>
+		/// Asset Reports are not currently implemented in this library. If you need this data, please feel free to submit a PR or ask me to implement.
+		/// </remarks>
 		[EnumMember(Value = "assets")]
 		Assets,
 
 		/// <summary>
-		/// Holding, Security, and InvestmentTransactions data for a wide array of investment account and security types.
+		/// Point-in-time snapshots of an <see cref="Item"/> or set of <see cref="Item"/>s, including account balances.
+		/// </summary>
+		[EnumMember(Value = "balance")]
+		Balance,
+
+		/// <summary>
+		/// Currently unknown purpose to Going.Plaid library.
+		/// </summary>
+		[EnumMember(Value = "credit_details")]
+		CreditDetails,
+
+		/// <summary>
+		/// Holding, Security, and Investment Transactions data for an <see cref="Item"/>.
 		/// </summary>
 		[EnumMember(Value = "investments")]
 		Investments,
