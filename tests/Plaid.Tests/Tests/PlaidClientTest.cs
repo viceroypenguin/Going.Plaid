@@ -20,6 +20,7 @@ namespace Going.Plaid.Tests
 		{
 			VerifierSettings.DisableClipboard();
 			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "RequestId");
+			VerifierSettings.UseStrictJson();
 
 			var configuration = new ConfigurationBuilder()
 				.AddEnvironmentVariables()

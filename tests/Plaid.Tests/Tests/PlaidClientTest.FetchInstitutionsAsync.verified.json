@@ -1,0 +1,87 @@
+{
+  "Institutions": [
+    {
+      "InstitutionId": "ins_3",
+      "Name": "Chase",
+      "Products": [
+        "assets",
+        "auth",
+        "balance",
+        "transactions",
+        "credit_details",
+        "income",
+        "identity",
+        "investments",
+        "liabilities"
+      ],
+      "RoutingNumbers": [
+        "021000021",
+        "021100361",
+        "021202337",
+        "022300173",
+        "044000037",
+        "051900366",
+        "061092387",
+        "065400137",
+        "071000013",
+        "072000326",
+        "074000010",
+        "075000019",
+        "083000137",
+        "102001017",
+        "103000648",
+        "111000614",
+        "122100024",
+        "123271978",
+        "124001545",
+        "267084131",
+        "322271627",
+        "325070760"
+      ],
+      "CountryCodes": [
+        "US"
+      ],
+      "OAuth": false
+    },
+    {
+      "InstitutionId": "ins_118129",
+      "Name": "Chase - Connect",
+      "Products": [
+        "assets",
+        "auth",
+        "balance",
+        "transactions",
+        "credit_details",
+        "income",
+        "identity",
+        "investments",
+        "liabilities"
+      ],
+      "CountryCodes": [
+        "US"
+      ],
+      "OAuth": false
+    },
+    {
+      "InstitutionId": "ins_114625",
+      "Name": "The Chasewood Bank",
+      "Products": [
+        "assets",
+        "auth",
+        "balance",
+        "transactions",
+        "income",
+        "identity"
+      ],
+      "RoutingNumbers": [
+        "113012163"
+      ],
+      "CountryCodes": [
+        "US"
+      ],
+      "OAuth": false
+    }
+  ],
+  "StatusCode": "OK",
+  "IsSuccessStatusCode": true
+}

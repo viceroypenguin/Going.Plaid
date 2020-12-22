@@ -1,0 +1,246 @@
+{
+  "Accounts": [
+    {
+      "AccountId": "eLr7gNDQVzIj89Bl3AKdFd1Qp63v5afLmd9d4",
+      "Name": "Plaid Checking",
+      "Mask": "0000",
+      "OfficialName": "Plaid Gold Standard 0% Interest Checking",
+      "Type": "Depository",
+      "SubType": "checking",
+      "Balance": {
+        "Current": 110.0,
+        "Available": 100.0,
+        "ISOCurrencyCode": "USD"
+      }
+    },
+    {
+      "AccountId": "QlNvrbAgokS5ajLrQJyAT9kR84oBxnUpDMmMd",
+      "Name": "Plaid Saving",
+      "Mask": "1111",
+      "OfficialName": "Plaid Silver Standard 0.1% Interest Saving",
+      "Type": "Depository",
+      "SubType": "savings",
+      "Balance": {
+        "Current": 210.0,
+        "Available": 200.0,
+        "ISOCurrencyCode": "USD"
+      }
+    },
+    {
+      "AccountId": "ZaLrPlADVJFKRodpyXMATRDqv1LVzAigGRqRK",
+      "Name": "Plaid CD",
+      "Mask": "2222",
+      "OfficialName": "Plaid Bronze Standard 0.2% Interest CD",
+      "Type": "Depository",
+      "SubType": "cd",
+      "Balance": {
+        "Current": 1000.0,
+        "ISOCurrencyCode": "USD"
+      }
+    },
+    {
+      "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
+      "Name": "Plaid Credit Card",
+      "Mask": "3333",
+      "OfficialName": "Plaid Diamond 12.5% APR Interest Credit Card",
+      "Type": "Credit",
+      "Balance": {
+        "Current": 410.0,
+        "Limit": 2000.0,
+        "ISOCurrencyCode": "USD"
+      }
+    },
+    {
+      "AccountId": "1QxKzXB3pafq4aR6gvnXTXyKkEj5WGu5rKjKz",
+      "Name": "Plaid Money Market",
+      "Mask": "4444",
+      "OfficialName": "Plaid Platinum Standard 1.85% Interest Money Market",
+      "Type": "Depository",
+      "SubType": "money market",
+      "Balance": {
+        "Current": 43200.0,
+        "Available": 43200.0,
+        "ISOCurrencyCode": "USD"
+      }
+    },
+    {
+      "AccountId": "LJ3nmEwyZ9S58dkXgwvMTkJvnR8bKMCPEQjQx",
+      "Name": "Plaid IRA",
+      "Mask": "5555",
+      "Type": "Investment",
+      "SubType": "ira",
+      "Balance": {
+        "Current": 320.76,
+        "ISOCurrencyCode": "USD"
+      }
+    },
+    {
+      "AccountId": "3Maz3lxwgNuR7okDEnW4i3ZWqy4AVKtqErlrr",
+      "Name": "Plaid 401k",
+      "Mask": "6666",
+      "Type": "Investment",
+      "SubType": "401k",
+      "Balance": {
+        "Current": 23631.9805,
+        "ISOCurrencyCode": "USD"
+      }
+    },
+    {
+      "AccountId": "xvo9abmwVJIPd64Gq5ALiMalNp3K6jtne747w",
+      "Name": "Plaid Student Loan",
+      "Mask": "7777",
+      "Type": "Loan",
+      "SubType": "student",
+      "Balance": {
+        "Current": 65262.0,
+        "ISOCurrencyCode": "USD"
+      }
+    },
+    {
+      "AccountId": "d1Kjo49aVrSWgyzK6bqxH9VKvpMroeUZRMEMK",
+      "Name": "Plaid Mortgage",
+      "Mask": "8888",
+      "Type": "Loan",
+      "SubType": "mortgage",
+      "Balance": {
+        "Current": 56302.06,
+        "ISOCurrencyCode": "USD"
+      }
+    }
+  ],
+  "Item": {
+    "Id": "XxMq4XREn9Hl9Lg8QPqMI67N6Z4WNpcbx4zLy",
+    "AvailableProducts": [
+      "assets",
+      "balance",
+      "credit_details",
+      "investments"
+    ],
+    "BilledProducts": [
+      "auth",
+      "identity",
+      "income",
+      "liabilities",
+      "transactions"
+    ],
+    "InstitutionId": "ins_3",
+    "Webhook": "https://example.com"
+  },
+  "Liabilities": {
+    "Credit": [
+      {
+        "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
+        "Aprs": [
+          {
+            "AprPercentage": 15.24,
+            "BalanceSubjectToApr": 1562.32,
+            "InterestChargeAmount": 130.22
+          },
+          {
+            "AprPercentage": 27.95,
+            "AprType": "cash_apr",
+            "BalanceSubjectToApr": 56.22,
+            "InterestChargeAmount": 14.81
+          },
+          {
+            "AprPercentage": 12.5,
+            "AprType": "purchase_apr",
+            "BalanceSubjectToApr": 157.01,
+            "InterestChargeAmount": 25.66
+          },
+          {
+            "AprType": "special",
+            "BalanceSubjectToApr": 1000.0,
+            "InterestChargeAmount": 0.0
+          }
+        ],
+        "IsOverdue": false,
+        "LastPaymentAmount": 168.25,
+        "LastPaymentDate": "DateTime_1",
+        "LastStatementBalance": 1708.77,
+        "LastStatementIssueDate": "DateTime_2",
+        "MinimumPaymentAmount": 20.0,
+        "NextPaymentDueDate": "DateTime_3"
+      }
+    ],
+    "Mortgage": [
+      {
+        "AccountId": "d1Kjo49aVrSWgyzK6bqxH9VKvpMroeUZRMEMK",
+        "AccountNumber": "3120194154",
+        "CurrentLateFee": 25.0,
+        "EscrowBalance": 3141.54,
+        "HasPmi": true,
+        "HasPrepaymentPenalty": true,
+        "InterestRate": {
+          "Percentage": 3.99
+        },
+        "LastPaymentAmount": 3141.54,
+        "LastPaymentDate": "DateTime_4",
+        "LoanTerm": "30 year",
+        "MortgageType": "conventional",
+        "MaturityDate": "DateTime_5",
+        "NextMonthlyPayment": 3141.54,
+        "OriginationDate": "DateTime_6",
+        "OriginationPrincipalAmount": 425000.0,
+        "PastDueAmount": 2304.0,
+        "PropertyAddress": {
+          "City": "Malakoff",
+          "Country": "US",
+          "Region": "NY",
+          "Street": "2992 Cameron Road"
+        },
+        "YtdInterestPaid": 12300.4,
+        "YtdPrincipalPaid": 12340.5
+      }
+    ],
+    "StudentLoans": [
+      {
+        "AccountId": "xvo9abmwVJIPd64Gq5ALiMalNp3K6jtne747w",
+        "AccountNumber": "4277075694",
+        "DisbursementDates": [
+          "DateTime_7"
+        ],
+        "ExpectedPayoffDate": "DateTime_8",
+        "Guarantor": "DEPT OF ED",
+        "InterestRatePercentage": 5.25,
+        "IsOverdue": false,
+        "LastPaymentAmount": 138.05,
+        "LastPaymentDate": "DateTime_9",
+        "LastStatementBalance": 138.05,
+        "LastStatementIssueDate": "DateTime_10",
+        "LoanName": "Consolidation",
+        "LoanStatus": {
+          "EndDate": "DateTime_8",
+          "Type": "repayment"
+        },
+        "MinimumPaymentAmount": 25.0,
+        "NextPaymentDueDate": "DateTime_2",
+        "OriginationDate": "DateTime_7",
+        "OriginationPrincipalAmount": 25000.0,
+        "OutstandingInterestAmount": 6227.36,
+        "PaymentReferenceNumber": "4277075694",
+        "PslfStatus": {
+          "EstimatedEligibilityDate": "DateTime_11",
+          "PaymentsMade": 200,
+          "PaymentsRemaining": 160
+        },
+        "RepaymentPlan": {
+          "Description": "Standard Repayment",
+          "Type": "standard"
+        },
+        "SequenceNumber": "1",
+        "ServicerAddress": {
+          "City": "San Matias",
+          "Country": "US",
+          "PostalCode": "99415",
+          "Region": "CA",
+          "Street": "123 Relaxation Road"
+        },
+        "YtdInterestPaid": 280.55,
+        "YtdPrincipalPaid": 271.65
+      }
+    ]
+  },
+  "StatusCode": "OK",
+  "IsSuccessStatusCode": true
+}
