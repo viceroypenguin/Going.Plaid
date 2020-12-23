@@ -47,12 +47,6 @@ namespace Going.Plaid.Entity
 		Balance,
 
 		/// <summary>
-		/// Currently unknown purpose to Going.Plaid library.
-		/// </summary>
-		[EnumMember(Value = "credit_details")]
-		CreditDetails,
-
-		/// <summary>
 		/// Holding, Security, and Investment Transactions data for an <see cref="Item"/>.
 		/// </summary>
 		[EnumMember(Value = "investments")]
@@ -63,6 +57,12 @@ namespace Going.Plaid.Entity
 		/// </summary>
 		[EnumMember(Value = "liabilities")]
 		Liabilities,
+
+		/// <summary>
+		/// Details about an <see cref="Item"/> with individual credit liabilities, such as credit cards. This is part of the <see cref="Liabilities"/> product.
+		/// </summary>
+		[EnumMember(Value = "credit_details")]
+		CreditDetails,
 
 		/// <summary>
 		/// The Payment Initiation API enables payment transfers within your app. Right now, the API only supports payments originating from UK bank accounts but we are working to support payment initiation from other geographies in the near future.
