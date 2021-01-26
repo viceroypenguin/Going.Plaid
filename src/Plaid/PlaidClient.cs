@@ -271,6 +271,15 @@ namespace Going.Plaid
 			PostAsync("transactions/get", request)
 				.ParseResponseAsync<Transactions.GetTransactionsResponse>();
 
+		/* Processor */
+
+		/// <summary>
+		/// Exchanges a Link <see cref="Management.ExchangeTokenResponse.AccessToken"/> for a <see cref="Management.ProcessorTokenResponse.ProcessorToken"/>.Exchanges a Link access_token for an Stripe API stripe_bank_account_token.
+		/// </summary>
+		public Task<Management.ProcessorTokenResponse> FetchProcessorTokenAsync(Management.ProcessorTokenRequest request) =>
+			PostAsync("processor/token/create", request)
+				.ParseResponseAsync<Management.ProcessorTokenResponse>();
+
 		/* Stripe */
 
 		/// <summary>
