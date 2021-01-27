@@ -132,7 +132,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Retrieves information about the status of an <see cref="Entity.Item"/>. Endpoint '<c>/item/get</c>'.
 		/// </summary>
-		/// <param name="request">The request.</param>
 		public Task<Management.GetItemResponse> FetchItemAsync(Management.GetItemRequest request) =>
 			PostAsync("item/get", request)
 				.ParseResponseAsync<Management.GetItemResponse>();
@@ -140,7 +139,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Creates a token that can be used with the Link tool in the web client. 
 		/// </summary>
-		/// <param name="request"></param>
 		public Task<Management.CreateLinkTokenResponse> CreateLinkTokenAsync(Management.CreateLinkTokenRequest request) =>
 			PostAsync("link/token/create", request)
 				.ParseResponseAsync<Management.CreateLinkTokenResponse>();
@@ -148,7 +146,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Remove an <see cref="Entity.Item"/>. Once deleted, the access_token associated with the <see cref="Entity.Item"/> is no longer valid and cannot be used to access any data that was associated with the <see cref="Entity.Item"/>.
 		/// </summary>
-		/// <param name="request">The request.</param>
 		public Task<Management.RemoveItemResponse> RemoveItemAsync(Management.RemoveItemRequest request) =>
 			PostAsync("item/remove", request)
 				.ParseResponseAsync<Management.RemoveItemResponse>();
@@ -156,7 +153,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Updates the webhook associated with an <see cref="Entity.Item"/>. This request triggers a WEBHOOK_UPDATE_ACKNOWLEDGED webhook.
 		/// </summary>
-		/// <param name="request">The request.</param>
 		public Task<Management.UpdateWebhookResponse> UpdateWebhookAsync(Management.UpdateWebhookRequest request) =>
 			PostAsync("item/webhook/update", request)
 				.ParseResponseAsync<Management.UpdateWebhookResponse>();
@@ -164,8 +160,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Exchanges a Link public_token for an API access_token.
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.ExchangeTokenResponse&gt;.</returns>
 		public Task<Management.ExchangeTokenResponse> ExchangeTokenAsync(Management.ExchangeTokenRequest request) =>
 			PostAsync("item/public_token/exchange", request)
 				.ParseResponseAsync<Management.ExchangeTokenResponse>();
@@ -173,7 +167,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Rotates the access_token associated with an <see cref="Entity.Item"/>. The endpoint returns a new access_token and immediately invalidates the previous access_token.
 		/// </summary>
-		/// <param name="request">The request.</param>
 		public Task<Management.RotateAccessTokenResponse> RotateAccessTokenAsync(Management.RotateAccessTokenRequest request) =>
 			PostAsync("item/access_token/invalidate", request)
 				.ParseResponseAsync<Management.RotateAccessTokenResponse>();
@@ -183,7 +176,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Retrieves all institutions (the results will be paginated).
 		/// </summary>
-		/// <param name="request">The request.</param>
 		public Task<Institution.GetAllInstitutionsResponse> FetchAllInstitutionsAsync(Institution.GetAllInstitutionsRequest request) =>
 			PostAsync("institutions/get", request)
 				.ParseResponseAsync<Institution.GetAllInstitutionsResponse>();
@@ -191,7 +183,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Retrieves the institutions that match the query parameters.
 		/// </summary>
-		/// <param name="request">The request.</param>
 		public Task<Institution.SearchResponse> FetchInstitutionsAsync(Institution.SearchRequest request) =>
 			PostAsync("institutions/search", request)
 				.ParseResponseAsync<Institution.SearchResponse>();
@@ -199,7 +190,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Retrieves the institutions that match the id.
 		/// </summary>
-		/// <param name="request">The request.</param>
 		public Task<Institution.SearchByIdResponse> FetchInstitutionByIdAsync(Institution.SearchByIdRequest request) =>
 			PostAsync("institutions/get_by_id", request)
 				.ParseResponseAsync<Institution.SearchByIdResponse>();
@@ -209,7 +199,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Retrieves information pertaining to a <see cref="Entity.Item"/>’s income. In addition to the annual income, detailed information will be provided for each contributing income stream (or job).
 		/// </summary>
-		/// <param name="request">The request.</param>
 		public Task<Income.GetIncomeResponse> FetchUserIncomeAsync(Income.GetIncomeRequest request) =>
 			PostAsync("income/get", request)
 				.ParseResponseAsync<Income.GetIncomeResponse>();
@@ -235,8 +224,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Retrieves the bank account and routing numbers associated with an <see cref="Entity.Item"/>’s checking and savings accounts, along with high-level account data and balances.
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Auth.GetAccountInfoResponse&gt;.</returns>
 		public Task<Auth.GetAccountInfoResponse> FetchAccountInfoAsync(Auth.GetAccountInfoRequest request) =>
 			PostAsync("auth/get", request)
 				.ParseResponseAsync<Auth.GetAccountInfoResponse>();
@@ -246,8 +233,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Retrieve high-level information about all accounts associated with an <see cref="Entity.Item"/>.
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Balance.GetAccountResponse&gt;.</returns>
 		public Task<Balance.GetAccountResponse> FetchAccountAsync(Balance.GetAccountRequest request) =>
 			PostAsync("accounts/get", request)
 				.ParseResponseAsync<Balance.GetAccountResponse>();
@@ -255,8 +240,6 @@ namespace Going.Plaid
 		/// <summary>
 		///  Retrieves the real-time balance for each of an <see cref="Entity.Item"/>’s accounts.
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Balance.GetBalanceResponse&gt;.</returns>
 		public Task<Balance.GetBalanceResponse> FetchAccountBalanceAsync(Balance.GetBalanceRequest request) =>
 			PostAsync("accounts/balance/get", request)
 				.ParseResponseAsync<Balance.GetBalanceResponse>();
@@ -266,8 +249,6 @@ namespace Going.Plaid
 		/// <summary>
 		///  Retrieves detailed information on categories returned by Plaid.
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Category.GetCategoriesResponse&gt;.</returns>
 		public Task<Category.GetCategoriesResponse> FetchCategoriesAsync(Category.GetCategoriesRequest request) =>
 			PostAsync("categories/get", request)
 				.ParseResponseAsync<Category.GetCategoriesResponse>();
@@ -277,8 +258,6 @@ namespace Going.Plaid
 		/// <summary>
 		/// Retrieves various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses.
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Identity.GetUserIdentityResponse&gt;.</returns>
 		public Task<Identity.GetUserIdentityResponse> FetchUserIdentityAsync(Identity.GetUserIdentityRequest request) =>
 			PostAsync("identity/get", request)
 				.ParseResponseAsync<Identity.GetUserIdentityResponse>();
@@ -288,19 +267,24 @@ namespace Going.Plaid
 		/// <summary>
 		///  Retrieves user-authorized transaction data for credit and depository-type <see cref="Entity.Account"/>.
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Transactions.GetTransactionsResponse&gt;.</returns>
 		public Task<Transactions.GetTransactionsResponse> FetchTransactionsAsync(Transactions.GetTransactionsRequest request) =>
 			PostAsync("transactions/get", request)
 				.ParseResponseAsync<Transactions.GetTransactionsResponse>();
+
+		/* Processor */
+
+		/// <summary>
+		/// Exchanges a Link <see cref="Management.ExchangeTokenResponse.AccessToken"/> for a <see cref="Management.ProcessorTokenResponse.ProcessorToken"/>.Exchanges a Link access_token for an Stripe API stripe_bank_account_token.
+		/// </summary>
+		public Task<Management.ProcessorTokenResponse> FetchProcessorTokenAsync(Management.ProcessorTokenRequest request) =>
+			PostAsync("processor/token/create", request)
+				.ParseResponseAsync<Management.ProcessorTokenResponse>();
 
 		/* Stripe */
 
 		/// <summary>
 		///  Exchanges a Link access_token for an Stripe API stripe_bank_account_token.
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.StripeTokenResponse&gt;.</returns>
 		public Task<Management.StripeTokenResponse> FetchStripeTokenAsync(Management.StripeTokenRequest request) =>
 			PostAsync("processor/stripe/bank_account_token/create", request)
 				.ParseResponseAsync<Management.StripeTokenResponse>();
@@ -313,8 +297,6 @@ namespace Going.Plaid
 		///  are account type credit with account subtype credit card or paypal, and account type loan 
 		///  with account subtype student or mortgage. 
 		/// </summary>
-		/// <param name="request">The request.</param>
-		/// <returns>Task&lt;Management.LiabilitiesResponse&gt;.</returns>
 		public Task<Liabilities.GetLiabilitiesResponse> FetchLiabilitiesAsync(Liabilities.GetLiabilitiesRequest request) =>
 			PostAsync("liabilities/get", request)
 				.ParseResponseAsync<Liabilities.GetLiabilitiesResponse>();
