@@ -11,7 +11,7 @@ namespace Going.Plaid.Entity
 		/// The current balance of the account.
 		/// </summary>
 		[JsonPropertyName("current")]
-		public decimal Current { get; init; }
+		public decimal? Current { get; init; }
 
 		/// <summary>
 		/// The available balance of the account.
