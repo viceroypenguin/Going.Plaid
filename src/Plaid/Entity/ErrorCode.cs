@@ -263,6 +263,13 @@ namespace Going.Plaid.Entity
 		/// <remarks><see href="https://plaid.com/docs/errors/invalid-request/#invalid_account_number"/></remarks>
 		[EnumMember(Value = "INVALID_ACCOUNT_NUMBER")]
 		InvalidAccountNumber,
+
+		/// <summary>
+		/// The request body was formatted incorrectly
+		/// </summary>
+		/// <remarks>This code is currently undocumented.</remarks>
+		[EnumMember(Value = "INVALID_CONFIGURATION")]
+		InvalidConfiguration,
 		#endregion
 
 		#region INVALID_INPUT Codes
