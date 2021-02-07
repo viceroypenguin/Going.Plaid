@@ -72,7 +72,7 @@ namespace Going.Plaid.Entity
 		/// Transaction Sub-Type
 		/// </summary>
 		[JsonPropertyName("subtype")]
-		public InvestmentTransactionSubType TransactionSubType { get; init; }
+		public InvestmentTransactionSubType? TransactionSubType { get; init; }
 
 		/// <summary>
 		/// The ISO-4217 currency code of the holding. Always null if unofficial_currency_code is non-null.
