@@ -15,6 +15,13 @@ namespace Going.Plaid.Entity
 		public string InvestmentTransactionId { get; init; } = null!;
 
 		/// <summary>
+		/// The <see cref="InvestmentTransactionId"/> of the Investment Transaction for which this transaction is canceling.
+		/// </summary>
+		/// <remarks>Only provided if <see cref="TransactionType"/> is <see cref="InvestmentTransactionType.Cancel"/>.</remarks>
+		[JsonPropertyName("cancel_transaction_id")]
+		public string? CancelTransactionId { get; init; }
+
+		/// <summary>
 		/// The ID of the account against which this transaction posted.
 		/// </summary>
 		[JsonPropertyName("account_id")]
