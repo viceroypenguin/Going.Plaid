@@ -49,16 +49,20 @@ namespace Going.Plaid.Entity
 		/// <summary>
 		/// Gets or sets the type.
 		/// </summary>
-		/// <value>The type.</value>
 		[JsonPropertyName("type")]
 		public AccountType Type { get; init; }
 
 		/// <summary>
 		/// Gets or sets the type of the sub.
 		/// </summary>
-		/// <value>The type of the sub.</value>
 		[JsonPropertyName("subtype")]
 		public AccountSubType SubType { get; init; }
+
+		/// <summary>
+		/// The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.
+		/// </summary>
+		[JsonPropertyName("verification_status")]
+		public VerificationStatus? VerificationStatus { get; init; }
 
 		/// <summary>
 		/// Balance information about the account. The current balance is the total amount of funds in the account. The available balance is the current balance less any outstanding holds or debits that have not yet posted to the account.
