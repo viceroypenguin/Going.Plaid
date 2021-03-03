@@ -47,20 +47,25 @@ var result = await client.FetchTransactionsAsync(
 This will allow you to save a single `PlaidClient` in the DI system without tracking `secret` and `clientId` separately.
 `PlaidClient` is comfortable being used as a single-instance class in this manner.
 
-#### .NET Core Configuration Options
+### .NET Core Configuration Options
 
-You can also provide options via your configuration file by configuring a `PlaidOptions` object
-by calling `services.Configure<PlaidOptions>(_config.GetSection(PlaidOptions.SectionKey));` in your
-`ConfigureServices(IServiceCollection services)` method. This expects the options to be created
-under the `"Plaid"` section key. However, you may choose to configure from any section that provides
-the values used by the `PlaidOptions` object.
+#### Easy to use:
+Call `services.AddPlaid(IConfigurationRoot)` or `services.AddPlaid(IConfiguration)`. This will automatically bind options
+from the provided configuration section or the `Plaid` section of the root; configure a named `HttpClient` for Going.Plaid;
+and configure `PlaidClient` as a singleton. 
 
-Once done, you can then add `PlaidClient` as a singleton by calling `services.AddSingleton<PlaidClient>()`.
-
-### IHttpClientFactory
+#### IHttpClientFactory
 
 Going.Plaid supports the `IHttpClientFactory` for correct usage of `HttpClient`, as described [here](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
-You may provide an instance of `IHttpClientFactory` from the DI system, provide your own, or let Going.Plaid create it's own instance of the factory.
+If you choose not to call `.AddPlaid()`, because you need to customize your DI structure, it is recommended that you call
+`services.AddPlaidClient()` to properly configure the `IHttpClientFactory` for Going.Plaid usage.
+
+#### `IOptions` Support
+
+Going.Plaid supports configuration from any configuration source via the `IOptions` pattern.
+You can provide any configuration section to `.AddPlaid()` and the options will be automatically bound.
+Alternatively, you may call `services.Configure<PlaidOptions>();` to configure the `PlaidOption` manually.
+Once done, you can then add `PlaidClient` as a singleton by calling `services.AddSingleton<PlaidClient>()`.
 
 ## API Version
 Going.Plaid currently targets Plaid API version `2020-09-14` only.
