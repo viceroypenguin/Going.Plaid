@@ -89,7 +89,7 @@ namespace Going.Plaid
 			if (httpClientFactory == null)
 			{
 				var collection = new ServiceCollection();
-				collection.AddHttpClient();
+				collection.AddPlaidHttpClient();
 				_serviceProvider = collection.BuildServiceProvider();
 				_clientFactory = _serviceProvider.GetService<IHttpClientFactory>()!;
 			}
@@ -309,7 +309,7 @@ namespace Going.Plaid
 		{
 			request.SetCredentials(_secret, _clientId, _accessToken);
 
-			var client = _clientFactory.CreateClient();
+			var client = _clientFactory.CreateClient("PlaidClient");
 			var url = _baseUrl + path;
 			_logger.LogTrace("Initiating request. Method: {method}; Url: {url}; Content: {@content}", "POST", url, request);
 
