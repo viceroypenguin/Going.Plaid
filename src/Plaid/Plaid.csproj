@@ -20,7 +20,7 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-    <RepositoryUrl>https://github.com/viceroypenguin/Going.Plaid.NET.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/viceroypenguin/Going.Plaid.NET</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
     <IncludeSymbols>true</IncludeSymbols>
