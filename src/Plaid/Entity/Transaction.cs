@@ -43,10 +43,30 @@ namespace Going.Plaid.Entity
 		public string? CategoryId { get; init; }
 
 		/// <summary>
+		/// Please use the <see cref="PaymentChannel"/> field, <see cref="TransactionType"/> will be deprecated in the future.
+		/// </summary>
+		[JsonPropertyName("transaction_type")]
+		[Obsolete("Please use the PaymentChannel field, TransactionType will be deprecated in the future.")]
+		public TransactionType? TransactionType { get; init; }
+
+		/// <summary>
 		/// The channel used to make a payment. Possible values are: online, in store, other. This field will replace the transaction_type field.
 		/// </summary>
 		[JsonPropertyName("payment_channel")]
 		public PaymentChannel PaymentChannel { get; init; }
+
+		/// <summary>
+		/// An identifier classifying the transaction type.
+		/// </summary>
+		/// <remarks>
+		/// This field is only populated for European institutions. For institutions in the US and Canada, this field is set to <c>null</c>.
+		/// </remarks>
+		public TransactionCode? TransactionCode { get; init; }
+
+		/// <summary>
+		/// Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be <c>null</c>.
+		/// </summary>
+		public PaymentMeta? PaymentMeta { get; init; }
 
 		/// <summary>
 		/// The settled dollar value. Positive values when money moves out of the account; negative values when money moves in. For example, purchases are positive; credit card payments, direct deposits, refunds are negative.
