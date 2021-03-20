@@ -1,6 +1,5 @@
 version: '{build}'
-# temporary until appveyor updates
-image: Visual Studio 2019 Preview
+image: Visual Studio 2019
 clone_depth: 50
 
 environment:
