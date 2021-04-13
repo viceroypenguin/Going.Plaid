@@ -6,11 +6,15 @@ using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Going.Plaid
+namespace Going.Plaid.Converters
 {
-	internal class EnumConverterFactory : JsonConverterFactory
+	/// <inheritdoc/>
+	public class EnumConverterFactory : JsonConverterFactory
 	{
+		/// <inheritdoc/>
 		public override bool CanConvert(Type typeToConvert) => typeToConvert.IsEnum || (Nullable.GetUnderlyingType(typeToConvert)?.IsEnum ?? false);
+
+		/// <inheritdoc/>
 		public override JsonConverter? CreateConverter(Type typeToConvert, JsonSerializerOptions options)
 		{
 			if (_converters.TryGetValue(typeToConvert, out var c))
