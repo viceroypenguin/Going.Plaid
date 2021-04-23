@@ -67,5 +67,24 @@ You can provide any configuration section to `.AddPlaid()` and the options will 
 Alternatively, you may call `services.Configure<PlaidOptions>();` to configure the `PlaidOption` manually.
 Once done, you can then add `PlaidClient` as a singleton by calling `services.AddSingleton<PlaidClient>()`.
 
+#### Converters Support
+
+There are several converters that Going.Plaid uses to serialize and deserialize data to the Plaid service.
+These converters are automatically used internally for all api calls to Plaid. However, if you need to do
+any serialization or deserialization of your own (for example, if you wish to pass `Going.Plaid.Link.OnSuccessMetadata`
+directly from the browser to the web server), then you may need to add these converters to the ASP.NET
+JSON serializer. The easiest way to do this is as follows:
+
+```csharp
+services.Configure<JsonOptions>(o =>
+{
+	o.SerializerOptions.AddPlaidConverters();
+});
+```
+
+This will automatically add the converters to the default options for ASP.NET JSON serializer. Otherwise,
+you can manually add the types found under `Going.Plaid.Converters` to the `JsonSerializationOptions.Converters`
+list of converters.
+
 ## API Version
 Going.Plaid currently targets Plaid API version `2020-09-14` only.

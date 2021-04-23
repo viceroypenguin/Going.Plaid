@@ -116,8 +116,8 @@ namespace Going.Plaid
 #endif
 				DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
 				PropertyNameCaseInsensitive = true,
-				Converters = { new EnumConverterFactory(), new DateTimeConverter(), },
-			};
+			}
+			.AddPlaidConverters();
 
 		/// <summary>
 		/// Debug option to include the raw json in the returned DTO
