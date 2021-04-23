@@ -69,5 +69,11 @@ namespace Going.Plaid.Management
 			[JsonPropertyName("account_subtypes")]
 			public AccountSubType[] AccountSubTypes { get; set; } = null!;
 		}
+
+		/// <summary>
+		/// The name of the Link customization from the Plaid Dashboard to be applied to Link. If not specified, the default customization will be used. When using a Link customization, the language in the customization must match the language selected via the language parameter, and the countries in the customization should match the country codes selected via country_codes.
+		/// </summary>
+		[JsonPropertyName("link_customization_name")]
+		public string? LinkCustomizationName { get; set; }
 	}
 }
