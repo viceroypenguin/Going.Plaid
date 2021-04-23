@@ -75,5 +75,11 @@ namespace Going.Plaid.Management
 		/// </summary>
 		[JsonPropertyName("link_customization_name")]
 		public string? LinkCustomizationName { get; set; }
+
+		/// <summary>
+		/// The name of your app's Android package. Required if using the link_token to initialize Link on Android. When creating a link_token for initializing Link on other platforms, this field must be left blank. Any package name specified here must also be added to the Allowed Android package names setting on the developer dashboard.
+		/// </summary>
+		[JsonPropertyName("android_package_name")]
+		public string? AndroidPackageName { get; set; }
 	}
 }
