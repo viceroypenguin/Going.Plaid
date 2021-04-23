@@ -71,13 +71,13 @@ namespace Going.Plaid.Management
 		}
 
 		/// <summary>
-		/// The name of the Link customization from the Plaid Dashboard to be applied to Link. If not specified, the default customization will be used. When using a Link customization, the language in the customization must match the language selected via the language parameter, and the countries in the customization should match the country codes selected via country_codes.
+		/// The name of the Link customization from the Plaid Dashboard to be applied to Link. If not specified, the default customization will be used. When using a Link customization, the language in the customization must match the language selected via the language parameter, and the countries in the customization should match the country codes selected via <see cref="CountryCodes"/>.
 		/// </summary>
 		[JsonPropertyName("link_customization_name")]
 		public string? LinkCustomizationName { get; set; }
 
 		/// <summary>
-		/// The name of your app's Android package. Required if using the link_token to initialize Link on Android. When creating a link_token for initializing Link on other platforms, this field must be left blank. Any package name specified here must also be added to the Allowed Android package names setting on the developer dashboard.
+		/// The name of your app's Android package. Required if using the <see cref="CreateLinkTokenResponse.LinkToken"/> to initialize Link on Android. When creating a <see cref="CreateLinkTokenResponse.LinkToken"/> for initializing Link on other platforms, this field must be left blank. Any package name specified here must also be added to the Allowed Android package names setting on the developer dashboard.
 		/// </summary>
 		[JsonPropertyName("android_package_name")]
 		public string? AndroidPackageName { get; set; }
