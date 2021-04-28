@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Going.Plaid.Entity
 {
@@ -34,18 +35,15 @@ namespace Going.Plaid.Entity
 
 		/// <summary>
 		/// <para>
-		/// The date and time the phone number was verified in ISO 8601 format (yyyy-MM-ddTHH:mm:ssZ). This field is optional, but required to enable any returning user experience.
+		/// The date and time the phone number was verified. This field is optional, but required to enable any returning user experience.
 		/// </para>
 		/// <para>
 		/// Only pass a verification time for a phone number that you have verified. If you have performed verification but don’t have the time, you may supply a signal value of the start of the UNIX epoch.
 		/// </para>
-		/// <para>
-		/// Example: 2020-01-01T00:00:00Z
-		/// </para>
 		/// </summary>
-		/// <example>2020-01-01T00:00:00Z</example>
+		/// <remarks>If parsed from JSON, this value will be in UTC. Conversion to local time may be necessary.</remarks>
 		[JsonPropertyName("phone_number_verified_time")]
-		public string? PhoneNumberVerifiedTime { get; set; }
+		public DateTimeOffset? PhoneNumberVerifiedTime { get; set; }
 
 		/// <summary>
 		/// The user's email address. This field is optional, but required to enable the pre-authenticated returning user flow.
@@ -56,31 +54,28 @@ namespace Going.Plaid.Entity
 
 		/// <summary>
 		/// <para>
-		/// The date and time the email address was verified in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ). This field is optional, but required to enable any returning user experience.
+		/// The date and time the email address was verified. This field is optional, but required to enable any returning user experience.
 		/// </para>
 		/// <para>
 		/// Only pass a verification time for an email address that you have verified. If you have performed verification but don’t have the time, you may supply a signal value of the start of the UNIX epoch.
 		/// </para>
-		/// <para>
-		/// Example: 2020-01-01T00:00:00Z
-		/// </para>
 		/// </summary>
-		/// <example>2020-01-01T00:00:00Z</example>
+		/// <remarks>If parsed from JSON, this value will be in UTC. Conversion to local time may be necessary.</remarks>
 		[JsonPropertyName("email_address_verified_time")]
-		public string? EmailAddressVerifiedTime { get; set; }
+		public DateTimeOffset? EmailAddressVerifiedTime { get; set; }
 
 		/// <summary>
 		/// To be provided in the format "ddd-dd-dddd". This field is optional and will support not-yet-implemented functionality for new products.
 		/// </summary>
-		/// <example>18-67-5309</example>
+		/// <example>183-67-5309</example>
 		[JsonPropertyName("ssn")]
 		public string? Ssn { get; set; }
 
 		/// <summary>
-		/// To be provided in the format "yyyy-mm-dd". This field is optional and will support not-yet-implemented functionality for new products.
+		/// This field is optional and will support not-yet-implemented functionality for new products.
 		/// </summary>
 		/// <example>2021-04-22</example>
 		[JsonPropertyName("date_of_birth")]
-		public string? DateOfBirth { get; set; }
+		public DateTime? DateOfBirth { get; set; }
 	}
 }
