@@ -12,7 +12,9 @@ namespace Going.Plaid.Converters
 	public class EnumConverterFactory : JsonConverterFactory
 	{
 		/// <inheritdoc/>
-		public override bool CanConvert(Type typeToConvert) => typeToConvert.IsEnum || (Nullable.GetUnderlyingType(typeToConvert)?.IsEnum ?? false);
+		public override bool CanConvert(Type typeToConvert) =>
+			typeToConvert.IsEnum
+			|| (Nullable.GetUnderlyingType(typeToConvert)?.IsEnum ?? false);
 
 		/// <inheritdoc/>
 		public override JsonConverter? CreateConverter(Type typeToConvert, JsonSerializerOptions options)
@@ -20,27 +22,25 @@ namespace Going.Plaid.Converters
 			if (_converters.TryGetValue(typeToConvert, out var c))
 				return c;
 
-			if (typeToConvert.IsEnum)
+			static JsonConverter GetConverter(Type type)
 			{
-				var converter = (JsonConverter)Activator.CreateInstance(
-					typeof(EnumMemberEnumConverterNotNull<>).MakeGenericType(typeToConvert))!;
-				var d = new Dictionary<Type, JsonConverter>(_converters) { [typeToConvert] = converter, };
-				_converters = d;
-				return converter;
+				if (type.IsEnum)
+					return (JsonConverter)Activator.CreateInstance(
+						typeof(EnumMemberEnumConverterNotNull<>).MakeGenericType(type))!;
+				else if (Nullable.GetUnderlyingType(type)?.IsEnum ?? false)
+					return (JsonConverter)Activator.CreateInstance(
+						typeof(EnumMemberEnumConverterNull<>).MakeGenericType(Nullable.GetUnderlyingType(type)!))!;
+				else
+					throw new InvalidOperationException($"Attempted to create converter for type we cannot convert. Type: {type.FullName}");
 			}
-			else if (Nullable.GetUnderlyingType(typeToConvert)?.IsEnum ?? false)
-			{
-				var converter = (JsonConverter)Activator.CreateInstance(
-					typeof(EnumMemberEnumConverterNull<>).MakeGenericType(Nullable.GetUnderlyingType(typeToConvert)!))!;
-				var d = new Dictionary<Type, JsonConverter>(_converters) { [typeToConvert] = converter, };
-				_converters = d;
-				return converter;
-			}
-			else
-				throw new InvalidOperationException($"Attempted to create converter for type we cannot convert. Type: {typeToConvert.FullName}");
+
+			var converter = GetConverter(typeToConvert);
+			var d = new Dictionary<Type, JsonConverter>(_converters) { [typeToConvert] = converter, };
+			_converters = d;
+			return converter;
 		}
 
-		private Dictionary<Type, JsonConverter> _converters = new Dictionary<Type, JsonConverter>();
+		private Dictionary<Type, JsonConverter> _converters = new();
 
 		internal class EnumMemberEnumConverterNotNull<T> : JsonConverter<T>
 			where T : struct, Enum
@@ -77,13 +77,16 @@ namespace Going.Plaid.Converters
 			public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options) =>
 				EnumMemberEnumConverterNotNull<T>.DoWrite(writer, value);
 
-			public static void DoWrite(Utf8JsonWriter writer, T value)
+			public static void DoWrite(Utf8JsonWriter writer, T value) =>
+				writer.WriteStringValue(
+					EnumMemberEnumConverterNotNull<T>.GetEnumValue(value));
+
+			public static string GetEnumValue(T value)
 			{
 				var memInfo = value.GetType().GetMember(value.ToString()!);
 				var attr = memInfo[0].GetCustomAttribute<EnumMemberAttribute>();
-				writer.WriteStringValue(
-					attr?.Value
-					?? value.ToString()!.ToLower());
+				var name = attr?.Value ?? value.ToString()!.ToLower();
+				return name;
 			}
 		}
 
