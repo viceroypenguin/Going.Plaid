@@ -23,19 +23,13 @@ namespace Going.Plaid.Entity
 		/// A list of the Plaid products supported by the institution.
 		/// </summary>
 		[JsonPropertyName("products")]
-		public string[] Products { get; init; } = null!;
-
-		/// <summary>
-		/// A list of routing numbers associated with the institution.
-		/// </summary>
-		[JsonPropertyName("routing_numbers")]
-		public string[]? RoutingNumbers { get; init; }
+		public Product[] Products { get; init; } = null!;
 
 		/// <summary>
 		/// A list of country codes associated with the institution.
 		/// </summary>
 		[JsonPropertyName("country_codes")]
-		public string[]? CountryCodes { get; init; }
+		public string[] CountryCodes { get; init; } = null!;
 
 		/// <summary>
 		/// Inidcates if this institution uses OAuth flows
@@ -44,6 +38,12 @@ namespace Going.Plaid.Entity
 		public bool? OAuth { get; init; }
 
 		#region Optional Metadata: include_optional_metadata
+
+		/// <summary>
+		/// A list of routing numbers associated with the institution.
+		/// </summary>
+		[JsonPropertyName("routing_numbers")]
+		public string[]? RoutingNumbers { get; init; }
 
 		/// <summary>
 		/// The URL for the institution's website.
