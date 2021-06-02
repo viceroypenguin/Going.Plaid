@@ -1,72 +1,82 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
-    <AssemblyName>Going.Plaid</AssemblyName>
-    <RootNamespace>Going.Plaid</RootNamespace>
+
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+		<AssemblyName>Going.Plaid</AssemblyName>
+		<RootNamespace>Going.Plaid</RootNamespace>
 
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
-  </PropertyGroup>
+	</PropertyGroup>
 
-  <PropertyGroup Label="NuGet">
-    <Title>Going.Plaid.NET</Title>
-    <Description>A client api for plaid.com banking service.</Description>
-    
-    <Authors>viceroypenguin; Ackara</Authors>
-    <PackageTags>plaid banking api</PackageTags>
-    <Copyright>Copyright 2020 Turning Code, LLC; Ackara</Copyright>
+	<PropertyGroup Label="NuGet">
+		<Title>Going.Plaid.NET</Title>
+		<Description>A client api for plaid.com banking service.</Description>
 
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Authors>viceroypenguin; Ackara</Authors>
+		<PackageTags>plaid banking api</PackageTags>
+		<Copyright>Copyright 2020 Turning Code, LLC; Ackara</Copyright>
 
-    <RepositoryUrl>https://github.com/viceroypenguin/Going.Plaid.NET</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
+		<RepositoryUrl>https://github.com/viceroypenguin/Going.Plaid.NET</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
 
-  <ItemGroup>
-    <None Include="..\..\art\icon.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Going.Plaid.xml</DocumentationFile>
-  </PropertyGroup>
+	<ItemGroup>
+		<None Include="..\..\art\icon.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-    <PackageReference Include="MinVer" Version="2.3.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+	<PropertyGroup>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Going.Plaid.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MinVer" Version="2.3.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-    <PackageReference Include="System.Text.Json" Version="5.0.0" />
-  </ItemGroup>
+		<PackageReference Include="System.Text.Json" Version="5.0.0" />
+	</ItemGroup>
 
-  <PropertyGroup Label="MinVer">
-    <MinVerAutoIncrement>minor</MinVerAutoIncrement>
-    <MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
-    <MinVerTagPrefix>v</MinVerTagPrefix>
-    <MinVerBuildMetadata Condition="'$(APPVEYOR_REPO_COMMIT)' != ''">commit.$(APPVEYOR_REPO_COMMIT)</MinVerBuildMetadata>
-  </PropertyGroup>
+	<PropertyGroup Label="MinVer">
+		<MinVerAutoIncrement>minor</MinVerAutoIncrement>
+		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
+		<MinVerTagPrefix>v</MinVerTagPrefix>
+		<MinVerBuildMetadata Condition="'$(APPVEYOR_REPO_COMMIT)' != ''">commit.$(APPVEYOR_REPO_COMMIT)</MinVerBuildMetadata>
+	</PropertyGroup>
 
-  <Target Name="MyTarget" AfterTargets="MinVer" Condition="'$(APPVEYOR_PULL_REQUEST_NUMBER)' != ''">
-    <PropertyGroup>
-      <PackageVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)-pr.$(APPVEYOR_PULL_REQUEST_NUMBER).build-id.$(APPVEYOR_BUILD_ID).$(MinVerPreRelease)</PackageVersion>
-      <PackageVersion Condition="'$(MinVerBuildMetadata)' != ''">$(PackageVersion)+$(MinVerBuildMetadata)</PackageVersion>
-      <Version>$(PackageVersion)</Version>
-    </PropertyGroup>
-  </Target>
+	<Target Name="MyTarget" AfterTargets="MinVer" Condition="'$(APPVEYOR_PULL_REQUEST_NUMBER)' != ''">
+		<PropertyGroup>
+			<PackageVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)-pr.$(APPVEYOR_PULL_REQUEST_NUMBER).build-id.$(APPVEYOR_BUILD_ID).$(MinVerPreRelease)</PackageVersion>
+			<PackageVersion Condition="'$(MinVerBuildMetadata)' != ''">$(PackageVersion)+$(MinVerBuildMetadata)</PackageVersion>
+			<Version>$(PackageVersion)</Version>
+		</PropertyGroup>
+	</Target>
 
-  <Target Name="MyTarget" AfterTargets="MinVer">
-    <PropertyGroup>
-      <APPVEYOR_BUILD_NUMBER Condition="'$(APPVEYOR_BUILD_NUMBER)' == ''">0</APPVEYOR_BUILD_NUMBER>
-      <FileVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(APPVEYOR_BUILD_NUMBER)</FileVersion>
-    </PropertyGroup>
-  </Target>
+	<Target Name="MyTarget" AfterTargets="MinVer">
+		<PropertyGroup>
+			<APPVEYOR_BUILD_NUMBER Condition="'$(APPVEYOR_BUILD_NUMBER)' == ''">0</APPVEYOR_BUILD_NUMBER>
+			<FileVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(APPVEYOR_BUILD_NUMBER)</FileVersion>
+		</PropertyGroup>
+	</Target>
 </Project>
