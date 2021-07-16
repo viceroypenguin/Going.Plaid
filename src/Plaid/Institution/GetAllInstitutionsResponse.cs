@@ -13,5 +13,11 @@ namespace Going.Plaid.Institution
 		/// </summary>
 		[JsonPropertyName("institutions")]
 		public Entity.Institution[] Institutions { get; init; } = null!;
+
+		/// <summary>
+		/// The total number of institutions available via this endpoint.
+		/// </summary>
+		[JsonPropertyName("total")]
+		public int TotalInstitutions { get; set; }
 	}
 }
