@@ -301,6 +301,22 @@ namespace Going.Plaid
 			PostAsync("liabilities/get", request)
 				.ParseResponseAsync<Liabilities.GetLiabilitiesResponse>();
 
+		/*  Sandbox */
+
+		/// <summary>
+		/// Use the <c>/sandbox/public_token/create</c> endpoint to create a valid <c>public_token</c> for an arbitrary
+		/// institution ID, initial products, and test credentials. The created <c>public_token</c> maps to a new
+		/// Sandbox <see cref="Item"/>. You can then call <c>/item/public_token/exchange</c> to exchange the
+		/// <c>public_token</c> for an <c>access_token</c> and perform all API actions.
+		/// <c>/sandbox/public_token/create</c> can also be used with the <c>user_custom</c> test username to generate
+		/// a test account with custom data.
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		public Task<Sandbox.CreatePublicTokenResponse> CreatePublicToken(Sandbox.CreatePublicTokenRequest request) =>
+			PostAsync("sandbox/public_token/create", request)
+				.ParseResponseAsync<Sandbox.CreatePublicTokenResponse>();
+
 		#endregion
 
 		#region Private Members
