@@ -1,13 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Going.Plaid.Converters;
-using Going.Plaid.Entity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -18,7 +14,7 @@ namespace Going.Plaid
 	/// <summary>
 	/// Provides methods for sending request to and receiving data from Plaid banking API.
 	/// </summary>
-	public sealed class PlaidClient
+	public sealed partial class PlaidClient
 	{
 		#region Initialization
 
@@ -123,200 +119,6 @@ namespace Going.Plaid
 		/// Debug option to include the raw json in the returned DTO
 		/// </summary>
 		public bool ShowRawJson { get; set; } = false;
-		#endregion
-
-		#region API calls
-
-		/* Item Management */
-
-		/// <summary>
-		/// Retrieves information about the status of an <see cref="Entity.Item"/>. Endpoint '<c>/item/get</c>'.
-		/// </summary>
-		public Task<Management.GetItemResponse> FetchItemAsync(Management.GetItemRequest request) =>
-			PostAsync("item/get", request)
-				.ParseResponseAsync<Management.GetItemResponse>();
-
-		/// <summary>
-		/// Creates a token that can be used with the Link tool in the web client. 
-		/// </summary>
-		public Task<Management.CreateLinkTokenResponse> CreateLinkTokenAsync(Management.CreateLinkTokenRequest request) =>
-			PostAsync("link/token/create", request)
-				.ParseResponseAsync<Management.CreateLinkTokenResponse>();
-
-		/// <summary>
-		/// Remove an <see cref="Entity.Item"/>. Once deleted, the access_token associated with the <see cref="Entity.Item"/> is no longer valid and cannot be used to access any data that was associated with the <see cref="Entity.Item"/>.
-		/// </summary>
-		public Task<Management.RemoveItemResponse> RemoveItemAsync(Management.RemoveItemRequest request) =>
-			PostAsync("item/remove", request)
-				.ParseResponseAsync<Management.RemoveItemResponse>();
-
-		/// <summary>
-		/// Updates the webhook associated with an <see cref="Entity.Item"/>. This request triggers a WEBHOOK_UPDATE_ACKNOWLEDGED webhook.
-		/// </summary>
-		public Task<Management.UpdateWebhookResponse> UpdateWebhookAsync(Management.UpdateWebhookRequest request) =>
-			PostAsync("item/webhook/update", request)
-				.ParseResponseAsync<Management.UpdateWebhookResponse>();
-
-		/// <summary>
-		/// Exchanges a Link public_token for an API access_token.
-		/// </summary>
-		public Task<Management.ExchangeTokenResponse> ExchangeTokenAsync(Management.ExchangeTokenRequest request) =>
-			PostAsync("item/public_token/exchange", request)
-				.ParseResponseAsync<Management.ExchangeTokenResponse>();
-
-		/// <summary>
-		/// Rotates the access_token associated with an <see cref="Entity.Item"/>. The endpoint returns a new access_token and immediately invalidates the previous access_token.
-		/// </summary>
-		public Task<Management.RotateAccessTokenResponse> RotateAccessTokenAsync(Management.RotateAccessTokenRequest request) =>
-			PostAsync("item/access_token/invalidate", request)
-				.ParseResponseAsync<Management.RotateAccessTokenResponse>();
-
-		/* Institutions */
-
-		/// <summary>
-		/// Retrieves all institutions (the results will be paginated).
-		/// </summary>
-		public Task<Institution.GetAllInstitutionsResponse> FetchAllInstitutionsAsync(Institution.GetAllInstitutionsRequest request) =>
-			PostAsync("institutions/get", request)
-				.ParseResponseAsync<Institution.GetAllInstitutionsResponse>();
-
-		/// <summary>
-		/// Retrieves the institutions that match the query parameters.
-		/// </summary>
-		public Task<Institution.SearchResponse> FetchInstitutionsAsync(Institution.SearchRequest request) =>
-			PostAsync("institutions/search", request)
-				.ParseResponseAsync<Institution.SearchResponse>();
-
-		/// <summary>
-		/// Retrieves the institutions that match the id.
-		/// </summary>
-		public Task<Institution.SearchByIdResponse> FetchInstitutionByIdAsync(Institution.SearchByIdRequest request) =>
-			PostAsync("institutions/get_by_id", request)
-				.ParseResponseAsync<Institution.SearchByIdResponse>();
-
-		/* Income */
-
-		/// <summary>
-		/// Retrieves information pertaining to a <see cref="Entity.Item"/>’s income. In addition to the annual income, detailed information will be provided for each contributing income stream (or job).
-		/// </summary>
-		public Task<Income.GetIncomeResponse> FetchUserIncomeAsync(Income.GetIncomeRequest request) =>
-			PostAsync("income/get", request)
-				.ParseResponseAsync<Income.GetIncomeResponse>();
-
-		/* Investments */
-
-		/// <summary>
-		/// Retrieves information pertaining to a <see cref="Entity.Item"/>'s investment holdings.
-		/// </summary>
-		public Task<Investments.GetInvestmentHoldingsResponse> FetchInvestmentHoldingsAsync(Investments.GetInvestmentHoldingsRequest request) =>
-			PostAsync("investments/holdings/get", request)
-				.ParseResponseAsync<Investments.GetInvestmentHoldingsResponse>();
-
-		/// <summary>
-		/// Retrieves information pertaining to a <see cref="Entity.Item"/>'s investment transactions.
-		/// </summary>
-		public Task<Investments.GetInvestmentTransactionsResponse> FetchInvestmentTransactionsAsync(Investments.GetInvestmentTransactionsRequest request) =>
-			PostAsync("investments/transactions/get", request)
-				.ParseResponseAsync<Investments.GetInvestmentTransactionsResponse>();
-
-		/* Auth */
-
-		/// <summary>
-		/// Retrieves the bank account and routing numbers associated with an <see cref="Entity.Item"/>’s checking and savings accounts, along with high-level account data and balances.
-		/// </summary>
-		public Task<Auth.GetAccountInfoResponse> FetchAccountInfoAsync(Auth.GetAccountInfoRequest request) =>
-			PostAsync("auth/get", request)
-				.ParseResponseAsync<Auth.GetAccountInfoResponse>();
-
-		/* Balance */
-
-		/// <summary>
-		/// Retrieve high-level information about all accounts associated with an <see cref="Entity.Item"/>.
-		/// </summary>
-		public Task<Balance.GetAccountResponse> FetchAccountAsync(Balance.GetAccountRequest request) =>
-			PostAsync("accounts/get", request)
-				.ParseResponseAsync<Balance.GetAccountResponse>();
-
-		/// <summary>
-		///  Retrieves the real-time balance for each of an <see cref="Entity.Item"/>’s accounts.
-		/// </summary>
-		public Task<Balance.GetBalanceResponse> FetchAccountBalanceAsync(Balance.GetBalanceRequest request) =>
-			PostAsync("accounts/balance/get", request)
-				.ParseResponseAsync<Balance.GetBalanceResponse>();
-
-		/* Categories */
-
-		/// <summary>
-		///  Retrieves detailed information on categories returned by Plaid.
-		/// </summary>
-		public Task<Category.GetCategoriesResponse> FetchCategoriesAsync(Category.GetCategoriesRequest request) =>
-			PostAsync("categories/get", request)
-				.ParseResponseAsync<Category.GetCategoriesResponse>();
-
-		/* Identity */
-
-		/// <summary>
-		/// Retrieves various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses.
-		/// </summary>
-		public Task<Identity.GetUserIdentityResponse> FetchUserIdentityAsync(Identity.GetUserIdentityRequest request) =>
-			PostAsync("identity/get", request)
-				.ParseResponseAsync<Identity.GetUserIdentityResponse>();
-
-		/* Transactions */
-
-		/// <summary>
-		///  Retrieves user-authorized transaction data for credit and depository-type <see cref="Entity.Account"/>.
-		/// </summary>
-		public Task<Transactions.GetTransactionsResponse> FetchTransactionsAsync(Transactions.GetTransactionsRequest request) =>
-			PostAsync("transactions/get", request)
-				.ParseResponseAsync<Transactions.GetTransactionsResponse>();
-
-		/* Processor */
-
-		/// <summary>
-		/// Exchanges a Link <see cref="Management.ExchangeTokenResponse.AccessToken"/> for a <see cref="Management.ProcessorTokenResponse.ProcessorToken"/>.Exchanges a Link access_token for an Stripe API stripe_bank_account_token.
-		/// </summary>
-		public Task<Management.ProcessorTokenResponse> FetchProcessorTokenAsync(Management.ProcessorTokenRequest request) =>
-			PostAsync("processor/token/create", request)
-				.ParseResponseAsync<Management.ProcessorTokenResponse>();
-
-		/* Stripe */
-
-		/// <summary>
-		///  Exchanges a Link access_token for an Stripe API stripe_bank_account_token.
-		/// </summary>
-		public Task<Management.StripeTokenResponse> FetchStripeTokenAsync(Management.StripeTokenRequest request) =>
-			PostAsync("processor/stripe/bank_account_token/create", request)
-				.ParseResponseAsync<Management.StripeTokenResponse>();
-
-		/* Liabilities */
-
-		/// <summary>
-		///  Returns various details about an <see cref="Item"/> with loan or credit accounts. 
-		///  Liabilities is supported for US and Canada accounts only. Currently supported account types 
-		///  are account type credit with account subtype credit card or paypal, and account type loan 
-		///  with account subtype student or mortgage. 
-		/// </summary>
-		public Task<Liabilities.GetLiabilitiesResponse> FetchLiabilitiesAsync(Liabilities.GetLiabilitiesRequest request) =>
-			PostAsync("liabilities/get", request)
-				.ParseResponseAsync<Liabilities.GetLiabilitiesResponse>();
-
-		/*  Sandbox */
-
-		/// <summary>
-		/// Use the <c>/sandbox/public_token/create</c> endpoint to create a valid <c>public_token</c> for an arbitrary
-		/// institution ID, initial products, and test credentials. The created <c>public_token</c> maps to a new
-		/// Sandbox <see cref="Item"/>. You can then call <c>/item/public_token/exchange</c> to exchange the
-		/// <c>public_token</c> for an <c>access_token</c> and perform all API actions.
-		/// <c>/sandbox/public_token/create</c> can also be used with the <c>user_custom</c> test username to generate
-		/// a test account with custom data.
-		/// </summary>
-		/// <param name="request"></param>
-		/// <returns></returns>
-		public Task<Sandbox.CreatePublicTokenResponse> CreatePublicToken(Sandbox.CreatePublicTokenRequest request) =>
-			PostAsync("sandbox/public_token/create", request)
-				.ParseResponseAsync<Sandbox.CreatePublicTokenResponse>();
-
 		#endregion
 
 		#region Private Members
