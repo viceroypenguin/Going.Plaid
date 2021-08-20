@@ -91,7 +91,7 @@ public enum ErrorCode
 	ItemNoError,
 
 	/// <summary>
-	/// Returned from <see cref="PlaidClient.FetchAccountInfoAsync(Auth.GetAccountInfoRequest)"/> 
+	/// Returned from <see cref="PlaidClient.AuthGetAsync(Auth.AuthGetRequest)"/> 
 	/// when there are no valid checking or savings account(s) for which account and routing numbers 
 	/// could be retrieved.
 	/// </summary>
@@ -100,8 +100,8 @@ public enum ErrorCode
 	NoAuthAccounts,
 
 	/// <summary>
-	/// Returned from <see cref="PlaidClient.FetchInvestmentHoldingsAsync(Investments.GetInvestmentHoldingsRequest)"/>, 
-	/// <see cref="PlaidClient.FetchInvestmentTransactionsAsync(Investments.GetInvestmentTransactionsRequest)"/>, 
+	/// Returned from <see cref="PlaidClient.InvestmentsHoldingsGetAsync(Investments.InvestmentsHoldingsGetRequest)"/>, 
+	/// <see cref="PlaidClient.InvestmentsTransactionsGetAsync(Investments.InvestmentsTransactionsGetRequest)"/>, 
 	/// or Link initialized with the Investments product, when there are no valid investment account(s) for which 
 	/// holdings or transactions could be retrieved.
 	/// </summary>
@@ -111,8 +111,8 @@ public enum ErrorCode
 
 
 	/// <summary>
-	/// Returned from <see cref="PlaidClient.FetchInvestmentHoldingsAsync(Investments.GetInvestmentHoldingsRequest)"/> or
-	/// <see cref="PlaidClient.FetchInvestmentTransactionsAsync(Investments.GetInvestmentTransactionsRequest)"/>, 
+	/// Returned from <see cref="PlaidClient.InvestmentsHoldingsGetAsync(Investments.InvestmentsHoldingsGetRequest)"/>, 
+	/// <see cref="PlaidClient.InvestmentsTransactionsGetAsync(Investments.InvestmentsTransactionsGetRequest)"/>, 
 	/// when there are no valid investment account(s) for which holdings or transactions could be retrieved.
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/errors/item/#no_investment_auth_accounts"/></remarks>
@@ -121,7 +121,7 @@ public enum ErrorCode
 
 	/// <summary>
 	/// Returned when a data request has been made for an Item for a product that it does not support. 
-	/// Use the <see cref="PlaidClient.FetchItemAsync(Management.GetItemRequest)"/> API call to find 
+	/// Use the <see cref="PlaidClient.ItemGetAsync(Plaid.Item.ItemGetRequest)"/> API call to find 
 	/// out which products an Item supports.
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/errors/item/#products_not_supported"/></remarks>
@@ -130,7 +130,7 @@ public enum ErrorCode
 
 	/// <summary>
 	/// The Item you requested cannot be found. This Item does not exist, has been previously removed via 
-	/// <see cref="PlaidClient.RemoveItemAsync(Management.RemoveItemRequest)"/>, 
+	/// <see cref="PlaidClient.ItemRemoveAsync(Plaid.Item.ItemRemoveRequest)"/>, 
 	/// or has had access removed by the user
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/errors/item/#item_not_found"/></remarks>
