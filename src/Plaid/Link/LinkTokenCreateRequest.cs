@@ -13,15 +13,10 @@ public class LinkTokenCreateRequest : RequestBase
 
 	/// <summary>
 	/// <para>The language that Link should be displayed in.</para>
-	/// <para>Supported languages are:</para>
-	/// <para>- English (<c>'en'</c>)</para>
-	/// <para>- French (<c>'fr'</c>)</para>
-	/// <para>- Spanish (<c>'es'</c>)</para>
-	/// <para>- Dutch (<c>'nl'</c>)</para>
 	/// <para>When using a Link customization, the language configured here must match the setting in the customization, or the customization will not be applied.</para>
 	/// </summary>
 	[JsonPropertyName("language")]
-	public string Language { get; set; } = default!;
+	public Entity.Language Language { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown.  Supported country codes are: <c>US</c>, <c>CA</c>, <c>ES</c>, <c>FR</c>, <c>GB</c>, <c>IE</c>, <c>NL</c>. Example value: <c>['US', 'CA']</c>.</para>

@@ -1,4 +1,4 @@
-namespace Going.Plaid.Entity;
+﻿namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>An object specifying information about the end user who will be linking their account.</para>
@@ -55,5 +55,5 @@ public class LinkTokenCreateRequestUser
 	/// <para>To be provided in the format "yyyy-mm-dd". This field is optional and will support not-yet-implemented functionality for new products.</para>
 	/// </summary>
 	[JsonPropertyName("date_of_birth")]
-	public DateTimeOffset DateOfBirth { get; set; } = default!;
+	public DateOnly DateOfBirth { get; set; } = default!;
 }

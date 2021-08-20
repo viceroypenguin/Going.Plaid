@@ -59,7 +59,7 @@ public sealed partial class PlaidClient
 			Environment.Production => "production",
 			_ => throw new ArgumentOutOfRangeException(nameof(environment), "Invalid environment provided."),
 		};
-		_baseUrl = $"https://{subDomain}.plaid.com/";
+		_baseUrl = new Uri($"https://{subDomain}.plaid.com/");
 
 		_secret = string.IsNullOrWhiteSpace(secret) ? null : secret;
 		_clientId = string.IsNullOrWhiteSpace(clientId) ? null : clientId;
@@ -84,7 +84,8 @@ public sealed partial class PlaidClient
 		_logger = logger ?? new NullLogger<PlaidClient>();
 	}
 
-	private readonly string _baseUrl, _apiVersion;
+	private readonly Uri _baseUrl;
+	private readonly string _apiVersion;
 	private readonly string? _clientId, _secret, _accessToken;
 	private readonly Environment _environment;
 	private readonly IHttpClientFactory _clientFactory;
@@ -117,13 +118,13 @@ public sealed partial class PlaidClient
 		request.SetCredentials(_secret, _clientId, _accessToken);
 
 		var client = _clientFactory.CreateClient("PlaidClient");
-		var url = _baseUrl + path;
+		var url = new Uri(_baseUrl, path);
 		_logger.LogTrace("Initiating request. Method: {method}; Url: {url}; Content: {@content}", "POST", url, request);
 
 		var requestMessage = new HttpRequestMessage
 		{
 			Method = HttpMethod.Post,
-			RequestUri = new Uri(url),
+			RequestUri = url,
 			Headers =
 				{
 					{ "Plaid-Version", _apiVersion },
@@ -133,7 +134,7 @@ public sealed partial class PlaidClient
 		return new ResponseParser
 		{
 			Message = client.SendAsync(requestMessage),
-			Url = url,
+			Url = url.ToString(),
 			IncludeRawJson = request.ShowRawJson ?? ShowRawJson,
 			Logger = _logger,
 		};

@@ -27,7 +27,7 @@ public record LinkTokenGetMetadataResponse : ResponseBase
 	/// <para>The <c>language</c> specified in the <c>/link/token/create</c> call.</para>
 	/// </summary>
 	[JsonPropertyName("language")]
-	public string? Language { get; init; } = default!;
+	public Entity.Language? Language { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The <c>account_filters</c> specified in the original call to <c>/link/token/create</c>.</para>

@@ -181,11 +181,12 @@ static class Program
 			}
 
 			e.Properties = schema.Properties
-				.Where(p =>
-					p.Key != "client_id"
-					&& p.Key != "secret"
-					&& p.Key != "access_token"
-					&& p.Key != "request_id")
+				.Where(p => !(
+					(name.EndsWith("Request")
+						&& (p.Key == "client_id"
+							|| p.Key == "secret"
+							|| p.Key == "access_token"))
+					|| (name.EndsWith("Response") && p.Key == "request_id")))
 				.Select(p =>
 				{
 					var propertyName = p.Key.ToLower().ToPascalCase();
