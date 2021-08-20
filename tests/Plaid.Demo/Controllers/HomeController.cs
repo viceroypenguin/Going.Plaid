@@ -3,7 +3,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Going.Plaid.Entity;
-using Going.Plaid.Management;
+using Going.Plaid.Item;
+using Going.Plaid.Link;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -23,14 +24,14 @@ namespace Going.Plaid.Demo.Controllers
 		[HttpPost]
 		public async Task<IActionResult> GetLinkToken([FromBody] string[] products)
 		{
-			var result = await _client.CreateLinkTokenAsync(
-				new CreateLinkTokenRequest()
+			var result = await _client.LinkTokenCreateAsync(
+				new LinkTokenCreateRequest()
 				{
-					User = new User { ClientUserId = Guid.NewGuid().ToString(), },
+					User = new LinkTokenCreateRequestUser { ClientUserId = Guid.NewGuid().ToString(), },
 					ClientName = "Going.Plaid.Net Walkthrough Demo ",
-					Products = products.Select(p => Enum.Parse<Product>(p, true)).ToArray(),
+					Products = products.Select(p => Enum.Parse<Products>(p, true)).ToArray(),
 					Language = Language.English,
-					CountryCodes = new[] { "US" },
+					CountryCodes = new[] { CountryCode.Us },
 				});
 			return Ok(result);
 		}
@@ -38,12 +39,12 @@ namespace Going.Plaid.Demo.Controllers
 		[HttpPost]
 		public async Task<IActionResult> GetAccessToken([FromBody] string publicToken)
 		{
-			var result = await _client.ExchangeTokenAsync(
-				new ExchangeTokenRequest()
+			var result = await _client.ItemPublicTokenExchangeAsync(
+				new ItemPublicTokenExchangeRequest()
 				{
 					PublicToken = publicToken,
 				});
-			_credentials.AccessToken = result.AccessToken;
+			_credentials.AccessToken = result.ItemId;
 			System.Diagnostics.Debug.WriteLine($"access_token: '{result.AccessToken}'");
 
 			return Ok(result);
@@ -52,14 +53,14 @@ namespace Going.Plaid.Demo.Controllers
 		[HttpPost]
 		public async Task<IActionResult> GetUpdateToken([FromBody] string accessToken)
 		{
-			var result = await _client.CreateLinkTokenAsync(
-				new CreateLinkTokenRequest()
+			var result = await _client.LinkTokenCreateAsync(
+				new LinkTokenCreateRequest()
 				{
 					AccessToken = accessToken,
-					User = new User { ClientUserId = Guid.NewGuid().ToString(), },
+					User = new LinkTokenCreateRequestUser { ClientUserId = Guid.NewGuid().ToString(), },
 					ClientName = "Going.Plaid.Net Walkthrough Demo ",
 					Language = Language.English,
-					CountryCodes = new[] { "US" },
+					CountryCodes = new[] { CountryCode.Us },
 				});
 			System.Diagnostics.Debug.WriteLine($"public_token: '{result.LinkToken}'");
 
