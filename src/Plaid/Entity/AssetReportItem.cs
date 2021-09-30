@@ -24,7 +24,7 @@ public record AssetReportItem
 	public string InstitutionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date and time when this Item’s data was last retrieved from the financial institution, in ISO 8601 format.</para>
+	/// <para>The date and time when this Item’s data was last retrieved from the financial institution, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</para>
 	/// </summary>
 	[JsonPropertyName("date_last_updated")]
 	public DateTimeOffset DateLastUpdated { get; init; } = default!;

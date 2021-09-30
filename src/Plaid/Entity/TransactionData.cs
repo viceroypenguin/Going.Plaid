@@ -18,7 +18,7 @@ public record TransactionData
 	public decimal Amount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date of the transaction, in ISO 8601 format ("yyyy-mm-dd").</para>
+	/// <para>The date of the transaction, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ("yyyy-mm-dd").</para>
 	/// </summary>
 	[JsonPropertyName("date")]
 	public DateOnly Date { get; init; } = default!;

@@ -174,7 +174,7 @@ public record SignalEvaluateCoreAttributes
 	public decimal? CurrentBalance { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Timestamp in ISO-8601 format (YYYY-MM-DDTHH:mm:ssZ) indicating the last time that the balance for the given account has been updated.</para>
+	/// <para>Timestamp in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DDTHH:mm:ssZ) indicating the last time that the balance for the given account has been updated.</para>
 	/// </summary>
 	[JsonPropertyName("balance_last_updated")]
 	public DateTimeOffset? BalanceLastUpdated { get; init; } = default!;

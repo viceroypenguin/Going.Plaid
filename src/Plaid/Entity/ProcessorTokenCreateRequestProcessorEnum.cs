@@ -104,8 +104,14 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "sbv_api")]
-	SbvApi,
+	[EnumMember(Value = "svb_api")]
+	SvbApi,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "treasury_prime")]
+	TreasuryPrime,
 
 	/// <summary>
 	/// 

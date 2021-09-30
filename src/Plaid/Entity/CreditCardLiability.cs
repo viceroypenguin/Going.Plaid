@@ -30,16 +30,22 @@ public record CreditCardLiability
 	public decimal LastPaymentAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date of the last payment. Dates are returned in an ISO 8601 format (YYYY-MM-DD). Availability for this field is limited.</para>
+	/// <para>The date of the last payment. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD). Availability for this field is limited.</para>
 	/// </summary>
 	[JsonPropertyName("last_payment_date")]
 	public DateOnly LastPaymentDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date of the last statement. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The date of the last statement. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("last_statement_issue_date")]
 	public DateOnly LastStatementIssueDate { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total amount owed as of the last statement issued</para>
+	/// </summary>
+	[JsonPropertyName("last_statement_balance")]
+	public decimal LastStatementBalance { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The minimum payment due for the next billing cycle.</para>
@@ -48,7 +54,7 @@ public record CreditCardLiability
 	public decimal MinimumPaymentAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The due date for the next payment. The due date is <c>null</c> if a payment is not expected. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The due date for the next payment. The due date is <c>null</c> if a payment is not expected. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("next_payment_due_date")]
 	public DateOnly? NextPaymentDueDate { get; init; } = default!;

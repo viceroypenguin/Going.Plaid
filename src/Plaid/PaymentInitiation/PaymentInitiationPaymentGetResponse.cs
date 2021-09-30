@@ -72,6 +72,12 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	public string? Iban { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Initiated refunds associated with the payment.</para>
+	/// </summary>
+	[JsonPropertyName("initiated_refunds")]
+	public IReadOnlyList<Entity.PaymentInitiationRefund> InitiatedRefunds { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The EMI (E-Money Institution) account that this payment is associated with, if any. This EMI account is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
 	/// </summary>
 	[JsonPropertyName("emi_account_id")]

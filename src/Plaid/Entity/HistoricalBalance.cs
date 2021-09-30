@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record HistoricalBalance
 {
 	/// <summary>
-	/// <para>The date of the calculated historical balance, in an ISO 8601 format (YYYY-MM-DD)</para>
+	/// <para>The date of the calculated historical balance, in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD)</para>
 	/// </summary>
 	[JsonPropertyName("date")]
 	public DateOnly Date { get; init; } = default!;

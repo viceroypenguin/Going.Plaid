@@ -22,4 +22,12 @@ public sealed partial class PlaidClient
 	public Task<Transactions.TransactionsRefreshResponse> TransactionsRefreshAsync(Transactions.TransactionsRefreshRequest request) =>
 		PostAsync("/transactions/refresh", request)
 			.ParseResponseAsync<Transactions.TransactionsRefreshResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transactions/recurring/get</c> endpoint identifies and returns groups of transactions that occur on a regular basis for the inputted Item and accounts.</para>
+	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
+	/// </summary>
+	public Task<Transactions.TransactionsRecurringGetResponse> TransactionsRecurringGetAsync(Transactions.TransactionsRecurringGetRequest request) =>
+		PostAsync("/transactions/recurring/get", request)
+			.ParseResponseAsync<Transactions.TransactionsRecurringGetResponse>();
 }

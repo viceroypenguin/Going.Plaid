@@ -71,4 +71,10 @@ public record Institution
 	/// </summary>
 	[JsonPropertyName("payment_initiation_metadata")]
 	public Entity.PaymentInitiationMetadata? PaymentInitiationMetadata { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Metadata that captures information about the Auth features of an institution.</para>
+	/// </summary>
+	[JsonPropertyName("auth_metadata")]
+	public Entity.AuthMetadata? AuthMetadata { get; init; } = default!;
 }

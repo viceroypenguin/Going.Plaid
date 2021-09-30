@@ -12,6 +12,7 @@ public record AccountBalance
 	/// <para>For <c>investment</c>-type accounts, the <c>available</c> balance is the total cash available to withdraw as presented by the institution.</para>
 	/// <para>Note that not all institutions calculate the <c>available</c>  balance. In the event that <c>available</c> balance is unavailable, Plaid will return an <c>available</c> balance value of <c>null</c>.</para>
 	/// <para>Available balance may be cached and is not guaranteed to be up-to-date in realtime unless the value was returned by <c>/accounts/balance/get</c>.</para>
+	/// <para>If <c>current</c> is <c>null</c> this field is guaranteed not to be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("available")]
 	public decimal? Available { get; init; } = default!;
@@ -22,6 +23,7 @@ public record AccountBalance
 	/// <para>For <c>loan</c>-type accounts, the current balance is the principal remaining on the loan, except in the case of student loan accounts at Sallie Mae (<c>ins_116944</c>). For Sallie Mae student loans, the account's balance includes both principal and any outstanding interest.</para>
 	/// <para>For <c>investment</c>-type accounts, the current balance is the total value of assets as presented by the institution.</para>
 	/// <para>Note that balance information may be cached unless the value was returned by <c>/accounts/balance/get</c>; if the Item is enabled for Transactions, the balance will be at least as recent as the most recent Transaction update. If you require realtime balance information, use the <c>available</c> balance as provided by <c>/accounts/balance/get</c>.</para>
+	/// <para>When returned by <c>/accounts/balance/get</c>, this field may be <c>null</c>. When this happens, <c>available</c> is guaranteed not to be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("current")]
 	public decimal? Current { get; init; } = default!;
@@ -48,7 +50,7 @@ public record AccountBalance
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Timestamp in ISO-8601 format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) indicating the last time that the balance for the given account has been updated</para>
+	/// <para>Timestamp in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) indicating the last time that the balance for the given account has been updated</para>
 	/// <para>This is currently only provided when the <c>min_last_updated_datetime</c> is passed when calling <c>/accounts/balance/get</c> for <c>ins_128026</c> (Capital One).</para>
 	/// </summary>
 	[JsonPropertyName("last_updated_datetime")]

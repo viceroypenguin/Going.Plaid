@@ -54,7 +54,7 @@ public record MortgageLiability
 	public decimal? LastPaymentAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date of the last payment. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The date of the last payment. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("last_payment_date")]
 	public DateOnly? LastPaymentDate { get; init; } = default!;
@@ -72,7 +72,7 @@ public record MortgageLiability
 	public string? LoanTerm { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Original date on which mortgage is due in full. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>Original date on which mortgage is due in full. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("maturity_date")]
 	public DateOnly? MaturityDate { get; init; } = default!;
@@ -84,13 +84,13 @@ public record MortgageLiability
 	public decimal? NextMonthlyPayment { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The due date for the next payment. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The due date for the next payment. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("next_payment_due_date")]
 	public DateOnly? NextPaymentDueDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date on which the loan was initially lent. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The date on which the loan was initially lent. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("origination_date")]
 	public DateOnly? OriginationDate { get; init; } = default!;

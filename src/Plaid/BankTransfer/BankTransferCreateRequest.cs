@@ -1,7 +1,7 @@
 namespace Going.Plaid.BankTransfer;
 
 /// <summary>
-/// <para>BankTransferCreateRequest defines the request schema for <c>/bank_transfer/create</c></para>
+/// <para>Defines the request schema for <c>/bank_transfer/create</c></para>
 /// </summary>
 public class BankTransferCreateRequest : RequestBase
 {
@@ -19,7 +19,7 @@ public class BankTransferCreateRequest : RequestBase
 	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The type of bank transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into your origination account; a <c>credit</c> indicates a transfer of money out of your origination account.</para>
+	/// <para>The type of bank transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.BankTransferType Type { get; set; } = default!;
@@ -31,7 +31,7 @@ public class BankTransferCreateRequest : RequestBase
 	public Entity.BankTransferNetwork Network { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The transfer amount (decimal string with two digits of precision e.g. "10.00").</para>
+	/// <para>The amount of the bank transfer (decimal string with two digits of precision e.g. “10.00”).</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string Amount { get; set; } = default!;
@@ -61,7 +61,7 @@ public class BankTransferCreateRequest : RequestBase
 	public Entity.BankTransferUser User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An arbitrary string provided by the client for storage with the bank transfer. Will be returned in all <c>BankTransfer</c> objects. May be up to 100 characters.</para>
+	/// <para>An arbitrary string provided by the client for storage with the bank transfer. May be up to 100 characters.</para>
 	/// </summary>
 	[JsonPropertyName("custom_tag")]
 	public string? CustomTag { get; set; } = default!;

@@ -18,6 +18,12 @@ public class InstitutionsSearchRequestOptions
 	public bool IncludeOptionalMetadata { get; set; } = default!;
 
 	/// <summary>
+	/// <para>When <c>true</c>, returns metadata related to the Auth product indicating which auth methods are supported.</para>
+	/// </summary>
+	[JsonPropertyName("include_auth_metadata")]
+	public bool IncludeAuthMetadata { get; set; } = default!;
+
+	/// <summary>
 	/// <para>When <c>true</c>, returns metadata related to the Payment Initiation product indicating which payment configurations are supported.</para>
 	/// </summary>
 	[JsonPropertyName("include_payment_initiation_metadata")]

@@ -1,7 +1,7 @@
 namespace Going.Plaid.BankTransfer;
 
 /// <summary>
-/// <para>BankTransferBalanceGetRequest defines the request schema for <c>/bank_transfer/balance/get</c></para>
+/// <para>Defines the request schema for <c>/bank_transfer/balance/get</c></para>
 /// </summary>
 public class BankTransferBalanceGetRequest : RequestBase
 {

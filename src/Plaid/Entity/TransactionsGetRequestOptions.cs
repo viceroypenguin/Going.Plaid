@@ -29,4 +29,10 @@ public class TransactionsGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("include_original_description")]
 	public bool? IncludeOriginalDescription { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Include the <c>personal_finance_category</c> object in the response. This feature is currently in beta – to request access, contact transactions-feedback@plaid.com.</para>
+	/// </summary>
+	[JsonPropertyName("include_personal_finance_category_beta")]
+	public bool IncludePersonalFinanceCategoryBeta { get; set; } = default!;
 }

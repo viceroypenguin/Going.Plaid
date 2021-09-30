@@ -12,13 +12,13 @@ public record LinkTokenGetResponse : ResponseBase
 	public string LinkToken { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The creation timestamp for the <c>link_token</c>, in ISO 8601 format.</para>
+	/// <para>The creation timestamp for the <c>link_token</c>, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</para>
 	/// </summary>
 	[JsonPropertyName("created_at")]
 	public DateTimeOffset? CreatedAt { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The expiration timestamp for the <c>link_token</c>, in ISO 8601 format.</para>
+	/// <para>The expiration timestamp for the <c>link_token</c>, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</para>
 	/// </summary>
 	[JsonPropertyName("expiration")]
 	public DateTimeOffset? Expiration { get; init; } = default!;

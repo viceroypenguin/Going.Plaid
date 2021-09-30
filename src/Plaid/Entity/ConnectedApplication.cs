@@ -42,7 +42,7 @@ public record ConnectedApplication
 	public string? ReasonForAccess { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date this application was linked in ISO8601 (YYYY-MM-DD) format in UTC.</para>
+	/// <para>The date this application was linked in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
 	/// </summary>
 	[JsonPropertyName("created_at")]
 	public DateOnly CreatedAt { get; init; } = default!;

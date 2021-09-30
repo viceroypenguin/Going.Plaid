@@ -6,10 +6,22 @@ namespace Going.Plaid.Entity;
 public record Paystub
 {
 	/// <summary>
-	/// <para>The account identifier for the account associated with this paystub.</para>
+	/// <para>An object with the deduction information found on a paystub.</para>
 	/// </summary>
-	[JsonPropertyName("account_id")]
-	public string? AccountId { get; init; } = default!;
+	[JsonPropertyName("deductions")]
+	public Entity.Deductions Deductions { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An identifier of the document referenced by the document metadata.</para>
+	/// </summary>
+	[JsonPropertyName("doc_id")]
+	public string DocId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An object representing both a breakdown of earnings on a paystub and the total earnings.</para>
+	/// </summary>
+	[JsonPropertyName("earnings")]
+	public Entity.Earnings Earnings { get; init; } = default!;
 
 	/// <summary>
 	/// 
@@ -24,20 +36,38 @@ public record Paystub
 	public Entity.Employee Employee { get; init; } = default!;
 
 	/// <summary>
+	/// <para>An object representing employment details found on a paystub.</para>
+	/// </summary>
+	[JsonPropertyName("employment_details")]
+	public Entity.EmploymentDetails EmploymentDetails { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An object representing information about the net pay amount on the paystub.</para>
+	/// </summary>
+	[JsonPropertyName("net_pay")]
+	public Entity.NetPay NetPay { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Details about the pay period.</para>
 	/// </summary>
 	[JsonPropertyName("pay_period_details")]
 	public Entity.PayPeriodDetails PayPeriodDetails { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>An object representing details that can be found on the paystub.</para>
 	/// </summary>
-	[JsonPropertyName("income_breakdown")]
-	public Entity.IncomeBreakdown IncomeBreakdown { get; init; } = default!;
+	[JsonPropertyName("paystub_details")]
+	public Entity.PaystubDetails PaystubDetails { get; init; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
+	[JsonPropertyName("income_breakdown")]
+	public IReadOnlyList<Entity.IncomeBreakdown> IncomeBreakdown { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The amount of income earned year to date, as based on paystub data.</para>
+	/// </summary>
 	[JsonPropertyName("ytd_earnings")]
-	public Entity.PaystubYtdEarningsObject YtdEarnings { get; init; } = default!;
+	public Entity.PaystubYTDDetails YtdEarnings { get; init; } = default!;
 }

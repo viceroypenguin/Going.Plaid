@@ -24,7 +24,7 @@ public record BankTransfer
 	public string AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of bank transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into your origination account; a <c>credit</c> indicates a transfer of money out of your origination account.</para>
+	/// <para>The type of bank transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.BankTransferType Type { get; init; } = default!;
@@ -36,7 +36,7 @@ public record BankTransfer
 	public Entity.BankTransferUser User { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. “10.00”).</para>
+	/// <para>The amount of the bank transfer (decimal string with two digits of precision e.g. “10.00”).</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string Amount { get; init; } = default!;

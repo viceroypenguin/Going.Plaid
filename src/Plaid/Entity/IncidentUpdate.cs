@@ -18,7 +18,7 @@ public record IncidentUpdate
 	public Entity.IncidentUpdateStatusEnum Status { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date when the update was published, in ISO 8601 format, e.g. <c>"2020-10-30T15:26:48Z"</c>.</para>
+	/// <para>The date when the update was published, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format, e.g. <c>"2020-10-30T15:26:48Z"</c>.</para>
 	/// </summary>
 	[JsonPropertyName("updated_date")]
 	public DateTimeOffset UpdatedDate { get; init; } = default!;

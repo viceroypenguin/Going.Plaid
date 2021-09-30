@@ -15,5 +15,5 @@ public class PaymentInitiationPaymentListRequest : RequestBase
 	/// <para>A string in RFC 3339 format (i.e. "2019-12-06T22:35:49Z"). Only payments created before the cursor will be returned.</para>
 	/// </summary>
 	[JsonPropertyName("cursor")]
-	public string? Cursor { get; set; } = default!;
+	public DateTimeOffset? Cursor { get; set; } = default!;
 }

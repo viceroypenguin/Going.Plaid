@@ -42,7 +42,7 @@ public record BankTransferEvent
 	public string? OriginationAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of bank transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into your origination account; a <c>credit</c> indicates a transfer of money out of your origination account.</para>
+	/// <para>The type of bank transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
 	/// </summary>
 	[JsonPropertyName("bank_transfer_type")]
 	public Entity.BankTransferType BankTransferType { get; init; } = default!;

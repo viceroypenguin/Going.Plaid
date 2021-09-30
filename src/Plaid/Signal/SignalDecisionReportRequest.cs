@@ -1,7 +1,7 @@
 namespace Going.Plaid.Signal;
 
 /// <summary>
-/// 
+/// <para>SignalDecisionReportRequest defines the request schema for <c>/signal/decision/report</c></para>
 /// </summary>
 public class SignalDecisionReportRequest : RequestBase
 {

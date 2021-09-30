@@ -1,7 +1,7 @@
 namespace Going.Plaid.Signal;
 
 /// <summary>
-/// 
+/// <para>SignalEvaluateRequest defines the request schema for <c>/signal/evaluate</c></para>
 /// </summary>
 public class SignalEvaluateRequest : RequestBase
 {

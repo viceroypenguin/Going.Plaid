@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>For descriptions of possible transaction subtypes, see [Investment transaction subtypes schema](https://plaid.com/docs/api/accounts/#investment-transaction-subtypes-schema).</para>
+/// <para>For descriptions of possible transaction types and subtypes, see the [Investment transaction types schema](https://plaid.com/docs/api/accounts/#investment-transaction-types-schema).</para>
 /// </summary>
 public enum InvestmentTransactionSubtypeEnum
 {

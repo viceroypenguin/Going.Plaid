@@ -83,6 +83,9 @@ static class Program
 			if (!op.Responses["200"].Content.ContainsKey("application/json"))
 				continue;
 
+			if (op.Responses["200"].Content["application/json"].Schema == default)
+				continue;
+
 			var requestSchema = op.RequestBody.Content["application/json"].Schema;
 			AddSchemaEntity(basePath, requestSchema.Reference.Id, requestSchema, SchemaType.Class);
 

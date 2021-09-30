@@ -1,7 +1,7 @@
 namespace Going.Plaid.Processor;
 
 /// <summary>
-/// <para>ProcessorBankTransferCreateResponse defines the response schema for <c>/processor/bank_transfer/create</c></para>
+/// <para>Defines the response schema for <c>/processor/bank_transfer/create</c></para>
 /// </summary>
 public record ProcessorBankTransferCreateResponse : ResponseBase
 {

@@ -89,7 +89,7 @@ public record TransactionBase
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted. Both dates are returned in an ISO 8601 format ( <c>YYYY-MM-DD</c> ).</para>
+	/// <para>For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted. Both dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
 	/// </summary>
 	[JsonPropertyName("date")]
 	public DateOnly Date { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.BankTransfer;
 
 /// <summary>
-/// <para>BankTransferCancelRequest defines the request schema for <c>/bank_transfer/cancel</c></para>
+/// <para>Defines the request schema for <c>/bank_transfer/cancel</c></para>
 /// </summary>
 public class BankTransferCancelRequest : RequestBase
 {

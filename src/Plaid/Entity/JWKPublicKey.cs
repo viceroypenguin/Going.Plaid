@@ -48,13 +48,13 @@ public record JWKPublicKey
 	public string Y { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The timestamp when the key was created, in Unix time.</para>
 	/// </summary>
 	[JsonPropertyName("created_at")]
 	public int CreatedAt { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The timestamp when the key expired, in Unix time.</para>
 	/// </summary>
 	[JsonPropertyName("expired_at")]
 	public int? ExpiredAt { get; init; } = default!;

@@ -158,7 +158,7 @@ public enum AccountSubtype
 	/// <summary>
 	/// <para>403(b) retirement savings account for non-profits and schools (US)</para>
 	/// </summary>
-	[EnumMember(Value = "403b")]
+	[EnumMember(Value = "403B")]
 	_403b,
 
 	/// <summary>

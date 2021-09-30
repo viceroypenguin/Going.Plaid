@@ -82,4 +82,10 @@ public enum Products
 	/// </summary>
 	[EnumMember(Value = "standing_orders")]
 	StandingOrders,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "transfer")]
+	Transfer,
 }

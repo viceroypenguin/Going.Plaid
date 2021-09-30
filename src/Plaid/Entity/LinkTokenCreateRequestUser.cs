@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Entity;
+namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>An object specifying information about the end user who will be linking their account.</para>
@@ -24,7 +24,7 @@ public class LinkTokenCreateRequestUser
 	public string PhoneNumber { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The date and time the phone number was verified in ISO 8601 format (<c>YYYY-MM-DDThh:mm:ssZ</c>). This field is optional, but required to enable any <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
+	/// <para>The date and time the phone number was verified in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDThh:mm:ssZ</c>). This field is optional, but required to enable any <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
 	/// <para> Only pass a verification time for a phone number that you have verified. If you have performed verification but don’t have the time, you may supply a signal value of the start of the UNIX epoch.</para>
 	/// <para> Example: <c>2020-01-01T00:00:00Z</c></para>
 	/// </summary>
@@ -38,7 +38,7 @@ public class LinkTokenCreateRequestUser
 	public string EmailAddress { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The date and time the email address was verified in ISO 8601 format (<c>YYYY-MM-DDThh:mm:ssZ</c>). This is an optional field used in the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
+	/// <para>The date and time the email address was verified in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDThh:mm:ssZ</c>). This is an optional field used in the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
 	/// <para> Only pass a verification time for an email address that you have verified. If you have performed verification but don’t have the time, you may supply a signal value of the start of the UNIX epoch.</para>
 	/// <para> Example: <c>2020-01-01T00:00:00Z</c></para>
 	/// </summary>

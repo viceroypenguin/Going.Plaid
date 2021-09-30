@@ -12,7 +12,7 @@ public record ProductStatus
 	public Entity.ProductStatusStatusEnum Status { get; init; } = default!;
 
 	/// <summary>
-	/// <para>ISO 8601 formatted timestamp of the last status change for the institution.</para>
+	/// <para><a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted timestamp of the last status change for the institution.</para>
 	/// </summary>
 	[JsonPropertyName("last_status_change")]
 	public DateTimeOffset LastStatusChange { get; init; } = default!;

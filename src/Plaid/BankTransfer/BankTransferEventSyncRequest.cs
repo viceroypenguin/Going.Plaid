@@ -1,7 +1,7 @@
 namespace Going.Plaid.BankTransfer;
 
 /// <summary>
-/// <para>BankTransferEventSyncRequest defines the request schema for <c>/bank_transfer/event/sync</c></para>
+/// <para>Defines the request schema for <c>/bank_transfer/event/sync</c></para>
 /// </summary>
 public class BankTransferEventSyncRequest : RequestBase
 {

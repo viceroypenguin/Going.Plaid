@@ -5,7 +5,6 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Returns a JSON response containing details on all financial institutions currently supported by Plaid. Because Plaid supports thousands of institutions, results are paginated.</para>
 	/// <para>If there is no overlap between an institution’s enabled products and a client’s enabled products, then the institution will be filtered out from the response. As a result, the number of institutions returned may not match the count specified in the call.</para>
-	/// <para>This data changes frequently. If you store it locally on your system, be sure to update it regularly.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/institutions/#institutionsget" /></remarks>
 	public Task<Institutions.InstitutionsGetResponse> InstitutionsGetAsync(Institutions.InstitutionsGetRequest request) =>

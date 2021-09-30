@@ -18,7 +18,7 @@ public record AssetReport
 	public string ClientReportId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date and time when the Asset Report was created, in ISO 8601 format (e.g. "2018-04-12T03:32:11Z").</para>
+	/// <para>The date and time when the Asset Report was created, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (e.g. "2018-04-12T03:32:11Z").</para>
 	/// </summary>
 	[JsonPropertyName("date_generated")]
 	public DateTimeOffset DateGenerated { get; init; } = default!;

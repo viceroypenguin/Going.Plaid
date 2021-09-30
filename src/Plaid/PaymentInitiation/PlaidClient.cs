@@ -12,6 +12,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientCreateResponse>();
 
 	/// <summary>
+	/// <para>Reverse a previously initiated payment.</para>
+	/// <para>A payment can only be reversed once and will be refunded to the original sender's account.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/api/products/#payment_initiationpaymentreverse" /></remarks>
+	public Task<PaymentInitiation.PaymentInitiationPaymentReverseResponse> PaymentInitiationPaymentReverseAsync(PaymentInitiation.PaymentInitiationPaymentReverseRequest request) =>
+		PostAsync("/payment_initiation/payment/reverse", request)
+			.ParseResponseAsync<PaymentInitiation.PaymentInitiationPaymentReverseResponse>();
+
+	/// <summary>
 	/// <para>Get details about a payment recipient you have previously created.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/products/#payment_initiationrecipientget" /></remarks>

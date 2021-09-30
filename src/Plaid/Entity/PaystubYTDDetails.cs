@@ -9,11 +9,11 @@ public record PaystubYTDDetails
 	/// <para>Year-to-date gross earnings.</para>
 	/// </summary>
 	[JsonPropertyName("gross_earnings")]
-	public decimal GrossEarnings { get; init; } = default!;
+	public decimal? GrossEarnings { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Year-to-date net (take home) earnings.</para>
 	/// </summary>
 	[JsonPropertyName("net_earnings")]
-	public decimal NetEarnings { get; init; } = default!;
+	public decimal? NetEarnings { get; init; } = default!;
 }

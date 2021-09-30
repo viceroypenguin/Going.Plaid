@@ -1,7 +1,7 @@
 namespace Going.Plaid.BankTransfer;
 
 /// <summary>
-/// <para>BankTransferBalanceGetResponse defines the response schema for <c>/bank_transfer/balance/get</c></para>
+/// <para>Defines the response schema for <c>/bank_transfer/balance/get</c></para>
 /// </summary>
 public record BankTransferBalanceGetResponse : ResponseBase
 {

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>An object representing a breakdown of the different income types on the paystub.</para>
 /// </summary>
 public record IncomeBreakdown
 {

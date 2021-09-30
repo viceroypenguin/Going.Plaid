@@ -20,21 +20,21 @@ public class ExternalPaymentScheduleBase
 	public int IntervalExecutionDay { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A date in ISO 8601 format (YYYY-MM-DD). Standing order payments will begin on the first <c>interval_execution_day</c> on or after the <c>start_date</c>.</para>
+	/// <para>A date in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD). Standing order payments will begin on the first <c>interval_execution_day</c> on or after the <c>start_date</c>.</para>
 	/// <para>If the first <c>interval_execution_day</c> on or after the start date is also the same day that <c>/payment_initiation/payment/create</c> was called, the bank *may* make the first payment on that day, but it is not guaranteed to do so.</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]
 	public DateOnly StartDate { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A date in ISO 8601 format (YYYY-MM-DD). Standing order payments will end on the last <c>interval_execution_day</c> on or before the <c>end_date</c>.</para>
+	/// <para>A date in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD). Standing order payments will end on the last <c>interval_execution_day</c> on or before the <c>end_date</c>.</para>
 	/// <para>If the only <c>interval_execution_day</c> between the start date and the end date (inclusive) is also the same day that <c>/payment_initiation/payment/create</c> was called, the bank *may* make a payment on that day, but it is not guaranteed to do so.</para>
 	/// </summary>
 	[JsonPropertyName("end_date")]
 	public DateOnly? EndDate { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The start date sent to the bank after adjusting for holidays or weekends.  Will be provided in ISO 8601 format (YYYY-MM-DD). If the start date did not require adjustment, this field will be <c>null</c>.</para>
+	/// <para>The start date sent to the bank after adjusting for holidays or weekends.  Will be provided in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD). If the start date did not require adjustment, this field will be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("adjusted_start_date")]
 	public DateOnly? AdjustedStartDate { get; set; } = default!;

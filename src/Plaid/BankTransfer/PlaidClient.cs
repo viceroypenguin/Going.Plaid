@@ -51,6 +51,22 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<BankTransfer.BankTransferEventSyncResponse>();
 
 	/// <summary>
+	/// <para>The <c>/bank_transfer/sweep/get</c> endpoint fetches information about the sweep corresponding to the given <c>sweep_id</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/api/products#bank_transfersweepget" /></remarks>
+	public Task<BankTransfer.BankTransferSweepGetResponse> BankTransferSweepGetAsync(BankTransfer.BankTransferSweepGetRequest request) =>
+		PostAsync("/bank_transfer/sweep/get", request)
+			.ParseResponseAsync<BankTransfer.BankTransferSweepGetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/bank_transfer/sweep/list</c> endpoint fetches information about the sweeps matching the given filters.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/api/products#bank_transfersweeplist" /></remarks>
+	public Task<BankTransfer.BankTransferSweepListResponse> BankTransferSweepListAsync(BankTransfer.BankTransferSweepListRequest request) =>
+		PostAsync("/bank_transfer/sweep/list", request)
+			.ParseResponseAsync<BankTransfer.BankTransferSweepListResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/bank_transfer/balance/get</c> endpoint to see the available balance in your bank transfer account. Debit transfers increase this balance once their status is posted. Credit transfers decrease this balance when they are created.</para>
 	/// <para>The transactable balance shows the amount in your account that you are able to use for transfers, and is essentially your available balance minus your minimum balance.</para>
 	/// <para>Note that this endpoint can only be used with FBO accounts, when using Bank Transfers in the Full Service configuration. It cannot be used on your own account when using Bank Transfers in the BTS Platform configuration.</para>

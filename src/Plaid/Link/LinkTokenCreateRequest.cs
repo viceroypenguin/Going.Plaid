@@ -19,7 +19,7 @@ public class LinkTokenCreateRequest : RequestBase
 	public Entity.Language Language { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown.  Supported country codes are: <c>US</c>, <c>CA</c>, <c>ES</c>, <c>FR</c>, <c>GB</c>, <c>IE</c>, <c>NL</c>. Example value: <c>['US', 'CA']</c>.</para>
+	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown.  Supported country codes are: <c>US</c>, <c>CA</c>, <c>ES</c>, <c>FR</c>, <c>GB</c>, <c>IE</c>, <c>NL</c>.</para>
 	/// <para>If Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. Note that while all countries are enabled by default in Sandbox and Development, in Production only US and Canada are enabled by default. To gain access to European institutions in the Production environment, <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access">file a product access Support ticket</a> via the Plaid dashboard. If you initialize with a European country code, your users will see the European consent panel during the Link flow.</para>
 	/// <para>If using a Link customization, make sure the country codes in the customization match those specified in <c>country_codes</c>. If both <c>country_codes</c> and a Link customization are used, the value in <c>country_codes</c> may override the value in the customization.</para>
 	/// <para>If using the Auth features Instant Match, Same-day Micro-deposits, or Automated Micro-deposits, <c>country_codes</c> must be set to <c>['US']</c>.</para>
@@ -35,8 +35,7 @@ public class LinkTokenCreateRequest : RequestBase
 
 	/// <summary>
 	/// <para>List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted; required otherwise. Valid products are:</para>
-	/// <para><c>transactions</c>, <c>auth</c>, <c>identity</c>, <c>assets</c>, <c>investments</c>, <c>liabilities</c>, <c>payment_initiation</c>, <c>deposit_switch</c>, <c>income_verification</c></para>
-	/// <para>Example: <c>['auth', 'transactions']</c></para>
+	/// <para><c>transactions</c>, <c>auth</c>, <c>identity</c>, <c>assets</c>, <c>investments</c>, <c>liabilities</c>, <c>payment_initiation</c>, <c>deposit_switch</c>, <c>income_verification</c>, <c>transfer</c></para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initalization and will automatically be initialized when any other product is initialized.</para>
 	/// <para>Only institutions that support *all* requested products will be shown in Link; to maximize the number of institutions listed, it is recommended to initialize Link with the minimal product set required for your use case. Additional products can be added after Link initialization by calling the relevant endpoints. For details and exceptions, see <a href="https://plaid.com/docs/link/best-practices/#choosing-when-to-initialize-products">Choosing when to initialize products</a>.</para>
 	/// <para>Note that, unless you have opted to disable Instant Match support, institutions that support Instant Match will also be shown in Link if <c>auth</c> is specified as a product, even though these institutions do not contain <c>auth</c> in their product array.</para>
@@ -111,4 +110,10 @@ public class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("auth")]
 	public Entity.LinkTokenCreateRequestAuth Auth { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifies options for initializing Link for <a href="https://plaid.com/docs/link/update-mode">update mode</a>.</para>
+	/// </summary>
+	[JsonPropertyName("update")]
+	public Entity.LinkTokenCreateRequestUpdate Update { get; set; } = default!;
 }

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record ItemStatusLastWebhook
 {
 	/// <summary>
-	/// <para>ISO 8601 timestamp of when the webhook was fired.</para>
+	/// <para><a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> timestamp of when the webhook was fired.</para>
 	/// </summary>
 	[JsonPropertyName("sent_at")]
 	public DateTimeOffset? SentAt { get; init; } = default!;

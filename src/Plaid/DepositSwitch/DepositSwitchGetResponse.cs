@@ -84,13 +84,13 @@ public record DepositSwitchGetResponse : ResponseBase
 	public string? InstitutionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>ISO8601 date the deposit switch was created.</para>
+	/// <para><a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> date the deposit switch was created.</para>
 	/// </summary>
 	[JsonPropertyName("date_created")]
 	public DateOnly DateCreated { get; init; } = default!;
 
 	/// <summary>
-	/// <para>ISO8601 date the deposit switch was completed. Always <c>null</c> if the deposit switch has not been completed.</para>
+	/// <para><a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> date the deposit switch was completed. Always <c>null</c> if the deposit switch has not been completed.</para>
 	/// </summary>
 	[JsonPropertyName("date_completed")]
 	public DateOnly? DateCompleted { get; init; } = default!;

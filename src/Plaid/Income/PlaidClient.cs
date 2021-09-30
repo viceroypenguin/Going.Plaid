@@ -19,6 +19,13 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Income.IncomeVerificationSummaryGetResponse>();
 
 	/// <summary>
+	/// <para>(Deprecated) Retrieve information from a single paystub used for income verification</para>
+	/// </summary>
+	public Task<Income.IncomeVerificationPaystubGetResponse> IncomeVerificationPaystubGetAsync(Income.IncomeVerificationPaystubGetRequest request) =>
+		PostAsync("/income/verification/paystub/get", request)
+			.ParseResponseAsync<Income.IncomeVerificationPaystubGetResponse>();
+
+	/// <summary>
 	/// <para><c>/income/verification/paystubs/get</c> returns the information collected from the paystubs that were used to verify an end user's income. It can be called once the status of the verification has been set to <c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>, as reported by the <c>INCOME: verification_status</c> webhook. Attempting to call the endpoint before verification has been completed will result in an error.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/products/#incomeverificationpaystubsget" /></remarks>
@@ -33,4 +40,19 @@ public sealed partial class PlaidClient
 	public Task<Income.IncomeVerificationRefreshResponse> IncomeVerificationRefreshAsync(Income.IncomeVerificationRefreshRequest request) =>
 		PostAsync("/income/verification/refresh", request)
 			.ParseResponseAsync<Income.IncomeVerificationRefreshResponse>();
+
+	/// <summary>
+	/// <para><c>/income/verification/taxforms/get</c> returns the information collected from taxforms that were used to verify an end user's. It can be called once the status of the verification has been set to <c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>, as reported by the <c>INCOME: verification_status</c> webhook. Attempting to call the endpoint before verification has been completed will result in an error.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/api/products#incomeverificationtaxformsget" /></remarks>
+	public Task<Income.IncomeVerificationTaxformsGetResponse> IncomeVerificationTaxformsGetAsync(Income.IncomeVerificationTaxformsGetRequest request) =>
+		PostAsync("/income/verification/taxforms/get", request)
+			.ParseResponseAsync<Income.IncomeVerificationTaxformsGetResponse>();
+
+	/// <summary>
+	/// <para><c>/income/verification/precheck</c> returns whether a given user is supportable by the income product</para>
+	/// </summary>
+	public Task<Income.IncomeVerificationPrecheckResponse> IncomeVerificationPrecheckAsync(Income.IncomeVerificationPrecheckRequest request) =>
+		PostAsync("/income/verification/precheck", request)
+			.ParseResponseAsync<Income.IncomeVerificationPrecheckResponse>();
 }

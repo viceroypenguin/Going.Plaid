@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public record HealthIncident
 {
 	/// <summary>
-	/// <para>The start date of the incident, in ISO 8601 format, e.g. <c>"2020-10-30T15:26:48Z"</c>.</para>
+	/// <para>The start date of the incident, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format, e.g. <c>"2020-10-30T15:26:48Z"</c>.</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]
 	public DateTimeOffset StartDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The end date of the incident, in ISO 8601 format, e.g. <c>"2020-10-30T15:26:48Z"</c>.</para>
+	/// <para>The end date of the incident, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format, e.g. <c>"2020-10-30T15:26:48Z"</c>.</para>
 	/// </summary>
 	[JsonPropertyName("end_date")]
 	public DateTimeOffset EndDate { get; init; } = default!;

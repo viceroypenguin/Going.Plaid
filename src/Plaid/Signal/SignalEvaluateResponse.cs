@@ -1,12 +1,12 @@
 namespace Going.Plaid.Signal;
 
 /// <summary>
-/// 
+/// <para>SignalEvaluateResponse defines the response schema for <c>/signal/income/evaluate</c></para>
 /// </summary>
 public record SignalEvaluateResponse : ResponseBase
 {
 	/// <summary>
-	/// 
+	/// <para>Risk scoring details broken down by risk category.</para>
 	/// </summary>
 	[JsonPropertyName("scores")]
 	public Entity.SignalEvaluateScores Scores { get; init; } = default!;

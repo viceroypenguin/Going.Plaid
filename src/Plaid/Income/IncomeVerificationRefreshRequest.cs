@@ -9,5 +9,5 @@ public class IncomeVerificationRefreshRequest : RequestBase
 	/// <para>The ID of the verification.</para>
 	/// </summary>
 	[JsonPropertyName("income_verification_id")]
-	public string IncomeVerificationId { get; set; } = default!;
+	public string? IncomeVerificationId { get; set; } = default!;
 }

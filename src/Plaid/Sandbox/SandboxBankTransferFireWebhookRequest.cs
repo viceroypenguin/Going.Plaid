@@ -1,7 +1,7 @@
 namespace Going.Plaid.Sandbox;
 
 /// <summary>
-/// <para>SandboxBankTransferFireWebhookRequest defines the request schema for <c>/sandbox/bank_transfer/fire_webhook</c></para>
+/// <para>Defines the request schema for <c>/sandbox/bank_transfer/fire_webhook</c></para>
 /// </summary>
 public class SandboxBankTransferFireWebhookRequest : RequestBase
 {

@@ -30,7 +30,7 @@ public record InvestmentTransaction
 	public string? SecurityId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ISO-8601 posting date for the transaction, or transacted date for pending transactions.</para>
+	/// <para>The <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> posting date for the transaction, or transacted date for pending transactions.</para>
 	/// </summary>
 	[JsonPropertyName("date")]
 	public DateOnly Date { get; init; } = default!;
@@ -72,7 +72,7 @@ public record InvestmentTransaction
 	public Entity.InvestmentTransactionTypeEnum Type { get; init; } = default!;
 
 	/// <summary>
-	/// <para>For descriptions of possible transaction subtypes, see [Investment transaction subtypes schema](https://plaid.com/docs/api/accounts/#investment-transaction-subtypes-schema).</para>
+	/// <para>For descriptions of possible transaction types and subtypes, see the [Investment transaction types schema](https://plaid.com/docs/api/accounts/#investment-transaction-types-schema).</para>
 	/// </summary>
 	[JsonPropertyName("subtype")]
 	public Entity.InvestmentTransactionSubtypeEnum Subtype { get; init; } = default!;

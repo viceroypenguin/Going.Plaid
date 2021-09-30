@@ -12,7 +12,7 @@ public record DepositSwitchTokenCreateResponse : ResponseBase
 	public string DepositSwitchToken { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Expiration time of the token, in ISO 8601 format</para>
+	/// <para>Expiration time of the token, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format</para>
 	/// </summary>
 	[JsonPropertyName("deposit_switch_token_expiration_time")]
 	public DateTimeOffset DepositSwitchTokenExpirationTime { get; init; } = default!;

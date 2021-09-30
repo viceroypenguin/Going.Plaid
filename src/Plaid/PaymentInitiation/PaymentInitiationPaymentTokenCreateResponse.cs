@@ -12,7 +12,7 @@ public record PaymentInitiationPaymentTokenCreateResponse : ResponseBase
 	public string PaymentToken { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date and time at which the token will expire, in ISO 8601 format. A <c>payment_token</c> expires after 15 minutes.</para>
+	/// <para>The date and time at which the token will expire, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. A <c>payment_token</c> expires after 15 minutes.</para>
 	/// </summary>
 	[JsonPropertyName("payment_token_expiration_time")]
 	public DateTimeOffset PaymentTokenExpirationTime { get; init; } = default!;

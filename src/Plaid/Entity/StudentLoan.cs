@@ -18,13 +18,13 @@ public record StudentLoan
 	public string? AccountNumber { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The dates on which loaned funds were disbursed or will be disbursed. These are often in the past. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The dates on which loaned funds were disbursed or will be disbursed. These are often in the past. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("disbursement_dates")]
 	public IReadOnlyList<DateOnly>? DisbursementDates { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date when the student loan is expected to be paid off. Availability for this field is limited. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The date when the student loan is expected to be paid off. Availability for this field is limited. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("expected_payoff_date")]
 	public DateOnly? ExpectedPayoffDate { get; init; } = default!;
@@ -54,13 +54,13 @@ public record StudentLoan
 	public decimal? LastPaymentAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date of the last payment. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The date of the last payment. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("last_payment_date")]
 	public DateOnly? LastPaymentDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date of the last statement. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The date of the last statement. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("last_statement_issue_date")]
 	public DateOnly? LastStatementIssueDate { get; init; } = default!;
@@ -86,13 +86,13 @@ public record StudentLoan
 	public decimal? MinimumPaymentAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The due date for the next payment. The due date is <c>null</c> if a payment is not expected. A payment is not expected if <c>loan_status.type</c> is <c>deferment</c>, <c>in_school</c>, <c>consolidated</c>, <c>paid in full</c>, or <c>transferred</c>. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The due date for the next payment. The due date is <c>null</c> if a payment is not expected. A payment is not expected if <c>loan_status.type</c> is <c>deferment</c>, <c>in_school</c>, <c>consolidated</c>, <c>paid in full</c>, or <c>transferred</c>. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("next_payment_due_date")]
 	public DateOnly? NextPaymentDueDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date on which the loan was initially lent. Dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The date on which the loan was initially lent. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("origination_date")]
 	public DateOnly? OriginationDate { get; init; } = default!;

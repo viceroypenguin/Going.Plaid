@@ -1,7 +1,7 @@
 namespace Going.Plaid.Sandbox;
 
 /// <summary>
-/// <para>SandboxBankTransferSimulateRequest defines the request schema for <c>/sandbox/bank_transfer/simulate</c></para>
+/// <para>Defines the request schema for <c>/sandbox/bank_transfer/simulate</c></para>
 /// </summary>
 public class SandboxBankTransferSimulateRequest : RequestBase
 {

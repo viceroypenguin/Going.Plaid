@@ -1,7 +1,7 @@
 namespace Going.Plaid.Signal;
 
 /// <summary>
-/// 
+/// <para>SignalReturnReportRequest defines the request schema for <c>/signal/return/report</c></para>
 /// </summary>
 public class SignalReturnReportRequest : RequestBase
 {

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record PSLFStatus
 {
 	/// <summary>
-	/// <para>The estimated date borrower will have completed 120 qualifying monthly payments. Returned in ISO 8601 format (YYYY-MM-DD).</para>
+	/// <para>The estimated date borrower will have completed 120 qualifying monthly payments. Returned in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("estimated_eligibility_date")]
 	public DateOnly? EstimatedEligibilityDate { get; init; } = default!;
