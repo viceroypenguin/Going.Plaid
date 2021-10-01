@@ -3,7 +3,7 @@ namespace Going.Plaid.Transactions;
 /// <summary>
 /// <para>TransactionsGetRequest defines the request schema for <c>/transactions/get</c></para>
 /// </summary>
-public class TransactionsGetRequest : RequestBase
+public partial class TransactionsGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>An optional object to be used with the request. If specified, <c>options</c> must not be <c>null</c>.</para>

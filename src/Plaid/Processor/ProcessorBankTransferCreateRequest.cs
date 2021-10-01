@@ -3,7 +3,7 @@ namespace Going.Plaid.Processor;
 /// <summary>
 /// <para>Defines the request schema for <c>/processor/bank_transfer/create</c></para>
 /// </summary>
-public class ProcessorBankTransferCreateRequest : RequestBase
+public partial class ProcessorBankTransferCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>A random key provided by the client, per unique bank transfer. Maximum of 50 characters.</para>

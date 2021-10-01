@@ -3,7 +3,7 @@ namespace Going.Plaid.Sandbox;
 /// <summary>
 /// <para>SandboxPublicTokenCreateRequest defines the request schema for <c>/sandbox/public_token/create</c></para>
 /// </summary>
-public class SandboxPublicTokenCreateRequest : RequestBase
+public partial class SandboxPublicTokenCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The ID of the institution the Item will be associated with</para>

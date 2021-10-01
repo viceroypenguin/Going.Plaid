@@ -3,7 +3,7 @@ namespace Going.Plaid.BankTransfer;
 /// <summary>
 /// <para>Defines the request schema for <c>/bank_transfer/get</c></para>
 /// </summary>
-public class BankTransferGetRequest : RequestBase
+public partial class BankTransferGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a bank transfer.</para>

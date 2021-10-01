@@ -3,7 +3,7 @@ namespace Going.Plaid.Processor;
 /// <summary>
 /// <para>ProcessorTokenCreateRequest defines the request schema for <c>/processor/token/create</c></para>
 /// </summary>
-public class ProcessorTokenCreateRequest : RequestBase
+public partial class ProcessorTokenCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The <c>account_id</c> value obtained from the <c>onSuccess</c> callback in Link</para>

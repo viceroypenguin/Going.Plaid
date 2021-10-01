@@ -3,7 +3,7 @@ namespace Going.Plaid.AssetReport;
 /// <summary>
 /// <para>AssetReportCreateRequest defines the request schema for <c>/asset_report/create</c></para>
 /// </summary>
-public class AssetReportCreateRequest : RequestBase
+public partial class AssetReportCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>An array of access tokens corresponding to the Items that will be included in the report. The <c>assets</c> product must have been initialized for the Items during link; the Assets product cannot be added after initialization.</para>

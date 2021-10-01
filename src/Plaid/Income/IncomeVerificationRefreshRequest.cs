@@ -3,7 +3,7 @@ namespace Going.Plaid.Income;
 /// <summary>
 /// <para>IncomeVerificationRefreshRequest defines the request schema for <c>/income/verification/refresh</c></para>
 /// </summary>
-public class IncomeVerificationRefreshRequest : RequestBase
+public partial class IncomeVerificationRefreshRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The ID of the verification.</para>

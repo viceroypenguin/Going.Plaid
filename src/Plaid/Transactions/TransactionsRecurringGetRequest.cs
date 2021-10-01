@@ -3,7 +3,7 @@ namespace Going.Plaid.Transactions;
 /// <summary>
 /// <para>TransactionsRecurringGetRequest defines the request schema for <c>/transactions/recurring/get</c></para>
 /// </summary>
-public class TransactionsRecurringGetRequest : RequestBase
+public partial class TransactionsRecurringGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>A list of <c>account_ids</c> to retrieve for the Item</para>

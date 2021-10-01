@@ -3,7 +3,7 @@ namespace Going.Plaid.Transfer;
 /// <summary>
 /// <para>Defines the request schema for <c>/transfer/authorization/create</c></para>
 /// </summary>
-public class TransferAuthorizationCreateRequest : RequestBase
+public partial class TransferAuthorizationCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited.</para>

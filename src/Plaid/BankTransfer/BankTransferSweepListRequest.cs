@@ -3,7 +3,7 @@ namespace Going.Plaid.BankTransfer;
 /// <summary>
 /// <para>BankTransferSweepListRequest defines the request schema for <c>/bank_transfer/sweep/list</c></para>
 /// </summary>
-public class BankTransferSweepListRequest : RequestBase
+public partial class BankTransferSweepListRequest : RequestBase
 {
 	/// <summary>
 	/// <para>If multiple origination accounts are available, <c>origination_account_id</c> must be used to specify the account that the sweeps belong to.</para>

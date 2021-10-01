@@ -3,7 +3,7 @@ namespace Going.Plaid.Sandbox;
 /// <summary>
 /// <para>SandboxItemSetVerificationStatusRequest defines the request schema for <c>/sandbox/item/set_verification_status</c></para>
 /// </summary>
-public class SandboxItemSetVerificationStatusRequest : RequestBase
+public partial class SandboxItemSetVerificationStatusRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The <c>account_id</c> of the account whose verification status is to be modified</para>

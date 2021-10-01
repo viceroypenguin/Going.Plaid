@@ -3,7 +3,7 @@ namespace Going.Plaid.Income;
 /// <summary>
 /// <para>IncomeVerificationPrecheckRequest defines the request schema for <c>/income/verification/precheck</c></para>
 /// </summary>
-public class IncomeVerificationPrecheckRequest : RequestBase
+public partial class IncomeVerificationPrecheckRequest : RequestBase
 {
 	/// <summary>
 	/// 

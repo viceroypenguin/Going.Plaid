@@ -3,7 +3,7 @@ namespace Going.Plaid.DepositSwitch;
 /// <summary>
 /// <para>DepositSwitchCreateRequest defines the request schema for <c>/deposit_switch/create</c></para>
 /// </summary>
-public class DepositSwitchCreateRequest : RequestBase
+public partial class DepositSwitchCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Access token for the target Item, typically provided in the Import Item response.</para>

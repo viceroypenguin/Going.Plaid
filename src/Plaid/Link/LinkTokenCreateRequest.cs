@@ -1,9 +1,9 @@
-namespace Going.Plaid.Link;
+﻿namespace Going.Plaid.Link;
 
 /// <summary>
 /// <para>LinkTokenCreateRequest defines the request schema for <c>/link/token/create</c></para>
 /// </summary>
-public class LinkTokenCreateRequest : RequestBase
+public partial class LinkTokenCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The name of your application, as it should be displayed in Link. Maximum length of 30 characters.</para>
@@ -16,7 +16,7 @@ public class LinkTokenCreateRequest : RequestBase
 	/// <para>When using a Link customization, the language configured here must match the setting in the customization, or the customization will not be applied.</para>
 	/// </summary>
 	[JsonPropertyName("language")]
-	public Entity.Language Language { get; set; } = default!;
+	public Language Language { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown.  Supported country codes are: <c>US</c>, <c>CA</c>, <c>ES</c>, <c>FR</c>, <c>GB</c>, <c>IE</c>, <c>NL</c>.</para>

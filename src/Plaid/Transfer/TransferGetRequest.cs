@@ -3,7 +3,7 @@ namespace Going.Plaid.Transfer;
 /// <summary>
 /// <para>Defines the request schema for <c>/transfer/get</c></para>
 /// </summary>
-public class TransferGetRequest : RequestBase
+public partial class TransferGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a transfer.</para>

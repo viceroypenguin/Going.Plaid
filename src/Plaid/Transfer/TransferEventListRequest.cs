@@ -3,7 +3,7 @@ namespace Going.Plaid.Transfer;
 /// <summary>
 /// <para>Defines the request schema for <c>/transfer/event/list</c></para>
 /// </summary>
-public class TransferEventListRequest : RequestBase
+public partial class TransferEventListRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The start datetime of transfers to list. This should be in RFC 3339 format (i.e. <c>2019-12-06T22:35:49Z</c>)</para>

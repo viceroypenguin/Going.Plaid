@@ -3,7 +3,7 @@ namespace Going.Plaid.Institutions;
 /// <summary>
 /// <para>InstitutionsGetRequest defines the request schema for <c>/institutions/get</c></para>
 /// </summary>
-public class InstitutionsGetRequest : RequestBase
+public partial class InstitutionsGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The total number of Institutions to return.</para>

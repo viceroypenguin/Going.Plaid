@@ -3,7 +3,7 @@ namespace Going.Plaid.BankTransfer;
 /// <summary>
 /// <para>Defines the request schema for <c>/bank_transfer/balance/get</c></para>
 /// </summary>
-public class BankTransferBalanceGetRequest : RequestBase
+public partial class BankTransferBalanceGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>If multiple origination accounts are available, <c>origination_account_id</c> must be used to specify the account for which balance will be returned.</para>

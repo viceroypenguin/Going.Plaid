@@ -3,7 +3,7 @@ namespace Going.Plaid.Sandbox;
 /// <summary>
 /// 
 /// </summary>
-public class SandboxProcessorTokenCreateRequest : RequestBase
+public partial class SandboxProcessorTokenCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The ID of the institution the Item will be associated with</para>

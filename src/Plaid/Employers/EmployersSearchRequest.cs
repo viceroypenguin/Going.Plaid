@@ -3,7 +3,7 @@ namespace Going.Plaid.Employers;
 /// <summary>
 /// <para>EmployersSearchRequest defines the request schema for <c>/employers/search</c>.</para>
 /// </summary>
-public class EmployersSearchRequest : RequestBase
+public partial class EmployersSearchRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The employer name to be searched for.</para>

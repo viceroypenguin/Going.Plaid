@@ -3,7 +3,7 @@ namespace Going.Plaid.Sandbox;
 /// <summary>
 /// <para>Defines the request schema for <c>/sandbox/bank_transfer/simulate</c></para>
 /// </summary>
-public class SandboxBankTransferSimulateRequest : RequestBase
+public partial class SandboxBankTransferSimulateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a bank transfer.</para>

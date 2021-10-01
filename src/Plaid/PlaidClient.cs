@@ -61,15 +61,15 @@ public sealed partial class PlaidClient
 		};
 		_baseUrl = new Uri($"https://{subDomain}.plaid.com/");
 
-		_secret = string.IsNullOrWhiteSpace(secret) ? null : secret;
-		_clientId = string.IsNullOrWhiteSpace(clientId) ? null : clientId;
-		_accessToken = string.IsNullOrWhiteSpace(accessToken) ? null : accessToken;
-		_environment = environment;
 		_apiVersion = apiVersion switch
 		{
 			ApiVersion.v20200914 => "2020-09-14",
 			_ => throw new ArgumentOutOfRangeException(nameof(ApiVersion), "Invalid API version provided."),
 		};
+		_environment = environment;
+		_secret = secret;
+		_clientId = clientId;
+		AccessToken = string.IsNullOrWhiteSpace(accessToken) ? null : accessToken;
 
 		if (httpClientFactory == null)
 		{
@@ -86,7 +86,7 @@ public sealed partial class PlaidClient
 
 	private readonly Uri _baseUrl;
 	private readonly string _apiVersion;
-	private readonly string? _clientId, _secret, _accessToken;
+	private readonly string? _clientId, _secret;
 	private readonly Environment _environment;
 	private readonly IHttpClientFactory _clientFactory;
 	private readonly IServiceProvider? _serviceProvider;
@@ -106,6 +106,11 @@ public sealed partial class PlaidClient
 		.AddPlaidConverters();
 
 	/// <summary>
+	/// The access token used for all API calls.
+	/// </summary>
+	public string? AccessToken { get; set; }
+
+	/// <summary>
 	/// Debug option to include the raw json in the returned DTO
 	/// </summary>
 	public bool ShowRawJson { get; set; } = false;
@@ -115,7 +120,7 @@ public sealed partial class PlaidClient
 
 	private ResponseParser PostAsync<TRequest>(string path, TRequest request) where TRequest : RequestBase
 	{
-		request.SetCredentials(_secret, _clientId, _accessToken);
+		request.SetCredentials(_secret, _clientId, AccessToken);
 
 		var client = _clientFactory.CreateClient("PlaidClient");
 		var url = new Uri(_baseUrl, path);

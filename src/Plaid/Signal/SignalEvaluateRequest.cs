@@ -3,7 +3,7 @@ namespace Going.Plaid.Signal;
 /// <summary>
 /// <para>SignalEvaluateRequest defines the request schema for <c>/signal/evaluate</c></para>
 /// </summary>
-public class SignalEvaluateRequest : RequestBase
+public partial class SignalEvaluateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The <c>account_id</c> of the account whose verification status is to be modified</para>

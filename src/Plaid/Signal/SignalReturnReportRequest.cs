@@ -3,7 +3,7 @@ namespace Going.Plaid.Signal;
 /// <summary>
 /// <para>SignalReturnReportRequest defines the request schema for <c>/signal/return/report</c></para>
 /// </summary>
-public class SignalReturnReportRequest : RequestBase
+public partial class SignalReturnReportRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Must be the same as the <c>client_transaction_id</c> supplied when calling <c>/signal/evaluate</c></para>

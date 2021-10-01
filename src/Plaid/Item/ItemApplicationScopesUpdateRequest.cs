@@ -3,7 +3,7 @@ namespace Going.Plaid.Item;
 /// <summary>
 /// <para>ItemApplicationScopesUpdateRequest defines the request schema for <c>/item/application/scopes/update</c></para>
 /// </summary>
-public class ItemApplicationScopesUpdateRequest : RequestBase
+public partial class ItemApplicationScopesUpdateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>This field will map to the application ID that is returned from /item/applications/list, or provided to the institution in an oauth redirect.</para>

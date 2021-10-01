@@ -3,7 +3,7 @@ namespace Going.Plaid.Income;
 /// <summary>
 /// <para>IncomeVerificationPaystubsGetRequest defines the request schema for <c>/income/verification/paystubs/get</c>.</para>
 /// </summary>
-public class IncomeVerificationPaystubsGetRequest : RequestBase
+public partial class IncomeVerificationPaystubsGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The ID of the verification for which to get paystub information.</para>

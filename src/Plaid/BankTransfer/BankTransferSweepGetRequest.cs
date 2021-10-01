@@ -3,7 +3,7 @@ namespace Going.Plaid.BankTransfer;
 /// <summary>
 /// <para>BankTransferSweepGetRequest defines the request schema for <c>/bank_transfer/sweep/get</c></para>
 /// </summary>
-public class BankTransferSweepGetRequest : RequestBase
+public partial class BankTransferSweepGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Identifier of the sweep.</para>

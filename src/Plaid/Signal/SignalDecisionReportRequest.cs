@@ -3,7 +3,7 @@ namespace Going.Plaid.Signal;
 /// <summary>
 /// <para>SignalDecisionReportRequest defines the request schema for <c>/signal/decision/report</c></para>
 /// </summary>
-public class SignalDecisionReportRequest : RequestBase
+public partial class SignalDecisionReportRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Must be the same as the <c>client_transaction_id</c> supplied when calling <c>/signal/evaluate</c></para>

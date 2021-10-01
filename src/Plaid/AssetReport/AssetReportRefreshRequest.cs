@@ -3,7 +3,7 @@ namespace Going.Plaid.AssetReport;
 /// <summary>
 /// <para>AssetReportRefreshRequest defines the request schema for <c>/asset_report/refresh</c></para>
 /// </summary>
-public class AssetReportRefreshRequest : RequestBase
+public partial class AssetReportRefreshRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The <c>asset_report_token</c> returned by the original call to <c>/asset_report/create</c></para>

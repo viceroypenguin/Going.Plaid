@@ -3,7 +3,7 @@ namespace Going.Plaid.Sandbox;
 /// <summary>
 /// <para>Defines the request schema for <c>/sandbox/transfer/simulate</c></para>
 /// </summary>
-public class SandboxTransferSimulateRequest : RequestBase
+public partial class SandboxTransferSimulateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a transfer.</para>

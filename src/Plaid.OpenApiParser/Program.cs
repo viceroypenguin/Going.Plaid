@@ -477,7 +477,7 @@ public sealed partial class PlaidClient
 /// <summary>
 {FormatDescription(i.Description, 0)}
 /// </summary>
-public class {i.Name}{basePath}
+public {(i.Name.EndsWith("Request") ? "partial class" : "class")} {i.Name}{basePath}
 {{{string.Join(Environment.NewLine, properties)}
 }}";
 

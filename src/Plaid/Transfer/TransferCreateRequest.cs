@@ -3,7 +3,7 @@ namespace Going.Plaid.Transfer;
 /// <summary>
 /// <para>Defines the request schema for <c>/transfer/create</c></para>
 /// </summary>
-public class TransferCreateRequest : RequestBase
+public partial class TransferCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>A random key provided by the client, per unique transfer. Maximum of 50 characters.</para>

@@ -3,7 +3,7 @@ namespace Going.Plaid.BankTransfer;
 /// <summary>
 /// <para>Defines the request schema for <c>/bank_transfer/event/list</c></para>
 /// </summary>
-public class BankTransferEventListRequest : RequestBase
+public partial class BankTransferEventListRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The start datetime of bank transfers to list. This should be in RFC 3339 format (i.e. <c>2019-12-06T22:35:49Z</c>)</para>

@@ -3,7 +3,7 @@ namespace Going.Plaid.Sandbox;
 /// <summary>
 /// <para>SandboxItemFireWebhookRequest defines the request schema for <c>/sandbox/item/fire_webhook</c></para>
 /// </summary>
-public class SandboxItemFireWebhookRequest : RequestBase
+public partial class SandboxItemFireWebhookRequest : RequestBase
 {
 	/// <summary>
 	/// 

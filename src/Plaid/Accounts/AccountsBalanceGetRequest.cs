@@ -3,7 +3,7 @@ namespace Going.Plaid.Accounts;
 /// <summary>
 /// <para>AccountsBalanceGetRequest defines the request schema for <c>/accounts/balance/get</c></para>
 /// </summary>
-public class AccountsBalanceGetRequest : RequestBase
+public partial class AccountsBalanceGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>An optional object to filter <c>/accounts/balance/get</c> results.</para>

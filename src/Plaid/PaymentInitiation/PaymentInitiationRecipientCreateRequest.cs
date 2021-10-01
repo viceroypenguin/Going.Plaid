@@ -3,7 +3,7 @@ namespace Going.Plaid.PaymentInitiation;
 /// <summary>
 /// <para>PaymentInitiationRecipientCreateRequest defines the request schema for <c>/payment_initiation/recipient/create</c></para>
 /// </summary>
-public class PaymentInitiationRecipientCreateRequest : RequestBase
+public partial class PaymentInitiationRecipientCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The name of the recipient</para>

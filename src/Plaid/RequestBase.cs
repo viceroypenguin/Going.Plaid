@@ -36,19 +36,24 @@ public abstract class RequestBase
 	public bool? ShowRawJson { get; set; }
 
 	/// <summary>
+	/// Indicates whether to include the AccessToken on an API call.
+	/// </summary>
+	protected internal virtual bool IncludeAccessToken => true;
+
+	/// <summary>
 	/// Updates the credential values if they have
 	/// not already been provided.
 	/// </summary>
 	/// <param name="secret"></param>
 	/// <param name="clientId"></param>
 	/// <param name="accessToken"></param>
-	public virtual void SetCredentials(
+	internal void SetCredentials(
 		string? secret,
 		string? clientId,
 		string? accessToken)
 	{
 		if (string.IsNullOrWhiteSpace(Secret)) Secret = secret;
 		if (string.IsNullOrWhiteSpace(ClientId)) ClientId = clientId;
-		if (string.IsNullOrWhiteSpace(AccessToken)) AccessToken = accessToken;
+		if (IncludeAccessToken && string.IsNullOrWhiteSpace(AccessToken)) AccessToken = accessToken;
 	}
 }

@@ -3,7 +3,7 @@ namespace Going.Plaid.DepositSwitch;
 /// <summary>
 /// <para>DepositSwitchAltCreateRequest defines the request schema for <c>/deposit_switch/alt/create</c></para>
 /// </summary>
-public class DepositSwitchAltCreateRequest : RequestBase
+public partial class DepositSwitchAltCreateRequest : RequestBase
 {
 	/// <summary>
 	/// 

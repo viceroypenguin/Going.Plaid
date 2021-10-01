@@ -3,7 +3,7 @@ namespace Going.Plaid.PaymentInitiation;
 /// <summary>
 /// <para>PaymentInitiationPaymentListRequest defines the request schema for <c>/payment_initiation/payment/list</c></para>
 /// </summary>
-public class PaymentInitiationPaymentListRequest : RequestBase
+public partial class PaymentInitiationPaymentListRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The maximum number of payments to return. If <c>count</c> is not specified, a maximum of 10 payments will be returned, beginning with the most recent payment before the cursor (if specified).</para>

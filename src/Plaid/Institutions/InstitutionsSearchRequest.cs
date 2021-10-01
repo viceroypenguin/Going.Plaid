@@ -3,7 +3,7 @@ namespace Going.Plaid.Institutions;
 /// <summary>
 /// <para>InstitutionsSearchRequest defines the request schema for <c>/institutions/search</c></para>
 /// </summary>
-public class InstitutionsSearchRequest : RequestBase
+public partial class InstitutionsSearchRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The search query. Institutions with names matching the query are returned</para>

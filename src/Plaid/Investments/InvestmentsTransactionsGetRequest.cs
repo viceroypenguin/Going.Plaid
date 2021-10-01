@@ -3,7 +3,7 @@ namespace Going.Plaid.Investments;
 /// <summary>
 /// <para>InvestmentsTransactionsGetRequest defines the request schema for <c>/investments/transactions/get</c></para>
 /// </summary>
-public class InvestmentsTransactionsGetRequest : RequestBase
+public partial class InvestmentsTransactionsGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The earliest date for which to fetch transaction history. Dates should be formatted as YYYY-MM-DD.</para>

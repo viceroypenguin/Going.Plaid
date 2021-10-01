@@ -3,7 +3,7 @@ namespace Going.Plaid.BankTransfer;
 /// <summary>
 /// <para>Defines the request schema for <c>/bank_transfer/create</c></para>
 /// </summary>
-public class BankTransferCreateRequest : RequestBase
+public partial class BankTransferCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>A random key provided by the client, per unique bank transfer. Maximum of 50 characters.</para>

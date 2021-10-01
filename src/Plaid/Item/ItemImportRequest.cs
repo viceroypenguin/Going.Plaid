@@ -3,7 +3,7 @@ namespace Going.Plaid.Item;
 /// <summary>
 /// <para>ItemImportRequest defines the request schema for <c>/item/import</c></para>
 /// </summary>
-public class ItemImportRequest : RequestBase
+public partial class ItemImportRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Array of product strings</para>

@@ -3,7 +3,7 @@ namespace Going.Plaid.PaymentInitiation;
 /// <summary>
 /// <para>PaymentInitiationPaymentReverseRequest defines the request schema for <c>/payment_initiation/payment/reverse</c></para>
 /// </summary>
-public class PaymentInitiationPaymentReverseRequest : RequestBase
+public partial class PaymentInitiationPaymentReverseRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The ID of the payment to reverse</para>
