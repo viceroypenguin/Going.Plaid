@@ -55,8 +55,6 @@ namespace Going.Plaid.Tests
 					InstitutionId = "ins_3",
 					InitialProducts = new[]
 					{
-						Products.Identity,
-						Products.Income,
 						Products.Investments,
 						Products.Transactions,
 					},
