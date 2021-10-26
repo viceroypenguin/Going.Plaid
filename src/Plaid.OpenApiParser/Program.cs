@@ -513,11 +513,11 @@ public record {i.Name}{basePath}
 		File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), body);
 	}
 
-	private static readonly Property unknownProperty = new("unknown", string.Empty, "Unknown", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.");
+	private static readonly Property unknownProperty = new("undefined", string.Empty, "Undefined", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.");
 	private static void SaveEnum(string plaidSrcPath, SchemaEntity i)
 	{
 		IEnumerable<Property> list = i.Properties ?? Array.Empty<Property>();
-		if (!list.Any(p => p.Name == "Unknown"))
+		if (!list.Any(p => p.Name == "Undefined"))
 			list = list.Append(unknownProperty);
 		var properties = list
 			.Select(p => $@"
