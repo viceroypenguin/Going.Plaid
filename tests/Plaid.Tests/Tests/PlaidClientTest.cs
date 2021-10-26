@@ -75,12 +75,14 @@ namespace Going.Plaid.Tests
 	[UsesVerify]
 	public class PlaidClientTest : IClassFixture<PlaidFixture>
 	{
-		private readonly PlaidFixture _fixture;
-
-		public PlaidClientTest(PlaidFixture fixture)
+		private static readonly VerifySettings settings = BuildVerifierSettings();
+		private static VerifySettings BuildVerifierSettings()
 		{
+			VerifierSettings.UseStrictJson();
 			VerifierSettings.DisableClipboard();
-			VerifierSettings.ModifySerialization(s =>
+
+			var settings = new VerifySettings();
+			settings.ModifySerialization(s =>
 			{
 				s.IgnoreMember("RequestId");
 				s.IgnoreMember("AccountId");
@@ -89,27 +91,37 @@ namespace Going.Plaid.Tests
 				s.IgnoreMember("InvestmentTransactionId");
 				s.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
 			});
-			VerifierSettings.UseStrictJson();
+			return settings;
+		}
+
+		private readonly PlaidFixture _fixture;
+
+		public PlaidClientTest(PlaidFixture fixture)
+		{
 			_fixture = fixture;
 		}
 
 		[Fact]
 		public Task FetchItemAsync() =>
-			Verify(_fixture.PlaidClient.ItemGetAsync(new()));
+			Verify(_fixture.PlaidClient.ItemGetAsync(new()), settings);
 
 		[Fact]
 		public async Task FetchTransactionsAsync()
 		{
 			await _fixture.PlaidClient.TransactionsRefreshAsync(new());
-			await Verify(_fixture.PlaidClient.TransactionsGetAsync(new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }));
+			await Verify(_fixture.PlaidClient.TransactionsGetAsync(
+				new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }),
+				settings);
 		}
 
 		[Fact]
 		public Task FetchInvestmentTransactionsAsync() =>
-			Verify(_fixture.PlaidClient.InvestmentsTransactionsGetAsync(new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }));
+			Verify(_fixture.PlaidClient.InvestmentsTransactionsGetAsync(
+				new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }),
+				settings);
 
 		[Fact]
 		public Task FetchInvestmentHoldingsAsync() =>
-			Verify(_fixture.PlaidClient.InvestmentsHoldingsGetAsync(new()));
+			Verify(_fixture.PlaidClient.InvestmentsHoldingsGetAsync(new()), settings);
 	}
 }
