@@ -47,7 +47,7 @@ public record Transaction : Entity.TransactionBase
 	/// <para>An identifier classifying the transaction type.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_code")]
-	public Entity.transaction_code? TransactionCode { get; init; } = default!;
+	public Entity.TransactionCode? TransactionCode { get; init; } = default!;
 
 	/// <summary>
 	/// 

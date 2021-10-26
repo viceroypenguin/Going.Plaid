@@ -56,6 +56,7 @@ static class Program
 		["NumbersEFT"] = "NumbersEft",
 		["NumbersBACS"] = "NumbersBacs",
 		["Transaction Location"] = "Location",
+		["transaction_code"] = "TransactionCode",
 		["Error"] = "PlaidException",
 		["YTDGrossIncomeSummaryFieldNumber"] = "YtdGrossIncomeSummaryFieldNumber",
 		["YTDNetIncomeSummaryFieldNumber"] = "YtdNetIncomeSummaryFieldNumber",
@@ -514,13 +515,14 @@ public record {i.Name}{basePath}
 
 	private static void SaveEnum(string plaidSrcPath, SchemaEntity i)
 	{
-		var properties = i.Properties?.Select(p => $@"
+		var properties = (i.Properties ?? Array.Empty<Property>())
+			.Append(new("unknown", string.Empty, "Unknown", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library."))
+			.Select(p => $@"
 	/// <summary>
 {FormatDescription(p.Description ?? string.Empty, 1)}
 	/// </summary>
 	[EnumMember(Value = ""{p.JsonName}"")]
-	{p.Name},")
-			?? Array.Empty<string>();
+	{p.Name},");
 		var body = $@"namespace Going.Plaid.{i.BasePath};
 
 /// <summary>

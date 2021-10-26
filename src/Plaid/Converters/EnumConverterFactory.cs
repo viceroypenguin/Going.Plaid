@@ -65,8 +65,8 @@ public class EnumConverterFactory : JsonConverterFactory
 					return (T)value.GetRawConstantValue()!;
 			}
 
-			// we don't actually expect to get here.
-			throw new InvalidOperationException($"Unexpected token {enumText} when parsing enum.");
+			// Plaid may return new/unknown values on parse. Don't crash at least...
+			return Enum.Parse<T>("Unknown");
 		}
 
 		public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options) =>

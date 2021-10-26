@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>An identifier classifying the transaction type.</para>
 /// </summary>
-public enum transaction_code
+public enum TransactionCode
 {
 	/// <summary>
 	/// <para>Bank adjustment</para>
@@ -76,4 +76,10 @@ public enum transaction_code
 	/// </summary>
 	[EnumMember(Value = "transfer")]
 	Transfer,
+
+	/// <summary>
+	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
+	/// </summary>
+	[EnumMember(Value = "unknown")]
+	Unknown,
 }
