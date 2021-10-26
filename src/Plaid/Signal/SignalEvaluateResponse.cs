@@ -12,7 +12,7 @@ public record SignalEvaluateResponse : ResponseBase
 	public Entity.SignalEvaluateScores Scores { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The core attributes object contains additional data that can be used to assess the ACH return risk, such as past ACH return events, balance/transaction history, the Item’s connection history in the Plaid network, and identity change history.</para>
+	/// <para>The core attributes object contains additional data that can be used to assess the ACH return risk. For detailed documentation of core attributes available, or to request that core attributes not be returned, contact Sales or your Plaid account manager.</para>
 	/// </summary>
 	[JsonPropertyName("core_attributes")]
 	public Entity.SignalEvaluateCoreAttributes CoreAttributes { get; init; } = default!;

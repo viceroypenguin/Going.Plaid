@@ -24,16 +24,16 @@ public record Paystub
 	public Entity.Earnings Earnings { get; init; } = default!;
 
 	/// <summary>
-	/// 
-	/// </summary>
-	[JsonPropertyName("employer")]
-	public Entity.Employer Employer { get; init; } = default!;
-
-	/// <summary>
 	/// <para>Data about the employee.</para>
 	/// </summary>
 	[JsonPropertyName("employee")]
 	public Entity.Employee Employee { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("employer")]
+	public Entity.Employer Employer { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object representing employment details found on a paystub.</para>
@@ -70,4 +70,10 @@ public record Paystub
 	/// </summary>
 	[JsonPropertyName("ytd_earnings")]
 	public Entity.PaystubYTDDetails YtdEarnings { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An object containing information for whether or not the uploaded paystub is fradulent</para>
+	/// </summary>
+	[JsonPropertyName("verification")]
+	public Entity.PaystubFraudVerification? Verification { get; init; } = default!;
 }

@@ -8,6 +8,12 @@ public record IncomeVerificationPaystubsGetResponse : ResponseBase
 	/// <summary>
 	/// 
 	/// </summary>
+	[JsonPropertyName("document_metadata")]
+	public IReadOnlyList<Entity.DocumentMetadata> DocumentMetadata { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[JsonPropertyName("paystubs")]
 	public IReadOnlyList<Entity.Paystub> Paystubs { get; init; } = default!;
 
@@ -16,10 +22,4 @@ public record IncomeVerificationPaystubsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("error")]
 	public Exceptions.PlaidException? Error { get; init; } = default!;
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[JsonPropertyName("document_metadata")]
-	public IReadOnlyList<Entity.DocumentMetadata> DocumentMetadata { get; init; } = default!;
 }

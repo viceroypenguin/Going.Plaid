@@ -16,4 +16,16 @@ public class LinkTokenCreateRequestIncomeVerification
 	/// </summary>
 	[JsonPropertyName("asset_report_id")]
 	public string AssetReportId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The ID of a precheck created with <c>/income/verification/precheck</c>. Will be used to improve conversion of the income verification flow.</para>
+	/// </summary>
+	[JsonPropertyName("precheck_id")]
+	public string PrecheckId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An array of access tokens corresponding to the Items that will be cross-referenced with the product data. If the <c>transactions</c> product was not initialized for the Items during link, it will be initialized after this Link session.</para>
+	/// </summary>
+	[JsonPropertyName("access_tokens")]
+	public IReadOnlyList<string> AccessTokens { get; set; } = default!;
 }

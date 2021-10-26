@@ -16,4 +16,10 @@ public partial class SignalDecisionReportRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("initiated")]
 	public bool Initiated { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The actual number of days (hold time) since the ACH debit transaction that you wait before making funds available to your customers. The holding time could affect the ACH return rate. For example, use 0 if you make funds available to your customers instantly or the same day following the debit transaction, or 1 if you make funds available the next day following the debit initialization.</para>
+	/// </summary>
+	[JsonPropertyName("days_funds_on_hold")]
+	public int? DaysFundsOnHold { get; set; } = default!;
 }

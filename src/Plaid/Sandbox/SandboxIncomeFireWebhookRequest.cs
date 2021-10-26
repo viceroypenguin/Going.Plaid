@@ -12,6 +12,12 @@ public partial class SandboxIncomeFireWebhookRequest : RequestBase
 	public string IncomeVerificationId { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The Item ID associated with the verification.</para>
+	/// </summary>
+	[JsonPropertyName("item_id")]
+	public string ItemId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The URL to which the webhook should be sent.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]

@@ -22,4 +22,10 @@ public record DocumentMetadata
 	/// </summary>
 	[JsonPropertyName("doc_id")]
 	public string DocId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The type of document</para>
+	/// </summary>
+	[JsonPropertyName("doc_type")]
+	public Entity.DocumentMetadataDocTypeEnum DocType { get; init; } = default!;
 }

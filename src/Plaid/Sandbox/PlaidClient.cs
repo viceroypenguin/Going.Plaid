@@ -11,7 +11,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxProcessorTokenCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/public_token/create</c>  endpoint to create a valid <c>public_token</c>  for an arbitrary institution ID, initial products, and test credentials. The created <c>public_token</c> maps to a new Sandbox Item. You can then call <c>/item/public_token/exchange</c> to exchange the <c>public_token</c> for an <c>access_token</c> and perform all API actions. <c>/sandbox/public_token/create</c> can also be used with the <a href="https://plaid.com/docs/sandbox/user-custom"><c>user_custom</c> test username</a> to generate a test account with custom data.</para>
+	/// <para>Use the <c>/sandbox/public_token/create</c> endpoint to create a valid <c>public_token</c>  for an arbitrary institution ID, initial products, and test credentials. The created <c>public_token</c> maps to a new Sandbox Item. You can then call <c>/item/public_token/exchange</c> to exchange the <c>public_token</c> for an <c>access_token</c> and perform all API actions. <c>/sandbox/public_token/create</c> can also be used with the <a href="https://plaid.com/docs/sandbox/user-custom"><c>user_custom</c> test username</a> to generate a test account with custom data. <c>/sandbox/public_token/create</c> cannot be used with OAuth institutions.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/sandbox/#sandboxpublic_tokencreate" /></remarks>
 	public Task<Sandbox.SandboxPublicTokenCreateResponse> SandboxPublicTokenCreateAsync(Sandbox.SandboxPublicTokenCreateRequest request) =>

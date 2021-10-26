@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Link;
+namespace Going.Plaid.Link;
 
 /// <summary>
 /// <para>LinkTokenCreateRequest defines the request schema for <c>/link/token/create</c></para>
@@ -6,7 +6,7 @@
 public partial class LinkTokenCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The name of your application, as it should be displayed in Link. Maximum length of 30 characters.</para>
+	/// <para>The name of your application, as it should be displayed in Link. Maximum length of 30 characters. If a value longer than 30 characters is provided, Link will display "This Application" instead.</para>
 	/// </summary>
 	[JsonPropertyName("client_name")]
 	public string ClientName { get; set; } = default!;

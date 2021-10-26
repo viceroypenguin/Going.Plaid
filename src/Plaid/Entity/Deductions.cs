@@ -14,6 +14,18 @@ public record Deductions
 	/// <summary>
 	/// 
 	/// </summary>
+	[JsonPropertyName("breakdown")]
+	public IReadOnlyList<Entity.DeductionsBreakdown> Breakdown { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[JsonPropertyName("totals")]
 	public IReadOnlyList<Entity.Total> Totals { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An object representing the total deductions for the pay period</para>
+	/// </summary>
+	[JsonPropertyName("total")]
+	public Entity.DeductionsTotal Total { get; init; } = default!;
 }
