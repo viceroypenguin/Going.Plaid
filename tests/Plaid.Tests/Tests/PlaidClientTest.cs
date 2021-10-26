@@ -9,6 +9,10 @@ using Xunit;
 using static VerifyXunit.Verifier;
 using MOptions = Microsoft.Extensions.Options.Options;
 
+#if !NET6_0_OR_GREATER
+using DateOnly = System.DateTime;
+#endif
+
 namespace Going.Plaid.Tests
 {
 	[UsesVerify]
@@ -22,10 +26,11 @@ namespace Going.Plaid.Tests
 			VerifierSettings.ModifySerialization(s =>
 			{
 				s.IgnoreMember("RequestId");
+				s.IgnoreMember("AccountId");
 				s.IgnoreMember("ItemId");
+				s.IgnoreMember("InvestmentTransactionId");
 				s.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
 			});
-			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "RequestId");
 			VerifierSettings.UseStrictJson();
 
 			var configuration = new ConfigurationBuilder()
@@ -55,6 +60,8 @@ namespace Going.Plaid.Tests
 					InstitutionId = "ins_3",
 					InitialProducts = new[]
 					{
+						Products.Auth,
+						Products.Balance,
 						Products.Investments,
 						Products.Transactions,
 					},
@@ -80,37 +87,20 @@ namespace Going.Plaid.Tests
 		public Task FetchItemAsync() =>
 			Verify(_plaidClient.ItemGetAsync(new()));
 
-		//[Fact]
-		//public async Task FetchUserIncomeAsync()
-		//{
-		//	var result = await PlaidClient.FetchUserIncomeAsync(
-		//		new Income.GetIncomeRequest());
-		//	await Verify(result);
-		//}
+		[Fact]
+		public async Task FetchTransactionsAsync()
+		{
+			await _plaidClient.TransactionsRefreshAsync(new());
+			await Verify(_plaidClient.TransactionsGetAsync(new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }));
+		}
 
-		///* Investments */
+		[Fact]
+		public Task FetchInvestmentTransactionsAsync() =>
+			Verify(_plaidClient.InvestmentsTransactionsGetAsync(new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }));
 
-		//[Fact(Skip = "Plaid has consistency problems with returned data from this API")]
-		//public async Task FetchInvestmentHoldingsAsync()
-		//{
-		//	var result = await PlaidClient.FetchInvestmentHoldingsAsync(
-		//		new Investments.GetInvestmentHoldingsRequest());
-
-		//	await Verify(result);
-		//}
-
-		//[Fact(Skip = "Plaid has consistency problems with returned data from this API")]
-		//public async Task FetchInvestmentTransactionsAsync()
-		//{
-		//	var result = await PlaidClient.FetchInvestmentTransactionsAsync(
-		//		new Investments.GetInvestmentTransactionsRequest()
-		//		{
-		//			StartDate = Convert.ToDateTime("2020-07-01"),
-		//			EndDate = Convert.ToDateTime("2020-07-31"),
-		//		});
-
-		//	await Verify(result);
-		//}
+		[Fact]
+		public Task FetchInvestmentHoldingsAsync() =>
+			Verify(_plaidClient.InvestmentsHoldingsGetAsync(new()));
 
 		///* Auth */
 

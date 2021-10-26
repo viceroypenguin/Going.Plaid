@@ -1,394 +1,1270 @@
 {
-  "TotalTransactions": 16,
+  "Accounts": [
+    {
+      "Balances": {
+        "Available": 100.0,
+        "Current": 110.0,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "0000",
+      "Name": "Plaid Checking",
+      "OfficialName": "Plaid Gold Standard 0% Interest Checking",
+      "Subtype": "checking"
+    },
+    {
+      "Balances": {
+        "Available": 200.0,
+        "Current": 210.0,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "1111",
+      "Name": "Plaid Saving",
+      "OfficialName": "Plaid Silver Standard 0.1% Interest Saving",
+      "Subtype": "savings"
+    },
+    {
+      "Balances": {
+        "Current": 1000.0,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "2222",
+      "Name": "Plaid CD",
+      "OfficialName": "Plaid Bronze Standard 0.2% Interest CD",
+      "Subtype": "cd"
+    },
+    {
+      "Balances": {
+        "Current": 410.0,
+        "Limit": 2000.0,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "3333",
+      "Name": "Plaid Credit Card",
+      "OfficialName": "Plaid Diamond 12.5% APR Interest Credit Card",
+      "Type": "credit",
+      "Subtype": "credit card"
+    },
+    {
+      "Balances": {
+        "Available": 43200.0,
+        "Current": 43200.0,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "4444",
+      "Name": "Plaid Money Market",
+      "OfficialName": "Plaid Platinum Standard 1.85% Interest Money Market",
+      "Subtype": "money market"
+    },
+    {
+      "Balances": {
+        "Current": 320.76,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "5555",
+      "Name": "Plaid IRA",
+      "Type": "investment",
+      "Subtype": "ira"
+    },
+    {
+      "Balances": {
+        "Current": 23631.9805,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "6666",
+      "Name": "Plaid 401k",
+      "Type": "investment",
+      "Subtype": "401k"
+    },
+    {
+      "Balances": {
+        "Current": 65262.0,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "7777",
+      "Name": "Plaid Student Loan",
+      "Type": "loan",
+      "Subtype": "student"
+    },
+    {
+      "Balances": {
+        "Current": 56302.06,
+        "IsoCurrencyCode": "USD"
+      },
+      "Mask": "8888",
+      "Name": "Plaid Mortgage",
+      "Type": "loan",
+      "Subtype": "mortgage"
+    }
+  ],
   "Transactions": [
     {
-      "Name": "United Airlines",
-      "TransactionId": "JJzAngWRemS5k3om61Q9TAKl9EXRg6Hdew81q",
-      "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "United Airlines",
+      "TransactionType": "special",
+      "CategoryId": "22001000",
+      "Category": [
         "Travel",
         "Airlines and Aviation Services"
       ],
-      "CategoryId": "22001000",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "United Airlines",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_1",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 26,
+        "DayOfWeek": "Friday",
+        "DayOfYear": 85,
+        "DayNumber": 737874
+      },
+      "TransactionId": "ngpMlDvnzGHLXlpwAn6qSnyxrGl7bEC6EvzWJ"
     },
     {
-      "Name": "Uber 072515 SF**POOL**",
-      "TransactionId": "ywgv4mRzlpSj48N76DM3FPmNGDMj5Zfy8pR48",
-      "AccountId": "eLr7gNDQVzIj89Bl3AKdFd1Qp63v5afLmd9d4",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "Uber",
+      "TransactionType": "special",
+      "CategoryId": "22016000",
+      "Category": [
         "Travel",
         "Taxi"
       ],
-      "CategoryId": "22016000",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_2",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 24,
+        "DayOfWeek": "Wednesday",
+        "DayOfYear": 83,
+        "DayNumber": 737872
+      },
+      "TransactionId": "8awDMmgEkdS7LKDznxeAuoW4Xlq8xKswzq9ME"
     },
     {
-      "Name": "Tectra Inc",
-      "TransactionId": "kvaLnZoj54I13XNdmL7qTQRDlvmkj1HW1A5qd",
-      "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "Tectra Inc",
+      "TransactionType": "place",
+      "CategoryId": "13005000",
+      "Category": [
         "Food and Drink",
         "Restaurants"
       ],
-      "CategoryId": "13005000",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Tectra Inc",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_3",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 21,
+        "DayOfYear": 80,
+        "DayNumber": 737869
+      },
+      "TransactionId": "bN36kXZWJGhdZKqDbw3ghw8rvxX97KiVz8WZP"
     },
     {
-      "Name": "AUTOMATIC PAYMENT - THANK",
-      "TransactionId": "KJBGb8W9QmS5RxD6k7GyTyJpDVonAeUVDrXKD",
-      "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
-      "Categories": [
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "16000000",
+      "Category": [
         "Payment"
       ],
-      "CategoryId": "16000000",
-      "PaymentChannel": "other",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_4",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 20,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 79,
+        "DayNumber": 737868
+      },
+      "TransactionId": "94Vd17JEAaIxerKBwdnJfKbE3AxPjLCRnjZQb"
     },
     {
-      "Name": "KFC",
-      "TransactionId": "qveWKgopVQInM9rAbjzxUeRP1gb7aGSdyBKLR",
-      "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "KFC",
+      "TransactionType": "place",
+      "CategoryId": "13005032",
+      "Category": [
         "Food and Drink",
         "Restaurants",
         "Fast Food"
       ],
-      "CategoryId": "13005032",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "KFC",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_4",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 20,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 79,
+        "DayNumber": 737868
+      },
+      "TransactionId": "yv3MNKwneXTb7NKoqlXmSLED9PGpZdiy5xEXv"
     },
     {
-      "Name": "Madison Bicycle Shop",
-      "TransactionId": "l64pbMo5VNSl3WPgqRNKIl9gVyqJZDfZm63n7",
-      "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "Madison Bicycle Shop",
+      "TransactionType": "place",
+      "CategoryId": "19046000",
+      "Category": [
         "Shops",
         "Sporting Goods"
       ],
-      "CategoryId": "19046000",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_4",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 20,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 79,
+        "DayNumber": 737868
+      },
+      "TransactionId": "moLgRDvnkGt1ZRWgXPDlfPbvQ6kKENfLP61d8"
     },
     {
-      "Name": "CREDIT CARD 3333 PAYMENT *//",
-      "TransactionId": "414Bxqdj8PSEbLRdW7qNImNQg6lydaHdR4y3B",
-      "AccountId": "QlNvrbAgokS5ajLrQJyAT9kR84oBxnUpDMmMd",
-      "Categories": [
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "16001000",
+      "Category": [
         "Payment",
         "Credit Card"
       ],
-      "CategoryId": "16001000",
-      "PaymentChannel": "other",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_5",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 11,
+        "DayOfWeek": "Thursday",
+        "DayOfYear": 70,
+        "DayNumber": 737859
+      },
+      "TransactionId": "DpR1bqJD5LToVLGQByxJu7mRXBQox1svnb6BM"
     },
     {
-      "Name": "Uber 063015 SF**POOL**",
-      "TransactionId": "9Je4P3jNnZSa4zre8GpoIAMJxEZX7jHR9MN4o",
-      "AccountId": "eLr7gNDQVzIj89Bl3AKdFd1Qp63v5afLmd9d4",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "Uber",
+      "TransactionType": "special",
+      "CategoryId": "22016000",
+      "Category": [
         "Travel",
         "Taxi"
       ],
-      "CategoryId": "22016000",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_5",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 11,
+        "DayOfWeek": "Thursday",
+        "DayOfYear": 70,
+        "DayNumber": 737859
+      },
+      "TransactionId": "EoNwmKJD5ptB7D6rVWn8Hze8jVxlbgfXVboGv"
     },
     {
-      "Name": "ACH Electronic CreditGUSTO PAY 123456",
-      "TransactionId": "1QxKzXB3pafq4aR6gvnXTXy8QzVEe4c5PEdVA",
-      "AccountId": "1QxKzXB3pafq4aR6gvnXTXyKkEj5WGu5rKjKz",
-      "Categories": [
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21006000",
+      "Category": [
         "Transfer",
         "Debit"
       ],
-      "CategoryId": "21006000",
-      "PaymentChannel": "other",
+      "Location": {},
+      "PaymentMeta": {
+        "PaymentMethod": "ACH"
+      },
+      "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_6",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 10,
+        "DayOfWeek": "Wednesday",
+        "DayOfYear": 69,
+        "DayNumber": 737858
+      },
+      "TransactionId": "wyAbalvmjGInZaqemNgAuN1AVKZy94frLJW1v"
     },
     {
-      "Name": "CD DEPOSIT .INITIAL.",
-      "TransactionId": "aQA41xGyVlfvwnqpNojzIoX7BQqajyT7KVmP8",
-      "AccountId": "ZaLrPlADVJFKRodpyXMATRDqv1LVzAigGRqRK",
-      "Categories": [
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21007000",
+      "Category": [
         "Transfer",
         "Deposit"
       ],
-      "CategoryId": "21007000",
-      "PaymentChannel": "other",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_6",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 10,
+        "DayOfWeek": "Wednesday",
+        "DayOfYear": 69,
+        "DayNumber": 737858
+      },
+      "TransactionId": "ngpMlDvnzGHLXlpwAn6qSnyxrGl7bEC6Evzwe"
     },
     {
-      "Name": "Touchstone Climbing",
-      "TransactionId": "rvQAr8oyVZI3BKzD9XMdUbkrE3xD59clkNRpb",
-      "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "Touchstone",
+      "TransactionType": "place",
+      "CategoryId": "17018000",
+      "Category": [
         "Recreation",
         "Gyms and Fitness Centers"
       ],
-      "CategoryId": "17018000",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Touchstone Climbing",
       "Amount": 78.5,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_7",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 9,
+        "DayOfWeek": "Tuesday",
+        "DayOfYear": 68,
+        "DayNumber": 737857
+      },
+      "TransactionId": "vm5MdDvnPwFGydW8kLXbfL1ZpbE4GxiWlr8kL"
     },
     {
-      "Name": "United Airlines",
-      "TransactionId": "vvLmxGJ9VkI4xgdylrZPTbBREZo8qGcWZVQqe",
-      "AccountId": "eLr7gNDQVzIj89Bl3AKdFd1Qp63v5afLmd9d4",
-      "Categories": [
+      "PaymentChannel": "other",
+      "MerchantName": "United Airlines",
+      "TransactionType": "special",
+      "CategoryId": "22001000",
+      "Category": [
         "Travel",
         "Airlines and Aviation Services"
       ],
-      "CategoryId": "22001000",
-      "PaymentChannel": "other",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "United Airlines",
       "Amount": -500.0,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_7",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 9,
+        "DayOfWeek": "Tuesday",
+        "DayOfYear": 68,
+        "DayNumber": 737857
+      },
+      "TransactionId": "Wl8LjM3D57HZ8opwvjEWSq5kXDMP4wslvgpnd"
     },
     {
-      "Name": "McDonald's",
-      "TransactionId": "RqPkzmAXg9f5971pVeEAT5L9dowGvpSRo5Vap",
-      "AccountId": "eLr7gNDQVzIj89Bl3AKdFd1Qp63v5afLmd9d4",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "McDonald's",
+      "TransactionType": "place",
+      "CategoryId": "13005032",
+      "Category": [
         "Food and Drink",
         "Restaurants",
         "Fast Food"
       ],
-      "CategoryId": "13005032",
-      "PaymentChannel": "in store",
-      "Amount": 12.0,
-      "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_8",
       "Location": {
         "StoreNumber": "3322"
-      }
+      },
+      "PaymentMeta": {},
+      "Name": "McDonald's",
+      "Amount": 12.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 8,
+        "DayOfWeek": "Monday",
+        "DayOfYear": 67,
+        "DayNumber": 737856
+      },
+      "TransactionId": "AMQxAVJERZTx5NBj4onefp6vg4NXRac1yzgZn"
     },
     {
-      "Name": "Starbucks",
-      "TransactionId": "6pPxar4NW7S3WpolJRvQUbrVndyQ6LcgPn787",
-      "AccountId": "eLr7gNDQVzIj89Bl3AKdFd1Qp63v5afLmd9d4",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "Starbucks",
+      "TransactionType": "place",
+      "CategoryId": "13005043",
+      "Category": [
         "Food and Drink",
         "Restaurants",
         "Coffee Shop"
       ],
-      "CategoryId": "13005043",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Starbucks",
       "Amount": 4.33,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_8",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 8,
+        "DayOfWeek": "Monday",
+        "DayOfYear": 67,
+        "DayNumber": 737856
+      },
+      "TransactionId": "G83y9zJD5gTnzLA3VDxEupmbXV5Gzyc18kbmD"
     },
     {
-      "Name": "SparkFun",
-      "TransactionId": "XxMq4XREn9Hl9Lg8QPqMI67DQEqKyecdv8Abm",
-      "AccountId": "eLr7gNDQVzIj89Bl3AKdFd1Qp63v5afLmd9d4",
-      "Categories": [
+      "PaymentChannel": "in store",
+      "MerchantName": "Sparkfun",
+      "TransactionType": "place",
+      "CategoryId": "13005000",
+      "Category": [
         "Food and Drink",
         "Restaurants"
       ],
-      "CategoryId": "13005000",
-      "PaymentChannel": "in store",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "SparkFun",
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_9",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 7,
+        "DayOfYear": 66,
+        "DayNumber": 737855
+      },
+      "TransactionId": "ngpMlDvnzGHLXlpwAn6qSnyx9BKX87i6Evzrx"
     },
     {
-      "Name": "INTRST PYMNT",
-      "TransactionId": "NJdmlkyb19S5k4DEBVmPT7AeqbJgP9fWAkJ7g",
-      "AccountId": "QlNvrbAgokS5ajLrQJyAT9kR84oBxnUpDMmMd",
-      "Categories": [
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21005000",
+      "Category": [
         "Transfer",
         "Credit"
       ],
-      "CategoryId": "21005000",
-      "PaymentChannel": "other",
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "INTRST PYMNT",
       "Amount": -4.22,
       "IsoCurrencyCode": "USD",
-      "CurrencyCode": "USD",
-      "Date": "DateTime_10",
-      "Location": {}
+      "Date": {
+        "Year": 2021,
+        "Month": 3,
+        "Day": 6,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 65,
+        "DayNumber": 737854
+      },
+      "TransactionId": "VV1aPLBD5jh3gWrlxEj8ta6vWbjqdztWRzKXv"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "United Airlines",
+      "TransactionType": "special",
+      "CategoryId": "22001000",
+      "Category": [
+        "Travel",
+        "Airlines and Aviation Services"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "United Airlines",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 24,
+        "DayOfWeek": "Wednesday",
+        "DayOfYear": 55,
+        "DayNumber": 737844
+      },
+      "TransactionId": "RkVQdMqD5acnp1XMag6quryoB5dkpNFRJ8nbm"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Uber",
+      "TransactionType": "special",
+      "CategoryId": "22016000",
+      "Category": [
+        "Travel",
+        "Taxi"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Uber 072515 SF**POOL**",
+      "Amount": 6.33,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 22,
+        "DayOfWeek": "Monday",
+        "DayOfYear": 53,
+        "DayNumber": 737842
+      },
+      "TransactionId": "bN36kXZWJGhdZKqDbw3ghw8rWDNoL9sVz8W8W"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Tectra Inc",
+      "TransactionType": "place",
+      "CategoryId": "13005000",
+      "Category": [
+        "Food and Drink",
+        "Restaurants"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Tectra Inc",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 19,
+        "DayOfWeek": "Friday",
+        "DayOfYear": 50,
+        "DayNumber": 737839
+      },
+      "TransactionId": "6xmeQ6pE83UMlogKrNPDF4adNbnzLWugG4dXv"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "16000000",
+      "Category": [
+        "Payment"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "AUTOMATIC PAYMENT - THANK",
+      "Amount": 2078.5,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 18,
+        "DayOfWeek": "Thursday",
+        "DayOfYear": 49,
+        "DayNumber": 737838
+      },
+      "TransactionId": "VV1aPLBD5jh3gWrlxEj8ta6vrXLzEQiWRzKdx"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "KFC",
+      "TransactionType": "place",
+      "CategoryId": "13005032",
+      "Category": [
+        "Food and Drink",
+        "Restaurants",
+        "Fast Food"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "KFC",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 18,
+        "DayOfWeek": "Thursday",
+        "DayOfYear": 49,
+        "DayNumber": 737838
+      },
+      "TransactionId": "DpR1bqJD5LToVLGQByxJu7mRrvV1bgfvnb6Q6"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Madison Bicycle Shop",
+      "TransactionType": "place",
+      "CategoryId": "19046000",
+      "Category": [
+        "Shops",
+        "Sporting Goods"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Madison Bicycle Shop",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 18,
+        "DayOfWeek": "Thursday",
+        "DayOfYear": 49,
+        "DayNumber": 737838
+      },
+      "TransactionId": "Xq1g7GxW5esa8go1nydxuomEa6QAe8TdyGenB"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "16001000",
+      "Category": [
+        "Payment",
+        "Credit Card"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "CREDIT CARD 3333 PAYMENT *//",
+      "Amount": 25.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 9,
+        "DayOfWeek": "Tuesday",
+        "DayOfYear": 40,
+        "DayNumber": 737829
+      },
+      "TransactionId": "wyAbalvmjGInZaqemNgAuN1Av6qalyFrLJWxy"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Uber",
+      "TransactionType": "special",
+      "CategoryId": "22016000",
+      "Category": [
+        "Travel",
+        "Taxi"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Uber 063015 SF**POOL**",
+      "Amount": 5.4,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 9,
+        "DayOfWeek": "Tuesday",
+        "DayOfYear": 40,
+        "DayNumber": 737829
+      },
+      "TransactionId": "moLgRDvnkGt1ZRWgXPDlfPbv85MlqKiLP616x"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21006000",
+      "Category": [
+        "Transfer",
+        "Debit"
+      ],
+      "Location": {},
+      "PaymentMeta": {
+        "PaymentMethod": "ACH"
+      },
+      "Name": "ACH Electronic CreditGUSTO PAY 123456",
+      "Amount": 5850.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 8,
+        "DayOfWeek": "Monday",
+        "DayOfYear": 39,
+        "DayNumber": 737828
+      },
+      "TransactionId": "53x4ebkmgBUBmvGqgxlpHwa48qVWMoiZg9NQv"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21007000",
+      "Category": [
+        "Transfer",
+        "Deposit"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "CD DEPOSIT .INITIAL.",
+      "Amount": 1000.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 8,
+        "DayOfWeek": "Monday",
+        "DayOfYear": 39,
+        "DayNumber": 737828
+      },
+      "TransactionId": "bN36kXZWJGhdZKqDbw3ghw8rvxX97KiVz8WQL"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Touchstone",
+      "TransactionType": "place",
+      "CategoryId": "17018000",
+      "Category": [
+        "Recreation",
+        "Gyms and Fitness Centers"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Touchstone Climbing",
+      "Amount": 78.5,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 7,
+        "DayOfYear": 38,
+        "DayNumber": 737827
+      },
+      "TransactionId": "wyAbalvmjGInZaqemNgAuN1AVKZy94frLJWVJ"
+    },
+    {
+      "PaymentChannel": "other",
+      "MerchantName": "United Airlines",
+      "TransactionType": "special",
+      "CategoryId": "22001000",
+      "Category": [
+        "Travel",
+        "Airlines and Aviation Services"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "United Airlines",
+      "Amount": -500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 7,
+        "DayOfYear": 38,
+        "DayNumber": 737827
+      },
+      "TransactionId": "yv3MNKwneXTb7NKoqlXmSLEDoQbJnpiy5xExx"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "McDonald's",
+      "TransactionType": "place",
+      "CategoryId": "13005032",
+      "Category": [
+        "Food and Drink",
+        "Restaurants",
+        "Fast Food"
+      ],
+      "Location": {
+        "StoreNumber": "3322"
+      },
+      "PaymentMeta": {},
+      "Name": "McDonald's",
+      "Amount": 12.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 6,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 37,
+        "DayNumber": 737826
+      },
+      "TransactionId": "94Vd17JEAaIxerKBwdnJfKbEqw5a1PiRnjZj5"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Starbucks",
+      "TransactionType": "place",
+      "CategoryId": "13005043",
+      "Category": [
+        "Food and Drink",
+        "Restaurants",
+        "Coffee Shop"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Starbucks",
+      "Amount": 4.33,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 6,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 37,
+        "DayNumber": 737826
+      },
+      "TransactionId": "vm5MdDvnPwFGydW8kLXbfL1ZdDnPA4iWlr8rB"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Sparkfun",
+      "TransactionType": "place",
+      "CategoryId": "13005000",
+      "Category": [
+        "Food and Drink",
+        "Restaurants"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "SparkFun",
+      "Amount": 89.4,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 5,
+        "DayOfWeek": "Friday",
+        "DayOfYear": 36,
+        "DayNumber": 737825
+      },
+      "TransactionId": "RkVQdMqD5acnp1XMag6quryobWnPakCRJ8n83"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21005000",
+      "Category": [
+        "Transfer",
+        "Credit"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "INTRST PYMNT",
+      "Amount": -4.22,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 2,
+        "Day": 4,
+        "DayOfWeek": "Thursday",
+        "DayOfYear": 35,
+        "DayNumber": 737824
+      },
+      "TransactionId": "53x4ebkmgBUBmvGqgxlpHwa4bmNj5WsZg9NAz"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "United Airlines",
+      "TransactionType": "special",
+      "CategoryId": "22001000",
+      "Category": [
+        "Travel",
+        "Airlines and Aviation Services"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "United Airlines",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 25,
+        "DayOfWeek": "Monday",
+        "DayOfYear": 25,
+        "DayNumber": 737814
+      },
+      "TransactionId": "53x4ebkmgBUBmvGqgxlpHwa48qVWMoiZg9NdW"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Uber",
+      "TransactionType": "special",
+      "CategoryId": "22016000",
+      "Category": [
+        "Travel",
+        "Taxi"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Uber 072515 SF**POOL**",
+      "Amount": 6.33,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 23,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 23,
+        "DayNumber": 737812
+      },
+      "TransactionId": "6xmeQ6pE83UMlogKrNPDF4adkAvKMzfgG4d4X"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Tectra Inc",
+      "TransactionType": "place",
+      "CategoryId": "13005000",
+      "Category": [
+        "Food and Drink",
+        "Restaurants"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Tectra Inc",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 20,
+        "DayOfWeek": "Wednesday",
+        "DayOfYear": 20,
+        "DayNumber": 737809
+      },
+      "TransactionId": "JAa4lxJD5qh7moJGBXxquyVEGA9q6DUdZmRJv"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "16000000",
+      "Category": [
+        "Payment"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "AUTOMATIC PAYMENT - THANK",
+      "Amount": 2078.5,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 19,
+        "DayOfWeek": "Tuesday",
+        "DayOfYear": 19,
+        "DayNumber": 737808
+      },
+      "TransactionId": "qWXbrDvyxGhgArm16k4ZtkJgre1vGmCdonwMM"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "KFC",
+      "TransactionType": "place",
+      "CategoryId": "13005032",
+      "Category": [
+        "Food and Drink",
+        "Restaurants",
+        "Fast Food"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "KFC",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 19,
+        "DayOfWeek": "Tuesday",
+        "DayOfYear": 19,
+        "DayNumber": 737808
+      },
+      "TransactionId": "lpW9vD6nKGTMgP1X7omBFoxyRlVzDvTZJlb7d"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Madison Bicycle Shop",
+      "TransactionType": "place",
+      "CategoryId": "19046000",
+      "Category": [
+        "Shops",
+        "Sporting Goods"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Madison Bicycle Shop",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 19,
+        "DayOfWeek": "Tuesday",
+        "DayOfYear": 19,
+        "DayNumber": 737808
+      },
+      "TransactionId": "kLbx9DvWq6IVdNaypzAgUZJvPQlL1eCWwkZpK"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "16001000",
+      "Category": [
+        "Payment",
+        "Credit Card"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "CREDIT CARD 3333 PAYMENT *//",
+      "Amount": 25.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 10,
+        "DayOfYear": 10,
+        "DayNumber": 737799
+      },
+      "TransactionId": "JAa4lxJD5qh7moJGBXxquyVEkBMQ1qcdZmRvb"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Uber",
+      "TransactionType": "special",
+      "CategoryId": "22016000",
+      "Category": [
+        "Travel",
+        "Taxi"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Uber 063015 SF**POOL**",
+      "Amount": 5.4,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 10,
+        "DayOfYear": 10,
+        "DayNumber": 737799
+      },
+      "TransactionId": "Xq1g7GxW5esa8go1nydxuomELNk1jAsdyGeGE"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21006000",
+      "Category": [
+        "Transfer",
+        "Debit"
+      ],
+      "Location": {},
+      "PaymentMeta": {
+        "PaymentMethod": "ACH"
+      },
+      "Name": "ACH Electronic CreditGUSTO PAY 123456",
+      "Amount": 5850.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 9,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 9,
+        "DayNumber": 737798
+      },
+      "TransactionId": "JAa4lxJD5qh7moJGBXxquyVEGA9q6DUdZmRey"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21007000",
+      "Category": [
+        "Transfer",
+        "Deposit"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "CD DEPOSIT .INITIAL.",
+      "Amount": 1000.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 9,
+        "DayOfWeek": "Saturday",
+        "DayOfYear": 9,
+        "DayNumber": 737798
+      },
+      "TransactionId": "moLgRDvnkGt1ZRWgXPDlfPbvQ6kKENfLP61zN"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Touchstone",
+      "TransactionType": "place",
+      "CategoryId": "17018000",
+      "Category": [
+        "Recreation",
+        "Gyms and Fitness Centers"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Touchstone Climbing",
+      "Amount": 78.5,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 8,
+        "DayOfWeek": "Friday",
+        "DayOfYear": 8,
+        "DayNumber": 737797
+      },
+      "TransactionId": "KGa4qdJD5KHr6DK4WJLEs9PVjyDle1UVnMzN1"
+    },
+    {
+      "PaymentChannel": "other",
+      "MerchantName": "United Airlines",
+      "TransactionType": "special",
+      "CategoryId": "22001000",
+      "Category": [
+        "Travel",
+        "Airlines and Aviation Services"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "United Airlines",
+      "Amount": -500.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 8,
+        "DayOfWeek": "Friday",
+        "DayOfYear": 8,
+        "DayNumber": 737797
+      },
+      "TransactionId": "DpR1bqJD5LToVLGQByxJu7mRXBQox1svnb6bJ"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "McDonald's",
+      "TransactionType": "place",
+      "CategoryId": "13005032",
+      "Category": [
+        "Food and Drink",
+        "Restaurants",
+        "Fast Food"
+      ],
+      "Location": {
+        "StoreNumber": "3322"
+      },
+      "PaymentMeta": {},
+      "Name": "McDonald's",
+      "Amount": 12.0,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 7,
+        "DayOfWeek": "Thursday",
+        "DayOfYear": 7,
+        "DayNumber": 737796
+      },
+      "TransactionId": "VV1aPLBD5jh3gWrlxEj8ta6vWbjqdztWRzKzZ"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Starbucks",
+      "TransactionType": "place",
+      "CategoryId": "13005043",
+      "Category": [
+        "Food and Drink",
+        "Restaurants",
+        "Coffee Shop"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "Starbucks",
+      "Amount": 4.33,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 7,
+        "DayOfWeek": "Thursday",
+        "DayOfYear": 7,
+        "DayNumber": 737796
+      },
+      "TransactionId": "wyAbalvmjGInZaqemNgAuN1Av6qalyFrLJWJz"
+    },
+    {
+      "PaymentChannel": "in store",
+      "MerchantName": "Sparkfun",
+      "TransactionType": "place",
+      "CategoryId": "13005000",
+      "Category": [
+        "Food and Drink",
+        "Restaurants"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "SparkFun",
+      "Amount": 89.4,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 6,
+        "DayOfWeek": "Wednesday",
+        "DayOfYear": 6,
+        "DayNumber": 737795
+      },
+      "TransactionId": "53x4ebkmgBUBmvGqgxlpHwa4bmNj5WsZg9N9y"
+    },
+    {
+      "PaymentChannel": "other",
+      "TransactionType": "special",
+      "CategoryId": "21005000",
+      "Category": [
+        "Transfer",
+        "Credit"
+      ],
+      "Location": {},
+      "PaymentMeta": {},
+      "Name": "INTRST PYMNT",
+      "Amount": -4.22,
+      "IsoCurrencyCode": "USD",
+      "Date": {
+        "Year": 2021,
+        "Month": 1,
+        "Day": 5,
+        "DayOfWeek": "Tuesday",
+        "DayOfYear": 5,
+        "DayNumber": 737794
+      },
+      "TransactionId": "Xq1g7GxW5esa8go1nydxuomEa6QAe8TdyGeNd"
     }
   ],
+  "TotalTransactions": 48,
   "Item": {
-    "Id": "XxMq4XREn9Hl9Lg8QPqMI67N6Z4WNpcbx4zLy",
+    "InstitutionId": "ins_3",
+    "Webhook": "",
     "AvailableProducts": [
       "assets",
       "balance",
       "credit_details",
-      "investments"
+      "identity",
+      "income",
+      "liabilities"
     ],
     "BilledProducts": [
       "auth",
-      "identity",
-      "income",
-      "liabilities",
+      "investments",
       "transactions"
-    ],
-    "InstitutionId": "ins_3",
-    "Webhook": "https://example.com"
+    ]
   },
-  "Accounts": [
-    {
-      "AccountId": "eLr7gNDQVzIj89Bl3AKdFd1Qp63v5afLmd9d4",
-      "Name": "Plaid Checking",
-      "Mask": "0000",
-      "OfficialName": "Plaid Gold Standard 0% Interest Checking",
-      "Type": "Depository",
-      "SubType": "checking",
-      "Balance": {
-        "Current": 110.0,
-        "Available": 100.0,
-        "ISOCurrencyCode": "USD"
-      }
-    },
-    {
-      "AccountId": "QlNvrbAgokS5ajLrQJyAT9kR84oBxnUpDMmMd",
-      "Name": "Plaid Saving",
-      "Mask": "1111",
-      "OfficialName": "Plaid Silver Standard 0.1% Interest Saving",
-      "Type": "Depository",
-      "SubType": "savings",
-      "Balance": {
-        "Current": 210.0,
-        "Available": 200.0,
-        "ISOCurrencyCode": "USD"
-      }
-    },
-    {
-      "AccountId": "ZaLrPlADVJFKRodpyXMATRDqv1LVzAigGRqRK",
-      "Name": "Plaid CD",
-      "Mask": "2222",
-      "OfficialName": "Plaid Bronze Standard 0.2% Interest CD",
-      "Type": "Depository",
-      "SubType": "cd",
-      "Balance": {
-        "Current": 1000.0,
-        "ISOCurrencyCode": "USD"
-      }
-    },
-    {
-      "AccountId": "MJxbyWVGMmS5baAzJZxNTwvndjx9pRu91l6lB",
-      "Name": "Plaid Credit Card",
-      "Mask": "3333",
-      "OfficialName": "Plaid Diamond 12.5% APR Interest Credit Card",
-      "Type": "Credit",
-      "Balance": {
-        "Current": 410.0,
-        "Limit": 2000.0,
-        "ISOCurrencyCode": "USD"
-      }
-    },
-    {
-      "AccountId": "1QxKzXB3pafq4aR6gvnXTXyKkEj5WGu5rKjKz",
-      "Name": "Plaid Money Market",
-      "Mask": "4444",
-      "OfficialName": "Plaid Platinum Standard 1.85% Interest Money Market",
-      "Type": "Depository",
-      "SubType": "money market",
-      "Balance": {
-        "Current": 43200.0,
-        "Available": 43200.0,
-        "ISOCurrencyCode": "USD"
-      }
-    },
-    {
-      "AccountId": "LJ3nmEwyZ9S58dkXgwvMTkJvnR8bKMCPEQjQx",
-      "Name": "Plaid IRA",
-      "Mask": "5555",
-      "Type": "Investment",
-      "SubType": "ira",
-      "Balance": {
-        "Current": 320.76,
-        "ISOCurrencyCode": "USD"
-      }
-    },
-    {
-      "AccountId": "3Maz3lxwgNuR7okDEnW4i3ZWqy4AVKtqErlrr",
-      "Name": "Plaid 401k",
-      "Mask": "6666",
-      "Type": "Investment",
-      "SubType": "401k",
-      "Balance": {
-        "Current": 23631.9805,
-        "ISOCurrencyCode": "USD"
-      }
-    },
-    {
-      "AccountId": "xvo9abmwVJIPd64Gq5ALiMalNp3K6jtne747w",
-      "Name": "Plaid Student Loan",
-      "Mask": "7777",
-      "Type": "Loan",
-      "SubType": "student",
-      "Balance": {
-        "Current": 65262.0,
-        "ISOCurrencyCode": "USD"
-      }
-    },
-    {
-      "AccountId": "d1Kjo49aVrSWgyzK6bqxH9VKvpMroeUZRMEMK",
-      "Name": "Plaid Mortgage",
-      "Mask": "8888",
-      "Type": "Loan",
-      "SubType": "mortgage",
-      "Balance": {
-        "Current": 56302.06,
-        "ISOCurrencyCode": "USD"
-      }
-    }
-  ],
   "StatusCode": "OK",
   "IsSuccessStatusCode": true
 }
