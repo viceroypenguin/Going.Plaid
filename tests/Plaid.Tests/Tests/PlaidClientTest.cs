@@ -15,24 +15,12 @@ using DateOnly = System.DateTime;
 
 namespace Going.Plaid.Tests
 {
-	[UsesVerify]
-	public class PlaidClientTest : IAsyncLifetime
+	public class PlaidFixture : IAsyncLifetime
 	{
-		private readonly PlaidClient _plaidClient;
+		public PlaidClient PlaidClient { get; }
 
-		public PlaidClientTest()
+		public PlaidFixture()
 		{
-			VerifierSettings.DisableClipboard();
-			VerifierSettings.ModifySerialization(s =>
-			{
-				s.IgnoreMember("RequestId");
-				s.IgnoreMember("AccountId");
-				s.IgnoreMember("ItemId");
-				s.IgnoreMember("InvestmentTransactionId");
-				s.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
-			});
-			VerifierSettings.UseStrictJson();
-
 			var configuration = new ConfigurationBuilder()
 				.AddEnvironmentVariables()
 				.AddJsonFile("secrets.json", optional: true)
@@ -48,13 +36,13 @@ namespace Going.Plaid.Tests
 			if (plaidOptions.Environment != Environment.Sandbox)
 				throw new InvalidOperationException("Environment must be Sandbox.");
 
-			_plaidClient = new PlaidClient(
+			PlaidClient = new PlaidClient(
 				MOptions.Create(plaidOptions));
 		}
 
 		public async Task InitializeAsync()
 		{
-			var publicToken = await _plaidClient.SandboxPublicTokenCreateAsync(
+			var publicToken = await PlaidClient.SandboxPublicTokenCreateAsync(
 				new Sandbox.SandboxPublicTokenCreateRequest
 				{
 					InstitutionId = "ins_3",
@@ -69,7 +57,7 @@ namespace Going.Plaid.Tests
 			if (!publicToken.IsSuccessStatusCode)
 				throw new InvalidOperationException("Unable to collect sandbox public token.");
 
-			var accessToken = await _plaidClient.ItemPublicTokenExchangeAsync(
+			var accessToken = await PlaidClient.ItemPublicTokenExchangeAsync(
 				new Item.ItemPublicTokenExchangeRequest
 				{
 					PublicToken = publicToken.PublicToken,
@@ -77,101 +65,51 @@ namespace Going.Plaid.Tests
 			if (!accessToken.IsSuccessStatusCode)
 				throw new InvalidOperationException("Unable to collect sandbox access token.");
 
-			_plaidClient.AccessToken = accessToken.AccessToken;
+			PlaidClient.AccessToken = accessToken.AccessToken;
 		}
 
 		public Task DisposeAsync() =>
-			_plaidClient.ItemRemoveAsync(new());
+			PlaidClient.ItemRemoveAsync(new());
+	}
+
+	[UsesVerify]
+	public class PlaidClientTest : IClassFixture<PlaidFixture>
+	{
+		private readonly PlaidFixture _fixture;
+
+		public PlaidClientTest(PlaidFixture fixture)
+		{
+			VerifierSettings.DisableClipboard();
+			VerifierSettings.ModifySerialization(s =>
+			{
+				s.IgnoreMember("RequestId");
+				s.IgnoreMember("AccountId");
+				s.IgnoreMember("ItemId");
+				s.IgnoreMember("TransactionId");
+				s.IgnoreMember("InvestmentTransactionId");
+				s.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
+			});
+			VerifierSettings.UseStrictJson();
+			_fixture = fixture;
+		}
 
 		[Fact]
 		public Task FetchItemAsync() =>
-			Verify(_plaidClient.ItemGetAsync(new()));
+			Verify(_fixture.PlaidClient.ItemGetAsync(new()));
 
 		[Fact]
 		public async Task FetchTransactionsAsync()
 		{
-			await _plaidClient.TransactionsRefreshAsync(new());
-			await Verify(_plaidClient.TransactionsGetAsync(new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }));
+			await _fixture.PlaidClient.TransactionsRefreshAsync(new());
+			await Verify(_fixture.PlaidClient.TransactionsGetAsync(new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }));
 		}
 
 		[Fact]
 		public Task FetchInvestmentTransactionsAsync() =>
-			Verify(_plaidClient.InvestmentsTransactionsGetAsync(new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }));
+			Verify(_fixture.PlaidClient.InvestmentsTransactionsGetAsync(new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }));
 
 		[Fact]
 		public Task FetchInvestmentHoldingsAsync() =>
-			Verify(_plaidClient.InvestmentsHoldingsGetAsync(new()));
-
-		///* Auth */
-
-		//[Fact]
-		//public async Task FetchAccountInfoAsync()
-		//{
-		//	var result = await PlaidClient.FetchAccountInfoAsync(
-		//		new Auth.GetAccountInfoRequest());
-		//	await Verify(result);
-		//}
-
-		///* Balance */
-
-		//[Fact]
-		//public async Task FetchAccountAsync()
-		//{
-		//	var result = await PlaidClient.FetchAccountAsync(
-		//		new Balance.GetAccountRequest());
-		//	await Verify(result);
-		//}
-
-		//[Fact]
-		//public async Task FetchAccountBalanceAsync()
-		//{
-		//	var result = await PlaidClient.FetchAccountBalanceAsync(
-		//		new Balance.GetBalanceRequest());
-		//	await Verify(result);
-		//}
-
-		///* Categories */
-
-		//[Fact]
-		//public async Task FetchCategoriesAsync()
-		//{
-		//	var result = await PlaidClient.FetchCategoriesAsync(
-		//		new Category.GetCategoriesRequest());
-		//	await Verify(result);
-		//}
-
-		///* Identity */
-
-		//[Fact]
-		//public async Task FetchUserIdentityAsync()
-		//{
-		//	var result = await PlaidClient.FetchUserIdentityAsync(
-		//		new Identity.GetUserIdentityRequest());
-		//	await Verify(result);
-		//}
-
-		///* Transactions */
-
-		//[Fact]
-		//public async Task FetchTransactionsAsync()
-		//{
-		//	var result = await PlaidClient.FetchTransactionsAsync(
-		//		new Transactions.GetTransactionsRequest()
-		//		{
-		//			StartDate = Convert.ToDateTime("2020-07-01"),
-		//			EndDate = Convert.ToDateTime("2020-07-31"),
-		//		});
-		//	await Verify(result);
-		//}
-
-		///* Liabilities */
-
-		//[Fact]
-		//public async Task FetchLiabilitiesAsync()
-		//{
-		//	var result = await PlaidClient.FetchLiabilitiesAsync(
-		//		new Liabilities.GetLiabilitiesRequest { });
-		//	await Verify(result);
-		//}
+			Verify(_fixture.PlaidClient.InvestmentsHoldingsGetAsync(new()));
 	}
 }
