@@ -19,8 +19,8 @@ var client = new PlaidClient(
 	Environment.Sandbox);
 
 // Retrieving a user's recent transactions.
-var result = await client.FetchTransactionsAsync(
-	new GetTransactionsRequest()
+var result = await client.TransactionsGetAsync(
+	new()
 	{
 		Secret = "<secret>",
 		ClientId = "<client_id>",
@@ -37,8 +37,8 @@ var client = new PlaidClient(
 	clientId: "<client_id>");
 
 // Retrieving a user's recent transactions.
-var result = await client.FetchTransactionsAsync(
-	new GetTransactionsRequest()
+var result = await client.TransactionsGetAsync(
+	new()
 	{
 		AccessToken = "<access_token>",
 	});
