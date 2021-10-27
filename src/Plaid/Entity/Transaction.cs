@@ -1,159 +1,57 @@
-﻿using System;
-using System.Text.Json.Serialization;
+namespace Going.Plaid.Entity;
 
-namespace Going.Plaid.Entity
+/// <summary>
+/// <para>A representation of a transaction</para>
+/// </summary>
+public record Transaction : Entity.TransactionBase
 {
 	/// <summary>
-	/// Represents a banking transaction.
+	/// <para>The channel used to make a payment.</para>
 	/// </summary>
-	/// <remarks>
-	/// Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.
-	/// </remarks>
-	public class Transaction
-	{
-		/// <summary>
-		/// Gets or sets the name.
-		/// </summary>
-		/// <value>The name.</value>
-		[JsonPropertyName("name")]
-		public string Name { get; init; } = null!;
+	[JsonPropertyName("payment_channel")]
+	public Entity.TransactionPaymentChannelEnum PaymentChannel { get; init; } = default!;
 
-		/// <summary>
-		/// The unique ID of the transaction.
-		/// </summary>
-		[JsonPropertyName("transaction_id")]
-		public string TransactionId { get; init; } = null!;
+	/// <summary>
+	/// <para>The merchant name, as extracted by Plaid from the <c>name</c> field.</para>
+	/// </summary>
+	[JsonPropertyName("merchant_name")]
+	public string? MerchantName { get; init; } = default!;
 
-		/// <summary>
-		/// The ID of the account in which this transaction occurred.
-		/// </summary>
-		[JsonPropertyName("account_id")]
-		public string AccountId { get; init; } = null!;
+	/// <summary>
+	/// <para>The date that the transaction was authorized. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
+	/// </summary>
+	[JsonPropertyName("authorized_date")]
+	public DateOnly? AuthorizedDate { get; init; } = default!;
 
-		/// <summary>
-		/// A hierarchical array of the categories to which this transaction belongs.
-		/// </summary>
-		[JsonPropertyName("category")]
-		public string[]? Categories { get; init; }
+	/// <summary>
+	/// <para>Date and time when a transaction was authorized in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
+	/// <para>This field is only populated for UK institutions. For institutions in other countries, will be <c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("authorized_datetime")]
+	public DateTimeOffset? AuthorizedDatetime { get; init; } = default!;
 
-		/// <summary>
-		///The ID of the category to which this transaction belongs.
-		/// </summary>
-		[JsonPropertyName("category_id")]
-		public string? CategoryId { get; init; }
+	/// <summary>
+	/// <para>Date and time when a transaction was posted in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
+	/// <para>This field is only populated for UK institutions. For institutions in other countries, will be <c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("datetime")]
+	public DateTimeOffset? Datetime { get; init; } = default!;
 
-		/// <summary>
-		/// Please use the <see cref="PaymentChannel"/> field, <see cref="TransactionType"/> will be deprecated in the future.
-		/// </summary>
-		[JsonPropertyName("transaction_type")]
-		[Obsolete("Please use the PaymentChannel field, TransactionType will be deprecated in the future.")]
-		public TransactionType? TransactionType { get; init; }
+	/// <summary>
+	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>
+	/// </summary>
+	[JsonPropertyName("check_number")]
+	public string? CheckNumber { get; init; } = default!;
 
-		/// <summary>
-		/// The channel used to make a payment. Possible values are: online, in store, other. This field will replace the transaction_type field.
-		/// </summary>
-		[JsonPropertyName("payment_channel")]
-		public PaymentChannel PaymentChannel { get; init; }
+	/// <summary>
+	/// <para>An identifier classifying the transaction type.</para>
+	/// </summary>
+	[JsonPropertyName("transaction_code")]
+	public Entity.TransactionCode? TransactionCode { get; init; } = default!;
 
-		/// <summary>
-		/// An identifier classifying the transaction type.
-		/// </summary>
-		/// <remarks>
-		/// This field is only populated for European institutions. For institutions in the US and Canada, this field is set to <c>null</c>.
-		/// </remarks>
-		public TransactionCode? TransactionCode { get; init; }
-
-		/// <summary>
-		/// Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be <c>null</c>.
-		/// </summary>
-		public PaymentMeta? PaymentMeta { get; init; }
-
-		/// <summary>
-		/// The settled dollar value. Positive values when money moves out of the account; negative values when money moves in. For example, purchases are positive; credit card payments, direct deposits, refunds are negative.
-		/// </summary>
-		[JsonPropertyName("amount")]
-		public decimal Amount { get; init; }
-
-		/// <summary>
-		/// The ISO currency code of the transaction, either USD or CAD. Always <c>null</c> if unofficial_currency_code is non-<c>null</c>.
-		/// </summary>
-		[JsonPropertyName("iso_currency_code")]
-		public string? IsoCurrencyCode { get; init; }
-
-		/// <summary>
-		/// The unofficial currency code associated with the transaction. Always <c>null</c> if iso_currency_code is non-<c>null</c>.
-		/// </summary>
-		[JsonPropertyName("unofficial_currency_code")]
-		public string? UnofficialCurrencyCode { get; init; }
-
-		/// <summary>
-		/// Gets the currency code from either IsoCurrencyCode or UnofficialCurrencyCode. If non-null, IsoCurrencyCode is returned, else if non-null, UnofficialCurrencyCode, else null is returned.
-		/// </summary>
-		/// <value>Either available currency code.</value>
-		public string? CurrencyCode => IsoCurrencyCode ?? UnofficialCurrencyCode ?? null;
-
-		/// <summary>
-		/// The date of the transaction.
-		/// </summary>
-		/// <remarks>For pending transactions, Plaid returns the date the transaction occurred; for posted transactions, Plaid returns the date the transaction posts.</remarks>
-		[JsonPropertyName("date")]
-		public DateTime Date { get; init; }
-
-		/// <summary>
-		/// The date that the transaction was authorized.
-		/// </summary>
-		[JsonPropertyName("authorized_date")]
-		public DateTime? AuthorizedDate { get; init; }
-
-		/// <summary>
-		/// Gets or sets the information of the merchant's location. Typically <c>null</c>.
-		/// </summary>
-		[JsonPropertyName("location")]
-		public LocationInfo? Location { get; init; }
-
-		/// <summary>
-		/// A value indicating whether this <see cref="Transaction"/> is pending or unsettled. Pending transaction details (<see cref="Name"/>, <see cref="PaymentChannel"/>, <see cref="Amount"/>) may change before they are settled.
-		/// </summary>
-		/// <value><c>true</c> if pending; otherwise, <c>false</c>.</value>
-		[JsonPropertyName("pending")]
-		public bool Pending { get; init; }
-
-		/// <summary>
-		/// The id of a posted transaction's associated pending transaction.
-		/// </summary>
-		[JsonPropertyName("pending_transaction_id")]
-		public string? PendingTransactionId { get; init; }
-
-		/// <summary>
-		/// The name of the account owner. This property is not typically populated and only relevant when dealing with sub-accounts.
-		/// </summary>
-		[JsonPropertyName("account_owner")]
-		public string? AccountOwner { get; init; }
-
-		/// <summary>
-		/// Represents a geographical location.
-		/// </summary>
-		public record LocationInfo : Address
-		{
-			/// <summary>
-			/// Gets or sets the latitude (x-coordinate).
-			/// </summary>
-			/// <value>The latitude.</value>
-			[JsonPropertyName("lat")]
-			public decimal? Latitude { get; init; }
-
-			/// <summary>
-			/// Gets or sets the longitude (y-coordinate).
-			/// </summary>
-			/// <value>The longitude.</value>
-			[JsonPropertyName("lon")]
-			public decimal? Longitude { get; init; }
-
-			/// <summary>
-			/// The merchant defined store number where the transaction occurred.
-			/// </summary>
-			[JsonPropertyName("store_number")]
-			public string? StoreNumber { get; init; }
-		}
-	}
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("personal_finance_category")]
+	public Entity.TransactionPersonalFinanceCategoryObject? PersonalFinanceCategory { get; init; } = default!;
 }

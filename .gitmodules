@@ -1,0 +1,3 @@
+[submodule "plaid-openapi"]
+	path = plaid-openapi
+	url = https://github.com/plaid/plaid-openapi.git

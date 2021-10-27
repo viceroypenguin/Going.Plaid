@@ -1,23 +1,22 @@
-﻿namespace Going.Plaid
+﻿namespace Going.Plaid;
+
+/// <summary>
+/// A Plaid Environment.
+/// </summary>
+public enum Environment
 {
 	/// <summary>
-	/// A Plaid Environment.
+	/// Production Environment
 	/// </summary>
-	public enum Environment
-	{
-		/// <summary>
-		/// Production Environment
-		/// </summary>
-		Production,
+	Production,
 
-		/// <summary>
-		/// Development Environment
-		/// </summary>
-		Development,
+	/// <summary>
+	/// Development Environment
+	/// </summary>
+	Development,
 
-		/// <summary>
-		/// Sandbox Environment
-		/// </summary>
-		Sandbox,
-	}
+	/// <summary>
+	/// Sandbox Environment
+	/// </summary>
+	Sandbox,
 }

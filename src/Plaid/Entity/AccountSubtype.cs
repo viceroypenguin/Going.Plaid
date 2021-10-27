@@ -1,388 +1,415 @@
-﻿using System.Runtime.Serialization;
+namespace Going.Plaid.Entity;
 
-namespace Going.Plaid.Entity
+/// <summary>
+/// <para>The specific type of an account.</para>
+/// </summary>
+public enum AccountSubtype
 {
 	/// <summary>
-	/// Enum Account Subtype
+	/// <para>Checking account</para>
 	/// </summary>
-	public enum AccountSubType
-	{
-		/// <summary>
-		/// Bank issued credit card
-		/// </summary>
-		[EnumMember(Value = "credit card")]
-		CreditCard,
+	[EnumMember(Value = "checking")]
+	Checking,
 
-		/// <summary>
-		/// PayPal issued depository account or credit card
-		/// </summary>
-		[EnumMember(Value = "paypal")]
-		PayPal,
+	/// <summary>
+	/// <para>Savings account</para>
+	/// </summary>
+	[EnumMember(Value = "savings")]
+	Savings,
 
-		/// <summary>
-		/// Cash management account
-		/// </summary>
-		[EnumMember(Value = "cash management")]
-		CashManagement,
+	/// <summary>
+	/// <para>Non-cash tax-advantaged medical Health Savings Account (HSA) (US)</para>
+	/// </summary>
+	[EnumMember(Value = "hsa")]
+	Hsa,
 
-		/// <summary>
-		/// Certificate of deposit
-		/// </summary>
-		[EnumMember(Value = "cd")]
-		Cd,
+	/// <summary>
+	/// <para>Certificate of deposit account</para>
+	/// </summary>
+	[EnumMember(Value = "cd")]
+	Cd,
 
-		/// <summary>
-		/// Standard checking account
-		/// </summary>
-		[EnumMember(Value = "checking")]
-		Checking,
+	/// <summary>
+	/// <para>Money market account</para>
+	/// </summary>
+	[EnumMember(Value = "money market")]
+	MoneyMarket,
 
-		/// <summary>
-		/// Standard savings account
-		/// </summary>
-		[EnumMember(Value = "savings")]
-		Savings,
+	/// <summary>
+	/// <para>PayPal-issued credit card</para>
+	/// </summary>
+	[EnumMember(Value = "paypal")]
+	Paypal,
 
-		/// <summary>
-		/// Similar to checking accounts
-		/// </summary>
-		[EnumMember(Value = "money market")]
-		MoneyMarket,
+	/// <summary>
+	/// <para>Prepaid debit card</para>
+	/// </summary>
+	[EnumMember(Value = "prepaid")]
+	Prepaid,
 
-		/// <summary>
-		/// Prepaid debit card
-		/// </summary>
-		[EnumMember(Value = "prepaid")]
-		PrePaid,
+	/// <summary>
+	/// <para>A cash management account, typically a cash account at a brokerage</para>
+	/// </summary>
+	[EnumMember(Value = "cash management")]
+	CashManagement,
 
-		/// <summary>
-		/// Automobile loan
-		/// </summary>
-		[EnumMember(Value = "auto")]
-		Auto,
+	/// <summary>
+	/// <para>An Electronic Benefit Transfer (EBT) account, used by certain public assistance programs to distribute funds (US only)</para>
+	/// </summary>
+	[EnumMember(Value = "ebt")]
+	Ebt,
 
-		/// <summary>
-		/// Commercial loan
-		/// </summary>
-		[EnumMember(Value = "commercial")]
-		Commercial,
+	/// <summary>
+	/// <para>Bank-issued credit card</para>
+	/// </summary>
+	[EnumMember(Value = "credit card")]
+	CreditCard,
 
-		/// <summary>
-		/// Construction loan
-		/// </summary>
-		[EnumMember(Value = "construction")]
-		Construction,
+	/// <summary>
+	/// <para>Auto loan</para>
+	/// </summary>
+	[EnumMember(Value = "auto")]
+	Auto,
 
-		/// <summary>
-		/// Consumer loan
-		/// </summary>
-		[EnumMember(Value = "consumer")]
-		Consumer,
+	/// <summary>
+	/// <para>Business loan</para>
+	/// </summary>
+	[EnumMember(Value = "business")]
+	Business,
 
-		/// <summary>
-		/// Home Equity Line of Credit (HELOC)
-		/// </summary>
-		[EnumMember(Value = "home equity")]
-		HomeEquity,
+	/// <summary>
+	/// <para>Commercial loan</para>
+	/// </summary>
+	[EnumMember(Value = "commercial")]
+	Commercial,
 
-		/// <summary>
-		/// General loan
-		/// </summary>
-		[EnumMember(Value = "loan")]
-		Loan,
+	/// <summary>
+	/// <para>Construction loan</para>
+	/// </summary>
+	[EnumMember(Value = "construction")]
+	Construction,
 
-		/// <summary>
-		/// Mortgage loan
-		/// </summary>
-		[EnumMember(Value = "mortgage")]
-		Mortgage,
+	/// <summary>
+	/// <para>Consumer loan</para>
+	/// </summary>
+	[EnumMember(Value = "consumer")]
+	Consumer,
 
-		/// <summary>
-		/// Pre-approved overdraft account, usually tied to a checking account
-		/// </summary>
-		[EnumMember(Value = "overdraft")]
-		Overdraft,
+	/// <summary>
+	/// <para>Home Equity Line of Credit (HELOC)</para>
+	/// </summary>
+	[EnumMember(Value = "home equity")]
+	HomeEquity,
 
-		/// <summary>
-		/// Pre-approved line of credit
-		/// </summary>
-		[EnumMember(Value = "line of credit")]
-		LineOfCredit,
+	/// <summary>
+	/// <para>General loan</para>
+	/// </summary>
+	[EnumMember(Value = "loan")]
+	Loan,
 
-		/// <summary>
-		/// Student loan
-		/// </summary>
-		[EnumMember(Value = "student")]
-		Student,
+	/// <summary>
+	/// <para>Mortgage loan</para>
+	/// </summary>
+	[EnumMember(Value = "mortgage")]
+	Mortgage,
 
-		/// <summary>
-		/// Plaid was unable to properly categorize this account or the account does not fit into our current schema.
-		/// </summary>
-		[EnumMember(Value = "other")]
-		Other,
+	/// <summary>
+	/// <para>Pre-approved overdraft account, usually tied to a checking account</para>
+	/// </summary>
+	[EnumMember(Value = "overdraft")]
+	Overdraft,
 
-		/// <summary>
-		/// Employer-sponsored money-purchase retirement plan
-		/// </summary>
-		[EnumMember(Value = "401a")]
-		_401a,
+	/// <summary>
+	/// <para>Pre-approved line of credit</para>
+	/// </summary>
+	[EnumMember(Value = "line of credit")]
+	LineOfCredit,
 
-		/// <summary>
-		/// Standard 401k account
-		/// </summary>
-		[EnumMember(Value = "401k")]
-		_401k,
+	/// <summary>
+	/// <para>Student loan</para>
+	/// </summary>
+	[EnumMember(Value = "student")]
+	Student,
 
-		/// <summary>
-		/// Tax-advantaged retirement savings plan
-		/// </summary>
-		[EnumMember(Value = "403b")]
-		_403b,
+	/// <summary>
+	/// <para>An account whose type could not be determined</para>
+	/// </summary>
+	[EnumMember(Value = "other")]
+	Other,
 
-		/// <summary>
-		/// Tax-advantaged deferred-compensation retirement plan
-		/// </summary>
-		[EnumMember(Value = "457b")]
-		_457b,
+	/// <summary>
+	/// <para>Tax-advantaged college savings and prepaid tuition 529 plans (US)</para>
+	/// </summary>
+	[EnumMember(Value = "529")]
+	_529,
 
-		/// <summary>
-		/// College savings plans and prepaid tuition plans
-		/// </summary>
-		[EnumMember(Value = "529")]
-		_529,
+	/// <summary>
+	/// <para>Employer-sponsored money-purchase 401(a) retirement plan (US)</para>
+	/// </summary>
+	[EnumMember(Value = "401a")]
+	_401a,
 
-		/// <summary>
-		/// Standard Brokerage account
-		/// </summary>
-		[EnumMember(Value = "brokerage")]
-		Brokerage,
+	/// <summary>
+	/// <para>Standard 401(k) retirement account (US)</para>
+	/// </summary>
+	[EnumMember(Value = "401k")]
+	_401k,
 
-		/// <summary>
-		/// UK account that pays interest tax-free
-		/// </summary>
-		[EnumMember(Value = "cash isa")]
-		CashIsa,
+	/// <summary>
+	/// <para>403(b) retirement savings account for non-profits and schools (US)</para>
+	/// </summary>
+	[EnumMember(Value = "403B")]
+	_403b,
 
-		/// <summary>
-		/// Tax-advantaged Education Savings Account (ESA)
-		/// </summary>
-		[EnumMember(Value = "education savings account")]
-		EducationSavingsAaccount,
+	/// <summary>
+	/// <para>Tax-advantaged deferred-compensation 457(b) retirement plan for governments and non-profits (US)</para>
+	/// </summary>
+	[EnumMember(Value = "457b")]
+	_457b,
 
-		/// <summary>
-		/// Fixed Annuity
-		/// </summary>
-		[EnumMember(Value = "fixed annuity")]
-		FixedAnnuity,
+	/// <summary>
+	/// <para>Standard brokerage account</para>
+	/// </summary>
+	[EnumMember(Value = "brokerage")]
+	Brokerage,
 
-		/// <summary>
-		/// Canadian Guaranteed Investment Certificate
-		/// </summary>
-		[EnumMember(Value = "gic")]
-		Gic,
+	/// <summary>
+	/// <para>Individual Savings Account (ISA) that pays interest tax-free (UK)</para>
+	/// </summary>
+	[EnumMember(Value = "cash isa")]
+	CashIsa,
 
-		/// <summary>
-		/// Tax-advantaged health benefit plan
-		/// </summary>
-		[EnumMember(Value = "health reimbursement arrangement")]
-		HealthReimbursementArrangement,
+	/// <summary>
+	/// <para>Tax-advantaged Coverdell Education Savings Account (ESA) (US)</para>
+	/// </summary>
+	[EnumMember(Value = "education savings account")]
+	EducationSavingsAccount,
 
-		/// <summary>
-		/// Tax-advantaged medical Health Savings Account
-		/// </summary>
-		[EnumMember(Value = "hsa")]
-		Hsa,
+	/// <summary>
+	/// <para>Fixed annuity</para>
+	/// </summary>
+	[EnumMember(Value = "fixed annuity")]
+	FixedAnnuity,
 
-		/// <summary>
-		/// Traditional IRA
-		/// </summary>
-		[EnumMember(Value = "ira")]
-		Ira,
+	/// <summary>
+	/// <para>Guaranteed Investment Certificate (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "gic")]
+	Gic,
 
-		/// <summary>
-		/// UK 'Individual Savings Account'
-		/// </summary>
-		[EnumMember(Value = "isa")]
-		Isa,
+	/// <summary>
+	/// <para>Tax-advantaged Health Reimbursement Arrangement (HRA) benefit plan (US)</para>
+	/// </summary>
+	[EnumMember(Value = "health reimbursement arrangement")]
+	HealthReimbursementArrangement,
 
-		/// <summary>
-		/// Keogh self-employed pension plan
-		/// </summary>
-		[EnumMember(Value = "keogh")]
-		Keogh,
+	/// <summary>
+	/// <para>Traditional Invididual Retirement Account (IRA) (US)</para>
+	/// </summary>
+	[EnumMember(Value = "ira")]
+	Ira,
 
-		/// <summary>
-		/// Canadian registered Retirement Income Fund
-		/// </summary>
-		[EnumMember(Value = "lif")]
-		Lif,
+	/// <summary>
+	/// <para>Non-cash Individual Savings Account (ISA) (UK)</para>
+	/// </summary>
+	[EnumMember(Value = "isa")]
+	Isa,
 
-		/// <summary>
-		/// Canadian Locked-In Retirement Account
-		/// </summary>
-		[EnumMember(Value = "lira")]
-		Lira,
+	/// <summary>
+	/// <para>Keogh self-employed retirement plan (US)</para>
+	/// </summary>
+	[EnumMember(Value = "keogh")]
+	Keogh,
 
-		/// <summary>
-		/// Canadian Locked-in Retirement Income Fund
-		/// </summary>
-		[EnumMember(Value = "lrif")]
-		Lrif,
+	/// <summary>
+	/// <para>Life Income Fund (LIF) retirement account (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "lif")]
+	Lif,
 
-		/// <summary>
-		/// Canadian Locked-in Retirement Savings Plan
-		/// </summary>
-		[EnumMember(Value = "lrsp")]
-		Lrsp,
+	/// <summary>
+	/// <para>Life insurance account</para>
+	/// </summary>
+	[EnumMember(Value = "life insurance")]
+	LifeInsurance,
 
-		/// <summary>
-		/// Account that holds mutual fund positions
-		/// </summary>
-		[EnumMember(Value = "mutual fund")]
-		MutualFund,
+	/// <summary>
+	/// <para>Locked-in Retirement Account (LIRA) (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "lira")]
+	Lira,
 
-		/// <summary>
-		/// A non-taxable brokerage account that is not covered by a more specific subtype
-		/// </summary>
-		[EnumMember(Value = "non-taxable brokerage account")]
-		NonTaxableBrokerageAccount,
+	/// <summary>
+	/// <para>Locked-in Retirement Income Fund (LRIF) (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "lrif")]
+	Lrif,
 
-		/// <summary>
-		/// Standard Pension account
-		/// </summary>
-		[EnumMember(Value = "pension")]
-		Pension,
+	/// <summary>
+	/// <para>Locked-in Retirement Savings Plan (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "lrsp")]
+	Lrsp,
 
-		/// <summary>
-		/// Canadian Prescribed Registered Retirement Income Fund
-		/// </summary>
-		[EnumMember(Value = "prif")]
-		Prif,
+	/// <summary>
+	/// <para>Mutual fund account</para>
+	/// </summary>
+	[EnumMember(Value = "mutual fund")]
+	MutualFund,
 
-		/// <summary>
-		/// Plan gives employees share of company profits
-		/// </summary>
-		[EnumMember(Value = "profit sharing plan")]
-		ProfitSharingPlan,
+	/// <summary>
+	/// <para>A non-taxable brokerage account that is not covered by a more specific subtype</para>
+	/// </summary>
+	[EnumMember(Value = "non-taxable brokerage account")]
+	NonTaxableBrokerageAccount,
 
-		/// <summary>
-		/// Qualifying share account
-		/// </summary>
-		[EnumMember(Value = "qshr")]
-		Qshr,
+	/// <summary>
+	/// <para>An annuity account not covered by other subtypes</para>
+	/// </summary>
+	[EnumMember(Value = "other annuity")]
+	OtherAnnuity,
 
-		/// <summary>
-		/// Canadian Registered Disability Savings Plan
-		/// </summary>
-		[EnumMember(Value = "rdsp")]
-		Rdsp,
+	/// <summary>
+	/// <para>An insurance account not covered by other subtypes</para>
+	/// </summary>
+	[EnumMember(Value = "other insurance")]
+	OtherInsurance,
 
-		/// <summary>
-		/// Canadian Registered Education Savings Plan
-		/// </summary>
-		[EnumMember(Value = "resp")]
-		Resp,
+	/// <summary>
+	/// <para>Standard pension account</para>
+	/// </summary>
+	[EnumMember(Value = "pension")]
+	Pension,
 
-		/// <summary>
-		/// A retirement account not covered by other subtypes
-		/// </summary>
-		[EnumMember(Value = "retirement")]
-		Retirement,
+	/// <summary>
+	/// <para>Prescribed Registered Retirement Income Fund (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "prif")]
+	Prif,
 
-		/// <summary>
-		/// Canadian Restricted Life Income Fund
-		/// </summary>
-		[EnumMember(Value = "rlif")]
-		Rlif,
+	/// <summary>
+	/// <para>Plan that gives employees share of company profits</para>
+	/// </summary>
+	[EnumMember(Value = "profit sharing plan")]
+	ProfitSharingPlan,
 
-		/// <summary>
-		/// Roth IRA
-		/// </summary>
-		[EnumMember(Value = "roth")]
-		Roth,
+	/// <summary>
+	/// <para>Qualifying share account</para>
+	/// </summary>
+	[EnumMember(Value = "qshr")]
+	Qshr,
 
-		/// <summary>
-		/// Employer-sponsored investment savings account
-		/// </summary>
-		[EnumMember(Value = "roth 401k")]
-		Roth401k,
+	/// <summary>
+	/// <para>Registered Disability Savings Plan (RSDP) (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "rdsp")]
+	Rdsp,
 
-		/// <summary>
-		/// Canadian Registered Retirement Income Fund
-		/// </summary>
-		[EnumMember(Value = "rrif")]
-		Rrif,
+	/// <summary>
+	/// <para>Registered Education Savings Plan (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "resp")]
+	Resp,
 
-		/// <summary>
-		/// Canadian Registered Retirement Savings Plan (equivalent to 401k)
-		/// </summary>
-		[EnumMember(Value = "rrsp")]
-		Rrsp,
+	/// <summary>
+	/// <para>Retirement account not covered by other subtypes</para>
+	/// </summary>
+	[EnumMember(Value = "retirement")]
+	Retirement,
 
-		/// <summary>
-		/// Salary Reduction Simplified Employee Pension Plan
-		/// </summary>
-		[EnumMember(Value = "sarsep")]
-		Sarsep,
+	/// <summary>
+	/// <para>Restricted Life Income Fund (RLIF) (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "rlif")]
+	Rlif,
 
-		/// <summary>
-		/// Simplified Employee Pension IRA
-		/// </summary>
-		[EnumMember(Value = "sep ira")]
-		SepIra,
+	/// <summary>
+	/// <para>Roth IRA (US)</para>
+	/// </summary>
+	[EnumMember(Value = "roth")]
+	Roth,
 
-		/// <summary>
-		/// Savings Incentive Match Plan for Employees IRA
-		/// </summary>
-		[EnumMember(Value = "simple ira")]
-		SimpleIra,
+	/// <summary>
+	/// <para>Employer-sponsored Roth 401(k) plan (US)</para>
+	/// </summary>
+	[EnumMember(Value = "roth 401k")]
+	Roth401k,
 
-		/// <summary>
-		/// UK Self-Invested Personal Pension
-		/// </summary>
-		[EnumMember(Value = "sipp")]
-		Sipp,
+	/// <summary>
+	/// <para>Registered Retirement Income Fund (RRIF) (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "rrif")]
+	Rrif,
 
-		/// <summary>
-		/// Standard Stock Plan account
-		/// </summary>
-		[EnumMember(Value = "stock plan")]
-		StockPlan,
+	/// <summary>
+	/// <para>Registered Retirement Savings Plan (Canadian, similar to US 401(k))</para>
+	/// </summary>
+	[EnumMember(Value = "rrsp")]
+	Rrsp,
 
-		/// <summary>
-		/// Canadian tax-free savings account, equivalent to roth
-		/// </summary>
-		[EnumMember(Value = "tfsa")]
-		Tfsa,
+	/// <summary>
+	/// <para>Salary Reduction Simplified Employee Pension Plan (SARSEP), discontinued retirement plan (US)</para>
+	/// </summary>
+	[EnumMember(Value = "sarsep")]
+	Sarsep,
 
-		/// <summary>
-		/// Defined contribution plan for US civil servants
-		/// </summary>
-		[EnumMember(Value = "thrift savings plan")]
-		ThriftSavingsPlan,
+	/// <summary>
+	/// <para>Simplified Employee Pension IRA (SEP IRA), retirement plan for small businesses and self-employed (US)</para>
+	/// </summary>
+	[EnumMember(Value = "sep ira")]
+	SepIra,
 
-		/// <summary>
-		/// Account representing funds or assets held by a trustee for the benefit of a beneficiary
-		/// </summary>
-		[EnumMember(Value = "trust")]
-		Trust,
+	/// <summary>
+	/// <para>Savings Incentive Match Plan for Employees IRA, retirement plan for small businesses (US)</para>
+	/// </summary>
+	[EnumMember(Value = "simple ira")]
+	SimpleIra,
 
-		/// <summary>
-		/// 'Uniform Gift to Minors Act' (brokerage account for minors)
-		/// </summary>
-		[EnumMember(Value = "ugma")]
-		Ugma,
+	/// <summary>
+	/// <para>Self-Invested Personal Pension (SIPP) (UK)</para>
+	/// </summary>
+	[EnumMember(Value = "sipp")]
+	Sipp,
 
-		/// <summary>
-		/// 'Uniform Transfers to Minors Act' (brokerage account for minors)
-		/// </summary>
-		[EnumMember(Value = "utma")]
-		Utma,
+	/// <summary>
+	/// <para>Standard stock plan account</para>
+	/// </summary>
+	[EnumMember(Value = "stock plan")]
+	StockPlan,
 
-		/// <summary>
-		/// Tax-deferred capital accumulation annuity contract
-		/// </summary>
-		[EnumMember(Value = "variable annuity")]
-		VariableAnnuity,
-	}
+	/// <summary>
+	/// <para>Tax-Free Savings Account (TFSA), a retirement plan similar to a Roth IRA (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "tfsa")]
+	Tfsa,
+
+	/// <summary>
+	/// <para>Account representing funds or assets held by a trustee for the benefit of a beneficiary. Includes both revocable and irrevocable trusts.</para>
+	/// </summary>
+	[EnumMember(Value = "trust")]
+	Trust,
+
+	/// <summary>
+	/// <para>'Uniform Gift to Minors Act' (brokerage account for minors, US)</para>
+	/// </summary>
+	[EnumMember(Value = "ugma")]
+	Ugma,
+
+	/// <summary>
+	/// <para>'Uniform Transfers to Minors Act' (brokerage account for minors, US)</para>
+	/// </summary>
+	[EnumMember(Value = "utma")]
+	Utma,
+
+	/// <summary>
+	/// <para>Tax-deferred capital accumulation annuity contract</para>
+	/// </summary>
+	[EnumMember(Value = "variable annuity")]
+	VariableAnnuity,
+
+	/// <summary>
+	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
+	/// </summary>
+	[EnumMember(Value = "undefined")]
+	Undefined,
 }

@@ -9,203 +9,125 @@ using Xunit;
 using static VerifyXunit.Verifier;
 using MOptions = Microsoft.Extensions.Options.Options;
 
+#if !NET6_0_OR_GREATER
+using DateOnly = System.DateTime;
+#endif
+
 namespace Going.Plaid.Tests
 {
-	[UsesVerify]
-	public class PlaidClientTest
+	public class PlaidFixture : IAsyncLifetime
 	{
 		public PlaidClient PlaidClient { get; }
 
-		public PlaidClientTest()
+		public PlaidFixture()
 		{
-			VerifierSettings.DisableClipboard();
-			VerifierSettings.ScrubLinesContaining(StringComparison.OrdinalIgnoreCase, "RequestId");
-			VerifierSettings.UseStrictJson();
-
 			var configuration = new ConfigurationBuilder()
 				.AddEnvironmentVariables()
 				.AddJsonFile("secrets.json", optional: true)
 				.Build();
-			var plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>();
+			var plaidOptions = configuration.GetSection(PlaidOptions.SectionKey).Get<PlaidOptions>()!;
 
-			if (string.IsNullOrWhiteSpace(plaidOptions?.ClientId))
+			if (string.IsNullOrWhiteSpace(plaidOptions.ClientId))
 				throw new InvalidOperationException("Please provide ClientId configuration via PLAID__CLIENTID environment variable or Plaid:ClientId in secrets.json.");
-			if (string.IsNullOrWhiteSpace(plaidOptions?.Secret))
+			if (string.IsNullOrWhiteSpace(plaidOptions.Secret))
 				throw new InvalidOperationException("Please provide Secret configuration via PLAID__SECRET or Plaid:Secret in secrets.json.");
-			if (string.IsNullOrWhiteSpace(plaidOptions?.DefaultAccessToken))
-				throw new InvalidOperationException("Please provide DefaultAccessToken configuration via PLAID__DEFAULTACCESSTOKEN or Plaid:DefaultAccessToken in secrets.json.");
+			if (!string.IsNullOrWhiteSpace(plaidOptions.DefaultAccessToken))
+				throw new InvalidOperationException("Please do not provide DefaultAccessToken configuration. The Access Token will be generated using Sandbox APIs.");
+			if (plaidOptions.Environment != Environment.Sandbox)
+				throw new InvalidOperationException("Environment must be Sandbox.");
 
 			PlaidClient = new PlaidClient(
 				MOptions.Create(plaidOptions));
 		}
 
-		[Fact]
-		public async Task FetchItemAsync()
+		public async Task InitializeAsync()
 		{
-			var result = await PlaidClient.FetchItemAsync(
-				new Management.GetItemRequest());
-
-			// because values will change regularly and we don't want
-			// to have to update output json for that.
-			result = result with { Status = null!, };
-
-			await Verify(result);
-		}
-
-		[Fact]
-		public async Task UpdateWebhookAsync()
-		{
-			var result = await PlaidClient.UpdateWebhookAsync(
-				new Management.UpdateWebhookRequest()
-				{
-					Webhook = "https://example.com",
-				});
-			await Verify(result);
-		}
-
-		/* Institutions */
-
-		[Fact]
-		public async Task FetchAllInstitutionsAsync()
-		{
-			// institution list may change over time. don't validate.
-			var result = await PlaidClient.FetchAllInstitutionsAsync(
-				new Institution.GetAllInstitutionsRequest()
-				{
-					CountryCodes = new[] { "US", },
-				});
-			Assert.Equal(100, result.Institutions.Length);
-		}
-
-		[Fact]
-		public async Task FetchInstitutionsAsync()
-		{
-			var result = await PlaidClient.FetchInstitutionsAsync(
-				new Institution.SearchRequest
-				{
-					Query = "Chase",
-					Products = new[] { Product.Transactions, },
-					CountryCodes = new[] { "US", },
-				});
-			await Verify(result);
-		}
-
-		[Fact]
-		public async Task FetchInstitutionByIdAsync()
-		{
-			var result = await PlaidClient.FetchInstitutionByIdAsync(
-				new Institution.SearchByIdRequest
+			var publicToken = await PlaidClient.SandboxPublicTokenCreateAsync(
+				new Sandbox.SandboxPublicTokenCreateRequest
 				{
 					InstitutionId = "ins_3",
-					CountryCodes = new[] { "US", },
+					InitialProducts = new[]
+					{
+						Products.Auth,
+						Products.Balance,
+						Products.Investments,
+						Products.Transactions,
+					},
 				});
-			await Verify(result);
-		}
+			if (!publicToken.IsSuccessStatusCode)
+				throw new InvalidOperationException("Unable to collect sandbox public token.");
 
-		/* Income */
-
-		[Fact]
-		public async Task FetchUserIncomeAsync()
-		{
-			var result = await PlaidClient.FetchUserIncomeAsync(
-				new Income.GetIncomeRequest());
-			await Verify(result);
-		}
-
-		/* Investments */
-
-		[Fact(Skip = "Plaid has consistency problems with returned data from this API")]
-		public async Task FetchInvestmentHoldingsAsync()
-		{
-			var result = await PlaidClient.FetchInvestmentHoldingsAsync(
-				new Investments.GetInvestmentHoldingsRequest());
-
-			await Verify(result);
-		}
-
-		[Fact(Skip = "Plaid has consistency problems with returned data from this API")]
-		public async Task FetchInvestmentTransactionsAsync()
-		{
-			var result = await PlaidClient.FetchInvestmentTransactionsAsync(
-				new Investments.GetInvestmentTransactionsRequest()
+			var accessToken = await PlaidClient.ItemPublicTokenExchangeAsync(
+				new Item.ItemPublicTokenExchangeRequest
 				{
-					StartDate = Convert.ToDateTime("2020-07-01"),
-					EndDate = Convert.ToDateTime("2020-07-31"),
+					PublicToken = publicToken.PublicToken,
 				});
+			if (!accessToken.IsSuccessStatusCode)
+				throw new InvalidOperationException("Unable to collect sandbox access token.");
 
-			await Verify(result);
+			PlaidClient.AccessToken = accessToken.AccessToken;
 		}
 
-		/* Auth */
+		public Task DisposeAsync() =>
+			PlaidClient.ItemRemoveAsync(new());
+	}
+
+	[UsesVerify]
+	public class PlaidClientTest : IClassFixture<PlaidFixture>
+	{
+		private static readonly VerifySettings settings = BuildVerifierSettings();
+		private static VerifySettings BuildVerifierSettings()
+		{
+			VerifierSettings.UseStrictJson();
+			VerifierSettings.DisableClipboard();
+
+			var settings = new VerifySettings();
+			settings.ModifySerialization(s =>
+			{
+				// random ids
+				s.IgnoreMember("RequestId");
+				s.IgnoreMember("AccountId");
+				s.IgnoreMember("ItemId");
+				s.IgnoreMember("TransactionId");
+				s.IgnoreMember("InvestmentTransactionId");
+
+				// dateonly vs datetime - ignore dates for now
+				s.IgnoreMember("Date");
+				s.IgnoreMember("InstitutionPriceAsOf");
+				s.IgnoreMember("ClosePriceAsOf");
+				s.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
+			});
+			return settings;
+		}
+
+		private readonly PlaidFixture _fixture;
+
+		public PlaidClientTest(PlaidFixture fixture)
+		{
+			_fixture = fixture;
+		}
 
 		[Fact]
-		public async Task FetchAccountInfoAsync()
-		{
-			var result = await PlaidClient.FetchAccountInfoAsync(
-				new Auth.GetAccountInfoRequest());
-			await Verify(result);
-		}
-
-		/* Balance */
-
-		[Fact]
-		public async Task FetchAccountAsync()
-		{
-			var result = await PlaidClient.FetchAccountAsync(
-				new Balance.GetAccountRequest());
-			await Verify(result);
-		}
-
-		[Fact]
-		public async Task FetchAccountBalanceAsync()
-		{
-			var result = await PlaidClient.FetchAccountBalanceAsync(
-				new Balance.GetBalanceRequest());
-			await Verify(result);
-		}
-
-		/* Categories */
-
-		[Fact]
-		public async Task FetchCategoriesAsync()
-		{
-			var result = await PlaidClient.FetchCategoriesAsync(
-				new Category.GetCategoriesRequest());
-			await Verify(result);
-		}
-
-		/* Identity */
-
-		[Fact]
-		public async Task FetchUserIdentityAsync()
-		{
-			var result = await PlaidClient.FetchUserIdentityAsync(
-				new Identity.GetUserIdentityRequest());
-			await Verify(result);
-		}
-
-		/* Transactions */
+		public Task FetchItemAsync() =>
+			Verify(_fixture.PlaidClient.ItemGetAsync(new()), settings);
 
 		[Fact]
 		public async Task FetchTransactionsAsync()
 		{
-			var result = await PlaidClient.FetchTransactionsAsync(
-				new Transactions.GetTransactionsRequest()
-				{
-					StartDate = Convert.ToDateTime("2020-07-01"),
-					EndDate = Convert.ToDateTime("2020-07-31"),
-				});
-			await Verify(result);
+			await _fixture.PlaidClient.TransactionsRefreshAsync(new());
+			await Verify(_fixture.PlaidClient.TransactionsGetAsync(
+				new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }),
+				settings);
 		}
-
-		/* Liabilities */
 
 		[Fact]
-		public async Task FetchLiabilitiesAsync()
-		{
-			var result = await PlaidClient.FetchLiabilitiesAsync(
-				new Liabilities.GetLiabilitiesRequest { });
-			await Verify(result);
-		}
+		public Task FetchInvestmentTransactionsAsync() =>
+			Verify(_fixture.PlaidClient.InvestmentsTransactionsGetAsync(
+				new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }),
+				settings);
+
+		[Fact]
+		public Task FetchInvestmentHoldingsAsync() =>
+			Verify(_fixture.PlaidClient.InvestmentsHoldingsGetAsync(new()), settings);
 	}
 }

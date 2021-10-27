@@ -1,5 +1,5 @@
 # Going.Plaid
-[![Build status](https://ci.appveyor.com/api/projects/status/ff2ciq6rfn7225oi?svg=true)](https://ci.appveyor.com/project/viceroypenguin/going-plaid-net)
+![Build status](https://github.com/viceroypenguin/Going.Plaid/actions/workflows/build.yml/badge.svg)
 [![NuGet](https://img.shields.io/nuget/v/Going.Plaid.svg?style=plastic)](https://www.nuget.org/packages/Going.Plaid/)
 ---
 

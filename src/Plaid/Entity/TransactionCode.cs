@@ -1,85 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
+namespace Going.Plaid.Entity;
 
-namespace Going.Plaid.Entity
+/// <summary>
+/// <para>An identifier classifying the transaction type.</para>
+/// </summary>
+public enum TransactionCode
 {
 	/// <summary>
-	/// An identifier classifying the transaction type.
+	/// <para>Bank adjustment</para>
 	/// </summary>
-	public enum TransactionCode
-	{
-		/// <summary>
-		/// Bank adjustment
-		/// </summary>
-		[EnumMember(Value = "adjustment")]
-		Adjustment,
+	[EnumMember(Value = "adjustment")]
+	Adjustment,
 
-		/// <summary>
-		/// Cash deposit or withdrawal via an automated teller machine
-		/// </summary>
-		[EnumMember(Value = "atm")]
-		Atm,
+	/// <summary>
+	/// <para>Cash deposit or withdrawal via an automated teller machine</para>
+	/// </summary>
+	[EnumMember(Value = "atm")]
+	Atm,
 
-		/// <summary>
-		/// Charge or fee levied by the institution
-		/// </summary>
-		[EnumMember(Value = "bank charge")]
-		BankCharge,
+	/// <summary>
+	/// <para>Charge or fee levied by the institution</para>
+	/// </summary>
+	[EnumMember(Value = "bank charge")]
+	BankCharge,
 
-		/// <summary>
-		/// Payment of a bill
-		/// </summary>
-		[EnumMember(Value = "bill payment")]
-		BillPayment,
+	/// <summary>
+	/// <para>Payment of a bill</para>
+	/// </summary>
+	[EnumMember(Value = "bill payment")]
+	BillPayment,
 
-		/// <summary>
-		/// Cash deposit or withdrawal
-		/// </summary>
-		[EnumMember(Value = "cash")]
-		Cash,
+	/// <summary>
+	/// <para>Cash deposit or withdrawal</para>
+	/// </summary>
+	[EnumMember(Value = "cash")]
+	Cash,
 
-		/// <summary>
-		/// Cash withdrawal while making a debit card purchase
-		/// </summary>
-		[EnumMember(Value = "cashback")]
-		Cashback,
+	/// <summary>
+	/// <para>Cash withdrawal while making a debit card purchase</para>
+	/// </summary>
+	[EnumMember(Value = "cashback")]
+	Cashback,
 
-		/// <summary>
-		/// Document ordering the payment of money to another person or organization
-		/// </summary>
-		[EnumMember(Value = "cheque")]
-		Cheque,
+	/// <summary>
+	/// <para>Document ordering the payment of money to another person or organization</para>
+	/// </summary>
+	[EnumMember(Value = "cheque")]
+	Cheque,
 
-		/// <summary>
-		/// Automatic withdrawal of funds initiated by a third party at a regular interval
-		/// </summary>
-		[EnumMember(Value = "direct debit")]
-		DirectDebit,
+	/// <summary>
+	/// <para>Automatic withdrawal of funds initiated by a third party at a regular interval</para>
+	/// </summary>
+	[EnumMember(Value = "direct debit")]
+	DirectDebit,
 
-		/// <summary>
-		/// Interest earned or incurred
-		/// </summary>
-		[EnumMember(Value = "interest")]
-		Interest,
+	/// <summary>
+	/// <para>Interest earned or incurred</para>
+	/// </summary>
+	[EnumMember(Value = "interest")]
+	Interest,
 
-		/// <summary>
-		/// Purchase made with a debit or credit card
-		/// </summary>
-		[EnumMember(Value = "purchase")]
-		Purchase,
+	/// <summary>
+	/// <para>Purchase made with a debit or credit card</para>
+	/// </summary>
+	[EnumMember(Value = "purchase")]
+	Purchase,
 
-		/// <summary>
-		/// Payment instructed by the account holder to a third party at a regular interval
-		/// </summary>
-		[EnumMember(Value = "standing order")]
-		StandingOrder,
+	/// <summary>
+	/// <para>Payment instructed by the account holder to a third party at a regular interval</para>
+	/// </summary>
+	[EnumMember(Value = "standing order")]
+	StandingOrder,
 
-		/// <summary>
-		/// Transfer of money between accounts
-		/// </summary>
-		[EnumMember(Value = "transfer")]
-		Transfer,
-	}
+	/// <summary>
+	/// <para>Transfer of money between accounts</para>
+	/// </summary>
+	[EnumMember(Value = "transfer")]
+	Transfer,
+
+	/// <summary>
+	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
+	/// </summary>
+	[EnumMember(Value = "undefined")]
+	Undefined,
 }

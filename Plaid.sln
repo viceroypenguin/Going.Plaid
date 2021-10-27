@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plaid", "src\Plaid\Plaid.csproj", "{D9080ED3-10BA-4CCF-A6A6-203B7E92459B}"
 EndProject
@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".root", ".root", "{5B75FA3C
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
-		appveyor.yml = appveyor.yml
+		.github\workflows\build.yml = .github\workflows\build.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plaid.Tests", "tests\Plaid.Tests\Plaid.Tests.csproj", "{055E6916-EDC1-461C-8E11-3BED1FEB7E96}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plaid.Demo", "tests\Plaid.Demo\Plaid.Demo.csproj", "{0845CBE6-C6F2-407F-88C1-8806DBB8BD37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plaid.OpenApiParser", "src\Plaid.OpenApiParser\Plaid.OpenApiParser.csproj", "{39480CEF-4B7F-43AF-90DB-394B520BFF06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0845CBE6-C6F2-407F-88C1-8806DBB8BD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0845CBE6-C6F2-407F-88C1-8806DBB8BD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0845CBE6-C6F2-407F-88C1-8806DBB8BD37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39480CEF-4B7F-43AF-90DB-394B520BFF06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39480CEF-4B7F-43AF-90DB-394B520BFF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39480CEF-4B7F-43AF-90DB-394B520BFF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39480CEF-4B7F-43AF-90DB-394B520BFF06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{D9080ED3-10BA-4CCF-A6A6-203B7E92459B} = {839FCE9A-04DD-4D26-8C4F-CD99BC7CA59B}
 		{055E6916-EDC1-461C-8E11-3BED1FEB7E96} = {D79CDC6A-E826-4BF5-AB5B-E8A842658BD3}
 		{0845CBE6-C6F2-407F-88C1-8806DBB8BD37} = {D79CDC6A-E826-4BF5-AB5B-E8A842658BD3}
+		{39480CEF-4B7F-43AF-90DB-394B520BFF06} = {839FCE9A-04DD-4D26-8C4F-CD99BC7CA59B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68A7DB6B-02B6-443C-B34F-F74DE59FE7D6}

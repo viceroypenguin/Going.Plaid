@@ -1,43 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+namespace Going.Plaid.Entity;
 
-namespace Going.Plaid.Entity
+/// <summary>
+/// <para>A physical mailing address.</para>
+/// </summary>
+public record Address
 {
 	/// <summary>
-	/// Represents the fields of an address.
+	/// <para>Data about the components comprising an address.</para>
 	/// </summary>
-	public record Address
-	{
-		/// <summary>
-		/// The city name
-		/// </summary>
-		[JsonPropertyName("city")]
-		public string? City { get; init; }
+	[JsonPropertyName("data")]
+	public Entity.AddressData Data { get; init; } = default!;
 
-		/// <summary>
-		/// The ISO 3166-1 alpha-2 country code.
-		/// </summary>
-		[JsonPropertyName("country")]
-		public string? Country { get; init; }
-
-		/// <summary>
-		/// The five or nine digit postal code.
-		/// </summary>
-		[JsonPropertyName("postal_code")]
-		public string? PostalCode { get; init; }
-
-		/// <summary>
-		/// The region or state (example "NC").
-		/// </summary>
-		[JsonPropertyName("region")]
-		public string? Region { get; init; }
-
-		/// <summary>
-		/// The full street address (example "564 Main Street, Apt 15").
-		/// </summary>
-		[JsonPropertyName("street")]
-		public string? Street { get; init; }
-	}
+	/// <summary>
+	/// <para>When <c>true</c>, identifies the address as the primary address on an account.</para>
+	/// </summary>
+	[JsonPropertyName("primary")]
+	public bool Primary { get; init; } = default!;
 }

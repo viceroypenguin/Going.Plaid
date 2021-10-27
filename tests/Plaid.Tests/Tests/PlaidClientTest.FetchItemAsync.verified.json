@@ -1,21 +1,20 @@
 {
   "Item": {
-    "Id": "XxMq4XREn9Hl9Lg8QPqMI67N6Z4WNpcbx4zLy",
+    "InstitutionId": "ins_3",
+    "Webhook": "",
     "AvailableProducts": [
       "assets",
       "balance",
       "credit_details",
-      "investments"
+      "identity",
+      "income",
+      "liabilities"
     ],
     "BilledProducts": [
       "auth",
-      "identity",
-      "income",
-      "liabilities",
+      "investments",
       "transactions"
-    ],
-    "InstitutionId": "ins_3",
-    "Webhook": "https://example.com"
+    ]
   },
   "StatusCode": "OK",
   "IsSuccessStatusCode": true

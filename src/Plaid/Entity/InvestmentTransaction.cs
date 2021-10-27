@@ -1,102 +1,92 @@
-﻿using System;
-using System.Text.Json.Serialization;
+namespace Going.Plaid.Entity;
 
-namespace Going.Plaid.Entity
+/// <summary>
+/// <para>A transaction within an investment account.</para>
+/// </summary>
+public record InvestmentTransaction
 {
 	/// <summary>
-	/// Represents a transaction in an investment account. Can contain cash transfers or security purchase or sales.
+	/// <para>The ID of the Investment transaction, unique across all Plaid transactions. Like all Plaid identifiers, the <c>investment_transaction_id</c> is case sensitive.</para>
 	/// </summary>
-	public class InvestmentTransaction
-	{
-		/// <summary>
-		/// The ID of the Investment transaction, unique across all Plaid transactions.
-		/// </summary>
-		[JsonPropertyName("investment_transaction_id")]
-		public string InvestmentTransactionId { get; init; } = null!;
+	[JsonPropertyName("investment_transaction_id")]
+	public string InvestmentTransactionId { get; init; } = default!;
 
-		/// <summary>
-		/// The <see cref="InvestmentTransactionId"/> of the Investment Transaction for which this transaction is canceling.
-		/// </summary>
-		/// <remarks>Only provided if <see cref="TransactionType"/> is <see cref="InvestmentTransactionType.Cancel"/>.</remarks>
-		[JsonPropertyName("cancel_transaction_id")]
-		public string? CancelTransactionId { get; init; }
+	/// <summary>
+	/// <para>A legacy field formerly used internally by Plaid to identify certain canceled transactions.</para>
+	/// </summary>
+	[JsonPropertyName("cancel_transaction_id")]
+	public string? CancelTransactionId { get; init; } = default!;
 
-		/// <summary>
-		/// The ID of the account against which this transaction posted.
-		/// </summary>
-		[JsonPropertyName("account_id")]
-		public string AccountId { get; init; } = null!;
+	/// <summary>
+	/// <para>The <c>account_id</c> of the account against which this transaction posted.</para>
+	/// </summary>
+	[JsonPropertyName("account_id")]
+	public string AccountId { get; init; } = default!;
 
-		/// <summary>
-		/// The ID of the security to which this transaction is related.
-		/// </summary>
-		[JsonPropertyName("security_id")]
-		public string? SecurityId { get; init; }
+	/// <summary>
+	/// <para>The <c>security_id</c> to which this transaction is related.</para>
+	/// </summary>
+	[JsonPropertyName("security_id")]
+	public string? SecurityId { get; init; } = default!;
 
-		/// <summary>
-		/// The ISO-8601 posting date for the transaction, or transacted date for pending transactions.
-		/// </summary>
-		[JsonPropertyName("date")]
-		public DateTime Date { get; init; }
+	/// <summary>
+	/// <para>The <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> posting date for the transaction, or transacted date for pending transactions.</para>
+	/// </summary>
+	[JsonPropertyName("date")]
+	public DateOnly Date { get; init; } = default!;
 
-		/// <summary>
-		/// The Institution’s description of the transaction.
-		/// </summary>
-		[JsonPropertyName("name")]
-		public string Name { get; init; } = null!;
+	/// <summary>
+	/// <para>The institution’s description of the transaction.</para>
+	/// </summary>
+	[JsonPropertyName("name")]
+	public string Name { get; init; } = default!;
 
-		/// <summary>
-		/// The Amount of the security involved in this transaction.
-		/// </summary>
-		[JsonPropertyName("quantity")]
-		public decimal Quantity { get; init; }
+	/// <summary>
+	/// <para>The number of units of the security involved in this transaction.</para>
+	/// </summary>
+	[JsonPropertyName("quantity")]
+	public decimal Quantity { get; init; } = default!;
 
-		/// <summary>
-		/// The complete value of the transaction.Positive values when cash is debited, e.g.purchases of stock; negative values when cash is credited, e.g.sales of stock.Treatment remains the same for cash-only movements unassociated with securities.
-		/// </summary>
-		[JsonPropertyName("amount")]
-		public decimal Amount { get; init; }
+	/// <summary>
+	/// <para>The complete value of the transaction. Positive values when cash is debited, e.g. purchases of stock; negative values when cash is credited, e.g. sales of stock. Treatment remains the same for cash-only movements unassociated with securities.</para>
+	/// </summary>
+	[JsonPropertyName("amount")]
+	public decimal Amount { get; init; } = default!;
 
-		/// <summary>
-		/// The price of the security at which this transaction occurred.
-		/// </summary>
-		[JsonPropertyName("price")]
-		public decimal Price { get; init; }
+	/// <summary>
+	/// <para>The price of the security at which this transaction occurred.</para>
+	/// </summary>
+	[JsonPropertyName("price")]
+	public decimal Price { get; init; } = default!;
 
-		/// <summary>
-		/// The combined value of all fees applied to this transaction.
-		/// </summary>
-		[JsonPropertyName("fees")]
-		public decimal? Fees { get; init; }
+	/// <summary>
+	/// <para>The combined value of all fees applied to this transaction</para>
+	/// </summary>
+	[JsonPropertyName("fees")]
+	public decimal? Fees { get; init; } = default!;
 
-		/// <summary>
-		/// Transaction Type
-		/// </summary>
-		[JsonPropertyName("type")]
-		public InvestmentTransactionType TransactionType { get; init; }
+	/// <summary>
+	/// <para>Value is one of the following:</para>
+	/// </summary>
+	[JsonPropertyName("type")]
+	public Entity.InvestmentTransactionTypeEnum Type { get; init; } = default!;
 
-		/// <summary>
-		/// Transaction Sub-Type
-		/// </summary>
-		[JsonPropertyName("subtype")]
-		public InvestmentTransactionSubType? TransactionSubType { get; init; }
+	/// <summary>
+	/// <para>For descriptions of possible transaction types and subtypes, see the [Investment transaction types schema](https://plaid.com/docs/api/accounts/#investment-transaction-types-schema).</para>
+	/// </summary>
+	[JsonPropertyName("subtype")]
+	public Entity.InvestmentTransactionSubtypeEnum Subtype { get; init; } = default!;
 
-		/// <summary>
-		/// The ISO-4217 currency code of the holding. Always null if unofficial_currency_code is non-null.
-		/// </summary>
-		[JsonPropertyName("iso_currency_code")]
-		public string? IsoCurrencyCode { get; init; }
+	/// <summary>
+	/// <para>The ISO-4217 currency code of the transaction. Always <c>null</c> if <c>unofficial_currency_code</c> is non-<c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("iso_currency_code")]
+	public string? IsoCurrencyCode { get; init; } = default!;
 
-		/// <summary>
-		/// The unofficial currency of the holding. Always null if iso_currency_code is non-null. This is present if the price is denominated in an unrecognized currency e.g. Bitcoin, rewards points.
-		/// </summary>
-		[JsonPropertyName("unofficial_currency_code")]
-		public string? UnofficialCurrencyCode { get; init; }
-
-		/// <summary>
-		/// Gets the currency code from either IsoCurrencyCode or UnofficialCurrencyCode. If non-null, IsoCurrencyCode is returned, else if non-null, UnofficialCurrencyCode, else null is returned.
-		/// </summary>
-		/// <value>Either available currency code.</value>
-		public string? CurrencyCode => IsoCurrencyCode ?? UnofficialCurrencyCode;
-	}
+	/// <summary>
+	/// <para>The unofficial currency code associated with the holding. Always <c>null</c> if <c>iso_currency_code</c> is non-<c>null</c>. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.</para>
+	/// <para>See the <a href="https://plaid.com/docs/api/accounts#currency-code-schema">currency code schema</a> for a full listing of supported <c>iso_currency_code</c>s.</para>
+	/// </summary>
+	[JsonPropertyName("unofficial_currency_code")]
+	public string? UnofficialCurrencyCode { get; init; } = default!;
 }

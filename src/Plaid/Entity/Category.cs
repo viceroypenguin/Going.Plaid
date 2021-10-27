@@ -1,28 +1,25 @@
-﻿using System.Text.Json.Serialization;
+namespace Going.Plaid.Entity;
 
-namespace Going.Plaid.Entity
+/// <summary>
+/// <para>Information describing a transaction category</para>
+/// </summary>
+public record Category
 {
 	/// <summary>
-	/// Represents a transaction's category.
+	/// <para>An identifying number for the category. <c>category_id</c> is a Plaid-specific identifier and does not necessarily correspond to merchant category codes.</para>
 	/// </summary>
-	public class Category
-	{
-		/// <summary>
-		/// Gets or sets the identifier.
-		/// </summary>
-		[JsonPropertyName("category_id")]
-		public string CategoryId { get; init; } = null!;
+	[JsonPropertyName("category_id")]
+	public string CategoryId { get; init; } = default!;
 
-		/// <summary>
-		/// Gets or sets the group.
-		/// </summary>
-		[JsonPropertyName("group")]
-		public string Group { get; init; } = null!;
+	/// <summary>
+	/// <para><c>place</c> for physical transactions or <c>special</c> for other transactions such as bank charges.</para>
+	/// </summary>
+	[JsonPropertyName("group")]
+	public string Group { get; init; } = default!;
 
-		/// <summary>
-		/// Gets or sets the hierarchy or sub-categories.
-		/// </summary>
-		[JsonPropertyName("hierarchy")]
-		public string[] Hierarchy { get; init; } = null!;
-	}
+	/// <summary>
+	/// <para>A hierarchical array of the categories to which this <c>category_id</c> belongs.</para>
+	/// </summary>
+	[JsonPropertyName("hierarchy")]
+	public IReadOnlyList<string> Hierarchy { get; init; } = default!;
 }
