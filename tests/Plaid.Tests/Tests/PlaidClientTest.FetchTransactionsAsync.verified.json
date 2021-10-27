@@ -1,4 +1,4 @@
-{
+﻿{
   "Accounts": [
     {
       "Balances": {
@@ -110,15 +110,7 @@
       "PaymentMeta": {},
       "Name": "United Airlines",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 26,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 85,
-        "DayNumber": 737874
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -133,15 +125,7 @@
       "PaymentMeta": {},
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 24,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 83,
-        "DayNumber": 737872
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -156,14 +140,7 @@
       "PaymentMeta": {},
       "Name": "Tectra Inc",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 21,
-        "DayOfYear": 80,
-        "DayNumber": 737869
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -176,15 +153,7 @@
       "PaymentMeta": {},
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 20,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 79,
-        "DayNumber": 737868
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -200,15 +169,7 @@
       "PaymentMeta": {},
       "Name": "KFC",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 20,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 79,
-        "DayNumber": 737868
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -223,15 +184,7 @@
       "PaymentMeta": {},
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 20,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 79,
-        "DayNumber": 737868
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -245,15 +198,7 @@
       "PaymentMeta": {},
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 11,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 70,
-        "DayNumber": 737859
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -268,15 +213,7 @@
       "PaymentMeta": {},
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 11,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 70,
-        "DayNumber": 737859
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -292,15 +229,7 @@
       },
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 10,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 69,
-        "DayNumber": 737858
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -314,15 +243,7 @@
       "PaymentMeta": {},
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 10,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 69,
-        "DayNumber": 737858
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -337,15 +258,7 @@
       "PaymentMeta": {},
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 9,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 68,
-        "DayNumber": 737857
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -360,15 +273,7 @@
       "PaymentMeta": {},
       "Name": "United Airlines",
       "Amount": -500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 9,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 68,
-        "DayNumber": 737857
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -386,15 +291,7 @@
       "PaymentMeta": {},
       "Name": "McDonald's",
       "Amount": 12.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 8,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 67,
-        "DayNumber": 737856
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -410,15 +307,7 @@
       "PaymentMeta": {},
       "Name": "Starbucks",
       "Amount": 4.33,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 8,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 67,
-        "DayNumber": 737856
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -433,14 +322,7 @@
       "PaymentMeta": {},
       "Name": "SparkFun",
       "Amount": 89.4,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 7,
-        "DayOfYear": 66,
-        "DayNumber": 737855
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -454,15 +336,7 @@
       "PaymentMeta": {},
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 6,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 65,
-        "DayNumber": 737854
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -477,15 +351,7 @@
       "PaymentMeta": {},
       "Name": "United Airlines",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 24,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 55,
-        "DayNumber": 737844
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -500,15 +366,7 @@
       "PaymentMeta": {},
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 22,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 53,
-        "DayNumber": 737842
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -523,15 +381,7 @@
       "PaymentMeta": {},
       "Name": "Tectra Inc",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 19,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 50,
-        "DayNumber": 737839
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -544,15 +394,7 @@
       "PaymentMeta": {},
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 18,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 49,
-        "DayNumber": 737838
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -568,15 +410,7 @@
       "PaymentMeta": {},
       "Name": "KFC",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 18,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 49,
-        "DayNumber": 737838
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -591,15 +425,7 @@
       "PaymentMeta": {},
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 18,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 49,
-        "DayNumber": 737838
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -613,15 +439,7 @@
       "PaymentMeta": {},
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 9,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 40,
-        "DayNumber": 737829
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -636,15 +454,7 @@
       "PaymentMeta": {},
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 9,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 40,
-        "DayNumber": 737829
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -660,15 +470,7 @@
       },
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 8,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 39,
-        "DayNumber": 737828
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -682,15 +484,7 @@
       "PaymentMeta": {},
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 8,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 39,
-        "DayNumber": 737828
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -705,14 +499,7 @@
       "PaymentMeta": {},
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 7,
-        "DayOfYear": 38,
-        "DayNumber": 737827
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -727,14 +514,7 @@
       "PaymentMeta": {},
       "Name": "United Airlines",
       "Amount": -500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 7,
-        "DayOfYear": 38,
-        "DayNumber": 737827
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -752,15 +532,7 @@
       "PaymentMeta": {},
       "Name": "McDonald's",
       "Amount": 12.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 6,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 37,
-        "DayNumber": 737826
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -776,15 +548,7 @@
       "PaymentMeta": {},
       "Name": "Starbucks",
       "Amount": 4.33,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 6,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 37,
-        "DayNumber": 737826
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -799,15 +563,7 @@
       "PaymentMeta": {},
       "Name": "SparkFun",
       "Amount": 89.4,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 5,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 36,
-        "DayNumber": 737825
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -821,15 +577,7 @@
       "PaymentMeta": {},
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 4,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 35,
-        "DayNumber": 737824
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -844,15 +592,7 @@
       "PaymentMeta": {},
       "Name": "United Airlines",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 25,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 25,
-        "DayNumber": 737814
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -867,15 +607,7 @@
       "PaymentMeta": {},
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 23,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 23,
-        "DayNumber": 737812
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -890,15 +622,7 @@
       "PaymentMeta": {},
       "Name": "Tectra Inc",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 20,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 20,
-        "DayNumber": 737809
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -911,15 +635,7 @@
       "PaymentMeta": {},
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 19,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 19,
-        "DayNumber": 737808
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -935,15 +651,7 @@
       "PaymentMeta": {},
       "Name": "KFC",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 19,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 19,
-        "DayNumber": 737808
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -958,15 +666,7 @@
       "PaymentMeta": {},
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 19,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 19,
-        "DayNumber": 737808
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -980,14 +680,7 @@
       "PaymentMeta": {},
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 10,
-        "DayOfYear": 10,
-        "DayNumber": 737799
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -1002,14 +695,7 @@
       "PaymentMeta": {},
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 10,
-        "DayOfYear": 10,
-        "DayNumber": 737799
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -1025,15 +711,7 @@
       },
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 9,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 9,
-        "DayNumber": 737798
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -1047,15 +725,7 @@
       "PaymentMeta": {},
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 9,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 9,
-        "DayNumber": 737798
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -1070,15 +740,7 @@
       "PaymentMeta": {},
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 8,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 8,
-        "DayNumber": 737797
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -1093,15 +755,7 @@
       "PaymentMeta": {},
       "Name": "United Airlines",
       "Amount": -500.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 8,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 8,
-        "DayNumber": 737797
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -1119,15 +773,7 @@
       "PaymentMeta": {},
       "Name": "McDonald's",
       "Amount": 12.0,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 7,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 7,
-        "DayNumber": 737796
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -1143,15 +789,7 @@
       "PaymentMeta": {},
       "Name": "Starbucks",
       "Amount": 4.33,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 7,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 7,
-        "DayNumber": 737796
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "in store",
@@ -1166,15 +804,7 @@
       "PaymentMeta": {},
       "Name": "SparkFun",
       "Amount": 89.4,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 6,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 6,
-        "DayNumber": 737795
-      }
+      "IsoCurrencyCode": "USD"
     },
     {
       "PaymentChannel": "other",
@@ -1188,15 +818,7 @@
       "PaymentMeta": {},
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
-      "IsoCurrencyCode": "USD",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 5,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 5,
-        "DayNumber": 737794
-      }
+      "IsoCurrencyCode": "USD"
     }
   ],
   "TotalTransactions": 48,

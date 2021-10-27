@@ -84,11 +84,17 @@ namespace Going.Plaid.Tests
 			var settings = new VerifySettings();
 			settings.ModifySerialization(s =>
 			{
+				// random ids
 				s.IgnoreMember("RequestId");
 				s.IgnoreMember("AccountId");
 				s.IgnoreMember("ItemId");
 				s.IgnoreMember("TransactionId");
 				s.IgnoreMember("InvestmentTransactionId");
+
+				// dateonly vs datetime - ignore dates for now
+				s.IgnoreMember("Date");
+				s.IgnoreMember("InstitutionPriceAsOf");
+				s.IgnoreMember("ClosePriceAsOf");
 				s.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
 			});
 			return settings;

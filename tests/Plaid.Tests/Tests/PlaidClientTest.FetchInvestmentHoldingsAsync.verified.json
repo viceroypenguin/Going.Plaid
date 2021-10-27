@@ -1,4 +1,4 @@
-{
+﻿{
   "Accounts": [
     {
       "Balances": {
@@ -132,14 +132,6 @@
     {
       "SecurityId": "9EWp9Xpqk1ua6DyXQb89ikMARWA6eyUzAbPMg",
       "InstitutionPrice": 39358.09375,
-      "InstitutionPriceAsOf": {
-        "Year": 2021,
-        "Month": 5,
-        "Day": 25,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 145,
-        "DayNumber": 737934
-      },
       "InstitutionValue": 115.57268,
       "CostBasis": 120.03,
       "Quantity": 0.00293644,
@@ -219,14 +211,6 @@
       "IsCashEquivalent": true,
       "Type": "cash",
       "ClosePrice": 39358.09375,
-      "ClosePriceAsOf": {
-        "Year": 2021,
-        "Month": 5,
-        "Day": 25,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 145,
-        "DayNumber": 737934
-      },
       "IsoCurrencyCode": "USD"
     },
     {

@@ -1,4 +1,4 @@
-{
+﻿{
   "Item": {
     "InstitutionId": "ins_3",
     "Webhook": "",
@@ -130,14 +130,6 @@
       "IsCashEquivalent": true,
       "Type": "cash",
       "ClosePrice": 39358.09375,
-      "ClosePriceAsOf": {
-        "Year": 2021,
-        "Month": 5,
-        "Day": 25,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 145,
-        "DayNumber": 737934
-      },
       "IsoCurrencyCode": "USD"
     },
     {
@@ -249,14 +241,6 @@
   "InvestmentTransactions": [
     {
       "SecurityId": "eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 25,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 84,
-        "DayNumber": 737873
-      },
       "Name": "INCOME DIV DIVIDEND RECEIVED",
       "Amount": -8.72,
       "Fees": 0.0,
@@ -266,14 +250,6 @@
     },
     {
       "SecurityId": "JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 24,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 83,
-        "DayNumber": 737872
-      },
       "Name": "SELL Matthews Pacific Tiger Fund Insti Class",
       "Quantity": -47.74104242992852,
       "Amount": -1289.01,
@@ -285,14 +261,6 @@
     },
     {
       "SecurityId": "lngLy3Le7vflLnAzKqwZs19l6bl8P5H1jG9Zz",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 24,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 83,
-        "DayNumber": 737872
-      },
       "Name": "SELL Trp Equity Income",
       "Quantity": -10.0,
       "Amount": -203.0,
@@ -304,14 +272,6 @@
     },
     {
       "SecurityId": "NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 23,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 82,
-        "DayNumber": 737871
-      },
       "Name": "BUY DoubleLine Total Return Bond Fund",
       "Quantity": 0.7388014749727547,
       "Amount": 7.7,
@@ -322,14 +282,6 @@
     },
     {
       "SecurityId": "MD9eKXeplrt5yKRlzLqXiavwb6wrdxUb3wdnM",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 22,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 81,
-        "DayNumber": 737870
-      },
       "Name": "SELL Cambiar International Equity Institutional",
       "Quantity": -0.008902867462305952,
       "Amount": -0.22,
@@ -341,13 +293,6 @@
     },
     {
       "SecurityId": "KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 21,
-        "DayOfYear": 80,
-        "DayNumber": 737869
-      },
       "Name": "BUY Achillion Pharmaceuticals Inc.",
       "Quantity": 0.520877874205698,
       "Amount": 1.1,
@@ -358,14 +303,6 @@
     },
     {
       "SecurityId": "8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 20,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 79,
-        "DayNumber": 737868
-      },
       "Name": "BUY NFLX DERIVATIVE",
       "Quantity": 4211.152345617756,
       "Amount": 46.32,
@@ -376,14 +313,6 @@
     },
     {
       "SecurityId": "d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 20,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 79,
-        "DayNumber": 737868
-      },
       "Name": "INVBANKTRAN DEP CO CONTR CURRENT YR EMPLOYER CU CO CONTR CURRENT YR EMPLOYER CUR YR",
       "Amount": -1200.0,
       "Fees": 0.0,
@@ -393,14 +322,6 @@
     },
     {
       "SecurityId": "eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 19,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 78,
-        "DayNumber": 737867
-      },
       "Name": "SELL Southside Bancshares Inc.",
       "Quantity": -430.80867509953123,
       "Amount": -14961.99,
@@ -412,14 +333,6 @@
     },
     {
       "SecurityId": "abJamDazkgfvBkVGgnnLUWXoxnomp5up8llg4",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 19,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 78,
-        "DayNumber": 737867
-      },
       "Name": "SELL iShares Inc MSCI Brazil",
       "Quantity": -49.02909689729298,
       "Amount": -2066.58,
@@ -431,14 +344,6 @@
     },
     {
       "SecurityId": "9EWp9Xpqk1ua6DyXQb89ikMARWA6eyUzAbPMg",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 18,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 77,
-        "DayNumber": 737866
-      },
       "Name": "BUY BTC",
       "Quantity": 0.00293644,
       "Amount": 120.03,
@@ -449,14 +354,6 @@
     },
     {
       "SecurityId": "nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 18,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 77,
-        "DayNumber": 737866
-      },
       "Name": "BUY FIDELITY INDEX 1055",
       "Quantity": 33.99208384602773,
       "Amount": 466.71,
@@ -467,14 +364,6 @@
     },
     {
       "SecurityId": "d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are",
-      "Date": {
-        "Year": 2021,
-        "Month": 3,
-        "Day": 18,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 77,
-        "DayNumber": 737866
-      },
       "Name": "INVBANKTRAN DEP INTEREST EARNED INTEREST EARNED",
       "Amount": -0.1,
       "Fees": 0.0,
@@ -484,14 +373,6 @@
     },
     {
       "SecurityId": "eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 23,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 54,
-        "DayNumber": 737843
-      },
       "Name": "INCOME DIV DIVIDEND RECEIVED",
       "Amount": -8.72,
       "Fees": 0.0,
@@ -501,14 +382,6 @@
     },
     {
       "SecurityId": "JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 22,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 53,
-        "DayNumber": 737842
-      },
       "Name": "SELL Matthews Pacific Tiger Fund Insti Class",
       "Quantity": -47.74104242992852,
       "Amount": -1289.01,
@@ -520,14 +393,6 @@
     },
     {
       "SecurityId": "lngLy3Le7vflLnAzKqwZs19l6bl8P5H1jG9Zz",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 22,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 53,
-        "DayNumber": 737842
-      },
       "Name": "SELL Trp Equity Income",
       "Quantity": -10.0,
       "Amount": -203.0,
@@ -539,13 +404,6 @@
     },
     {
       "SecurityId": "NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 21,
-        "DayOfYear": 52,
-        "DayNumber": 737841
-      },
       "Name": "BUY DoubleLine Total Return Bond Fund",
       "Quantity": 0.7388014749727547,
       "Amount": 7.7,
@@ -556,14 +414,6 @@
     },
     {
       "SecurityId": "MD9eKXeplrt5yKRlzLqXiavwb6wrdxUb3wdnM",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 20,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 51,
-        "DayNumber": 737840
-      },
       "Name": "SELL Cambiar International Equity Institutional",
       "Quantity": -0.008902867462305952,
       "Amount": -0.22,
@@ -575,14 +425,6 @@
     },
     {
       "SecurityId": "KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 19,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 50,
-        "DayNumber": 737839
-      },
       "Name": "BUY Achillion Pharmaceuticals Inc.",
       "Quantity": 0.520877874205698,
       "Amount": 1.1,
@@ -593,14 +435,6 @@
     },
     {
       "SecurityId": "8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 18,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 49,
-        "DayNumber": 737838
-      },
       "Name": "BUY NFLX DERIVATIVE",
       "Quantity": 4211.152345617756,
       "Amount": 46.32,
@@ -611,14 +445,6 @@
     },
     {
       "SecurityId": "d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 18,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 49,
-        "DayNumber": 737838
-      },
       "Name": "INVBANKTRAN DEP CO CONTR CURRENT YR EMPLOYER CU CO CONTR CURRENT YR EMPLOYER CUR YR",
       "Amount": -1200.0,
       "Fees": 0.0,
@@ -628,14 +454,6 @@
     },
     {
       "SecurityId": "eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 17,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 48,
-        "DayNumber": 737837
-      },
       "Name": "SELL Southside Bancshares Inc.",
       "Quantity": -430.80867509953123,
       "Amount": -14961.99,
@@ -647,14 +465,6 @@
     },
     {
       "SecurityId": "abJamDazkgfvBkVGgnnLUWXoxnomp5up8llg4",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 17,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 48,
-        "DayNumber": 737837
-      },
       "Name": "SELL iShares Inc MSCI Brazil",
       "Quantity": -49.02909689729298,
       "Amount": -2066.58,
@@ -666,14 +476,6 @@
     },
     {
       "SecurityId": "9EWp9Xpqk1ua6DyXQb89ikMARWA6eyUzAbPMg",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 16,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 47,
-        "DayNumber": 737836
-      },
       "Name": "BUY BTC",
       "Quantity": 0.00293644,
       "Amount": 120.03,
@@ -684,14 +486,6 @@
     },
     {
       "SecurityId": "nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 16,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 47,
-        "DayNumber": 737836
-      },
       "Name": "BUY FIDELITY INDEX 1055",
       "Quantity": 33.99208384602773,
       "Amount": 466.71,
@@ -702,14 +496,6 @@
     },
     {
       "SecurityId": "d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are",
-      "Date": {
-        "Year": 2021,
-        "Month": 2,
-        "Day": 16,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 47,
-        "DayNumber": 737836
-      },
       "Name": "INVBANKTRAN DEP INTEREST EARNED INTEREST EARNED",
       "Amount": -0.1,
       "Fees": 0.0,
@@ -719,13 +505,6 @@
     },
     {
       "SecurityId": "eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 24,
-        "DayOfYear": 24,
-        "DayNumber": 737813
-      },
       "Name": "INCOME DIV DIVIDEND RECEIVED",
       "Amount": -8.72,
       "Fees": 0.0,
@@ -735,14 +514,6 @@
     },
     {
       "SecurityId": "JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 23,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 23,
-        "DayNumber": 737812
-      },
       "Name": "SELL Matthews Pacific Tiger Fund Insti Class",
       "Quantity": -47.74104242992852,
       "Amount": -1289.01,
@@ -754,14 +525,6 @@
     },
     {
       "SecurityId": "lngLy3Le7vflLnAzKqwZs19l6bl8P5H1jG9Zz",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 23,
-        "DayOfWeek": "Saturday",
-        "DayOfYear": 23,
-        "DayNumber": 737812
-      },
       "Name": "SELL Trp Equity Income",
       "Quantity": -10.0,
       "Amount": -203.0,
@@ -773,14 +536,6 @@
     },
     {
       "SecurityId": "NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 22,
-        "DayOfWeek": "Friday",
-        "DayOfYear": 22,
-        "DayNumber": 737811
-      },
       "Name": "BUY DoubleLine Total Return Bond Fund",
       "Quantity": 0.7388014749727547,
       "Amount": 7.7,
@@ -791,14 +546,6 @@
     },
     {
       "SecurityId": "MD9eKXeplrt5yKRlzLqXiavwb6wrdxUb3wdnM",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 21,
-        "DayOfWeek": "Thursday",
-        "DayOfYear": 21,
-        "DayNumber": 737810
-      },
       "Name": "SELL Cambiar International Equity Institutional",
       "Quantity": -0.008902867462305952,
       "Amount": -0.22,
@@ -810,14 +557,6 @@
     },
     {
       "SecurityId": "KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 20,
-        "DayOfWeek": "Wednesday",
-        "DayOfYear": 20,
-        "DayNumber": 737809
-      },
       "Name": "BUY Achillion Pharmaceuticals Inc.",
       "Quantity": 0.520877874205698,
       "Amount": 1.1,
@@ -828,14 +567,6 @@
     },
     {
       "SecurityId": "8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 19,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 19,
-        "DayNumber": 737808
-      },
       "Name": "BUY NFLX DERIVATIVE",
       "Quantity": 4211.152345617756,
       "Amount": 46.32,
@@ -846,14 +577,6 @@
     },
     {
       "SecurityId": "d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 19,
-        "DayOfWeek": "Tuesday",
-        "DayOfYear": 19,
-        "DayNumber": 737808
-      },
       "Name": "INVBANKTRAN DEP CO CONTR CURRENT YR EMPLOYER CU CO CONTR CURRENT YR EMPLOYER CUR YR",
       "Amount": -1200.0,
       "Fees": 0.0,
@@ -863,14 +586,6 @@
     },
     {
       "SecurityId": "eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 18,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 18,
-        "DayNumber": 737807
-      },
       "Name": "SELL Southside Bancshares Inc.",
       "Quantity": -430.80867509953123,
       "Amount": -14961.99,
@@ -882,14 +597,6 @@
     },
     {
       "SecurityId": "abJamDazkgfvBkVGgnnLUWXoxnomp5up8llg4",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 18,
-        "DayOfWeek": "Monday",
-        "DayOfYear": 18,
-        "DayNumber": 737807
-      },
       "Name": "SELL iShares Inc MSCI Brazil",
       "Quantity": -49.02909689729298,
       "Amount": -2066.58,
@@ -901,13 +608,6 @@
     },
     {
       "SecurityId": "9EWp9Xpqk1ua6DyXQb89ikMARWA6eyUzAbPMg",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 17,
-        "DayOfYear": 17,
-        "DayNumber": 737806
-      },
       "Name": "BUY BTC",
       "Quantity": 0.00293644,
       "Amount": 120.03,
@@ -918,13 +618,6 @@
     },
     {
       "SecurityId": "nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 17,
-        "DayOfYear": 17,
-        "DayNumber": 737806
-      },
       "Name": "BUY FIDELITY INDEX 1055",
       "Quantity": 33.99208384602773,
       "Amount": 466.71,
@@ -935,13 +628,6 @@
     },
     {
       "SecurityId": "d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are",
-      "Date": {
-        "Year": 2021,
-        "Month": 1,
-        "Day": 17,
-        "DayOfYear": 17,
-        "DayNumber": 737806
-      },
       "Name": "INVBANKTRAN DEP INTEREST EARNED INTEREST EARNED",
       "Amount": -0.1,
       "Fees": 0.0,
