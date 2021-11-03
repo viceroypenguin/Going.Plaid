@@ -6,9 +6,10 @@ namespace Going.Plaid.Entity;
 public record ProductStatus
 {
 	/// <summary>
-	/// 
+	/// <para>This field is deprecated in favor of the <c>breakdown</c> object, which provides more granular institution health data.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
+	[Obsolete("Please use the `breakdown` object instead.")]
 	public Entity.ProductStatusStatusEnum Status { get; init; } = default!;
 
 	/// <summary>

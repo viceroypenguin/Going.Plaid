@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>SandboxPublicTokenCreateRequestOptionsTransactions is an optional set of parameters corresponding to transactions options.</para>
+/// <para>An optional set of parameters corresponding to transactions options.</para>
 /// </summary>
 public class SandboxPublicTokenCreateRequestOptionsTransactions
 {

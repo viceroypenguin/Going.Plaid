@@ -75,5 +75,5 @@ public record Paystub
 	/// <para>An object containing information for whether or not the uploaded paystub is fradulent</para>
 	/// </summary>
 	[JsonPropertyName("verification")]
-	public Entity.PaystubFraudVerification? Verification { get; init; } = default!;
+	public Entity.PaystubVerification? Verification { get; init; } = default!;
 }

@@ -42,7 +42,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Income.IncomeVerificationRefreshResponse>();
 
 	/// <summary>
-	/// <para><c>/income/verification/taxforms/get</c> returns the information collected from taxforms that were used to verify an end user's. It can be called once the status of the verification has been set to <c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>, as reported by the <c>INCOME: verification_status</c> webhook. Attempting to call the endpoint before verification has been completed will result in an error.</para>
+	/// <para><c>/income/verification/taxforms/get</c> returns the information collected from taxforms that were used to verify an end user's income. It can be called once the status of the verification has been set to <c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>, as reported by the <c>INCOME: verification_status</c> webhook. Attempting to call the endpoint before verification has been completed will result in an error.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/products/#incomeverificationtaxformsget" /></remarks>
 	public Task<Income.IncomeVerificationTaxformsGetResponse> IncomeVerificationTaxformsGetAsync(Income.IncomeVerificationTaxformsGetRequest request) =>

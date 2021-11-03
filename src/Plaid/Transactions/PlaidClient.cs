@@ -30,4 +30,14 @@ public sealed partial class PlaidClient
 	public Task<Transactions.TransactionsRecurringGetResponse> TransactionsRecurringGetAsync(Transactions.TransactionsRecurringGetRequest request) =>
 		PostAsync("/transactions/recurring/get", request)
 			.ParseResponseAsync<Transactions.TransactionsRecurringGetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transactions/sync</c> endpoint returns item transactions as a set of delta updates.</para>
+	/// <para>Subsequent calls to the endpoint using the cursor returned in the response will return new added, modified, and removed transactions since the last call to the endpoint</para>
+	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/api/products/#transactionssync" /></remarks>
+	public Task<Transactions.TransactionsSyncResponse> TransactionsSyncAsync(Transactions.TransactionsSyncRequest request) =>
+		PostAsync("/transactions/sync", request)
+			.ParseResponseAsync<Transactions.TransactionsSyncResponse>();
 }

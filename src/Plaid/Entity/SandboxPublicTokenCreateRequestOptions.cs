@@ -24,7 +24,7 @@ public class SandboxPublicTokenCreateRequestOptions
 	public string? OverridePassword { get; set; } = default!;
 
 	/// <summary>
-	/// <para>SandboxPublicTokenCreateRequestOptionsTransactions is an optional set of parameters corresponding to transactions options.</para>
+	/// <para>An optional set of parameters corresponding to transactions options.</para>
 	/// </summary>
 	[JsonPropertyName("transactions")]
 	public Entity.SandboxPublicTokenCreateRequestOptionsTransactions Transactions { get; set; } = default!;

@@ -6,6 +6,12 @@ namespace Going.Plaid.Entity;
 public record Taxform
 {
 	/// <summary>
+	/// <para>An identifier of the document referenced by the document metadata.</para>
+	/// </summary>
+	[JsonPropertyName("doc_id")]
+	public string DocId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The type of tax document.</para>
 	/// </summary>
 	[JsonPropertyName("document_type")]
