@@ -12,12 +12,6 @@ public partial class BankTransferSweepListRequest : RequestBase
 	public string? OriginationAccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Starting ID of sweeps to return.</para>
-	/// </summary>
-	[JsonPropertyName("start_id")]
-	public int? StartId { get; set; } = default!;
-
-	/// <summary>
 	/// <para>The start datetime of sweeps to return (RFC 3339 format).</para>
 	/// </summary>
 	[JsonPropertyName("start_time")]

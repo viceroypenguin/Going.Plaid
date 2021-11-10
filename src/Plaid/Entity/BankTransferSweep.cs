@@ -9,7 +9,7 @@ public record BankTransferSweep
 	/// <para>Identifier of the sweep.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
-	public int Id { get; init; } = default!;
+	public string Id { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Identifier of the sweep transfer.</para>

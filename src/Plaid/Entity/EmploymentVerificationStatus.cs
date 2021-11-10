@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Current employment status.</para>
 /// </summary>
-public enum EmploymentVerificationStatusEnum
+public enum EmploymentVerificationStatus
 {
 	/// <summary>
 	/// 

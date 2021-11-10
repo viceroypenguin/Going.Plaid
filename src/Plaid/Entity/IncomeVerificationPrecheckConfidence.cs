@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The confidence that Plaid can support the user in the income verification flow. One of the following:</para>
 /// </summary>
-public enum IncomeVerificationPrecheckResponseConfidenceEnum
+public enum IncomeVerificationPrecheckConfidence
 {
 	/// <summary>
 	/// <para>This precheck information submitted is definitively tied to a Plaid-supported integration.</para>

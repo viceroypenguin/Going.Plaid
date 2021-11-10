@@ -9,7 +9,7 @@ public record IncomeBreakdown
 	/// <para>The type of income. Possible values include:</para>
 	/// </summary>
 	[JsonPropertyName("type")]
-	public Entity.IncomeBreakdownTypeEnum? Type { get; init; } = default!;
+	public Entity.IncomeBreakdownType? Type { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The hourly rate at which the income is paid.</para>

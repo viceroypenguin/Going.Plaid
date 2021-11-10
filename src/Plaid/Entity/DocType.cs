@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The type of document.</para>
 /// </summary>
-public enum DocumentMetadataDocTypeEnum
+public enum DocType
 {
 	/// <summary>
 	/// <para>Document type could not be determined.</para>

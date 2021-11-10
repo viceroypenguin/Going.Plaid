@@ -105,4 +105,16 @@ public record TransactionBase
 	/// </summary>
 	[JsonPropertyName("transaction_id")]
 	public string TransactionId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The merchant name, as extracted by Plaid from the <c>name</c> field.</para>
+	/// </summary>
+	[JsonPropertyName("merchant_name")]
+	public string? MerchantName { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>
+	/// </summary>
+	[JsonPropertyName("check_number")]
+	public string? CheckNumber { get; init; } = default!;
 }

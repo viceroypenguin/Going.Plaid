@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The type of income. Possible values include:</para>
 /// </summary>
-public enum IncomeBreakdownTypeEnum
+public enum IncomeBreakdownType
 {
 	/// <summary>
 	/// <para>bonus income</para>

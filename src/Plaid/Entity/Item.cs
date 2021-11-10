@@ -42,6 +42,12 @@ public record Item
 	public IReadOnlyList<Entity.Products> BilledProducts { get; init; } = default!;
 
 	/// <summary>
+	/// <para>A list of authorized products for the Item.</para>
+	/// </summary>
+	[JsonPropertyName("products")]
+	public IReadOnlyList<Entity.Products> Products { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The RFC 3339 timestamp after which the consent provided by the end user will expire. Upon consent expiration, the item will enter the <c>ITEM_LOGIN_REQUIRED</c> error state. To circumvent the <c>ITEM_LOGIN_REQUIRED</c> error and maintain continuous consent, the end user can reauthenticate via Link’s update mode in advance of the consent expiration time.</para>
 	/// <para>Note - This is only relevant for certain OAuth-based institutions. For all other institutions, this field will be null.</para>
 	/// </summary>

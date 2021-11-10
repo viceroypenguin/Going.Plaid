@@ -9,7 +9,7 @@ public record PaystubVerification
 	/// <para>Derived verification status.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]
-	public Entity.PaystubVerificationVerificationStatusEnum? VerificationStatus { get; init; } = default!;
+	public Entity.PaystubVerificationStatus? VerificationStatus { get; init; } = default!;
 
 	/// <summary>
 	/// 

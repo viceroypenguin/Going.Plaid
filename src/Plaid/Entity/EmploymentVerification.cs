@@ -9,7 +9,7 @@ public record EmploymentVerification
 	/// <para>Current employment status.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.EmploymentVerificationStatusEnum? Status { get; init; } = default!;
+	public Entity.EmploymentVerificationStatus? Status { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Start of employment in ISO_8601 format (YYYY-MM-DD).</para>

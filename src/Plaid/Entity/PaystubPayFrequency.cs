@@ -1,45 +1,33 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The frequency of the pay period.</para>
+/// <para>The frequency at which the employee is paid. Possible values: <c>MONTHLY</c>, <c>BI-WEEKLY</c>, <c>WEEKLY</c>, <c>SEMI-MONTHLY</c>.</para>
 /// </summary>
-public enum PayFrequencyValueEnum
+public enum PaystubPayFrequency
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "monthly")]
+	[EnumMember(Value = "MONTHLY")]
 	Monthly,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "semimonthly")]
-	Semimonthly,
+	[EnumMember(Value = "BI-WEEKLY")]
+	BiWeekly,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "weekly")]
+	[EnumMember(Value = "WEEKLY")]
 	Weekly,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "biweekly")]
-	Biweekly,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "unknown")]
-	Unknown,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "null")]
-	Null,
+	[EnumMember(Value = "SEMI-MONTHLY")]
+	SemiMonthly,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

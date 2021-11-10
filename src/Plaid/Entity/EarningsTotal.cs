@@ -6,12 +6,6 @@ namespace Going.Plaid.Entity;
 public record EarningsTotal
 {
 	/// <summary>
-	/// <para>Commonly used term to describe the line item.</para>
-	/// </summary>
-	[JsonPropertyName("canonical_description")]
-	public Entity.EarningsTotalCanonicalDescriptionEnum? CanonicalDescription { get; init; } = default!;
-
-	/// <summary>
 	/// <para>Total amount of the earnings for this pay period</para>
 	/// </summary>
 	[JsonPropertyName("current_amount")]

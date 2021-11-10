@@ -15,5 +15,5 @@ public record IncomeVerificationPrecheckResponse : ResponseBase
 	/// <para>The confidence that Plaid can support the user in the income verification flow. One of the following:</para>
 	/// </summary>
 	[JsonPropertyName("confidence")]
-	public Entity.IncomeVerificationPrecheckResponseConfidenceEnum Confidence { get; init; } = default!;
+	public Entity.IncomeVerificationPrecheckConfidence Confidence { get; init; } = default!;
 }

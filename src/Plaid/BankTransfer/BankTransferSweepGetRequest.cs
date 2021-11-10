@@ -9,7 +9,7 @@ public partial class BankTransferSweepGetRequest : RequestBase
 	/// <para>Identifier of the sweep.</para>
 	/// </summary>
 	[JsonPropertyName("sweep_id")]
-	public int SweepId { get; set; } = default!;
+	public string SweepId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>If multiple origination accounts are available, <c>origination_account_id</c> must be used to specify the account that the sweep belongs to.</para>

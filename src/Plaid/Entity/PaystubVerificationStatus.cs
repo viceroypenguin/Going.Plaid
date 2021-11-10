@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Derived verification status.</para>
 /// </summary>
-public enum PaystubVerificationVerificationStatusEnum
+public enum PaystubVerificationStatus
 {
 	/// <summary>
 	/// 

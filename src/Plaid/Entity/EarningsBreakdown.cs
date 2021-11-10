@@ -9,7 +9,7 @@ public record EarningsBreakdown
 	/// <para>Commonly used term to describe the earning line item.</para>
 	/// </summary>
 	[JsonPropertyName("canonical_description")]
-	public Entity.EarningsBreakdownCanonicalDescriptionEnum? CanonicalDescription { get; init; } = default!;
+	public Entity.EarningsBreakdownCanonicalDescription? CanonicalDescription { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Raw amount of the earning line item.</para>

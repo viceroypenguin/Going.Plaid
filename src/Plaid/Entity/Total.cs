@@ -9,7 +9,7 @@ public record Total
 	/// <para>Commonly used term to describe the line item.</para>
 	/// </summary>
 	[JsonPropertyName("canonical_description")]
-	public Entity.TotalCanonicalDescriptionEnum? CanonicalDescription { get; init; } = default!;
+	public Entity.TotalCanonicalDescription? CanonicalDescription { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Text of the line item as printed on the paystub.</para>

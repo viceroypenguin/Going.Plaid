@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Commonly used term to describe the earning line item.</para>
 /// </summary>
-public enum EarningsBreakdownCanonicalDescriptionEnum
+public enum EarningsBreakdownCanonicalDescription
 {
 	/// <summary>
 	/// 

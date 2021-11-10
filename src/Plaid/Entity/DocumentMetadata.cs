@@ -27,5 +27,5 @@ public record DocumentMetadata
 	/// <para>The type of document.</para>
 	/// </summary>
 	[JsonPropertyName("doc_type")]
-	public Entity.DocumentMetadataDocTypeEnum DocType { get; init; } = default!;
+	public Entity.DocType DocType { get; init; } = default!;
 }

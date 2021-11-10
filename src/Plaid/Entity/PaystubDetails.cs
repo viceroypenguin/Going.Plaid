@@ -33,5 +33,5 @@ public record PaystubDetails
 	/// <para>The frequency at which the employee is paid. Possible values: <c>MONTHLY</c>, <c>BI-WEEKLY</c>, <c>WEEKLY</c>, <c>SEMI-MONTHLY</c>.</para>
 	/// </summary>
 	[JsonPropertyName("pay_frequency")]
-	public Entity.PaystubDetailsPayFrequencyEnum? PayFrequency { get; init; } = default!;
+	public Entity.PaystubPayFrequency? PayFrequency { get; init; } = default!;
 }

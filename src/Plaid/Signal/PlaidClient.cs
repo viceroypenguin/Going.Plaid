@@ -4,7 +4,7 @@ public sealed partial class PlaidClient
 {
 	/// <summary>
 	/// <para>Use <c>/signal/evaluate</c> to evaluate a planned ACH transaction to get a return risk assessment (such as a risk score and risk tier) and additional risk signals.</para>
-	/// <para>In order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause.</para>
+	/// <para>In order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If <c>/signal/evaluate</c> is called on the same transaction multiple times within a 24-hour period, cached results may be returned.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/signal/reference#signalevaluate" /></remarks>
 	public Task<Signal.SignalEvaluateResponse> SignalEvaluateAsync(Signal.SignalEvaluateRequest request) =>

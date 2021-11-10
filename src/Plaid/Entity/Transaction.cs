@@ -12,12 +12,6 @@ public record Transaction : Entity.TransactionBase
 	public Entity.TransactionPaymentChannelEnum PaymentChannel { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The merchant name, as extracted by Plaid from the <c>name</c> field.</para>
-	/// </summary>
-	[JsonPropertyName("merchant_name")]
-	public string? MerchantName { get; init; } = default!;
-
-	/// <summary>
 	/// <para>The date that the transaction was authorized. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
 	/// </summary>
 	[JsonPropertyName("authorized_date")]
@@ -36,12 +30,6 @@ public record Transaction : Entity.TransactionBase
 	/// </summary>
 	[JsonPropertyName("datetime")]
 	public DateTimeOffset? Datetime { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>
-	/// </summary>
-	[JsonPropertyName("check_number")]
-	public string? CheckNumber { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An identifier classifying the transaction type.</para>

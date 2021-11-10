@@ -24,7 +24,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public decimal Amount { get; set; } = default!;
 
 	/// <summary>
-	/// <para>returns <c>true</c> if the end user is present while initiating the ACH transfer and the endpoint is being called; <c>false</c> otherwise (for example, when the ACH transfer is scheduled and the end user is not present, or you call this endpoint after the ACH transfer but before submitting the Nacha file for ACH processing).</para>
+	/// <para><c>true</c> if the end user is present while initiating the ACH transfer and the endpoint is being called; <c>false</c> otherwise (for example, when the ACH transfer is scheduled and the end user is not present, or you call this endpoint after the ACH transfer but before submitting the Nacha file for ACH processing).</para>
 	/// </summary>
 	[JsonPropertyName("user_present")]
 	public bool? UserPresent { get; set; } = default!;

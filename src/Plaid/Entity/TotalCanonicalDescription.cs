@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Commonly used term to describe the line item.</para>
 /// </summary>
-public enum TotalCanonicalDescriptionEnum
+public enum TotalCanonicalDescription
 {
 	/// <summary>
 	/// 

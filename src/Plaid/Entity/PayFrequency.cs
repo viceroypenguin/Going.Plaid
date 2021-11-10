@@ -9,7 +9,7 @@ public record PayFrequency
 	/// <para>The frequency of the pay period.</para>
 	/// </summary>
 	[JsonPropertyName("value")]
-	public Entity.PayFrequencyValueEnum Value { get; init; } = default!;
+	public Entity.PayFrequencyValue Value { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The verification status. One of the following:</para>

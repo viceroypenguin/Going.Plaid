@@ -12,7 +12,7 @@ public record AccountAccess
 	public string UniqueId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Allow the application to see this account (and associated details, including balance) in the list of accounts. If relevant to the partner and unset, defaults to <c>true</c>.</para>
+	/// <para>Allow the application to see this account (and associated details, including balance) in the list of accounts  If unset, defaults to <c>true</c>.</para>
 	/// </summary>
 	[JsonPropertyName("authorized")]
 	public bool? Authorized { get; init; } = default!;
