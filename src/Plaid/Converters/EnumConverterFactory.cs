@@ -66,7 +66,7 @@ public class EnumConverterFactory : JsonConverterFactory
 			}
 
 			// Plaid may return new/unknown values on parse. Don't crash at least...
-			return Enum.Parse<T>("Unknown");
+			return Enum.Parse<T>("Undefined");
 		}
 
 		public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options) =>
