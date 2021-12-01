@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A filter to apply to <c>investment</c>-type accounts</para>
+/// <para>A filter to apply to <c>investment</c>-type accounts (or <c>brokerage</c>-type acconunts for API versions 2018-05-22 and earlier).</para>
 /// </summary>
 public class InvestmentFilter
 {

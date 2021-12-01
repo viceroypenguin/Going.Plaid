@@ -58,4 +58,16 @@ public record TransferEvent
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.TransferFailure? FailureReason { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Plaid’s unique identifier for a sweep.</para>
+	/// </summary>
+	[JsonPropertyName("sweep_id")]
+	public string SweepId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A signed amount of how much was <c>swept</c> or <c>reverse_swept</c> (decimal string with two digits of precision e.g. “-5.50”).</para>
+	/// </summary>
+	[JsonPropertyName("sweep_amount")]
+	public string SweepAmount { get; init; } = default!;
 }

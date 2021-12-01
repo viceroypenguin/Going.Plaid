@@ -19,7 +19,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxPublicTokenCreateResponse>();
 
 	/// <summary>
-	/// <para>The <c>/sandbox/item/fire_webhook</c> endpoint is used to test that code correctly handles webhooks. Calling this endpoint triggers a Transactions <c>DEFAULT_UPDATE</c> webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
+	/// <para>The <c>/sandbox/item/fire_webhook</c> endpoint is used to test that code correctly handles webhooks. Calling this endpoint triggers a Transactions <c>DEFAULT_UPDATE</c> webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result. Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/sandbox/#sandboxitemfire_webhook" /></remarks>
 	public Task<Sandbox.SandboxItemFireWebhookResponse> SandboxItemFireWebhookAsync(Sandbox.SandboxItemFireWebhookRequest request) =>
@@ -52,6 +52,14 @@ public sealed partial class PlaidClient
 	public Task<Sandbox.SandboxBankTransferSimulateResponse> SandboxBankTransferSimulateAsync(Sandbox.SandboxBankTransferSimulateRequest request) =>
 		PostAsync("/sandbox/bank_transfer/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxBankTransferSimulateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/transfer/sweep/simulate</c> endpoint to create a sweep and associated events in the Sandbox environment.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/transfer/reference#sandboxtransfersweepsimulate" /></remarks>
+	public Task<Sandbox.SandboxTransferSweepSimulateResponse> SandboxTransferSweepSimulateAsync(Sandbox.SandboxTransferSweepSimulateRequest request) =>
+		PostAsync("/sandbox/transfer/sweep/simulate", request)
+			.ParseResponseAsync<Sandbox.SandboxTransferSweepSimulateResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/simulate</c> endpoint to simulate a transfer event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as <c>/transfer/event/sync</c> or <c>/transfer/event/list</c>, no transactions will actually take place and funds will not move between accounts, even within the Sandbox.</para>

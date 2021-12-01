@@ -64,4 +64,36 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferEventSyncResponse> TransferEventSyncAsync(Transfer.TransferEventSyncRequest request) =>
 		PostAsync("/transfer/event/sync", request)
 			.ParseResponseAsync<Transfer.TransferEventSyncResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/sweep/get</c> endpoint fetches a sweep corresponding to the given <c>sweep_id</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/transfer/reference#transfersweepget" /></remarks>
+	public Task<Transfer.TransferSweepGetResponse> TransferSweepGetAsync(Transfer.TransferSweepGetRequest request) =>
+		PostAsync("/transfer/sweep/get", request)
+			.ParseResponseAsync<Transfer.TransferSweepGetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/sweep/list</c> endpoint fetches sweeps matching the given filters.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/transfer/reference#transfersweeplist" /></remarks>
+	public Task<Transfer.TransferSweepListResponse> TransferSweepListAsync(Transfer.TransferSweepListRequest request) =>
+		PostAsync("/transfer/sweep/list", request)
+			.ParseResponseAsync<Transfer.TransferSweepListResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/intent/create</c> endpoint to generate a transfer intent object and invoke the Transfer UI.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/transfer/reference#transferintentcreate" /></remarks>
+	public Task<Transfer.TransferIntentCreateResponse> TransferIntentCreateAsync(Transfer.TransferIntentCreateRequest request) =>
+		PostAsync("/transfer/intent/create", request)
+			.ParseResponseAsync<Transfer.TransferIntentCreateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/intent/get</c> endpoint to retrieve more information about a transfer intent.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/transfer/reference#transferintentget" /></remarks>
+	public Task<Transfer.TransferIntentGetResponse> TransferIntentGetAsync(Transfer.TransferIntentGetRequest request) =>
+		PostAsync("/transfer/intent/get", request)
+			.ParseResponseAsync<Transfer.TransferIntentGetResponse>();
 }

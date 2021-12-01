@@ -24,7 +24,7 @@ public enum AccountType
 	Loan,
 
 	/// <summary>
-	/// <para>An investment account. Supported products for <c>investment</c> accounts are: Balance and Investments.</para>
+	/// <para>An investment account. Supported products for <c>investment</c> accounts are: Balance and Investments. In API versions 2018-05-22 and earlier, this type is called <c>brokerage</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "investment")]
 	Investment,

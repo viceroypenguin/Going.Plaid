@@ -12,7 +12,7 @@ public class InstitutionsGetRequestOptions
 	public IReadOnlyList<Entity.Products> Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify an array of routing numbers to filter institutions. The response will only return institutions that match all of the routing numbers in the array.</para>
+	/// <para>Specify an array of routing numbers to filter institutions. The response will only return institutions that match all of the routing numbers in the array. Routing number records used for this matching are not comprehensive; failure to match a given routing number to an institution does not mean that the institution is unsupported by Plaid.</para>
 	/// </summary>
 	[JsonPropertyName("routing_numbers")]
 	public IReadOnlyList<string> RoutingNumbers { get; set; } = default!;

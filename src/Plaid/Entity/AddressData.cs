@@ -12,7 +12,7 @@ public class AddressData
 	public string City { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The region or state</para>
+	/// <para>The region or state. In API versions 2018-05-22 and earlier, this field is called <c>state</c>.</para>
 	/// <para>Example: <c>"NC"</c></para>
 	/// </summary>
 	[JsonPropertyName("region")]
@@ -26,7 +26,7 @@ public class AddressData
 	public string Street { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The postal code</para>
+	/// <para>The postal code. In API versions 2018-05-22 and earlier, this field is called <c>zip</c>.</para>
 	/// </summary>
 	[JsonPropertyName("postal_code")]
 	public string? PostalCode { get; set; } = default!;

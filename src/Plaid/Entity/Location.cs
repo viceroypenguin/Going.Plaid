@@ -18,13 +18,13 @@ public record Location
 	public string? City { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The region or state where the transaction occurred.</para>
+	/// <para>The region or state where the transaction occurred. In API versions 2018-05-22 and earlier, this field is called <c>state</c>.</para>
 	/// </summary>
 	[JsonPropertyName("region")]
 	public string? Region { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The postal code where the transaction occurred.</para>
+	/// <para>The postal code where the transaction occurred. In API versions 2018-05-22 and earlier, this field is called <c>zip</c>.</para>
 	/// </summary>
 	[JsonPropertyName("postal_code")]
 	public string? PostalCode { get; init; } = default!;

@@ -30,7 +30,7 @@ public record InvestmentTransaction
 	public string? SecurityId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> posting date for the transaction, or transacted date for pending transactions.</para>
+	/// <para>The <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> posting date for the transaction.</para>
 	/// </summary>
 	[JsonPropertyName("date")]
 	public DateOnly Date { get; init; } = default!;

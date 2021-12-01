@@ -30,5 +30,11 @@ namespace Going.Plaid.Entity
 		/// </summary>
 		[EnumMember(Value = "nl")]
 		Dutch,
+
+		/// <summary>
+		/// Use German in the Plaid Link Tool
+		/// </summary>
+		[EnumMember(Value = "de")]
+		German,
 	}
 }

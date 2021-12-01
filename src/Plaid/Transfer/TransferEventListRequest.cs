@@ -42,6 +42,12 @@ public partial class TransferEventListRequest : RequestBase
 	public IReadOnlyList<Entity.TransferEventType> EventTypes { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Plaid’s unique identifier for a sweep.</para>
+	/// </summary>
+	[JsonPropertyName("sweep_id")]
+	public string SweepId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The maximum number of transfer events to return. If the number of events matching the above parameters is greater than <c>count</c>, the most recent events will be returned.</para>
 	/// </summary>
 	[JsonPropertyName("count")]

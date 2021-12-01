@@ -12,7 +12,7 @@ public partial class InstitutionsGetByIdRequest : RequestBase
 	public string InstitutionId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify an array of Plaid-supported country codes this institution supports, using the ISO-3166-1 alpha-2 country code standard.</para>
+	/// <para>Specify an array of Plaid-supported country codes this institution supports, using the ISO-3166-1 alpha-2 country code standard. In API versions 2019-05-29 and earlier, the <c>country_codes</c> parameter is an optional parameter within the <c>options</c> object and will default to <c>[US]</c> if it is not supplied.</para>
 	/// </summary>
 	[JsonPropertyName("country_codes")]
 	public IReadOnlyList<Entity.CountryCode> CountryCodes { get; set; } = default!;

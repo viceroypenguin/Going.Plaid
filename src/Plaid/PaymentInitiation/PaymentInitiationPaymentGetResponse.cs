@@ -21,7 +21,7 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	/// <para>The status of the payment.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.PaymentInitiationPaymentGetResponseStatusEnum Status { get; init; } = default!;
+	public Entity.PaymentInitiationPaymentStatus Status { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ID of the recipient</para>
@@ -78,8 +78,8 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	public IReadOnlyList<Entity.PaymentInitiationRefund> InitiatedRefunds { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The EMI (E-Money Institution) account that this payment is associated with, if any. This EMI account is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
+	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
 	/// </summary>
-	[JsonPropertyName("emi_account_id")]
-	public string? EmiAccountId { get; init; } = default!;
+	[JsonPropertyName("wallet_id")]
+	public string? WalletId { get; init; } = default!;
 }

@@ -36,6 +36,42 @@ public enum VerificationAttributeTypeEnum
 	VerificationAttributeTypeFileTampering,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "VERIFICATION_ATTRIBUTE_TYPE_DESCRIPTION_MATCH")]
+	VerificationAttributeTypeDescriptionMatch,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "VERIFICATION_ATTRIBUTE_TYPE_DESCRIPTION_MISMATCH")]
+	VerificationAttributeTypeDescriptionMismatch,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "VERIFICATION_ATTRIBUTE_TYPE_FIRST_NAME_MATCH")]
+	VerificationAttributeTypeFirstNameMatch,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "VERIFICATION_ATTRIBUTE_TYPE_FIRST_NAME_MISMATCH")]
+	VerificationAttributeTypeFirstNameMismatch,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "VERIFICATION_ATTRIBUTE_TYPE_LAST_NAME_MATCH")]
+	VerificationAttributeTypeLastNameMatch,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "VERIFICATION_ATTRIBUTE_TYPE_LAST_NAME_MISMATCH")]
+	VerificationAttributeTypeLastNameMismatch,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

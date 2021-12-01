@@ -60,6 +60,12 @@ public record Transfer
 	public Entity.TransferStatus Status { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The status of the sweep for the transfer.</para>
+	/// </summary>
+	[JsonPropertyName("sweep_status")]
+	public Entity.TransferSweepStatus? SweepStatus { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The network or rails used for the transfer. Valid options are <c>ach</c> or <c>same-day-ach</c>.</para>
 	/// </summary>
 	[JsonPropertyName("network")]

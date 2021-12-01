@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The status of the payment.</para>
 /// </summary>
-public enum PaymentInitiationPaymentStatusEnum
+public enum PaymentInitiationPaymentStatus
 {
 	/// <summary>
 	/// <para>This is the initial state of all payments. It indicates that the payment is waiting on user input to continue processing. A payment may re-enter this state later on if further input is needed.</para>
@@ -52,6 +52,12 @@ public enum PaymentInitiationPaymentStatusEnum
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_UNKNOWN")]
 	PaymentStatusUnknown,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "PAYMENT_STATUS_EXECUTED")]
+	PaymentStatusExecuted,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

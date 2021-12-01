@@ -24,8 +24,8 @@ public class PaymentOptions
 	public Entity.PaymentInitiationOptionalRestrictionBacs? Bacs { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The EMI (E-Money Institution) account that this payment is associated with, if any. This EMI account is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
+	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
 	/// </summary>
-	[JsonPropertyName("emi_account_id")]
-	public string? EmiAccountId { get; set; } = default!;
+	[JsonPropertyName("wallet_id")]
+	public string? WalletId { get; set; } = default!;
 }

@@ -28,6 +28,7 @@ public sealed partial class PlaidClient
 	/// <para>The <c>/item/remove</c>  endpoint allows you to remove an Item. Once removed, the <c>access_token</c>  associated with the Item is no longer valid and cannot be used to access any data that was associated with the Item.</para>
 	/// <para>Note that in the Development environment, issuing an <c>/item/remove</c>  request will not decrement your live credential count. To increase your credential account in Development, contact Support.</para>
 	/// <para>Also note that for certain OAuth-based institutions, an Item removed via <c>/item/remove</c> may still show as an active connection in the institution's OAuth permission manager.</para>
+	/// <para>API versions 2019-05-29 and earlier return a <c>removed</c> boolean as part of the response.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/items/#itemremove" /></remarks>
 	public Task<Item.ItemRemoveResponse> ItemRemoveAsync(Item.ItemRemoveRequest request) =>

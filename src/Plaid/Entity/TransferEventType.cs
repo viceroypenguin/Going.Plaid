@@ -36,6 +36,18 @@ public enum TransferEventType
 	Reversed,
 
 	/// <summary>
+	/// <para>The transfer was swept to / from the sweep account.</para>
+	/// </summary>
+	[EnumMember(Value = "swept")]
+	Swept,
+
+	/// <summary>
+	/// <para>Due to the transfer reversing, funds were pulled from or pushed back to the sweep account.</para>
+	/// </summary>
+	[EnumMember(Value = "reverse_swept")]
+	ReverseSwept,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]
