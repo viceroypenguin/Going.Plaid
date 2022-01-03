@@ -1,4 +1,4 @@
-namespace Going.Plaid.Entity;
+﻿namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>Metadata about the Item.</para>
@@ -27,7 +27,7 @@ public record Item
 	/// <para>We use standard HTTP response codes for success and failure notifications, and our errors are further classified by <c>error_type</c>. In general, 200 HTTP codes correspond to success, 40X codes are for developer- or user-related failures, and 50X codes are for Plaid-related issues.  Error fields will be <c>null</c> if no error has occurred.</para>
 	/// </summary>
 	[JsonPropertyName("error")]
-	public Exceptions.PlaidException? Error { get; init; } = default!;
+	public Errors.PlaidError? Error { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A list of products available for the Item that have not yet been accessed.</para>

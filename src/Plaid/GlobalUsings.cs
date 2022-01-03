@@ -14,7 +14,6 @@ global using Microsoft.Extensions.Logging.Abstractions;
 global using Microsoft.Extensions.Options;
 global using Going.Plaid;
 global using Going.Plaid.Entity;
-global using Going.Plaid.Exceptions;
 
 #if !NET6_0_OR_GREATER
 

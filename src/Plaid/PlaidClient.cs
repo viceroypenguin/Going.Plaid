@@ -187,13 +187,28 @@ public sealed partial class PlaidClient
 			}
 			else
 			{
-				var exception = await response.Content.ReadFromJsonAsync<Exceptions.PlaidException>(options: JsonSerializerOptions);
-				var result = new TResponse
+				if (IncludeRawJson)
 				{
-					Exception = exception,
-					StatusCode = response.StatusCode,
-				};
-				return result;
+					var json = await response.Content.ReadAsStringAsync();
+					var error = JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions);
+					var result = new TResponse
+					{
+						RawJson = json,
+						Error = error,
+						StatusCode = response.StatusCode,
+					};
+					return result;
+				}
+				else
+				{
+					var error = await response.Content.ReadFromJsonAsync<Errors.PlaidError>(options: JsonSerializerOptions);
+					var result = new TResponse
+					{
+						Error = error,
+						StatusCode = response.StatusCode,
+					};
+					return result;
+				}
 			}
 		}
 	}

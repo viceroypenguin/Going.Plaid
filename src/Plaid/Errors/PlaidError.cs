@@ -1,10 +1,10 @@
-﻿namespace Going.Plaid.Exceptions;
+﻿namespace Going.Plaid.Errors;
 
 /// <summary>
 /// The exception that is thrown when a response from the Plaid API contains an error.
 /// </summary>
 [Serializable]
-public class PlaidException
+public class PlaidError
 {
 	/// <summary>
 	/// A broad categorization of the error.

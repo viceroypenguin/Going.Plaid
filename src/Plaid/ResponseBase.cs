@@ -1,4 +1,6 @@
-﻿namespace Going.Plaid;
+﻿using Going.Plaid.Errors;
+
+namespace Going.Plaid;
 
 /// <summary>
 /// Provides common members for all Plaid API responses.
@@ -12,10 +14,10 @@ public abstract record ResponseBase
 	public string? RawJson { get; set; }
 
 	/// <summary>
-	/// The Error
+	/// An error response given by the server
 	/// </summary>
 	[JsonPropertyName("error")]
-	public PlaidException? Exception { get; init; }
+	public PlaidError? Error { get; init; }
 
 	/// <summary>
 	/// The request identifier.
