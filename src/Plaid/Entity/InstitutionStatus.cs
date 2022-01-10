@@ -27,12 +27,6 @@ public record InstitutionStatus
 	/// <summary>
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
-	[JsonPropertyName("balance")]
-	public Entity.ProductStatus Balance { get; init; } = default!;
-
-	/// <summary>
-	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
-	/// </summary>
 	[JsonPropertyName("identity")]
 	public Entity.ProductStatus Identity { get; init; } = default!;
 

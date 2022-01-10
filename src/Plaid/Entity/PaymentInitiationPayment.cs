@@ -82,4 +82,16 @@ public record PaymentInitiationPayment
 	/// </summary>
 	[JsonPropertyName("wallet_id")]
 	public string? WalletId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Payment scheme. If not specified - the default in the region will be used (e.g. <c>SEPA_CREDIT_TRANSFER</c> for EU). Using unsupported values will result in a failed payment.</para>
+	/// </summary>
+	[JsonPropertyName("scheme")]
+	public Entity.PaymentScheme? Scheme { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Payment scheme. If not specified - the default in the region will be used (e.g. <c>SEPA_CREDIT_TRANSFER</c> for EU). Using unsupported values will result in a failed payment.</para>
+	/// </summary>
+	[JsonPropertyName("adjusted_scheme")]
+	public Entity.PaymentScheme? AdjustedScheme { get; init; } = default!;
 }

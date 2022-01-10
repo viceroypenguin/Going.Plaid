@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>A decision regarding the proposed transfer.</para>
 /// </summary>
-public enum TransferIntentGetResponseAuthorizationDecisionEnum
+public enum TransferIntentGetAuthorizationDecisionEnum
 {
 	/// <summary>
 	/// <para>– The proposed transfer has received the end user's consent and has been approved for processing. Plaid has also reviewed the proposed transfer and has approved it for processing.</para>

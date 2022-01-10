@@ -20,8 +20,8 @@ public record TransferSweep
 	/// <summary>
 	/// <para>The datetime when the sweep occurred, in RFC 3339 format.</para>
 	/// </summary>
-	[JsonPropertyName("created_at")]
-	public DateTimeOffset CreatedAt { get; init; } = default!;
+	[JsonPropertyName("created")]
+	public DateTimeOffset Created { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Signed decimal amount of the sweep as it appears on your sweep account ledger (e.g. "-10.00")</para>
@@ -30,4 +30,10 @@ public record TransferSweep
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string Amount { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The currency of the sweep, e.g. "USD".</para>
+	/// </summary>
+	[JsonPropertyName("iso_currency_code")]
+	public string IsoCurrencyCode { get; init; } = default!;
 }

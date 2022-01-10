@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Message indicating the reason as to why the verification failed</para>
 /// </summary>
-public enum VerificationAttributeTypeEnum
+public enum VerificationAttributeType
 {
 	/// <summary>
 	/// 

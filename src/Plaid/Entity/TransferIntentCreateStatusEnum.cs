@@ -1,9 +1,9 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The status of the transfer intent.</para>
+/// 
 /// </summary>
-public enum TransferIntentGetResponseStatusEnum
+public enum TransferIntentCreateStatusEnum
 {
 	/// <summary>
 	/// 

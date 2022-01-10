@@ -51,7 +51,7 @@ public record Institution
 	/// <para>A partial list of routing numbers associated with the institution. This list is provided for the purpose of looking up institutions by routing number. It is not comprehensive and should never be used as a complete list of routing numbers for an institution.</para>
 	/// </summary>
 	[JsonPropertyName("routing_numbers")]
-	public IReadOnlyList<string>? RoutingNumbers { get; init; } = default!;
+	public IReadOnlyList<string> RoutingNumbers { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Indicates that the institution has an OAuth login flow. This is primarily relevant to institutions with European country codes.</para>

@@ -99,4 +99,10 @@ public record Transfer
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	public string OriginationAccountId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The currency of the transfer amount, e.g. "USD"</para>
+	/// </summary>
+	[JsonPropertyName("iso_currency_code")]
+	public string IsoCurrencyCode { get; init; } = default!;
 }

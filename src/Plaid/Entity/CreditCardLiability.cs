@@ -33,7 +33,7 @@ public record CreditCardLiability
 	/// <para>The date of the last payment. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD). Availability for this field is limited.</para>
 	/// </summary>
 	[JsonPropertyName("last_payment_date")]
-	public DateOnly LastPaymentDate { get; init; } = default!;
+	public DateOnly? LastPaymentDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The date of the last statement. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>

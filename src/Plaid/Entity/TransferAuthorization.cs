@@ -12,10 +12,10 @@ public record TransferAuthorization
 	public string Id { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The datetime representing when the authorization was created, in the format "2006-01-02T15:04:05Z".</para>
+	/// <para>The datetime representing when the authorization was created, in the format <c>2006-01-02T15:04:05Z</c>.</para>
 	/// </summary>
 	[JsonPropertyName("created")]
-	public string Created { get; init; } = default!;
+	public DateTimeOffset Created { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A decision regarding the proposed transfer.</para>

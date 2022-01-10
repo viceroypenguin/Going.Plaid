@@ -9,7 +9,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string AccountId { get; set; } = default!;
+	public string? AccountId { get; set; } = default!;
 
 	/// <summary>
 	/// 
@@ -57,4 +57,10 @@ public partial class TransferIntentCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("metadata")]
 	public Entity.TransferMetadata? Metadata { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The currency of the transfer amount, e.g. "USD"</para>
+	/// </summary>
+	[JsonPropertyName("iso_currency_code")]
+	public string IsoCurrencyCode { get; set; } = default!;
 }

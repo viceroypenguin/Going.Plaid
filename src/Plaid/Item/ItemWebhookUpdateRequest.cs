@@ -9,5 +9,5 @@ public partial class ItemWebhookUpdateRequest : RequestBase
 	/// <para>The new webhook URL to associate with the Item.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
-	public string Webhook { get; set; } = default!;
+	public string? Webhook { get; set; } = default!;
 }

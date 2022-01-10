@@ -55,6 +55,8 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/sweep/simulate</c> endpoint to create a sweep and associated events in the Sandbox environment.</para>
+	/// <para>- All <c>posted</c> or <c>pending</c> Transfers with sweep_status <c>unswept</c> will become <c>swept</c></para>
+	/// <para>- All <c>reversed</c> Transfers with sweep_status <c>swept</c> will become <c>reverse_swept</c></para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/transfer/reference#sandboxtransfersweepsimulate" /></remarks>
 	public Task<Sandbox.SandboxTransferSweepSimulateResponse> SandboxTransferSweepSimulateAsync(Sandbox.SandboxTransferSweepSimulateRequest request) =>

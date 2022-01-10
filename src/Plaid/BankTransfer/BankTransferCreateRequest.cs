@@ -78,7 +78,7 @@ public partial class BankTransferCreateRequest : RequestBase
 	public IReadOnlyDictionary<string, string>? Metadata { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified.</para>
+	/// <para>Plaid’s unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified. Otherwise, this field should be left blank.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	public string? OriginationAccountId { get; set; } = default!;

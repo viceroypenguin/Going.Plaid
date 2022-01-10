@@ -12,12 +12,6 @@ public record BankTransferSweep
 	public string Id { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Identifier of the sweep transfer.</para>
-	/// </summary>
-	[JsonPropertyName("transfer_id")]
-	public string? TransferId { get; init; } = default!;
-
-	/// <summary>
 	/// <para>The datetime when the sweep occurred, in RFC 3339 format.</para>
 	/// </summary>
 	[JsonPropertyName("created_at")]
@@ -34,10 +28,4 @@ public record BankTransferSweep
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The account where the funds are swept to.</para>
-	/// </summary>
-	[JsonPropertyName("sweep_account")]
-	public Entity.BankTransferSweepAccount SweepAccount { get; init; } = default!;
 }

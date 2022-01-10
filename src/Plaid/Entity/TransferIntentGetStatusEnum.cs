@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// 
 /// </summary>
-public enum TransferIntentCreateResponseStatusEnum
+public enum TransferIntentGetStatusEnum
 {
 	/// <summary>
 	/// 

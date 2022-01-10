@@ -57,7 +57,7 @@ static class Program
 		["NumbersBACS"] = "NumbersBacs",
 		["Transaction Location"] = "Location",
 		["transaction_code"] = "TransactionCode",
-		["Error"] = "PlaidException",
+		["Error"] = "PlaidError",
 		["YTDGrossIncomeSummaryFieldNumber"] = "YtdGrossIncomeSummaryFieldNumber",
 		["YTDNetIncomeSummaryFieldNumber"] = "YtdNetIncomeSummaryFieldNumber",
 	};

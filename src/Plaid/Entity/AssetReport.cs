@@ -15,7 +15,7 @@ public record AssetReport
 	/// <para>An identifier you determine and submit for the Asset Report.</para>
 	/// </summary>
 	[JsonPropertyName("client_report_id")]
-	public string ClientReportId { get; init; } = default!;
+	public string? ClientReportId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The date and time when the Asset Report was created, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (e.g. "2018-04-12T03:32:11Z").</para>

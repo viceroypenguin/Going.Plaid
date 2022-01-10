@@ -9,5 +9,5 @@ public record VerificationAttribute
 	/// <para>Message indicating the reason as to why the verification failed</para>
 	/// </summary>
 	[JsonPropertyName("type")]
-	public Entity.VerificationAttributeTypeEnum? Type { get; init; } = default!;
+	public Entity.VerificationAttributeType? Type { get; init; } = default!;
 }

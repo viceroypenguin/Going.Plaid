@@ -28,4 +28,16 @@ public class PaymentOptions
 	/// </summary>
 	[JsonPropertyName("wallet_id")]
 	public string? WalletId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Payment scheme. If not specified - the default in the region will be used (e.g. <c>SEPA_CREDIT_TRANSFER</c> for EU). Using unsupported values will result in a failed payment.</para>
+	/// </summary>
+	[JsonPropertyName("scheme")]
+	public Entity.PaymentScheme? Scheme { get; set; } = default!;
+
+	/// <summary>
+	/// <para>When <c>true</c>, Plaid will attempt to automatically downgrade payment <c>scheme</c> (e.g. <c>SEPA_CREDIT_TRANSFER_INSTANT</c> to <c>SEPA_CREDIT_TRANSFER</c>) when the requested scheme is not supported by the bank.</para>
+	/// </summary>
+	[JsonPropertyName("scheme_automatic_downgrade")]
+	public bool? SchemeAutomaticDowngrade { get; set; } = default!;
 }

@@ -18,7 +18,7 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusProcessing,
 
 	/// <summary>
-	/// <para>The payment has been successfully initiated and is considered complete.</para>
+	/// <para>The payment has been successfully authorised and accepted by the financial institution but has not been executed.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_INITIATED")]
 	PaymentStatusInitiated,
@@ -54,10 +54,34 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusUnknown,
 
 	/// <summary>
-	/// 
+	/// <para>The payment has been successfully initiated and is considered complete.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_EXECUTED")]
 	PaymentStatusExecuted,
+
+	/// <summary>
+	/// <para>The payment is currently being processed. The payment will automatically exit this state when the financial institution has authorised the transaction.</para>
+	/// </summary>
+	[EnumMember(Value = "PAYMENT_STATUS_AUTHORISING")]
+	PaymentStatusAuthorising,
+
+	/// <summary>
+	/// <para>The payment was cancelled during authorisation.</para>
+	/// </summary>
+	[EnumMember(Value = "PAYMENT_STATUS_CANCELLED")]
+	PaymentStatusCancelled,
+
+	/// <summary>
+	/// <para>Indicates that the standing order has been successfully established. This state is only used for standing orders.</para>
+	/// </summary>
+	[EnumMember(Value = "PAYMENT_STATUS_ESTABLISHED")]
+	PaymentStatusEstablished,
+
+	/// <summary>
+	/// <para>The payment was rejected by the financial institution.</para>
+	/// </summary>
+	[EnumMember(Value = "PAYMENT_STATUS_REJECTED")]
+	PaymentStatusRejected,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
