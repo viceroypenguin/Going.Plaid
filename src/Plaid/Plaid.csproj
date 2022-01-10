@@ -15,10 +15,11 @@
 
 		<Authors>viceroypenguin; Ackara</Authors>
 		<PackageTags>plaid banking api</PackageTags>
-		<Copyright>Copyright 2021 Turning Code, LLC; Ackara</Copyright>
+		<Copyright>Copyright 2022 Turning Code, LLC; Ackara</Copyright>
 
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<RepositoryUrl>https://github.com/viceroypenguin/Going.Plaid</RepositoryUrl>
@@ -32,6 +33,7 @@
 
 	<ItemGroup>
 		<None Include="..\..\art\icon.png" Pack="true" PackagePath="\" />
+		<None Include="..\..\readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<PropertyGroup>
@@ -39,12 +41,12 @@
 	</PropertyGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
-		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0-rc.2.*" />
-		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0-rc.2.*" />
-		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0-rc.2.*" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0-rc.2.*" />
-		<PackageReference Include="System.Net.Http.Json" Version="6.0.0-rc.2.*" />
-		<PackageReference Include="System.Text.Json" Version="6.0.0-rc.2.*" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+		<PackageReference Include="System.Text.Json" Version="6.0.1" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
@@ -66,8 +68,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
-		<PackageReference Include="IsExternalInit" Version="1.0.1">
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+		<PackageReference Include="IsExternalInit" Version="1.0.2">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
