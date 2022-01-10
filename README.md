@@ -4,7 +4,7 @@
 ---
 
 ## What is Going.Plaid?
-Going.Plaid is a .netstandard library for interacting with [Plaid's](https://plaid.com/) banking APIs. See their documentation [here](https://plaid.com/docs/api/).
+Going.Plaid is a .net core 3.1+ library for interacting with [Plaid's](https://plaid.com/) banking APIs. See their documentation [here](https://plaid.com/docs/api/).
 
 ### Where can I get it?
 Going.Plaid is available at [nuget.org](https://www.nuget.org/packages/Going.Plaid).
