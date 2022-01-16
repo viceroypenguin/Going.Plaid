@@ -9,5 +9,5 @@ public class InstitutionsSearchPaymentInitiationOptions
 	/// <para>A unique ID identifying the payment</para>
 	/// </summary>
 	[JsonPropertyName("payment_id")]
-	public string PaymentId { get; set; } = default!;
+	public string? PaymentId { get; set; } = default!;
 }

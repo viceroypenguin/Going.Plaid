@@ -70,10 +70,4 @@ public record BankTransferEvent
 	/// </summary>
 	[JsonPropertyName("direction")]
 	public Entity.BankTransferDirection? Direction { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The receiver details if the type of this event is <c>reciever_pending</c> or <c>reciever_posted</c>. Null value otherwise.</para>
-	/// </summary>
-	[JsonPropertyName("receiver_details")]
-	public Entity.BankTransferReceiverDetails? ReceiverDetails { get; init; } = default!;
 }

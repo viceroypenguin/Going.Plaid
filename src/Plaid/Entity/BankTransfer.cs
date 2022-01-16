@@ -12,7 +12,7 @@ public record BankTransfer
 	public string Id { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Specifies the use case of the transfer.  Required for transfers on an ACH network.</para>
+	/// <para>Specifies the use case of the transfer.  Required for transfers on an ACH network. In Sandbox, only <c>ccd</c>, <c>ppd</c>, or <c>web</c> can be used.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
 	public Entity.AchClass AchClass { get; init; } = default!;

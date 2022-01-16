@@ -9,19 +9,19 @@ public class InstitutionsGetRequestOptions
 	/// <para>Filter the Institutions based on which products they support.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
-	public IReadOnlyList<Entity.Products> Products { get; set; } = default!;
+	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specify an array of routing numbers to filter institutions. The response will only return institutions that match all of the routing numbers in the array. Routing number records used for this matching are not comprehensive; failure to match a given routing number to an institution does not mean that the institution is unsupported by Plaid.</para>
 	/// </summary>
 	[JsonPropertyName("routing_numbers")]
-	public IReadOnlyList<string> RoutingNumbers { get; set; } = default!;
+	public IReadOnlyList<string>? RoutingNumbers { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Limit results to institutions with or without OAuth login flows. This is primarily relevant to institutions with European country codes.</para>
 	/// </summary>
 	[JsonPropertyName("oauth")]
-	public bool Oauth { get; set; } = default!;
+	public bool? Oauth { get; set; } = default!;
 
 	/// <summary>
 	/// <para>When <c>true</c>, return the institution's homepage URL, logo and primary brand color.</para>

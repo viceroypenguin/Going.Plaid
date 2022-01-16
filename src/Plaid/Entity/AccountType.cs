@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum AccountType
 {
 	/// <summary>
-	/// <para>An account type holding cash, in which funds are deposited. Supported products for <c>depository</c> accounts are: Auth, Balance, Transactions, Identity, Payment Initiation, and Assets.</para>
+	/// <para>An account type holding cash, in which funds are deposited. Supported products for <c>depository</c> accounts are: Auth (<c>checking</c> and <c>savings</c> types only), Balance, Transactions, Identity, Payment Initiation, and Assets.</para>
 	/// </summary>
 	[EnumMember(Value = "depository")]
 	Depository,

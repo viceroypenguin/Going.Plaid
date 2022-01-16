@@ -36,18 +36,6 @@ public enum BankTransferEventType
 	Reversed,
 
 	/// <summary>
-	/// <para>The matching transfer was found as a pending transaction in the receiver's account</para>
-	/// </summary>
-	[EnumMember(Value = "receiver_pending")]
-	ReceiverPending,
-
-	/// <summary>
-	/// <para>The matching transfer was found as a posted transaction in the receiver's account</para>
-	/// </summary>
-	[EnumMember(Value = "receiver_posted")]
-	ReceiverPosted,
-
-	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

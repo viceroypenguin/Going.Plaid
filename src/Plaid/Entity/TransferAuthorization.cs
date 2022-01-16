@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>TransferAuthorization contains the authorization decision for a proposed transfer</para>
+/// <para>Contains the authorization decision for a proposed transfer</para>
 /// </summary>
 public record TransferAuthorization
 {
@@ -28,6 +28,18 @@ public record TransferAuthorization
 	/// </summary>
 	[JsonPropertyName("decision_rationale")]
 	public Entity.TransferAuthorizationDecisionRationale? DecisionRationale { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guaranteed ACH customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the <c>guarantee_decision_rationale</c> field. Refer to the <c>code</c> field in <c>guarantee_decision_rationale</c> for details.</para>
+	/// </summary>
+	[JsonPropertyName("guarantee_decision")]
+	public Entity.TransferAuthorizationGuaranteeDecision? GuaranteeDecision { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The rationale for Plaid's decision to not guarantee a transfer. Will be <c>null</c> unless <c>guarantee_decision</c> is <c>NOT_GUARANTEED</c>.</para>
+	/// </summary>
+	[JsonPropertyName("guarantee_decision_rationale")]
+	public Entity.TransferAuthorizationGuaranteeDecisionRationale? GuaranteeDecisionRationale { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Details regarding the proposed transfer.</para>

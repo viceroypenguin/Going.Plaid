@@ -4,7 +4,7 @@ public sealed partial class PlaidClient
 {
 	/// <summary>
 	/// <para>The <c>/asset_report/create</c> endpoint initiates the process of creating an Asset Report, which can then be retrieved by passing the <c>asset_report_token</c> return value to the <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c> endpoints.</para>
-	/// <para>The Asset Report takes some time to be created and is not available immediately after calling <c>/asset_report/create</c>. When the Asset Report is ready to be retrieved using <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c>, Plaid will fire a <c>PRODUCT_READY</c> webhook. For full details of the webhook schema, see <a href="https://plaid.com/docs/api/webhooks/#Assets-webhooks">Asset Report webhooks</a>.</para>
+	/// <para>The Asset Report takes some time to be created and is not available immediately after calling <c>/asset_report/create</c>. When the Asset Report is ready to be retrieved using <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c>, Plaid will fire a <c>PRODUCT_READY</c> webhook. For full details of the webhook schema, see <a href="https://plaid.com/docs/api/webhooks/#assets-webhooks">Asset Report webhooks</a>.</para>
 	/// <para>The <c>/asset_report/create</c> endpoint creates an Asset Report at a moment in time. Asset Reports are immutable. To get an updated Asset Report, use the <c>/asset_report/refresh</c> endpoint.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/products/#asset_reportcreate" /></remarks>

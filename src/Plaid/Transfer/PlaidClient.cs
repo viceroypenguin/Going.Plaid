@@ -96,4 +96,20 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferIntentGetResponse> TransferIntentGetAsync(Transfer.TransferIntentGetRequest request) =>
 		PostAsync("/transfer/intent/get", request)
 			.ParseResponseAsync<Transfer.TransferIntentGetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/repayment/list</c> endpoint fetches repayments matching the given filters. Repayments are returned in chronological order (least recent first) starting at the given <c>start_time</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/transfer/reference#transferrepaymentlist" /></remarks>
+	public Task<Transfer.TransferRepaymentListResponse> TransferRepaymentListAsync(Transfer.TransferRepaymentListRequest request) =>
+		PostAsync("/transfer/repayment/list", request)
+			.ParseResponseAsync<Transfer.TransferRepaymentListResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/repayment/return/list</c> endpoint retrieves the set of returns that were batched together into the specified repayment.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/transfer/reference#transferrepaymentreturnlist" /></remarks>
+	public Task<Transfer.TransferRepaymentReturnListResponse> TransferRepaymentReturnListAsync(Transfer.TransferRepaymentReturnListRequest request) =>
+		PostAsync("/transfer/repayment/return/list", request)
+			.ParseResponseAsync<Transfer.TransferRepaymentReturnListResponse>();
 }

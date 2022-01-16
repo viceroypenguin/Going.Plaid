@@ -36,7 +36,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Item.ItemRemoveResponse>();
 
 	/// <summary>
-	/// <para>The POST <c>/item/webhook/update</c> allows you to update the webhook URL associated with an Item. This request triggers a <a href="https://plaid.com/docs/api/webhooks/#item-webhook-url-updated"><c>WEBHOOK_UPDATE_ACKNOWLEDGED</c></a> webhook to the newly specified webhook URL.</para>
+	/// <para>The POST <c>/item/webhook/update</c> allows you to update the webhook URL associated with an Item. This request triggers a <a href="https://plaid.com/docs/api/webhooks/#item-webhook-update-acknowledged"><c>WEBHOOK_UPDATE_ACKNOWLEDGED</c></a> webhook to the newly specified webhook URL.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/items/#itemwebhookupdate" /></remarks>
 	public Task<Item.ItemWebhookUpdateResponse> ItemWebhookUpdateAsync(Item.ItemWebhookUpdateRequest request) =>

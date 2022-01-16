@@ -19,7 +19,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxPublicTokenCreateResponse>();
 
 	/// <summary>
-	/// <para>The <c>/sandbox/item/fire_webhook</c> endpoint is used to test that code correctly handles webhooks. Calling this endpoint triggers a Transactions <c>DEFAULT_UPDATE</c> webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result. Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development.</para>
+	/// <para>The <c>/sandbox/item/fire_webhook</c> endpoint is used to test that code correctly handles webhooks. This endpoint can trigger a Transactions <c>DEFAULT_UPDATE</c> webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result. This endpoint can also trigger a <c>NEW_ACCOUNTS_AVAILABLE</c> webhook to be fired for a given Sandbox Item created with Account Select v2. Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/api/sandbox/#sandboxitemfire_webhook" /></remarks>
 	public Task<Sandbox.SandboxItemFireWebhookResponse> SandboxItemFireWebhookAsync(Sandbox.SandboxItemFireWebhookRequest request) =>
@@ -70,6 +70,14 @@ public sealed partial class PlaidClient
 	public Task<Sandbox.SandboxTransferSimulateResponse> SandboxTransferSimulateAsync(Sandbox.SandboxTransferSimulateRequest request) =>
 		PostAsync("/sandbox/transfer/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferSimulateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/transfer/repayment/simulate</c> endpoint to trigger the creation of a repayment. As a side effect of calling this route, a repayment is created that includes all unreimbursed returns of guaranteed transfers. If there are no such returns, an 400 error is returned.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/transfer/reference#sandboxtransferrepaymentsimulate" /></remarks>
+	public Task<Sandbox.SandboxTransferRepaymentSimulateResponse> SandboxTransferRepaymentSimulateAsync(Sandbox.SandboxTransferRepaymentSimulateRequest request) =>
+		PostAsync("/sandbox/transfer/repayment/simulate", request)
+			.ParseResponseAsync<Sandbox.SandboxTransferRepaymentSimulateResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/sandbox/bank_transfer/fire_webhook</c> endpoint to manually trigger a Bank Transfers webhook in the Sandbox environment.</para>

@@ -15,7 +15,7 @@ public partial class InstitutionsSearchRequest : RequestBase
 	/// <para>Filter the Institutions based on whether they support all products listed in <c>products</c>. Provide <c>null</c> to get institutions regardless of supported products. Note that when <c>auth</c> is specified as a product, if you are enabled for Instant Match or Automated Micro-deposits, institutions that support those products will be returned even if <c>auth</c> is not present in their product array.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
-	public IReadOnlyList<Entity.Products> Products { get; set; } = default!;
+	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specify an array of Plaid-supported country codes this institution supports, using the ISO-3166-1 alpha-2 country code standard. In API versions 2019-05-29 and earlier, the <c>country_codes</c> parameter is an optional parameter within the <c>options</c> object and will default to <c>[US]</c> if it is not supplied.</para>
