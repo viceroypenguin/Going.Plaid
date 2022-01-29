@@ -64,7 +64,7 @@ public record Institution
 	/// <para>Institution status is accessible in the Dashboard and via the API using the <c>/institutions/get_by_id</c> endpoint with the <c>include_status</c> option set to true. Note that institution status is not available in the Sandbox environment.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.InstitutionStatus Status { get; init; } = default!;
+	public Entity.InstitutionStatus? Status { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Metadata that captures what specific payment configurations an institution supports when making Payment Initiation requests.</para>

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Data about an official document used to report the user's income to the IRS.</para>
 /// </summary>
 public record Taxform
 {
@@ -12,7 +12,7 @@ public record Taxform
 	public string DocId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of tax document.</para>
+	/// <para>The type of tax document. Currently, the only supported value is <c>w2</c>.</para>
 	/// </summary>
 	[JsonPropertyName("document_type")]
 	public string DocumentType { get; init; } = default!;

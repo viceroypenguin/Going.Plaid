@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Information about the user whose eligibility is being evaluated.</para>
 /// </summary>
 public class IncomeVerificationPrecheckUser
 {

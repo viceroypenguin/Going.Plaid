@@ -12,21 +12,21 @@ public record Transaction : Entity.TransactionBase
 	public Entity.TransactionPaymentChannelEnum PaymentChannel { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date that the transaction was authorized. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
+	/// <para>The date that the transaction was authorized. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ). The <c>authorized_date</c> field uses machine learning to determine a transaction date for transactions where the <c>date_transacted</c> is not available. If the <c>date_transacted</c> field is present and not <c>null</c>, the <c>authorized_date</c> field will have the same value as the <c>date_transacted</c> field.</para>
 	/// </summary>
 	[JsonPropertyName("authorized_date")]
 	public DateOnly? AuthorizedDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Date and time when a transaction was authorized in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
-	/// <para>This field is only populated for UK institutions. For institutions in other countries, will be <c>null</c>.</para>
+	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00).</para>
 	/// </summary>
 	[JsonPropertyName("authorized_datetime")]
 	public DateTimeOffset? AuthorizedDatetime { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Date and time when a transaction was posted in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
-	/// <para>This field is only populated for UK institutions. For institutions in other countries, will be <c>null</c>.</para>
+	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00).</para>
 	/// </summary>
 	[JsonPropertyName("datetime")]
 	public DateTimeOffset? Datetime { get; init; } = default!;

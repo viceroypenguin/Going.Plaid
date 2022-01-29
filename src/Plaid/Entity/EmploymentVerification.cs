@@ -12,13 +12,13 @@ public record EmploymentVerification
 	public Entity.EmploymentVerificationStatus? Status { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Start of employment in ISO_8601 format (YYYY-MM-DD).</para>
+	/// <para>Start of employment in ISO 8601 format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]
 	public DateOnly? StartDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>End of employment, if applicable. In ISO_8601 format (YYY-MM-DD).</para>
+	/// <para>End of employment, if applicable. Provided in ISO 8601 format (YYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("end_date")]
 	public DateOnly? EndDate { get; init; } = default!;

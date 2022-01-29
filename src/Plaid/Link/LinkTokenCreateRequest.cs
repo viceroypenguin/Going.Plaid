@@ -35,7 +35,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 
 	/// <summary>
 	/// <para>List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted; required otherwise. Valid products are:</para>
-	/// <para><c>transactions</c>, <c>auth</c>, <c>identity</c>, <c>assets</c>, <c>investments</c>, <c>liabilities</c>, <c>payment_initiation</c>, <c>deposit_switch</c>, <c>income_verification</c>, <c>transfer</c></para>
+	/// <para><c>transactions</c>, <c>auth</c>, <c>identity</c>, <c>assets</c>, <c>investments</c>, <c>liabilities</c>, <c>payment_initiation</c>, <c>deposit_switch</c>, <c>income_verification</c>, <c>transfer</c>, <c>employment</c></para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically be initialized when any other product is initialized.</para>
 	/// <para>Only institutions that support *all* requested products will be shown in Link; to maximize the number of institutions listed, it is recommended to initialize Link with the minimal product set required for your use case. Additional products can be added after Link initialization by calling the relevant endpoints. For details and exceptions, see <a href="https://plaid.com/docs/link/best-practices/#choosing-when-to-initialize-products">Choosing when to initialize products</a>.</para>
 	/// <para>Note that, unless you have opted to disable Instant Match support, institutions that support Instant Match will also be shown in Link if <c>auth</c> is specified as a product, even though these institutions do not contain <c>auth</c> in their product array.</para>

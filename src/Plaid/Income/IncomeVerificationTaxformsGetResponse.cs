@@ -12,7 +12,7 @@ public record IncomeVerificationTaxformsGetResponse : ResponseBase
 	public IReadOnlyList<Entity.DocumentMetadata> DocumentMetadata { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of taxforms.</para>
+	/// <para>A list of forms.</para>
 	/// </summary>
 	[JsonPropertyName("taxforms")]
 	public IReadOnlyList<Entity.Taxform> Taxforms { get; init; } = default!;

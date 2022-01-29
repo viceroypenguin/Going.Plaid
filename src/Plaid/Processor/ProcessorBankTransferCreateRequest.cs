@@ -31,7 +31,7 @@ public partial class ProcessorBankTransferCreateRequest : RequestBase
 	public Entity.BankTransferNetwork Network { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the bank transfer (decimal string with two digits of precision e.g. “10.00”).</para>
+	/// <para>The amount of the bank transfer (decimal string with two digits of precision e.g. "10.00").</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string Amount { get; set; } = default!;

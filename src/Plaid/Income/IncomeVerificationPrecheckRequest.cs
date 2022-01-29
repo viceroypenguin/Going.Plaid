@@ -6,13 +6,13 @@ namespace Going.Plaid.Income;
 public partial class IncomeVerificationPrecheckRequest : RequestBase
 {
 	/// <summary>
-	/// 
+	/// <para>Information about the user whose eligibility is being evaluated.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.IncomeVerificationPrecheckUser? User { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Information about the end user's employer</para>
 	/// </summary>
 	[JsonPropertyName("employer")]
 	public Entity.IncomeVerificationPrecheckEmployer? Employer { get; set; } = default!;
@@ -24,7 +24,7 @@ public partial class IncomeVerificationPrecheckRequest : RequestBase
 	public string? TransactionsAccessToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An array of access tokens corresponding to the Items that will be cross-referenced with the product data. If the <c>transactions</c> product was not initialized for the Items during link, it will be initialized after this Link session.</para>
+	/// <para>An array of access tokens corresponding to Items belonging to the user whose eligibility is being checked. Note that if the Items specified here are not already initialized with <c>transactions</c>, providing them in this field will cause these Items to be initialized with (and billed for) the Transactions product.</para>
 	/// </summary>
 	[JsonPropertyName("transactions_access_tokens")]
 	public IReadOnlyList<string> TransactionsAccessTokens { get; set; } = default!;

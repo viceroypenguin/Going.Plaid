@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>IncomeVerificationCreateRequestOptions defines the optional arguments schema for <c>/income/verification/create</c></para>
+/// <para>Optional arguments for <c>/income/verification/create</c></para>
 /// </summary>
 public class IncomeVerificationCreateRequestOptions
 {

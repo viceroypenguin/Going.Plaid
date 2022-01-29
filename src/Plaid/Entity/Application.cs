@@ -24,6 +24,12 @@ public record Application
 	public DateOnly CreatedAt { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The date this application was granted production access at Plaid in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
+	/// </summary>
+	[JsonPropertyName("join_date")]
+	public DateOnly JoinDate { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A URL that links to the application logo image.</para>
 	/// </summary>
 	[JsonPropertyName("logo_url")]

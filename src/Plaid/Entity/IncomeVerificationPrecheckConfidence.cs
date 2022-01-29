@@ -1,12 +1,12 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The confidence that Plaid can support the user in the income verification flow. One of the following:</para>
+/// <para>The confidence that Plaid can support the user in the digital income verification flow instead of requiring a manual paystub upload. One of the following:</para>
 /// </summary>
 public enum IncomeVerificationPrecheckConfidence
 {
 	/// <summary>
-	/// <para>This precheck information submitted is definitively tied to a Plaid-supported integration.</para>
+	/// <para>It is very likely that this user can use the digital income verification flow.</para>
 	/// </summary>
 	[EnumMember(Value = "HIGH")]
 	High,

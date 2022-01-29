@@ -48,7 +48,7 @@ public record TransferEvent
 	public Entity.TransferType TransferType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. “10.00”).</para>
+	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>
 	/// </summary>
 	[JsonPropertyName("transfer_amount")]
 	public string TransferAmount { get; init; } = default!;
@@ -63,11 +63,11 @@ public record TransferEvent
 	/// <para>Plaid’s unique identifier for a sweep.</para>
 	/// </summary>
 	[JsonPropertyName("sweep_id")]
-	public string SweepId { get; init; } = default!;
+	public string? SweepId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A signed amount of how much was <c>swept</c> or <c>reverse_swept</c> (decimal string with two digits of precision e.g. “-5.50”).</para>
+	/// <para>A signed amount of how much was <c>swept</c> or <c>reverse_swept</c> (decimal string with two digits of precision e.g. "-5.50").</para>
 	/// </summary>
 	[JsonPropertyName("sweep_amount")]
-	public string SweepAmount { get; init; } = default!;
+	public string? SweepAmount { get; init; } = default!;
 }

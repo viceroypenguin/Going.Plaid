@@ -48,6 +48,12 @@ public record ConnectedApplication
 	public DateOnly CreatedAt { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The date this application was granted production access at Plaid in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
+	/// </summary>
+	[JsonPropertyName("join_date")]
+	public DateOnly JoinDate { get; init; } = default!;
+
+	/// <summary>
 	/// <para>(Deprecated) A list of enums representing the data collected and products enabled for this connected application.</para>
 	/// </summary>
 	[JsonPropertyName("product_data_types")]

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Information about the end user's employer</para>
 /// </summary>
 public class IncomeVerificationPrecheckEmployer
 {

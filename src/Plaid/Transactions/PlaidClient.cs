@@ -9,7 +9,7 @@ public sealed partial class PlaidClient
 	/// <para>Data returned by <c>/transactions/get</c> will be the data available for the Item as of the most recent successful check for new transactions. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. An Item's <c>status.transactions.last_successful_update</c> field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, you can use the <c>/transactions/refresh</c> endpoint.</para>
 	/// <para>Note that data may not be immediately available to <c>/transactions/get</c>. Plaid will begin to prepare transactions data upon Item link, if Link was initialized with <c>transactions</c>, or upon the first call to <c>/transactions/get</c>, if it wasn't. To be alerted when transaction data is ready to be fetched, listen for the <a href="https://plaid.com/docs/api/webhooks#transactions-initial_update"><c>INITIAL_UPDATE</c></a> and <a href="https://plaid.com/docs/api/webhooks#transactions-historical_update"><c>HISTORICAL_UPDATE</c></a> webhooks. If no transaction history is ready when <c>/transactions/get</c> is called, it will return a <c>PRODUCT_NOT_READY</c> error.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/api/products/#transactionsget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#transactionsget" /></remarks>
 	public Task<Transactions.TransactionsGetResponse> TransactionsGetAsync(Transactions.TransactionsGetRequest request) =>
 		PostAsync("/transactions/get", request)
 			.ParseResponseAsync<Transactions.TransactionsGetResponse>();
@@ -18,7 +18,7 @@ public sealed partial class PlaidClient
 	/// <para><c>/transactions/refresh</c> is an optional endpoint for users of the Transactions product. It initiates an on-demand extraction to fetch the newest transactions for an Item. This on-demand extraction takes place in addition to the periodic extractions that automatically occur multiple times a day for any Transactions-enabled Item. If changes to transactions are discovered after calling <c>/transactions/refresh</c>, Plaid will fire a webhook: <a href="https://plaid.com/docs/api/webhooks#deleted-transactions-detected"><c>TRANSACTIONS_REMOVED</c></a> will be fired if any removed transactions are detected, and <a href="https://plaid.com/docs/api/webhooks#transactions-default_update"><c>DEFAULT_UPDATE</c></a> will be fired if any new transactions are detected. New transactions can be fetched by calling <c>/transactions/get</c>.</para>
 	/// <para>Access to <c>/transactions/refresh</c> in Production is specific to certain pricing plans. If you cannot access <c>/transactions/refresh</c> in Production, <a href="https://www.plaid.com/contact">contact Sales</a> for assistance.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/api/products/#transactionsrefresh" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#transactionsrefresh" /></remarks>
 	public Task<Transactions.TransactionsRefreshResponse> TransactionsRefreshAsync(Transactions.TransactionsRefreshRequest request) =>
 		PostAsync("/transactions/refresh", request)
 			.ParseResponseAsync<Transactions.TransactionsRefreshResponse>();
@@ -36,7 +36,7 @@ public sealed partial class PlaidClient
 	/// <para>Subsequent calls to the endpoint using the cursor returned in the response will return new added, modified, and removed transactions since the last call to the endpoint</para>
 	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/api/products/#transactionssync" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#transactionssync" /></remarks>
 	public Task<Transactions.TransactionsSyncResponse> TransactionsSyncAsync(Transactions.TransactionsSyncRequest request) =>
 		PostAsync("/transactions/sync", request)
 			.ParseResponseAsync<Transactions.TransactionsSyncResponse>();

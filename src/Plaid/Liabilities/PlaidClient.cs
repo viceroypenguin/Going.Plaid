@@ -7,7 +7,7 @@ public sealed partial class PlaidClient
 	/// <para>The types of information returned by Liabilities can include balances and due dates, loan terms, and account details such as original loan amount and guarantor. Data is refreshed approximately once per day; the latest data can be retrieved by calling <c>/liabilities/get</c>.</para>
 	/// <para>Note: This request may take some time to complete if <c>liabilities</c> was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the additional data.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/api/products/#liabilitiesget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#liabilitiesget" /></remarks>
 	public Task<Liabilities.LiabilitiesGetResponse> LiabilitiesGetAsync(Liabilities.LiabilitiesGetRequest request) =>
 		PostAsync("/liabilities/get", request)
 			.ParseResponseAsync<Liabilities.LiabilitiesGetResponse>();

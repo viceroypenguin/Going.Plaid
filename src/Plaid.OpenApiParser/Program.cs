@@ -418,7 +418,7 @@ static class Program
 			static string remarks(string url) =>
 				string.IsNullOrWhiteSpace(url) ? string.Empty :
 				$@"
-	/// <remarks><see href=""{ PrefixPlaidUrl(url)}"" /></remarks>";
+	/// <remarks><see href=""https://plaid.com/docs{url}"" /></remarks>";
 
 			var methods = g.Select(c => $@"
 	/// <summary>

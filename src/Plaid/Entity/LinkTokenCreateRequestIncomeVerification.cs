@@ -18,7 +18,7 @@ public class LinkTokenCreateRequestIncomeVerification
 	public string AssetReportId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The ID of a precheck created with <c>/income/verification/precheck</c>. Will be used to improve conversion of the income verification flow.</para>
+	/// <para>The ID of a precheck created with <c>/income/verification/precheck</c>. Will be used to improve conversion of the income verification flow by streamlining the Link interface presented to the end user.</para>
 	/// </summary>
 	[JsonPropertyName("precheck_id")]
 	public string PrecheckId { get; set; } = default!;

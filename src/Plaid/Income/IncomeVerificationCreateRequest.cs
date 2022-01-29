@@ -18,7 +18,7 @@ public partial class IncomeVerificationCreateRequest : RequestBase
 	public string PrecheckId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>IncomeVerificationCreateRequestOptions defines the optional arguments schema for <c>/income/verification/create</c></para>
+	/// <para>Optional arguments for <c>/income/verification/create</c></para>
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.IncomeVerificationCreateRequestOptions Options { get; set; } = default!;

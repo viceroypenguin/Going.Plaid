@@ -18,7 +18,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	public Entity.TransferIntentCreateMode Mode { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. “10.00”).</para>
+	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string Amount { get; set; } = default!;

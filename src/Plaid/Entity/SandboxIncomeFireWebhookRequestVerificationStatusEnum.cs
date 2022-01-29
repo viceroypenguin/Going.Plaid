@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum SandboxIncomeFireWebhookRequestVerificationStatusEnum
 {
 	/// <summary>
-	/// <para>The income verification status processing has completed. If the user uploaded multiple documents, this webhook will fire when all documents have finished processing. Call the <c>/paystubs/get</c> endpoint and check the document metadata to see which documents were successfully parsed.</para>
+	/// <para>The income verification status processing has completed. If the user uploaded multiple documents, this webhook will fire when all documents have finished processing. Call the <c>/income/verification/paystubs/get</c> endpoint and check the document metadata to see which documents were successfully parsed.</para>
 	/// </summary>
 	[EnumMember(Value = "VERIFICATION_STATUS_PROCESSING_COMPLETE")]
 	VerificationStatusProcessingComplete,

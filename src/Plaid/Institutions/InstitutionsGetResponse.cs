@@ -6,7 +6,7 @@ namespace Going.Plaid.Institutions;
 public record InstitutionsGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A list of Plaid Institution</para>
+	/// <para>A list of Plaid institutions</para>
 	/// </summary>
 	[JsonPropertyName("institutions")]
 	public IReadOnlyList<Entity.Institution> Institutions { get; init; } = default!;

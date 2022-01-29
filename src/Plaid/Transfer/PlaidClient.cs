@@ -5,7 +5,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/transfer/get</c> fetches information about the transfer corresponding to the given <c>transfer_id</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transferget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transferget" /></remarks>
 	public Task<Transfer.TransferGetResponse> TransferGetAsync(Transfer.TransferGetRequest request) =>
 		PostAsync("/transfer/get", request)
 			.ParseResponseAsync<Transfer.TransferGetResponse>();
@@ -20,7 +20,7 @@ public sealed partial class PlaidClient
 	/// <para>  - To permit a transfer with the rationale code <c>LOGIN_REQUIRED</c>, <a href="https://plaid.com/docs/sandbox/#item_login_required">reset the login for an Item</a>.</para>
 	/// <para>All username/password combinations other than the ones listed above will result in a decision of permitted and rationale code <c>ERROR</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transferauthorizationcreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transferauthorizationcreate" /></remarks>
 	public Task<Transfer.TransferAuthorizationCreateResponse> TransferAuthorizationCreateAsync(Transfer.TransferAuthorizationCreateRequest request) =>
 		PostAsync("/transfer/authorization/create", request)
 			.ParseResponseAsync<Transfer.TransferAuthorizationCreateResponse>();
@@ -28,7 +28,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/create</c> endpoint to initiate a new transfer.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transfercreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transfercreate" /></remarks>
 	public Task<Transfer.TransferCreateResponse> TransferCreateAsync(Transfer.TransferCreateRequest request) =>
 		PostAsync("/transfer/create", request)
 			.ParseResponseAsync<Transfer.TransferCreateResponse>();
@@ -36,7 +36,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/list</c> endpoint to see a list of all your transfers and their statuses. Results are paginated; use the <c>count</c> and <c>offset</c> query parameters to retrieve the desired transfers.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transferlist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transferlist" /></remarks>
 	public Task<Transfer.TransferListResponse> TransferListAsync(Transfer.TransferListRequest request) =>
 		PostAsync("/transfer/list", request)
 			.ParseResponseAsync<Transfer.TransferListResponse>();
@@ -44,7 +44,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/cancel</c> endpoint to cancel a transfer.  A transfer is eligible for cancelation if the <c>cancellable</c> property returned by <c>/transfer/get</c> is <c>true</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transfercancel" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transfercancel" /></remarks>
 	public Task<Transfer.TransferCancelResponse> TransferCancelAsync(Transfer.TransferCancelRequest request) =>
 		PostAsync("/transfer/cancel", request)
 			.ParseResponseAsync<Transfer.TransferCancelResponse>();
@@ -52,7 +52,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/event/list</c> endpoint to get a list of transfer events based on specified filter criteria.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transfereventlist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transfereventlist" /></remarks>
 	public Task<Transfer.TransferEventListResponse> TransferEventListAsync(Transfer.TransferEventListRequest request) =>
 		PostAsync("/transfer/event/list", request)
 			.ParseResponseAsync<Transfer.TransferEventListResponse>();
@@ -60,7 +60,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/transfer/event/sync</c> allows you to request up to the next 25 transfer events that happened after a specific <c>event_id</c>. Use the <c>/transfer/event/sync</c> endpoint to guarantee you have seen all transfer events.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transfereventsync" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transfereventsync" /></remarks>
 	public Task<Transfer.TransferEventSyncResponse> TransferEventSyncAsync(Transfer.TransferEventSyncRequest request) =>
 		PostAsync("/transfer/event/sync", request)
 			.ParseResponseAsync<Transfer.TransferEventSyncResponse>();
@@ -68,7 +68,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/transfer/sweep/get</c> endpoint fetches a sweep corresponding to the given <c>sweep_id</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transfersweepget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transfersweepget" /></remarks>
 	public Task<Transfer.TransferSweepGetResponse> TransferSweepGetAsync(Transfer.TransferSweepGetRequest request) =>
 		PostAsync("/transfer/sweep/get", request)
 			.ParseResponseAsync<Transfer.TransferSweepGetResponse>();
@@ -76,7 +76,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/transfer/sweep/list</c> endpoint fetches sweeps matching the given filters.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transfersweeplist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transfersweeplist" /></remarks>
 	public Task<Transfer.TransferSweepListResponse> TransferSweepListAsync(Transfer.TransferSweepListRequest request) =>
 		PostAsync("/transfer/sweep/list", request)
 			.ParseResponseAsync<Transfer.TransferSweepListResponse>();
@@ -84,7 +84,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/intent/create</c> endpoint to generate a transfer intent object and invoke the Transfer UI.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transferintentcreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transferintentcreate" /></remarks>
 	public Task<Transfer.TransferIntentCreateResponse> TransferIntentCreateAsync(Transfer.TransferIntentCreateRequest request) =>
 		PostAsync("/transfer/intent/create", request)
 			.ParseResponseAsync<Transfer.TransferIntentCreateResponse>();
@@ -92,7 +92,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/intent/get</c> endpoint to retrieve more information about a transfer intent.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transferintentget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products#transferintentget" /></remarks>
 	public Task<Transfer.TransferIntentGetResponse> TransferIntentGetAsync(Transfer.TransferIntentGetRequest request) =>
 		PostAsync("/transfer/intent/get", request)
 			.ParseResponseAsync<Transfer.TransferIntentGetResponse>();
@@ -100,7 +100,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/transfer/repayment/list</c> endpoint fetches repayments matching the given filters. Repayments are returned in chronological order (least recent first) starting at the given <c>start_time</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transferrepaymentlist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/transfer/reference#transferrepaymentlist" /></remarks>
 	public Task<Transfer.TransferRepaymentListResponse> TransferRepaymentListAsync(Transfer.TransferRepaymentListRequest request) =>
 		PostAsync("/transfer/repayment/list", request)
 			.ParseResponseAsync<Transfer.TransferRepaymentListResponse>();
@@ -108,7 +108,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/transfer/repayment/return/list</c> endpoint retrieves the set of returns that were batched together into the specified repayment.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/transfer/reference#transferrepaymentreturnlist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/transfer/reference#transferrepaymentreturnlist" /></remarks>
 	public Task<Transfer.TransferRepaymentReturnListResponse> TransferRepaymentReturnListAsync(Transfer.TransferRepaymentReturnListRequest request) =>
 		PostAsync("/transfer/repayment/return/list", request)
 			.ParseResponseAsync<Transfer.TransferRepaymentReturnListResponse>();

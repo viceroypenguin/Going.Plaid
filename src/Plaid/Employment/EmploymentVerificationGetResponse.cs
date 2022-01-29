@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Employment;
+namespace Going.Plaid.Employment;
 
 /// <summary>
 /// <para>EmploymentVerificationGetResponse defines the response schema for <c>/employment/verification/get</c>.</para>
