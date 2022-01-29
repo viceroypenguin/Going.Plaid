@@ -66,7 +66,11 @@ public class EnumConverterFactory : JsonConverterFactory
 			}
 
 			// Plaid may return new/unknown values on parse. Don't crash at least...
+#if NETCOREAPP3_1_OR_GREATER
 			return Enum.Parse<T>("Undefined");
+#else
+			return (T)Enum.Parse(typeof(T), "Undefined");
+#endif
 		}
 
 		public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options) =>

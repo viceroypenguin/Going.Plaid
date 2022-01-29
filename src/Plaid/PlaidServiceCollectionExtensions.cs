@@ -55,7 +55,13 @@ public static class PlaidServiceCollectionExtensions
 			.ConfigurePrimaryHttpMessageHandler(() =>
 				new HttpClientHandler
 				{
-					AutomaticDecompression = System.Net.DecompressionMethods.All,
+#if NETCOREAPP3_1_OR_GREATER
+					AutomaticDecompression = DecompressionMethods.All,
+#else
+					AutomaticDecompression = 
+						DecompressionMethods.GZip
+						| DecompressionMethods.Deflate,
+#endif
 				});
 		return services;
 	}
