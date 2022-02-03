@@ -2,27 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Going.Plaid.Sandbox
+namespace Going.Plaid.Categories
 {
-	public partial class SandboxPublicTokenCreateRequest : RequestBase
+	public partial class CategoriesGetRequest : RequestBase
 	{
 		/// <inheritdoc />
 		protected internal override bool IncludeAccessToken => false;
-	}
-
-	public partial class SandboxProcessorTokenCreateRequest : RequestBase
-	{
 		/// <inheritdoc />
-		protected internal override bool IncludeAccessToken => false;
-	}
-}
-
-namespace Going.Plaid.Link
-{
-	public partial class LinkTokenCreateRequest : RequestBase
-	{
-		/// <inheritdoc />
-		protected internal override bool IncludeAccessToken => false;
+		protected internal override bool IncludeSecrets => false;
 	}
 }
 
@@ -41,9 +28,33 @@ namespace Going.Plaid.Item
 	}
 }
 
+namespace Going.Plaid.Link
+{
+	public partial class LinkTokenCreateRequest : RequestBase
+	{
+		/// <inheritdoc />
+		protected internal override bool IncludeAccessToken => false;
+	}
+}
+
 namespace Going.Plaid.Processor
 {
 	public partial class ProcessorTokenCreateRequest : RequestBase
+	{
+		/// <inheritdoc />
+		protected internal override bool IncludeAccessToken => false;
+	}
+}
+
+namespace Going.Plaid.Sandbox
+{
+	public partial class SandboxPublicTokenCreateRequest : RequestBase
+	{
+		/// <inheritdoc />
+		protected internal override bool IncludeAccessToken => false;
+	}
+
+	public partial class SandboxProcessorTokenCreateRequest : RequestBase
 	{
 		/// <inheritdoc />
 		protected internal override bool IncludeAccessToken => false;

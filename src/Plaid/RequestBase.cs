@@ -41,6 +41,11 @@ public abstract class RequestBase
 	protected internal virtual bool IncludeAccessToken => true;
 
 	/// <summary>
+	/// Indicates whether to include the Secret/ClientId on an API call.
+	/// </summary>
+	protected internal virtual bool IncludeSecrets => true;
+
+	/// <summary>
 	/// Updates the credential values if they have
 	/// not already been provided.
 	/// </summary>
@@ -52,8 +57,8 @@ public abstract class RequestBase
 		string? clientId,
 		string? accessToken)
 	{
-		if (string.IsNullOrWhiteSpace(Secret)) Secret = secret;
-		if (string.IsNullOrWhiteSpace(ClientId)) ClientId = clientId;
+		if (IncludeSecrets && string.IsNullOrWhiteSpace(Secret)) Secret = secret;
+		if (IncludeSecrets && string.IsNullOrWhiteSpace(ClientId)) ClientId = clientId;
 		if (IncludeAccessToken && string.IsNullOrWhiteSpace(AccessToken)) AccessToken = accessToken;
 	}
 }

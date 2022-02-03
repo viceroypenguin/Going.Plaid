@@ -111,6 +111,10 @@ namespace Going.Plaid.Tests
 		}
 
 		[Fact]
+		public Task FetchCategoriesAsync() =>
+			Verify(_fixture.PlaidClient.CategoriesGetAsync(new()), settings);
+
+		[Fact]
 		public Task FetchItemAsync() =>
 			Verify(_fixture.PlaidClient.ItemGetAsync(new()), settings);
 
