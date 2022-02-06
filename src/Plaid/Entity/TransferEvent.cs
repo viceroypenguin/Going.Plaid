@@ -54,7 +54,7 @@ public record TransferEvent
 	public string TransferAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The failure reason if the type of this transfer is <c>"failed"</c> or <c>"reversed"</c>. Null value otherwise.</para>
+	/// <para>The failure reason if the event type for a transfer is <c>"failed"</c> or <c>"reversed"</c>. Null value otherwise.</para>
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.TransferFailure? FailureReason { get; init; } = default!;

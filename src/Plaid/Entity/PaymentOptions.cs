@@ -18,7 +18,7 @@ public class PaymentOptions
 	public string? Iban { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>An optional object used to restrict the accounts used for payments. If provided, the end user will be able to send payments only from the specified bank account.</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.PaymentInitiationOptionalRestrictionBacs? Bacs { get; set; } = default!;
@@ -34,10 +34,4 @@ public class PaymentOptions
 	/// </summary>
 	[JsonPropertyName("scheme")]
 	public Entity.PaymentScheme? Scheme { get; set; } = default!;
-
-	/// <summary>
-	/// <para>When <c>true</c>, Plaid will attempt to automatically downgrade payment <c>scheme</c> (e.g. <c>SEPA_CREDIT_TRANSFER_INSTANT</c> to <c>SEPA_CREDIT_TRANSFER</c>) when the requested scheme is not supported by the bank.</para>
-	/// </summary>
-	[JsonPropertyName("scheme_automatic_downgrade")]
-	public bool? SchemeAutomaticDowngrade { get; set; } = default!;
 }

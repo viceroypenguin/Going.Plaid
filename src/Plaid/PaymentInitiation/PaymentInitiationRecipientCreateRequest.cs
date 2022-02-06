@@ -18,7 +18,7 @@ public partial class PaymentInitiationRecipientCreateRequest : RequestBase
 	public string? Iban { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>An object containing a BACS account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, BACS data is required.</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.RecipientBACS? Bacs { get; set; } = default!;

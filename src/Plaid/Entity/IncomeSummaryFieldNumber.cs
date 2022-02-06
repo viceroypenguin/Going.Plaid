@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Field number for income summary</para>
 /// </summary>
 public record IncomeSummaryFieldNumber
 {

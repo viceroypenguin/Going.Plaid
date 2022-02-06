@@ -6,25 +6,25 @@ namespace Going.Plaid.Entity;
 public record ProcessorNumber
 {
 	/// <summary>
-	/// 
+	/// <para>Identifying information for transferring money to or from a US account via ACH or wire transfer.</para>
 	/// </summary>
 	[JsonPropertyName("ach")]
 	public Entity.NumbersAch? Ach { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Identifying information for transferring money to or from a Canadian bank account via EFT.</para>
 	/// </summary>
 	[JsonPropertyName("eft")]
 	public Entity.NumbersEft? Eft { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Identifying information for transferring money to or from an international bank account via wire transfer.</para>
 	/// </summary>
 	[JsonPropertyName("international")]
 	public Entity.NumbersInternational? International { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Identifying information for transferring money to or from a UK bank account via BACS.</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.NumbersBacs? Bacs { get; init; } = default!;

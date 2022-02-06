@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>A status health incident</para>
 /// </summary>
 public record HealthIncident
 {

@@ -44,6 +44,18 @@ public enum EarningsBreakdownCanonicalDescription
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "BASIC ALLOWANCE HOUSING")]
+	BasicAllowanceHousing,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "BASIC ALLOWANCE SUBSISTENCE")]
+	BasicAllowanceSubsistence,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "OTHER")]
 	Other,
 

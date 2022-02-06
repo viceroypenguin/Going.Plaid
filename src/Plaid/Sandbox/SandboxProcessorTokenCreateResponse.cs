@@ -1,7 +1,7 @@
 namespace Going.Plaid.Sandbox;
 
 /// <summary>
-/// 
+/// <para>SandboxProcessorTokenCreateResponse defines the response schema for <c>/sandbox/processor_token/create</c></para>
 /// </summary>
 public record SandboxProcessorTokenCreateResponse : ResponseBase
 {

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Data about military info in the income verification precheck.</para>
 /// </summary>
 public class IncomeVerificationPrecheckMilitaryInfo
 {

@@ -54,11 +54,9 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxBankTransferSimulateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/transfer/sweep/simulate</c> endpoint to create a sweep and associated events in the Sandbox environment.</para>
-	/// <para>- All <c>posted</c> or <c>pending</c> Transfers with sweep_status <c>unswept</c> will become <c>swept</c></para>
-	/// <para>- All <c>reversed</c> Transfers with sweep_status <c>swept</c> will become <c>reverse_swept</c></para>
+	/// <para>Use the <c>/sandbox/transfer/sweep/simulate</c> endpoint to create a sweep and associated events in the Sandbox environment. Upon calling this endpoint, all <c>posted</c> or <c>pending</c> transfers with a sweep status of <c>unswept</c> will become <c>swept</c>, and all <c>reversed</c> transfers with a sweep status of <c>swept</c> will become <c>reverse_swept</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products#sandboxtransfersweepsimulate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfersweepsimulate" /></remarks>
 	public Task<Sandbox.SandboxTransferSweepSimulateResponse> SandboxTransferSweepSimulateAsync(Sandbox.SandboxTransferSweepSimulateRequest request) =>
 		PostAsync("/sandbox/transfer/sweep/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferSweepSimulateResponse>();
@@ -66,7 +64,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/simulate</c> endpoint to simulate a transfer event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as <c>/transfer/event/sync</c> or <c>/transfer/event/list</c>, no transactions will actually take place and funds will not move between accounts, even within the Sandbox.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products#sandboxtransfersimulate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfersimulate" /></remarks>
 	public Task<Sandbox.SandboxTransferSimulateResponse> SandboxTransferSimulateAsync(Sandbox.SandboxTransferSimulateRequest request) =>
 		PostAsync("/sandbox/transfer/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferSimulateResponse>();
@@ -74,7 +72,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/repayment/simulate</c> endpoint to trigger the creation of a repayment. As a side effect of calling this route, a repayment is created that includes all unreimbursed returns of guaranteed transfers. If there are no such returns, an 400 error is returned.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/transfer/reference#sandboxtransferrepaymentsimulate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferrepaymentsimulate" /></remarks>
 	public Task<Sandbox.SandboxTransferRepaymentSimulateResponse> SandboxTransferRepaymentSimulateAsync(Sandbox.SandboxTransferRepaymentSimulateRequest request) =>
 		PostAsync("/sandbox/transfer/repayment/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferRepaymentSimulateResponse>();

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Information about the balance of a bank transfer</para>
 /// </summary>
 public record BankTransferBalance
 {

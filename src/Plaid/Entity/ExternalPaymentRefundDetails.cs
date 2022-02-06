@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Details about external payment refund</para>
 /// </summary>
 public record ExternalPaymentRefundDetails
 {
@@ -18,7 +18,7 @@ public record ExternalPaymentRefundDetails
 	public string? Iban { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>An object containing a BACS account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, BACS data is required.</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.RecipientBACS? Bacs { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Asset information about an account</para>
 /// </summary>
 public record AccountAssets : Entity.Account
 {
@@ -24,7 +24,7 @@ public record AccountAssets : Entity.Account
 	public IReadOnlyList<Entity.Owner> Owners { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Calculated data about the historical balances on the account. Only returned by Assets endpoints.</para>
+	/// <para>Calculated data about the historical balances on the account. Only returned by Assets endpoints and currently not supported by <c>brokerage</c> or <c>investment</c> accounts.</para>
 	/// </summary>
 	[JsonPropertyName("historical_balances")]
 	public IReadOnlyList<Entity.HistoricalBalance> HistoricalBalances { get; init; } = default!;

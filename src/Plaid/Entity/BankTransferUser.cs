@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class BankTransferUser
 {
 	/// <summary>
-	/// <para>The account holder’s full legal name. If the transfer description is <c>ccd</c>, this should be the business name of the account holder.</para>
+	/// <para>The account holder’s full legal name. If the transfer <c>ach_class</c> is <c>ccd</c>, this should be the business name of the account holder.</para>
 	/// </summary>
 	[JsonPropertyName("legal_name")]
 	public string LegalName { get; set; } = default!;

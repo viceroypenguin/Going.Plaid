@@ -16,7 +16,7 @@ public record PaymentInitiationMetadata
 	/// <para>Example: <c>{"GBP": "10000"}</c></para>
 	/// </summary>
 	[JsonPropertyName("maximum_payment_amount")]
-	public Entity.PaymentInitiationMetadataMaximumPaymentAmountObject MaximumPaymentAmount { get; init; } = default!;
+	public Entity.PaymentInitiationMaximumPaymentAmount MaximumPaymentAmount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Indicates whether the institution supports returning refund details when initiating a payment.</para>

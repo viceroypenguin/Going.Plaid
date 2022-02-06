@@ -19,7 +19,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Income.IncomeVerificationSummaryGetResponse>();
 
 	/// <summary>
-	/// <para>(Deprecated) Retrieve information from a single paystub used for income verification</para>
+	/// <para>/income/verification/paystub/get returns information from a single paystub used for income verification</para>
 	/// </summary>
 	public Task<Income.IncomeVerificationPaystubGetResponse> IncomeVerificationPaystubGetAsync(Income.IncomeVerificationPaystubGetRequest request) =>
 		PostAsync("/income/verification/paystub/get", request)

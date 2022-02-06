@@ -18,7 +18,7 @@ public record Employer
 	public string Name { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Data about the components comprising an address.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.AddressData? Address { get; init; } = default!;

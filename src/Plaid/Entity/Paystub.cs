@@ -30,7 +30,7 @@ public record Paystub
 	public Entity.Employee Employee { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Information about the employer on the paystub</para>
 	/// </summary>
 	[JsonPropertyName("employer")]
 	public Entity.Employer Employer { get; init; } = default!;

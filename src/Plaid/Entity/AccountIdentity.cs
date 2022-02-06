@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Identity information about an account</para>
 /// </summary>
 public record AccountIdentity : Entity.Account
 {

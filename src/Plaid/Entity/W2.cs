@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record W2
 {
 	/// <summary>
-	/// 
+	/// <para>Information about the employer on the paystub</para>
 	/// </summary>
 	[JsonPropertyName("employer")]
 	public Entity.Employer Employer { get; init; } = default!;

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record Employee
 {
 	/// <summary>
-	/// 
+	/// <para>Address on the paystub</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.Address Address { get; init; } = default!;

@@ -57,20 +57,25 @@ static class Program
 		["NumbersBACS"] = "NumbersBacs",
 		["Transaction Location"] = "Location",
 		["transaction_code"] = "TransactionCode",
-		["Error"] = "PlaidError",
 		["YTDGrossIncomeSummaryFieldNumber"] = "YtdGrossIncomeSummaryFieldNumber",
 		["YTDNetIncomeSummaryFieldNumber"] = "YtdNetIncomeSummaryFieldNumber",
 	};
 	private static readonly string[] excludes = new[]
 	{
 		"PlaidException",
+		"Error",
+		"PlaidError",
 		"AccountType",
 		"OverrideAccountType",
 		"StandaloneAccountType",
-		"DepositoryAccount",
-		"CreditAccount",
-		"LoanAccount",
+		"DepositoryAccountSubtype",
+		"DepositoryAccountSubtypes",
+		"CreditAccountSubtype",
+		"CreditAccountSubtypes",
+		"LoanAccountSubtype",
+		"LoanAccountSubtypes",
 		"InvestmentAccountSubtype",
+		"InvestmentAccountSubtypes",
 		"AccountSubtype",
 	};
 
@@ -346,7 +351,7 @@ static class Program
 			["loan"] = FixupDescription(
 				doc.Components.Schemas["LoanAccount"].Description),
 			["investment"] = FixupDescription(
-				doc.Components.Schemas["InvestmentAccountSubtype"].Description),
+				doc.Components.Schemas["InvestmentAccountSubtypeStandalone"].Description),
 			["brokerage"] =
 				ParseEnumDescription(doc.Components.Schemas["AccountType"].Description)
 					.propertyDescription["brokerage"],
@@ -378,7 +383,7 @@ static class Program
 			pd[p.Key] = FixupDescription(p.Value.Description).TrimEnd();
 		foreach (var p in doc.Components.Schemas["LoanAccount"].Properties)
 			pd[p.Key] = FixupDescription(p.Value.Description).TrimEnd();
-		foreach (var p in doc.Components.Schemas["InvestmentAccountSubtype"].Properties)
+		foreach (var p in doc.Components.Schemas["InvestmentAccountSubtypeStandalone"].Properties)
 			pd[p.Key] = FixupDescription(p.Value.Description).TrimEnd();
 
 		schemaEntities["AccountSubtype"] = new()

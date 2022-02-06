@@ -1,7 +1,7 @@
 namespace Going.Plaid.Sandbox;
 
 /// <summary>
-/// 
+/// <para>SandboxProcessorTokenCreateRequest defines the request schema for <c>/sandbox/processor_token/create</c></para>
 /// </summary>
 public partial class SandboxProcessorTokenCreateRequest : RequestBase
 {

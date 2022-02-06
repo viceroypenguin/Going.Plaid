@@ -1,7 +1,7 @@
 namespace Going.Plaid.Application;
 
 /// <summary>
-/// <para>ApplicationGetResponse defines the schema for <c>/application/get</c></para>
+/// <para>ApplicationGetRequest defines the schema for <c>/application/get</c></para>
 /// </summary>
 public partial class ApplicationGetRequest : RequestBase
 {

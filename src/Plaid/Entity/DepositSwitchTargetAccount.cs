@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>The deposit switch destination account</para>
 /// </summary>
 public class DepositSwitchTargetAccount
 {

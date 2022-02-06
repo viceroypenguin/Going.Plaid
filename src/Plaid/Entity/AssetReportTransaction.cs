@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>A transaction on the asset report</para>
 /// </summary>
 public record AssetReportTransaction : Entity.TransactionBase
 {

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Data on the W2 Box 12</para>
 /// </summary>
 public record W2Box12
 {

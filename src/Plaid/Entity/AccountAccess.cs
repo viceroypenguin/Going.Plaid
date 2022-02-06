@@ -18,7 +18,7 @@ public record AccountAccess
 	public bool? Authorized { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Allow the application to access specific products on this account</para>
 	/// </summary>
 	[JsonPropertyName("account_product_access")]
 	public Entity.AccountProductAccess? AccountProductAccess { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Application;
 
 /// <summary>
-/// <para>The request ID associated with this call.</para>
+/// <para>ApplicationGetResponse defines the response schema for <c>/application/get</c></para>
 /// </summary>
 public record ApplicationGetResponse : ResponseBase
 {

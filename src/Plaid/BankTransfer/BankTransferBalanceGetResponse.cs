@@ -6,7 +6,7 @@ namespace Going.Plaid.BankTransfer;
 public record BankTransferBalanceGetResponse : ResponseBase
 {
 	/// <summary>
-	/// 
+	/// <para>Information about the balance of a bank transfer</para>
 	/// </summary>
 	[JsonPropertyName("balance")]
 	public Entity.BankTransferBalance Balance { get; init; } = default!;

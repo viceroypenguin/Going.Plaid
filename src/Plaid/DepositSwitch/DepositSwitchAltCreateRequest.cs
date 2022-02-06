@@ -6,13 +6,13 @@ namespace Going.Plaid.DepositSwitch;
 public partial class DepositSwitchAltCreateRequest : RequestBase
 {
 	/// <summary>
-	/// 
+	/// <para>The deposit switch destination account</para>
 	/// </summary>
 	[JsonPropertyName("target_account")]
 	public Entity.DepositSwitchTargetAccount TargetAccount { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The deposit switch target user</para>
 	/// </summary>
 	[JsonPropertyName("target_user")]
 	public Entity.DepositSwitchTargetUser TargetUser { get; set; } = default!;

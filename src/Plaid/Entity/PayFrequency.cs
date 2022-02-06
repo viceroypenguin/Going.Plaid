@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>The frequency of the pay period.</para>
 /// </summary>
 public record PayFrequency
 {

@@ -60,7 +60,7 @@ public record ConnectedApplication
 	public IReadOnlyList<Entity.ConnectedApplicationProductDataTypesEnum> ProductDataTypes { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The scopes object</para>
 	/// </summary>
 	[JsonPropertyName("scopes")]
 	public Entity.Scopes? Scopes { get; init; } = default!;

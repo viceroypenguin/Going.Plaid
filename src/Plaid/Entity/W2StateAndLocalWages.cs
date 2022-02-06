@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>W2 state and local wages</para>
 /// </summary>
 public record W2StateAndLocalWages
 {
