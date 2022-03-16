@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid;
+namespace Going.Plaid;
 
 /// <summary>
 /// Provides methods for sending request to and receiving data from Plaid banking API.
@@ -18,14 +18,15 @@ public sealed partial class PlaidClient
 		IHttpClientFactory? httpClientFactory = null,
 		ILogger<PlaidClient>? logger = null)
 		: this(
-			  options.Value.Environment,
-			  options.Value.ClientId,
-			  options.Value.Secret,
-			  options.Value.DefaultAccessToken,
-			  apiVersion: options.Value.ApiVersion,
-			  httpClientFactory: httpClientFactory,
-			  logger: logger)
-	{ }
+			options.Value.Environment,
+			options.Value.ClientId,
+			options.Value.Secret,
+			options.Value.DefaultAccessToken,
+			apiVersion: options.Value.ApiVersion,
+			httpClientFactory: httpClientFactory,
+			logger: logger)
+	{
+	}
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="PlaidClient"/> class.
@@ -66,7 +67,6 @@ public sealed partial class PlaidClient
 			ApiVersion.v20200914 => "2020-09-14",
 			_ => throw new ArgumentOutOfRangeException(nameof(ApiVersion), "Invalid API version provided."),
 		};
-		_environment = environment;
 		_secret = secret;
 		_clientId = clientId;
 		AccessToken = string.IsNullOrWhiteSpace(accessToken) ? null : accessToken;
@@ -87,23 +87,22 @@ public sealed partial class PlaidClient
 	private readonly Uri _baseUrl;
 	private readonly string _apiVersion;
 	private readonly string? _clientId, _secret;
-	private readonly Environment _environment;
 	private readonly IHttpClientFactory _clientFactory;
 	private readonly IServiceProvider? _serviceProvider;
 	private readonly ILogger _logger;
 
 	internal static readonly JsonSerializerOptions JsonSerializerOptions =
 		new JsonSerializerOptions()
-		{
+			{
 #if DEBUG
-			WriteIndented = true,
+				WriteIndented = true,
 #else
 			WriteIndented = false,
 #endif
-			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-			PropertyNameCaseInsensitive = true,
-		}
-		.AddPlaidConverters();
+				DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+				PropertyNameCaseInsensitive = true,
+			}
+			.AddPlaidConverters();
 
 	/// <summary>
 	/// The access token used for all API calls.
@@ -114,6 +113,7 @@ public sealed partial class PlaidClient
 	/// Debug option to include the raw json in the returned DTO
 	/// </summary>
 	public bool ShowRawJson { get; set; } = false;
+
 	#endregion
 
 	#region Private Members
@@ -130,10 +130,7 @@ public sealed partial class PlaidClient
 		{
 			Method = HttpMethod.Post,
 			RequestUri = url,
-			Headers =
-				{
-					{ "Plaid-Version", _apiVersion },
-				},
+			Headers = {{"Plaid-Version", _apiVersion},},
 			Content = JsonContent.Create(request, options: JsonSerializerOptions),
 		};
 		return new ResponseParser
@@ -156,7 +153,8 @@ public sealed partial class PlaidClient
 		{
 			using (var response = await Message.ConfigureAwait(false))
 			{
-				Logger.LogInformation("Completed request. Url: {url}, Status Code: {statusCode}.", Url, response.StatusCode);
+				Logger.LogInformation("Completed request. Url: {url}, Status Code: {statusCode}.", Url,
+					response.StatusCode);
 
 				var result = await BuildResponse<TResponse>(response);
 				Logger.LogTrace("Completed request details. Url: {url}; Response: {@result}",
@@ -166,8 +164,15 @@ public sealed partial class PlaidClient
 			}
 		}
 
-		private async Task<TResponse> BuildResponse<TResponse>(HttpResponseMessage response) where TResponse : ResponseBase, new()
+		private async Task<TResponse> BuildResponse<TResponse>(HttpResponseMessage response)
+			where TResponse : ResponseBase, new()
 		{
+			if (response.Content.Headers?.ContentType?.MediaType != "application/json")
+			{
+				var result = new TResponse {Error = null, StatusCode = response.StatusCode};
+				return result;
+			}
+
 			if (response.IsSuccessStatusCode)
 			{
 				if (IncludeRawJson)
@@ -191,22 +196,14 @@ public sealed partial class PlaidClient
 				{
 					var json = await response.Content.ReadAsStringAsync();
 					var error = JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions);
-					var result = new TResponse
-					{
-						RawJson = json,
-						Error = error,
-						StatusCode = response.StatusCode,
-					};
+					var result = new TResponse {RawJson = json, Error = error, StatusCode = response.StatusCode,};
 					return result;
 				}
 				else
 				{
-					var error = await response.Content.ReadFromJsonAsync<Errors.PlaidError>(options: JsonSerializerOptions);
-					var result = new TResponse
-					{
-						Error = error,
-						StatusCode = response.StatusCode,
-					};
+					var error =
+						await response.Content.ReadFromJsonAsync<Errors.PlaidError>(options: JsonSerializerOptions);
+					var result = new TResponse {Error = error, StatusCode = response.StatusCode,};
 					return result;
 				}
 			}
