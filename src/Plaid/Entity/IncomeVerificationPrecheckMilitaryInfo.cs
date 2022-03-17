@@ -12,8 +12,9 @@ public class IncomeVerificationPrecheckMilitaryInfo
 	public bool? IsActiveDuty { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If the user is currently serving in the US military, the branch of the military they are serving in</para>
+	/// <para>If the user is currently serving in the US military, the branch of the military in which they are serving</para>
+	/// <para>Valid values: 'AIR FORCE', 'ARMY', 'COAST GUARD', 'MARINES', 'NAVY', 'UNKNOWN'</para>
 	/// </summary>
 	[JsonPropertyName("branch")]
-	public Entity.IncomeVerificationPrecheckMilitaryInfoBranchEnum? Branch { get; set; } = default!;
+	public string? Branch { get; set; } = default!;
 }

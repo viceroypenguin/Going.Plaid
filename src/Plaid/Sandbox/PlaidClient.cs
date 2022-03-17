@@ -48,7 +48,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/sandbox/bank_transfer/simulate</c> endpoint to simulate a bank transfer event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as <c>/bank_transfer/event/sync</c> or <c>/bank_transfer/event/list</c>, no transactions will actually take place and funds will not move between accounts, even within the Sandbox.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxbank_transfersimulate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/bank-transfers/reference/#sandboxbank_transfersimulate" /></remarks>
 	public Task<Sandbox.SandboxBankTransferSimulateResponse> SandboxBankTransferSimulateAsync(Sandbox.SandboxBankTransferSimulateRequest request) =>
 		PostAsync("/sandbox/bank_transfer/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxBankTransferSimulateResponse>();
@@ -80,7 +80,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/sandbox/bank_transfer/fire_webhook</c> endpoint to manually trigger a Bank Transfers webhook in the Sandbox environment.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxbank_transferfire_webhook" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/bank-transfers/reference/#sandboxbank_transferfire_webhook" /></remarks>
 	public Task<Sandbox.SandboxBankTransferFireWebhookResponse> SandboxBankTransferFireWebhookAsync(Sandbox.SandboxBankTransferFireWebhookRequest request) =>
 		PostAsync("/sandbox/bank_transfer/fire_webhook", request)
 			.ParseResponseAsync<Sandbox.SandboxBankTransferFireWebhookResponse>();

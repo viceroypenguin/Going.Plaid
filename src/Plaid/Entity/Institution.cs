@@ -18,7 +18,7 @@ public record Institution
 	public string Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of the Plaid products supported by the institution. Note that only institutions that support Instant Auth will return <c>auth</c> in the product array; institutions that do not list <c>auth</c> may still support other Auth methods such as Instant Match or Automated Micro-deposit Verification. For more details, see <a href="https://plaid.com/docs/auth/coverage/">Full Auth coverage</a>.</para>
+	/// <para>A list of the Plaid products supported by the institution. Note that only institutions that support Instant Auth will return <c>auth</c> in the product array; institutions that do not list <c>auth</c> may still support other Auth methods such as Instant Match or Automated Micro-deposit Verification. To identify institutions that support those methods, use the <c>auth_metadata</c> object. For more details, see <a href="https://plaid.com/docs/auth/coverage/">Full Auth coverage</a>.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products> Products { get; init; } = default!;
@@ -54,7 +54,7 @@ public record Institution
 	public IReadOnlyList<string> RoutingNumbers { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates that the institution has an OAuth login flow. This is primarily relevant to institutions with European country codes.</para>
+	/// <para>Indicates that the institution has an OAuth login flow.</para>
 	/// </summary>
 	[JsonPropertyName("oauth")]
 	public bool Oauth { get; init; } = default!;

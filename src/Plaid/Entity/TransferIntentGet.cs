@@ -21,7 +21,7 @@ public record TransferIntentGet
 	/// 
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.TransferIntentGetStatusEnum Status { get; init; } = default!;
+	public Entity.TransferIntentStatus Status { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Plaid's unique identifier for the transfer created through the UI. Returned only if the transfer was successfully created. Null value otherwise.</para>
@@ -39,10 +39,10 @@ public record TransferIntentGet
 	/// <para>A decision regarding the proposed transfer.</para>
 	/// </summary>
 	[JsonPropertyName("authorization_decision")]
-	public Entity.TransferIntentGetAuthorizationDecisionEnum? AuthorizationDecision { get; init; } = default!;
+	public Entity.TransferIntentAuthorizationDecision? AuthorizationDecision { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The rationale for Plaid's decision regarding a proposed transfer. Will be null for <c>approved</c> decisions.</para>
+	/// <para>The rationale for Plaid's decision regarding a proposed transfer. It is always set for <c>declined</c> decisions, and may or may not be null for <c>approved</c> decisions.</para>
 	/// </summary>
 	[JsonPropertyName("authorization_decision_rationale")]
 	public Entity.TransferAuthorizationDecisionRationale? AuthorizationDecisionRationale { get; init; } = default!;

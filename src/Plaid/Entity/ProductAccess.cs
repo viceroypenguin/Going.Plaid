@@ -28,4 +28,34 @@ public record ProductAccess
 	/// </summary>
 	[JsonPropertyName("transactions")]
 	public bool? Transactions { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Allow access to "accounts_details_transactions". Only used by certain partners. If relevant to the partner and unset, defaults to <c>true</c>.</para>
+	/// </summary>
+	[JsonPropertyName("accounts_details_transactions")]
+	public bool? AccountsDetailsTransactions { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Allow access to "accounts_routing_number". Only used by certain partners. If relevant to the partner and unset, defaults to <c>true</c>.</para>
+	/// </summary>
+	[JsonPropertyName("accounts_routing_number")]
+	public bool? AccountsRoutingNumber { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Allow access to "accounts_statements". Only used by certain partners. If relevant to the partner and unset, defaults to <c>true</c>.</para>
+	/// </summary>
+	[JsonPropertyName("accounts_statements")]
+	public bool? AccountsStatements { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Allow access to "accounts_tax_statements". Only used by certain partners. If relevant to the partner and unset, defaults to <c>true</c>.</para>
+	/// </summary>
+	[JsonPropertyName("accounts_tax_statements")]
+	public bool? AccountsTaxStatements { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Allow access to "customers_profiles". Only used by certain partners. If relevant to the partner and unset, defaults to <c>true</c>.</para>
+	/// </summary>
+	[JsonPropertyName("customers_profiles")]
+	public bool? CustomersProfiles { get; init; } = default!;
 }

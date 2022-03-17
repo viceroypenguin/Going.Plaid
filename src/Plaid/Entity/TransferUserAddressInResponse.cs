@@ -18,7 +18,7 @@ public record TransferUserAddressInResponse : ResponseBase
 	public string? City { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The state or province (e.g., "California").</para>
+	/// <para>The state or province (e.g., "CA").</para>
 	/// </summary>
 	[JsonPropertyName("region")]
 	public string? Region { get; init; } = default!;

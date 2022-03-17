@@ -6,6 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferCreateRequest : RequestBase
 {
 	/// <summary>
+	/// <para>Deprecated. <c>authorization_id</c> is now for used idempotency instead.</para>
 	/// <para>A random key provided by the client, per unique transfer. Maximum of 50 characters.</para>
 	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create a transfer fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single transfer is created.</para>
 	/// </summary>
@@ -19,7 +20,7 @@ public partial class TransferCreateRequest : RequestBase
 	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer authorization.</para>
+	/// <para>Plaid’s unique identifier for a transfer authorization. This parameter also serves the purpose of acting as an idempotency identifier.</para>
 	/// </summary>
 	[JsonPropertyName("authorization_id")]
 	public string AuthorizationId { get; set; } = default!;

@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>The <c>/processor/auth/get</c> endpoint returns the bank account and bank identification number (such as the routing number, for US accounts), for a checking or savings account that''s associated with a given <c>processor_token</c>. The endpoint also returns high-level account data and balances when available. </para>
+	/// <para>The <c>/processor/auth/get</c> endpoint returns the bank account and bank identification number (such as the routing number, for US accounts), for a checking or savings account that''s associated with a given <c>processor_token</c>. The endpoint also returns high-level account data and balances when available.</para>
 	/// <para>Versioning note: API versions 2019-05-29 and earlier use a different schema for the <c>numbers</c> object returned by this endpoint. For details, see <a href="https://plaid.com/docs/api/versioning/#version-2020-09-14">Plaid API versioning</a>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorauthget" /></remarks>
@@ -36,7 +36,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorBalanceGetResponse>();
 
 	/// <summary>
-	/// <para>Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see <c>/processor/stripe/bank_account_token/create</c> for creating tokens for use with Stripe integrations.</para>
+	/// <para>Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see <c>/processor/stripe/bank_account_token/create</c> for creating tokens for use with Stripe integrations. Processor tokens can also be revoked, using <c>/item/remove</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortokencreate" /></remarks>
 	public Task<Processor.ProcessorTokenCreateResponse> ProcessorTokenCreateAsync(Processor.ProcessorTokenCreateRequest request) =>
@@ -44,7 +44,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorTokenCreateResponse>();
 
 	/// <summary>
-	/// <para>Used to create a token suitable for sending to Stripe to enable Plaid-Stripe integrations. For a detailed guide on integrating Stripe, see <a href="https://plaid.com/docs/auth/partnerships/stripe/">Add Stripe to your app</a>.</para>
+	/// <para>Used to create a token suitable for sending to Stripe to enable Plaid-Stripe integrations. For a detailed guide on integrating Stripe, see <a href="https://plaid.com/docs/auth/partnerships/stripe/">Add Stripe to your app</a>. Bank account tokens can also be revoked, using <c>/item/remove</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorstripebank_account_tokencreate" /></remarks>
 	public Task<Processor.ProcessorStripeBankAccountTokenCreateResponse> ProcessorStripeBankAccountTokenCreateAsync(Processor.ProcessorStripeBankAccountTokenCreateRequest request) =>

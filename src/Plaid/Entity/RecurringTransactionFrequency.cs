@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>describes the frequency of the transaction stream.</para>
+/// <para>Describes the frequency of the transaction stream.</para>
 /// </summary>
 public enum RecurringTransactionFrequency
 {

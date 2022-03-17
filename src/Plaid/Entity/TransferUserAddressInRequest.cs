@@ -18,7 +18,7 @@ public partial class TransferUserAddressInRequest : RequestBase
 	public string City { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The state or province (e.g., "California").</para>
+	/// <para>The state or province (e.g., "CA").</para>
 	/// </summary>
 	[JsonPropertyName("region")]
 	public string Region { get; set; } = default!;

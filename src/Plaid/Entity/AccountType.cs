@@ -30,12 +30,6 @@ public enum AccountType
 	Investment,
 
 	/// <summary>
-	/// <para>An investment account. Used for <c>/assets/</c> endpoints only; other endpoints use <c>investment</c>.</para>
-	/// </summary>
-	[EnumMember(Value = "brokerage")]
-	Brokerage,
-
-	/// <summary>
 	/// <para>Other or unknown account type. Supported products for <c>other</c> accounts are: Balance, Transactions, Identity, and Assets.</para>
 	/// </summary>
 	[EnumMember(Value = "other")]

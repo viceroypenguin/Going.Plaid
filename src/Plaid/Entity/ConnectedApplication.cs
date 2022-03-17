@@ -70,4 +70,10 @@ public record ConnectedApplication
 	/// </summary>
 	[JsonPropertyName("requested_scopes")]
 	public Entity.RequestedScopes RequestedScopes { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Describes if the connected item is active (i.e. has not been revoked or unlinked)</para>
+	/// </summary>
+	[JsonPropertyName("status")]
+	public Entity.ConnectedApplicationStatus Status { get; init; } = default!;
 }

@@ -21,7 +21,7 @@ public record TransferIntentCreate
 	/// 
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.TransferIntentCreateStatusEnum Status { get; init; } = default!;
+	public Entity.TransferIntentStatus Status { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited. Returned only if <c>account_id</c> was set on intent creation.</para>

@@ -16,4 +16,10 @@ public record TransactionsRecurringGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("outflow_streams")]
 	public IReadOnlyList<Entity.TransactionStream> OutflowStreams { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Timestamp in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) indicating the last time transaction streams for the given account were updated on</para>
+	/// </summary>
+	[JsonPropertyName("updated_datetime")]
+	public DateTimeOffset UpdatedDatetime { get; init; } = default!;
 }

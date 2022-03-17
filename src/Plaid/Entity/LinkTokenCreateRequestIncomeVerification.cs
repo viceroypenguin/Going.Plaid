@@ -28,4 +28,22 @@ public class LinkTokenCreateRequestIncomeVerification
 	/// </summary>
 	[JsonPropertyName("access_tokens")]
 	public IReadOnlyList<string> AccessTokens { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The types of source income data that users will be permitted to share. Options include <c>bank</c> and <c>payroll</c>. Currently you can only specify one of these options.</para>
+	/// </summary>
+	[JsonPropertyName("income_source_types")]
+	public IReadOnlyList<Entity.IncomeVerificationSourceType> IncomeSourceTypes { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifies options for initializing Link for use with Bank Income. This field is required if <c>income_verification</c> is included in the <c>products</c> array and <c>bank</c> is specified in <c>income_source_types</c>.</para>
+	/// </summary>
+	[JsonPropertyName("bank_income")]
+	public Entity.LinkTokenCreateRequestIncomeVerificationBankIncome BankIncome { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifies options for initializing Link for use with Payroll Income. This field is required if <c>income_verification</c> is included in the <c>products</c> array and <c>payroll</c> is specified in <c>income_source_types</c>.</para>
+	/// </summary>
+	[JsonPropertyName("payroll_income")]
+	public Entity.LinkTokenCreateRequestIncomeVerificationPayrollIncome PayrollIncome { get; set; } = default!;
 }

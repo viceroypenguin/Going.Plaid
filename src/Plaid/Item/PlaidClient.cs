@@ -25,7 +25,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Item.ItemGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/item/remove</c>  endpoint allows you to remove an Item. Once removed, the <c>access_token</c>  associated with the Item is no longer valid and cannot be used to access any data that was associated with the Item.</para>
+	/// <para>The <c>/item/remove</c> endpoint allows you to remove an Item. Once removed, the <c>access_token</c>, as well as any processor tokens or bank account tokens associated with the Item, is no longer valid and cannot be used to access any data that was associated with the Item.</para>
 	/// <para>Note that in the Development environment, issuing an <c>/item/remove</c>  request will not decrement your live credential count. To increase your credential account in Development, contact Support.</para>
 	/// <para>Also note that for certain OAuth-based institutions, an Item removed via <c>/item/remove</c> may still show as an active connection in the institution's OAuth permission manager.</para>
 	/// <para>API versions 2019-05-29 and earlier return a <c>removed</c> boolean as part of the response.</para>
@@ -36,7 +36,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Item.ItemRemoveResponse>();
 
 	/// <summary>
-	/// <para>The POST <c>/item/webhook/update</c> allows you to update the webhook URL associated with an Item. This request triggers a <a href="https://plaid.com/docs/api/webhooks/#item-webhook-update-acknowledged"><c>WEBHOOK_UPDATE_ACKNOWLEDGED</c></a> webhook to the newly specified webhook URL.</para>
+	/// <para>The POST <c>/item/webhook/update</c> allows you to update the webhook URL associated with an Item. This request triggers a <a href="https://plaid.com/docs/api/items/#webhook_update_acknowledged"><c>WEBHOOK_UPDATE_ACKNOWLEDGED</c></a> webhook to the newly specified webhook URL.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/items/#itemwebhookupdate" /></remarks>
 	public Task<Item.ItemWebhookUpdateResponse> ItemWebhookUpdateAsync(Item.ItemWebhookUpdateRequest request) =>
@@ -53,7 +53,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Item.ItemAccessTokenInvalidateResponse>();
 
 	/// <summary>
-	/// <para>Exchange a Link <c>public_token</c> for an API <c>access_token</c>. Link hands off the <c>public_token</c> client-side via the <c>onSuccess</c> callback once a user has successfully created an Item. The <c>public_token</c> is ephemeral and expires after 30 minutes.</para>
+	/// <para>Exchange a Link <c>public_token</c> for an API <c>access_token</c>. Link hands off the <c>public_token</c> client-side via the <c>onSuccess</c> callback once a user has successfully created an Item. The <c>public_token</c> is ephemeral and expires after 30 minutes. An <c>access_token</c> does not expire, but can be revoked by calling <c>/item/remove</c>.</para>
 	/// <para>The response also includes an <c>item_id</c> that should be stored with the <c>access_token</c>. The <c>item_id</c> is used to identify an Item in a webhook. The <c>item_id</c> can also be retrieved by making an <c>/item/get</c> request.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/tokens/#itempublic_tokenexchange" /></remarks>

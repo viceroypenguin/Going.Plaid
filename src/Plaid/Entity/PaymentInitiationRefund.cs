@@ -21,7 +21,7 @@ public record PaymentInitiationRefund
 	/// <para>The status of the refund.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.PaymentInitiationRefundStatusEnum Status { get; init; } = default!;
+	public Entity.PaymentInitiationRefundStatus Status { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The date and time of the last time the <c>status</c> was updated, in IS0 8601 format</para>

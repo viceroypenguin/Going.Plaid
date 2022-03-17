@@ -18,7 +18,7 @@ public record Employee
 	public string? Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Marital status of the employee.</para>
+	/// <para>Marital status of the employee - either <c>single</c> or <c>married</c>.</para>
 	/// </summary>
 	[JsonPropertyName("marital_status")]
 	public string? MaritalStatus { get; init; } = default!;

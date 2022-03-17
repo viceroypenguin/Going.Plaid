@@ -6,7 +6,7 @@ public sealed partial class PlaidClient
 	/// <para>Create a payment recipient for payment initiation.  The recipient must be in Europe, within a country that is a member of the Single Euro Payment Area (SEPA).  For a standing order (recurring) payment, the recipient must be in the UK.</para>
 	/// <para>The endpoint is idempotent: if a developer has already made a request with the same payment details, Plaid will return the same <c>recipient_id</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationrecipientcreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationrecipientcreate" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationRecipientCreateResponse> PaymentInitiationRecipientCreateAsync(PaymentInitiation.PaymentInitiationRecipientCreateRequest request) =>
 		PostAsync("/payment_initiation/recipient/create", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientCreateResponse>();
@@ -15,7 +15,7 @@ public sealed partial class PlaidClient
 	/// <para>Reverse a previously initiated payment.</para>
 	/// <para>A payment can only be reversed once and will be refunded to the original sender's account.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationpaymentreverse" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentreverse" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentReverseResponse> PaymentInitiationPaymentReverseAsync(PaymentInitiation.PaymentInitiationPaymentReverseRequest request) =>
 		PostAsync("/payment_initiation/payment/reverse", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationPaymentReverseResponse>();
@@ -23,7 +23,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Get details about a payment recipient you have previously created.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationrecipientget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationrecipientget" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationRecipientGetResponse> PaymentInitiationRecipientGetAsync(PaymentInitiation.PaymentInitiationRecipientGetRequest request) =>
 		PostAsync("/payment_initiation/recipient/get", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientGetResponse>();
@@ -31,7 +31,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/payment_initiation/recipient/list</c> endpoint list the payment recipients that you have previously created.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationrecipientlist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationrecipientlist" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationRecipientListResponse> PaymentInitiationRecipientListAsync(PaymentInitiation.PaymentInitiationRecipientListRequest request) =>
 		PostAsync("/payment_initiation/recipient/list", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientListResponse>();
@@ -41,7 +41,7 @@ public sealed partial class PlaidClient
 	/// <para>Standing orders (recurring payments) must be denominated in GBP and can only be sent to recipients in the UK. Once created, standing order payments cannot be modified or canceled via the API. An end user can cancel or modify a standing order directly on their banking application or website, or by contacting the bank. Standing orders will follow the payment rules of the underlying rails (Faster Payments in UK). Payments can be sent Monday to Friday, excluding bank holidays. If the pre-arranged date falls on a weekend or bank holiday, the payment is made on the next working day. It is not possible to guarantee the exact time the payment will reach the recipient’s account, although at least 90% of standing order payments are sent by 6am.</para>
 	/// <para>In the Development environment, payments must be below 5 GBP / EUR. For details on any payment limits in Production, contact your Plaid Account Manager.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationpaymentcreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentcreate" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentCreateResponse> PaymentInitiationPaymentCreateAsync(PaymentInitiation.PaymentInitiationPaymentCreateRequest request) =>
 		PostAsync("/payment_initiation/payment/create", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationPaymentCreateResponse>();
@@ -56,9 +56,42 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationPaymentTokenCreateResponse>();
 
 	/// <summary>
+	/// <para>The <c>/payment_initiation/consent/create</c> endpoint is used to create a payment consent, which can be used to initiate payments on behalf of the user. Payment consents are created with <c>UNAUTHORISED</c> status by default and must be authorised by the user before payments can be initiated.</para>
+	/// <para>Consents can be limited in time and scope, and have constraints that describe limitations for payments.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationconsentcreate" /></remarks>
+	public Task<PaymentInitiation.PaymentInitiationConsentCreateResponse> PaymentInitiationConsentCreateAsync(PaymentInitiation.PaymentInitiationConsentCreateRequest request) =>
+		PostAsync("/payment_initiation/consent/create", request)
+			.ParseResponseAsync<PaymentInitiation.PaymentInitiationConsentCreateResponse>();
+
+	/// <summary>
+	/// <para>The <c>/payment_initiation/consent/get</c> endpoint can be used to check the status of a payment consent, as well as to receive basic information such as recipient and constraints.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationconsentget" /></remarks>
+	public Task<PaymentInitiation.PaymentInitiationConsentGetResponse> PaymentInitiationConsentGetAsync(PaymentInitiation.PaymentInitiationConsentGetRequest request) =>
+		PostAsync("/payment_initiation/consent/get", request)
+			.ParseResponseAsync<PaymentInitiation.PaymentInitiationConsentGetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/payment_initiation/consent/revoke</c> endpoint can be used to revoke the payment consent. Once the consent is revoked, it is not possible to initiate payments using it.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationconsentrevoke" /></remarks>
+	public Task<PaymentInitiation.PaymentInitiationConsentRevokeResponse> PaymentInitiationConsentRevokeAsync(PaymentInitiation.PaymentInitiationConsentRevokeRequest request) =>
+		PostAsync("/payment_initiation/consent/revoke", request)
+			.ParseResponseAsync<PaymentInitiation.PaymentInitiationConsentRevokeResponse>();
+
+	/// <summary>
+	/// <para>The <c>/payment_initiation/consent/payment/execute</c> endpoint can be used to execute payments using payment consent.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationconsentpaymentexecute" /></remarks>
+	public Task<PaymentInitiation.PaymentInitiationConsentPaymentExecuteResponse> PaymentInitiationConsentPaymentExecuteAsync(PaymentInitiation.PaymentInitiationConsentPaymentExecuteRequest request) =>
+		PostAsync("/payment_initiation/consent/payment/execute", request)
+			.ParseResponseAsync<PaymentInitiation.PaymentInitiationConsentPaymentExecuteResponse>();
+
+	/// <summary>
 	/// <para>The <c>/payment_initiation/payment/get</c> endpoint can be used to check the status of a payment, as well as to receive basic information such as recipient and payment amount. In the case of standing orders, the <c>/payment_initiation/payment/get</c> endpoint will provide information about the status of the overall standing order itself; the API cannot be used to retrieve payment status for individual payments within a standing order.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationpaymentget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentget" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentGetResponse> PaymentInitiationPaymentGetAsync(PaymentInitiation.PaymentInitiationPaymentGetRequest request) =>
 		PostAsync("/payment_initiation/payment/get", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationPaymentGetResponse>();
@@ -66,7 +99,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/payment_initiation/payment/list</c> endpoint can be used to retrieve all created payments. By default, the 10 most recent payments are returned. You can request more payments and paginate through the results using the optional <c>count</c> and <c>cursor</c> parameters.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationpaymentlist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentlist" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentListResponse> PaymentInitiationPaymentListAsync(PaymentInitiation.PaymentInitiationPaymentListRequest request) =>
 		PostAsync("/payment_initiation/payment/list", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationPaymentListResponse>();

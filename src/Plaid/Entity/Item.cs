@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Entity;
+namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>Metadata about the Item.</para>
@@ -46,6 +46,12 @@ public record Item
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products> Products { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Beta: A list of products that have gone through consent collection for the Item. Only present for those enabled in the beta.</para>
+	/// </summary>
+	[JsonPropertyName("consented_products")]
+	public IReadOnlyList<Entity.Products> ConsentedProducts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The RFC 3339 timestamp after which the consent provided by the end user will expire. Upon consent expiration, the item will enter the <c>ITEM_LOGIN_REQUIRED</c> error state. To circumvent the <c>ITEM_LOGIN_REQUIRED</c> error and maintain continuous consent, the end user can reauthenticate via Link’s update mode in advance of the consent expiration time.</para>

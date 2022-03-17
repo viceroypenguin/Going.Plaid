@@ -53,7 +53,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/bank_transfer/sweep/get</c> endpoint fetches information about the sweep corresponding to the given <c>sweep_id</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products#bank_transfersweepget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#bank_transfersweepget" /></remarks>
 	public Task<BankTransfer.BankTransferSweepGetResponse> BankTransferSweepGetAsync(BankTransfer.BankTransferSweepGetRequest request) =>
 		PostAsync("/bank_transfer/sweep/get", request)
 			.ParseResponseAsync<BankTransfer.BankTransferSweepGetResponse>();
@@ -61,7 +61,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/bank_transfer/sweep/list</c> endpoint fetches information about the sweeps matching the given filters.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products#bank_transfersweeplist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#bank_transfersweeplist" /></remarks>
 	public Task<BankTransfer.BankTransferSweepListResponse> BankTransferSweepListAsync(BankTransfer.BankTransferSweepListRequest request) =>
 		PostAsync("/bank_transfer/sweep/list", request)
 			.ParseResponseAsync<BankTransfer.BankTransferSweepListResponse>();

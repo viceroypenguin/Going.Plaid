@@ -6,12 +6,6 @@ namespace Going.Plaid.Sandbox;
 public partial class SandboxIncomeFireWebhookRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The ID of the verification.</para>
-	/// </summary>
-	[JsonPropertyName("income_verification_id")]
-	public string IncomeVerificationId { get; set; } = default!;
-
-	/// <summary>
 	/// <para>The Item ID associated with the verification.</para>
 	/// </summary>
 	[JsonPropertyName("item_id")]

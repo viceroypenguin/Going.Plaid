@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class InstitutionsSearchRequestOptions
 {
 	/// <summary>
-	/// <para>Limit results to institutions with or without OAuth login flows. This is primarily relevant to institutions with European country codes</para>
+	/// <para>Limit results to institutions with or without OAuth login flows.</para>
 	/// </summary>
 	[JsonPropertyName("oauth")]
 	public bool? Oauth { get; set; } = default!;

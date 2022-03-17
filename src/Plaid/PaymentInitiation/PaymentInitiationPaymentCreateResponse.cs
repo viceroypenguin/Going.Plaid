@@ -15,5 +15,5 @@ public record PaymentInitiationPaymentCreateResponse : ResponseBase
 	/// <para>For a payment returned by this endpoint, there is only one possible value:</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.PaymentInitiationPaymentCreateResponseStatusEnum Status { get; init; } = default!;
+	public Entity.PaymentInitiationPaymentCreateStatus Status { get; init; } = default!;
 }

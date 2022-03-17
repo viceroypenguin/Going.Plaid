@@ -69,13 +69,13 @@ public record InvestmentTransaction
 	/// <para>Value is one of the following:</para>
 	/// </summary>
 	[JsonPropertyName("type")]
-	public Entity.InvestmentTransactionTypeEnum Type { get; init; } = default!;
+	public Entity.InvestmentTransactionType Type { get; init; } = default!;
 
 	/// <summary>
 	/// <para>For descriptions of possible transaction types and subtypes, see the [Investment transaction types schema](https://plaid.com/docs/api/accounts/#investment-transaction-types-schema).</para>
 	/// </summary>
 	[JsonPropertyName("subtype")]
-	public Entity.InvestmentTransactionSubtypeEnum Subtype { get; init; } = default!;
+	public Entity.InvestmentTransactionSubtype Subtype { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO-4217 currency code of the transaction. Always <c>null</c> if <c>unofficial_currency_code</c> is non-<c>null</c>.</para>

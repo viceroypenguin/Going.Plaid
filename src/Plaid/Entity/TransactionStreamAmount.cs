@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record TransactionStreamAmount
 {
 	/// <summary>
-	/// <para>represents the numerical value of an amount.</para>
+	/// <para>Represents the numerical value of an amount.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public decimal Amount { get; init; } = default!;

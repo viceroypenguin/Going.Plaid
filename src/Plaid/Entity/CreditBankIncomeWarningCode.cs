@@ -1,0 +1,31 @@
+namespace Going.Plaid.Entity;
+
+/// <summary>
+/// <para>The warning code identifies a specific kind of warning.</para>
+/// </summary>
+public enum CreditBankIncomeWarningCode
+{
+	/// <summary>
+	/// <para>Unable to extract identity for the Item</para>
+	/// </summary>
+	[EnumMember(Value = "IDENTITY_UNAVAILABLE")]
+	IdentityUnavailable,
+
+	/// <summary>
+	/// <para>Unable to extract transactions for the Item</para>
+	/// </summary>
+	[EnumMember(Value = "TRANSACTIONS_UNAVAILABLE")]
+	TransactionsUnavailable,
+
+	/// <summary>
+	/// <para>User did not grant permission to share income data for the Item</para>
+	/// </summary>
+	[EnumMember(Value = "ITEM_UNAPPROVED")]
+	ItemUnapproved,
+
+	/// <summary>
+	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
+	/// </summary>
+	[EnumMember(Value = "undefined")]
+	Undefined,
+}

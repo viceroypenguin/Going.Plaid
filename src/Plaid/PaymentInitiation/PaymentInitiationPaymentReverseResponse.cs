@@ -15,5 +15,5 @@ public record PaymentInitiationPaymentReverseResponse : ResponseBase
 	/// <para>The status of the refund.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.PaymentInitiationPaymentReverseResponseStatusEnum Status { get; init; } = default!;
+	public Entity.PaymentInitiationRefundStatus Status { get; init; } = default!;
 }

@@ -9,7 +9,7 @@ public record TransferAuthorizationGuaranteeDecisionRationale
 	/// <para>A code representing the reason Plaid declined to guarantee this transfer:</para>
 	/// </summary>
 	[JsonPropertyName("code")]
-	public Entity.TransferAuthorizationGuaranteeDecisionRationaleCodeEnum Code { get; init; } = default!;
+	public Entity.TransferAuthorizationGuaranteeDecisionRationaleCode Code { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A human-readable description of why the transfer cannot be guaranteed.</para>

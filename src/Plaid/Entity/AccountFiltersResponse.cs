@@ -24,7 +24,7 @@ public record AccountFiltersResponse : ResponseBase
 	public Entity.LoanFilter Loan { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A filter to apply to <c>investment</c>-type accounts (or <c>brokerage</c>-type acconunts for API versions 2018-05-22 and earlier).</para>
+	/// <para>A filter to apply to <c>investment</c>-type accounts (or <c>brokerage</c>-type accounts for API versions 2018-05-22 and earlier).</para>
 	/// </summary>
 	[JsonPropertyName("investment")]
 	public Entity.InvestmentFilter Investment { get; init; } = default!;

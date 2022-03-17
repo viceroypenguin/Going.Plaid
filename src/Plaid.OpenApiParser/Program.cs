@@ -56,6 +56,7 @@ static class Program
 		["NumbersEFT"] = "NumbersEft",
 		["NumbersBACS"] = "NumbersBacs",
 		["Transaction Location"] = "Location",
+		["Transaction Payment Channel"] = "PaymentChannel",
 		["transaction_code"] = "TransactionCode",
 		["YTDGrossIncomeSummaryFieldNumber"] = "YtdGrossIncomeSummaryFieldNumber",
 		["YTDNetIncomeSummaryFieldNumber"] = "YtdNetIncomeSummaryFieldNumber",
@@ -337,11 +338,11 @@ static class Program
 			: $"Entity.{entityName}";
 	}
 
+	static string GetEnumName(string name) =>
+		$"{(char.IsDigit(name[0]) ? "_" : "")}{name.ToLower().ToPascalCase()}";
+
 	private static void ProcessAccountTypes(OpenApiDocument doc)
 	{
-		static string GetEnumName(string name) =>
-			$"{(char.IsDigit(name[0]) ? "_" : "")}{name.ToLower().ToPascalCase()}";
-
 		var pd = new Dictionary<string, string>()
 		{
 			["depository"] = FixupDescription(
@@ -352,9 +353,6 @@ static class Program
 				doc.Components.Schemas["LoanAccount"].Description),
 			["investment"] = FixupDescription(
 				doc.Components.Schemas["InvestmentAccountSubtypeStandalone"].Description),
-			["brokerage"] =
-				ParseEnumDescription(doc.Components.Schemas["AccountType"].Description)
-					.propertyDescription["brokerage"],
 			["other"] = FixupDescription(
 				doc.Components.Schemas["StandaloneAccountType"]
 					.Properties["other"].Description),
@@ -375,6 +373,11 @@ static class Program
 				.ToList(),
 		};
 		pd.Clear();
+
+		AddAccountSubtype(doc, "DepositoryAccountSubtype", "DepositoryAccount");
+		AddAccountSubtype(doc, "CreditAccountSubtype", "CreditAccount");
+		AddAccountSubtype(doc, "LoanAccountSubtype", "LoanAccount");
+		AddAccountSubtype(doc, "InvestmentAccountSubtype", "InvestmentAccountSubtypeStandalone");
 
 		var s = doc.Components.Schemas["AccountSubtype"];
 		foreach (var p in doc.Components.Schemas["DepositoryAccount"].Properties)
@@ -400,7 +403,27 @@ static class Program
 					e.Value))
 				.ToList(),
 		};
+	}
 
+	private static void AddAccountSubtype(OpenApiDocument doc, string subtypeName, string descriptionSchemaName)
+	{
+		var schema = doc.Components.Schemas[subtypeName];
+		var descriptions = doc.Components.Schemas[descriptionSchemaName].Properties;
+		schemaEntities[subtypeName] = new()
+		{
+			SchemaType = SchemaType.Enum,
+			BasePath = "Entity",
+			Name = subtypeName,
+			Description = FixupDescription(schema.Description),
+			Properties = schema.Enum
+				.OfType<OpenApiString>()
+				.Select(e => new Property(
+					e.Value,
+					string.Empty,
+					GetEnumName(e.Value),
+					e.Value == "all" ? "Allow all of the above subtypes" : descriptions[e.Value].Description))
+				.ToList(),
+		};
 	}
 
 	private static string FormatDescription(string description, int index)

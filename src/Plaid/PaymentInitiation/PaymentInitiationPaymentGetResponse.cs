@@ -94,4 +94,10 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("adjusted_scheme")]
 	public Entity.PaymentScheme? AdjustedScheme { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The payment consent ID that this payment was initiated with. Is present only when payment was initiated using the payment consent.</para>
+	/// </summary>
+	[JsonPropertyName("consent_id")]
+	public string ConsentId { get; init; } = default!;
 }

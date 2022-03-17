@@ -36,6 +36,12 @@ public record TransactionStream
 	public string Description { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The merchant associated with the transaction stream.</para>
+	/// </summary>
+	[JsonPropertyName("merchant_name")]
+	public string MerchantName { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The posted date of the earliest transaction in the stream.</para>
 	/// </summary>
 	[JsonPropertyName("first_date")]
@@ -48,7 +54,7 @@ public record TransactionStream
 	public DateOnly LastDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>describes the frequency of the transaction stream.</para>
+	/// <para>Describes the frequency of the transaction stream.</para>
 	/// </summary>
 	[JsonPropertyName("frequency")]
 	public Entity.RecurringTransactionFrequency Frequency { get; init; } = default!;
@@ -66,8 +72,20 @@ public record TransactionStream
 	public Entity.TransactionStreamAmount AverageAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>indicates whether the transaction stream is still live.</para>
+	/// <para>Object with data pertaining to an amount on the transaction stream.</para>
+	/// </summary>
+	[JsonPropertyName("last_amount")]
+	public Entity.TransactionStreamAmount LastAmount { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates whether the transaction stream is still live.</para>
 	/// </summary>
 	[JsonPropertyName("is_active")]
 	public bool IsActive { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The current status of the transaction stream.</para>
+	/// </summary>
+	[JsonPropertyName("status")]
+	public Entity.TransactionStreamStatus Status { get; init; } = default!;
 }

@@ -21,10 +21,10 @@ public record TransferAuthorization
 	/// <para>A decision regarding the proposed transfer.</para>
 	/// </summary>
 	[JsonPropertyName("decision")]
-	public Entity.TransferAuthorizationDecisionEnum Decision { get; init; } = default!;
+	public Entity.TransferAuthorizationDecision Decision { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The rationale for Plaid's decision regarding a proposed transfer. Will be null for <c>approved</c> decisions.</para>
+	/// <para>The rationale for Plaid's decision regarding a proposed transfer. It is always set for <c>declined</c> decisions, and may or may not be null for <c>approved</c> decisions.</para>
 	/// </summary>
 	[JsonPropertyName("decision_rationale")]
 	public Entity.TransferAuthorizationDecisionRationale? DecisionRationale { get; init; } = default!;

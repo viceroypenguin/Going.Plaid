@@ -8,7 +8,7 @@ public sealed partial class PlaidClient
 	/// <para>Also note that <c>/auth/get</c> will not return data for any new accounts opened after the Item was created. To obtain data for new accounts, create a new Item.</para>
 	/// <para>Versioning note: In API version 2017-03-08, the schema of the <c>numbers</c> object returned by this endpoint is substantially different. For details, see <a href="https://plaid.com/docs/api/versioning/#version-2018-05-22">Plaid API versioning</a>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#authget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/auth/#authget" /></remarks>
 	public Task<Auth.AuthGetResponse> AuthGetAsync(Auth.AuthGetRequest request) =>
 		PostAsync("/auth/get", request)
 			.ParseResponseAsync<Auth.AuthGetResponse>();
