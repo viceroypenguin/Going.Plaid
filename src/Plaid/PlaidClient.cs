@@ -187,28 +187,25 @@ public sealed partial class PlaidClient
 			}
 			else
 			{
+				var json = await response.Content.ReadAsStringAsync();
+				var error = json.Length > 0
+					? JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions)
+					: new Errors.PlaidError
+					{
+						StatusCode = (int)response.StatusCode,
+						ErrorCode = ErrorCode.PlannedMaintenance,
+						ErrorMessage = "The Plaid API is temporarily unavailable due to planned maintenance. visit https://status.plaid.com/ for more information",
+						DocumentationUrl = "https://plaid.com/docs/errors/api/#planned_maintenance",
+					};
+				var result = new TResponse
+				{
+					Error = error,
+					StatusCode = response.StatusCode,
+				};
+
 				if (IncludeRawJson)
-				{
-					var json = await response.Content.ReadAsStringAsync();
-					var error = JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions);
-					var result = new TResponse
-					{
-						RawJson = json,
-						Error = error,
-						StatusCode = response.StatusCode,
-					};
-					return result;
-				}
-				else
-				{
-					var error = await response.Content.ReadFromJsonAsync<Errors.PlaidError>(options: JsonSerializerOptions);
-					var result = new TResponse
-					{
-						Error = error,
-						StatusCode = response.StatusCode,
-					};
-					return result;
-				}
+					result.RawJson = json;
+				return result;
 			}
 		}
 	}
