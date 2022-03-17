@@ -5,6 +5,14 @@
 /// </summary>
 public enum ErrorCode
 {
+	#region NON_PLAID Code
+	/// <summary>
+	/// An error condition has occurred outside of Plaid. (Network proxy is unable to communicate with Plaid, but returns data anyway, for example.)
+	/// </summary>
+	/// <remarks>This is not a Plaid Error code. If you receive this error code, check your network conditions and try again at a different time.</remarks>
+	ApiUnavailable = 0,
+	#endregion
+
 	#region ITEM_ERROR Codes
 	/// <summary>
 	/// The financial institution indicated that the credentials provided were invalid.
