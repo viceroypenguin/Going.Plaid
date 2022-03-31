@@ -24,6 +24,12 @@ public enum CreditBankIncomeWarningCode
 	ItemUnapproved,
 
 	/// <summary>
+	/// <para>Report deleted due to customer or consumer request</para>
+	/// </summary>
+	[EnumMember(Value = "REPORT_DELETED")]
+	ReportDeleted,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

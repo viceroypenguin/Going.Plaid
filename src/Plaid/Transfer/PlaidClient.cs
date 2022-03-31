@@ -15,9 +15,7 @@ public sealed partial class PlaidClient
 	/// <para>In Plaid's sandbox environment the decisions will be returned as follows:</para>
 	/// <para>  - To approve a transfer with null rationale code, make an authorization request with an <c>amount</c> less than the available balance in the account.</para>
 	/// <para>  - To approve a transfer with the rationale code <c>MANUALLY_VERIFIED_ITEM</c>, create an Item in Link through the <a href="https://plaid.com/docs/auth/coverage/testing/#testing-same-day-micro-deposits">Same Day Micro-deposits flow</a>.</para>
-	/// <para>  </para>
 	/// <para>  - To approve a transfer with the rationale code <c>LOGIN_REQUIRED</c>, <a href="https://plaid.com/docs/sandbox/#item_login_required">reset the login for an Item</a>.</para>
-	/// <para>  </para>
 	/// <para>  - To decline a transfer with the rationale code <c>NSF</c>, the available balance on the account must be less than the authorization <c>amount</c>. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
 	/// <para>  - To decline a transfer with the rationale code <c>RISK</c>, the available balance on the account must be exactly $0. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
 	/// </summary>
@@ -81,6 +79,14 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferSweepListResponse> TransferSweepListAsync(Transfer.TransferSweepListRequest request) =>
 		PostAsync("/transfer/sweep/list", request)
 			.ParseResponseAsync<Transfer.TransferSweepListResponse>();
+
+	/// <summary>
+	/// <para>As an alternative to adding Items via Link, you can also use the <c>/transfer/migrate_account</c> endpoint to migrate known account and routing numbers to Plaid Items.  Note that Items created in this way are not compatible with endpoints for other products, such as <c>/accounts/balance/get</c>, and can only be used with Transfer endpoints.  If you require access to other endpoints, create the Item through Link instead.  Access to <c>/transfer/migrate_account</c> is not enabled by default; to obtain access, contact your Plaid Account Manager.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfermigrateaccount" /></remarks>
+	public Task<Transfer.TransferMigrateAccountResponse> TransferMigrateAccountAsync(Transfer.TransferMigrateAccountRequest request) =>
+		PostAsync("/transfer/migrate_account", request)
+			.ParseResponseAsync<Transfer.TransferMigrateAccountResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/transfer/intent/create</c> endpoint to generate a transfer intent object and invoke the Transfer UI.</para>

@@ -10,4 +10,10 @@ public class InstitutionsSearchPaymentInitiationOptions
 	/// </summary>
 	[JsonPropertyName("payment_id")]
 	public string? PaymentId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>A unique ID identifying the payment consent</para>
+	/// </summary>
+	[JsonPropertyName("consent_id")]
+	public string? ConsentId { get; set; } = default!;
 }

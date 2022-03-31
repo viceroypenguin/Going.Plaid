@@ -16,4 +16,10 @@ public record WalletGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("balance")]
 	public Entity.WalletBalance? Balance { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An object representing the e-wallet account numbers</para>
+	/// </summary>
+	[JsonPropertyName("numbers")]
+	public Entity.WalletNumbers Numbers { get; init; } = default!;
 }

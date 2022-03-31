@@ -46,4 +46,40 @@ public record Application
 	/// </summary>
 	[JsonPropertyName("reason_for_access")]
 	public string? ReasonForAccess { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A string representing client’s broad use case as assessed by Plaid.</para>
+	/// </summary>
+	[JsonPropertyName("use_case")]
+	public string? UseCase { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A string representing the name of client’s legal entity.</para>
+	/// </summary>
+	[JsonPropertyName("company_legal_name")]
+	public string? CompanyLegalName { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A string representing the city of the client’s headquarters.</para>
+	/// </summary>
+	[JsonPropertyName("city")]
+	public string? City { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A string representing the region of the client’s headquarters.</para>
+	/// </summary>
+	[JsonPropertyName("region")]
+	public string? Region { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A string representing the postal code of the client’s headquarters.</para>
+	/// </summary>
+	[JsonPropertyName("postal_code")]
+	public string? PostalCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A string representing the country code of the client’s headquarters.</para>
+	/// </summary>
+	[JsonPropertyName("country_code")]
+	public string? CountryCode { get; init; } = default!;
 }

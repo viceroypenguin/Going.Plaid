@@ -138,6 +138,30 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	TreasuryPrime,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "marqeta")]
+	Marqeta,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "checkout")]
+	Checkout,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "solid")]
+	Solid,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "apex_clearing")]
+	ApexClearing,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

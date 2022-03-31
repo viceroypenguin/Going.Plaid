@@ -220,4 +220,178 @@ public record SignalEvaluateCoreAttributes
 	/// </summary>
 	[JsonPropertyName("address_change_count_90d")]
 	public int? AddressChangeCount90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of non-OAuth authentication attempts via Plaid for this bank account over the past 3 days</para>
+	/// </summary>
+	[JsonPropertyName("plaid_non_oauth_authentication_attempts_count_3d")]
+	public int? PlaidNonOauthAuthenticationAttemptsCount3d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of non-OAuth authentication attempts via Plaid for this bank account over the past 7 days</para>
+	/// </summary>
+	[JsonPropertyName("plaid_non_oauth_authentication_attempts_count_7d")]
+	public int? PlaidNonOauthAuthenticationAttemptsCount7d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of non-OAuth authentication attempts via Plaid for this bank account over the past 30 days</para>
+	/// </summary>
+	[JsonPropertyName("plaid_non_oauth_authentication_attempts_count_30d")]
+	public int? PlaidNonOauthAuthenticationAttemptsCount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of failed non-OAuth authentication attempts via Plaid for this bank account over the past 3 days</para>
+	/// </summary>
+	[JsonPropertyName("failed_plaid_non_oauth_authentication_attempts_count_3d")]
+	public int? FailedPlaidNonOauthAuthenticationAttemptsCount3d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of failed non-OAuth authentication attempts via Plaid for this bank account over the past 7 days</para>
+	/// </summary>
+	[JsonPropertyName("failed_plaid_non_oauth_authentication_attempts_count_7d")]
+	public int? FailedPlaidNonOauthAuthenticationAttemptsCount7d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of failed non-OAuth authentication attempts via Plaid for this bank account over the past 30 days</para>
+	/// </summary>
+	[JsonPropertyName("failed_plaid_non_oauth_authentication_attempts_count_30d")]
+	public int? FailedPlaidNonOauthAuthenticationAttemptsCount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total number of debit (outflow) transactions over the past 10 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("debit_transactions_count_10d")]
+	public int? DebitTransactionsCount10d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total number of credit (inflow) transactions over the past 10 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("credit_transactions_count_10d")]
+	public int? CreditTransactionsCount10d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total number of debit (outflow) transactions over the past 30 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("debit_transactions_count_30d")]
+	public int? DebitTransactionsCount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total number of credit (inflow) transactions over the past 30 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("credit_transactions_count_30d")]
+	public int? CreditTransactionsCount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total number of debit (outflow) transactions over the past 60 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("debit_transactions_count_60d")]
+	public int? DebitTransactionsCount60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total number of credit (inflow) transactions over the past 60 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("credit_transactions_count_60d")]
+	public int? CreditTransactionsCount60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total number of debit (outflow) transactions over the past 90 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("debit_transactions_count_90d")]
+	public int? DebitTransactionsCount90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total number of credit (inflow) transactions over the past 90 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("credit_transactions_count_90d")]
+	public int? CreditTransactionsCount90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total debit (outflow) transaction amount over the past 30 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("total_debit_transactions_amount_30d")]
+	public decimal? TotalDebitTransactionsAmount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total credit (inflow) transaction amount over the past 30 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("total_credit_transactions_amount_30d")]
+	public decimal? TotalCreditTransactionsAmount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total debit (outflow) transaction amount over the past 60 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("total_debit_transactions_amount_60d")]
+	public decimal? TotalDebitTransactionsAmount60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total credit (inflow) transaction amount over the past 60 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("total_credit_transactions_amount_60d")]
+	public decimal? TotalCreditTransactionsAmount60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total debit (outflow) transaction amount over the past 90 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("total_debit_transactions_amount_90d")]
+	public decimal? TotalDebitTransactionsAmount90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total credit (inflow) transaction amount over the past 90 days from the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("total_credit_transactions_amount_90d")]
+	public decimal? TotalCreditTransactionsAmount90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 50th percentile of the end-of-day available balance over the past 30 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p50_eod_balance_30d")]
+	public decimal? P50EodBalance30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 50th percentile of the end-of-day available balance over the past 60 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p50_eod_balance_60d")]
+	public decimal? P50EodBalance60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 50th percentile of the end-of-day available balance over the past 90 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p50_eod_balance_90d")]
+	public decimal? P50EodBalance90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 50th percentile of the end-of-day available balance between day 31 and day 60 over the past 60 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p50_eod_balance_31d_to_60d")]
+	public decimal? P50EodBalance31dTo60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 50th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p50_eod_balance_61d_to_90d")]
+	public decimal? P50EodBalance61dTo90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 90th percentile of the end-of-day available balance between day 31 and day 60 over the past 60 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p90_eod_balance_31d_to_60d")]
+	public decimal? P90EodBalance31dTo60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 90th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p90_eod_balance_61d_to_90d")]
+	public decimal? P90EodBalance61dTo90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 10th percentile of the end-of-day available balance between day 31 and day 60 over the past 60 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p10_eod_balance_31d_to_60d")]
+	public decimal? P10EodBalance31dTo60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The 10th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited</para>
+	/// </summary>
+	[JsonPropertyName("p10_eod_balance_61d_to_90d")]
+	public decimal? P10EodBalance61dTo90d { get; init; } = default!;
 }

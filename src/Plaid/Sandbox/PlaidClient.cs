@@ -19,7 +19,11 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxPublicTokenCreateResponse>();
 
 	/// <summary>
-	/// <para>The <c>/sandbox/item/fire_webhook</c> endpoint is used to test that code correctly handles webhooks. This endpoint can trigger a Transactions <c>DEFAULT_UPDATE</c> webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result. This endpoint can also trigger a <c>NEW_ACCOUNTS_AVAILABLE</c> webhook to be fired for a given Sandbox Item created with Account Select v2. Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development.</para>
+	/// <para>The <c>/sandbox/item/fire_webhook</c> endpoint is used to test that code correctly handles webhooks. This endpoint can trigger the following webhooks:</para>
+	/// <para><c>DEFAULT_UPDATE</c>: Transactions update webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
+	/// <para><c>NEW_ACCOUNTS_AVAILABLE</c>: Webhook to be fired for a given Sandbox Item created with Account Select v2.</para>
+	/// <para><c>AUTH_DATA_UPDATE</c>: Webhook to be fired for a given Sandbox Item created with Auth as an enabled product.</para>
+	/// <para>Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development'</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxitemfire_webhook" /></remarks>
 	public Task<Sandbox.SandboxItemFireWebhookResponse> SandboxItemFireWebhookAsync(Sandbox.SandboxItemFireWebhookRequest request) =>
@@ -76,6 +80,14 @@ public sealed partial class PlaidClient
 	public Task<Sandbox.SandboxTransferRepaymentSimulateResponse> SandboxTransferRepaymentSimulateAsync(Sandbox.SandboxTransferRepaymentSimulateRequest request) =>
 		PostAsync("/sandbox/transfer/repayment/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferRepaymentSimulateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/transfer/fire_webhook</c> endpoint to manually trigger a Transfer webhook in the Sandbox environment.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferfire_webhook" /></remarks>
+	public Task<Sandbox.SandboxTransferFireWebhookResponse> SandboxTransferFireWebhookAsync(Sandbox.SandboxTransferFireWebhookRequest request) =>
+		PostAsync("/sandbox/transfer/fire_webhook", request)
+			.ParseResponseAsync<Sandbox.SandboxTransferFireWebhookResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/sandbox/bank_transfer/fire_webhook</c> endpoint to manually trigger a Bank Transfers webhook in the Sandbox environment.</para>

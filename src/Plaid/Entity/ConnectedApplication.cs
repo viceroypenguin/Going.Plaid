@@ -18,12 +18,6 @@ public record ConnectedApplication
 	public string Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A URL that links to the application logo image (will be deprecated in the future, please use logo_url).</para>
-	/// </summary>
-	[JsonPropertyName("logo")]
-	public string? Logo { get; init; } = default!;
-
-	/// <summary>
 	/// <para>A URL that links to the application logo image.</para>
 	/// </summary>
 	[JsonPropertyName("logo_url")]
@@ -48,32 +42,8 @@ public record ConnectedApplication
 	public DateOnly CreatedAt { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date this application was granted production access at Plaid in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
-	/// </summary>
-	[JsonPropertyName("join_date")]
-	public DateOnly JoinDate { get; init; } = default!;
-
-	/// <summary>
-	/// <para>(Deprecated) A list of enums representing the data collected and products enabled for this connected application.</para>
-	/// </summary>
-	[JsonPropertyName("product_data_types")]
-	public IReadOnlyList<Entity.ConnectedApplicationProductDataTypesEnum> ProductDataTypes { get; init; } = default!;
-
-	/// <summary>
 	/// <para>The scopes object</para>
 	/// </summary>
 	[JsonPropertyName("scopes")]
 	public Entity.Scopes? Scopes { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Scope of required and optional account features or content from a ConnectedApplication.</para>
-	/// </summary>
-	[JsonPropertyName("requested_scopes")]
-	public Entity.RequestedScopes RequestedScopes { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Describes if the connected item is active (i.e. has not been revoked or unlinked)</para>
-	/// </summary>
-	[JsonPropertyName("status")]
-	public Entity.ConnectedApplicationStatus Status { get; init; } = default!;
 }

@@ -24,13 +24,13 @@ public record Enhancements
 	public Entity.PaymentChannel PaymentChannel { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ID of the category to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/#categoriesget"><c>/categories/get</c></a>.</para>
+	/// <para>The ID of the category to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
 	/// </summary>
 	[JsonPropertyName("category_id")]
 	public string? CategoryId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/#categoriesget"><c>/categories/get</c></a>.</para>
+	/// <para>A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
 	/// </summary>
 	[JsonPropertyName("category")]
 	public IReadOnlyList<string> Category { get; init; } = default!;

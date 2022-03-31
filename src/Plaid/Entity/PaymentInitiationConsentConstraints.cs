@@ -9,7 +9,7 @@ public class PaymentInitiationConsentConstraints
 	/// <para>Life span for the payment consent. After the <c>to</c> date the payment consent expires and can no longer be used for payment initiation.</para>
 	/// </summary>
 	[JsonPropertyName("valid_date_time")]
-	public Entity.PaymentConsentValidDateTime ValidDateTime { get; set; } = default!;
+	public Entity.PaymentConsentValidDateTime? ValidDateTime { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Maximum amount of a single payment initiated using the payment consent.</para>

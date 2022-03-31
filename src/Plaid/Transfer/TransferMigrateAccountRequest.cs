@@ -1,9 +1,9 @@
-namespace Going.Plaid.BankTransfer;
+namespace Going.Plaid.Transfer;
 
 /// <summary>
-/// <para>Defines the request schema for <c>/bank_transfer/migrate_account</c></para>
+/// <para>Defines the request schema for <c>/transfer/migrate_account</c></para>
 /// </summary>
-public partial class BankTransferMigrateAccountRequest : RequestBase
+public partial class TransferMigrateAccountRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The user's account number.</para>

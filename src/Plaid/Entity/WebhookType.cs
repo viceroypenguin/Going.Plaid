@@ -1,0 +1,49 @@
+namespace Going.Plaid.Entity;
+
+/// <summary>
+/// 
+/// </summary>
+public enum WebhookType
+{
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "AUTH")]
+	Auth,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "HOLDINGS")]
+	Holdings,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "INVESTMENTS_TRANSACTIONS")]
+	InvestmentsTransactions,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "ITEM")]
+	Item,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "LIABILITIES")]
+	Liabilities,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "TRANSACTIONS")]
+	Transactions,
+
+	/// <summary>
+	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
+	/// </summary>
+	[EnumMember(Value = "undefined")]
+	Undefined,
+}
