@@ -1,61 +1,79 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object representing an end user's pay stub.</para>
+/// <para>An object representing data extracted from the end user's paystub.</para>
 /// </summary>
-public record PayStub
+public record Paystub
 {
 	/// <summary>
-	/// <para>An object with the deduction information found on a pay stub.</para>
+	/// <para>An object with the deduction information found on a paystub.</para>
 	/// </summary>
 	[JsonPropertyName("deductions")]
-	public Entity.PayStubDeductions Deductions { get; init; } = default!;
+	public Entity.Deductions Deductions { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An identifier of the document referenced by the document metadata.</para>
 	/// </summary>
-	[JsonPropertyName("document_id")]
-	public string? DocumentId { get; init; } = default!;
+	[JsonPropertyName("doc_id")]
+	public string DocId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Object representing metadata pertaining to the document.</para>
-	/// </summary>
-	[JsonPropertyName("document_metadata")]
-	public Entity.CreditDocumentMetadata DocumentMetadata { get; init; } = default!;
-
-	/// <summary>
-	/// <para>An object representing both a breakdown of earnings on a pay stub and the total earnings.</para>
+	/// <para>An object representing both a breakdown of earnings on a paystub and the total earnings.</para>
 	/// </summary>
 	[JsonPropertyName("earnings")]
-	public Entity.PayStubEarnings Earnings { get; init; } = default!;
+	public Entity.Earnings Earnings { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Data about the employee.</para>
 	/// </summary>
 	[JsonPropertyName("employee")]
-	public Entity.PayStubEmployee Employee { get; init; } = default!;
+	public Entity.Employee Employee { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Information about the employer on the pay stub.</para>
+	/// <para>Information about the employer on the paystub</para>
 	/// </summary>
 	[JsonPropertyName("employer")]
-	public Entity.PayStubEmployer Employer { get; init; } = default!;
+	public Entity.Employer Employer { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing information about the net pay amount on the pay stub.</para>
+	/// <para>An object representing employment details found on a paystub.</para>
+	/// </summary>
+	[JsonPropertyName("employment_details")]
+	public Entity.EmploymentDetails EmploymentDetails { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An object representing information about the net pay amount on the paystub.</para>
 	/// </summary>
 	[JsonPropertyName("net_pay")]
-	public Entity.PayStubNetPay NetPay { get; init; } = default!;
+	public Entity.NetPay NetPay { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Details about the pay period.</para>
 	/// </summary>
 	[JsonPropertyName("pay_period_details")]
-	public Entity.PayStubPayPeriodDetails PayPeriodDetails { get; init; } = default!;
+	public Entity.PayPeriodDetails PayPeriodDetails { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An object representing details that can be found on the paystub.</para>
+	/// </summary>
+	[JsonPropertyName("paystub_details")]
+	public Entity.PaystubDetails PaystubDetails { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("income_breakdown")]
+	public IReadOnlyList<Entity.IncomeBreakdown> IncomeBreakdown { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The amount of income earned year to date, as based on paystub data.</para>
+	/// </summary>
+	[JsonPropertyName("ytd_earnings")]
+	public Entity.PaystubYTDDetails YtdEarnings { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object containing details on the paystub's verification status. This object will only be populated if the <a href="https://plaid.com/docs/api/tokens/#link-token-create-request-income-verification-access-tokens"><c>income_verification.access_tokens</c></a> parameter was provided during the <c>/link/token/create</c> call or if a problem was detected with the information supplied by the user; otherwise it will be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("verification")]
-	public Entity.PayStubVerification? Verification { get; init; } = default!;
+	public Entity.PaystubVerification? Verification { get; init; } = default!;
 }

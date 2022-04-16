@@ -15,7 +15,7 @@ public record PayrollIncomeObject
 	/// <para>Array of pay stubs for the user.</para>
 	/// </summary>
 	[JsonPropertyName("pay_stubs")]
-	public IReadOnlyList<Entity.PayStub> PayStubs { get; init; } = default!;
+	public IReadOnlyList<Entity.CreditPayStub> PayStubs { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Array of tax form W-2s.</para>

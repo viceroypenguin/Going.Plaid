@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Address on the pay stub.</para>
 /// </summary>
-public record PayStubAddress
+public record CreditPayStubAddress
 {
 	/// <summary>
 	/// <para>The full city name.</para>

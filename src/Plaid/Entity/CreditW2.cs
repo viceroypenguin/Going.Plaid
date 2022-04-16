@@ -21,13 +21,13 @@ public record CreditW2
 	/// <para>Information about the employer on the pay stub.</para>
 	/// </summary>
 	[JsonPropertyName("employer")]
-	public Entity.PayStubEmployer Employer { get; init; } = default!;
+	public Entity.CreditPayStubEmployer Employer { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Data about the employee.</para>
 	/// </summary>
 	[JsonPropertyName("employee")]
-	public Entity.PayStubEmployee Employee { get; init; } = default!;
+	public Entity.CreditPayStubEmployee Employee { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The tax year of the W2 document.</para>

@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>An object representing information about the net pay amount on the pay stub.</para>
 /// </summary>
-public record PayStubNetPay
+public record CreditPayStubNetPay
 {
 	/// <summary>
 	/// <para>Raw amount of the net pay for the pay period.</para>

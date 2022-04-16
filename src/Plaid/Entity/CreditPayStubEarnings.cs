@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>An object representing both a breakdown of earnings on a pay stub and the total earnings.</para>
 /// </summary>
-public record PayStubEarnings
+public record CreditPayStubEarnings
 {
 	/// <summary>
 	/// 

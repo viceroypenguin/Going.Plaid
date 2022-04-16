@@ -16,4 +16,10 @@ public record PayrollItem
 	/// </summary>
 	[JsonPropertyName("payroll_income")]
 	public IReadOnlyList<Entity.PayrollIncomeObject> PayrollIncome { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Details about the status of the payroll item.</para>
+	/// </summary>
+	[JsonPropertyName("status")]
+	public Entity.PayrollItemStatus? Status { get; init; } = default!;
 }

@@ -88,4 +88,11 @@ public record TransactionStream
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.TransactionStreamStatus Status { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Information describing the intent of the transaction. Most relevant for personal finance use cases, but not limited to such use cases.</para>
+	/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of personal finance categories.</para>
+	/// </summary>
+	[JsonPropertyName("personal_finance_category")]
+	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;
 }

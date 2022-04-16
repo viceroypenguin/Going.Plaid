@@ -158,6 +158,12 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "highnote")]
+	Highnote,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "apex_clearing")]
 	ApexClearing,
 

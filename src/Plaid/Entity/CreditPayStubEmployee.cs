@@ -3,13 +3,13 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Data about the employee.</para>
 /// </summary>
-public record PayStubEmployee
+public record CreditPayStubEmployee
 {
 	/// <summary>
 	/// <para>Address on the pay stub.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.PayStubAddress Address { get; init; } = default!;
+	public Entity.CreditPayStubAddress Address { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The name of the employee.</para>

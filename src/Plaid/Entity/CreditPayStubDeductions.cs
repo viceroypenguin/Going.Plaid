@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>An object with the deduction information found on a pay stub.</para>
 /// </summary>
-public record PayStubDeductions
+public record CreditPayStubDeductions
 {
 	/// <summary>
 	/// 
