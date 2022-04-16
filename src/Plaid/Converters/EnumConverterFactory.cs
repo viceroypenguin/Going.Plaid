@@ -20,13 +20,18 @@ public class EnumConverterFactory : JsonConverterFactory
 		static JsonConverter GetConverter(Type type)
 		{
 			if (type.IsEnum)
+			{
 				return (JsonConverter)Activator.CreateInstance(
 					typeof(EnumMemberEnumConverterNotNull<>).MakeGenericType(type))!;
-			else if (Nullable.GetUnderlyingType(type)?.IsEnum ?? false)
+			}
+
+			if (Nullable.GetUnderlyingType(type)?.IsEnum ?? false)
+			{
 				return (JsonConverter)Activator.CreateInstance(
 					typeof(EnumMemberEnumConverterNull<>).MakeGenericType(Nullable.GetUnderlyingType(type)!))!;
-			else
-				throw new InvalidOperationException($"Attempted to create converter for type we cannot convert. Type: {type.FullName}");
+			}
+
+			throw new InvalidOperationException($"Attempted to create converter for type we cannot convert. Type: {type.FullName}");
 		}
 
 		var converter = GetConverter(typeToConvert);
@@ -80,11 +85,14 @@ public class EnumConverterFactory : JsonConverterFactory
 			writer.WriteStringValue(
 				EnumMemberEnumConverterNotNull<T>.GetEnumValue(value));
 
-		public static string GetEnumValue(T value)
+		private static string GetEnumValue(T value)
 		{
 			var memInfo = value.GetType().GetMember(value.ToString()!);
 			var attr = memInfo[0].GetCustomAttribute<EnumMemberAttribute>();
-			var name = attr?.Value ?? value.ToString()!.ToLower();
+#pragma warning disable CA1308 // Normalize strings to uppercase
+			// normalization is lowercase per Plaid docs
+			var name = attr?.Value ?? value.ToString()!.ToLowerInvariant();
+#pragma warning restore CA1308 // Normalize strings to uppercase
 			return name;
 		}
 	}

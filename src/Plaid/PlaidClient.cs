@@ -64,9 +64,9 @@ public sealed partial class PlaidClient
 		_apiVersion = apiVersion switch
 		{
 			ApiVersion.v20200914 => "2020-09-14",
-			_ => throw new ArgumentOutOfRangeException(nameof(ApiVersion), "Invalid API version provided."),
+			_ => throw new ArgumentOutOfRangeException(nameof(apiVersion), "Invalid API version provided."),
 		};
-		_environment = environment;
+
 		_secret = secret;
 		_clientId = clientId;
 		AccessToken = string.IsNullOrWhiteSpace(accessToken) ? null : accessToken;
@@ -87,7 +87,6 @@ public sealed partial class PlaidClient
 	private readonly Uri _baseUrl;
 	private readonly string _apiVersion;
 	private readonly string? _clientId, _secret;
-	private readonly Environment _environment;
 	private readonly IHttpClientFactory _clientFactory;
 	private readonly IServiceProvider? _serviceProvider;
 	private readonly ILogger _logger;
@@ -113,7 +112,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// Debug option to include the raw json in the returned DTO
 	/// </summary>
-	public bool ShowRawJson { get; set; } = false;
+	public bool ShowRawJson { get; set; }
 	#endregion
 
 	#region Private Members
@@ -124,7 +123,7 @@ public sealed partial class PlaidClient
 
 		var client = _clientFactory.CreateClient("PlaidClient");
 		var url = new Uri(_baseUrl, path);
-		_logger.LogTrace("Initiating request. Method: {method}; Url: {url}; Content: {@content}", "POST", url, request);
+		_logger.LogTrace("Initiating request. Method: {Method}; Url: {Url}; Content: {@Content}", "POST", url, request);
 
 		var requestMessage = new HttpRequestMessage
 		{
@@ -145,34 +144,34 @@ public sealed partial class PlaidClient
 		};
 	}
 
-	private struct ResponseParser
+	private readonly struct ResponseParser
 	{
 		public Task<HttpResponseMessage> Message { get; init; }
 		public string Url { get; init; }
 		public bool IncludeRawJson { get; init; }
 		public ILogger Logger { get; init; }
 
-		public async Task<TResponse> ParseResponseAsync<TResponse>() where TResponse : ResponseBase, new()
+		public readonly async Task<TResponse> ParseResponseAsync<TResponse>() where TResponse : ResponseBase, new()
 		{
 			using (var response = await Message.ConfigureAwait(false))
 			{
-				Logger.LogInformation("Completed request. Url: {url}, Status Code: {statusCode}.", Url, response.StatusCode);
+				Logger.LogInformation("Completed request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
 
-				var result = await BuildResponse<TResponse>(response);
-				Logger.LogTrace("Completed request details. Url: {url}; Response: {@result}",
+				var result = await BuildResponse<TResponse>(response).ConfigureAwait(false);
+				Logger.LogTrace("Completed request details. Url: {Url}; Response: {@Result}",
 					Url,
 					result);
 				return result;
 			}
 		}
 
-		private async Task<TResponse> BuildResponse<TResponse>(HttpResponseMessage response) where TResponse : ResponseBase, new()
+		private readonly async Task<TResponse> BuildResponse<TResponse>(HttpResponseMessage response) where TResponse : ResponseBase, new()
 		{
 			if (response.IsSuccessStatusCode)
 			{
 				if (IncludeRawJson)
 				{
-					var json = await response.Content.ReadAsStringAsync();
+					var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 					var result = JsonSerializer.Deserialize<TResponse>(json, options: JsonSerializerOptions);
 					result!.RawJson = json;
 					result.StatusCode = response.StatusCode;
@@ -180,14 +179,14 @@ public sealed partial class PlaidClient
 				}
 				else
 				{
-					var result = await response.Content.ReadFromJsonAsync<TResponse>(options: JsonSerializerOptions);
+					var result = await response.Content.ReadFromJsonAsync<TResponse>(options: JsonSerializerOptions).ConfigureAwait(false);
 					result!.StatusCode = response.StatusCode;
 					return result;
 				}
 			}
 			else
 			{
-				var json = await response.Content.ReadAsStringAsync();
+				var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
 				static Errors.PlaidError? ParseError(int statusCode, string json)
 				{

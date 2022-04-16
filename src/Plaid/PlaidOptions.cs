@@ -20,7 +20,7 @@ public class PlaidOptions
 	/// <remarks>
 	/// See: <see href="https://plaid.com/docs/quickstart/#api-keys" />
 	/// </remarks>
-	public string? ClientId { get; set; } = null;
+	public string? ClientId { get; set; }
 
 	/// <summary>
 	/// you have a unique secret for each API environment
@@ -28,7 +28,7 @@ public class PlaidOptions
 	/// <remarks>
 	/// See: <see href="https://plaid.com/docs/quickstart/#api-keys" />
 	/// </remarks>
-	public string? Secret { get; set; } = null;
+	public string? Secret { get; set; }
 
 	/// <summary>
 	/// OPTIONAL: Use to specify a default AccessToken for ALL requests that do not provide their own AccessToken 
