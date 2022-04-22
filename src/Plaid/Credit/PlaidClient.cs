@@ -11,6 +11,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditBankIncomeGetResponse>();
 
 	/// <summary>
+	/// <para><c>/credit/bank_income/refresh</c> refreshes the bank income report data for a specific user.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomerefresh" /></remarks>
+	public Task<Credit.CreditBankIncomeRefreshResponse> CreditBankIncomeRefreshAsync(Credit.CreditBankIncomeRefreshRequest request) =>
+		PostAsync("/credit/bank_income/refresh", request)
+			.ParseResponseAsync<Credit.CreditBankIncomeRefreshResponse>();
+
+	/// <summary>
 	/// <para>This endpoint gets payroll income information for a specific user, either as a result of the user connecting to their payroll provider or uploading a pay related document.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomeget" /></remarks>
@@ -28,10 +36,18 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditPayrollIncomePrecheckResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/employment/get</c> returns a list of employments through a user payroll that was verified by an end user.</para>
+	/// <para><c>/credit/employment/get</c> returns a list of items with employment information from a user's payroll provider that was verified by an end user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditemploymentget" /></remarks>
 	public Task<Credit.CreditEmploymentGetResponse> CreditEmploymentGetAsync(Credit.CreditEmploymentGetRequest request) =>
 		PostAsync("/credit/employment/get", request)
 			.ParseResponseAsync<Credit.CreditEmploymentGetResponse>();
+
+	/// <summary>
+	/// <para><c>/credit/payroll_income/refresh</c> refreshes a given digital payroll income verification.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomerefresh" /></remarks>
+	public Task<Credit.CreditPayrollIncomeRefreshResponse> CreditPayrollIncomeRefreshAsync(Credit.CreditPayrollIncomeRefreshRequest request) =>
+		PostAsync("/credit/payroll_income/refresh", request)
+			.ParseResponseAsync<Credit.CreditPayrollIncomeRefreshResponse>();
 }

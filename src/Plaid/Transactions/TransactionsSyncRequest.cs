@@ -18,4 +18,10 @@ public partial class TransactionsSyncRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("count")]
 	public int Count { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An optional object to be used with the request. If specified, <c>options</c> must not be <c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("options")]
+	public Entity.TransactionsSyncRequestOptions Options { get; set; } = default!;
 }

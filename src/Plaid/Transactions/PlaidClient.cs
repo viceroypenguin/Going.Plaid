@@ -32,6 +32,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transactions.TransactionsRecurringGetResponse>();
 
 	/// <summary>
+	/// <para>The <c>/transactions/recurring/deactivate</c> endpoint returns returns a message indicating the success in removing the product from the Item or returns an error.</para>
+	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transactions/#transactionsrecurringdeactivate" /></remarks>
+	public Task<Transactions.TransactionsRecurringDeactivateResponse> TransactionsRecurringDeactivateAsync(Transactions.TransactionsRecurringDeactivateRequest request) =>
+		PostAsync("/transactions/recurring/deactivate", request)
+			.ParseResponseAsync<Transactions.TransactionsRecurringDeactivateResponse>();
+
+	/// <summary>
 	/// <para>The <c>/transactions/sync</c> endpoint returns item transactions as a set of delta updates.</para>
 	/// <para>Subsequent calls to the endpoint using the cursor returned in the response will return new added, modified, and removed transactions since the last call to the endpoint</para>
 	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>

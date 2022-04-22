@@ -6,6 +6,12 @@ namespace Going.Plaid.Entity;
 public record CreditEmploymentVerification
 {
 	/// <summary>
+	/// <para>ID of the payroll provider account.</para>
+	/// </summary>
+	[JsonPropertyName("account_id")]
+	public string? AccountId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Current employment status.</para>
 	/// </summary>
 	[JsonPropertyName("status")]

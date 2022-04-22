@@ -24,7 +24,7 @@ public partial class PaymentInitiationRecipientCreateRequest : RequestBase
 	public Entity.RecipientBACS? Bacs { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The optional address of the payment recipient. This object is not currently required to make payments from UK institutions and should not be populated, though may be necessary for future European expansion.</para>
+	/// <para>The optional address of the payment recipient.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.PaymentInitiationAddress? Address { get; set; } = default!;

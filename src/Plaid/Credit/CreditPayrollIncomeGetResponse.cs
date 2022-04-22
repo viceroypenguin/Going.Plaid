@@ -1,4 +1,4 @@
-namespace Going.Plaid.Credit;
+﻿namespace Going.Plaid.Credit;
 
 /// <summary>
 /// <para>Defines the response body for <c>/credit/payroll_income/get</c>.</para>

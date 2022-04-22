@@ -6,8 +6,8 @@ namespace Going.Plaid.Credit;
 public record CreditEmploymentGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A list of employment verification summaries.</para>
+	/// <para>Array of employment items.</para>
 	/// </summary>
-	[JsonPropertyName("employments")]
-	public IReadOnlyList<Entity.CreditEmploymentVerification> Employments { get; init; } = default!;
+	[JsonPropertyName("items")]
+	public IReadOnlyList<Entity.CreditEmploymentItem> Items { get; init; } = default!;
 }

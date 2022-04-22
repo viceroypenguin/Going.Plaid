@@ -30,13 +30,13 @@ public record Item
 	public Errors.PlaidError? Error { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of products available for the Item that have not yet been accessed.</para>
+	/// <para>A list of products available for the Item that have not yet been accessed. The contents of this array will be mutually exclusive with <c>billed_products</c>.</para>
 	/// </summary>
 	[JsonPropertyName("available_products")]
 	public IReadOnlyList<Entity.Products> AvailableProducts { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of products that have been billed for the Item. Note - <c>billed_products</c> is populated in all environments but only requests in Production are billed.</para>
+	/// <para>A list of products that have been billed for the Item. The contents of this array will be mutually exclusive with <c>available_products</c>. Note - <c>billed_products</c> is populated in all environments but only requests in Production are billed. Also note that products that are billed on a pay-per-call basis rather than a pay-per-Item basis, such as <c>balance</c>, will not appear here.</para>
 	/// </summary>
 	[JsonPropertyName("billed_products")]
 	public IReadOnlyList<Entity.Products> BilledProducts { get; init; } = default!;

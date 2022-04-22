@@ -26,4 +26,12 @@ public sealed partial class PlaidClient
 	public Task<Signal.SignalReturnReportResponse> SignalReturnReportAsync(Signal.SignalReturnReportRequest request) =>
 		PostAsync("/signal/return/report", request)
 			.ParseResponseAsync<Signal.SignalReturnReportResponse>();
+
+	/// <summary>
+	/// <para>Call <c>/signal/prepare</c> with Plaid-linked bank account information at least 10 seconds before calling <c>/signal/evaluate</c> or as soon as an end-user enters the ACH deposit flow in your application.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/signal/reference#signalprepare" /></remarks>
+	public Task<Signal.SignalPrepareResponse> SignalPrepareAsync(Signal.SignalPrepareRequest request) =>
+		PostAsync("/signal/prepare", request)
+			.ParseResponseAsync<Signal.SignalPrepareResponse>();
 }
