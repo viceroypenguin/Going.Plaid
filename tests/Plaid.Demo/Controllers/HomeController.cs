@@ -44,7 +44,7 @@ namespace Going.Plaid.Demo.Controllers
 				{
 					PublicToken = publicToken,
 				});
-			_credentials.AccessToken = result.ItemId;
+			_credentials.AccessToken = result.AccessToken;
 			System.Diagnostics.Debug.WriteLine($"access_token: '{result.AccessToken}'");
 
 			return Ok(result);
