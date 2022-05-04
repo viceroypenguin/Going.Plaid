@@ -1,5 +1,7 @@
 @model Going.Plaid.Accounts.AccountsGetResponse
 
+@await Html.PartialAsync("_ItemViewPartial.cshtml",Model.Item)
+
 <h2>Balances</h2>
 
 <table>

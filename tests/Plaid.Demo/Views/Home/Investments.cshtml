@@ -1,9 +1,13 @@
 @model (Going.Plaid.Investments.InvestmentsHoldingsGetResponse,Going.Plaid.Investments.InvestmentsTransactionsGetResponse)
 @{
+    var Item = Model.Item1.Item;
     var Holdings = Model.Item1.Holdings;
     var Securities  = Model.Item1.Securities;
     var Transactions = Model.Item2.InvestmentTransactions;
 }
+
+@await Html.PartialAsync("_ItemViewPartial.cshtml",Item)
+
 <h2>Investment Securities</h2>
 
 <table>

@@ -1,0 +1,55 @@
+@model Going.Plaid.Entity.Item
+
+@{
+    var Institution = ViewData["Institution"] as Going.Plaid.Entity.Institution;
+}
+
+<h2>Item</h2>
+
+    <table>
+        <tr>
+            <th class="right">ItemId</th>
+            <td>@Model.ItemId</td>
+        </tr>
+        <tr>
+            <th class="right">InstitutionId</th>
+            <td>@Model.InstitutionId</td>
+        </tr>
+        <tr>
+            <th class="right">Products</th>
+            <td>@string.Join(',',Model.Products.Select(x=>x.ToString()))</td>
+        </tr>
+        <tr>
+            <th class="right">UpdateType</th>
+            <td>@Model.UpdateType</td>
+        </tr>
+    </table>
+
+<h2>Institution</h2>
+
+    <table>
+        <tr>
+            <th class="right">Name</th>
+            <td>@Institution.Name</td>
+        </tr>
+        <tr>
+            <th class="right">InstitutionId</th>
+            <td>@Institution.InstitutionId</td>
+        </tr>
+        <tr>
+            <th class="right">Logo</th>
+            <td>@Institution.Logo</td>
+        </tr>
+        <tr>
+            <th class="right">PrimaryColor</th>
+            <td>@Institution.PrimaryColor</td>
+        </tr>
+        <tr>
+            <th class="right">Url</th>
+            <td>@Institution.Url</td>
+        </tr>
+        <tr>
+            <th class="right">Products</th>
+            <td>@string.Join(',',Institution.Products.Select(x=>x.ToString()))</td>
+        </tr>
+    </table>

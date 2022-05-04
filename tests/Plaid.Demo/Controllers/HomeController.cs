@@ -47,6 +47,8 @@ namespace Going.Plaid.Demo.Controllers
 			var request = new Accounts.AccountsGetRequest();
 			var result = await _client.AccountsGetAsync(request);
 
+			await SetInstitutionAsync(foritem:result.Item);
+
 			return View(result);
 		}
 
@@ -55,6 +57,8 @@ namespace Going.Plaid.Demo.Controllers
 			_client.AccessToken = _credentials.AccessToken;
 			var request = new Accounts.AccountsBalanceGetRequest();
 			var result = await _client.AccountsBalanceGetAsync(request);
+
+			await SetInstitutionAsync(foritem:result.Item);
 
 			return View(result);
 		}
@@ -67,6 +71,8 @@ namespace Going.Plaid.Demo.Controllers
 
 			var trequest = new Investments.InvestmentsTransactionsGetRequest() { EndDate = DateTime.Now, StartDate = DateTime.Now - TimeSpan.FromDays(30) };
 			var txs = await _client.InvestmentsTransactionsGetAsync(trequest);
+
+			await SetInstitutionAsync(foritem:holdings.Item);
 
 			return View((holdings,txs));
 		}
