@@ -36,15 +36,7 @@ namespace Going.Plaid.Demo.Controllers
 			};
 			var result = await _client.TransactionsGetAsync(request);
 
-			_client.AccessToken = null;
-			var institution_request = new Institutions.InstitutionsGetByIdRequest() 
-			{ 
-				InstitutionId = result.Item.InstitutionId,
-				CountryCodes = new List<CountryCode>() { CountryCode.Us }
-			};
-			var institution_response = await _client.InstitutionsGetByIdAsync(institution_request);
-
-			ViewData["Institution"] = institution_response.Institution;
+			await SetInstitutionAsync(foritem:result.Item);
 
 			return View(result);
 		}
@@ -126,6 +118,19 @@ namespace Going.Plaid.Demo.Controllers
 		}
 
 		#region Private Members
+
+		private async Task SetInstitutionAsync(Entity.Item foritem)
+		{
+			_client.AccessToken = null;
+			var institution_request = new Institutions.InstitutionsGetByIdRequest() 
+			{ 
+				InstitutionId = foritem.InstitutionId,
+				CountryCodes = new List<CountryCode>() { CountryCode.Us }
+			};
+			var institution_response = await _client.InstitutionsGetByIdAsync(institution_request);
+
+			ViewData["Institution"] = institution_response.Institution;
+		}
 
 		private readonly Middleware.PlaidCredentials _credentials;
 		private readonly PlaidClient _client;
