@@ -1,0 +1,77 @@
+@model (Going.Plaid.Investments.InvestmentsHoldingsGetResponse,Going.Plaid.Investments.InvestmentsTransactionsGetResponse)
+@{
+    var Holdings = Model.Item1.Holdings;
+    var Securities  = Model.Item1.Securities;
+    var Transactions = Model.Item2.InvestmentTransactions;
+}
+<h2>Investment Securities</h2>
+
+<table>
+    <tr>
+        <th>Ticker</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th class="right">Price</th>
+        <th>SecurityId</th>
+    </tr>
+
+    @foreach(var security in Securities)
+    {
+        <tr>
+            <td>@security.TickerSymbol</td>
+            <td>@security.Name</td>
+            <td>@security.Type</td>
+            <td class="right">@security.ClosePrice?.ToString("C2")</td>
+            <td>@security.SecurityId</td>
+        </tr>
+    }
+</table>
+
+<h2>Investment Holdings</h2>
+
+<table>
+    <tr>
+        <th>Security</td>
+        <th class="right">Qty</th>
+        <th class="right">Value</th>
+    </tr>
+
+    @foreach(var holding in Holdings)
+    {
+        var security = Securities.Where(x => x.SecurityId == holding.SecurityId).SingleOrDefault();
+
+        <tr>
+            <td>@security?.TickerSymbol @security?.Name</td>
+            <td class="right">@holding.Quantity</td>
+            <td class="right">@holding.InstitutionValue.ToString("C2")</td>
+        </tr>
+    }
+</table>
+
+<h2>Investment Transactions</h2>
+
+<table>
+    <tr>
+        <th class="right">Date</th>
+        <th>Security</td>
+        <th class="right">Qty</th>
+        <th>Type</th>
+        <th class="right">Amount</th>
+        <th>Name</th>
+        <th>InvestmentTransactionId</th>
+    </tr>
+
+    @foreach(var transaction in Transactions)
+    {
+        var security = Securities.Where(x => x.SecurityId == transaction.SecurityId).SingleOrDefault();
+
+        <tr>
+            <td class="right">@transaction.Date.ToShortDateString()</td>
+            <td>@security?.TickerSymbol @security?.Name</td>
+            <td class="right">@transaction.Quantity.ToString("0.000")</td>
+            <td>@transaction.Type</td>
+            <td class="right">@transaction.Amount.ToString("C2")</td>
+            <td>@transaction.Name</td>
+            <td>@transaction.InvestmentTransactionId</td>
+        </tr>
+    }

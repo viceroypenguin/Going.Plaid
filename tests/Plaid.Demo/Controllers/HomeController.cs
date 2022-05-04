@@ -56,6 +56,18 @@ namespace Going.Plaid.Demo.Controllers
 			return View(result);
 		}
 
+		public async Task<IActionResult> Investments()
+		{
+			_client.AccessToken = _credentials.AccessToken;
+			var hrequest = new Investments.InvestmentsHoldingsGetRequest();
+			var holdings = await _client.InvestmentsHoldingsGetAsync(hrequest);
+
+			var trequest = new Investments.InvestmentsTransactionsGetRequest() { EndDate = DateTime.Now, StartDate = DateTime.Now - TimeSpan.FromDays(30) };
+			var txs = await _client.InvestmentsTransactionsGetAsync(trequest);
+
+			return View((holdings,txs));
+		}
+
 		[HttpPost]
 		public async Task<IActionResult> GetLinkToken([FromBody] string[] products)
 		{
