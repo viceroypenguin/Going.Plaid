@@ -38,6 +38,24 @@ namespace Going.Plaid.Demo.Controllers
 			return View(result);
 		}
 
+		public async Task<IActionResult> Accounts()
+		{
+			_client.AccessToken = _credentials.AccessToken;
+			var request = new Accounts.AccountsGetRequest();
+			var result = await _client.AccountsGetAsync(request);
+
+			return View(result);
+		}
+
+		public async Task<IActionResult> Balances()
+		{
+			_client.AccessToken = _credentials.AccessToken;
+			var request = new Accounts.AccountsBalanceGetRequest();
+			var result = await _client.AccountsBalanceGetAsync(request);
+
+			return View(result);
+		}
+
 		[HttpPost]
 		public async Task<IActionResult> GetLinkToken([FromBody] string[] products)
 		{

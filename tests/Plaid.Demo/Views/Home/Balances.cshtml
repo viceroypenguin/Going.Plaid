@@ -1,0 +1,14 @@
+@model Going.Plaid.Accounts.AccountsGetResponse
+
+<h2>Balances</h2>
+
+<table>
+    @foreach(var account in Model.Accounts)
+    {
+        <tr>
+            <td>@account.Name</td>
+            <td>@account.AccountId</td>
+            <td>@account.Balances.Current?.ToString("C2")</td>
+        </tr>
+    }
+</table>
