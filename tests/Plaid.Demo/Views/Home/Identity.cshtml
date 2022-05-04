@@ -1,0 +1,28 @@
+@model Going.Plaid.Identity.IdentityGetResponse
+
+@await Html.PartialAsync("_ItemViewPartial.cshtml",Model.Item)
+
+<h2>Identity</h2>
+
+    @foreach(var account in Model.Accounts)
+    {
+        <h4>@account.Name @account.AccountId</h4>
+
+        <table>
+            <tr>
+                <th>Names</th>
+                <th>Emails</th>
+                <th>Addresses</th>
+            </tr>
+            @foreach(var owner in account.Owners)
+            {
+                <tr>
+                    <td>@string.Join(", ",owner.Names)</td>
+                    <td>@string.Join(", ",owner.Emails.Select(x=>x.Data))</td>
+                    <td>@string.Join(", ",owner.Addresses.Select(x=>x.Data.Street))</td>
+                </tr>
+            }
+        </table>
+
+    }
+

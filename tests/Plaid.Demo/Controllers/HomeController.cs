@@ -77,6 +77,17 @@ namespace Going.Plaid.Demo.Controllers
 			return View((holdings,txs));
 		}
 
+		public async Task<IActionResult> Identity()
+		{
+			_client.AccessToken = _credentials.AccessToken;
+			var request = new Identity.IdentityGetRequest();
+			var result = await _client.IdentityGetAsync(request);
+
+			await SetInstitutionAsync(foritem:result.Item);
+
+			return View(result);
+		}
+
 		[HttpPost]
 		public async Task<IActionResult> GetLinkToken([FromBody] string[] products)
 		{
