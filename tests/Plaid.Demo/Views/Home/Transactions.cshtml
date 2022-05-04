@@ -4,19 +4,19 @@
 
         <table>
             <tr>
-                <td>ItemId</td>
+                <th class="right">ItemId</th>
                 <td>@Model.Item.ItemId</td>
             </tr>
             <tr>
-                <td>InstitutionId</td>
+                <th class="right">InstitutionId</th>
                 <td>@Model.Item.InstitutionId</td>
             </tr>
             <tr>
-                <td>Products</td>
-                <td>@string.Join(',',Model.Item.Products.Select(x=>x.ToString()))</td>
+                <th class="right">Products</th>
+                <td class="right">@string.Join(',',Model.Item.Products.Select(x=>x.ToString()))</td>
             </tr>
             <tr>
-                <td>UpdateType</td>
+                <th class="right">UpdateType</th>
                 <td>@Model.Item.UpdateType</td>
             </tr>
         </table>
@@ -27,23 +27,27 @@
         <h4>@account.Name</h4>
         <table>
             <tr>
-                <td>OfficialName</td>
+                <th class="right">Name</th>
+                <td>@account.Name</td>
+            </tr>
+            <tr>
+                <th class="right">OfficialName</th>
                 <td>@account.OfficialName</td>
             </tr>
             <tr>
-                <td>AccountId</td>
+                <th class="right">AccountId</th>
                 <td>@account.AccountId</td>
             </tr>
             <tr>
-                <td>Mask</td>
+                <th class="right">Mask</th>
                 <td>@account.Mask</td>
             </tr>
             <tr>
-                <td>Type</td>
+                <th class="right">Type</th>
                 <td>@account.Type</td>
             </tr>
             <tr>
-                <td>Status</td>
+                <th class="right">Status</th>
                 <td>@account.VerificationStatus</td>
             </tr>
         </table>
@@ -51,13 +55,26 @@
 <h2>Transactions</h2>
 <p>Total: @Model.TotalTransactions</p>
 <table>
+    <tr>
+        <th>Name</th>
+        <th class="right">Amount</th>
+        <th class="right">Date</th>
+        <th>Category</th>
+        <th>Channel</th>
+        <th>Account</th>
+        <th>TransactionId</th>
+    </tr>
+
     @foreach(var transaction in Model.Transactions)
     {
         <tr>
             <td>@transaction.Name</td>
-            <td>@transaction.Amount.ToString("C2")</td>
-            <td>@transaction.Date.ToShortDateString()</td>
+            <td class="right">@transaction.Amount.ToString("C2")</td>
+            <td class="right">@transaction.Date.ToShortDateString()</td>
+            <td>@string.Join(':',transaction.Category)</td>
+            <td>@transaction.PaymentChannel</td>
             <td>@Model.Accounts.Where(x=>x.AccountId == transaction.AccountId).SingleOrDefault()?.Name</td>
+            <td>@transaction.TransactionId</td>
         </tr>
     }
 </table>

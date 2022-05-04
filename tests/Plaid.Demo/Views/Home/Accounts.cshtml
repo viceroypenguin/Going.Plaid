@@ -3,12 +3,17 @@
 <h2>Balances</h2>
 
 <table>
+    <tr>
+        <th>Name</th>
+        <th>AccountId</th>
+        <th class="right">Current Balance</th>
+    </tr>
     @foreach(var account in Model.Accounts)
     {
         <tr>
             <td>@account.Name</td>
             <td>@account.AccountId</td>
-            <td>@account.Balances.Current?.ToString("C2")</td>
+            <td class="right">@account.Balances.Current?.ToString("C2")</td>
         </tr>
     }
 </table>

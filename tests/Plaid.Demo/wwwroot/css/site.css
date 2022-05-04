@@ -10,3 +10,12 @@ body {
 
 #form {
 }
+
+td, th {
+    text-align: left;
+    padding-right: 1rem;
+}
+
+td.right, th.right {
+    text-align: right;
+}
