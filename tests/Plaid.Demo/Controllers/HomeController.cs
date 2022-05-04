@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -34,6 +35,16 @@ namespace Going.Plaid.Demo.Controllers
 				EndDate = DateTime.Now
 			};
 			var result = await _client.TransactionsGetAsync(request);
+
+			_client.AccessToken = null;
+			var institution_request = new Institutions.InstitutionsGetByIdRequest() 
+			{ 
+				InstitutionId = result.Item.InstitutionId,
+				CountryCodes = new List<CountryCode>() { CountryCode.Us }
+			};
+			var institution_response = await _client.InstitutionsGetByIdAsync(institution_request);
+
+			ViewData["Institution"] = institution_response.Institution;
 
 			return View(result);
 		}
