@@ -10,11 +10,11 @@
             <hr />
  
             <div class="input" style="width: fit-content; margin: auto; text-align: right;">
-                @foreach (var product in Enum.GetNames(typeof(Going.Plaid.Entity.Products)))
+                @foreach (var product in new[] {"Assets", "Auth", "Identity", "Investments", "Liabilities", "Transactions", "Income" })
                 {
                     <label class="container">
                         @product
-                        <input class="product-box" type="checkbox" data-value="@product" />
+                        <input class="product-box" type="checkbox" checked data-value="@product" />
                         <span class="checkmark"></span>
                     </label>
                     <br/>
@@ -34,8 +34,11 @@
     </div>
 </div>
 
-<div id="plaid-products" class="row">
+<div id="plaid-products" data-bind="hidden: hideProducts" class="row">
     <div class="col-xs-12">
+        <h2 style="margin-top: 2rem">Products</h2>
+        <p>Now that you have an access_token, you can make the following requests:</p>
+        <a asp-action="Transactions">Transactions</a>
     </div>
 </div>
 
@@ -48,7 +51,8 @@
 
             self.environment = ko.observable("@Model.Environment");
             self.linkToken = ko.observable("@Model.LinkToken");
-            self.accessToken = ko.observable();
+            self.accessToken = ko.observable("@Model.AccessToken");
+            self.hideProducts = ko.observable(@(string.IsNullOrEmpty(Model.AccessToken)?"true":"false"));
 
             self.products = function () {
                 let transactions = [];
@@ -63,7 +67,7 @@
             };
 
             self.hasAccessToken = ko.observable(function () {
-                return self.isNullOrEmpty(this.accessToken);
+                return ! self.isNullOrEmpty(this.accessToken);
             }, this);
 
             self.isNullOrEmpty = function (text) {
@@ -106,6 +110,7 @@
                         });
 						const responseJSON = await response.json();
                         self.accessToken(responseJSON.access_token);
+                        self.hideProducts(false);
                     },
                     onExit: function (err, metadata) {
                         // The user exited the Link flow.
@@ -181,7 +186,6 @@
         (function () {
             vm = new ViewModel();
             ko.applyBindings(vm);
-            document.getElementsByClassName("product-box")[0].checked = true;
         })();
 	</script>
 }

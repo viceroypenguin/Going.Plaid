@@ -21,6 +21,23 @@ namespace Going.Plaid.Demo.Controllers
 		public IActionResult Index() =>
 			View(_credentials);
 
+		public async Task<IActionResult> Transactions()
+		{
+			_client.AccessToken = _credentials.AccessToken;
+			var request = new Transactions.TransactionsGetRequest()
+			{
+				Options = new TransactionsGetRequestOptions()
+				{
+					Count = 100
+				},
+				StartDate = DateTime.Now - TimeSpan.FromDays(30),
+				EndDate = DateTime.Now
+			};
+			var result = await _client.TransactionsGetAsync(request);
+
+			return View(result);
+		}
+
 		[HttpPost]
 		public async Task<IActionResult> GetLinkToken([FromBody] string[] products)
 		{
