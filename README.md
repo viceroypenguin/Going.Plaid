@@ -48,6 +48,10 @@ var result = await client.TransactionsGetAsync(
 This will allow you to save a single `PlaidClient` in the DI system without tracking `secret` and `clientId` separately.
 `PlaidClient` is comfortable being used as a single-instance class in this manner.
 
+#### Example
+Please visit [this repo](https://github.com/jcoliz/PlaidQuickstartBlazor) and download to review a working example of
+how to use this library and the Plaid API. 
+
 ### .NET Core Configuration Options
 
 #### Easy to use:
