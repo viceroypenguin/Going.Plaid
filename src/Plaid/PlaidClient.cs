@@ -167,54 +167,32 @@ public sealed partial class PlaidClient
 			}
 		}
 
-		private static Errors.PlaidError ParseError(int statusCode, string json)
-		{
-			try
-			{
-				return JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions)!;
-			}
-			catch (Exception ex)
-			{
-				return new Errors.PlaidError
-				{
-					StatusCode = statusCode,
-					ErrorCode = ErrorCode.ApiUnavailable,
-					ErrorMessage = ex.Message,
-					DisplayMessage = "An error condition has occurred outside of Plaid. Please check your network conditions and try again at a different time.",
-				};
-			}
-		}
-
 		public readonly async Task<FileResponse> ParseFileResponseAsync()
 		{
 			// NOTE: We do not dispose the HttpResponseMessage here. We pass this duty onto the FileResponse
 			var response = await Message.ConfigureAwait(false);
-			Logger.LogInformation("Completed request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
-			
-			var status = response.StatusCode;
+			Logger.LogInformation("Completed file request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
 
+			var status = response.StatusCode;
 			if (!response.IsSuccessStatusCode)
 			{
 				var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-
 				var error = ParseError((int)response.StatusCode, json);
-
-				var badresult = new FileResponse(status,error);
+				var badresult = new FileResponse(status, error);
 				response.Dispose();
 
 				return badresult;
 			}
 
- 			IEnumerable<KeyValuePair<string,IEnumerable<string>>> inheaders = response.Headers;
+			IEnumerable<KeyValuePair<string, IEnumerable<string>>> inheaders = response.Headers;
 			if (response.Content?.Headers is not null)
 				inheaders = inheaders.Concat(response.Content.Headers!);
-			var headers = inheaders.ToDictionary(x=>x.Key,x=>x.Value,StringComparer.Ordinal);
+			var headers = inheaders.ToDictionary(x => x.Key, x => x.Value, StringComparer.Ordinal);
 
 			var stream = response.Content == null ? System.IO.Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-
 			var result = new FileResponse(status, headers, stream, response!);
 
-			Logger.LogTrace("Completed request details. Url: {Url}; Response: {@Result}",
+			Logger.LogTrace("Completed file request details. Url: {Url}; Response: {@Result}",
 				Url,
 				result);
 			return result;
@@ -255,6 +233,25 @@ public sealed partial class PlaidClient
 				return result;
 			}
 		}
+
+		private static Errors.PlaidError ParseError(int statusCode, string json)
+		{
+			try
+			{
+				return JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions)!;
+			}
+			catch (Exception ex)
+			{
+				return new Errors.PlaidError
+				{
+					StatusCode = statusCode,
+					ErrorCode = ErrorCode.ApiUnavailable,
+					ErrorMessage = ex.Message,
+					DisplayMessage = "An error condition has occurred outside of Plaid. Please check your network conditions and try again at a different time.",
+				};
+			}
+		}
+
 	}
 
 	#endregion Private Members

@@ -6,9 +6,9 @@
 public record FileResponse : ResponseBase, IDisposable
 {
 	/// <summary>
-	/// Success Constructor
+	/// Constructor for successful reponse
 	/// </summary>
-	public FileResponse(HttpStatusCode status, IDictionary<string,IEnumerable<string>> headers, System.IO.Stream stream, IDisposable disposable)
+	public FileResponse(HttpStatusCode status, IDictionary<string, IEnumerable<string>> headers, System.IO.Stream stream, IDisposable disposable)
 	{
 		StatusCode = status;
 		Headers = headers;
@@ -17,46 +17,46 @@ public record FileResponse : ResponseBase, IDisposable
 	}
 
 	/// <summary>
-	/// Error Constructor
+	/// Constructor for failed response
 	/// </summary>
 	public FileResponse(HttpStatusCode status, Errors.PlaidError error)
 	{
 		StatusCode = status;
-		Headers = new Dictionary<string,IEnumerable<string>>(StringComparer.Ordinal);
+		Headers = new Dictionary<string, IEnumerable<string>>(StringComparer.Ordinal);
 		Stream = System.IO.Stream.Null;
 		_disposable = null;
 
-        base.Error = error;
+		base.Error = error;
 	}
 
 	/// <summary>
 	/// Dispose
 	/// </summary>	
-    public void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
-    }
+	public void Dispose()
+	{
+		Dispose(disposing: true);
+		GC.SuppressFinalize(this);
+	}
 
 	/// <summary>
-	/// Dispose
+	/// Internal Dispose
 	/// </summary>	
-    protected virtual void Dispose(bool disposing)
-    {
-        if (disposing)
-        {
-            if (_disposable != null)
-            {
-                _disposable.Dispose();
-                _disposable = null;
-            }
-        }
-    }
+	protected virtual void Dispose(bool disposing)
+	{
+		if (disposing)
+		{
+			if (_disposable != null)
+			{
+				_disposable.Dispose();
+				_disposable = null;
+			}
+		}
+	}
 
 	/// <summary>
 	/// Headers
 	/// </summary>	
-	public IDictionary<string,IEnumerable<string>> Headers { get; private set; }
+	public IDictionary<string, IEnumerable<string>> Headers { get; private set; }
 
 	/// <summary>
 	/// Content Stream
