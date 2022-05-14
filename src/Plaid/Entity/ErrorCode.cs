@@ -385,11 +385,21 @@ public enum ErrorCode
 	InvalidCredentialFields,
 
 	/// <summary>
-	/// The provided asset report token is in an invalid format. expected format: assets-\u003cenvironment\u003e-\u003cidentifier\u003e
+	/// The provided asset report token is in an invalid format. expected format: 
+	/// assets-\u003cenvironment\u003e-\u003cidentifier\u003e
 	/// </summary>
 	/// <remarks>This value is not documented on the plaid docs (as of 5/14/2022)</remarks>
 	[EnumMember(Value = "INVALID_ASSET_REPORT_TOKEN")]
 	InvalidAssetReportToken,
+
+	/// <summary>
+	/// The 'assets' product is not enabled for one of the access tokens. please 
+	/// ensure that 'assets' is included in the 'product' array when initializing 
+	/// Link and create the Item(s) again.
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/errors/assets/#product_not_enabled"/></remarks>
+	[EnumMember(Value = "PRODUCT_NOT_ENABLED")]
+	ProductNotEnabled,
 
 	#endregion
 
