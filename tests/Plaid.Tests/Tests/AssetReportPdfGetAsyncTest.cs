@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -30,31 +30,68 @@ namespace Going.Plaid.Tests
 			Assert.NotNull(pdf.Error);
 			Assert.Equal(Entity.ErrorType.InvalidInput, pdf.Error!.ErrorType);
 			Assert.Equal(Entity.ErrorCode.InvalidAssetReportToken, pdf.Error!.ErrorCode);
-
-			_output.WriteLine("Error: {0}", System.Text.Json.JsonSerializer.Serialize(pdf.Error));
 		}
-#if false
-		public async Task Ok()
+
+		[Fact]
+		public async Task AssetReportPdfGetAsync()
 		{
-			string token = "You can't find me!";
-			_fixture.PlaidClient.AccessToken = null;
-			using var pdf = await _fixture.PlaidClient.AssetReportPdfGetAsync(new() { AssetReportToken = token });
+			// Step 1. Create the report
 
-
-			if (pdf.Error is not null)
+			var createrequest = new AssetReport.AssetReportCreateRequest()
 			{
-				_output.WriteLine("Error: {0}", System.Text.Json.JsonSerializer.Serialize(pdf.Error));
+				AccessTokens = new[] { _fixture.PlaidClient.AccessToken! },
+				DaysRequested = 10,
+			};
+			_fixture.PlaidClient.AccessToken = null;
+			var createresponse = await _fixture.PlaidClient.AssetReportCreateAsync(createrequest);
+
+			Assert.True(createresponse.IsSuccessStatusCode, JsonSerializer.Serialize(createresponse));
+
+			var token = createresponse.AssetReportToken;
+			_output.WriteLine($"Token: {token}");
+
+			// Step 2. Get the report in data form
+			//
+			// This can take a while
+
+			var getrequest = new AssetReport.AssetReportGetRequest() { AssetReportToken = token };
+			AssetReport.AssetReportGetResponse? getresponse = null;
+			const int total_retries = 15;
+			int retries_left = total_retries;
+			while (retries_left-- > 0 && !(getresponse?.IsSuccessStatusCode ?? false))
+			{
+				getresponse = await _fixture.PlaidClient.AssetReportGetAsync(getrequest);
+
+				if (!getresponse.IsSuccessStatusCode)
+					await Task.Delay(TimeSpan.FromSeconds(1));
 			}
 
-			Assert.Equal(System.Net.HttpStatusCode.OK, pdf.StatusCode);
+			Assert.True(getresponse!.IsSuccessStatusCode,$"Failed to get report after {total_retries} attempts");
 
-			_output.WriteLine("Headers:\n", pdf.Headers.Select(x => $"\t{x.Key}: {string.Join(',', x.Value)}\n"));
+			// Step 3. Get the PDF
+
+			var pdfrequest = new AssetReport.AssetReportPdfGetRequest() { AssetReportToken = token };
+			using var pdfresponse = await _fixture.PlaidClient.AssetReportPdfGetAsync(pdfrequest);
+
+			Assert.NotNull(pdfresponse);
+			Assert.True(pdfresponse.IsSuccessStatusCode);
+			Assert.True(pdfresponse.Error is null, System.Text.Json.JsonSerializer.Serialize(pdfresponse.Error));
+			Assert.NotNull(pdfresponse.Headers);
+
+			_output.WriteLine("Headers:\r\n{0}",
+				string.Join("\r\n",pdfresponse.Headers.Select(x => $"\t{x.Key}: {string.Join(',', x.Value)}")));
+
+			Assert.True(pdfresponse.Headers.ContainsKey("Content-Type"));
+			Assert.Equal("application/pdf",pdfresponse.Headers["Content-Type"].First());
+
+			// Step 4. Write it out
 
 			var filename = "AssetReportPdfGetAsync.pdf";
-			System.IO.File.Delete(filename);
+			File.Delete(filename);
 			using var stream = System.IO.File.OpenWrite(filename);
-			pdf.Stream.CopyTo(stream);
+			pdfresponse.Stream.CopyTo(stream);
+
+			_output.WriteLine($"File: {stream.Name}");
 		}
-#endif
 	}
 }
