@@ -179,22 +179,29 @@ public sealed partial class PlaidClient
 				var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 				var error = ParseError((int)response.StatusCode, json);
 
+				var badresult = new FileResponse(status, error) { RawJson = IncludeRawJson ? json : null, RequestId = error.RequestId };
+
+				Logger.LogTrace("Completed file request details: Url: {Url}; Response: {@Result}",
+					Url,
+					new { badresult.RequestId, badresult.StatusCode, badresult.IsSuccessStatusCode, badresult.Error });
+
 				response.Dispose();
 
-				return new FileResponse(status, error) { RawJson = IncludeRawJson ? json : null };
+				return badresult;
 			}
 
 			IEnumerable<KeyValuePair<string, IEnumerable<string>>> inheaders = response.Headers;
 			if (response.Content?.Headers is not null)
 				inheaders = inheaders.Concat(response.Content.Headers!);
-			var headers = inheaders.ToDictionary(x => x.Key, x => x.Value, StringComparer.Ordinal);
+			var headers = inheaders!.ToDictionary(x => x.Key, x => x.Value, StringComparer.Ordinal);
+			var requestid = headers.ContainsKey("plaid-request-id") ? headers["plaid-request-id"].FirstOrDefault() : null;
 
 			var stream = response.Content == null ? System.IO.Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-			var result = new FileResponse(status, headers, stream, response!);
+			var result = new FileResponse(status, headers, stream, response!) { RequestId = requestid };
 
 			Logger.LogTrace("Completed file request details. Url: {Url}; Response: {@Result}",
 				Url,
-				result);
+				new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode });
 			return result;
 		}
 

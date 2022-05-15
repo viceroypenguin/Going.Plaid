@@ -49,7 +49,6 @@ namespace Going.Plaid.Tests
 			Assert.True(createresponse.IsSuccessStatusCode, JsonSerializer.Serialize(createresponse));
 
 			var reporttoken = createresponse.AssetReportToken;
-			_output.WriteLine($"Report Token: {reporttoken}");
 
 			// Step 2. Get the report in data form
 			//
