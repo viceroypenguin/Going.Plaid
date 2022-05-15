@@ -173,17 +173,19 @@ public sealed partial class PlaidClient
 			var response = await Message.ConfigureAwait(false);
 			Logger.LogInformation("Completed file request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
 
+			var headers = response.Headers
+				.Concat(response.Content?.Headers.AsEnumerable()
+					?? Array.Empty<KeyValuePair<string, IEnumerable<string>>>())
+				.SelectMany(static x => x.Value.Select(y => (key: x.Key, value: y)))
+				.ToLookup(x => x.key, x => x.value, StringComparer.OrdinalIgnoreCase);
+
 			var status = response.StatusCode;
 			if (response.IsSuccessStatusCode)
 			{
-				IEnumerable<KeyValuePair<string, IEnumerable<string>>> inheaders = response.Headers;
-				if (response.Content?.Headers is not null)
-					inheaders = inheaders.Concat(response.Content.Headers!);
-				var headers = inheaders!.ToDictionary(x => x.Key, x => x.Value, StringComparer.Ordinal);
-				var requestid = headers.ContainsKey("plaid-request-id") ? headers["plaid-request-id"].FirstOrDefault() : null;
+				var requestid = headers["plaid-request-id"].FirstOrDefault();
 
 				var stream = response.Content == null ? System.IO.Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-				var result = new FileResponse(status, headers, stream, response!) { RequestId = requestid };
+				var result = new FileResponse(status, headers, stream, response) { RequestId = requestid };
 
 				if (Logger.IsEnabled(LogLevel.Trace))
 				{
@@ -196,10 +198,10 @@ public sealed partial class PlaidClient
 			}
 			else
 			{
-				var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+				var json = await response.Content!.ReadAsStringAsync().ConfigureAwait(false);
 				var error = ParseError((int)response.StatusCode, json);
 
-				var result = new FileResponse(status, error) { RawJson = IncludeRawJson ? json : null, RequestId = error.RequestId };
+				var result = new FileResponse(status, headers, error) { RawJson = IncludeRawJson ? json : null, RequestId = error.RequestId };
 
 				if (Logger.IsEnabled(LogLevel.Trace))
 				{

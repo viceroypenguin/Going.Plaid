@@ -1,4 +1,6 @@
-﻿namespace Going.Plaid;
+﻿using System.Linq;
+
+namespace Going.Plaid;
 
 /// <summary>
 /// A file returned from Plaid API
@@ -8,7 +10,7 @@ public record FileResponse : ResponseBase, IDisposable
 	/// <summary>
 	/// Constructor for successful reponse
 	/// </summary>
-	public FileResponse(HttpStatusCode status, IDictionary<string, IEnumerable<string>> headers, System.IO.Stream stream, IDisposable disposable)
+	public FileResponse(HttpStatusCode status, ILookup<string, string> headers, System.IO.Stream stream, IDisposable disposable)
 	{
 		StatusCode = status;
 		Headers = headers;
@@ -19,10 +21,10 @@ public record FileResponse : ResponseBase, IDisposable
 	/// <summary>
 	/// Constructor for failed response
 	/// </summary>
-	public FileResponse(HttpStatusCode status, Errors.PlaidError error)
+	public FileResponse(HttpStatusCode status, ILookup<string, string> headers, Errors.PlaidError error)
 	{
 		StatusCode = status;
-		Headers = new Dictionary<string, IEnumerable<string>>(StringComparer.Ordinal);
+		Headers = headers;
 		Stream = System.IO.Stream.Null;
 		_disposable = null;
 
@@ -56,7 +58,7 @@ public record FileResponse : ResponseBase, IDisposable
 	/// <summary>
 	/// Headers
 	/// </summary>	
-	public IDictionary<string, IEnumerable<string>> Headers { get; private set; }
+	public ILookup<string, string> Headers { get; private set; }
 
 	/// <summary>
 	/// Content Stream

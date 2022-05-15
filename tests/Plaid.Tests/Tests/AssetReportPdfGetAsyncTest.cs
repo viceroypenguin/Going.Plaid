@@ -88,15 +88,11 @@ namespace Going.Plaid.Tests
 					"\r\n",
 					pdfresponse
 						.Headers
-						.Select
-						(
-							x =>
-							$"\t{x.Key}: {string.Join(',', x.Value)}"
-						)
+						.Select(x => $"\t{x.Key}: {string.Join(',', x)}")
 				)
 			);
 
-			Assert.True(pdfresponse.Headers.ContainsKey("Content-Type"));
+			Assert.True(pdfresponse.Headers["Content-Type"].Any());
 			Assert.Equal("application/pdf", pdfresponse.Headers["Content-Type"].First());
 
 			// Step 4. Write it out
