@@ -839,6 +839,7 @@
       "transactions"
     ],
     "Products": [
+      "assets",
       "auth",
       "investments",
       "transactions"
