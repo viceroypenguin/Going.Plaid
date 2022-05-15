@@ -181,9 +181,12 @@ public sealed partial class PlaidClient
 
 				var badresult = new FileResponse(status, error) { RawJson = IncludeRawJson ? json : null, RequestId = error.RequestId };
 
-				Logger.LogTrace("Completed file request details: Url: {Url}; Response: {@Result}",
-					Url,
-					new { badresult.RequestId, badresult.StatusCode, badresult.IsSuccessStatusCode, badresult.Error });
+				if (Logger.IsEnabled(LogLevel.Trace))
+				{
+					Logger.LogTrace("Completed file request details: Url: {Url}; Response: {@Result}",
+						Url,
+						new { badresult.RequestId, badresult.StatusCode, badresult.IsSuccessStatusCode, badresult.Error });
+				}
 
 				response.Dispose();
 
@@ -199,9 +202,13 @@ public sealed partial class PlaidClient
 			var stream = response.Content == null ? System.IO.Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 			var result = new FileResponse(status, headers, stream, response!) { RequestId = requestid };
 
-			Logger.LogTrace("Completed file request details. Url: {Url}; Response: {@Result}",
-				Url,
-				new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode });
+			if (Logger.IsEnabled(LogLevel.Trace))
+			{
+				Logger.LogTrace("Completed file request details. Url: {Url}; Response: {@Result}",
+					Url,
+					new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode });
+			}
+
 			return result;
 		}
 
