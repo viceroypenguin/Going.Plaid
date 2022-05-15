@@ -1,4 +1,4 @@
-namespace Going.Plaid.AssetReport;
+﻿namespace Going.Plaid.AssetReport;
 
 /// <summary>
 /// <para>AssetReportGetRequest defines the request schema for <c>/asset_report/get</c></para>

@@ -48,14 +48,14 @@ namespace Going.Plaid.Tests
 			Assert.NotNull(createresponse);
 			Assert.True(createresponse.IsSuccessStatusCode, JsonSerializer.Serialize(createresponse));
 
-			var token = createresponse.AssetReportToken;
-			_output.WriteLine($"Token: {token}");
+			var reporttoken = createresponse.AssetReportToken;
+			_output.WriteLine($"Report Token: {reporttoken}");
 
 			// Step 2. Get the report in data form
 			//
 			// This can take a while
 
-			var getrequest = new AssetReport.AssetReportGetRequest() { AssetReportToken = token };
+			var getrequest = new AssetReport.AssetReportGetRequest() { AssetReportToken = reporttoken };
 			AssetReport.AssetReportGetResponse? getresponse = null;
 			const int total_retries = 15;
 			var retries_left = total_retries;
@@ -73,7 +73,7 @@ namespace Going.Plaid.Tests
 
 			// Step 3. Get the PDF
 
-			var pdfrequest = new AssetReport.AssetReportPdfGetRequest() { AssetReportToken = token };
+			var pdfrequest = new AssetReport.AssetReportPdfGetRequest() { AssetReportToken = reporttoken };
 			using var pdfresponse = await _fixture.PlaidClient.AssetReportPdfGetAsync(pdfrequest);
 
 			Assert.NotNull(pdfresponse);

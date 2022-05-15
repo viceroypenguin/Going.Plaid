@@ -9,6 +9,6 @@ public sealed partial class PlaidClient
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#asset_reportpdfget" /></remarks>
 	public Task<FileResponse> AssetReportPdfGetAsync(AssetReport.AssetReportPdfGetRequest request) =>
-	PostAsync("/asset_report/pdf/get", request)
+		PostAsync("/asset_report/pdf/get", request)
 			.ParseFileResponseAsync();
 }

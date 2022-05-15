@@ -52,7 +52,7 @@ namespace Going.Plaid.Tests
 						Products.Balance,
 						Products.Investments,
 						Products.Transactions,
-						Products.Assets
+						Products.Assets,
 					},
 				});
 			if (!publicToken.IsSuccessStatusCode)

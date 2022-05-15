@@ -388,7 +388,7 @@ public enum ErrorCode
 	/// The provided asset report token is in an invalid format. expected format: 
 	/// assets-\u003cenvironment\u003e-\u003cidentifier\u003e
 	/// </summary>
-	/// <remarks>This value is not documented on the plaid docs (as of 5/14/2022)</remarks>
+	/// <remarks>This value is not documented in the plaid docs (as of 2022-05-13)</remarks>
 	[EnumMember(Value = "INVALID_ASSET_REPORT_TOKEN")]
 	InvalidAssetReportToken,
 
