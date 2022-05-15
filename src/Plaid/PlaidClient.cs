@@ -174,42 +174,44 @@ public sealed partial class PlaidClient
 			Logger.LogInformation("Completed file request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
 
 			var status = response.StatusCode;
-			if (!response.IsSuccessStatusCode)
+			if (response.IsSuccessStatusCode)
+			{
+				IEnumerable<KeyValuePair<string, IEnumerable<string>>> inheaders = response.Headers;
+				if (response.Content?.Headers is not null)
+					inheaders = inheaders.Concat(response.Content.Headers!);
+				var headers = inheaders!.ToDictionary(x => x.Key, x => x.Value, StringComparer.Ordinal);
+				var requestid = headers.ContainsKey("plaid-request-id") ? headers["plaid-request-id"].FirstOrDefault() : null;
+
+				var stream = response.Content == null ? System.IO.Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+				var result = new FileResponse(status, headers, stream, response!) { RequestId = requestid };
+
+				if (Logger.IsEnabled(LogLevel.Trace))
+				{
+					Logger.LogTrace("Completed file request details. Url: {Url}; Response: {@Result}",
+						Url,
+						new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode });
+				}
+
+				return result;
+			}
+			else
 			{
 				var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 				var error = ParseError((int)response.StatusCode, json);
 
-				var badresult = new FileResponse(status, error) { RawJson = IncludeRawJson ? json : null, RequestId = error.RequestId };
+				var result = new FileResponse(status, error) { RawJson = IncludeRawJson ? json : null, RequestId = error.RequestId };
 
 				if (Logger.IsEnabled(LogLevel.Trace))
 				{
 					Logger.LogTrace("Completed file request details: Url: {Url}; Response: {@Result}",
 						Url,
-						new { badresult.RequestId, badresult.StatusCode, badresult.IsSuccessStatusCode, badresult.Error });
+						new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode, result.Error });
 				}
 
 				response.Dispose();
 
-				return badresult;
+				return result;
 			}
-
-			IEnumerable<KeyValuePair<string, IEnumerable<string>>> inheaders = response.Headers;
-			if (response.Content?.Headers is not null)
-				inheaders = inheaders.Concat(response.Content.Headers!);
-			var headers = inheaders!.ToDictionary(x => x.Key, x => x.Value, StringComparer.Ordinal);
-			var requestid = headers.ContainsKey("plaid-request-id") ? headers["plaid-request-id"].FirstOrDefault() : null;
-
-			var stream = response.Content == null ? System.IO.Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-			var result = new FileResponse(status, headers, stream, response!) { RequestId = requestid };
-
-			if (Logger.IsEnabled(LogLevel.Trace))
-			{
-				Logger.LogTrace("Completed file request details. Url: {Url}; Response: {@Result}",
-					Url,
-					new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode });
-			}
-
-			return result;
 		}
 
 		private readonly async Task<TResponse> BuildResponse<TResponse>(HttpResponseMessage response) where TResponse : ResponseBase, new()
