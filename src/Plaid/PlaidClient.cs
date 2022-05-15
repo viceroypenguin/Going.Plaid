@@ -178,10 +178,10 @@ public sealed partial class PlaidClient
 			{
 				var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 				var error = ParseError((int)response.StatusCode, json);
-				var badresult = new FileResponse(status, error);
+
 				response.Dispose();
 
-				return badresult;
+				return new FileResponse(status, error) { RawJson = IncludeRawJson ? json : null };
 			}
 
 			IEnumerable<KeyValuePair<string, IEnumerable<string>>> inheaders = response.Headers;
