@@ -1,4 +1,6 @@
-﻿namespace Going.Plaid;
+﻿using System.Linq;
+
+namespace Going.Plaid;
 
 /// <summary>
 /// Provides methods for sending request to and receiving data from Plaid banking API.
@@ -165,6 +167,55 @@ public sealed partial class PlaidClient
 			}
 		}
 
+		public readonly async Task<FileResponse> ParseFileResponseAsync()
+		{
+			// NOTE: We do not dispose the HttpResponseMessage here. We pass this duty onto the FileResponse
+			var response = await Message.ConfigureAwait(false);
+			Logger.LogInformation("Completed file request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
+
+			var headers = response.Headers
+				.Concat(response.Content?.Headers.AsEnumerable()
+					?? Array.Empty<KeyValuePair<string, IEnumerable<string>>>())
+				.SelectMany(static x => x.Value.Select(y => (key: x.Key, value: y)))
+				.ToLookup(x => x.key, x => x.value, StringComparer.OrdinalIgnoreCase);
+
+			var status = response.StatusCode;
+			if (response.IsSuccessStatusCode)
+			{
+				var requestid = headers["plaid-request-id"].FirstOrDefault();
+
+				var stream = response.Content == null ? System.IO.Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+				var result = new FileResponse(status, headers, stream, response) { RequestId = requestid };
+
+				if (Logger.IsEnabled(LogLevel.Trace))
+				{
+					Logger.LogTrace("Completed file request details. Url: {Url}; Response: {@Result}",
+						Url,
+						new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode });
+				}
+
+				return result;
+			}
+			else
+			{
+				var json = await response.Content!.ReadAsStringAsync().ConfigureAwait(false);
+				var error = ParseError((int)response.StatusCode, json);
+
+				var result = new FileResponse(status, headers, error) { RawJson = IncludeRawJson ? json : null, RequestId = error.RequestId };
+
+				if (Logger.IsEnabled(LogLevel.Trace))
+				{
+					Logger.LogTrace("Completed file request details: Url: {Url}; Response: {@Result}",
+						Url,
+						new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode, result.Error });
+				}
+
+				response.Dispose();
+
+				return result;
+			}
+		}
+
 		private readonly async Task<TResponse> BuildResponse<TResponse>(HttpResponseMessage response) where TResponse : ResponseBase, new()
 		{
 			if (response.IsSuccessStatusCode)
@@ -188,24 +239,6 @@ public sealed partial class PlaidClient
 			{
 				var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-				static Errors.PlaidError? ParseError(int statusCode, string json)
-				{
-					try
-					{
-						return JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions);
-					}
-					catch (Exception ex)
-					{
-						return new Errors.PlaidError
-						{
-							StatusCode = statusCode,
-							ErrorCode = ErrorCode.ApiUnavailable,
-							ErrorMessage = ex.Message,
-							DisplayMessage = "An error condition has occurred outside of Plaid. Please check your network conditions and try again at a different time.",
-						};
-					}
-				}
-
 				var error = ParseError((int)response.StatusCode, json);
 				var result = new TResponse
 				{
@@ -218,6 +251,25 @@ public sealed partial class PlaidClient
 				return result;
 			}
 		}
+
+		private static Errors.PlaidError ParseError(int statusCode, string json)
+		{
+			try
+			{
+				return JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions)!;
+			}
+			catch (Exception ex)
+			{
+				return new Errors.PlaidError
+				{
+					StatusCode = statusCode,
+					ErrorCode = ErrorCode.ApiUnavailable,
+					ErrorMessage = ex.Message,
+					DisplayMessage = "An error condition has occurred outside of Plaid. Please check your network conditions and try again at a different time.",
+				};
+			}
+		}
+
 	}
 
 	#endregion Private Members

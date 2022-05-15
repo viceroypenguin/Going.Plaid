@@ -1,4 +1,4 @@
-{
+﻿{
   "Item": {
     "InstitutionId": "ins_3",
     "Webhook": "",
@@ -16,6 +16,7 @@
       "transactions"
     ],
     "Products": [
+      "assets",
       "auth",
       "investments",
       "transactions"
