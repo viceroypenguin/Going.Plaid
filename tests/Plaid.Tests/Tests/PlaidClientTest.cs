@@ -80,7 +80,6 @@ namespace Going.Plaid.Tests
 		private static VerifySettings BuildVerifierSettings()
 		{
 			VerifierSettings.UseStrictJson();
-			VerifierSettings.DisableClipboard();
 
 			var settings = new VerifySettings();
 			settings.ModifySerialization(s =>

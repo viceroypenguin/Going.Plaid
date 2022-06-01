@@ -98,7 +98,6 @@
   ],
   "Transactions": [
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22001000",
       "Category": [
@@ -110,10 +109,10 @@
       "Name": "United Airlines",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "United Airlines"
+      "MerchantName": "United Airlines",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22016000",
       "Category": [
@@ -125,10 +124,10 @@
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Uber"
+      "MerchantName": "Uber",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005000",
       "Category": [
@@ -140,10 +139,10 @@
       "Name": "Tectra Inc",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Tectra Inc"
+      "MerchantName": "Tectra Inc",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "16000000",
       "Category": [
@@ -153,10 +152,10 @@
       "PaymentMeta": {},
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005032",
       "Category": [
@@ -169,10 +168,10 @@
       "Name": "KFC",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "KFC"
+      "MerchantName": "KFC",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "19046000",
       "Category": [
@@ -184,10 +183,10 @@
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Madison Bicycle Shop"
+      "MerchantName": "Madison Bicycle Shop",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "16001000",
       "Category": [
@@ -198,10 +197,10 @@
       "PaymentMeta": {},
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22016000",
       "Category": [
@@ -213,10 +212,10 @@
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Uber"
+      "MerchantName": "Uber",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21006000",
       "Category": [
@@ -229,10 +228,10 @@
       },
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21007000",
       "Category": [
@@ -243,10 +242,10 @@
       "PaymentMeta": {},
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "17018000",
       "Category": [
@@ -258,10 +257,10 @@
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Touchstone"
+      "MerchantName": "Touchstone",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "22001000",
       "Category": [
@@ -273,10 +272,10 @@
       "Name": "United Airlines",
       "Amount": -500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "United Airlines"
+      "MerchantName": "United Airlines",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005032",
       "Category": [
@@ -291,10 +290,10 @@
       "Name": "McDonald's",
       "Amount": 12.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "McDonald's"
+      "MerchantName": "McDonald's",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005043",
       "Category": [
@@ -307,10 +306,10 @@
       "Name": "Starbucks",
       "Amount": 4.33,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Starbucks"
+      "MerchantName": "Starbucks",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005000",
       "Category": [
@@ -322,10 +321,10 @@
       "Name": "SparkFun",
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Sparkfun"
+      "MerchantName": "Sparkfun",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21005000",
       "Category": [
@@ -336,10 +335,10 @@
       "PaymentMeta": {},
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22001000",
       "Category": [
@@ -351,10 +350,10 @@
       "Name": "United Airlines",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "United Airlines"
+      "MerchantName": "United Airlines",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22016000",
       "Category": [
@@ -366,10 +365,10 @@
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Uber"
+      "MerchantName": "Uber",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005000",
       "Category": [
@@ -381,10 +380,10 @@
       "Name": "Tectra Inc",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Tectra Inc"
+      "MerchantName": "Tectra Inc",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "16000000",
       "Category": [
@@ -394,10 +393,10 @@
       "PaymentMeta": {},
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005032",
       "Category": [
@@ -410,10 +409,10 @@
       "Name": "KFC",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "KFC"
+      "MerchantName": "KFC",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "19046000",
       "Category": [
@@ -425,10 +424,10 @@
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Madison Bicycle Shop"
+      "MerchantName": "Madison Bicycle Shop",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "16001000",
       "Category": [
@@ -439,10 +438,10 @@
       "PaymentMeta": {},
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22016000",
       "Category": [
@@ -454,10 +453,10 @@
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Uber"
+      "MerchantName": "Uber",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21006000",
       "Category": [
@@ -470,10 +469,10 @@
       },
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21007000",
       "Category": [
@@ -484,10 +483,10 @@
       "PaymentMeta": {},
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "17018000",
       "Category": [
@@ -499,10 +498,10 @@
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Touchstone"
+      "MerchantName": "Touchstone",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "22001000",
       "Category": [
@@ -514,10 +513,10 @@
       "Name": "United Airlines",
       "Amount": -500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "United Airlines"
+      "MerchantName": "United Airlines",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005032",
       "Category": [
@@ -532,10 +531,10 @@
       "Name": "McDonald's",
       "Amount": 12.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "McDonald's"
+      "MerchantName": "McDonald's",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005043",
       "Category": [
@@ -548,10 +547,10 @@
       "Name": "Starbucks",
       "Amount": 4.33,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Starbucks"
+      "MerchantName": "Starbucks",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005000",
       "Category": [
@@ -563,10 +562,10 @@
       "Name": "SparkFun",
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Sparkfun"
+      "MerchantName": "Sparkfun",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21005000",
       "Category": [
@@ -577,10 +576,10 @@
       "PaymentMeta": {},
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22001000",
       "Category": [
@@ -592,10 +591,10 @@
       "Name": "United Airlines",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "United Airlines"
+      "MerchantName": "United Airlines",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22016000",
       "Category": [
@@ -607,10 +606,10 @@
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Uber"
+      "MerchantName": "Uber",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005000",
       "Category": [
@@ -622,10 +621,10 @@
       "Name": "Tectra Inc",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Tectra Inc"
+      "MerchantName": "Tectra Inc",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "16000000",
       "Category": [
@@ -635,10 +634,10 @@
       "PaymentMeta": {},
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005032",
       "Category": [
@@ -651,10 +650,10 @@
       "Name": "KFC",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "KFC"
+      "MerchantName": "KFC",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "19046000",
       "Category": [
@@ -666,10 +665,10 @@
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Madison Bicycle Shop"
+      "MerchantName": "Madison Bicycle Shop",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "16001000",
       "Category": [
@@ -680,10 +679,10 @@
       "PaymentMeta": {},
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "special",
       "CategoryId": "22016000",
       "Category": [
@@ -695,10 +694,10 @@
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Uber"
+      "MerchantName": "Uber",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21006000",
       "Category": [
@@ -711,10 +710,10 @@
       },
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21007000",
       "Category": [
@@ -725,10 +724,10 @@
       "PaymentMeta": {},
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "17018000",
       "Category": [
@@ -740,10 +739,10 @@
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Touchstone"
+      "MerchantName": "Touchstone",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "22001000",
       "Category": [
@@ -755,10 +754,10 @@
       "Name": "United Airlines",
       "Amount": -500.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "United Airlines"
+      "MerchantName": "United Airlines",
+      "PaymentChannel": "other"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005032",
       "Category": [
@@ -773,10 +772,10 @@
       "Name": "McDonald's",
       "Amount": 12.0,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "McDonald's"
+      "MerchantName": "McDonald's",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005043",
       "Category": [
@@ -789,10 +788,10 @@
       "Name": "Starbucks",
       "Amount": 4.33,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Starbucks"
+      "MerchantName": "Starbucks",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "in store",
       "TransactionType": "place",
       "CategoryId": "13005000",
       "Category": [
@@ -804,10 +803,10 @@
       "Name": "SparkFun",
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
-      "MerchantName": "Sparkfun"
+      "MerchantName": "Sparkfun",
+      "PaymentChannel": "in store"
     },
     {
-      "PaymentChannel": "other",
       "TransactionType": "special",
       "CategoryId": "21005000",
       "Category": [
@@ -818,7 +817,8 @@
       "PaymentMeta": {},
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
-      "IsoCurrencyCode": "USD"
+      "IsoCurrencyCode": "USD",
+      "PaymentChannel": "other"
     }
   ],
   "TotalTransactions": 48,
