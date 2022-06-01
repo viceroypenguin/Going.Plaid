@@ -34,10 +34,4 @@ public record PaymentInitiationRecipient
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.RecipientBACS? Bacs { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The EMI (E-Money Institution) recipient that this recipient is associated with, if any. This EMI recipient is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
-	/// </summary>
-	[JsonPropertyName("emi_recipient_id")]
-	public string? EmiRecipientId { get; init; } = default!;
 }

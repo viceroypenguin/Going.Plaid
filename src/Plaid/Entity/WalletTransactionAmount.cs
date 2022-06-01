@@ -6,10 +6,10 @@ namespace Going.Plaid.Entity;
 public class WalletTransactionAmount
 {
 	/// <summary>
-	/// <para>The ISO-4217 currency code of the transaction. Currently, only <c>"GBP"</c> is supported.</para>
+	/// <para>An ISO-4217 currency code, used with e-wallets and transactions. Currently, only <c>"GBP"</c> is supported.</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
-	public Entity.WalletTransactionAmountIsoCurrencyCodeEnum IsoCurrencyCode { get; set; } = default!;
+	public Entity.IsoCurrencyCode IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The amount of the transaction. Must contain at most two digits of precision e.g. <c>1.23</c>.</para>

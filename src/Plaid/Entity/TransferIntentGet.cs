@@ -72,7 +72,7 @@ public record TransferIntentGet
 	public Entity.TransferIntentCreateMode Mode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Specifies the use case of the transfer.  Required for transfers on an ACH network. In Sandbox, only <c>ccd</c>, <c>ppd</c>, or <c>web</c> can be used.</para>
+	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
 	public Entity.AchClass AchClass { get; init; } = default!;
@@ -105,4 +105,22 @@ public record TransferIntentGet
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>When <c>true</c>, the transfer requires a <c>GUARANTEED</c> decision by Plaid to proceed (Guaranteed ACH customers only).</para>
+	/// </summary>
+	[JsonPropertyName("require_guarantee")]
+	public bool? RequireGuarantee { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guaranteed ACH customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the <c>guarantee_decision_rationale</c> field. Refer to the <c>code</c> field in <c>guarantee_decision_rationale</c> for details.</para>
+	/// </summary>
+	[JsonPropertyName("guarantee_decision")]
+	public Entity.TransferAuthorizationGuaranteeDecision? GuaranteeDecision { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The rationale for Plaid's decision to not guarantee a transfer. Will be <c>null</c> unless <c>guarantee_decision</c> is <c>NOT_GUARANTEED</c>.</para>
+	/// </summary>
+	[JsonPropertyName("guarantee_decision_rationale")]
+	public Entity.TransferAuthorizationGuaranteeDecisionRationale? GuaranteeDecisionRationale { get; init; } = default!;
 }

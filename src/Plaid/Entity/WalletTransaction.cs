@@ -18,7 +18,7 @@ public record WalletTransaction
 	public string Reference { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of of the transaction. Currently, only <c>"PAYOUT"</c> is supported.</para>
+	/// <para>The type of the transaction. The supported transaction types that are returned are:</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.WalletTransactionTypeEnum Type { get; init; } = default!;

@@ -30,7 +30,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string Amount { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies the use case of the transfer.  Required for transfers on an ACH network. In Sandbox, only <c>ccd</c>, <c>ppd</c>, or <c>web</c> can be used.</para>
+	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
 	public Entity.AchClass AchClass { get; set; } = default!;

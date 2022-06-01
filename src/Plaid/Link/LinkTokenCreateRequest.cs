@@ -44,6 +44,15 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products> Products { get; set; } = default!;
 
 	/// <summary>
+	/// <para>(Beta) This field has no effect unless you are participating in the Product Scope Transparency beta program.</para>
+	/// <para>List of additional Plaid product(s) you wish to collect consent for. These products will not be billed until you start using them by calling the relevant endpoints.</para>
+	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically have consent collected.</para>
+	/// <para>Institutions that do not support these products will still be shown in Link</para>
+	/// </summary>
+	[JsonPropertyName("additional_consented_products")]
+	public IReadOnlyList<Entity.Products> AdditionalConsentedProducts { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The destination URL to which any webhooks should be sent.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]

@@ -6,25 +6,25 @@ namespace Going.Plaid.Entity;
 public enum TransactionStreamStatus
 {
 	/// <summary>
-	/// 
+	/// <para>A stream is assigned an <c>UNKNOWN</c> status when none of the other statuses are applicable.</para>
 	/// </summary>
 	[EnumMember(Value = "UNKNOWN")]
 	Unknown,
 
 	/// <summary>
-	/// 
+	/// <para>A <c>MATURE</c> recurring stream should have at least 3 transactions and happen on a regular cadence.</para>
 	/// </summary>
 	[EnumMember(Value = "MATURE")]
 	Mature,
 
 	/// <summary>
-	/// 
+	/// <para>When a recurring transaction first appears in the transaction history and before it fulfills the requirement of a mature stream, the status will be <c>EARLY_DETECTION</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "EARLY_DETECTION")]
 	EarlyDetection,
 
 	/// <summary>
-	/// 
+	/// <para>A stream that was previously in the <c>EARLY_DETECTION</c> status will move to the <c>TOMBSTONED</c> status when no further transactions were found at the next expected date.</para>
 	/// </summary>
 	[EnumMember(Value = "TOMBSTONED")]
 	Tombstoned,

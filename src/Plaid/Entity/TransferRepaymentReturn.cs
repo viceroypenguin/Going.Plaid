@@ -12,7 +12,7 @@ public record TransferRepaymentReturn
 	public string TransferId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The unique identifier of the corresponding <c>reversed</c> transfer event.</para>
+	/// <para>The unique identifier of the corresponding <c>returned</c> transfer event.</para>
 	/// </summary>
 	[JsonPropertyName("event_id")]
 	public int EventId { get; init; } = default!;

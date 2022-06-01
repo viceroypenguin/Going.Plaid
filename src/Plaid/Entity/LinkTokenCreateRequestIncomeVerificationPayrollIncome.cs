@@ -10,4 +10,10 @@ public class LinkTokenCreateRequestIncomeVerificationPayrollIncome
 	/// </summary>
 	[JsonPropertyName("flow_types")]
 	public IReadOnlyList<Entity.IncomeVerificationPayrollFlowType>? FlowTypes { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An identifier to indicate whether the income verification link token will be used for an update or not</para>
+	/// </summary>
+	[JsonPropertyName("is_update_mode")]
+	public bool IsUpdateMode { get; set; } = default!;
 }

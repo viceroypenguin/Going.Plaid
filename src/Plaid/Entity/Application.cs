@@ -18,10 +18,10 @@ public record Application
 	public string Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date this application was linked in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
+	/// <para>A human-readable name of the application for display purposes</para>
 	/// </summary>
-	[JsonPropertyName("created_at")]
-	public DateOnly CreatedAt { get; init; } = default!;
+	[JsonPropertyName("display_name")]
+	public string? DisplayName { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The date this application was granted production access at Plaid in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>

@@ -18,6 +18,12 @@ public record ConnectedApplication
 	public string Name { get; init; } = default!;
 
 	/// <summary>
+	/// <para>A human-readable name of the application for display purposes</para>
+	/// </summary>
+	[JsonPropertyName("display_name")]
+	public string? DisplayName { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A URL that links to the application logo image.</para>
 	/// </summary>
 	[JsonPropertyName("logo_url")]

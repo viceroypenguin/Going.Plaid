@@ -24,26 +24,26 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transactions.TransactionsRefreshResponse>();
 
 	/// <summary>
-	/// <para>The <c>/transactions/recurring/get</c> endpoint identifies and returns groups of transactions that occur on a regular basis for the inputted Item and accounts.</para>
-	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
+	/// <para>The <c>/transactions/recurring/get</c> endpoint allows developers to receive a summary of the recurring outflow and inflow streams (expenses and deposits) from a user’s checking, savings or credit card accounts. Additionally, Plaid provides key insights about each recurring stream including the category, merchant, last amount, and more. Developers can use these insights to build tools and experiences that help their users better manage cash flow, monitor subscriptions, reduce spend, and stay on track with bill payments.</para>
+	/// <para>This endpoint is not included by default as part of Transactions. To request access to this endpoint and learn more about pricing, contact your Plaid account manager.</para>
+	/// <para>Note that unlike <c>/transactions/get</c>, <c>/transactions/recurring/get</c> will not initialize an Item with Transactions. The Item must already have been initialized with Transactions (either during Link, by specifying it in <c>/link/token/create</c>, or after Link, by calling <c>/transactions/get</c>) before calling this endpoint. Data is available to <c>/transactions/recurring/get</c> approximately 5 seconds after the <a href="https://plaid.com/docs/api/products/transactions/#historical_update"><c>HISTORICAL_UPDATE</c></a> webhook has fired (about 1-2 minutes after initialization).</para>
+	/// <para>After the initial call, you can call <c>/transactions/recurring/get</c> endpoint at any point in the future to retrieve the latest summary of recurring streams. Since recurring streams do not change often, it will typically not be necessary to call this endpoint more than once per day.</para>
 	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transactions/#transactionsrecurringget" /></remarks>
 	public Task<Transactions.TransactionsRecurringGetResponse> TransactionsRecurringGetAsync(Transactions.TransactionsRecurringGetRequest request) =>
 		PostAsync("/transactions/recurring/get", request)
 			.ParseResponseAsync<Transactions.TransactionsRecurringGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/transactions/recurring/deactivate</c> endpoint returns returns a message indicating the success in removing the product from the Item or returns an error.</para>
-	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/transactions/#transactionsrecurringdeactivate" /></remarks>
-	public Task<Transactions.TransactionsRecurringDeactivateResponse> TransactionsRecurringDeactivateAsync(Transactions.TransactionsRecurringDeactivateRequest request) =>
-		PostAsync("/transactions/recurring/deactivate", request)
-			.ParseResponseAsync<Transactions.TransactionsRecurringDeactivateResponse>();
-
-	/// <summary>
-	/// <para>The <c>/transactions/sync</c> endpoint returns item transactions as a set of delta updates.</para>
-	/// <para>Subsequent calls to the endpoint using the cursor returned in the response will return new added, modified, and removed transactions since the last call to the endpoint</para>
-	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
+	/// <para>This endpoint replaces <c>/transactions/get</c> and its associated webhooks for most common use-cases.</para>
+	/// <para>The <c>/transactions/sync</c> endpoint allows developers to subscribe to all transactions associated with an Item and get updates synchronously in a stream-like manner, using a cursor to track which updates have already been seen. <c>/transactions/sync</c> provides the same functionality as <c>/transactions/get</c> and can be used instead of <c>/transactions/get</c> to simplify the process of tracking transactions updates.</para>
+	/// <para>This endpoint provides user-authorized transaction data for <c>credit</c>, <c>depository</c>, and some loan-type accounts (only those with account subtype <c>student</c>; coverage may be limited). For transaction history from <c>investments</c> accounts, use <c>/investments/transactions/get</c> instead.</para>
+	/// <para>Returned transactions data is grouped into three types of update, indicating whether the transaction was added, removed, or modified since the last call to the API.</para>
+	/// <para>In the first call to <c>/transactions/sync</c> for an Item, the endpoint will return all historical transactions data associated with that Item up until the time of the API call (as "adds"), which then generates a <c>latest_cursor</c> for that Item. In subsequent calls, send the <c>latest_cursor</c> to receive only the changes that have occurred since the previous call.</para>
+	/// <para>Due to the potentially large number of transactions associated with an Item, results are paginated. The <c>has_more</c> field specifies if additional calls are necessary to fetch all available transaction updates.</para>
+	/// <para>Whenever new or updated transaction data becomes available, <c>/transactions/sync</c> will provide these updates. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. An Item's <c>status.transactions.last_successful_update</c> field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, use the <c>/transactions/refresh</c> endpoint.</para>
+	/// <para>Note that for newly created Items, data may not be immediately available to <c>/transactions/sync</c>. Plaid begins preparing transactions data when the Item is created, but the process can take anywhere from a few seconds to several minutes to complete, depending on the number of transactions available.</para>
+	/// <para>To be alerted when new data is available, listen for the <a href="https://plaid.com/docs/api/products/transactions/#sync_updates_available"><c>SYNC_UPDATES_AVAILABLE</c></a> webhook.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transactions/#transactionssync" /></remarks>
 	public Task<Transactions.TransactionsSyncResponse> TransactionsSyncAsync(Transactions.TransactionsSyncRequest request) =>

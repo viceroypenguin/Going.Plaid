@@ -3,6 +3,15 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para>Plaid can provide an Audit Copy token of an Asset Report and/or Income Report directly to a participating third party on your behalf. For example, Plaid can supply an Audit Copy token directly to Fannie Mae on your behalf if you participate in the Day 1 Certainty™ program. An Audit Copy token contains the same underlying data as the Asset Report and/or Income Report (result of /credit/payroll_income/get).</para>
+	/// <para>To grant access to an Audit Copy token, use the <c>/credit/audit_copy_token/create</c> endpoint to create an <c>audit_copy_token</c> and then pass that token to the third party who needs access. Each third party has its own <c>auditor_id</c>, for example <c>fannie_mae</c>. You’ll need to create a separate Audit Copy for each third party to whom you want to grant access to the Report.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditaudit_copy_tokencreate" /></remarks>
+	public Task<Credit.CreditAuditCopyTokenCreateResponse> CreditAuditCopyTokenCreateAsync(Credit.CreditAuditCopyTokenCreateRequest request) =>
+		PostAsync("/credit/audit_copy_token/create", request)
+			.ParseResponseAsync<Credit.CreditAuditCopyTokenCreateResponse>();
+
+	/// <summary>
 	/// <para><c>/credit/bank_income/get</c> returns the bank income report(s) for a specified user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomeget" /></remarks>

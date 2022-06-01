@@ -16,4 +16,16 @@ public class ExternalPaymentInitiationConsentOptions
 	/// </summary>
 	[JsonPropertyName("request_refund_details")]
 	public bool? RequestRefundDetails { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The International Bank Account Number (IBAN) for the payer's account. If provided, the end user will be able to set up payment consent using only the specified bank account.</para>
+	/// </summary>
+	[JsonPropertyName("iban")]
+	public string? Iban { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An optional object used to restrict the accounts used for payments. If provided, the end user will be able to send payments only from the specified bank account.</para>
+	/// </summary>
+	[JsonPropertyName("bacs")]
+	public Entity.PaymentInitiationOptionalRestrictionBacs? Bacs { get; set; } = default!;
 }

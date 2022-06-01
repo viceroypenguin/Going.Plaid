@@ -32,8 +32,8 @@ public record CreditBankIncomeItem
 	/// <summary>
 	/// <para>The name of the institution associated with the Item.</para>
 	/// </summary>
-	[JsonPropertyName("insitution_name")]
-	public string InsitutionName { get; init; } = default!;
+	[JsonPropertyName("institution_name")]
+	public string InstitutionName { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The unique identifier for the Item.</para>

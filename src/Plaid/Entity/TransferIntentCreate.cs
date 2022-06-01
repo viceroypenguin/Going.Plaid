@@ -48,7 +48,7 @@ public record TransferIntentCreate
 	public Entity.TransferIntentCreateMode Mode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Specifies the use case of the transfer.  Required for transfers on an ACH network. In Sandbox, only <c>ccd</c>, <c>ppd</c>, or <c>web</c> can be used.</para>
+	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
 	public Entity.AchClass AchClass { get; init; } = default!;
@@ -81,4 +81,10 @@ public record TransferIntentCreate
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>When <c>true</c>, the transfer requires a <c>GUARANTEED</c> decision by Plaid to proceed (Guaranteed ACH customers only).</para>
+	/// </summary>
+	[JsonPropertyName("require_guarantee")]
+	public bool? RequireGuarantee { get; init; } = default!;
 }

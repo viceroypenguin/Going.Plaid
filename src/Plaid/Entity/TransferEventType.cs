@@ -30,10 +30,16 @@ public enum TransferEventType
 	Posted,
 
 	/// <summary>
-	/// <para>A posted transfer was reversed.</para>
+	/// 
 	/// </summary>
 	[EnumMember(Value = "reversed")]
 	Reversed,
+
+	/// <summary>
+	/// <para>A posted transfer was returned.</para>
+	/// </summary>
+	[EnumMember(Value = "returned")]
+	Returned,
 
 	/// <summary>
 	/// <para>The transfer was swept to / from the sweep account.</para>
@@ -42,10 +48,16 @@ public enum TransferEventType
 	Swept,
 
 	/// <summary>
-	/// <para>Due to the transfer reversing, funds were pulled from or pushed back to the sweep account.</para>
+	/// 
 	/// </summary>
 	[EnumMember(Value = "reverse_swept")]
 	ReverseSwept,
+
+	/// <summary>
+	/// <para>Due to the transfer being returned, funds were pulled from or pushed back to the sweep account.</para>
+	/// </summary>
+	[EnumMember(Value = "return_swept")]
+	ReturnSwept,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

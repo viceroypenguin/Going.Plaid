@@ -54,7 +54,7 @@ public record TransferEvent
 	public string TransferAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The failure reason if the event type for a transfer is <c>"failed"</c> or <c>"reversed"</c>. Null value otherwise.</para>
+	/// <para>The failure reason if the event type for a transfer is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.TransferFailure? FailureReason { get; init; } = default!;
@@ -66,7 +66,7 @@ public record TransferEvent
 	public string? SweepId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A signed amount of how much was <c>swept</c> or <c>reverse_swept</c> (decimal string with two digits of precision e.g. "-5.50").</para>
+	/// <para>A signed amount of how much was <c>swept</c> or <c>return_swept</c> (decimal string with two digits of precision e.g. "-5.50").</para>
 	/// </summary>
 	[JsonPropertyName("sweep_amount")]
 	public string? SweepAmount { get; init; } = default!;

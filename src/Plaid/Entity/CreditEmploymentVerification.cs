@@ -46,4 +46,21 @@ public record CreditEmploymentVerification
 	/// </summary>
 	[JsonPropertyName("platform_ids")]
 	public Entity.CreditPlatformIds PlatformIds { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The type of employment for the individual.</para>
+	/// <para><c>"FULL_TIME"</c>: A full-time employee.</para>
+	/// <para><c>"PART_TIME"</c>: A part-time employee.</para>
+	/// <para><c>"CONTRACTOR"</c>: An employee typically hired externally through a contracting group.</para>
+	/// <para><c>"TEMPORARY"</c>: A temporary employee.</para>
+	/// <para><c>"OTHER"</c>: The employee type is not one of the above defined types.</para>
+	/// </summary>
+	[JsonPropertyName("employee_type")]
+	public string? EmployeeType { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The date of the employee's most recent paystub in ISO 8601 format (YYYY-MM-DD).</para>
+	/// </summary>
+	[JsonPropertyName("last_paystub_date")]
+	public DateOnly? LastPaystubDate { get; init; } = default!;
 }

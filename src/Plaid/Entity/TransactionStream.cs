@@ -39,7 +39,7 @@ public record TransactionStream
 	/// <para>The merchant associated with the transaction stream.</para>
 	/// </summary>
 	[JsonPropertyName("merchant_name")]
-	public string MerchantName { get; init; } = default!;
+	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The posted date of the earliest transaction in the stream.</para>

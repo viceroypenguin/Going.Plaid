@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>The webhook codes that can be fired by this test endpoint.</para>
 /// </summary>
 public enum SandboxItemFireWebhookRequestWebhookCodeEnum
 {

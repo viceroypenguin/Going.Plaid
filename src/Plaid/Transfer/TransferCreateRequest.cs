@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Deprecated. <c>authorization_id</c> is now for used idempotency instead.</para>
+	/// <para>Deprecated. <c>authorization_id</c> is now used as idempotency instead.</para>
 	/// <para>A random key provided by the client, per unique transfer. Maximum of 50 characters.</para>
 	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create a transfer fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single transfer is created.</para>
 	/// </summary>
@@ -50,7 +50,7 @@ public partial class TransferCreateRequest : RequestBase
 	public string Description { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies the use case of the transfer.  Required for transfers on an ACH network. In Sandbox, only <c>ccd</c>, <c>ppd</c>, or <c>web</c> can be used.</para>
+	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
 	public Entity.AchClass AchClass { get; set; } = default!;

@@ -72,10 +72,10 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	public string? Iban { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Initiated refunds associated with the payment.</para>
+	/// <para>Refund IDs associated with the payment.</para>
 	/// </summary>
-	[JsonPropertyName("initiated_refunds")]
-	public IReadOnlyList<Entity.PaymentInitiationRefund> InitiatedRefunds { get; init; } = default!;
+	[JsonPropertyName("refund_ids")]
+	public IReadOnlyList<string> RefundIds { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
@@ -99,5 +99,5 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	/// <para>The payment consent ID that this payment was initiated with. Is present only when payment was initiated using the payment consent.</para>
 	/// </summary>
 	[JsonPropertyName("consent_id")]
-	public string ConsentId { get; init; } = default!;
+	public string? ConsentId { get; init; } = default!;
 }

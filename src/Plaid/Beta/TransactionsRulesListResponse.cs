@@ -1,7 +1,7 @@
 namespace Going.Plaid.Beta;
 
 /// <summary>
-/// <para>TransactionsRulesListResponse defines the response schema for <c>/transactions/rules/list</c></para>
+/// <para>TransactionsRulesListResponse defines the response schema for <c>/beta/transactions/rules/v1/list</c></para>
 /// </summary>
 public record TransactionsRulesListResponse : ResponseBase
 {

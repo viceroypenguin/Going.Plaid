@@ -52,6 +52,7 @@ static class Program
 	{
 		["ACHClass"] = "AchClass",
 		["APR"] = "Apr",
+		["ISO Currency Code"] = "IsoCurrencyCode",
 		["NumbersACH"] = "NumbersAch",
 		["NumbersEFT"] = "NumbersEft",
 		["NumbersBACS"] = "NumbersBacs",
@@ -87,6 +88,10 @@ static class Program
 		foreach (var (uri, item) in doc.Paths)
 		{
 			var basePath = uri[1..].Split('/')[0].ToPascalCase();
+
+			if (!item.Operations.ContainsKey(OperationType.Post))
+				continue;
+
 			var op = item.Operations[OperationType.Post];
 
 			if (!op.Responses["200"].Content.ContainsKey("application/json"))
@@ -96,10 +101,13 @@ static class Program
 				continue;
 
 			var requestSchema = op.RequestBody.Content["application/json"].Schema;
-			AddSchemaEntity(basePath, requestSchema.Reference.Id, requestSchema, SchemaType.Class);
+			var requestType = $"{basePath}.{requestSchema.Reference.Id}";
+			AddSchemaEntity(basePath, requestSchema.Reference.Id, isResponseType: false, requestSchema, SchemaType.Class);
 
 			var responseSchema = op.Responses["200"].Content["application/json"].Schema;
-			AddSchemaEntity(basePath, responseSchema.Reference.Id, responseSchema, SchemaType.Record);
+			var responsePath = responseSchema.Reference.Id.EndsWith("Response") ? basePath : "Entity";
+			var responseType = $"{responsePath}.{responseSchema.Reference.Id}";
+			AddSchemaEntity(responsePath, responseSchema.Reference.Id, isResponseType: true, responseSchema, SchemaType.Record);
 
 			apiCalls.Add(new(
 				uri,
@@ -107,22 +115,26 @@ static class Program
 				string.Concat(uri[1..].Split('/').Select(s => s.ToPascalCase())),
 				FixupDescription(op.Description ?? op.Summary),
 				op.ExternalDocs?.Url?.ToString() ?? string.Empty,
-				requestSchema.Reference.Id,
-				responseSchema.Reference.Id));
+				requestType,
+				responseType));
 		}
 	}
 
-	private static void AddSchemaEntity(string basePath, string name, OpenApiSchema schema, SchemaType type)
+	private static void AddSchemaEntity(string basePath, string name, bool isResponseType, OpenApiSchema schema, SchemaType type)
 	{
 		if (excludes.Contains(name)) return;
 
 		if (schemaEntities.ContainsKey(name))
 		{
-			if (schemaEntities[name].SchemaType == SchemaType.Record
+			var entity = schemaEntities[name];
+			if (entity.SchemaType == SchemaType.Record
 				&& type == SchemaType.Class)
 			{
-				schemaEntities[name].SchemaType = SchemaType.Class;
+				entity.SchemaType = SchemaType.Class;
 			}
+
+			if (isResponseType && !entity.IsResponseType)
+				entity.IsResponseType = true;
 
 			return;
 		}
@@ -158,6 +170,7 @@ static class Program
 				BasePath = basePath,
 				Name = name,
 				Description = GetPropertyDescription(schema),
+				IsResponseType = isResponseType,
 			};
 
 			var properties = schema.Properties
@@ -172,7 +185,7 @@ static class Program
 				.Where(p => !(
 					(name.EndsWith("Request")
 						&& (p.Key is "client_id" or "secret" or "access_token"))
-					|| (name.EndsWith("Response") && basePath != "Entity" && p.Key is "request_id" or "error")))
+					|| (isResponseType && p.Key is "request_id" or "error")))
 				.Select(p =>
 				{
 					var propertyName = p.Key.ToLower().ToPascalCase();
@@ -312,7 +325,7 @@ static class Program
 		}
 
 		entityName = nameFixups.GetValueOrDefault(entityName, entityName);
-		AddSchemaEntity("Entity", entityName, schema, entityType);
+		AddSchemaEntity("Entity", entityName, isResponseType: false, schema, entityType);
 		return entityName == "PlaidException"
 			? "Exceptions.PlaidException"
 			: $"Entity.{entityName}";
@@ -432,9 +445,9 @@ static class Program
 	/// <summary>
 {FormatDescription(c.Description, 1)}
 	/// </summary>{remarks(c.ExternalUrl)}
-	public Task<{g.Key}.{c.ResponseType}> {c.MethodName}Async({g.Key}.{c.RequestType} request) =>
+	public Task<{c.ResponseType}> {c.MethodName}Async({c.RequestType} request) =>
 		PostAsync(""{c.Uri}"", request)
-			.ParseResponseAsync<{g.Key}.{c.ResponseType}>();");
+			.ParseResponseAsync<{c.ResponseType}>();");
 
 			var body = $@"namespace Going.Plaid;
 
@@ -506,7 +519,7 @@ public {(i.Name.EndsWith("Request") ? "partial class" : "class")} {i.Name}{baseP
 		var basePath = string.Empty;
 		if (i.BaseClass != null)
 			basePath = " : " + i.BaseClass;
-		else if (i.Name.EndsWith("Response") && i.BasePath != "Entity")
+		else if (i.IsResponseType)
 			basePath = " : ResponseBase";
 
 		var body = $@"namespace Going.Plaid.{i.BasePath};
@@ -564,5 +577,6 @@ public class SchemaEntity
 	public string Name { get; init; } = default!;
 	public string Description { get; init; } = default!;
 	public string? BaseClass { get; set; }
+	public bool IsResponseType { get; set; }
 	public IReadOnlyList<Property>? Properties { get; set; } = default!;
 }

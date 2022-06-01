@@ -1,7 +1,7 @@
 namespace Going.Plaid.Beta;
 
 /// <summary>
-/// <para>TransactionsRulesCreateRequest defines the request schema for <c>/transactions/rules/create</c></para>
+/// <para>TransactionsRulesCreateRequest defines the request schema for <c>beta/transactions/rules/v1/create</c></para>
 /// </summary>
 public partial class TransactionsRulesCreateRequest : RequestBase
 {

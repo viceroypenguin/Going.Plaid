@@ -12,6 +12,12 @@ public record PaymentInitiationMetadata
 	public bool SupportsInternationalPayments { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Indicates whether the institution supports SEPA Instant payments.</para>
+	/// </summary>
+	[JsonPropertyName("supports_sepa_instant")]
+	public bool SupportsSepaInstant { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A mapping of currency to maximum payment amount (denominated in the smallest unit of currency) supported by the institution.</para>
 	/// <para>Example: <c>{"GBP": "10000"}</c></para>
 	/// </summary>
