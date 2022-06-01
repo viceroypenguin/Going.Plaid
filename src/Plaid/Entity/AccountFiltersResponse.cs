@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The <c>account_filters</c> specified in the original call to <c>/link/token/create</c>.</para>
 /// </summary>
-public record AccountFiltersResponse : ResponseBase
+public record AccountFiltersResponse
 {
 	/// <summary>
 	/// <para>A filter to apply to <c>depository</c>-type accounts</para>

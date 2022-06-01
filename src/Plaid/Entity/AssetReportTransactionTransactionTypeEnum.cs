@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Please use the <c>payment_channel</c> field, <c>transaction_type</c> will be deprecated in the future.</para>
 /// </summary>
-public enum TransactionBaseTransactionTypeEnum
+public enum AssetReportTransactionTransactionTypeEnum
 {
 	/// <summary>
 	/// <para>transactions that took place online.</para>

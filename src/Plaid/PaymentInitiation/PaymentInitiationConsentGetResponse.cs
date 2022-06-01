@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.PaymentInitiation;
+namespace Going.Plaid.PaymentInitiation;
 
 /// <summary>
 /// <para>PaymentInitiationConsentGetResponse defines the response schema for <c>/payment_initation/consent/get</c></para>

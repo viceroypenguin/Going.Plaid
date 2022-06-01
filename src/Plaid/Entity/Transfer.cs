@@ -92,7 +92,7 @@ public record Transfer
 	/// <para>- Maximum value length of 500 characters</para>
 	/// </summary>
 	[JsonPropertyName("metadata")]
-	public Entity.TransferMetadata? Metadata { get; init; } = default!;
+	public IReadOnlyDictionary<string, string>? Metadata { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for the origination account that was used for this transfer.</para>

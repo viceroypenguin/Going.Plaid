@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>An object specifying the arguments originally provided to the <c>/link/token/create</c> call.</para>
 /// </summary>
-public record LinkTokenGetMetadataResponse : ResponseBase
+public record LinkTokenGetMetadataResponse
 {
 	/// <summary>
 	/// <para>The <c>products</c> specified in the <c>/link/token/create</c> call.</para>

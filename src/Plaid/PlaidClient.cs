@@ -242,6 +242,7 @@ public sealed partial class PlaidClient
 				var error = ParseError((int)response.StatusCode, json);
 				var result = new TResponse
 				{
+					RequestId = error.RequestId ?? string.Empty,
 					Error = error,
 					StatusCode = response.StatusCode,
 				};

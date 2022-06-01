@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The legal name and other information for the account holder.</para>
 /// </summary>
-public record TransferUserInResponse : ResponseBase
+public record TransferUserInResponse
 {
 	/// <summary>
 	/// <para>The user's legal name.</para>

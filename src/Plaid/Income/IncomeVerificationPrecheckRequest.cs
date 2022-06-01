@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Income;
+namespace Going.Plaid.Income;
 
 /// <summary>
 /// <para>IncomeVerificationPrecheckRequest defines the request schema for <c>/income/verification/precheck</c></para>

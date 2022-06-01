@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Income;
+namespace Going.Plaid.Income;
 
 /// <summary>
 /// <para>IncomeVerificationTaxformsGetResponse defines the response schema for <c>/income/verification/taxforms/get</c></para>

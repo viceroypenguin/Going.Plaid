@@ -70,7 +70,7 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para>- Maximum value length of 500 characters</para>
 	/// </summary>
 	[JsonPropertyName("metadata")]
-	public Entity.TransferMetadata? Metadata { get; set; } = default!;
+	public IReadOnlyDictionary<string, string>? Metadata { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified. Otherwise, this field should be left blank.</para>

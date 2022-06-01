@@ -60,12 +60,14 @@ static class Program
 		["transaction_code"] = "TransactionCode",
 		["YTDGrossIncomeSummaryFieldNumber"] = "YtdGrossIncomeSummaryFieldNumber",
 		["YTDNetIncomeSummaryFieldNumber"] = "YtdNetIncomeSummaryFieldNumber",
+		["Error"] = "PlaidError",
 	};
 	private static readonly string[] excludes = new[]
 	{
 		"PlaidException",
 		"Error",
 		"PlaidError",
+		"Cause",
 		"AccountType",
 		"OverrideAccountType",
 		"StandaloneAccountType",
@@ -150,12 +152,6 @@ static class Program
 		}
 		else
 		{
-			// hard-coded. blech
-			if (name == "ExternalPaymentScheduleGet")
-			{
-				type = SchemaType.Class;
-			}
-
 			var e = schemaEntities[name] = new()
 			{
 				SchemaType = type,
@@ -164,39 +160,19 @@ static class Program
 				Description = GetPropertyDescription(schema),
 			};
 
-			// hard-coded. blech
-			if (name == "PaymentInitiationRecipientGetResponse"
-				|| name == "PaymentInitiationPaymentGetResponse")
+			var properties = schema.Properties
+				.ToList();
+
+			foreach (var s in schema.AllOf)
 			{
-				schema = schema.AllOf[0];
+				properties.AddRange(s.Properties);
 			}
 
-			if (schema.AllOf.Any())
-			{
-				foreach (var s in schema.AllOf)
-				{
-					if (s.Reference != null)
-					{
-						e.BaseClass = GetPropertyType(
-							name,
-							string.Empty,
-							s,
-							type);
-					}
-					else
-					{
-						schema = s;
-					}
-				}
-			}
-
-			e.Properties = schema.Properties
+			e.Properties = properties
 				.Where(p => !(
 					(name.EndsWith("Request")
-						&& (p.Key == "client_id"
-							|| p.Key == "secret"
-							|| p.Key == "access_token"))
-					|| (name.EndsWith("Response") && p.Key == "request_id")))
+						&& (p.Key is "client_id" or "secret" or "access_token"))
+					|| (name.EndsWith("Response") && basePath != "Entity" && p.Key is "request_id" or "error")))
 				.Select(p =>
 				{
 					var propertyName = p.Key.ToLower().ToPascalCase();
@@ -311,6 +287,10 @@ static class Program
 		if (schema.Type == "string" && entityType != SchemaType.Enum)
 			return "string";
 
+		if (schema.AllOf.Count == 1
+			&& schema.AllOf[0].Type == "string")
+			return "string";
+
 		if (schema.Reference != null)
 		{
 			if (schema.Reference.Id.EndsWith("Nullable"))
@@ -318,8 +298,8 @@ static class Program
 				var realType = schema.AllOf.First();
 				return GetPropertyType(className, propertyName, realType, entityType);
 			}
-			else if (schema.Reference.Id == "BankTransferMetadata")
-				return "IReadOnlyDictionary<string, string>";
+			else if (schema.AdditionalProperties != null)
+				return $"IReadOnlyDictionary<string, {GetPropertyType(className, propertyName, schema.AdditionalProperties, type)}>";
 		}
 
 		var entityName = schema.Title ?? schema.Reference?.Id;
@@ -526,7 +506,7 @@ public {(i.Name.EndsWith("Request") ? "partial class" : "class")} {i.Name}{baseP
 		var basePath = string.Empty;
 		if (i.BaseClass != null)
 			basePath = " : " + i.BaseClass;
-		else if (i.Name.EndsWith("Response"))
+		else if (i.Name.EndsWith("Response") && i.BasePath != "Entity")
 			basePath = " : ResponseBase";
 
 		var body = $@"namespace Going.Plaid.{i.BasePath};

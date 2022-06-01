@@ -74,7 +74,7 @@ public record TransferIntentCreate
 	/// <para>- Maximum value length of 500 characters</para>
 	/// </summary>
 	[JsonPropertyName("metadata")]
-	public Entity.TransferMetadata? Metadata { get; init; } = default!;
+	public IReadOnlyDictionary<string, string>? Metadata { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The currency of the transfer amount, e.g. "USD"</para>

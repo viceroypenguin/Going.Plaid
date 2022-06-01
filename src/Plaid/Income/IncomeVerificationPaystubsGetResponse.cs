@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Income;
+namespace Going.Plaid.Income;
 
 /// <summary>
 /// <para>IncomeVerificationPaystubsGetResponse defines the response schema for <c>/income/verification/paystubs/get</c>.</para>

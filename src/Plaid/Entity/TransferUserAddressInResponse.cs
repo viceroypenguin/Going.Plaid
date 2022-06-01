@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The address associated with the account holder.</para>
 /// </summary>
-public record TransferUserAddressInResponse : ResponseBase
+public record TransferUserAddressInResponse
 {
 	/// <summary>
 	/// <para>The street number and name (i.e., "100 Market St.").</para>
