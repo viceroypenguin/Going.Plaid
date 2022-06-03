@@ -82,24 +82,21 @@ namespace Going.Plaid.Tests
 			VerifierSettings.UseStrictJson();
 
 			var settings = new VerifySettings();
-			settings.ModifySerialization(s =>
-			{
-				// random ids
-				s.IgnoreMember("RequestId");
-				s.IgnoreMember("AccountId");
-				s.IgnoreMember("ItemId");
-				s.IgnoreMember("TransactionId");
-				s.IgnoreMember("SecurityId");
-				s.IgnoreMember("InvestmentTransactionId");
+			// random ids
+			settings.IgnoreMember("RequestId");
+			settings.IgnoreMember("AccountId");
+			settings.IgnoreMember("ItemId");
+			settings.IgnoreMember("TransactionId");
+			settings.IgnoreMember("SecurityId");
+			settings.IgnoreMember("InvestmentTransactionId");
 
-				// dateonly vs datetime - ignore dates for now
-				s.IgnoreMember("Date");
-				s.IgnoreMember("InstitutionPriceAsOf");
-				s.IgnoreMember("ClosePriceAsOf");
-				s.IgnoreMember("AuthorizedDate");
+			// dateonly vs datetime - ignore dates for now
+			settings.IgnoreMember("Date");
+			settings.IgnoreMember("InstitutionPriceAsOf");
+			settings.IgnoreMember("ClosePriceAsOf");
+			settings.IgnoreMember("AuthorizedDate");
 
-				s.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
-			});
+			settings.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
 			return settings;
 		}
 
