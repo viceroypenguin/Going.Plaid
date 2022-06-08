@@ -109,6 +109,7 @@
       "Name": "United Airlines",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "United Airlines",
       "PaymentChannel": "in store"
     },
@@ -124,6 +125,7 @@
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Uber",
       "PaymentChannel": "in store"
     },
@@ -139,6 +141,7 @@
       "Name": "Tectra Inc",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Tectra Inc",
       "PaymentChannel": "in store"
     },
@@ -153,6 +156,7 @@
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -168,6 +172,7 @@
       "Name": "KFC",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "KFC",
       "PaymentChannel": "in store"
     },
@@ -183,6 +188,7 @@
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Madison Bicycle Shop",
       "PaymentChannel": "in store"
     },
@@ -198,6 +204,7 @@
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -212,6 +219,7 @@
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Uber",
       "PaymentChannel": "in store"
     },
@@ -229,6 +237,7 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -243,6 +252,7 @@
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -257,6 +267,7 @@
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Touchstone",
       "PaymentChannel": "in store"
     },
@@ -272,6 +283,7 @@
       "Name": "United Airlines",
       "Amount": -500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "United Airlines",
       "PaymentChannel": "other"
     },
@@ -290,6 +302,7 @@
       "Name": "McDonald's",
       "Amount": 12.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "McDonald's",
       "PaymentChannel": "in store"
     },
@@ -306,6 +319,7 @@
       "Name": "Starbucks",
       "Amount": 4.33,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Starbucks",
       "PaymentChannel": "in store"
     },
@@ -321,6 +335,7 @@
       "Name": "SparkFun",
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Sparkfun",
       "PaymentChannel": "in store"
     },
@@ -336,6 +351,7 @@
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -350,6 +366,7 @@
       "Name": "United Airlines",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "United Airlines",
       "PaymentChannel": "in store"
     },
@@ -365,6 +382,7 @@
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Uber",
       "PaymentChannel": "in store"
     },
@@ -380,6 +398,7 @@
       "Name": "Tectra Inc",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Tectra Inc",
       "PaymentChannel": "in store"
     },
@@ -394,6 +413,7 @@
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -409,6 +429,7 @@
       "Name": "KFC",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "KFC",
       "PaymentChannel": "in store"
     },
@@ -424,6 +445,7 @@
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Madison Bicycle Shop",
       "PaymentChannel": "in store"
     },
@@ -439,6 +461,7 @@
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -453,6 +476,7 @@
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Uber",
       "PaymentChannel": "in store"
     },
@@ -470,6 +494,7 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -484,6 +509,7 @@
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -498,6 +524,7 @@
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Touchstone",
       "PaymentChannel": "in store"
     },
@@ -513,6 +540,7 @@
       "Name": "United Airlines",
       "Amount": -500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "United Airlines",
       "PaymentChannel": "other"
     },
@@ -531,6 +559,7 @@
       "Name": "McDonald's",
       "Amount": 12.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "McDonald's",
       "PaymentChannel": "in store"
     },
@@ -547,6 +576,7 @@
       "Name": "Starbucks",
       "Amount": 4.33,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Starbucks",
       "PaymentChannel": "in store"
     },
@@ -562,6 +592,7 @@
       "Name": "SparkFun",
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Sparkfun",
       "PaymentChannel": "in store"
     },
@@ -577,6 +608,7 @@
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -591,6 +623,7 @@
       "Name": "United Airlines",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "United Airlines",
       "PaymentChannel": "in store"
     },
@@ -606,6 +639,7 @@
       "Name": "Uber 072515 SF**POOL**",
       "Amount": 6.33,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Uber",
       "PaymentChannel": "in store"
     },
@@ -621,6 +655,7 @@
       "Name": "Tectra Inc",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Tectra Inc",
       "PaymentChannel": "in store"
     },
@@ -635,6 +670,7 @@
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -650,6 +686,7 @@
       "Name": "KFC",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "KFC",
       "PaymentChannel": "in store"
     },
@@ -665,6 +702,7 @@
       "Name": "Madison Bicycle Shop",
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Madison Bicycle Shop",
       "PaymentChannel": "in store"
     },
@@ -680,6 +718,7 @@
       "Name": "CREDIT CARD 3333 PAYMENT *//",
       "Amount": 25.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -694,6 +733,7 @@
       "Name": "Uber 063015 SF**POOL**",
       "Amount": 5.4,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Uber",
       "PaymentChannel": "in store"
     },
@@ -711,6 +751,7 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -725,6 +766,7 @@
       "Name": "CD DEPOSIT .INITIAL.",
       "Amount": 1000.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     },
     {
@@ -739,6 +781,7 @@
       "Name": "Touchstone Climbing",
       "Amount": 78.5,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Touchstone",
       "PaymentChannel": "in store"
     },
@@ -754,6 +797,7 @@
       "Name": "United Airlines",
       "Amount": -500.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "United Airlines",
       "PaymentChannel": "other"
     },
@@ -772,6 +816,7 @@
       "Name": "McDonald's",
       "Amount": 12.0,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "McDonald's",
       "PaymentChannel": "in store"
     },
@@ -788,6 +833,7 @@
       "Name": "Starbucks",
       "Amount": 4.33,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Starbucks",
       "PaymentChannel": "in store"
     },
@@ -803,6 +849,7 @@
       "Name": "SparkFun",
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "MerchantName": "Sparkfun",
       "PaymentChannel": "in store"
     },
@@ -818,6 +865,7 @@
       "Name": "INTRST PYMNT",
       "Amount": -4.22,
       "IsoCurrencyCode": "USD",
+      "Pending": false,
       "PaymentChannel": "other"
     }
   ],
