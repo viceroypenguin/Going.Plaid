@@ -18,7 +18,7 @@ public enum Strategy
 	Incomplete,
 
 	/// <summary>
-	/// <para>If the most recent Identity Verification attempt associated with the given <c>customer_reference</c> has a status of <c>failed</c> or <c>expired</c>, retry using the <c>incomplete</c> strategy. Otherwise, use the <c>reset</c> strategy.</para>
+	/// <para>If the most recent Identity Verification attempt associated with the given <c>client_user_id</c> has a status of <c>failed</c> or <c>expired</c>, retry using the <c>incomplete</c> strategy. Otherwise, use the <c>reset</c> strategy.</para>
 	/// </summary>
 	[EnumMember(Value = "infer")]
 	Infer,

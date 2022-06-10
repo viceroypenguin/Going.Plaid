@@ -1,9 +1,9 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.IdentityVerification;
 
 /// <summary>
 /// <para>A identity verification attempt represents a customer's attempt to verify their identity, reflecting the required steps for completing the session, the results for each step, and information collected in the process.</para>
 /// </summary>
-public record IdentityVerification
+public record IdentityVerificationResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>ID of the associated Identity Verification attempt.</para>

@@ -1,9 +1,9 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.DashboardUser;
 
 /// <summary>
 /// <para>Paginated list of dashboard users</para>
 /// </summary>
-public record PaginatedDashboardUserList : ResponseBase
+public record PaginatedDashboardUserListResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>List of dashboard users</para>

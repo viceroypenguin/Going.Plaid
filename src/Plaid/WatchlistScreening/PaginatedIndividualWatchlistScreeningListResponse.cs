@@ -1,9 +1,9 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.WatchlistScreening;
 
 /// <summary>
 /// <para>Paginated list of individual watchlist screenings.</para>
 /// </summary>
-public record PaginatedIndividualWatchlistScreeningList : ResponseBase
+public record PaginatedIndividualWatchlistScreeningListResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>List of individual watchlist screenings</para>

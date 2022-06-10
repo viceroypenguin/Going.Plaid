@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The screening object allows you to represent a customer in your system, update their profile, and search for them on various watchlists. Note: Rejected customers will not receive new hits, regardless of program configuration.</para>
 /// </summary>
-public record WatchlistScreeningIndividual : ResponseBase
+public record WatchlistScreeningIndividual
 {
 	/// <summary>
 	/// <para>ID of the associated screening.</para>

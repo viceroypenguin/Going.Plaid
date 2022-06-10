@@ -1,9 +1,9 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.IdentityVerification;
 
 /// <summary>
 /// <para>Paginated list of Plaid sessions.</para>
 /// </summary>
-public record PaginatedIdentityVerificationPaginatedList : ResponseBase
+public record PaginatedIdentityVerificationListResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>List of Plaid sessions</para>

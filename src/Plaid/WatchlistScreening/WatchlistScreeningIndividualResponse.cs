@@ -1,21 +1,21 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.WatchlistScreening;
 
 /// <summary>
-/// <para>The entity screening object allows you to represent an entity in your system, update its profile, and search for it on various watchlists. Note: Rejected entity screenings will not receive new hits, regardless of entity program configuration.</para>
+/// <para>The screening object allows you to represent a customer in your system, update their profile, and search for them on various watchlists. Note: Rejected customers will not receive new hits, regardless of program configuration.</para>
 /// </summary>
-public record EntityWatchlistScreening
+public record WatchlistScreeningIndividualResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>ID of the associated entity screening.</para>
+	/// <para>ID of the associated screening.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
 	public string Id { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Search terms associated with an entity used for searching against watchlists</para>
+	/// <para>Search terms for creating an individual watchlist screening</para>
 	/// </summary>
 	[JsonPropertyName("search_terms")]
-	public Entity.EntityWatchlistScreeningSearchTerms SearchTerms { get; init; } = default!;
+	public Entity.WatchlistScreeningSearchTerms SearchTerms { get; init; } = default!;
 
 	/// <summary>
 	/// 

@@ -18,6 +18,12 @@ public class AssetReportCreateRequestOptions
 	public string? Webhook { get; set; } = default!;
 
 	/// <summary>
+	/// <para>true to return balance and identity earlier as a fast report. Defaults to false if omitted.</para>
+	/// </summary>
+	[JsonPropertyName("include_fast_report")]
+	public bool? IncludeFastReport { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The user object allows you to provide additional information about the user to be appended to the Asset Report. All fields are optional. The <c>first_name</c>, <c>last_name</c>, and <c>ssn</c> fields are required if you would like the Report to be eligible for Fannie Mae’s Day 1 Certainty™ program.</para>
 	/// </summary>
 	[JsonPropertyName("user")]

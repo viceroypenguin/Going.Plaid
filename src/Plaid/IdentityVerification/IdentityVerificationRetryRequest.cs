@@ -1,7 +1,7 @@
 namespace Going.Plaid.IdentityVerification;
 
 /// <summary>
-/// <para>Request input for retrying a identity verification attempt</para>
+/// <para>Request input for retrying an identity verification attempt</para>
 /// </summary>
 public partial class IdentityVerificationRetryRequest : RequestBase
 {

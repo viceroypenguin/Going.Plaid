@@ -120,7 +120,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestIncomeVerification IncomeVerification { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with the Auth product. This field is currently only required if using the Flexible Auth product (currently in closed beta).</para>
+	/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager.</para>
 	/// </summary>
 	[JsonPropertyName("auth")]
 	public Entity.LinkTokenCreateRequestAuth Auth { get; set; } = default!;

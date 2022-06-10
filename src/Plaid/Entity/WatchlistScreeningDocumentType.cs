@@ -60,7 +60,7 @@ public enum WatchlistScreeningDocumentType
 	Ssn,
 
 	/// <summary>
-	/// <para>Identification issued by a educational institution</para>
+	/// <para>Identification issued by an educational institution</para>
 	/// </summary>
 	[EnumMember(Value = "student_id")]
 	StudentId,

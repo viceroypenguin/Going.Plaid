@@ -1,9 +1,9 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.WatchlistScreening;
 
 /// <summary>
 /// <para>The entity screening object allows you to represent an entity in your system, update its profile, and search for it on various watchlists. Note: Rejected entity screenings will not receive new hits, regardless of entity program configuration.</para>
 /// </summary>
-public record EntityWatchlistScreening
+public record EntityWatchlistScreeningResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>ID of the associated entity screening.</para>

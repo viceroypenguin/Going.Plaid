@@ -4,7 +4,7 @@ namespace Going.Plaid.Entity;
 /// <para>A review submitted by a team member for an entity watchlist screening. A review can be either a comment on the current screening state, actions taken</para>
 /// <para>against hits attached to the watchlist screening, or both.</para>
 /// </summary>
-public record EntityWatchlistScreeningReview : ResponseBase
+public record EntityWatchlistScreeningReview
 {
 	/// <summary>
 	/// <para>ID of the associated entity review.</para>

@@ -16,4 +16,10 @@ public partial class PaymentInitiationPaymentListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public DateTimeOffset? Cursor { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The consent ID. If specified, only payments, executed using this consent, will be returned.</para>
+	/// </summary>
+	[JsonPropertyName("consent_id")]
+	public string? ConsentId { get; set; } = default!;
 }

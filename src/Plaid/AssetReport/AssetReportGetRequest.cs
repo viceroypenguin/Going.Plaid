@@ -16,4 +16,10 @@ public partial class AssetReportGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("include_insights")]
 	public bool IncludeInsights { get; set; } = default!;
+
+	/// <summary>
+	/// <para><c>true</c> to fetch "fast" version of asset report. Defaults to false if omitted.</para>
+	/// </summary>
+	[JsonPropertyName("fast_report")]
+	public bool FastReport { get; set; } = default!;
 }

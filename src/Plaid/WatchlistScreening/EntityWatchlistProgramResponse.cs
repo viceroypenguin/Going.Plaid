@@ -1,12 +1,12 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.WatchlistScreening;
 
 /// <summary>
-/// <para>A program that configures the active lists, search parameters, and other behavior for initial and ongoing screening of individuals.</para>
+/// <para>A program that configures the active lists, search parameters, and other behavior for initial and ongoing screening of entities.</para>
 /// </summary>
-public record IndividualWatchlistProgram
+public record EntityWatchlistProgramResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>ID of the associated program.</para>
+	/// <para>ID of the associated entity program.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
 	public string Id { get; init; } = default!;
@@ -27,10 +27,10 @@ public record IndividualWatchlistProgram
 	/// <para>Watchlists enabled for the associated program</para>
 	/// </summary>
 	[JsonPropertyName("lists_enabled")]
-	public IReadOnlyList<Entity.IndividualWatchlistCode> ListsEnabled { get; init; } = default!;
+	public IReadOnlyList<Entity.EntityWatchlistCode> ListsEnabled { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A name for the program to define its purpose. For example, "High Risk Individuals", "US Cardholders", or "Applicants".</para>
+	/// <para>A name for the entity program to define its purpose. For example, "High Risk Organizations" or "Applicants".</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string Name { get; init; } = default!;

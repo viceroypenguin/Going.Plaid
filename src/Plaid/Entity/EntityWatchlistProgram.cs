@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>A program that configures the active lists, search parameters, and other behavior for initial and ongoing screening of entities.</para>
 /// </summary>
-public record EntityWatchlistProgram : ResponseBase
+public record EntityWatchlistProgram
 {
 	/// <summary>
 	/// <para>ID of the associated entity program.</para>

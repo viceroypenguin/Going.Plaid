@@ -1,9 +1,9 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.WatchlistScreening;
 
 /// <summary>
 /// <para>A program that configures the active lists, search parameters, and other behavior for initial and ongoing screening of individuals.</para>
 /// </summary>
-public record IndividualWatchlistProgram
+public record IndividualWatchlistProgramResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>ID of the associated program.</para>

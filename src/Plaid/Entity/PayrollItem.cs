@@ -14,6 +14,12 @@ public record PayrollItem
 	/// <summary>
 	/// 
 	/// </summary>
+	[JsonPropertyName("accounts")]
+	public IReadOnlyList<Entity.PayrollIncomeAccountData> Accounts { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[JsonPropertyName("payroll_income")]
 	public IReadOnlyList<Entity.PayrollIncomeObject> PayrollIncome { get; init; } = default!;
 

@@ -1,10 +1,10 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.WatchlistScreening;
 
 /// <summary>
 /// <para>A review submitted by a team member for an individual watchlist screening. A review can be either a comment on the current screening state, actions taken</para>
 /// <para>against hits attached to the watchlist screening, or both.</para>
 /// </summary>
-public record WatchlistScreeningReview
+public record WatchlistScreeningReviewResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>ID of the associated review.</para>

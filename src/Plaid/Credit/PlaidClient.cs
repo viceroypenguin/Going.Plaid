@@ -59,4 +59,13 @@ public sealed partial class PlaidClient
 	public Task<Credit.CreditPayrollIncomeRefreshResponse> CreditPayrollIncomeRefreshAsync(Credit.CreditPayrollIncomeRefreshRequest request) =>
 		PostAsync("/credit/payroll_income/refresh", request)
 			.ParseResponseAsync<Credit.CreditPayrollIncomeRefreshResponse>();
+
+	/// <summary>
+	/// <para>Plaid can share an Asset Report directly with a participating third party on your behalf. The shared Asset Report is the exact same Asset Report originally created in <c>/asset_report/create</c>.</para>
+	/// <para>To grant access to an Asset Report to a third party, use the <c>/credit/relay/create</c> endpoint to create a <c>relay_token</c> and then pass that token to the third party who needs access. Each third party has its own <c>secondary_client_id</c>, for example <c>ce5bd328dcd34123456</c>. You'll need to create a separate <c>relay_token</c> for each third party to whom you want to grant access to the Report.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Credit.CreditRelayCreateResponse> CreditRelayCreateAsync(Credit.CreditRelayCreateRequest request) =>
+		PostAsync("/credit/relay/create", request)
+			.ParseResponseAsync<Credit.CreditRelayCreateResponse>();
 }

@@ -10,4 +10,10 @@ public class LinkTokenCreateRequestPaymentInitiation
 	/// </summary>
 	[JsonPropertyName("payment_id")]
 	public string PaymentId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The <c>consent_id</c> provided by the <c>/payment_initiation/consent/create</c> endpoint.</para>
+	/// </summary>
+	[JsonPropertyName("consent_id")]
+	public string ConsentId { get; set; } = default!;
 }

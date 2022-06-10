@@ -1,9 +1,9 @@
-namespace Going.Plaid.Entity;
+namespace Going.Plaid.DashboardUser;
 
 /// <summary>
 /// <para>Account information associated with a team member with access to the Plaid dashboard.</para>
 /// </summary>
-public record DashboardUser
+public record DashboardUserResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>ID of the associated user.</para>
