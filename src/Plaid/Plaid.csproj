@@ -33,6 +33,14 @@
 		<ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<Copyright>
+			Copyright © 2016-2020 Ackara (and others)
+			Copyright © 2020-2022 Turning Code, LLC (and others)
+		</Copyright>
+		<Copyright>$([System.Text.RegularExpressions.Regex]::Replace($(Copyright), `\s+`, ` `).Trim())</Copyright>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<None Include="..\..\art\icon.png" Pack="true" PackagePath="\" />
 		<None Include="..\..\readme.md" Pack="true" PackagePath="\" />
