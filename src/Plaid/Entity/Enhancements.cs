@@ -12,6 +12,18 @@ public record Enhancements
 	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The merchant website.</para>
+	/// </summary>
+	[JsonPropertyName("merchant_website")]
+	public string? MerchantWebsite { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A link to the merchant logo. The logo will always be 100x100 resolution.</para>
+	/// </summary>
+	[JsonPropertyName("merchant_logo_url")]
+	public string? MerchantLogoUrl { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>
 	/// </summary>
 	[JsonPropertyName("check_number")]
@@ -44,6 +56,8 @@ public record Enhancements
 	/// <summary>
 	/// <para>Information describing the intent of the transaction. Most relevant for personal finance use cases, but not limited to such use cases.</para>
 	/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of personal finance categories.</para>
+	/// <para>We’re introducing Category Rules - a new beta endpoint that will enable you to change the personal_finance_category for a transaction based on your users’ needs.</para>
+	/// <para>When rules are set, the selected category will override the Plaid provided category. To learn more, send a note to transactions-feedback@plaid.com.</para>
 	/// </summary>
 	[JsonPropertyName("personal_finance_category")]
 	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;

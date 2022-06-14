@@ -36,7 +36,7 @@ public record Holding
 	public decimal InstitutionValue { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The cost basis of the holding.</para>
+	/// <para>The original total value or the purchase price per share of the holding. This field is an aggregate on a per holding basis and dependent on the information provided by the institution.</para>
 	/// </summary>
 	[JsonPropertyName("cost_basis")]
 	public decimal? CostBasis { get; init; } = default!;
