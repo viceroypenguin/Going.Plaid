@@ -29,8 +29,13 @@
 
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		
-		<ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild >true</ContinuousIntegrationBuild>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<VSTestLogger>trx%3bLogFileName=$(MSBuildProjectName)-$(TargetFramework).trx</VSTestLogger>
+		<VSTestResultsDirectory>$(MSBuildThisFileDirectory)/TestResults</VSTestResultsDirectory>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -56,7 +61,7 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
 		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
-		<PackageReference Include="System.Text.Json" Version="6.0.4" />
+		<PackageReference Include="System.Text.Json" Version="6.0.5" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
@@ -87,19 +92,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Meziantou.Analyzer" Version="1.0.702">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+		<PackageReference Include="Meziantou.Analyzer" Version="1.0.702" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-		<PackageReference Include="IsExternalInit" Version="1.0.2">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="MinVer" Version="4.0.0">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+		<PackageReference Include="IsExternalInit" Version="1.0.2" PrivateAssets="All" />
+		<PackageReference Include="MinVer" Version="4.1.0" PrivateAssets="All" />
 	</ItemGroup>
 
 	<PropertyGroup Label="MinVer">
@@ -109,18 +105,4 @@
 		<MinVerBuildMetadata Condition="'$(APPVEYOR_REPO_COMMIT)' != ''">commit.$(APPVEYOR_REPO_COMMIT)</MinVerBuildMetadata>
 	</PropertyGroup>
 
-	<Target Name="MyTarget" AfterTargets="MinVer" Condition="'$(APPVEYOR_PULL_REQUEST_NUMBER)' != ''">
-		<PropertyGroup>
-			<PackageVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)-pr.$(APPVEYOR_PULL_REQUEST_NUMBER).build-id.$(APPVEYOR_BUILD_ID).$(MinVerPreRelease)</PackageVersion>
-			<PackageVersion Condition="'$(MinVerBuildMetadata)' != ''">$(PackageVersion)+$(MinVerBuildMetadata)</PackageVersion>
-			<Version>$(PackageVersion)</Version>
-		</PropertyGroup>
-	</Target>
-
-	<Target Name="MyTarget" AfterTargets="MinVer">
-		<PropertyGroup>
-			<APPVEYOR_BUILD_NUMBER Condition="'$(APPVEYOR_BUILD_NUMBER)' == ''">0</APPVEYOR_BUILD_NUMBER>
-			<FileVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(APPVEYOR_BUILD_NUMBER)</FileVersion>
-		</PropertyGroup>
-	</Target>
 </Project>
