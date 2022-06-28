@@ -15,49 +15,49 @@ public record SignalEvaluateCoreAttributes
 	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 7 days from the account that will be debited.</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_transactions_count_7d")]
-	public int UnauthorizedTransactionsCount7d { get; init; } = default!;
+	public int? UnauthorizedTransactionsCount7d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 30 days from the account that will be debited.</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_transactions_count_30d")]
-	public int UnauthorizedTransactionsCount30d { get; init; } = default!;
+	public int? UnauthorizedTransactionsCount30d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 60 days from the account that will be debited.</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_transactions_count_60d")]
-	public int UnauthorizedTransactionsCount60d { get; init; } = default!;
+	public int? UnauthorizedTransactionsCount60d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 90 days from the account that will be debited.</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_transactions_count_90d")]
-	public int UnauthorizedTransactionsCount90d { get; init; } = default!;
+	public int? UnauthorizedTransactionsCount90d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 7 days from the account that will be debited.</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_7d")]
-	public int NsfOverdraftTransactionsCount7d { get; init; } = default!;
+	public int? NsfOverdraftTransactionsCount7d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 30 days from the account that will be debited.</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_30d")]
-	public int NsfOverdraftTransactionsCount30d { get; init; } = default!;
+	public int? NsfOverdraftTransactionsCount30d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 60 days from the account that will be debited.</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_60d")]
-	public int NsfOverdraftTransactionsCount60d { get; init; } = default!;
+	public int? NsfOverdraftTransactionsCount60d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 90 days from the account that will be debited.</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_90d")]
-	public int NsfOverdraftTransactionsCount90d { get; init; } = default!;
+	public int? NsfOverdraftTransactionsCount90d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The number of days since the first time the Item was connected to an application via Plaid</para>
@@ -93,13 +93,13 @@ public record SignalEvaluateCoreAttributes
 	/// <para>The total credit (inflow) transaction amount over the past 10 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("total_credit_transactions_amount_10d")]
-	public decimal TotalCreditTransactionsAmount10d { get; init; } = default!;
+	public decimal? TotalCreditTransactionsAmount10d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The total debit (outflow) transaction amount over the past 10 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("total_debit_transactions_amount_10d")]
-	public decimal TotalDebitTransactionsAmount10d { get; init; } = default!;
+	public decimal? TotalDebitTransactionsAmount10d { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The 50th percentile of all credit (inflow) transaction amounts over the past 28 days from the account that will be debited</para>

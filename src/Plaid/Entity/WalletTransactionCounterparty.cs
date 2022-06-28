@@ -12,7 +12,7 @@ public class WalletTransactionCounterparty
 	public string Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The counterparty's bank account numbers</para>
+	/// <para>The counterparty's bank account numbers. Exactly one of IBAN or BACS data is required.</para>
 	/// </summary>
 	[JsonPropertyName("numbers")]
 	public Entity.WalletTransactionCounterpartyNumbers Numbers { get; set; } = default!;

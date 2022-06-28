@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The counterparty's bank account numbers</para>
+/// <para>The counterparty's bank account numbers. Exactly one of IBAN or BACS data is required.</para>
 /// </summary>
 public class WalletTransactionCounterpartyNumbers
 {
@@ -10,4 +10,10 @@ public class WalletTransactionCounterpartyNumbers
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.WalletTransactionCounterpartyBACS Bacs { get; set; } = default!;
+
+	/// <summary>
+	/// <para>International Bank Account Number (IBAN).</para>
+	/// </summary>
+	[JsonPropertyName("iban")]
+	public string? Iban { get; set; } = default!;
 }

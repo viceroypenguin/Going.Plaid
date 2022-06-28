@@ -59,7 +59,7 @@ public sealed partial class PlaidClient
 	/// <para>The <c>/payment_initiation/consent/create</c> endpoint is used to create a payment consent, which can be used to initiate payments on behalf of the user. Payment consents are created with <c>UNAUTHORISED</c> status by default and must be authorised by the user before payments can be initiated.</para>
 	/// <para>Consents can be limited in time and scope, and have constraints that describe limitations for payments.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationconsentcreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationconsentcreate" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationConsentCreateResponse> PaymentInitiationConsentCreateAsync(PaymentInitiation.PaymentInitiationConsentCreateRequest request) =>
 		PostAsync("/payment_initiation/consent/create", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationConsentCreateResponse>();
@@ -67,7 +67,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/payment_initiation/consent/get</c> endpoint can be used to check the status of a payment consent, as well as to receive basic information such as recipient and constraints.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationconsentget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationconsentget" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationConsentGetResponse> PaymentInitiationConsentGetAsync(PaymentInitiation.PaymentInitiationConsentGetRequest request) =>
 		PostAsync("/payment_initiation/consent/get", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationConsentGetResponse>();
@@ -75,7 +75,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/payment_initiation/consent/revoke</c> endpoint can be used to revoke the payment consent. Once the consent is revoked, it is not possible to initiate payments using it.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationconsentrevoke" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationconsentrevoke" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationConsentRevokeResponse> PaymentInitiationConsentRevokeAsync(PaymentInitiation.PaymentInitiationConsentRevokeRequest request) =>
 		PostAsync("/payment_initiation/consent/revoke", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationConsentRevokeResponse>();
@@ -83,7 +83,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/payment_initiation/consent/payment/execute</c> endpoint can be used to execute payments using payment consent.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#payment_initiationconsentpaymentexecute" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationconsentpaymentexecute" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationConsentPaymentExecuteResponse> PaymentInitiationConsentPaymentExecuteAsync(PaymentInitiation.PaymentInitiationConsentPaymentExecuteRequest request) =>
 		PostAsync("/payment_initiation/consent/payment/execute", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationConsentPaymentExecuteResponse>();

@@ -24,7 +24,8 @@ public class LinkTokenCreateRequestIncomeVerification
 	public string PrecheckId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An array of access tokens corresponding to the Items that will be cross-referenced with the product data. If the <c>transactions</c> product was not initialized for the Items during link, it will be initialized after this Link session.</para>
+	/// <para>An array of access tokens corresponding to Items that a user has previously connected with. Data from these institutions will be cross-referenced with document data received during the Document Income flow to help verify that the uploaded documents are accurate. If the <c>transactions</c> product was not initialized for these Items during link, it will be initialized after this Link session.</para>
+	/// <para>This field should only be used with the <c>payroll</c> income source type.</para>
 	/// </summary>
 	[JsonPropertyName("access_tokens")]
 	public IReadOnlyList<string> AccessTokens { get; set; } = default!;

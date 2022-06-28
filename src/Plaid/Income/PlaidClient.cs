@@ -11,7 +11,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Income.IncomeVerificationCreateResponse>();
 
 	/// <summary>
-	/// <para><c>/income/verification/paystubs/get</c> returns the information collected from the paystubs that were used to verify an end user''s income. It can be called once the status of the verification has been set to <c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>, as reported by the <c>INCOME: verification_status</c> webhook. Attempting to call the endpoint before verification has been completed will result in an error.</para>
+	/// <para><c>/income/verification/paystubs/get</c> returns the information collected from the paystubs that were used to verify an end user's income. It can be called once the status of the verification has been set to <c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>, as reported by the <c>INCOME: verification_status</c> webhook. Attempting to call the endpoint before verification has been completed will result in an error.</para>
 	/// <para>This endpoint has been deprecated; new integrations should use <c>/credit/payroll_income/get</c> instead.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#incomeverificationpaystubsget" /></remarks>

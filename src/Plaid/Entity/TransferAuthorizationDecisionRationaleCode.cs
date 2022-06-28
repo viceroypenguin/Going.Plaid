@@ -18,6 +18,12 @@ public enum TransferAuthorizationDecisionRationaleCode
 	Risk,
 
 	/// <summary>
+	/// <para>One or several transfer limits are reached, e.g. monthly transfer limit. Plaid will offer <c>declined</c> as a transaction decision.</para>
+	/// </summary>
+	[EnumMember(Value = "TRANSFER_LIMIT_REACHED")]
+	TransferLimitReached,
+
+	/// <summary>
 	/// <para>– Item created via same-day micro deposits, limited information available. Plaid will offer <c>approved</c> as a transaction decision.</para>
 	/// </summary>
 	[EnumMember(Value = "MANUALLY_VERIFIED_ITEM")]

@@ -83,7 +83,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>As an alternative to adding Items via Link, you can also use the <c>/transfer/migrate_account</c> endpoint to migrate known account and routing numbers to Plaid Items.  Note that Items created in this way are not compatible with endpoints for other products, such as <c>/accounts/balance/get</c>, and can only be used with Transfer endpoints.  If you require access to other endpoints, create the Item through Link instead.  Access to <c>/transfer/migrate_account</c> is not enabled by default; to obtain access, contact your Plaid Account Manager.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfermigrateaccount" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfermigrate_account" /></remarks>
 	public Task<Transfer.TransferMigrateAccountResponse> TransferMigrateAccountAsync(Transfer.TransferMigrateAccountRequest request) =>
 		PostAsync("/transfer/migrate_account", request)
 			.ParseResponseAsync<Transfer.TransferMigrateAccountResponse>();
