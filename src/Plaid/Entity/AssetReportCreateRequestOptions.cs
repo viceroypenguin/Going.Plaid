@@ -24,6 +24,12 @@ public class AssetReportCreateRequestOptions
 	public bool? IncludeFastReport { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Additional information that can be included in the asset report. Possible values: <c>"investments"</c></para>
+	/// </summary>
+	[JsonPropertyName("products")]
+	public IReadOnlyList<string> Products { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The user object allows you to provide additional information about the user to be appended to the Asset Report. All fields are optional. The <c>first_name</c>, <c>last_name</c>, and <c>ssn</c> fields are required if you would like the Report to be eligible for Fannie Mae’s Day 1 Certainty™ program.</para>
 	/// </summary>
 	[JsonPropertyName("user")]

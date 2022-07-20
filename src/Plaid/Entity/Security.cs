@@ -68,19 +68,22 @@ public record Security
 	/// <summary>
 	/// <para>The security type of the holding. Valid security types are:</para>
 	/// <para><c>cash</c>: Cash, currency, and money market funds</para>
+	/// <para><c>cryptocurrency</c>: Digital or virtual currencies</para>
 	/// <para><c>derivative</c>: Options, warrants, and other derivative instruments</para>
 	/// <para><c>equity</c>: Domestic and foreign equities</para>
 	/// <para><c>etf</c>: Multi-asset exchange-traded investment funds</para>
 	/// <para><c>fixed income</c>: Bonds and certificates of deposit (CDs)</para>
-	/// <para><c>loan</c>: Loans and loan receivables.</para>
-	/// <para><c>mutual fund</c>: Open- and closed-end vehicles pooling funds of multiple investors.</para>
+	/// <para><c>loan</c>: Loans and loan receivables</para>
+	/// <para><c>mutual fund</c>: Open- and closed-end vehicles pooling funds of multiple investors</para>
 	/// <para><c>other</c>: Unknown or other investment types</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public string? Type { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Price of the security at the close of the previous trading session. <c>null</c> for non-public securities. If the security is a foreign currency or a cryptocurrency this field will be updated daily and will be priced in USD.</para>
+	/// <para>Price of the security at the close of the previous trading session. Null for non-public securities. </para>
+	/// <para>If the security is a foreign currency this field will be updated daily and will be priced in USD. </para>
+	/// <para>If the security is a cryptocurrency, this field will be updated multiple times a day. As crypto prices can fluctuate quickly and data may become stale sooner than other asset classes, please refer to update_datetime with the time when the price was last updated.</para>
 	/// </summary>
 	[JsonPropertyName("close_price")]
 	public decimal? ClosePrice { get; init; } = default!;
@@ -90,6 +93,12 @@ public record Security
 	/// </summary>
 	[JsonPropertyName("close_price_as_of")]
 	public DateOnly? ClosePriceAsOf { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Date and time at which close_price is accurate, in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ). Always null if close_price is null.</para>
+	/// </summary>
+	[JsonPropertyName("update_datetime")]
+	public DateTimeOffset? UpdateDatetime { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO-4217 currency code of the price given. Always <c>null</c> if <c>unofficial_currency_code</c> is non-<c>null</c>.</para>

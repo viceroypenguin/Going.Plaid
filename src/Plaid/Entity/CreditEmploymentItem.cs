@@ -16,4 +16,10 @@ public record CreditEmploymentItem
 	/// </summary>
 	[JsonPropertyName("employments")]
 	public IReadOnlyList<Entity.CreditEmploymentVerification> Employments { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A reference id to reference what payroll data was returned from this endpoint</para>
+	/// </summary>
+	[JsonPropertyName("pull_id")]
+	public string PullId { get; init; } = default!;
 }

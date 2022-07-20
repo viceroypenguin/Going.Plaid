@@ -12,8 +12,8 @@ public class WalletTransactionCounterpartyNumbers
 	public Entity.WalletTransactionCounterpartyBACS Bacs { get; set; } = default!;
 
 	/// <summary>
-	/// <para>International Bank Account Number (IBAN).</para>
+	/// <para>International Bank Account Number for a Wallet Transaction</para>
 	/// </summary>
-	[JsonPropertyName("iban")]
-	public string? Iban { get; set; } = default!;
+	[JsonPropertyName("international")]
+	public Entity.WalletTransactionCounterpartyInternational? International { get; set; } = default!;
 }

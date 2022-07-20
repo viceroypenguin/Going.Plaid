@@ -11,4 +11,13 @@ public sealed partial class PlaidClient
 	public Task<Identity.IdentityGetResponse> IdentityGetAsync(Identity.IdentityGetRequest request) =>
 		PostAsync("/identity/get", request)
 			.ParseResponseAsync<Identity.IdentityGetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/identity/match</c> endpoint generates a match score, which indicates how well the provided identity data matches the identity information on file with the account holder's financial institution.</para>
+	/// <para>This request may take some time to complete if Identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/identity/#identitymatch" /></remarks>
+	public Task<Identity.IdentityMatchResponse> IdentityMatchAsync(Identity.IdentityMatchRequest request) =>
+		PostAsync("/identity/match", request)
+			.ParseResponseAsync<Identity.IdentityMatchResponse>();
 }

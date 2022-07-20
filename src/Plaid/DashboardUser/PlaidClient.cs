@@ -5,7 +5,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Retrieve information about a dashboard user.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/monitor/dashboard_userget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/monitor/#dashboard_userget" /></remarks>
 	public Task<DashboardUser.DashboardUserResponse> DashboardUserGetAsync(DashboardUser.GetDashboardUserRequest request) =>
 		PostAsync("/dashboard_user/get", request)
 			.ParseResponseAsync<DashboardUser.DashboardUserResponse>();

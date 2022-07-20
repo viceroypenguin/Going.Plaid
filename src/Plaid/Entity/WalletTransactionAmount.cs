@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class WalletTransactionAmount
 {
 	/// <summary>
-	/// <para>An ISO-4217 currency code, used with e-wallets and transactions. Currently, only <c>"GBP"</c> is supported.</para>
+	/// <para>An ISO-4217 currency code, used with e-wallets and transactions.</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public Entity.IsoCurrencyCode IsoCurrencyCode { get; set; } = default!;

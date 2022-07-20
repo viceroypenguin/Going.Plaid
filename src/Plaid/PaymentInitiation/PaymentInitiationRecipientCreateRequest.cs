@@ -6,7 +6,7 @@ namespace Going.Plaid.PaymentInitiation;
 public partial class PaymentInitiationRecipientCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The name of the recipient</para>
+	/// <para>The name of the recipient. We recommend using strings of length 18 or less and avoid special characters to ensure compatibility with all institutions.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string Name { get; set; } = default!;

@@ -194,6 +194,12 @@ public enum InvestmentTransactionSubtype
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "request")]
+	Request,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "sell")]
 	Sell,
 
@@ -202,6 +208,12 @@ public enum InvestmentTransactionSubtype
 	/// </summary>
 	[EnumMember(Value = "sell short")]
 	SellShort,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "send")]
+	Send,
 
 	/// <summary>
 	/// 

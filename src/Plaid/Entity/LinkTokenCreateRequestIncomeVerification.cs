@@ -47,4 +47,10 @@ public class LinkTokenCreateRequestIncomeVerification
 	/// </summary>
 	[JsonPropertyName("payroll_income")]
 	public Entity.LinkTokenCreateRequestIncomeVerificationPayrollIncome PayrollIncome { get; set; } = default!;
+
+	/// <summary>
+	/// <para>A list of user stated income sources</para>
+	/// </summary>
+	[JsonPropertyName("stated_income_sources")]
+	public IReadOnlyList<Entity.LinkTokenCreateRequestUserStatedIncomeSource> StatedIncomeSources { get; set; } = default!;
 }

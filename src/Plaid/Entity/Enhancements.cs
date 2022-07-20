@@ -12,16 +12,16 @@ public record Enhancements
 	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The merchant website.</para>
+	/// <para>The website associated with this transaction.</para>
 	/// </summary>
-	[JsonPropertyName("merchant_website")]
-	public string? MerchantWebsite { get; init; } = default!;
+	[JsonPropertyName("website")]
+	public string? Website { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A link to the merchant logo. The logo will always be 100x100 resolution.</para>
+	/// <para>A link to the logo associated with this transaction. The logo will always be 100x100 resolution.</para>
 	/// </summary>
-	[JsonPropertyName("merchant_logo_url")]
-	public string? MerchantLogoUrl { get; init; } = default!;
+	[JsonPropertyName("logo_url")]
+	public string? LogoUrl { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>

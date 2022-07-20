@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record CreditBankIncomeTransaction
 {
 	/// <summary>
-	/// <para>The settled value of the transaction, denominated in the account's currency as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>.</para>
+	/// <para>The settled value of the transaction, denominated in the transactions's currency as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>.</para>
 	/// <para>Positive values when money moves out of the account; negative values when money moves in.</para>
 	/// <para>For example, credit card purchases are positive; credit card payment, direct deposits, and refunds are negative.</para>
 	/// </summary>

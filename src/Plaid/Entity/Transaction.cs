@@ -70,7 +70,7 @@ public record Transaction
 	public string AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The settled value of the transaction, denominated in the account's currency, as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.</para>
+	/// <para>The settled value of the transaction, denominated in the transactions's currency, as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public decimal Amount { get; init; } = default!;

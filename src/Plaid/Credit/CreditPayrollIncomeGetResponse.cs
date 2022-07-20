@@ -10,10 +10,4 @@ public record CreditPayrollIncomeGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.PayrollItem> Items { get; init; } = default!;
-
-	/// <summary>
-	/// <para>A token to reference what payroll data was returned from this endpoint</para>
-	/// </summary>
-	[JsonPropertyName("income_report_token")]
-	public string IncomeReportToken { get; init; } = default!;
 }

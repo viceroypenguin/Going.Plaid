@@ -48,6 +48,12 @@ public enum InvestmentAccountSubtype
 	CashIsa,
 
 	/// <summary>
+	/// <para>Standard cryptocurrency exchange account</para>
+	/// </summary>
+	[EnumMember(Value = "crypto exchange")]
+	CryptoExchange,
+
+	/// <summary>
 	/// <para>Tax-advantaged Coverdell Education Savings Account (ESA) (US)</para>
 	/// </summary>
 	[EnumMember(Value = "education savings account")]

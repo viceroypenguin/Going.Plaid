@@ -50,6 +50,12 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "identity_verification")]
+	IdentityVerification,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "transactions")]
 	Transactions,
 

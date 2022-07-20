@@ -30,6 +30,13 @@ public record Holding
 	public DateOnly? InstitutionPriceAsOf { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Date and time at which <c>institution_price</c> was current, in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).</para>
+	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00).</para>
+	/// </summary>
+	[JsonPropertyName("institution_price_datetime")]
+	public DateTimeOffset? InstitutionPriceDatetime { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The value of the holding, as reported by the institution.</para>
 	/// </summary>
 	[JsonPropertyName("institution_value")]

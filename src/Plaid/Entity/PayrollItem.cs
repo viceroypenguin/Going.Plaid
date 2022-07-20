@@ -28,4 +28,10 @@ public record PayrollItem
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.PayrollItemStatus? Status { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A reference id to reference what payroll data was returned from this endpoint</para>
+	/// </summary>
+	[JsonPropertyName("pull_id")]
+	public string PullId { get; init; } = default!;
 }

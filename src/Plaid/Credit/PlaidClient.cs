@@ -12,6 +12,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditAuditCopyTokenCreateResponse>();
 
 	/// <summary>
+	/// <para>The <c>/credit/audit_copy_token/remove</c> endpoint allows you to remove an Audit Copy. Removing an Audit Copy invalidates the <c>audit_copy_token</c> associated with it, meaning both you and any third parties holding the token will no longer be able to use it to access Report data. Items associated with the Report data and other Audit Copies of it are not affected and will remain accessible after removing the given Audit Copy.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditaudit_copy_tokenremove" /></remarks>
+	public Task<Credit.CreditAuditCopyTokenRemoveResponse> CreditAuditCopyTokenRemoveAsync(Credit.CreditAuditCopyTokenRemoveRequest request) =>
+		PostAsync("/credit/audit_copy_token/remove", request)
+			.ParseResponseAsync<Credit.CreditAuditCopyTokenRemoveResponse>();
+
+	/// <summary>
 	/// <para><c>/credit/bank_income/get</c> returns the bank income report(s) for a specified user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomeget" /></remarks>
