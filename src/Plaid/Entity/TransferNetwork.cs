@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The network or rails used for the transfer. Valid options are <c>ach</c> or <c>same-day-ach</c>.</para>
+/// <para>The network or rails used for the transfer. Valid options are <c>ach</c> or <c>same-day-ach</c>. The cutoff for same-day transfers is 7:45 AM Pacific Time and the cutoff for next-day transfers is 5:45 PM Pacific Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as <c>same-day-ach</c> and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.</para>
 /// </summary>
 public enum TransferNetwork
 {

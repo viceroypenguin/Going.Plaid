@@ -66,6 +66,12 @@ public enum DocType
 	DocumentTypeUsTax1099Misc,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "DOCUMENT_TYPE_US_TAX_1099_K")]
+	DocumentTypeUsTax1099K,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

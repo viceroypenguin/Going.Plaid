@@ -22,4 +22,10 @@ public record PayrollIncomeObject
 	/// </summary>
 	[JsonPropertyName("w2s")]
 	public IReadOnlyList<Entity.CreditW2> W2s { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Array of tax form 1099s.</para>
+	/// </summary>
+	[JsonPropertyName("form1099s")]
+	public IReadOnlyList<Entity.Credit1099> Form1099s { get; init; } = default!;
 }

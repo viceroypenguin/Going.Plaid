@@ -30,12 +30,6 @@ public enum TransferEventType
 	Posted,
 
 	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "reversed")]
-	Reversed,
-
-	/// <summary>
 	/// <para>A posted transfer was returned.</para>
 	/// </summary>
 	[EnumMember(Value = "returned")]

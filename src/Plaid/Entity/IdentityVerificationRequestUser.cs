@@ -46,7 +46,7 @@ public class IdentityVerificationRequestUser
 	public Entity.UserName? Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Home address for user supplied to <c>/identity_verification/create</c></para>
+	/// <para>Home address for the user.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.UserAddress? Address { get; set; } = default!;

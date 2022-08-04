@@ -10,4 +10,10 @@ public class LinkTokenCreateRequestTransfer
 	/// </summary>
 	[JsonPropertyName("intent_id")]
 	public string IntentId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The <c>payment_profile_id</c> returned by the <c>/payment_profile/create</c> endpoint.</para>
+	/// </summary>
+	[JsonPropertyName("payment_profile_id")]
+	public string PaymentProfileId { get; set; } = default!;
 }

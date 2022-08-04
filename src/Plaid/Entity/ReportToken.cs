@@ -9,7 +9,7 @@ public class ReportToken
 	/// <para>The report type. It can be <c>assets</c> or <c>income</c>.</para>
 	/// </summary>
 	[JsonPropertyName("report_type")]
-	public string ReportType { get; set; } = default!;
+	public Entity.ReportType ReportType { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The report token. It can be an asset report token or an income report token.</para>

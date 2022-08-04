@@ -1,4 +1,4 @@
-namespace Going.Plaid;
+﻿namespace Going.Plaid;
 
 public sealed partial class PlaidClient
 {
@@ -76,4 +76,28 @@ public sealed partial class PlaidClient
 	public Task<Credit.CreditRelayCreateResponse> CreditRelayCreateAsync(Credit.CreditRelayCreateRequest request) =>
 		PostAsync("/credit/relay/create", request)
 			.ParseResponseAsync<Credit.CreditRelayCreateResponse>();
+
+	/// <summary>
+	/// <para><c>/credit/relay/get</c> allows third parties to get a report that was shared with them, using an <c>relay_token</c> that was created by the report owner.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<AssetReport.AssetReportGetResponse> CreditRelayGetAsync(Credit.CreditRelayGetRequest request) =>
+		PostAsync("/credit/relay/get", request)
+			.ParseResponseAsync<AssetReport.AssetReportGetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/credit/relay/refresh</c> endpoint allows third parties to refresh an report that was relayed to them, using a <c>relay_token</c> that was created by the report owner. A new report will be created based on the old one, but with the most recent data available.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/#creditrelayrefresh" /></remarks>
+	public Task<Credit.CreditRelayRefreshResponse> CreditRelayRefreshAsync(Credit.CreditRelayRefreshRequest request) =>
+		PostAsync("/credit/relay/refresh", request)
+			.ParseResponseAsync<Credit.CreditRelayRefreshResponse>();
+
+	/// <summary>
+	/// <para>The <c>/credit/relay/remove</c> endpoint allows you to invalidate a <c>relay_token</c>, meaning the third party holding the token will no longer be able to use it to access the reports to which the <c>relay_token</c> gives access to. The report, items associated with it, and other Relay tokens that provide access to the same report are not affected and will remain accessible after removing the given `relay_token.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Credit.CreditRelayRemoveResponse> CreditRelayRemoveAsync(Credit.CreditRelayRemoveRequest request) =>
+		PostAsync("/credit/relay/remove", request)
+			.ParseResponseAsync<Credit.CreditRelayRemoveResponse>();
 }

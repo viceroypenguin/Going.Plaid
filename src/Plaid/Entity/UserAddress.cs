@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Home address for user supplied to <c>/identity_verification/create</c></para>
+/// <para>Home address for the user.</para>
 /// </summary>
 public class UserAddress
 {

@@ -12,10 +12,16 @@ public class LinkTokenCreateRequestUser
 	public string ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's full legal name. This is an optional field used in the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a> to associate Items to the user.</para>
+	/// <para>The user's full legal name. Currently used only to support certain legacy flows.</para>
 	/// </summary>
 	[JsonPropertyName("legal_name")]
 	public string LegalName { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The user's full name. Optional if using the <a href="https://plaid.com/docs/api/products/identity-verification">Identity Verification</a> product; if not using Identity Verification, this field is not allowed. Users will not be asked for their name when this field is provided.</para>
+	/// </summary>
+	[JsonPropertyName("name")]
+	public Entity.LinkTokenCreateRequestUserNameObject Name { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
@@ -46,14 +52,26 @@ public class LinkTokenCreateRequestUser
 	public DateTimeOffset EmailAddressVerifiedTime { get; set; } = default!;
 
 	/// <summary>
-	/// <para>To be provided in the format "ddd-dd-dddd". This field is optional and will support not-yet-implemented functionality for new products.</para>
+	/// <para>To be provided in the format "ddd-dd-dddd". Not currently used.</para>
 	/// </summary>
 	[JsonPropertyName("ssn")]
 	public string Ssn { get; set; } = default!;
 
 	/// <summary>
-	/// <para>To be provided in the format "yyyy-mm-dd". This field is optional and will support not-yet-implemented functionality for new products.</para>
+	/// <para>To be provided in the format "yyyy-mm-dd". Not currently used.</para>
 	/// </summary>
 	[JsonPropertyName("date_of_birth")]
 	public DateOnly DateOfBirth { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Home address for the user.</para>
+	/// </summary>
+	[JsonPropertyName("address")]
+	public Entity.UserAddress? Address { get; set; } = default!;
+
+	/// <summary>
+	/// <para>ID number submitted by the user, currently used only for the Identity Verification product. If the user has not submitted this data yet, this field will be <c>null</c>. Otherwise, both fields are guaranteed to be filled.</para>
+	/// </summary>
+	[JsonPropertyName("id_number")]
+	public Entity.UserIDNumber? IdNumber { get; set; } = default!;
 }
