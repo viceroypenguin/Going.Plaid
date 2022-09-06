@@ -52,10 +52,4 @@ public record CreditPayStub
 	/// </summary>
 	[JsonPropertyName("pay_period_details")]
 	public Entity.PayStubPayPeriodDetails PayPeriodDetails { get; init; } = default!;
-
-	/// <summary>
-	/// <para>(To be deprecated) Verification info will be moved to a separate endpoint in the future. An object containing details on the paystub's verification status. This object will only be populated if the <a href="https://plaid.com/docs/api/tokens/#link-token-create-request-income-verification-access-tokens"><c>income_verification.access_tokens</c></a> parameter was provided during the <c>/link/token/create</c> call or if a problem was detected with the information supplied by the user; otherwise it will be <c>null</c>.</para>
-	/// </summary>
-	[JsonPropertyName("verification")]
-	public Entity.CreditPayStubVerification? Verification { get; init; } = default!;
 }

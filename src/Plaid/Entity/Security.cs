@@ -81,8 +81,8 @@ public record Security
 	public string? Type { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Price of the security at the close of the previous trading session. Null for non-public securities. </para>
-	/// <para>If the security is a foreign currency this field will be updated daily and will be priced in USD. </para>
+	/// <para>Price of the security at the close of the previous trading session. Null for non-public securities.</para>
+	/// <para>If the security is a foreign currency this field will be updated daily and will be priced in USD.</para>
 	/// <para>If the security is a cryptocurrency, this field will be updated multiple times a day. As crypto prices can fluctuate quickly and data may become stale sooner than other asset classes, please refer to update_datetime with the time when the price was last updated.</para>
 	/// </summary>
 	[JsonPropertyName("close_price")]

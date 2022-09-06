@@ -12,10 +12,16 @@ public enum WalletTransactionStatus
 	Initiated,
 
 	/// <summary>
-	/// <para>The transaction has been successfully executed.</para>
+	/// <para>The transaction has been successfully executed and is considered complete. This is only applicable for debit transactions.</para>
 	/// </summary>
 	[EnumMember(Value = "EXECUTED")]
 	Executed,
+
+	/// <summary>
+	/// <para>The transaction has settled and funds are available for use. This is only applicable for credit transactions. A transaction will typically settle within seconds to several days, depending on which payment rail is used.</para>
+	/// </summary>
+	[EnumMember(Value = "SETTLED")]
+	Settled,
 
 	/// <summary>
 	/// <para>The transaction has been blocked for violating compliance rules. This is a terminal status.</para>

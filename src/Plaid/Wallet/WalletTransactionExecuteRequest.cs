@@ -32,6 +32,7 @@ public partial class WalletTransactionExecuteRequest : RequestBase
 
 	/// <summary>
 	/// <para>A reference for the transaction. This must be an alphanumeric string with at most 18 characters and must not contain any special characters or spaces.</para>
+	/// <para>Ensure that the <c>reference</c> field is unique for each transaction.</para>
 	/// </summary>
 	[JsonPropertyName("reference")]
 	public string Reference { get; set; } = default!;

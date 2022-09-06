@@ -27,7 +27,7 @@ public record Holding
 	/// <para>The date at which <c>institution_price</c> was current.</para>
 	/// </summary>
 	[JsonPropertyName("institution_price_as_of")]
-	public DateOnly? InstitutionPriceAsOf { get; init; } = default!;
+	public DateOnly InstitutionPriceAsOf { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Date and time at which <c>institution_price</c> was current, in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).</para>

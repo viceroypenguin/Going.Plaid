@@ -87,7 +87,7 @@ public record SignalEvaluateCoreAttributes
 	/// <para>Indicates if the ACH transaction funding account is a savings/money market account</para>
 	/// </summary>
 	[JsonPropertyName("is_savings_or_money_market_account")]
-	public bool IsSavingsOrMoneyMarketAccount { get; init; } = default!;
+	public bool? IsSavingsOrMoneyMarketAccount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The total credit (inflow) transaction amount over the past 10 days from the account that will be debited</para>

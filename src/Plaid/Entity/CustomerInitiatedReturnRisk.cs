@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record CustomerInitiatedReturnRisk
 {
 	/// <summary>
-	/// <para>A score from 0-99 that indicates the transaction return risk: a higher risk score suggests a higher return likelihood.</para>
+	/// <para>A score from 1-99 that indicates the transaction return risk: a higher risk score suggests a higher return likelihood.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int Score { get; init; } = default!;

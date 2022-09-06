@@ -54,10 +54,16 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusUnknown,
 
 	/// <summary>
-	/// <para>The payment has been successfully initiated and is considered complete.</para>
+	/// <para>The payment has been successfully executed and is considered complete.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_EXECUTED")]
 	PaymentStatusExecuted,
+
+	/// <summary>
+	/// <para>The payment has settled and funds are available for use. Payment settlement can only be guaranteed by using Plaid virtual accounts. A payment will typically settle within seconds to several days, depending on which payment rail is used.</para>
+	/// </summary>
+	[EnumMember(Value = "PAYMENT_STATUS_SETTLED")]
+	PaymentStatusSettled,
 
 	/// <summary>
 	/// <para>The payment is currently being processed. The payment will automatically exit this state when the financial institution has authorised the transaction.</para>

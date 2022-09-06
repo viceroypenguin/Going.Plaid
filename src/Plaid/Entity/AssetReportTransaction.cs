@@ -123,4 +123,10 @@ public record AssetReportTransaction
 	/// </summary>
 	[JsonPropertyName("date_transacted")]
 	public string? DateTransacted { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Information describing the intent of the transaction. Most relevant for credit use cases, but not limited to such use cases.</para>
+	/// </summary>
+	[JsonPropertyName("credit_category")]
+	public Entity.CreditCategory? CreditCategory { get; init; } = default!;
 }

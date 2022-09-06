@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid;
+namespace Going.Plaid;
 
 public sealed partial class PlaidClient
 {

@@ -82,11 +82,18 @@ static class Program
 		"InvestmentAccountSubtypes",
 		"AccountSubtype",
 	};
+	private static readonly string[] excludeApis = new[]
+	{
+		"/credit/asset_report/freddie_mac/get",
+	};
 
 	private static void ProcessUris(OpenApiDocument doc)
 	{
 		foreach (var (uri, item) in doc.Paths)
 		{
+			if (excludeApis.Contains(uri))
+				continue;
+
 			var basePath = uri[1..].Split('/')[0].ToPascalCase();
 
 			if (!item.Operations.ContainsKey(OperationType.Post))

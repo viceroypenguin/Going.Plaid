@@ -12,8 +12,12 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientCreateResponse>();
 
 	/// <summary>
-	/// <para>Reverse a previously initiated payment.</para>
-	/// <para>A payment can only be reversed once and will be refunded to the original sender's account.</para>
+	/// <para>Reverse a previously settled payment from a Plaid virtual account.</para>
+	/// <para>The original payment must be in a settled state to be refunded and only full payment refunds are currently supported.</para>
+	/// <para>To power partial refunds, use <c>/wallet/transaction/execute</c>, where you can specify the exact amount for a payout to an end user.</para>
+	/// <para>A payment can only be reversed once and will be refunded back to the same source account that initiated the payment.</para>
+	/// <para>The original payment must have been initiated to a Plaid virtual account.</para>
+	/// <para>The refund will be initiated from the same virtual account that the payment was paid into.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentreverse" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentReverseResponse> PaymentInitiationPaymentReverseAsync(PaymentInitiation.PaymentInitiationPaymentReverseRequest request) =>
