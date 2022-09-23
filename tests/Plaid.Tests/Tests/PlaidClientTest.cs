@@ -49,7 +49,6 @@ namespace Going.Plaid.Tests
 					InitialProducts = new[]
 					{
 						Products.Auth,
-						Products.Balance,
 						Products.Investments,
 						Products.Transactions,
 						Products.Assets,

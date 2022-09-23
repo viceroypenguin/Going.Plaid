@@ -22,14 +22,18 @@ namespace Going.Plaid.Tests
 		[Fact]
 		public async Task InvalidAssetReportToken()
 		{
-			var token = "I am very poorly formatted";
+			var oldToken = _fixture.PlaidClient.AccessToken;
 			_fixture.PlaidClient.AccessToken = null;
+
+			var token = "I am very poorly formatted";
 			using var pdf = await _fixture.PlaidClient.AssetReportPdfGetAsync(new() { AssetReportToken = token });
 
 			Assert.NotNull(pdf);
 			Assert.NotNull(pdf.Error);
 			Assert.Equal(Entity.ErrorType.InvalidInput, pdf.Error!.ErrorType);
 			Assert.Equal(Entity.ErrorCode.InvalidAssetReportToken, pdf.Error!.ErrorCode);
+
+			_fixture.PlaidClient.AccessToken = oldToken;
 		}
 
 		[Fact]

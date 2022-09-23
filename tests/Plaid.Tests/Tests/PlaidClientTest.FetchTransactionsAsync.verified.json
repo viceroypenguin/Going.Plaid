@@ -156,8 +156,7 @@
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
       "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
+      "Pending": false
     },
     {
       "TransactionType": "place",
@@ -237,8 +236,7 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
+      "Pending": false
     },
     {
       "TransactionType": "special",
@@ -285,7 +283,7 @@
       "IsoCurrencyCode": "USD",
       "Pending": false,
       "MerchantName": "United Airlines",
-      "PaymentChannel": "other"
+      "PaymentChannel": "in store"
     },
     {
       "TransactionType": "place",
@@ -413,8 +411,7 @@
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
       "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
+      "Pending": false
     },
     {
       "TransactionType": "place",
@@ -494,8 +491,7 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
+      "Pending": false
     },
     {
       "TransactionType": "special",
@@ -542,7 +538,7 @@
       "IsoCurrencyCode": "USD",
       "Pending": false,
       "MerchantName": "United Airlines",
-      "PaymentChannel": "other"
+      "PaymentChannel": "in store"
     },
     {
       "TransactionType": "place",
@@ -670,8 +666,7 @@
       "Name": "AUTOMATIC PAYMENT - THANK",
       "Amount": 2078.5,
       "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
+      "Pending": false
     },
     {
       "TransactionType": "place",
@@ -751,8 +746,7 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
+      "Pending": false
     },
     {
       "TransactionType": "special",
@@ -799,7 +793,7 @@
       "IsoCurrencyCode": "USD",
       "Pending": false,
       "MerchantName": "United Airlines",
-      "PaymentChannel": "other"
+      "PaymentChannel": "in store"
     },
     {
       "TransactionType": "place",
@@ -872,7 +866,7 @@
   "TotalTransactions": 48,
   "Item": {
     "InstitutionId": "ins_3",
-    "Webhook": "",
+    "Webhook": ,
     "AvailableProducts": [
       "assets",
       "balance",
