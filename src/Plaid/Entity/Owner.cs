@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record Owner
 {
 	/// <summary>
-	/// <para>A list of names associated with the account by the financial institution. These should always be the names of individuals, even for business accounts. If the name of a business is reported, please contact Plaid Support. In the case of a joint account, Plaid will make a best effort to report the names of all account holders.</para>
+	/// <para>A list of names associated with the account by the financial institution. In the case of a joint account, Plaid will make a best effort to report the names of all account holders.</para>
 	/// <para>If an Item contains multiple accounts with different owner names, some institutions will report all names associated with the Item in each account's <c>names</c> array.</para>
 	/// </summary>
 	[JsonPropertyName("names")]

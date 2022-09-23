@@ -32,4 +32,10 @@ public record TransferSweep
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The date when the sweep settled, in the YYYY-MM-DD format.</para>
+	/// </summary>
+	[JsonPropertyName("settled")]
+	public DateOnly? Settled { get; init; } = default!;
 }

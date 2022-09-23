@@ -3,7 +3,9 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>Use <c>/payment_profile/create</c> endpoint to create a new payment profile, the return value is a Payment Profile ID. Attach it to the link token create request and the link workflow will then "activate" this Payment Profile if the linkage is successful. It can then be used to create Transfers using <c>/transfer/authorization/create</c> and /transfer/create`.</para>
+	/// <para>Use <c>/payment_profile/create</c> endpoint to create a new payment profile, identified by a Payment Profile ID.</para>
+	/// <para>To initiate the account linking experience, call <c>/link/token/create</c> and provide the Payment Profile ID in the <c>transfer.payment_profile_id</c> field.</para>
+	/// <para>You can then use the Payment Profile ID when creating transfers using <c>/transfer/authorization/create</c> and <c>/transfer/create</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#payment_profilecreate" /></remarks>
 	public Task<PaymentProfile.PaymentProfileCreateResponse> PaymentProfileCreateAsync(PaymentProfile.PaymentProfileCreateRequest request) =>
@@ -11,7 +13,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentProfile.PaymentProfileCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/payment_profile/get</c> endpoint to get the status of a given Payment Profile.</para>
+	/// <para>Use <c>/payment_profile/get</c> endpoint to get the status of a given Payment Profile.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#payment_profileget" /></remarks>
 	public Task<PaymentProfile.PaymentProfileGetResponse> PaymentProfileGetAsync(PaymentProfile.PaymentProfileGetRequest request) =>

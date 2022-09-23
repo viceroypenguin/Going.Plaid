@@ -18,14 +18,20 @@ public record PhysicalDocumentExtractedData
 	public Entity.PhysicalDocumentCategory Category { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>A date in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
 	/// </summary>
 	[JsonPropertyName("expiration_date")]
-	public string? ExpirationDate { get; init; } = default!;
+	public DateOnly? ExpirationDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Valid, capitalized, two-letter ISO code representing the country of this object. Must be in ISO 3166-1 alpha-2 form.</para>
 	/// </summary>
 	[JsonPropertyName("issuing_country")]
 	public string IssuingCountry { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An ISO 3166-2 subdivision code. Related terms would be "state", "province", "prefecture", "zone", "subdivision", etc.</para>
+	/// </summary>
+	[JsonPropertyName("issuing_region")]
+	public string? IssuingRegion { get; init; } = default!;
 }

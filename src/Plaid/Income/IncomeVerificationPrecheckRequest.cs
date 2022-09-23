@@ -18,6 +18,12 @@ public partial class IncomeVerificationPrecheckRequest : RequestBase
 	public Entity.IncomeVerificationPrecheckEmployer? Employer { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Information about the end user's payroll institution</para>
+	/// </summary>
+	[JsonPropertyName("payroll_institution")]
+	public Entity.IncomeVerificationPrecheckPayrollInstitution? PayrollInstitution { get; set; } = default!;
+
+	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("transactions_access_token")]

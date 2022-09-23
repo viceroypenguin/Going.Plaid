@@ -18,7 +18,7 @@ public record ProductStatus
 	public DateTimeOffset LastStatusChange { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A detailed breakdown of the institution's performance for a request type. The values for <c>success</c>, <c>error_plaid</c>, and <c>error_institution</c> sum to 1.</para>
+	/// <para>A detailed breakdown of the institution's performance for a request type. The values for <c>success</c>, <c>error_plaid</c>, and <c>error_institution</c> sum to 1. The time range used for calculating the breakdown may range from the most recent few minutes to the past six hours. In general, smaller institutions will show status that was calculated over a longer period of time. For Investment updates, which are refreshed less frequently, the period assessed may be 24 hours or more. For more details, see <a href="https://plaid.com/docs/account/activity/#institution-status-details">Institution status details</a>.</para>
 	/// </summary>
 	[JsonPropertyName("breakdown")]
 	public Entity.StatusBreakdown Breakdown { get; init; } = default!;

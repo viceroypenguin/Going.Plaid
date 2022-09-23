@@ -116,7 +116,7 @@ public record StudentLoan
 	public string? PaymentReferenceNumber { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Information about the student's eligibility in the Public Service Loan Forgiveness program. This is only returned if the institution is Fedloan (<c>ins_116527</c>).</para>
+	/// <para>Information about the student's eligibility in the Public Service Loan Forgiveness program. This is only returned if the institution is FedLoan (<c>ins_116527</c>).</para>
 	/// </summary>
 	[JsonPropertyName("pslf_status")]
 	public Entity.PSLFStatus PslfStatus { get; init; } = default!;

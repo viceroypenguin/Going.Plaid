@@ -107,13 +107,13 @@ public record TransferIntentGet
 	public string IsoCurrencyCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>When <c>true</c>, the transfer requires a <c>GUARANTEED</c> decision by Plaid to proceed (Guaranteed ACH customers only).</para>
+	/// <para>When <c>true</c>, the transfer requires a <c>GUARANTEED</c> decision by Plaid to proceed (Guarantee customers only).</para>
 	/// </summary>
 	[JsonPropertyName("require_guarantee")]
 	public bool? RequireGuarantee { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guaranteed ACH customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the <c>guarantee_decision_rationale</c> field. Refer to the <c>code</c> field in <c>guarantee_decision_rationale</c> for details.</para>
+	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guarantee customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the <c>guarantee_decision_rationale</c> field. Refer to the <c>code</c> field in <c>guarantee_decision_rationale</c> for details.</para>
 	/// </summary>
 	[JsonPropertyName("guarantee_decision")]
 	public Entity.TransferAuthorizationGuaranteeDecision? GuaranteeDecision { get; init; } = default!;

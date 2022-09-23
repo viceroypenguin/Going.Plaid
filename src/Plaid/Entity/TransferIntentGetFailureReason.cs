@@ -13,7 +13,6 @@ public record TransferIntentGetFailureReason
 
 	/// <summary>
 	/// <para>A code representing the reason for a failed transfer intent (i.e., an API error or the authorization being declined).</para>
-	/// <para>For a full listing of bank transfer errors, see <a href="https://plaid.com/docs/errors/bank-transfers/">Bank Transfers errors</a>.</para>
 	/// </summary>
 	[JsonPropertyName("error_code")]
 	public string ErrorCode { get; init; } = default!;

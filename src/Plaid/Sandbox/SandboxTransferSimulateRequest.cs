@@ -12,11 +12,12 @@ public partial class SandboxTransferSimulateRequest : RequestBase
 	public string TransferId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The asynchronous event to be simulated. May be: <c>posted</c>, <c>failed</c>, or <c>returned</c>.</para>
+	/// <para>The asynchronous event to be simulated. May be: <c>posted</c>, <c>settled</c>, <c>failed</c>, or <c>returned</c>.</para>
 	/// <para>An error will be returned if the event type is incompatible with the current transfer status. Compatible status --> event type transitions include:</para>
 	/// <para><c>pending</c> --> <c>failed</c></para>
 	/// <para><c>pending</c> --> <c>posted</c></para>
 	/// <para><c>posted</c> --> <c>returned</c></para>
+	/// <para><c>posted</c> --> <c>settled</c></para>
 	/// </summary>
 	[JsonPropertyName("event_type")]
 	public string EventType { get; set; } = default!;

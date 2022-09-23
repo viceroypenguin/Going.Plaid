@@ -114,7 +114,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestDepositSwitch DepositSwitch { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with the Income (beta) product. This field is required if <c>income_verification</c> is included in the <c>products</c> array.</para>
+	/// <para>Specifies options for initializing Link for use with the Income product. This field is required if <c>income_verification</c> is included in the <c>products</c> array.</para>
 	/// </summary>
 	[JsonPropertyName("income_verification")]
 	public Entity.LinkTokenCreateRequestIncomeVerification IncomeVerification { get; set; } = default!;
@@ -148,4 +148,10 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user_token")]
 	public string UserToken { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Configuration parameters for the Investments product</para>
+	/// </summary>
+	[JsonPropertyName("investments")]
+	public Entity.LinkTokenInvestments Investments { get; set; } = default!;
 }

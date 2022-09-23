@@ -30,6 +30,12 @@ public enum TransferEventType
 	Posted,
 
 	/// <summary>
+	/// <para>Credits are available to be withdrawn or debits have been deducted from the Plaid linked account.</para>
+	/// </summary>
+	[EnumMember(Value = "settled")]
+	Settled,
+
+	/// <summary>
 	/// <para>A posted transfer was returned.</para>
 	/// </summary>
 	[EnumMember(Value = "returned")]
@@ -42,10 +48,10 @@ public enum TransferEventType
 	Swept,
 
 	/// <summary>
-	/// 
+	/// <para>Credits are available to be withdrawn or debits have been deducted from the customer’s business checking account.</para>
 	/// </summary>
-	[EnumMember(Value = "reverse_swept")]
-	ReverseSwept,
+	[EnumMember(Value = "swept_settled")]
+	SweptSettled,
 
 	/// <summary>
 	/// <para>Due to the transfer being returned, funds were pulled from or pushed back to the sweep account.</para>

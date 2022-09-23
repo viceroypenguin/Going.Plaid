@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>data, images, analysis, and results from the <c>documentary_verification</c> step.</para>
+/// <para>Data, images, analysis, and results from the <c>documentary_verification</c> step. This field will be <c>null</c> unless <c>steps.documentary_verification</c> has reached a terminal state of either <c>success</c> or <c>failed</c>.</para>
 /// </summary>
 public record DocumentaryVerification
 {

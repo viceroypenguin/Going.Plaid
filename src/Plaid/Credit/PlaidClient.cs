@@ -3,6 +3,15 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para>This endpoint can be used for your end users after they complete the Link flow. This endpoint returns a list of Link sessions that your user completed, where each session includes the results from the Link flow. </para>
+	/// <para>These results include details about the Item that was created and some product related metadata(for e.g. whether the user finished the bank income verification step).</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditsessionsget" /></remarks>
+	public Task<Credit.CreditSessionsGetResponse> CreditSessionsGetAsync(Credit.CreditSessionsGetRequest request) =>
+		PostAsync("/credit/sessions/get", request)
+			.ParseResponseAsync<Credit.CreditSessionsGetResponse>();
+
+	/// <summary>
 	/// <para>Plaid can provide an Audit Copy token of an Asset Report and/or Income Report directly to a participating third party on your behalf. For example, Plaid can supply an Audit Copy token directly to Fannie Mae on your behalf if you participate in the Day 1 Certainty™ program. An Audit Copy token contains the same underlying data as the Asset Report and/or Income Report (result of /credit/payroll_income/get).</para>
 	/// <para>To grant access to an Audit Copy token, use the <c>/credit/audit_copy_token/create</c> endpoint to create an <c>audit_copy_token</c> and then pass that token to the third party who needs access. Each third party has its own <c>auditor_id</c>, for example <c>fannie_mae</c>. You’ll need to create a separate Audit Copy for each third party to whom you want to grant access to the Report.</para>
 	/// </summary>
@@ -46,6 +55,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/credit/payroll_income/precheck</c> is an optional endpoint that can be called before initializing a Link session for income verification. It evaluates whether a given user is supportable by digital income verification. If the user is eligible for digital verification, that information will be associated with the user token, and in this way will generate a Link UI optimized for the end user and their specific employer. If the user cannot be confirmed as eligible, the user can still use the income verification flow, but they may be required to manually upload a paystub to verify their income.</para>
 	/// <para>While all request fields are optional, providing <c>employer</c> data will increase the chance of receiving a useful result.</para>
+	/// <para>When testing in Sandbox, you can control the results by providing special test values in the <c>employer</c> and <c>access_tokens</c> fields. <c>employer_good</c> and <c>employer_bad</c> will result in <c>HIGH</c> and <c>LOW</c> confidence values, respectively. <c>employer_multi</c> will result in a <c>HIGH</c> confidence with multiple payroll options. Likewise, <c>access_good</c> and <c>access_bad</c> will result in <c>HIGH</c> and <c>LOW</c> confidence values, respectively. Any other value for <c>employer</c> and <c>access_tokens</c> in Sandbox will result in <c>UNKNOWN</c> confidence.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomeprecheck" /></remarks>
 	public Task<Credit.CreditPayrollIncomePrecheckResponse> CreditPayrollIncomePrecheckAsync(Credit.CreditPayrollIncomePrecheckRequest request) =>

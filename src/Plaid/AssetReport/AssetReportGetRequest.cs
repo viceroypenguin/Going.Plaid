@@ -22,4 +22,10 @@ public partial class AssetReportGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("fast_report")]
 	public bool FastReport { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An optional object to filter or add data to <c>/asset_report/get</c> results. If provided, must be non-<c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("options")]
+	public Entity.AssetReportGetRequestOptions Options { get; set; } = default!;
 }

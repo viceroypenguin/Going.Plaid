@@ -4,6 +4,7 @@ public sealed partial class PlaidClient
 {
 	/// <summary>
 	/// <para>Create a payment recipient for payment initiation.  The recipient must be in Europe, within a country that is a member of the Single Euro Payment Area (SEPA).  For a standing order (recurring) payment, the recipient must be in the UK.</para>
+	/// <para>It is recommended to use <c>bacs</c> in the UK and <c>iban</c> in EU.</para>
 	/// <para>The endpoint is idempotent: if a developer has already made a request with the same payment details, Plaid will return the same <c>recipient_id</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationrecipientcreate" /></remarks>

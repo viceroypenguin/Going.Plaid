@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public enum PaymentProfileStatus
 {
 	/// <summary>
-	/// <para>This Payment Profile is not ready to be used. You’ll need to call <c>/link/token/create</c> and provide the Payment Profile ID in the <c>transfer.payment_profile_id</c> field and go through the account linking flow to activate it.</para>
+	/// <para>This Payment Profile is not ready to be used. You’ll need to call <c>/link/token/create</c> and provide the Payment Profile ID in the <c>transfer.payment_profile_id</c> field to initiate the account linking experience.</para>
 	/// </summary>
 	[EnumMember(Value = "PENDING")]
 	Pending,
 
 	/// <summary>
-	/// <para>This Payment Profile is ready to be used to create transfers using <c>/transfer/authorization/create</c> and /transfer/create`.</para>
+	/// <para>This Payment Profile is ready to be used to create transfers using <c>/transfer/authorization/create</c> and <c>/transfer/create</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "READY")]
 	Ready,

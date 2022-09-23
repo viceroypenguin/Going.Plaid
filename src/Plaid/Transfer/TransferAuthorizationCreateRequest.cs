@@ -6,6 +6,15 @@ namespace Going.Plaid.Transfer;
 public partial class TransferAuthorizationCreateRequest : RequestBase
 {
 	/// <summary>
+	/// <para>A random key provided by the client, per unique authorization. Maximum of 50 characters.</para>
+	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create an authorization fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single authorization is created.</para>
+	/// <para>Failure to provide this key may result in duplicate charges.</para>
+	/// <para>Required for guaranteed ACH customers.</para>
+	/// </summary>
+	[JsonPropertyName("idempotency_key")]
+	public string? IdempotencyKey { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
@@ -18,7 +27,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public Entity.TransferType Type { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The network or rails used for the transfer. Valid options are <c>ach</c> or <c>same-day-ach</c>. The cutoff for same-day transfers is 7:45 AM Pacific Time and the cutoff for next-day transfers is 5:45 PM Pacific Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as <c>same-day-ach</c> and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.</para>
+	/// <para>The network or rails used for the transfer. Valid options are <c>ach</c> or <c>same-day-ach</c>. The cutoff for same-day transfers is 9:30 AM Pacific Time and the cutoff for next-day transfers is 5:30 PM Pacific Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as <c>same-day-ach</c> and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.</para>
 	/// </summary>
 	[JsonPropertyName("network")]
 	public Entity.TransferNetwork Network { get; set; } = default!;
@@ -60,10 +69,16 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Required for guaranteed ACH customers. If the end user is initiating the specific transfer themselves via an interactive UI, this should be <c>true</c>; for automatic recurring payments where the end user is not actually initiating each individual transfer, it should be <c>false</c>.</para>
+	/// <para>Required for Guarantee. If the end user is initiating the specific transfer themselves via an interactive UI, this should be <c>true</c>; for automatic recurring payments where the end user is not actually initiating each individual transfer, it should be <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_present")]
 	public bool? UserPresent { get; set; } = default!;
+
+	/// <summary>
+	/// <para>If set to <c>false</c>, Plaid will not offer a <c>guarantee_decision</c> for this request(Guarantee customers only).</para>
+	/// </summary>
+	[JsonPropertyName("with_guarantee")]
+	public bool? WithGuarantee { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a payment profile.</para>

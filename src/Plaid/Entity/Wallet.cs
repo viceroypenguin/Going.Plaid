@@ -22,4 +22,10 @@ public record Wallet
 	/// </summary>
 	[JsonPropertyName("numbers")]
 	public Entity.WalletNumbers Numbers { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The ID of the recipient that corresponds to the e-wallet account numbers</para>
+	/// </summary>
+	[JsonPropertyName("recipient_id")]
+	public string RecipientId { get; init; } = default!;
 }

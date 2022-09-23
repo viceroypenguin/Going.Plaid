@@ -9,7 +9,7 @@ public partial class CreditAuditCopyTokenCreateRequest : RequestBase
 	/// <para>List of report tokens; can include both Asset Report tokens and Income Report tokens.</para>
 	/// </summary>
 	[JsonPropertyName("report_tokens")]
-	public IReadOnlyList<Entity.ReportToken> ReportTokens { get; set; } = default!;
+	public IReadOnlyList<string> ReportTokens { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The <c>auditor_id</c> of the third party with whom you would like to share the Asset Report and/or Income Report.</para>

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Information about the student's eligibility in the Public Service Loan Forgiveness program. This is only returned if the institution is Fedloan (<c>ins_116527</c>).</para>
+/// <para>Information about the student's eligibility in the Public Service Loan Forgiveness program. This is only returned if the institution is FedLoan (<c>ins_116527</c>).</para>
 /// </summary>
 public record PSLFStatus
 {

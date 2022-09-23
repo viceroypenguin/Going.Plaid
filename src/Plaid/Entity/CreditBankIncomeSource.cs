@@ -24,7 +24,7 @@ public record CreditBankIncomeSource
 	public Entity.CreditBankIncomeCategory IncomeCategory { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid's unique idenfier for the account.</para>
+	/// <para>Plaid's unique identifier for the account.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; init; } = default!;

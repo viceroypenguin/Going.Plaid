@@ -54,7 +54,7 @@ public partial class TransferEventListRequest : RequestBase
 	public int? Count { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The offset into the list of transfer events. When <c>count</c>=25 and <c>offset</c>=0, the first 25 events will be returned. When <c>count</c>=25 and <c>offset</c>=25, the next 25 bank transfer events will be returned.</para>
+	/// <para>The offset into the list of transfer events. When <c>count</c>=25 and <c>offset</c>=0, the first 25 events will be returned. When <c>count</c>=25 and <c>offset</c>=25, the next 25 events will be returned.</para>
 	/// </summary>
 	[JsonPropertyName("offset")]
 	public int? Offset { get; set; } = default!;

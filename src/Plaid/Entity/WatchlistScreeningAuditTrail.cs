@@ -12,7 +12,7 @@ public record WatchlistScreeningAuditTrail
 	public Entity.Source Source { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>ID of the associated user.</para>
 	/// </summary>
 	[JsonPropertyName("dashboard_user_id")]
 	public string? DashboardUserId { get; init; } = default!;

@@ -24,7 +24,7 @@ public record Credit1099Filer
 	public string? Tin { get; init; } = default!;
 
 	/// <summary>
-	/// <para>One of the following values will be provided: Payment Settlement Entity (PSE), Electronic Payment Fecilitator (EPF), Other Third Party</para>
+	/// <para>One of the following values will be provided: Payment Settlement Entity (PSE), Electronic Payment Facilitator (EPF), Other Third Party</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public string? Type { get; init; } = default!;

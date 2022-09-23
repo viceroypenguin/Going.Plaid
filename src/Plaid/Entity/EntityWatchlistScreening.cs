@@ -18,7 +18,7 @@ public record EntityWatchlistScreening
 	public Entity.EntityWatchlistScreeningSearchTerms SearchTerms { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>ID of the associated user.</para>
 	/// </summary>
 	[JsonPropertyName("assignee")]
 	public string? Assignee { get; init; } = default!;
@@ -30,7 +30,7 @@ public record EntityWatchlistScreening
 	public Entity.WatchlistScreeningStatus Status { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>An identifier to help you connect this object to your internal systems. For example, your database ID corresponding to this object.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; init; } = default!;

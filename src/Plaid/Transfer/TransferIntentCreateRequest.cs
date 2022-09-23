@@ -65,7 +65,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	public string IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
-	/// <para>When <c>true</c>, the transfer requires a <c>GUARANTEED</c> decision by Plaid to proceed (Guaranteed ACH customers only).</para>
+	/// <para>When <c>true</c>, the transfer requires a <c>GUARANTEED</c> decision by Plaid to proceed (Guarantee customers only).</para>
 	/// </summary>
 	[JsonPropertyName("require_guarantee")]
 	public bool? RequireGuarantee { get; set; } = default!;

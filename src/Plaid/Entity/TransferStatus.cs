@@ -6,31 +6,37 @@ namespace Going.Plaid.Entity;
 public enum TransferStatus
 {
 	/// <summary>
-	/// 
+	/// <para>A new transfer was created; it is in the pending state.</para>
 	/// </summary>
 	[EnumMember(Value = "pending")]
 	Pending,
 
 	/// <summary>
-	/// 
+	/// <para>The transfer has been successfully submitted to the payment network.</para>
 	/// </summary>
 	[EnumMember(Value = "posted")]
 	Posted,
 
 	/// <summary>
-	/// 
+	/// <para>Credits are available to be withdrawn or debits have been deducted from the Plaid linked account.</para>
+	/// </summary>
+	[EnumMember(Value = "settled")]
+	Settled,
+
+	/// <summary>
+	/// <para>The transfer was cancelled by the client.</para>
 	/// </summary>
 	[EnumMember(Value = "cancelled")]
 	Cancelled,
 
 	/// <summary>
-	/// 
+	/// <para>The transfer failed, no funds were moved.</para>
 	/// </summary>
 	[EnumMember(Value = "failed")]
 	Failed,
 
 	/// <summary>
-	/// 
+	/// <para>A posted transfer was returned.</para>
 	/// </summary>
 	[EnumMember(Value = "returned")]
 	Returned,

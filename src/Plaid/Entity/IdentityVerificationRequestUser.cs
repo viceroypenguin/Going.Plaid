@@ -22,10 +22,10 @@ public class IdentityVerificationRequestUser
 	public string ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>A valid email address.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
-	public string? EmailAddress { get; set; } = default!;
+	public string EmailAddress { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A phone number in E.164 format.</para>

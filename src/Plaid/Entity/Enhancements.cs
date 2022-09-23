@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record Enhancements
 {
 	/// <summary>
-	/// <para>The merchant name, as extracted by Plaid from the raw description.</para>
+	/// <para>The name of the primary counterparty, such as the merchant or the financial institution, as extracted by Plaid from the raw description.</para>
 	/// </summary>
 	[JsonPropertyName("merchant_name")]
 	public string? MerchantName { get; init; } = default!;
@@ -65,4 +65,10 @@ public record Enhancements
 	/// </summary>
 	[JsonPropertyName("personal_finance_category_icon_url")]
 	public string PersonalFinanceCategoryIconUrl { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The counterparties present in the transaction. Counterparties, such as the merchant or the financial institution, are extracted by Plaid from the raw description.</para>
+	/// </summary>
+	[JsonPropertyName("counterparties")]
+	public IReadOnlyList<Entity.Counterparty> Counterparties { get; init; } = default!;
 }

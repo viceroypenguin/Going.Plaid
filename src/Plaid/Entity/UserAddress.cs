@@ -30,7 +30,7 @@ public class UserAddress
 	public string Region { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The postal code for the associated address. Between 2 and 10 alphanumeric characters.</para>
+	/// <para>The postal code for the associated address. Between 2 and 10 alphanumeric characters. For US-based addresses this must be 5 numeric digits.</para>
 	/// </summary>
 	[JsonPropertyName("postal_code")]
 	public string PostalCode { get; set; } = default!;

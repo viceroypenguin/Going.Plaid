@@ -210,7 +210,7 @@ public enum AccountSubtype
 	HealthReimbursementArrangement,
 
 	/// <summary>
-	/// <para>Traditional Invididual Retirement Account (IRA) (US)</para>
+	/// <para>Traditional Individual Retirement Account (IRA) (US)</para>
 	/// </summary>
 	[EnumMember(Value = "ira")]
 	Ira,

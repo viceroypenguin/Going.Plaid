@@ -28,4 +28,10 @@ public partial class CreditPayrollIncomePrecheckRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("us_military_info")]
 	public Entity.IncomeVerificationPrecheckMilitaryInfo? UsMilitaryInfo { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Information about the end user's payroll institution</para>
+	/// </summary>
+	[JsonPropertyName("payroll_institution")]
+	public Entity.IncomeVerificationPrecheckPayrollInstitution? PayrollInstitution { get; set; } = default!;
 }

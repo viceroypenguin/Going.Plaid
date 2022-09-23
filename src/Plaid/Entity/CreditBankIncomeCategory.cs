@@ -68,6 +68,24 @@ public enum CreditBankIncomeCategory
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "CASH_DEPOSIT")]
+	CashDeposit,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "TRANSFER_FROM_APPLICATION")]
+	TransferFromApplication,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "TAX_REFUND")]
+	TaxRefund,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "OTHER")]
 	Other,
 

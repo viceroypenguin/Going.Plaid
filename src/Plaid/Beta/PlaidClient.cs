@@ -32,11 +32,4 @@ public sealed partial class PlaidClient
 	public Task<Beta.TransactionsRulesRemoveResponse> BetaTransactionsRulesV1RemoveAsync(Beta.TransactionsRulesRemoveRequest request) =>
 		PostAsync("/beta/transactions/rules/v1/remove", request)
 			.ParseResponseAsync<Beta.TransactionsRulesRemoveResponse>();
-
-	/// <summary>
-	/// <para>The <c>/partner/v1/customers/create</c> endpoint is used by reseller partners to create an end customer client.</para>
-	/// </summary>
-	public Task<Beta.PartnerCustomersCreateResponse> BetaPartnerV1CustomersCreateAsync(Beta.PartnerCustomersCreateRequest request) =>
-		PostAsync("/beta/partner/v1/customers/create", request)
-			.ParseResponseAsync<Beta.PartnerCustomersCreateResponse>();
 }

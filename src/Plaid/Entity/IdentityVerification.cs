@@ -77,19 +77,19 @@ public record IdentityVerification
 	public Entity.IdentityVerificationStepSummary Steps { get; init; } = default!;
 
 	/// <summary>
-	/// <para>data, images, analysis, and results from the <c>documentary_verification</c> step.</para>
+	/// <para>Data, images, analysis, and results from the <c>documentary_verification</c> step. This field will be <c>null</c> unless <c>steps.documentary_verification</c> has reached a terminal state of either <c>success</c> or <c>failed</c>.</para>
 	/// </summary>
 	[JsonPropertyName("documentary_verification")]
 	public Entity.DocumentaryVerification? DocumentaryVerification { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The outcome of the <c>kyc_check</c> step.</para>
+	/// <para>Additional information for the <c>kyc_check</c> step. This field will be <c>null</c> unless <c>steps.kyc_check</c> has reached a terminal state of either <c>success</c> or <c>failed</c>.</para>
 	/// </summary>
 	[JsonPropertyName("kyc_check")]
 	public Entity.KYCCheckDetails? KycCheck { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>ID of the associated screening.</para>
 	/// </summary>
 	[JsonPropertyName("watchlist_screening_id")]
 	public string? WatchlistScreeningId { get; init; } = default!;

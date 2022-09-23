@@ -75,7 +75,7 @@ public record PaymentInitiationPayment
 	/// <para>Refund IDs associated with the payment.</para>
 	/// </summary>
 	[JsonPropertyName("refund_ids")]
-	public IReadOnlyList<string> RefundIds { get; init; } = default!;
+	public IReadOnlyList<string>? RefundIds { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>

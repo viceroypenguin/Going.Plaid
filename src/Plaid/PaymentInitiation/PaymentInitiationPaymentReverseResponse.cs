@@ -12,8 +12,8 @@ public record PaymentInitiationPaymentReverseResponse : ResponseBase
 	public string RefundId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The status of the refund.</para>
+	/// <para>The status of the transaction.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.PaymentInitiationRefundStatus Status { get; init; } = default!;
+	public Entity.WalletTransactionStatus Status { get; init; } = default!;
 }

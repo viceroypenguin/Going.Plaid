@@ -18,7 +18,7 @@ public enum TransferAuthorizationGuaranteeDecisionRationaleCode
 	ReturnCustomer,
 
 	/// <summary>
-	/// <para>This transfer is low-risk, but Guaranteed ACH has exhausted an internal limit on the number or rate of guarantees that applies to this transfer.</para>
+	/// <para>This transfer is low-risk, but Guarantee has exhausted an internal limit on the number or rate of guarantees that applies to this transfer.</para>
 	/// </summary>
 	[EnumMember(Value = "GUARANTEE_LIMIT_REACHED")]
 	GuaranteeLimitReached,

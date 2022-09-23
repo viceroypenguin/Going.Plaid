@@ -6,7 +6,13 @@ namespace Going.Plaid.Entity;
 public enum WalletTransactionStatus
 {
 	/// <summary>
-	/// <para>This is the initial state of all transactions. It indicates that the transaction has been initiated and is currently being processed.</para>
+	/// <para>The transaction is being processed for validation and compliance.</para>
+	/// </summary>
+	[EnumMember(Value = "AUTHORISING")]
+	Authorising,
+
+	/// <summary>
+	/// <para>The transaction has been initiated and is currently being processed.</para>
 	/// </summary>
 	[EnumMember(Value = "INITIATED")]
 	Initiated,

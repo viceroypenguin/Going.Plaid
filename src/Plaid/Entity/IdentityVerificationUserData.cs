@@ -24,7 +24,7 @@ public record IdentityVerificationUserData
 	public string? IpAddress { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>A valid email address.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string? EmailAddress { get; init; } = default!;
@@ -36,7 +36,9 @@ public record IdentityVerificationUserData
 	public Entity.UserName? Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Even if an address has been collected, some fields may be null depending on the region's addressing system. For example: * Addresses from the United Kingdom will not include a region * Addresses from Hong Kong will not include postal code</para>
+	/// <para>Even if an address has been collected, some fields may be null depending on the region's addressing system. For example:</para>
+	/// <para>Addresses from the United Kingdom will not include a region</para>
+	/// <para>Addresses from Hong Kong will not include postal code</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.IdentityVerificationUserAddress? Address { get; init; } = default!;

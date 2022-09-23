@@ -66,7 +66,7 @@ public record Transfer
 	public Entity.TransferSweepStatus? SweepStatus { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The network or rails used for the transfer. Valid options are <c>ach</c> or <c>same-day-ach</c>. The cutoff for same-day transfers is 7:45 AM Pacific Time and the cutoff for next-day transfers is 5:45 PM Pacific Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as <c>same-day-ach</c> and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.</para>
+	/// <para>The network or rails used for the transfer. Valid options are <c>ach</c> or <c>same-day-ach</c>. The cutoff for same-day transfers is 9:30 AM Pacific Time and the cutoff for next-day transfers is 5:30 PM Pacific Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as <c>same-day-ach</c> and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.</para>
 	/// </summary>
 	[JsonPropertyName("network")]
 	public Entity.TransferNetwork Network { get; init; } = default!;
@@ -101,7 +101,7 @@ public record Transfer
 	public string OriginationAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guaranteed ACH customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the <c>guarantee_decision_rationale</c> field. Refer to the <c>code</c> field in <c>guarantee_decision_rationale</c> for details.</para>
+	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guarantee customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the <c>guarantee_decision_rationale</c> field. Refer to the <c>code</c> field in <c>guarantee_decision_rationale</c> for details.</para>
 	/// </summary>
 	[JsonPropertyName("guarantee_decision")]
 	public Entity.TransferAuthorizationGuaranteeDecision? GuaranteeDecision { get; init; } = default!;
@@ -117,4 +117,16 @@ public record Transfer
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The date 3 business days from settlement date indicating the following ACH returns can no longer happen: R01, R02, R03, R29. This will be of the form YYYY-MM-DD.</para>
+	/// </summary>
+	[JsonPropertyName("standard_return_window")]
+	public DateOnly? StandardReturnWindow { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The date 61 business days from settlement date indicating the following ACH returns can no longer happen: R05, R07, R10, R11, R51, R33, R37, R38, R51, R52, R53. This will be of the form YYYY-MM-DD.</para>
+	/// </summary>
+	[JsonPropertyName("unauthorized_return_window")]
+	public DateOnly? UnauthorizedReturnWindow { get; init; } = default!;
 }

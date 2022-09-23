@@ -6,10 +6,10 @@ namespace Going.Plaid.Credit;
 public partial class CreditRelayCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>List of report tokens, with at most one token of each report type. Currently only Asset Report token is supported.</para>
+	/// <para>List of report token strings, with at most one token of each report type. Currently only Asset Report token is supported.</para>
 	/// </summary>
 	[JsonPropertyName("report_tokens")]
-	public IReadOnlyList<Entity.ReportToken> ReportTokens { get; set; } = default!;
+	public IReadOnlyList<string> ReportTokens { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The <c>secondary_client_id</c> is the client id of the third party with whom you would like to share the Relay Token.</para>
