@@ -1,4 +1,4 @@
-namespace Going.Plaid.Entity;
+﻿namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>A status health incident</para>
@@ -15,7 +15,7 @@ public record HealthIncident
 	/// <para>The end date of the incident, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format, e.g. <c>"2020-10-30T15:26:48Z"</c>.</para>
 	/// </summary>
 	[JsonPropertyName("end_date")]
-	public DateTimeOffset EndDate { get; init; } = default!;
+	public DateTimeOffset? EndDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The title of the incident</para>
