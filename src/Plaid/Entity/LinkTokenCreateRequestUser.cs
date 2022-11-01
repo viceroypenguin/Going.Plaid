@@ -1,4 +1,4 @@
-namespace Going.Plaid.Entity;
+﻿namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>An object specifying information about the end user who will be linking their account.</para>
@@ -21,7 +21,7 @@ public class LinkTokenCreateRequestUser
 	/// <para>The user's full name. Optional if using the <a href="https://plaid.com/docs/api/products/identity-verification">Identity Verification</a> product; if not using Identity Verification, this field is not allowed. Users will not be asked for their name when this field is provided.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
-	public Entity.LinkTokenCreateRequestUserNameObject Name { get; set; } = default!;
+	public Entity.LinkTokenCreateRequestUserNameObject? Name { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
@@ -35,7 +35,7 @@ public class LinkTokenCreateRequestUser
 	/// <para> Example: <c>2020-01-01T00:00:00Z</c></para>
 	/// </summary>
 	[JsonPropertyName("phone_number_verified_time")]
-	public DateTimeOffset PhoneNumberVerifiedTime { get; set; } = default!;
+	public DateTimeOffset? PhoneNumberVerifiedTime { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The user's email address. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user/#enabling-the-returning-user-experience">pre-authenticated returning user flow</a>.</para>
@@ -49,7 +49,7 @@ public class LinkTokenCreateRequestUser
 	/// <para> Example: <c>2020-01-01T00:00:00Z</c></para>
 	/// </summary>
 	[JsonPropertyName("email_address_verified_time")]
-	public DateTimeOffset EmailAddressVerifiedTime { get; set; } = default!;
+	public DateTimeOffset? EmailAddressVerifiedTime { get; set; } = default!;
 
 	/// <summary>
 	/// <para>To be provided in the format "ddd-dd-dddd". Not currently used.</para>
@@ -61,7 +61,7 @@ public class LinkTokenCreateRequestUser
 	/// <para>To be provided in the format "yyyy-mm-dd". Not currently used.</para>
 	/// </summary>
 	[JsonPropertyName("date_of_birth")]
-	public DateOnly DateOfBirth { get; set; } = default!;
+	public DateOnly? DateOfBirth { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Home address for the user.</para>
