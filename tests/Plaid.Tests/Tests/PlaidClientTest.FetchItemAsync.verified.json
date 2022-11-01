@@ -1,7 +1,7 @@
 ﻿{
   "Item": {
     "InstitutionId": "ins_3",
-    "Webhook": ,
+    "Webhook": "",
     "AvailableProducts": [
       "assets",
       "balance",

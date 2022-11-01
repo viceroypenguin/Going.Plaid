@@ -866,7 +866,7 @@
   "TotalTransactions": 48,
   "Item": {
     "InstitutionId": "ins_3",
-    "Webhook": ,
+    "Webhook": "",
     "AvailableProducts": [
       "assets",
       "balance",
