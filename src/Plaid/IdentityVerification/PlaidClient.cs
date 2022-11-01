@@ -12,7 +12,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<IdentityVerification.IdentityVerificationCreateResponse>();
 
 	/// <summary>
-	/// <para>Retrieve a previously created identity verification</para>
+	/// <para>Retrieve a previously created identity verification.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/identity-verification/#identity_verificationget" /></remarks>
 	public Task<IdentityVerification.IdentityVerificationGetResponse> IdentityVerificationGetAsync(IdentityVerification.IdentityVerificationGetRequest request) =>

@@ -12,10 +12,16 @@ public enum CreditSessionBankIncomeStatus
 	Approved,
 
 	/// <summary>
-	/// <para>We were unable to find any income in the connected account.</para>
+	/// <para>We attempted, but were unable to find any income in the connected account.</para>
 	/// </summary>
 	[EnumMember(Value = "NO_DEPOSITS_FOUND")]
 	NoDepositsFound,
+
+	/// <summary>
+	/// <para>The user explicitly indicated that they don't receive income in the connected account.</para>
+	/// </summary>
+	[EnumMember(Value = "USER_REPORTED_NO_INCOME")]
+	UserReportedNoIncome,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

@@ -32,8 +32,14 @@ public enum TransferAuthorizationDecisionRationaleCode
 	/// <summary>
 	/// <para>– Unable to collect the account information due to Item staleness. Can be rectified using Link in update mode. Plaid will offer <c>approved</c> as a transaction decision.</para>
 	/// </summary>
-	[EnumMember(Value = "LOGIN_REQUIRED")]
-	LoginRequired,
+	[EnumMember(Value = "ITEM_LOGIN_REQUIRED")]
+	ItemLoginRequired,
+
+	/// <summary>
+	/// <para>Unable to collect the account information due to invalid login when using Payment Profiles. Can be rectified using update mode for Payment Profile. Plaid will offer <c>approved</c> as a transaction decision.</para>
+	/// </summary>
+	[EnumMember(Value = "PAYMENT_PROFILE_LOGIN_REQUIRED")]
+	PaymentProfileLoginRequired,
 
 	/// <summary>
 	/// <para>– Unable to collect the account information due to an error. Plaid will offer <c>approved</c> as a transaction decision.</para>

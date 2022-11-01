@@ -10,10 +10,4 @@ public partial class CreditAuditCopyTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("report_tokens")]
 	public IReadOnlyList<string> ReportTokens { get; set; } = default!;
-
-	/// <summary>
-	/// <para>The <c>auditor_id</c> of the third party with whom you would like to share the Asset Report and/or Income Report.</para>
-	/// </summary>
-	[JsonPropertyName("auditor_id")]
-	public string AuditorId { get; set; } = default!;
 }

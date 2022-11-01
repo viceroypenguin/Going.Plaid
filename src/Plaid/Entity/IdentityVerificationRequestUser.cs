@@ -9,8 +9,7 @@ namespace Going.Plaid.Entity;
 /// <para><c>name</c></para>
 /// <para><c>address</c></para>
 /// <para><c>id_number</c></para>
-/// <para>Specifically, these fields are optional in that they can either be fully provided (satisfying every required field in their subschema)</para>
-/// <para>or omitted from the request entirely by not providing the key or value.</para>
+/// <para>Specifically, these fields are optional in that they can either be fully provided (satisfying every required field in their subschema) or omitted from the request entirely by not providing the key or value.</para>
 /// <para>Providing these fields via the API will result in Link skipping the data collection process for the associated user. All verification steps enabled in the associated Identity Verification Template will still be run. Verification steps will either be run immediately, or once the user completes the <c>accept_tos</c> step, depending on the value provided to the <c>gave_consent</c> field.</para>
 /// </summary>
 public class IdentityVerificationRequestUser

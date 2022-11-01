@@ -12,8 +12,8 @@ public class LinkTokenCreateRequestTransfer
 	public string IntentId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The <c>payment_profile_id</c> returned by the <c>/payment_profile/create</c> endpoint.</para>
+	/// <para>The <c>payment_profile_token</c> returned by the <c>/payment_profile/create</c> endpoint.</para>
 	/// </summary>
-	[JsonPropertyName("payment_profile_id")]
-	public string PaymentProfileId { get; set; } = default!;
+	[JsonPropertyName("payment_profile_token")]
+	public string PaymentProfileToken { get; set; } = default!;
 }

@@ -264,6 +264,12 @@ public enum AccountSubtype
 	MutualFund,
 
 	/// <summary>
+	/// <para>A cryptocurrency wallet where the user controls the private key</para>
+	/// </summary>
+	[EnumMember(Value = "non-custodial wallet")]
+	NonCustodialWallet,
+
+	/// <summary>
 	/// <para>A non-taxable brokerage account that is not covered by a more specific subtype</para>
 	/// </summary>
 	[EnumMember(Value = "non-taxable brokerage account")]

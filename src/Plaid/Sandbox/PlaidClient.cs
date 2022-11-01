@@ -91,6 +91,16 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferFireWebhookResponse>();
 
 	/// <summary>
+	/// <para><c>/sandbox/payment_profile/reset_login/</c> forces a Payment Profile into a state where the login is no longer valid. This makes it easy to test update mode for Payment Profile in the Sandbox environment.</para>
+	/// <para> After calling <c>/sandbox/payment_profile/reset_login</c>, calls to the <c>/transfer/authorization/create</c> with the Payment Profile will result in a decision_rationale <c>PAYMENT_PROFILE_LOGIN_REQUIRED</c>`. You can then use update mode for Payment Profile to restore it into a good state.</para>
+	/// <para> In order to invoke this endpoint, you must first <a href="https://plaid.com/docs/transfer/add-to-app/#create-a-payment-profile-optional">create a Payment Profile</a> and <a href="https://plaid.com/docs/transfer/add-to-app/#create-a-link-token">go through the Link flow</a>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxpaymentprofilereset_login" /></remarks>
+	public Task<Sandbox.SandboxPaymentProfileResetLoginResponse> SandboxPaymentProfileResetLoginAsync(Sandbox.SandboxPaymentProfileResetLoginRequest request) =>
+		PostAsync("/sandbox/payment_profile/reset_login", request)
+			.ParseResponseAsync<Sandbox.SandboxPaymentProfileResetLoginResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/sandbox/bank_transfer/fire_webhook</c> endpoint to manually trigger a Bank Transfers webhook in the Sandbox environment.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/bank-transfers/reference/#sandboxbank_transferfire_webhook" /></remarks>

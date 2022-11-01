@@ -6,19 +6,25 @@ namespace Going.Plaid.Entity;
 public enum PartnerEndCustomerStatus
 {
 	/// <summary>
-	/// <para>The end customer has been created and is active in the non-production environments. The end customer must be manually reviewed by the Plaid team before it can be enabled in production, at which point its status will automatically transition to <c>ACTIVE</c> or <c>DENIED</c>.</para>
+	/// <para>The end customer has been created and enabled in the non-Production environments. The end customer must be manually reviewed by the Plaid team before it can be enabled in production, at which point its status will automatically transition to <c>READY FOR ENABLEMENT</c> or <c>DENIED</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "UNDER REVIEW")]
 	UnderReview,
 
 	/// <summary>
-	/// <para>The end customer has been created and is active in all environments.</para>
+	/// <para>The end customer is ready to be enabled in the Production environment. Call the <c>/partner/customer/enable</c> endpoint to enable the end customer in Production.</para>
+	/// </summary>
+	[EnumMember(Value = "READY FOR ENABLEMENT")]
+	ReadyForEnablement,
+
+	/// <summary>
+	/// <para>The end customer has been enabled in all environments.</para>
 	/// </summary>
 	[EnumMember(Value = "ACTIVE")]
 	Active,
 
 	/// <summary>
-	/// <para>The end customer was created and enabled in the non-production environments, but it did not pass review by the Plaid team and has therefore not been enabled for the production environment. Talk to your Account Manager for more information.</para>
+	/// <para>The end customer has been created and enabled in the non-Production environments, but it did not pass review by the Plaid team and therefore cannot be enabled in the Production environment. Talk to your Account Manager for more information.</para>
 	/// </summary>
 	[EnumMember(Value = "DENIED")]
 	Denied,

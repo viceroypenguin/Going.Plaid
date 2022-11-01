@@ -6,19 +6,16 @@ namespace Going.Plaid.Transfer;
 public partial class TransferAuthorizationCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>A random key provided by the client, per unique authorization. Maximum of 50 characters.</para>
-	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create an authorization fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single authorization is created.</para>
-	/// <para>Failure to provide this key may result in duplicate charges.</para>
-	/// <para>Required for guaranteed ACH customers.</para>
-	/// </summary>
-	[JsonPropertyName("idempotency_key")]
-	public string? IdempotencyKey { get; set; } = default!;
-
-	/// <summary>
-	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited.</para>
+	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited. Required if not using <c>payment_profile_token</c>.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The payment profile token associated with the Payment Profile that will be debited or credited. Required if not using <c>access_token</c>.</para>
+	/// </summary>
+	[JsonPropertyName("payment_profile_token")]
+	public string PaymentProfileToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
@@ -27,7 +24,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public Entity.TransferType Type { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The network or rails used for the transfer. Valid options are <c>ach</c> or <c>same-day-ach</c>. The cutoff for same-day transfers is 9:30 AM Pacific Time and the cutoff for next-day transfers is 5:30 PM Pacific Time. It is recommended to submit a transfer at least 15 minutes before the cutoff time in order to ensure that it will be processed before the cutoff. Any transfer that is indicated as <c>same-day-ach</c> and that misses the same-day cutoff, but is submitted in time for the next-day cutoff, will be sent over next-day rails and will not incur same-day charges. Note that both legs of the transfer will be downgraded if applicable.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("network")]
 	public Entity.TransferNetwork Network { get; set; } = default!;
@@ -69,6 +66,15 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
+	/// <para>A random key provided by the client, per unique authorization. Maximum of 50 characters.</para>
+	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create an authorization fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single authorization is created.</para>
+	/// <para>Failure to provide this key may result in duplicate charges.</para>
+	/// <para>Required for guaranteed ACH customers.</para>
+	/// </summary>
+	[JsonPropertyName("idempotency_key")]
+	public string? IdempotencyKey { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Required for Guarantee. If the end user is initiating the specific transfer themselves via an interactive UI, this should be <c>true</c>; for automatic recurring payments where the end user is not actually initiating each individual transfer, it should be <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_present")]
@@ -81,8 +87,8 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public bool? WithGuarantee { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a payment profile.</para>
+	/// <para>The unique identifier returned by Plaid's <a href="https://plaid.com/docs/transfer/guarantee/#using-a-beacon">beacon</a> when it is run on your webpage. Required for Guarantee customers who are not using <a href="https://plaid.com/docs/transfer/using-transfer-ui/">Transfer UI</a> and have a web checkout experience.</para>
 	/// </summary>
-	[JsonPropertyName("payment_profile_id")]
-	public string PaymentProfileId { get; set; } = default!;
+	[JsonPropertyName("beacon_session_id")]
+	public string? BeaconSessionId { get; set; } = default!;
 }

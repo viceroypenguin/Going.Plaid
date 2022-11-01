@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Entity;
+namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager.</para>
@@ -18,7 +18,7 @@ public class LinkTokenCreateRequestAuth
 	public bool AutomatedMicrodepositsEnabled { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies whether the Link session is enabled for the Instant Match flow.</para>
+	/// <para>Specifies whether the Link session is enabled for the Instant Match flow. As of October 5th, 2022, Instant Match has been enabled by default for all new customers; this field is only necessary to enable Instant Match for customers who enabled auth before October 5th, 2022 and who have not previously enabled Instant Match via their Account Manager.</para>
 	/// </summary>
 	[JsonPropertyName("instant_match_enabled")]
 	public bool InstantMatchEnabled { get; set; } = default!;

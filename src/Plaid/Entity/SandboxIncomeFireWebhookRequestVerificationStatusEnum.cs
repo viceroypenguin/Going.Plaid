@@ -18,7 +18,7 @@ public enum SandboxIncomeFireWebhookRequestVerificationStatusEnum
 	VerificationStatusProcessingFailed,
 
 	/// <summary>
-	/// <para>The income verification has been sent to the user for review.</para>
+	/// <para>(deprecated) The income verification has been sent to the user for review.</para>
 	/// </summary>
 	[EnumMember(Value = "VERIFICATION_STATUS_PENDING_APPROVAL")]
 	VerificationStatusPendingApproval,

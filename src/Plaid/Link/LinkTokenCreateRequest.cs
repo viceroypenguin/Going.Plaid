@@ -102,7 +102,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public string InstitutionId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with the Payment Initiation (Europe) product. This field is required if <c>payment_initiation</c> is included in the <c>products</c> array.</para>
+	/// <para>Specifies options for initializing Link for use with the Payment Initiation (Europe) product. This field is required if <c>payment_initiation</c> is included in the <c>products</c> array. Either <c>payment_id</c> or <c>consent_id</c> must be provided.</para>
 	/// </summary>
 	[JsonPropertyName("payment_initiation")]
 	public Entity.LinkTokenCreateRequestPaymentInitiation PaymentInitiation { get; set; } = default!;

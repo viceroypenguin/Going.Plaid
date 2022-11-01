@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record Security
 {
 	/// <summary>
-	/// <para>A unique, Plaid-specific identifier for the security, used to associate securities with holdings. Like all Plaid identifiers, the <c>security_id</c> is case sensitive.</para>
+	/// <para>A unique, Plaid-specific identifier for the security, used to associate securities with holdings. Like all Plaid identifiers, the <c>security_id</c> is case sensitive. The <c>security_id</c> may change if inherent details of the security change due to a corporate action, for example, in the event of a ticker symbol change or CUSIP change.</para>
 	/// </summary>
 	[JsonPropertyName("security_id")]
 	public string SecurityId { get; init; } = default!;

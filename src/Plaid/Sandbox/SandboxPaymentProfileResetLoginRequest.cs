@@ -1,9 +1,9 @@
-namespace Going.Plaid.PaymentProfile;
+namespace Going.Plaid.Sandbox;
 
 /// <summary>
-/// <para>PaymentProfileRemoveRequest defines the request schema for <c>/payment_profile/remove</c></para>
+/// <para>SandboxPaymentProfileResetLoginRequest defines the request schema for <c>/sandbox/payment_profile/reset_login</c></para>
 /// </summary>
-public partial class PaymentProfileRemoveRequest : RequestBase
+public partial class SandboxPaymentProfileResetLoginRequest : RequestBase
 {
 	/// <summary>
 	/// <para>A payment profile token associated with the Payment Profile data that is being requested.</para>

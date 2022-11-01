@@ -60,6 +60,48 @@ public enum CountryCode
 	It,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "PL")]
+	Pl,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "DK")]
+	Dk,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "NO")]
+	No,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "SE")]
+	Se,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "EE")]
+	Ee,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "LT")]
+	Lt,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "LV")]
+	Lv,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

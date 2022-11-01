@@ -30,7 +30,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public bool CreateLinkCustomization { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Base64-encoded representation of the end customer's logo. Defaults to the partner's logo if omitted.</para>
+	/// <para>Base64-encoded representation of the end customer's logo. Must be a PNG of size 1024x1024 under 4MB. Defaults to the partner's logo if omitted.</para>
 	/// </summary>
 	[JsonPropertyName("logo")]
 	public string Logo { get; set; } = default!;

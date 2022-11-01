@@ -18,7 +18,7 @@ public class InstitutionsGetRequestOptions
 	public IReadOnlyList<string>? RoutingNumbers { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Limit results to institutions with or without OAuth login flows.</para>
+	/// <para>Limit results to institutions with or without mandatory OAuth login flows. Note that institutions will only have <c>oauth</c> set to <c>true</c> if *all* Items associated with that institution are required to use OAuth flows; institutions in a state of migration to OAuth may have the <c>oauth</c> attribute set to <c>false</c> even if they support OAuth.</para>
 	/// </summary>
 	[JsonPropertyName("oauth")]
 	public bool? Oauth { get; set; } = default!;

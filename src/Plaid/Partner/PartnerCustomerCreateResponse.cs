@@ -6,7 +6,7 @@ namespace Going.Plaid.Partner;
 public record PartnerCustomerCreateResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>The details for the newly created end customer, including secrets for all environments.</para>
+	/// <para>The details for the newly created end customer, including secrets for non-Production environments.</para>
 	/// </summary>
 	[JsonPropertyName("end_customer")]
 	public Entity.PartnerEndCustomerWithSecrets EndCustomer { get; init; } = default!;

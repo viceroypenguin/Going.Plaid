@@ -260,6 +260,12 @@ public enum InvestmentTransactionSubtype
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "trade")]
+	Trade,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "transfer")]
 	Transfer,
 

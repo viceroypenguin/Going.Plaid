@@ -54,7 +54,7 @@ public record Institution
 	public IReadOnlyList<string> RoutingNumbers { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates that the institution has an OAuth login flow.</para>
+	/// <para>Indicates that the institution has a mandatory OAuth login flow. Note that <c>oauth</c> may be <c>false</c> even for institutions that support OAuth, if the institution is in the process of migrating to OAuth and some active Items still exist that do not use OAuth.</para>
 	/// </summary>
 	[JsonPropertyName("oauth")]
 	public bool Oauth { get; init; } = default!;

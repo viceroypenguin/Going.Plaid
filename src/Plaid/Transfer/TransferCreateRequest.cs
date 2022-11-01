@@ -14,10 +14,16 @@ public partial class TransferCreateRequest : RequestBase
 	public string IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited.</para>
+	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited. Required if not using <c>payment_profile_token</c>.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The payment profile token associated with the Payment Profile that will be debited or credited. Required if not using <c>access_token</c>.</para>
+	/// </summary>
+	[JsonPropertyName("payment_profile_token")]
+	public string PaymentProfileToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a transfer authorization. This parameter also serves the purpose of acting as an idempotency identifier.</para>
@@ -59,7 +65,7 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para>The legal name and other information for the account holder.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
-	public Entity.TransferUserInRequest User { get; set; } = default!;
+	public Entity.TransferUserInRequestDeprecated? User { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The Metadata object is a mapping of client-provided string fields to any string value. The following limitations apply:</para>
@@ -83,10 +89,4 @@ public partial class TransferCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; set; } = default!;
-
-	/// <summary>
-	/// <para>Plaid’s unique identifier for a payment profile.</para>
-	/// </summary>
-	[JsonPropertyName("payment_profile_id")]
-	public string PaymentProfileId { get; set; } = default!;
 }

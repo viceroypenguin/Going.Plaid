@@ -1,19 +1,19 @@
-namespace Going.Plaid.Entity;
+﻿namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A physical mailing address.</para>
+/// <para>Score found by matching address provided by the API with the address on the account at the financial institution. If the account contains multiple owners, the maximum match score is filled.</para>
 /// </summary>
 public record Address
 {
 	/// <summary>
-	/// <para>Data about the components comprising an address.</para>
+	/// <para>Match score for address. 100 is a perfect match and 0 is a no match. If the address is missing from either the API or financial institution, this is empty.</para>
 	/// </summary>
-	[JsonPropertyName("data")]
-	public Entity.AddressData Data { get; init; } = default!;
+	[JsonPropertyName("score")]
+	public int? Score { get; init; } = default!;
 
 	/// <summary>
-	/// <para>When <c>true</c>, identifies the address as the primary address on an account.</para>
+	/// <para>postal code was provided for both and was a match</para>
 	/// </summary>
-	[JsonPropertyName("primary")]
-	public bool Primary { get; init; } = default!;
+	[JsonPropertyName("is_postal_code_match")]
+	public bool? IsPostalCodeMatch { get; init; } = default!;
 }

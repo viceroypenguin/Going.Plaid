@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record PartnerEndCustomer
 {
 	/// <summary>
-	/// <para>Your Plaid API <c>client_id</c>. The <c>client_id</c> is required and may be provided either in the <c>PLAID-CLIENT-ID</c> header or as part of a request body.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("client_id")]
 	public string ClientId { get; init; } = default!;

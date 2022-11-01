@@ -12,7 +12,7 @@ public record Holding
 	public string AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid <c>security_id</c> associated with the holding.</para>
+	/// <para>The Plaid <c>security_id</c> associated with the holding. The <c>security_id</c> may change if inherent details of the security change due to a corporate action, for example, in the event of a ticker symbol change or CUSIP change.</para>
 	/// </summary>
 	[JsonPropertyName("security_id")]
 	public string SecurityId { get; init; } = default!;
@@ -43,7 +43,7 @@ public record Holding
 	public decimal InstitutionValue { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The original total value or the purchase price per share of the holding. This field is an aggregate on a per holding basis and dependent on the information provided by the institution.</para>
+	/// <para>The original total value of the holding. The accuracy of this field is dependent on the information provided by the institution.</para>
 	/// </summary>
 	[JsonPropertyName("cost_basis")]
 	public decimal? CostBasis { get; init; } = default!;
