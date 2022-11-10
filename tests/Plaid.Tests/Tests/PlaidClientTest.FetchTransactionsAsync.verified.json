@@ -142,7 +142,6 @@
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
       "Pending": false,
-      "MerchantName": "Tectra Inc",
       "PaymentChannel": "in store"
     },
     {
@@ -236,7 +235,8 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
-      "Pending": false
+      "Pending": false,
+      "MerchantName": "Gusto"
     },
     {
       "TransactionType": "special",
@@ -334,7 +334,6 @@
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
       "Pending": false,
-      "MerchantName": "Sparkfun",
       "PaymentChannel": "in store"
     },
     {
@@ -397,7 +396,6 @@
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
       "Pending": false,
-      "MerchantName": "Tectra Inc",
       "PaymentChannel": "in store"
     },
     {
@@ -491,7 +489,8 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
-      "Pending": false
+      "Pending": false,
+      "MerchantName": "Gusto"
     },
     {
       "TransactionType": "special",
@@ -589,7 +588,6 @@
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
       "Pending": false,
-      "MerchantName": "Sparkfun",
       "PaymentChannel": "in store"
     },
     {
@@ -652,7 +650,6 @@
       "Amount": 500.0,
       "IsoCurrencyCode": "USD",
       "Pending": false,
-      "MerchantName": "Tectra Inc",
       "PaymentChannel": "in store"
     },
     {
@@ -746,7 +743,8 @@
       "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "Amount": 5850.0,
       "IsoCurrencyCode": "USD",
-      "Pending": false
+      "Pending": false,
+      "MerchantName": "Gusto"
     },
     {
       "TransactionType": "special",
@@ -844,7 +842,6 @@
       "Amount": 89.4,
       "IsoCurrencyCode": "USD",
       "Pending": false,
-      "MerchantName": "Sparkfun",
       "PaymentChannel": "in store"
     },
     {
