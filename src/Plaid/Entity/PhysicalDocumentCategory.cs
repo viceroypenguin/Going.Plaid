@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Entity;
+namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>The type of identity document detected in the images provided. Will always be one of the following values:</para>

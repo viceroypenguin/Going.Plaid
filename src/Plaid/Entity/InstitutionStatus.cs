@@ -10,49 +10,49 @@ public record InstitutionStatus
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
 	[JsonPropertyName("item_logins")]
-	public Entity.ProductStatus ItemLogins { get; init; } = default!;
+	public Entity.ProductStatus? ItemLogins { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
 	[JsonPropertyName("transactions_updates")]
-	public Entity.ProductStatus TransactionsUpdates { get; init; } = default!;
+	public Entity.ProductStatus? TransactionsUpdates { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
 	[JsonPropertyName("auth")]
-	public Entity.ProductStatus Auth { get; init; } = default!;
+	public Entity.ProductStatus? Auth { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
 	[JsonPropertyName("identity")]
-	public Entity.ProductStatus Identity { get; init; } = default!;
+	public Entity.ProductStatus? Identity { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
 	[JsonPropertyName("investments_updates")]
-	public Entity.ProductStatus InvestmentsUpdates { get; init; } = default!;
+	public Entity.ProductStatus? InvestmentsUpdates { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
 	[JsonPropertyName("liabilities_updates")]
-	public Entity.ProductStatus LiabilitiesUpdates { get; init; } = default!;
+	public Entity.ProductStatus? LiabilitiesUpdates { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
 	[JsonPropertyName("liabilities")]
-	public Entity.ProductStatus Liabilities { get; init; } = default!;
+	public Entity.ProductStatus? Liabilities { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of the status health of a request type. Auth requests, Balance requests, Identity requests, Investments requests, Liabilities requests, Transactions updates, Investments updates, Liabilities updates, and Item logins each have their own status object.</para>
 	/// </summary>
 	[JsonPropertyName("investments")]
-	public Entity.ProductStatus Investments { get; init; } = default!;
+	public Entity.ProductStatus? Investments { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Details of recent health incidents associated with the institution.</para>

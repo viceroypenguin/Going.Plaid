@@ -78,6 +78,12 @@ public record PaymentInitiationPayment
 	public IReadOnlyList<string>? RefundIds { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The amount that has been refunded already. Subtract this from the payment amount to calculate the amount still available to refund.</para>
+	/// </summary>
+	[JsonPropertyName("amount_refunded")]
+	public Entity.PaymentAmountRefunded AmountRefunded { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
 	/// </summary>
 	[JsonPropertyName("wallet_id")]
@@ -100,4 +106,10 @@ public record PaymentInitiationPayment
 	/// </summary>
 	[JsonPropertyName("consent_id")]
 	public string? ConsentId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The transaction ID that this payment is associated with, if any. This is present only when a payment was initiated using virtual accounts.</para>
+	/// </summary>
+	[JsonPropertyName("transaction_id")]
+	public string? TransactionId { get; init; } = default!;
 }

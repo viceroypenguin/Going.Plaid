@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Entity;
+namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>An object specifying information about the end user who will be linking their account.</para>
@@ -18,7 +18,7 @@ public class LinkTokenCreateRequestUser
 	public string LegalName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's full name. Optional if using the <a href="https://plaid.com/docs/api/products/identity-verification">Identity Verification</a> product; if not using Identity Verification, this field is not allowed. Users will not be asked for their name when this field is provided.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("name")]
 	public Entity.LinkTokenCreateRequestUserNameObject? Name { get; set; } = default!;

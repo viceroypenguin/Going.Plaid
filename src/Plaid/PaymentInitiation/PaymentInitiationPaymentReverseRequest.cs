@@ -23,4 +23,10 @@ public partial class PaymentInitiationPaymentReverseRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("reference")]
 	public string Reference { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An amount to refund the payment partially. If this amount is not specified, the payment is refunded fully for the remaining amount.</para>
+	/// </summary>
+	[JsonPropertyName("amount")]
+	public Entity.PaymentAmountToRefund Amount { get; set; } = default!;
 }

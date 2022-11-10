@@ -34,4 +34,10 @@ public partial class TransferListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	public string? OriginationAccountId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Filter transfers to only those with the specified originator client.</para>
+	/// </summary>
+	[JsonPropertyName("originator_client_id")]
+	public string? OriginatorClientId { get; set; } = default!;
 }

@@ -70,4 +70,16 @@ public record TransferEvent
 	/// </summary>
 	[JsonPropertyName("sweep_amount")]
 	public string? SweepAmount { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Plaid’s unique identifier for a refund. A non-null value indicates the event is for the associated refund of the transfer.</para>
+	/// </summary>
+	[JsonPropertyName("refund_id")]
+	public string? RefundId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The Plaid client ID that is the originator of the transfer that this event applies to. Only present if the transfer was created on behalf of another client as a third-party sender (TPS).</para>
+	/// </summary>
+	[JsonPropertyName("originator_client_id")]
+	public string? OriginatorClientId { get; init; } = default!;
 }

@@ -24,7 +24,7 @@ public enum WalletTransactionGetResponseTypeEnum
 	PisPayIn,
 
 	/// <summary>
-	/// <para>a transaction which debits an e-wallet by refunding a previously initated payment made through Plaid's <a href="https://plaid.com/docs/api/products/payment-initiation/">PIS APIs</a>.</para>
+	/// <para>a transaction which debits an e-wallet by refunding a previously initiated payment made through Plaid's <a href="https://plaid.com/docs/api/products/payment-initiation/">PIS APIs</a>.</para>
 	/// </summary>
 	[EnumMember(Value = "REFUND")]
 	Refund,

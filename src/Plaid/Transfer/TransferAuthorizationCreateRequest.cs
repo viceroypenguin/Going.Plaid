@@ -91,4 +91,10 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("beacon_session_id")]
 	public string? BeaconSessionId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The Plaid client ID that is the originator of this transfer. Only needed if creating transfers on behalf of another client as a third-party sender (TPS).</para>
+	/// </summary>
+	[JsonPropertyName("originator_client_id")]
+	public string? OriginatorClientId { get; set; } = default!;
 }

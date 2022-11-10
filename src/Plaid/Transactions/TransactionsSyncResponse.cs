@@ -24,13 +24,13 @@ public record TransactionsSyncResponse : ResponseBase
 	public IReadOnlyList<Entity.RemovedTransaction> Removed { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Cursor used for fetching any future updates after the latest update provided in this response.</para>
+	/// <para>Cursor used for fetching any future updates after the latest update provided in this response. The cursor obtained after all pages have been pulled (indicated by <c>has_more</c> being <c>false</c>) will be valid for at least 1 year. This cursor should be persisted for later calls.</para>
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
 	public string NextCursor { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Represents if more than requested count of transaction updates exist. If true, the additional updates can be fetched by making an additional request with <c>cursor</c> set to <c>next_cursor</c>.</para>
+	/// <para>Represents if more than requested count of transaction updates exist. If true, the additional updates can be fetched by making an additional request with <c>cursor</c> set to <c>next_cursor</c>. If <c>has_more</c> is true, it’s important to pull all available pages, to make it less likely for underlying data changes to conflict with pagination.</para>
 	/// </summary>
 	[JsonPropertyName("has_more")]
 	public bool HasMore { get; init; } = default!;

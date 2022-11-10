@@ -13,6 +13,7 @@ public partial class SignalReturnReportRequest : RequestBase
 
 	/// <summary>
 	/// <para>Must be a valid ACH return code (e.g. "R01")</para>
+	/// <para>If formatted incorrectly, this will result in an <a href="https://plaid.com/docs/errors/invalid-request/#invalid_field"><c>INVALID_FIELD</c></a> error.</para>
 	/// </summary>
 	[JsonPropertyName("return_code")]
 	public string ReturnCode { get; set; } = default!;

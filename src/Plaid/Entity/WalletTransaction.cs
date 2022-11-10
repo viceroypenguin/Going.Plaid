@@ -46,4 +46,16 @@ public record WalletTransaction
 	/// </summary>
 	[JsonPropertyName("created_at")]
 	public DateTimeOffset CreatedAt { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The date and time of the last time the <c>status</c> was updated, in IS0 8601 format</para>
+	/// </summary>
+	[JsonPropertyName("last_status_update")]
+	public DateTimeOffset LastStatusUpdate { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The payment id that this transaction is associated with, if any. This is present only for transaction types <c>PIS_PAY_IN</c> and <c>REFUND</c>.</para>
+	/// </summary>
+	[JsonPropertyName("payment_id")]
+	public string? PaymentId { get; init; } = default!;
 }

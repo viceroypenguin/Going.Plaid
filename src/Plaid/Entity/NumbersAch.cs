@@ -29,4 +29,16 @@ public record NumbersAch
 	/// </summary>
 	[JsonPropertyName("wire_routing")]
 	public string? WireRouting { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Whether the account supports ACH transfers into the account</para>
+	/// </summary>
+	[JsonPropertyName("can_transfer_in")]
+	public bool? CanTransferIn { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Whether the account supports ACH transfers out of the account</para>
+	/// </summary>
+	[JsonPropertyName("can_transfer_out")]
+	public bool? CanTransferOut { get; init; } = default!;
 }

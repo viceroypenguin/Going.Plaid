@@ -1,9 +1,9 @@
 namespace Going.Plaid.Wallet;
 
 /// <summary>
-/// <para>WalletTransactionsListResponse defines the response schema for <c>/wallet/transactions/list</c></para>
+/// <para>WalletTransactionListResponse defines the response schema for <c>/wallet/transaction/list</c></para>
 /// </summary>
-public record WalletTransactionsListResponse : ResponseBase
+public record WalletTransactionListResponse : ResponseBase
 {
 	/// <summary>
 	/// <para>An array of transactions of an e-wallet, associated with the given <c>wallet_id</c></para>

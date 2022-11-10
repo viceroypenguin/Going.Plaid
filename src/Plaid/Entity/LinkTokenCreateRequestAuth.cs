@@ -18,7 +18,7 @@ public class LinkTokenCreateRequestAuth
 	public bool AutomatedMicrodepositsEnabled { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies whether the Link session is enabled for the Instant Match flow. As of October 5th, 2022, Instant Match has been enabled by default for all new customers; this field is only necessary to enable Instant Match for customers who enabled auth before October 5th, 2022 and who have not previously enabled Instant Match via their Account Manager.</para>
+	/// <para>Specifies whether the Link session is enabled for the Instant Match flow. As of November 2022, Instant Match will be enabled by default. Instant Match can be disabled by setting this field to <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("instant_match_enabled")]
 	public bool InstantMatchEnabled { get; set; } = default!;

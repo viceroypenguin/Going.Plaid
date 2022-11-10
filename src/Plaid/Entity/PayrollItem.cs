@@ -12,6 +12,18 @@ public record PayrollItem
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The unique identifier of the institution associated with the Item.</para>
+	/// </summary>
+	[JsonPropertyName("institution_id")]
+	public string InstitutionId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The name of the institution associated with the Item.</para>
+	/// </summary>
+	[JsonPropertyName("institution_name")]
+	public string InstitutionName { get; init; } = default!;
+
+	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("accounts")]

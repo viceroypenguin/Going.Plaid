@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>The <c>/transfer/get</c> fetches information about the transfer corresponding to the given <c>transfer_id</c>.</para>
+	/// <para>The <c>/transfer/get</c> endpoint fetches information about the transfer corresponding to the given <c>transfer_id</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferget" /></remarks>
 	public Task<Transfer.TransferGetResponse> TransferGetAsync(Transfer.TransferGetRequest request) =>
@@ -121,4 +121,61 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferRepaymentReturnListResponse> TransferRepaymentReturnListAsync(Transfer.TransferRepaymentReturnListRequest request) =>
 		PostAsync("/transfer/repayment/return/list", request)
 			.ParseResponseAsync<Transfer.TransferRepaymentReturnListResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/originator/create</c> endpoint to create a new originator and return an <c>originator_client_id</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferoriginatorcreate" /></remarks>
+	public Task<Transfer.TransferOriginatorCreateResponse> TransferOriginatorCreateAsync(Transfer.TransferOriginatorCreateRequest request) =>
+		PostAsync("/transfer/originator/create", request)
+			.ParseResponseAsync<Transfer.TransferOriginatorCreateResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/questionnaire/create</c> endpoint generates a Plaid-hosted onboarding UI URL. Redirect the originator to this URL to provide their due diligence information and agree to Plaid’s terms for ACH money movement.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferquestionnairecreate" /></remarks>
+	public Task<Transfer.TransferQuestionnaireCreateResponse> TransferQuestionnaireCreateAsync(Transfer.TransferQuestionnaireCreateRequest request) =>
+		PostAsync("/transfer/questionnaire/create", request)
+			.ParseResponseAsync<Transfer.TransferQuestionnaireCreateResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/originator/get</c> endpoint gets status updates for an originator's onboarding process. This information is also available via the Transfer page on the Plaid dashboard.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferoriginatorget" /></remarks>
+	public Task<Transfer.TransferOriginatorGetResponse> TransferOriginatorGetAsync(Transfer.TransferOriginatorGetRequest request) =>
+		PostAsync("/transfer/originator/get", request)
+			.ParseResponseAsync<Transfer.TransferOriginatorGetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/originator/list</c> endpoint gets status updates for all of your originators' onboarding. This information is also available via the Plaid dashboard.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferoriginatorlist" /></remarks>
+	public Task<Transfer.TransferOriginatorListResponse> TransferOriginatorListAsync(Transfer.TransferOriginatorListRequest request) =>
+		PostAsync("/transfer/originator/list", request)
+			.ParseResponseAsync<Transfer.TransferOriginatorListResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/refund/create</c> endpoint to create a refund for a transfer. A transfer can be refunded if the transfer was initiated in the past 180 days.</para>
+	/// <para>Processing of the refund will not occur until at least 3 business days following the transfer's settlement date, plus any hold/settlement delays. This 3-day window helps better protect your business from regular ACH returns. Consumer initiated returns (unauthorized returns) could still happen for about 60 days from the settlement date. If the original transfer is canceled, returned or failed, all pending refunds will automatically be canceled. Processed refunds cannot be revoked.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrefundcreate" /></remarks>
+	public Task<Transfer.TransferRefundCreateResponse> TransferRefundCreateAsync(Transfer.TransferRefundCreateRequest request) =>
+		PostAsync("/transfer/refund/create", request)
+			.ParseResponseAsync<Transfer.TransferRefundCreateResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/refund/get</c> endpoint fetches information about the refund corresponding to the given <c>refund_id</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrefundget" /></remarks>
+	public Task<Transfer.TransferRefundGetResponse> TransferRefundGetAsync(Transfer.TransferRefundGetRequest request) =>
+		PostAsync("/transfer/refund/get", request)
+			.ParseResponseAsync<Transfer.TransferRefundGetResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/refund/cancel</c> endpoint to cancel a refund.  A refund is eligible for cancellation if it has not yet been submitted to the payment network.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrefundcancel" /></remarks>
+	public Task<Transfer.TransferRefundCancelResponse> TransferRefundCancelAsync(Transfer.TransferRefundCancelRequest request) =>
+		PostAsync("/transfer/refund/cancel", request)
+			.ParseResponseAsync<Transfer.TransferRefundCancelResponse>();
 }

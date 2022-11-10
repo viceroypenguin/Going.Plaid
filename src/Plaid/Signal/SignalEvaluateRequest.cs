@@ -6,7 +6,8 @@ namespace Going.Plaid.Signal;
 public partial class SignalEvaluateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The <c>account_id</c> of the account whose verification status is to be modified</para>
+	/// <para>The Plaid <c>account_id</c> of the account whose verification status is to be modified. The <c>account_id</c> is returned in the <c>/accounts/get</c> endpoint as well as the <a href="https://plaid.com/docs/link/ios/#link-ios-onsuccess-linkSuccess-metadata-accounts-id"><c>onSuccess</c></a> callback metadata.</para>
+	/// <para>This will return an <a href="https://plaid.com/docs/errors/invalid-input/#invalid_account_id"><c>INVALID_ACCOUNT_ID</c></a> error if the account has been removed at the bank or if the <c>account_id</c> is no longer valid.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; set; } = default!;
@@ -30,7 +31,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public bool? UserPresent { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A unique ID that identifies the end user in your system. This ID is used to correlate requests by a user with multiple Items. The max length for this field is 36 characters.</para>
+	/// <para>A unique ID that identifies the end user in your system. This ID is used to correlate requests by a user with multiple Items. The max length for this field is 36 characters. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string ClientUserId { get; set; } = default!;

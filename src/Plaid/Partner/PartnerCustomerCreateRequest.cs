@@ -30,7 +30,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public bool CreateLinkCustomization { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Base64-encoded representation of the end customer's logo. Must be a PNG of size 1024x1024 under 4MB. Defaults to the partner's logo if omitted.</para>
+	/// <para>Base64-encoded representation of the end customer's logo. Must be a PNG of size 1024x1024 under 4MB. The logo will be shared with financial institutions and shown to the end user during Link flows. A logo is required if <c>create_link_customization</c> is <c>true</c>. If <c>create_link_customization</c> is <c>false</c> and the logo is omitted, a stock logo will be used.</para>
 	/// </summary>
 	[JsonPropertyName("logo")]
 	public string Logo { get; set; } = default!;
@@ -76,4 +76,10 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("is_bank_addendum_completed")]
 	public bool IsBankAddendumCompleted { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Assets under management for the given end customer. Required for end customers with monthly service commitments.</para>
+	/// </summary>
+	[JsonPropertyName("assets_under_management")]
+	public Entity.PartnerEndCustomerAssetsUnderManagement AssetsUnderManagement { get; set; } = default!;
 }

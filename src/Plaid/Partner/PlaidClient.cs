@@ -25,4 +25,12 @@ public sealed partial class PlaidClient
 	public Task<Partner.PartnerCustomerEnableResponse> PartnerCustomerEnableAsync(Partner.PartnerCustomerEnableRequest request) =>
 		PostAsync("/partner/customer/enable", request)
 			.ParseResponseAsync<Partner.PartnerCustomerEnableResponse>();
+
+	/// <summary>
+	/// <para>The <c>/partner/customer/remove</c> endpoint is used by reseller partners to remove an end customer. Removing an end customer will remove it from view in the Plaid Dashboard and deactivate its API keys.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomerremove" /></remarks>
+	public Task<Partner.PartnerCustomerRemoveResponse> PartnerCustomerRemoveAsync(Partner.PartnerCustomerRemoveRequest request) =>
+		PostAsync("/partner/customer/remove", request)
+			.ParseResponseAsync<Partner.PartnerCustomerRemoveResponse>();
 }

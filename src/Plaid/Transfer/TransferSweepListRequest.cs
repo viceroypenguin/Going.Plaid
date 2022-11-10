@@ -28,4 +28,10 @@ public partial class TransferSweepListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("offset")]
 	public int Offset { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Filter sweeps to only those with the specified originator client.</para>
+	/// </summary>
+	[JsonPropertyName("originator_client_id")]
+	public string? OriginatorClientId { get; set; } = default!;
 }

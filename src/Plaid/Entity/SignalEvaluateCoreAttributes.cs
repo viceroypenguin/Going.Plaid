@@ -394,4 +394,10 @@ public record SignalEvaluateCoreAttributes
 	/// </summary>
 	[JsonPropertyName("p10_eod_balance_61d_to_90d")]
 	public decimal? P10EodBalance61dTo90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Timestamp in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DDTHH:mm:ssZ) indicating the last time that the transactions for the given account have been updated.</para>
+	/// </summary>
+	[JsonPropertyName("transactions_last_updated")]
+	public DateTimeOffset? TransactionsLastUpdated { get; init; } = default!;
 }
