@@ -12,13 +12,13 @@ public record Security
 	public string SecurityId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>12-character ISIN, a globally unique securities identifier.</para>
+	/// <para>12-character ISIN, a globally unique securities identifier. Please note that CGS requires Plaid's customers to hold a license directly from them to receive CUSIP &amp; ISIN data. This field will be null by default for new customers. For existing customers, this field will be null by default starting on Sept 15, 2023. If you would like access to this field, please contact your Plaid Account Manager or reach out to investments-vendors@plaid.com.</para>
 	/// </summary>
 	[JsonPropertyName("isin")]
 	public string? Isin { get; init; } = default!;
 
 	/// <summary>
-	/// <para>9-character CUSIP, an identifier assigned to North American securities.</para>
+	/// <para>9-character CUSIP, an identifier assigned to North American securities. Please note that CGS requires Plaid's customers to hold a license directly from them to receive CUSIP &amp; ISIN data. This field will be null by default for new customers. For existing customers, this field will be null by default starting on Sept 15, 2023. If you would like access to this field, please contact your Plaid Account Manager or reach out to investments-vendors@plaid.com.</para>
 	/// </summary>
 	[JsonPropertyName("cusip")]
 	public string? Cusip { get; init; } = default!;

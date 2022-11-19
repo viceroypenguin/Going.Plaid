@@ -110,7 +110,7 @@ public record StudentLoan
 	public decimal? OutstandingInterestAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The relevant account number that should be used to reference this loan for payments. In the majority of cases, <c>payment_reference_number</c> will match a<c>ccount_number,</c> but in some institutions, such as Great Lakes (<c>ins_116861</c>), it will be different.</para>
+	/// <para>The relevant account number that should be used to reference this loan for payments. In the majority of cases, <c>payment_reference_number</c> will match <c>account_number,</c> but in some institutions, such as Great Lakes (<c>ins_116861</c>), it will be different.</para>
 	/// </summary>
 	[JsonPropertyName("payment_reference_number")]
 	public string? PaymentReferenceNumber { get; init; } = default!;

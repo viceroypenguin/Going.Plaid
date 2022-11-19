@@ -1,9 +1,9 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A client-provided transaction for Plaid to enhance.</para>
+/// <para>A client-provided transaction for Plaid to enrich.</para>
 /// </summary>
-public class ClientProvidedRawTransaction
+public class ClientProvidedTransaction
 {
 	/// <summary>
 	/// <para>A unique ID for the transaction used to help you tie data back to your systems.</para>
@@ -18,12 +18,16 @@ public class ClientProvidedRawTransaction
 	public string Description { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The value of the transaction with direction. (NOTE: this will affect enrichment results, so directions are important):.</para>
-	/// <para>  Negative (-) for credits (e.g., incoming transfers, refunds)</para>
-	/// <para>  Positive (+) for debits (e.g., purchases, fees, outgoing transfers)</para>
+	/// <para>The absolute value of the transaction (>= 0)</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public decimal Amount { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The direction of the transaction from the perspective of the account holder:</para>
+	/// </summary>
+	[JsonPropertyName("direction")]
+	public Entity.EnrichTransactionDirection Direction { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The ISO-4217 currency code of the transaction, e.g., USD.</para>

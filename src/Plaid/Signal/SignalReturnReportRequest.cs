@@ -17,4 +17,10 @@ public partial class SignalReturnReportRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("return_code")]
 	public string ReturnCode { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Date and time when you receive the returns from your payment processors, in ISO 8601 format (<c>YYYY-MM-DDTHH:mm:ssZ</c>).</para>
+	/// </summary>
+	[JsonPropertyName("returned_at")]
+	public DateTimeOffset? ReturnedAt { get; set; } = default!;
 }

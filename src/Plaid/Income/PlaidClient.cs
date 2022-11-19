@@ -20,14 +20,6 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Income.IncomeVerificationPaystubsGetResponse>();
 
 	/// <summary>
-	/// <para><c>/income/verification/refresh</c> refreshes a given income verification.</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/income/#incomeverificationrefresh" /></remarks>
-	public Task<Income.IncomeVerificationRefreshResponse> IncomeVerificationRefreshAsync(Income.IncomeVerificationRefreshRequest request) =>
-		PostAsync("/income/verification/refresh", request)
-			.ParseResponseAsync<Income.IncomeVerificationRefreshResponse>();
-
-	/// <summary>
 	/// <para><c>/income/verification/taxforms/get</c> returns the information collected from forms that were used to verify an end user''s income. It can be called once the status of the verification has been set to <c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>, as reported by the <c>INCOME: verification_status</c> webhook. Attempting to call the endpoint before verification has been completed will result in an error.</para>
 	/// <para>This endpoint has been deprecated; new integrations should use <c>/credit/payroll_income/get</c> instead.</para>
 	/// </summary>

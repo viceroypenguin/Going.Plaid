@@ -12,7 +12,7 @@ public record Counterparty
 	public string Name { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The counterparty type.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.CounterpartyType Type { get; init; } = default!;

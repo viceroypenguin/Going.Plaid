@@ -1,7 +1,7 @@
 namespace Going.Plaid.Beta;
 
 /// <summary>
-/// <para>TransactionsEnhanceGetResponse defines the response schema for <c>/transactions/enhance</c>.</para>
+/// <para>TransactionsEnhanceGetResponse defines the response schema for <c>/beta/transactions/v1/enhance</c>.</para>
 /// </summary>
 public record TransactionsEnhanceGetResponse : ResponseBase
 {

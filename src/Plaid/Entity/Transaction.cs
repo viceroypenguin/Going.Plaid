@@ -125,7 +125,7 @@ public record Transaction
 	public Entity.TransactionPaymentChannelEnum PaymentChannel { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date that the transaction was authorized. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ). The <c>authorized_date</c> field uses machine learning to determine a transaction date for transactions where the <c>date_transacted</c> is not available. If the <c>date_transacted</c> field is present and not <c>null</c>, the <c>authorized_date</c> field will have the same value as the <c>date_transacted</c> field.</para>
+	/// <para>The date that the transaction was authorized. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
 	/// </summary>
 	[JsonPropertyName("authorized_date")]
 	public DateOnly? AuthorizedDate { get; init; } = default!;

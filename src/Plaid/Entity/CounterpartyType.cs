@@ -1,30 +1,30 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>The counterparty type.</para>
 /// </summary>
 public enum CounterpartyType
 {
 	/// <summary>
-	/// 
+	/// <para>a provider of goods or services for purchase</para>
 	/// </summary>
 	[EnumMember(Value = "merchant")]
 	Merchant,
 
 	/// <summary>
-	/// 
+	/// <para>a financial entity (bank, credit union, BNPL, fintech)</para>
 	/// </summary>
 	[EnumMember(Value = "financial_institution")]
 	FinancialInstitution,
 
 	/// <summary>
-	/// 
+	/// <para>a transfer or P2P app (e.g. Zelle)</para>
 	/// </summary>
 	[EnumMember(Value = "payment_app")]
 	PaymentApp,
 
 	/// <summary>
-	/// 
+	/// <para>a food delivery marketplace (e.g DoorDash)</para>
 	/// </summary>
 	[EnumMember(Value = "delivery_marketplace")]
 	DeliveryMarketplace,

@@ -24,4 +24,22 @@ public partial class SignalDecisionReportRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("days_funds_on_hold")]
 	public int? DaysFundsOnHold { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The payment decision from the risk assessment.</para>
+	/// </summary>
+	[JsonPropertyName("decision_outcome")]
+	public Entity.SignalDecisionOutcome? DecisionOutcome { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The payment method to complete the transaction after the risk assessment. It may be different from the default payment method.</para>
+	/// </summary>
+	[JsonPropertyName("payment_method")]
+	public Entity.SignalPaymentMethod? PaymentMethod { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The amount (in USD) made available to your customers instantly following the debit transaction. It could be a partial amount of the requested transaction (example: 102.05).</para>
+	/// </summary>
+	[JsonPropertyName("amount_instantly_available")]
+	public decimal? AmountInstantlyAvailable { get; set; } = default!;
 }

@@ -11,6 +11,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferGetResponse>();
 
 	/// <summary>
+	/// <para>The <c>/transfer/recurring/get</c> fetches information about the recurring transfer corresponding to the given <c>recurring_transfer_id</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrecurringget" /></remarks>
+	public Task<Transfer.TransferRecurringGetResponse> TransferRecurringGetAsync(Transfer.TransferRecurringGetRequest request) =>
+		PostAsync("/transfer/recurring/get", request)
+			.ParseResponseAsync<Transfer.TransferRecurringGetResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to determine transfer failure risk.</para>
 	/// <para>In Plaid's Sandbox environment the decisions will be returned as follows:</para>
 	/// <para>  - To approve a transfer with null rationale code, make an authorization request with an <c>amount</c> less than the available balance in the account.</para>
@@ -35,6 +43,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferCreateResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/transfer/recurring/create</c> endpoint to initiate a new recurring transfer.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrecurringcreate" /></remarks>
+	public Task<Transfer.TransferRecurringCreateResponse> TransferRecurringCreateAsync(Transfer.TransferRecurringCreateRequest request) =>
+		PostAsync("/transfer/recurring/create", request)
+			.ParseResponseAsync<Transfer.TransferRecurringCreateResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/transfer/list</c> endpoint to see a list of all your transfers and their statuses. Results are paginated; use the <c>count</c> and <c>offset</c> query parameters to retrieve the desired transfers.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferlist" /></remarks>
@@ -43,12 +59,28 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferListResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/transfer/recurring/list</c> endpoint to see a list of all your recurring transfers and their statuses. Results are paginated; use the <c>count</c> and <c>offset</c> query parameters to retrieve the desired recurring transfers.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrecurringlist" /></remarks>
+	public Task<Transfer.TransferRecurringListResponse> TransferRecurringListAsync(Transfer.TransferRecurringListRequest request) =>
+		PostAsync("/transfer/recurring/list", request)
+			.ParseResponseAsync<Transfer.TransferRecurringListResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/transfer/cancel</c> endpoint to cancel a transfer.  A transfer is eligible for cancellation if the <c>cancellable</c> property returned by <c>/transfer/get</c> is <c>true</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfercancel" /></remarks>
 	public Task<Transfer.TransferCancelResponse> TransferCancelAsync(Transfer.TransferCancelRequest request) =>
 		PostAsync("/transfer/cancel", request)
 			.ParseResponseAsync<Transfer.TransferCancelResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/recurring/cancel</c> endpoint to cancel a recurring transfer.  Scheduled transfer that hasn't been submitted to bank will be cancelled.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrecurringcancel" /></remarks>
+	public Task<Transfer.TransferRecurringCancelResponse> TransferRecurringCancelAsync(Transfer.TransferRecurringCancelRequest request) =>
+		PostAsync("/transfer/recurring/cancel", request)
+			.ParseResponseAsync<Transfer.TransferRecurringCancelResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/transfer/event/list</c> endpoint to get a list of transfer events based on specified filter criteria.</para>

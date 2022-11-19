@@ -7,7 +7,7 @@ public sealed partial class PlaidClient
 	/// <para>In order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If <c>/signal/evaluate</c> is called on the same transaction multiple times within a 24-hour period, cached results may be returned. For more information please refer to our error documentation on <a href="https://plaid.com/docs/errors/item/">item errors</a> and <a href="https://plaid.com/docs/link/update-mode/">Link in Update Mode</a>.</para>
 	/// <para>Note: This request may take some time to complete if Signal is being added to an existing Item. This is because Plaid must communicate directly with the institution when retrieving the data for the first time.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/signal/reference#signalevaluate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signalevaluate" /></remarks>
 	public Task<Signal.SignalEvaluateResponse> SignalEvaluateAsync(Signal.SignalEvaluateRequest request) =>
 		PostAsync("/signal/evaluate", request)
 			.ParseResponseAsync<Signal.SignalEvaluateResponse>();
@@ -15,7 +15,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>After calling <c>/signal/evaluate</c>, call <c>/signal/decision/report</c> to report whether the transaction was initiated. This endpoint will return an <a href="https://plaid.com/docs/errors/invalid-request/#invalid_field"><c>INVALID_FIELD</c></a> error if called a second time with a different value for <c>initiated</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/signal/reference#signaldecisionreport" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signaldecisionreport" /></remarks>
 	public Task<Signal.SignalDecisionReportResponse> SignalDecisionReportAsync(Signal.SignalDecisionReportRequest request) =>
 		PostAsync("/signal/decision/report", request)
 			.ParseResponseAsync<Signal.SignalDecisionReportResponse>();
@@ -23,7 +23,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Call the <c>/signal/return/report</c> endpoint to report a returned transaction that was previously sent to the <c>/signal/evaluate</c> endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/signal/reference#signalreturnreport" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signalreturnreport" /></remarks>
 	public Task<Signal.SignalReturnReportResponse> SignalReturnReportAsync(Signal.SignalReturnReportRequest request) =>
 		PostAsync("/signal/return/report", request)
 			.ParseResponseAsync<Signal.SignalReturnReportResponse>();
@@ -33,7 +33,7 @@ public sealed partial class PlaidClient
 	/// <para>If you are using other Plaid products after Link, e.g. Identity or Assets, call <c>/signal/prepare</c> after those product calls are complete.</para>
 	/// <para>Example flow: Link is initialized with Auth, call <c>/auth/get</c> for the account &amp; routing number, call <c>/identity/get</c> to retrieve bank ownership details, call <c>/signal/prepare</c> to begin Signal data collection, then call <c>/signal/evaluate</c> for a Signal score. For more information please see <a href="https://plaid.com/docs/link/best-practices/#recommendations-for-initializing-link-with-specific-product-combinations">Recommendations for initializing Link with specific product combinations</a>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/signal/reference#signalprepare" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signalprepare" /></remarks>
 	public Task<Signal.SignalPrepareResponse> SignalPrepareAsync(Signal.SignalPrepareRequest request) =>
 		PostAsync("/signal/prepare", request)
 			.ParseResponseAsync<Signal.SignalPrepareResponse>();

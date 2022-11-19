@@ -42,7 +42,7 @@ public enum DocType
 	DocumentTypeUsMilitaryLes,
 
 	/// <summary>
-	/// <para>A Civilian Leave and Earnings Statment (CLES) issued by the US military.</para>
+	/// <para>A Civilian Leave and Earnings Statement (CLES) issued by the US military.</para>
 	/// </summary>
 	[EnumMember(Value = "DOCUMENT_TYPE_US_MILITARY_CLES")]
 	DocumentTypeUsMilitaryCles,
