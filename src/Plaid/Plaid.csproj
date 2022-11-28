@@ -102,7 +102,7 @@
 	<ItemGroup>
 		<PackageReference Include="Meziantou.Analyzer" Version="1.0.750" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-		<PackageReference Include="PolySharp" Version="1.8.0" PrivateAssets="All" />
+		<PackageReference Include="PolySharp" Version="1.8.1" PrivateAssets="All" />
 		<PackageReference Include="MinVer" Version="4.2.0" PrivateAssets="All" />
 	</ItemGroup>
 
