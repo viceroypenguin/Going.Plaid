@@ -276,6 +276,13 @@ public enum ErrorCode
 	/// <remarks>This code is currently undocumented.</remarks>
 	[EnumMember(Value = "INVALID_CONFIGURATION")]
 	InvalidConfiguration,
+
+	/// <summary>
+	/// The balance that is pulled for ins_128026 (Capital One) is older than the given timestamp.
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/balance/#accounts-balance-get-request-options-min-last-updated-datetime"/></remarks>
+	[EnumMember(Value = "LAST_UPDATED_DATETIME_OUT_OF_RANGE")]
+	LastUpdatedDatetimeOutOfRange,
 	#endregion
 
 	#region INVALID_INPUT Codes
