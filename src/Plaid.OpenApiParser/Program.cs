@@ -50,6 +50,7 @@ static class Program
 	private static readonly Dictionary<string, SchemaEntity> schemaEntities = new();
 	private static readonly Dictionary<string, string> nameFixups = new()
 	{
+		["address"] = "AddressMatchScore",
 		["ACHClass"] = "AchClass",
 		["APR"] = "Apr",
 		["ISO Currency Code"] = "IsoCurrencyCode",
