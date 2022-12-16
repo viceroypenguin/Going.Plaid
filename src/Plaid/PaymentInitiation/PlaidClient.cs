@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>Create a payment recipient for payment initiation.  The recipient must be in Europe, within a country that is a member of the Single Euro Payment Area (SEPA).  For a standing order (recurring) payment, the recipient must be in the UK.</para>
+	/// <para>Create a payment recipient for payment initiation.  The recipient must be in Europe, within a country that is a member of the Single Euro Payment Area (SEPA) or a non-Eurozone country <a href="https://plaid.com/global">supported</a> by Plaid. For a standing order (recurring) payment, the recipient must be in the UK.</para>
 	/// <para>It is recommended to use <c>bacs</c> in the UK and <c>iban</c> in EU.</para>
 	/// <para>The endpoint is idempotent: if a developer has already made a request with the same payment details, Plaid will return the same <c>recipient_id</c>.</para>
 	/// </summary>
@@ -13,12 +13,16 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientCreateResponse>();
 
 	/// <summary>
-	/// <para>Reverse a previously settled payment from a Plaid virtual account.</para>
-	/// <para>The original payment must be in a settled state to be refunded and only full payment refunds are currently supported.</para>
-	/// <para>To power partial refunds, use <c>/wallet/transaction/execute</c>, where you can specify the exact amount for a payout to an end user.</para>
-	/// <para>A payment can only be reversed once and will be refunded back to the same source account that initiated the payment.</para>
-	/// <para>The original payment must have been initiated to a Plaid virtual account.</para>
-	/// <para>The refund will be initiated from the same virtual account that the payment was paid into.</para>
+	/// <para>Reverse a settled payment from a Plaid virtual account.</para>
+	/// <para>The original payment must be in a settled state to be refunded.</para>
+	/// <para>To refund partially, specify the amount as part of the request.</para>
+	/// <para>If the amount is not specified, the refund amount will be equal to all</para>
+	/// <para>of the remaining payment amount that has not been refunded yet.</para>
+	/// <para>If the remaining amount is less than one unit of currency</para>
+	/// <para>(e.g. 1 GBP or 1 EUR), the refund will fail.</para>
+	/// <para>The refund will go back to the source account that initiated the payment.</para>
+	/// <para>The original payment must have been initiated to a Plaid virtual account</para>
+	/// <para>so that this account can be used to initiate the refund.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentreverse" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentReverseResponse> PaymentInitiationPaymentReverseAsync(PaymentInitiation.PaymentInitiationPaymentReverseRequest request) =>
@@ -42,9 +46,9 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientListResponse>();
 
 	/// <summary>
-	/// <para>After creating a payment recipient, you can use the <c>/payment_initiation/payment/create</c> endpoint to create a payment to that recipient.  Payments can be one-time or standing order (recurring) and can be denominated in either EUR or GBP.  If making domestic GBP-denominated payments, your recipient must have been created with BACS numbers. In general, EUR-denominated payments will be sent via SEPA Credit Transfer and GBP-denominated payments will be sent via the Faster Payments network, but the payment network used will be determined by the institution. Payments sent via Faster Payments will typically arrive immediately, while payments sent via SEPA Credit Transfer will typically arrive in one business day.</para>
+	/// <para>After creating a payment recipient, you can use the <c>/payment_initiation/payment/create</c> endpoint to create a payment to that recipient.  Payments can be one-time or standing order (recurring) and can be denominated in either EUR, GBP or other chosen <a href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency">currency</a>.  If making domestic GBP-denominated payments, your recipient must have been created with BACS numbers. In general, EUR-denominated payments will be sent via SEPA Credit Transfer, GBP-denominated payments will be sent via the Faster Payments network and for non-Eurozone markets typically via the local payment scheme, but the payment network used will be determined by the institution. Payments sent via Faster Payments will typically arrive immediately, while payments sent via SEPA Credit Transfer or other local payment schemes will typically arrive in one business day.</para>
 	/// <para>Standing orders (recurring payments) must be denominated in GBP and can only be sent to recipients in the UK. Once created, standing order payments cannot be modified or canceled via the API. An end user can cancel or modify a standing order directly on their banking application or website, or by contacting the bank. Standing orders will follow the payment rules of the underlying rails (Faster Payments in UK). Payments can be sent Monday to Friday, excluding bank holidays. If the pre-arranged date falls on a weekend or bank holiday, the payment is made on the next working day. It is not possible to guarantee the exact time the payment will reach the recipient’s account, although at least 90% of standing order payments are sent by 6am.</para>
-	/// <para>In the Development environment, payments must be below 5 GBP / EUR. For details on any payment limits in Production, contact your Plaid Account Manager.</para>
+	/// <para>In the Development environment, payments must be below 5 GBP or other chosen <a href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency">currency</a>. For details on any payment limits in Production, contact your Plaid Account Manager.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentcreate" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentCreateResponse> PaymentInitiationPaymentCreateAsync(PaymentInitiation.PaymentInitiationPaymentCreateRequest request) =>

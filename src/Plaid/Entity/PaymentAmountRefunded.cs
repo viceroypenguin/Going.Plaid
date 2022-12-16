@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The amount that has been refunded already. Subtract this from the payment amount to calculate the amount still available to refund.</para>
+/// <para>The amount and currency of a payment</para>
 /// </summary>
 public record PaymentAmountRefunded
 {

@@ -18,7 +18,7 @@ public partial class CreditRelayRefreshRequest : RequestBase
 	public Entity.ReportType ReportType { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The URL registered to receive webhooks when the report of a Relay Token has been refreshed.</para>
+	/// <para>The URL registered to receive webhooks when the report of a relay token has been refreshed.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string? Webhook { get; set; } = default!;

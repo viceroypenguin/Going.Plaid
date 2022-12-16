@@ -30,7 +30,7 @@ public record InvestmentsTransactionsGetResponse : ResponseBase
 	public IReadOnlyList<Entity.InvestmentTransaction> InvestmentTransactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The total number of transactions available within the date range specified. If <c>total_investment_transactions</c> is larger than the size of the <c>transactions</c> array, more transactions are available and can be fetched via manipulating the <c>offset</c> parameter.'</para>
+	/// <para>The total number of transactions available within the date range specified. If <c>total_investment_transactions</c> is larger than the size of the <c>transactions</c> array, more transactions are available and can be fetched via manipulating the <c>offset</c> parameter.</para>
 	/// </summary>
 	[JsonPropertyName("total_investment_transactions")]
 	public int TotalInvestmentTransactions { get; init; } = default!;

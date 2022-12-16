@@ -30,7 +30,7 @@ public record ClientProvidedEnrichedTransaction
 	public Entity.EnrichTransactionDirection Direction { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ISO-4217 currency code of the transaction, e.g., USD.</para>
+	/// <para>The ISO-4217 currency code of the transaction e.g. USD.</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;

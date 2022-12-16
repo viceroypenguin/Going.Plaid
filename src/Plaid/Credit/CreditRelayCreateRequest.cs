@@ -12,7 +12,7 @@ public partial class CreditRelayCreateRequest : RequestBase
 	public IReadOnlyList<string> ReportTokens { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The <c>secondary_client_id</c> is the client id of the third party with whom you would like to share the Relay Token.</para>
+	/// <para>The <c>secondary_client_id</c> is the client id of the third party with whom you would like to share the relay token.</para>
 	/// </summary>
 	[JsonPropertyName("secondary_client_id")]
 	public string SecondaryClientId { get; set; } = default!;

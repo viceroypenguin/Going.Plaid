@@ -6,7 +6,7 @@ namespace Going.Plaid.Partner;
 public partial class PartnerCustomerCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The company name of the end customer being created.</para>
+	/// <para>The company name of the end customer being created. This will be used to display the end customer in the Plaid Dashboard. It will not be shown to end users.</para>
 	/// </summary>
 	[JsonPropertyName("company_name")]
 	public string CompanyName { get; set; } = default!;
@@ -24,7 +24,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products> Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If true, the end customer's default Link customization will be set to match the partner's.</para>
+	/// <para>If <c>true</c>, the end customer's default Link customization will be set to match the partner's. You can always change the end customer's Link customization in the Plaid Dashboard. See the <a href="https://plaid.com/docs/link/customization/">Link Customization docs</a> for more information.</para>
 	/// </summary>
 	[JsonPropertyName("create_link_customization")]
 	public bool CreateLinkCustomization { get; set; } = default!;
@@ -36,7 +36,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public string Logo { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The end customer's legal name.</para>
+	/// <para>The end customer's legal name. This will be shared with financial institutions as part of the OAuth registration process. It will not be shown to end users.</para>
 	/// </summary>
 	[JsonPropertyName("legal_entity_name")]
 	public string LegalEntityName { get; set; } = default!;
@@ -48,7 +48,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public string Website { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The name of the end customer's application.</para>
+	/// <para>The name of the end customer's application. This will be shown to end users when they go through the Plaid Link flow.</para>
 	/// </summary>
 	[JsonPropertyName("application_name")]
 	public string ApplicationName { get; set; } = default!;
@@ -64,6 +64,12 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("billing_contact")]
 	public Entity.PartnerEndCustomerBillingContact BillingContact { get; set; } = default!;
+
+	/// <summary>
+	/// <para>This information is public. Users of your app will see this information when managing connections between your app and their bank accounts in Plaid Portal. Defaults to partner's customer support info if omitted.</para>
+	/// </summary>
+	[JsonPropertyName("customer_support_info")]
+	public Entity.PartnerEndCustomerCustomerSupportInfo CustomerSupportInfo { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The end customer's address.</para>

@@ -12,13 +12,13 @@ public record Enhancements
 	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The website associated with this transaction.</para>
+	/// <para>The website associated with this transaction, if available.</para>
 	/// </summary>
 	[JsonPropertyName("website")]
 	public string? Website { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A link to the logo associated with this transaction. The logo will always be 100x100 resolution.</para>
+	/// <para>The URL of a logo associated with this transaction, if available. The logo is formatted as a 100x100 pixel PNG file.</para>
 	/// </summary>
 	[JsonPropertyName("logo_url")]
 	public string? LogoUrl { get; init; } = default!;
@@ -61,7 +61,7 @@ public record Enhancements
 	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A link to the icon associated with the primary personal finance category. The logo will always be 100x100 resolution.</para>
+	/// <para>A link to the icon associated with the primary personal finance category. The logo will always be 100x100 pixels.</para>
 	/// </summary>
 	[JsonPropertyName("personal_finance_category_icon_url")]
 	public string PersonalFinanceCategoryIconUrl { get; init; } = default!;

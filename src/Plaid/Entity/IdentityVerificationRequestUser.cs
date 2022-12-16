@@ -36,7 +36,7 @@ public class IdentityVerificationRequestUser
 	/// <para>A date in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
 	/// </summary>
 	[JsonPropertyName("date_of_birth")]
-	public DateOnly? DateOfBirth { get; set; } = default!;
+	public DateOnly DateOfBirth { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The full name provided by the user. If the user has not submitted their name, this field will be null. Otherwise, both fields are guaranteed to be filled.</para>

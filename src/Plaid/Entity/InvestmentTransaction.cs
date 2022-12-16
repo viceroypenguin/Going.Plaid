@@ -42,7 +42,7 @@ public record InvestmentTransaction
 	public string Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of units of the security involved in this transaction.</para>
+	/// <para>The number of units of the security involved in this transaction. Positive for buy transactions; negative for sell transactions.</para>
 	/// </summary>
 	[JsonPropertyName("quantity")]
 	public decimal Quantity { get; init; } = default!;

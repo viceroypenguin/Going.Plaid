@@ -30,6 +30,12 @@ public enum WalletTransactionTypeEnum
 	Refund,
 
 	/// <summary>
+	/// <para>an automated transaction which debits funds from an e-wallet to a designated client-owned account.</para>
+	/// </summary>
+	[EnumMember(Value = "FUNDS_SWEEP")]
+	FundsSweep,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

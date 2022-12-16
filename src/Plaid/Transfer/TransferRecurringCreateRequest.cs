@@ -6,13 +6,11 @@ namespace Going.Plaid.Transfer;
 public partial class TransferRecurringCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>A random key provided by the client, per unique authorization. Maximum of 50 characters.</para>
-	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create an authorization fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single authorization is created.</para>
-	/// <para>Failure to provide this key may result in duplicate charges.</para>
-	/// <para>Required for guaranteed ACH customers.</para>
+	/// <para>A random key provided by the client, per unique recurring transfer. Maximum of 50 characters.</para>
+	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create a recurring fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single recurring transfer is created.</para>
 	/// </summary>
 	[JsonPropertyName("idempotency_key")]
-	public string? IdempotencyKey { get; set; } = default!;
+	public string IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited. Required if not using <c>payment_profile_token</c>.</para>
@@ -55,6 +53,12 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The description of the recurring transfer.</para>
+	/// </summary>
+	[JsonPropertyName("description")]
+	public string Description { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a test clock.</para>

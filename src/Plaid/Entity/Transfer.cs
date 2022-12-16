@@ -141,4 +141,10 @@ public record Transfer
 	/// </summary>
 	[JsonPropertyName("refunds")]
 	public IReadOnlyList<Entity.TransferRefund> Refunds { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The id of the recurring transfer if this transfer belongs to a recurring transfer.</para>
+	/// </summary>
+	[JsonPropertyName("recurring_transfer_id")]
+	public string? RecurringTransferId { get; init; } = default!;
 }

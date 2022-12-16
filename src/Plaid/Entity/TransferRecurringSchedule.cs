@@ -12,7 +12,7 @@ public class TransferRecurringSchedule
 	public Entity.TransferScheduleIntervalUnit IntervalUnit { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The number of recurring <c>interval_units</c> between originations. The recurring interval(before holiday adjustment) is calculated by multiplying <c>interval_unit</c> and <c>interval_count</c>. </para>
+	/// <para>The number of recurring <c>interval_units</c> between originations. The recurring interval(before holiday adjustment) is calculated by multiplying <c>interval_unit</c> and <c>interval_count</c>.</para>
 	/// <para>For instance, to schedule a recurring transfer which originates once every two weeks, set <c>interval_unit</c> = <c>week</c> and <c>interval_count</c> = 2.</para>
 	/// </summary>
 	[JsonPropertyName("interval_count")]

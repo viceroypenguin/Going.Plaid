@@ -6,7 +6,7 @@ namespace Going.Plaid.Credit;
 public record CreditRelayRemoveResponse : ResponseBase
 {
 	/// <summary>
-	/// <para><c>true</c> if the Relay token was successfully removed.</para>
+	/// <para><c>true</c> if the relay token was successfully removed.</para>
 	/// </summary>
 	[JsonPropertyName("removed")]
 	public bool Removed { get; init; } = default!;

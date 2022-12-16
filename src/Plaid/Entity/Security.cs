@@ -12,13 +12,13 @@ public record Security
 	public string SecurityId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>12-character ISIN, a globally unique securities identifier. Please note that CGS requires Plaid's customers to hold a license directly from them to receive CUSIP &amp; ISIN data. This field will be null by default for new customers. For existing customers, this field will be null by default starting on Sept 15, 2023. If you would like access to this field, please contact your Plaid Account Manager or reach out to investments-vendors@plaid.com.</para>
+	/// <para>12-character ISIN, a globally unique securities identifier. Please note that Plaid's customers must hold a license directly from CUSIP Global Services to receive CUSIP &amp; ISIN data. This field will be null by default for new customers. For existing customers, this field will be null by default starting on Sept 15, 2023. If you would like access to this field, please contact your Plaid Account Manager or reach out to investments-vendors@plaid.com.</para>
 	/// </summary>
 	[JsonPropertyName("isin")]
 	public string? Isin { get; init; } = default!;
 
 	/// <summary>
-	/// <para>9-character CUSIP, an identifier assigned to North American securities. Please note that CGS requires Plaid's customers to hold a license directly from them to receive CUSIP &amp; ISIN data. This field will be null by default for new customers. For existing customers, this field will be null by default starting on Sept 15, 2023. If you would like access to this field, please contact your Plaid Account Manager or reach out to investments-vendors@plaid.com.</para>
+	/// <para>9-character CUSIP, an identifier assigned to North American securities. Please note that Plaid's customers must hold a license directly from CUSIP Global Services to receive CUSIP &amp; ISIN data. This field will be null by default for new customers. For existing customers, this field will be null by default starting on Sept 15, 2023. If you would like access to this field, please contact your Plaid Account Manager or reach out to investments-vendors@plaid.com.</para>
 	/// </summary>
 	[JsonPropertyName("cusip")]
 	public string? Cusip { get; init; } = default!;
@@ -83,7 +83,7 @@ public record Security
 	/// <summary>
 	/// <para>Price of the security at the close of the previous trading session. Null for non-public securities.</para>
 	/// <para>If the security is a foreign currency this field will be updated daily and will be priced in USD.</para>
-	/// <para>If the security is a cryptocurrency, this field will be updated multiple times a day. As crypto prices can fluctuate quickly and data may become stale sooner than other asset classes, please refer to update_datetime with the time when the price was last updated.</para>
+	/// <para>If the security is a cryptocurrency, this field will be updated multiple times a day. As crypto prices can fluctuate quickly and data may become stale sooner than other asset classes, refer to <c>update_datetime</c> with the time when the price was last updated.</para>
 	/// </summary>
 	[JsonPropertyName("close_price")]
 	public decimal? ClosePrice { get; init; } = default!;
@@ -95,7 +95,7 @@ public record Security
 	public DateOnly? ClosePriceAsOf { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Date and time at which close_price is accurate, in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ). Always null if close_price is null.</para>
+	/// <para>Date and time at which <c>close_price</c> is accurate, in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ). Always <c>null</c> if <c>close_price</c> is <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("update_datetime")]
 	public DateTimeOffset? UpdateDatetime { get; init; } = default!;

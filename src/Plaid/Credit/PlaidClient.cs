@@ -80,33 +80,33 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Plaid can share an Asset Report directly with a participating third party on your behalf. The shared Asset Report is the exact same Asset Report originally created in <c>/asset_report/create</c>.</para>
-	/// <para>To grant access to an Asset Report to a third party, use the <c>/credit/relay/create</c> endpoint to create a <c>relay_token</c> and then pass that token to the third party who needs access. Each third party has its own <c>secondary_client_id</c>, for example <c>ce5bd328dcd34123456</c>. You'll need to create a separate <c>relay_token</c> for each third party to whom you want to grant access to the Report.</para>
+	/// <para>To grant a third party access to an Asset Report, use the <c>/credit/relay/create</c> endpoint to create a <c>relay_token</c> and then pass that token to your third party. Each third party has its own <c>secondary_client_id</c>; for example, <c>ce5bd328dcd34123456</c>. You'll need to create a separate <c>relay_token</c> for each third party that needs access to the report on your behalf.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#creditrelaycreate" /></remarks>
 	public Task<Credit.CreditRelayCreateResponse> CreditRelayCreateAsync(Credit.CreditRelayCreateRequest request) =>
 		PostAsync("/credit/relay/create", request)
 			.ParseResponseAsync<Credit.CreditRelayCreateResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/relay/get</c> allows third parties to get a report that was shared with them, using an <c>relay_token</c> that was created by the report owner.</para>
+	/// <para><c>/credit/relay/get</c> allows third parties to receive a report that was shared with them, using a <c>relay_token</c> that was created by the report owner.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#creditrelayget" /></remarks>
 	public Task<AssetReport.AssetReportGetResponse> CreditRelayGetAsync(Credit.CreditRelayGetRequest request) =>
 		PostAsync("/credit/relay/get", request)
 			.ParseResponseAsync<AssetReport.AssetReportGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/credit/relay/refresh</c> endpoint allows third parties to refresh an report that was relayed to them, using a <c>relay_token</c> that was created by the report owner. A new report will be created based on the old one, but with the most recent data available.</para>
+	/// <para>The <c>/credit/relay/refresh</c> endpoint allows third parties to refresh a report that was relayed to them, using a <c>relay_token</c> that was created by the report owner. A new report will be created with the original report parameters, but with the most recent data available based on the <c>days_requested</c> value of the original report.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/#creditrelayrefresh" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#creditrelayrefresh" /></remarks>
 	public Task<Credit.CreditRelayRefreshResponse> CreditRelayRefreshAsync(Credit.CreditRelayRefreshRequest request) =>
 		PostAsync("/credit/relay/refresh", request)
 			.ParseResponseAsync<Credit.CreditRelayRefreshResponse>();
 
 	/// <summary>
-	/// <para>The <c>/credit/relay/remove</c> endpoint allows you to invalidate a <c>relay_token</c>, meaning the third party holding the token will no longer be able to use it to access the reports to which the <c>relay_token</c> gives access to. The report, items associated with it, and other Relay tokens that provide access to the same report are not affected and will remain accessible after removing the given `relay_token.</para>
+	/// <para>The <c>/credit/relay/remove</c> endpoint allows you to invalidate a <c>relay_token</c>. The third party holding the token will no longer be able to access or refresh the reports which the <c>relay_token</c> gives access to. The original report, associated Items, and other relay tokens that provide access to the same report are not affected and will remain accessible after removing the given <c>relay_token</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#creditrelayremove" /></remarks>
 	public Task<Credit.CreditRelayRemoveResponse> CreditRelayRemoveAsync(Credit.CreditRelayRemoveRequest request) =>
 		PostAsync("/credit/relay/remove", request)
 			.ParseResponseAsync<Credit.CreditRelayRemoveResponse>();

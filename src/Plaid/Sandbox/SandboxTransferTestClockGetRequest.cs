@@ -9,5 +9,5 @@ public partial class SandboxTransferTestClockGetRequest : RequestBase
 	/// <para>Plaid’s unique identifier for a test clock.</para>
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
-	public string? TestClockId { get; set; } = default!;
+	public string TestClockId { get; set; } = default!;
 }

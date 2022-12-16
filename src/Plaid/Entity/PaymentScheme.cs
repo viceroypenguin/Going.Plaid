@@ -6,10 +6,16 @@ namespace Going.Plaid.Entity;
 public enum PaymentScheme
 {
 	/// <summary>
-	/// <para>Enables payments to move quickly between UK bank accounts. Default value in the UK.</para>
+	/// <para>The default payment scheme for the selected market and currency will be used.</para>
 	/// </summary>
-	[EnumMember(Value = "FASTER_PAYMENTS")]
-	FasterPayments,
+	[EnumMember(Value = "LOCAL_DEFAULT")]
+	LocalDefault,
+
+	/// <summary>
+	/// <para>The instant payment scheme for the selected market and currency will be used (if applicable). Fees may be applied by the institution. If the market does not support an Instant Scheme (e.g. Denmark), the default in the region will be used.</para>
+	/// </summary>
+	[EnumMember(Value = "LOCAL_INSTANT")]
+	LocalInstant,
 
 	/// <summary>
 	/// <para>The standard payment to a beneficiary within the SEPA area.</para>

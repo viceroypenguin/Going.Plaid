@@ -78,7 +78,7 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	public IReadOnlyList<string>? RefundIds { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The amount that has been refunded already. Subtract this from the payment amount to calculate the amount still available to refund.</para>
+	/// <para>The amount and currency of a payment</para>
 	/// </summary>
 	[JsonPropertyName("amount_refunded")]
 	public Entity.PaymentAmountRefunded AmountRefunded { get; init; } = default!;

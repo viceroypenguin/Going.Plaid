@@ -48,6 +48,12 @@ public record PayStubPayPeriodDetails
 	public string? PayFrequency { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The explicit pay basis on the paystub (if present).</para>
+	/// </summary>
+	[JsonPropertyName("pay_basis")]
+	public Entity.CreditPayStubPayBasisType PayBasis { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The date on which the pay period started, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ("yyyy-mm-dd").</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]

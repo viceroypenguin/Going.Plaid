@@ -6,8 +6,8 @@ namespace Going.Plaid.Sandbox;
 public partial class SandboxTransferTestClockCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The frozen timestamp on the test clock. This will be of the form <c>2006-01-02T15:04:05Z</c>.</para>
+	/// <para>The virtual timestamp on the test clock. This will be of the form <c>2006-01-02T15:04:05Z</c>.</para>
 	/// </summary>
-	[JsonPropertyName("frozen_timestamp")]
-	public DateTimeOffset FrozenTimestamp { get; set; } = default!;
+	[JsonPropertyName("virtual_time")]
+	public DateTimeOffset VirtualTime { get; set; } = default!;
 }

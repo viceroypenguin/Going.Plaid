@@ -35,6 +35,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferAuthorizationCreateResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/transfer/capabilities/get</c> endpoint to determine the RTP eligibility information of a transfer.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfercapabilitiesget" /></remarks>
+	public Task<Transfer.TransferCapabilitiesGetResponse> TransferCapabilitiesGetAsync(Transfer.TransferCapabilitiesGetRequest request) =>
+		PostAsync("/transfer/capabilities/get", request)
+			.ParseResponseAsync<Transfer.TransferCapabilitiesGetResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/transfer/create</c> endpoint to initiate a new transfer.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfercreate" /></remarks>

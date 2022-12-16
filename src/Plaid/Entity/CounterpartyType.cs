@@ -24,10 +24,16 @@ public enum CounterpartyType
 	PaymentApp,
 
 	/// <summary>
-	/// <para>a food delivery marketplace (e.g DoorDash)</para>
+	/// <para>a marketplace (e.g DoorDash, Google Play Store)</para>
 	/// </summary>
-	[EnumMember(Value = "delivery_marketplace")]
-	DeliveryMarketplace,
+	[EnumMember(Value = "marketplace")]
+	Marketplace,
+
+	/// <summary>
+	/// <para>a point-of-sale payment terminal (e.g Square, Toast)</para>
+	/// </summary>
+	[EnumMember(Value = "payment_terminal")]
+	PaymentTerminal,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

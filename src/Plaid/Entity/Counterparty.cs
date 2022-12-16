@@ -16,4 +16,16 @@ public record Counterparty
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.CounterpartyType Type { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The website associated with the counterparty.</para>
+	/// </summary>
+	[JsonPropertyName("website")]
+	public string? Website { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The URL of a logo associated with the counterparty, if available. The logo is formatted as a 100x100 pixel PNG filepath.</para>
+	/// </summary>
+	[JsonPropertyName("logo_url")]
+	public string? LogoUrl { get; init; } = default!;
 }

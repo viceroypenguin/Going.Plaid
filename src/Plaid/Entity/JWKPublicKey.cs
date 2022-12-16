@@ -36,13 +36,13 @@ public record JWKPublicKey
 	public string Use { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The x member contains the x coordinate for the elliptic curve point.</para>
+	/// <para>The x member contains the x coordinate for the elliptic curve point, provided as a base64url-encoded string of the coordinate's big endian representation.</para>
 	/// </summary>
 	[JsonPropertyName("x")]
 	public string X { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The y member contains the y coordinate for the elliptic curve point.</para>
+	/// <para>The y member contains the y coordinate for the elliptic curve point, provided as a base64url-encoded string of the coordinate's big endian representation.</para>
 	/// </summary>
 	[JsonPropertyName("y")]
 	public string Y { get; init; } = default!;

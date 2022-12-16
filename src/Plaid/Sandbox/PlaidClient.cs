@@ -92,8 +92,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferFireWebhookResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/transfer/test_clock/create</c> endpoint to create a <c>test_clock</c> in the Sandbox environment. </para>
-	/// <para>A test clock object represents an independent timeline and has a <c>frozen_timestamp</c> field indicating the current timestamp of the timeline. Test clock allows clients to easily test and integrate with recurring transfer product in sandbox environment.</para>
+	/// <para>Use the <c>/sandbox/transfer/test_clock/create</c> endpoint to create a <c>test_clock</c> in the Sandbox environment.</para>
+	/// <para>A test clock object represents an independent timeline and has a <c>virtual_time</c> field indicating the current timestamp of the timeline. Test clocks are used for testing recurring transfers in Sandbox.</para>
 	/// <para>A test clock can be associated with up to 5 recurring transfers.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertestclockcreate" /></remarks>
@@ -102,13 +102,12 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferTestClockCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/transfer/test_clock/advance</c> endpoint to advance a <c>test_clock</c> in the Sandbox environment. </para>
-	/// <para>A test clock object represents an independent timeline and has a <c>frozen_timestamp</c> field indicating the current timestamp of the timeline. A test clock can be advanced by incrementing <c>frozen_timestamp</c>, but may never go back to a lower <c>frozen_timestamp</c>.</para>
-	/// <para>If a test clock is advanced from T1 to T2, we will simulate the changes that ought to occur during the period of (T1, T2]. </para>
-	/// <para>For instance, a client creates a weekly recurring transfer with a test clock set at t. When the client advances the test clock by setting <c>frozen_timestamp</c> = t + 15 days, 2 new originations should be created, along with the webhook events.</para>
-	/// <para>The timestamps of the objects and webhook events created/updated in step 2 should also fall in (T1, T2] time range.</para>
-	/// <para>The advancement of the test clock from its current <c>frozen_timestamp</c> should be limited such that there are no more than 20 originations resulted from the advance operation on each <c>recurring_transfer</c> associated with this <c>test_clock</c>. </para>
-	/// <para>For instance, if the recurring transfer associated with this test clock originates once every 4 weeks, you can advance the <c>frozen_timestamp</c> up to 80 weeks on each advance call.</para>
+	/// <para>Use the <c>/sandbox/transfer/test_clock/advance</c> endpoint to advance a <c>test_clock</c> in the Sandbox environment.</para>
+	/// <para>A test clock object represents an independent timeline and has a <c>virtual_time</c> field indicating the current timestamp of the timeline. A test clock can be advanced by incrementing <c>virtual_time</c>, but may never go back to a lower <c>virtual_time</c>.</para>
+	/// <para>If a test clock is advanced, we will simulate the changes that ought to occur during the time that elapsed.</para>
+	/// <para>For instance, a client creates a weekly recurring transfer with a test clock set at t. When the client advances the test clock by setting <c>virtual_time</c> = t + 15 days, 2 new originations should be created, along with the webhook events.</para>
+	/// <para>The advancement of the test clock from its current <c>virtual_time</c> should be limited such that there are no more than 20 originations resulting from the advance operation on each <c>recurring_transfer</c> associated with the <c>test_clock</c>.</para>
+	/// <para>For instance, if the recurring transfer associated with this test clock originates once every 4 weeks, you can advance the <c>virtual_time</c> up to 80 weeks on each API call.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertestclockadvance" /></remarks>
 	public Task<Sandbox.SandboxTransferTestClockAdvanceResponse> SandboxTransferTestClockAdvanceAsync(Sandbox.SandboxTransferTestClockAdvanceRequest request) =>
@@ -122,6 +121,14 @@ public sealed partial class PlaidClient
 	public Task<Sandbox.SandboxTransferTestClockGetResponse> SandboxTransferTestClockGetAsync(Sandbox.SandboxTransferTestClockGetRequest request) =>
 		PostAsync("/sandbox/transfer/test_clock/get", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferTestClockGetResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/transfer/test_clock/list</c> endpoint to see a list of all your test clocks in the Sandbox environment, by ascending <c>virtual_time</c>. Results are paginated; use the <c>count</c> and <c>offset</c> query parameters to retrieve the desired test clocks.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertestclocklist" /></remarks>
+	public Task<Sandbox.SandboxTransferTestClockListResponse> SandboxTransferTestClockListAsync(Sandbox.SandboxTransferTestClockListRequest request) =>
+		PostAsync("/sandbox/transfer/test_clock/list", request)
+			.ParseResponseAsync<Sandbox.SandboxTransferTestClockListResponse>();
 
 	/// <summary>
 	/// <para><c>/sandbox/payment_profile/reset_login/</c> forces a Payment Profile into a state where the login is no longer valid. This makes it easy to test update mode for Payment Profile in the Sandbox environment.</para>

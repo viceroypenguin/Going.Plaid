@@ -16,22 +16,4 @@ public partial class TransferQuestionnaireCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("redirect_uri")]
 	public string RedirectUri { get; set; } = default!;
-
-	/// <summary>
-	/// <para>Requested disbursement (i.e. sending money) limits for the end customer.</para>
-	/// </summary>
-	[JsonPropertyName("disbursement_limits")]
-	public Entity.DisbursementLimits DisbursementLimits { get; set; } = default!;
-
-	/// <summary>
-	/// <para>Requested payment (i.e. receiving money) limits for the end customer.</para>
-	/// </summary>
-	[JsonPropertyName("payment_limits")]
-	public Entity.PaymentLimits PaymentLimits { get; set; } = default!;
-
-	/// <summary>
-	/// <para>Best guess frequency of transactions of the end customer.</para>
-	/// </summary>
-	[JsonPropertyName("transaction_frequency")]
-	public Entity.TransactionFrequency TransactionFrequency { get; set; } = default!;
 }

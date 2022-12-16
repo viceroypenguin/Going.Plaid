@@ -113,6 +113,18 @@ public record Transaction
 	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The logo associated with the merchant, if available. Formatted as a 100x100 pixels PNG file path.</para>
+	/// </summary>
+	[JsonPropertyName("logo_url")]
+	public string? LogoUrl { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The website associated with the merchant, if available.</para>
+	/// </summary>
+	[JsonPropertyName("website")]
+	public string? Website { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>
 	/// </summary>
 	[JsonPropertyName("check_number")]
@@ -156,4 +168,16 @@ public record Transaction
 	/// </summary>
 	[JsonPropertyName("personal_finance_category")]
 	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A link to the icon associated with the primary personal finance category. The logo will always be 100x100 pixels.</para>
+	/// </summary>
+	[JsonPropertyName("personal_finance_category_icon_url")]
+	public string PersonalFinanceCategoryIconUrl { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The counterparties present in the transaction. Counterparties, such as the financial institutions, are extracted by Plaid from the raw description.</para>
+	/// </summary>
+	[JsonPropertyName("counterparties")]
+	public IReadOnlyList<Entity.Counterparty> Counterparties { get; init; } = default!;
 }

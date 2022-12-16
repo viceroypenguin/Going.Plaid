@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public record TransferRecurringGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Represents a transfer within the Transfers API.</para>
+	/// <para>Represents a recurring transfer within the Transfers API.</para>
 	/// </summary>
 	[JsonPropertyName("recurring_transfer")]
 	public Entity.RecurringTransfer RecurringTransfer { get; init; } = default!;

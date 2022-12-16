@@ -30,8 +30,27 @@ public class ClientProvidedTransaction
 	public Entity.EnrichTransactionDirection Direction { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The ISO-4217 currency code of the transaction, e.g., USD.</para>
+	/// <para>The ISO-4217 currency code of the transaction e.g. USD.</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; set; } = default!;
+
+	/// <summary>
+	/// <para>A representation of where a transaction took place.</para>
+	/// <para>Use this field to pass in structured location information you may have about your transactions.</para>
+	/// </summary>
+	[JsonPropertyName("location")]
+	public Entity.ClientProvidedTransactionLocation Location { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Merchant category codes (MCCs) are four-digit numbers that describe a merchant's primary business activities.</para>
+	/// </summary>
+	[JsonPropertyName("mcc")]
+	public string Mcc { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The date the transaction posted, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format.</para>
+	/// </summary>
+	[JsonPropertyName("date_posted")]
+	public DateOnly DatePosted { get; set; } = default!;
 }

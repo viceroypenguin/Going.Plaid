@@ -1,33 +1,27 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Best guess frequency of transactions of the end customer.</para>
+/// <para>The explicit pay basis on the paystub (if present).</para>
 /// </summary>
-public enum TransactionFrequency
+public enum CreditPayStubPayBasisType
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "once_per_month")]
-	OncePerMonth,
+	[EnumMember(Value = "SALARY")]
+	Salary,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "twice_per_month")]
-	TwicePerMonth,
+	[EnumMember(Value = "HOURLY")]
+	Hourly,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "four_times_per_month")]
-	FourTimesPerMonth,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "daily")]
-	Daily,
+	[EnumMember(Value = "COMMISSION")]
+	Commission,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

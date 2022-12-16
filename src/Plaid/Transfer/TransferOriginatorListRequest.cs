@@ -6,14 +6,14 @@ namespace Going.Plaid.Transfer;
 public partial class TransferOriginatorListRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The maximum number of transfers to return.</para>
+	/// <para>The maximum number of originators to return.</para>
 	/// </summary>
 	[JsonPropertyName("count")]
-	public int Count { get; set; } = default!;
+	public int? Count { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The number of transfers to skip before returning results.</para>
+	/// <para>The number of originators to skip before returning results.</para>
 	/// </summary>
 	[JsonPropertyName("offset")]
-	public int Offset { get; set; } = default!;
+	public int? Offset { get; set; } = default!;
 }

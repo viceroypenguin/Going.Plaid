@@ -45,11 +45,11 @@ public partial class SignalEvaluateRequest : RequestBase
 	/// <summary>
 	/// <para>The default ACH or non-ACH payment method to complete the transaction.</para>
 	/// <para><c>SAME_DAY_ACH</c>: Same Day ACH by NACHA. The debit transaction is processed and settled on the same day</para>
-	/// <para><c>NEXT_DAY_ACH</c>: Next Day ACH settlement for debit transactions, offered by some payment processors </para>
+	/// <para><c>NEXT_DAY_ACH</c>: Next Day ACH settlement for debit transactions, offered by some payment processors</para>
 	/// <para><c>STANDARD_ACH</c>: standard ACH by NACHA</para>
 	/// <para><c>REAL_TIME_PAYMENTS</c>: real-time payments such as RTP and FedNow</para>
 	/// <para><c>DEBIT_CARD</c>: if the default payment is over debit card networks</para>
-	/// <para><c>MULTIPLE_PAYMENT_METHODS</c>: if there is no default debit rail or there are multiple payment methods </para>
+	/// <para><c>MULTIPLE_PAYMENT_METHODS</c>: if there is no default debit rail or there are multiple payment methods</para>
 	/// <para>Possible values:  <c>SAME_DAY_ACH</c>, <c>NEXT_DAY_ACH</c>, <c>STANDARD_ACH</c>, <c>REAL_TIME_PAYMENTS</c>, <c>DEBIT_CARD</c>, <c>MULTIPLE_PAYMENT_METHODS</c></para>
 	/// </summary>
 	[JsonPropertyName("default_payment_method")]

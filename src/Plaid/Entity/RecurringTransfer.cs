@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Represents a transfer within the Transfers API.</para>
+/// <para>Represents a recurring transfer within the Transfers API.</para>
 /// </summary>
 public record RecurringTransfer
 {
@@ -18,7 +18,7 @@ public record RecurringTransfer
 	public DateTimeOffset Created { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A date in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD). </para>
+	/// <para>A date in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// <para>The next transfer origination date after bank holiday adjustment.</para>
 	/// </summary>
 	[JsonPropertyName("next_origination_date")]
@@ -46,7 +46,7 @@ public record RecurringTransfer
 	/// <para>The status of the recurring transfer.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.TransferRecurringStatus? Status { get; init; } = default!;
+	public Entity.TransferRecurringStatus Status { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
@@ -79,22 +79,16 @@ public record RecurringTransfer
 	public string IsoCurrencyCode { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The description of the recurring transfer.</para>
+	/// </summary>
+	[JsonPropertyName("description")]
+	public string Description { get; init; } = default!;
+
+	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("transfer_ids")]
 	public IReadOnlyList<string> TransferIds { get; init; } = default!;
-
-	/// <summary>
-	/// <para>A decision regarding the proposed transfer.</para>
-	/// </summary>
-	[JsonPropertyName("decision")]
-	public Entity.TransferAuthorizationDecision Decision { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The rationale for Plaid's decision regarding a proposed transfer. It is always set for <c>declined</c> decisions, and may or may not be null for <c>approved</c> decisions.</para>
-	/// </summary>
-	[JsonPropertyName("decision_rationale")]
-	public Entity.TransferAuthorizationDecisionRationale? DecisionRationale { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The legal name and other information for the account holder.</para>

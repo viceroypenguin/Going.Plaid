@@ -18,8 +18,8 @@ public partial class TransactionsEnrichGetRequest : RequestBase
 	public IReadOnlyList<Entity.ClientProvidedTransaction> Transactions { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Include legacy categories in Enrich responses</para>
+	/// <para>An optional object to be used with the request.</para>
 	/// </summary>
-	[JsonPropertyName("include_legacy_categories")]
-	public bool IncludeLegacyCategories { get; set; } = default!;
+	[JsonPropertyName("options")]
+	public Entity.TransactionsEnrichRequestOptions Options { get; set; } = default!;
 }

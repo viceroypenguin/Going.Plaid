@@ -113,6 +113,18 @@ public record AssetReportTransaction
 	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The logo associated with the merchant, if available. Formatted as a 100x100 pixels PNG file path.</para>
+	/// </summary>
+	[JsonPropertyName("logo_url")]
+	public string? LogoUrl { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The website associated with the merchant, if available.</para>
+	/// </summary>
+	[JsonPropertyName("website")]
+	public string? Website { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>
 	/// </summary>
 	[JsonPropertyName("check_number")]
