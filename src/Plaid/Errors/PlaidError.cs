@@ -4,7 +4,7 @@
 /// The exception that is thrown when a response from the Plaid API contains an error.
 /// </summary>
 [Serializable]
-public class PlaidError
+public record PlaidError
 {
 	/// <summary>
 	/// A broad categorization of the error.
