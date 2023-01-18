@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 namespace Going.Plaid.Converters;
 
 /// <inheritdoc/>
-public class EnumConverterFactory : JsonConverterFactory
+public sealed class EnumConverterFactory : JsonConverterFactory
 {
 	/// <inheritdoc/>
 	public override bool CanConvert(Type typeToConvert) =>
@@ -42,7 +42,7 @@ public class EnumConverterFactory : JsonConverterFactory
 
 	private Dictionary<Type, JsonConverter> _converters = new();
 
-	internal class EnumMemberEnumConverterNotNull<T> : JsonConverter<T>
+	internal sealed class EnumMemberEnumConverterNotNull<T> : JsonConverter<T>
 		where T : struct, Enum
 	{
 		public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
@@ -97,7 +97,7 @@ public class EnumConverterFactory : JsonConverterFactory
 		}
 	}
 
-	internal class EnumMemberEnumConverterNull<T> : JsonConverter<T?>
+	internal sealed class EnumMemberEnumConverterNull<T> : JsonConverter<T?>
 		where T : struct, Enum
 	{
 		public override T? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
