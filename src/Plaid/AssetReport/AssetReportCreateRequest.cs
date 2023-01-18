@@ -23,4 +23,10 @@ public partial class AssetReportCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.AssetReportCreateRequestOptions Options { get; set; } = default!;
+
+	/// <summary>
+	/// <para>When set to VERIFICATION_OF_EMPLOYMENT and the Asset Report is added to an Audit Copy Token, the Asset Report will be retrieved by Freddie Mac in the Verification Of Employment (VOE) version instead of the default Verification Of Assets (VOA) version.</para>
+	/// </summary>
+	[JsonPropertyName("report_type")]
+	public Entity.FreddieReportType ReportType { get; set; } = default!;
 }

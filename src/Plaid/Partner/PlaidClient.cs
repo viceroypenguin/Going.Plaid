@@ -33,4 +33,12 @@ public sealed partial class PlaidClient
 	public Task<Partner.PartnerCustomerRemoveResponse> PartnerCustomerRemoveAsync(Partner.PartnerCustomerRemoveRequest request) =>
 		PostAsync("/partner/customer/remove", request)
 			.ParseResponseAsync<Partner.PartnerCustomerRemoveResponse>();
+
+	/// <summary>
+	/// <para>The <c>/partner/customer/oauth_institutions/get</c> endpoint is used by reseller partners to retrieve OAuth-institution registration information about a single end customer.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomeroauth_institutionsget" /></remarks>
+	public Task<Partner.PartnerCustomerOAuthInstitutionsGetResponse> PartnerCustomerOauthInstitutionsGetAsync(Partner.PartnerCustomerOAuthInstitutionsGetRequest request) =>
+		PostAsync("/partner/customer/oauth_institutions/get", request)
+			.ParseResponseAsync<Partner.PartnerCustomerOAuthInstitutionsGetResponse>();
 }

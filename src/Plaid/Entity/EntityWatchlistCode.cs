@@ -32,6 +32,12 @@ public enum EntityWatchlistCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "IZ_WBK")]
+	IzWbk,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "US_CAP")]
 	UsCap,
 

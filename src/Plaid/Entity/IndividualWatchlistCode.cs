@@ -50,6 +50,12 @@ public enum IndividualWatchlistCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "IZ_WBK")]
+	IzWbk,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "UK_HMC")]
 	UkHmc,
 
@@ -86,8 +92,8 @@ public enum IndividualWatchlistCode
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "US_MBC")]
-	UsMbc,
+	[EnumMember(Value = "US_MBS")]
+	UsMbs,
 
 	/// <summary>
 	/// 
@@ -136,6 +142,12 @@ public enum IndividualWatchlistCode
 	/// </summary>
 	[EnumMember(Value = "TR_WMD")]
 	TrWmd,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "TR_CMB")]
+	TrCmb,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

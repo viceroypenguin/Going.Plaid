@@ -16,4 +16,10 @@ public record Originator
 	/// </summary>
 	[JsonPropertyName("transfer_diligence_status")]
 	public Entity.TransferDiligenceStatus TransferDiligenceStatus { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("company_name")]
+	public string CompanyName { get; init; } = default!;
 }

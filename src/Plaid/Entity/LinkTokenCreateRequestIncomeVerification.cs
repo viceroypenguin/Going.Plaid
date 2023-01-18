@@ -43,7 +43,7 @@ public class LinkTokenCreateRequestIncomeVerification
 	public Entity.LinkTokenCreateRequestIncomeVerificationBankIncome BankIncome { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with Payroll Income. This field is required if <c>income_verification</c> is included in the <c>products</c> array and <c>payroll</c> is specified in <c>income_source_types</c>.</para>
+	/// <para>Specifies options for initializing Link for use with Payroll Income.</para>
 	/// </summary>
 	[JsonPropertyName("payroll_income")]
 	public Entity.LinkTokenCreateRequestIncomeVerificationPayrollIncome PayrollIncome { get; set; } = default!;

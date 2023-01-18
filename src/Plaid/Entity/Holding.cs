@@ -12,7 +12,7 @@ public record Holding
 	public string AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid <c>security_id</c> associated with the holding. The <c>security_id</c> may change if inherent details of the security change due to a corporate action, for example, in the event of a ticker symbol change or CUSIP change.</para>
+	/// <para>The Plaid <c>security_id</c> associated with the holding. Security data is not specific to a user's account; any user who held the same security at the same financial institution at the same time would have identical security data. The <c>security_id</c> for the same security will typically be the same across different institutions, but this is not guaranteed. The <c>security_id</c> does not typically change, but may change if inherent details of the security change due to a corporate action, for example, in the event of a ticker symbol change or CUSIP change.</para>
 	/// </summary>
 	[JsonPropertyName("security_id")]
 	public string SecurityId { get; init; } = default!;

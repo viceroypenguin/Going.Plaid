@@ -3,6 +3,13 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para>List a historical log of user consent events</para>
+	/// </summary>
+	public Task<Item.ItemActivityListResponse> ItemActivityListAsync(Item.ItemActivityListRequest request) =>
+		PostAsync("/item/activity/list", request)
+			.ParseResponseAsync<Item.ItemActivityListResponse>();
+
+	/// <summary>
 	/// <para>List a user’s connected applications</para>
 	/// </summary>
 	public Task<Item.ItemApplicationListResponse> ItemApplicationListAsync(Item.ItemApplicationListRequest request) =>

@@ -3,6 +3,14 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para>The <c>/credit/audit_copy_token/update</c> endpoint updates the Audit Copy Token by adding the report tokens in the <c>report_tokens</c> field to the <c>audit_copy_token</c>. If the Audit Copy Token already contains a report of a certain type, it will be replaced with the token provided in the <c>report_tokens</c> field.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Credit.CreditAuditCopyTokenUpdateResponse> CreditAuditCopyTokenUpdateAsync(Credit.CreditAuditCopyTokenUpdateRequest request) =>
+		PostAsync("/credit/audit_copy_token/update", request)
+			.ParseResponseAsync<Credit.CreditAuditCopyTokenUpdateResponse>();
+
+	/// <summary>
 	/// <para>This endpoint can be used for your end users after they complete the Link flow. This endpoint returns a list of Link sessions that your user completed, where each session includes the results from the Link flow.</para>
 	/// <para>These results include details about the Item that was created and some product related metadata (showing, for example, whether the user finished the bank income verification step).</para>
 	/// </summary>
@@ -27,6 +35,14 @@ public sealed partial class PlaidClient
 	public Task<Credit.CreditAuditCopyTokenRemoveResponse> CreditAuditCopyTokenRemoveAsync(Credit.CreditAuditCopyTokenRemoveRequest request) =>
 		PostAsync("/credit/audit_copy_token/remove", request)
 			.ParseResponseAsync<Credit.CreditAuditCopyTokenRemoveResponse>();
+
+	/// <summary>
+	/// <para>The <c>credit/asset_report/freddie_mac/get</c> endpoint retrieves the Verification of Assets and Verification of Employment reports.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Credit.CreditFreddieMacReportsGetResponse> CreditFreddieMacReportsGetAsync(Credit.CreditFreddieMacReportsGetRequest request) =>
+		PostAsync("/credit/freddie_mac/reports/get", request)
+			.ParseResponseAsync<Credit.CreditFreddieMacReportsGetResponse>();
 
 	/// <summary>
 	/// <para><c>/credit/bank_income/get</c> returns the bank income report(s) for a specified user.</para>

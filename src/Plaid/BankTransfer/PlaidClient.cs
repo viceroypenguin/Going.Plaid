@@ -35,17 +35,17 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<BankTransfer.BankTransferCancelResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/bank_transfer/event/list</c> endpoint to get a list of bank transfer events based on specified filter criteria.</para>
+	/// <para>Use the <c>/bank_transfer/event/list</c> endpoint to get a list of ACH or bank transfer events based on specified filter criteria.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/bank-transfers/reference#bank_transfereventlist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/auth#bank_transfereventlist" /></remarks>
 	public Task<BankTransfer.BankTransferEventListResponse> BankTransferEventListAsync(BankTransfer.BankTransferEventListRequest request) =>
 		PostAsync("/bank_transfer/event/list", request)
 			.ParseResponseAsync<BankTransfer.BankTransferEventListResponse>();
 
 	/// <summary>
-	/// <para><c>/bank_transfer/event/sync</c> allows you to request up to the next 25 bank transfer events that happened after a specific <c>event_id</c>. Use the <c>/bank_transfer/event/sync</c> endpoint to guarantee you have seen all bank transfer events.</para>
+	/// <para><c>/bank_transfer/event/sync</c> allows you to request up to the next 25 bank transfer events that happened after a specific <c>event_id</c>. When using Auth with micro-deposit verification enabled, this endpoint can be used to fetch status updates on ACH micro-deposits. For more details, see <a href="https://www.plaid.com/docs/auth/coverage/microdeposit-events/">micro-deposit events</a>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/bank-transfers/reference#bank_transfereventsync" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/auth/#bank_transfereventsync" /></remarks>
 	public Task<BankTransfer.BankTransferEventSyncResponse> BankTransferEventSyncAsync(BankTransfer.BankTransferEventSyncRequest request) =>
 		PostAsync("/bank_transfer/event/sync", request)
 			.ParseResponseAsync<BankTransfer.BankTransferEventSyncResponse>();
