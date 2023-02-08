@@ -10,4 +10,10 @@ public partial class AssetReportPdfGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("asset_report_token")]
 	public string AssetReportToken { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An optional object to filter or add data to <c>/asset_report/pdf/get</c> results. If provided, must be non-<c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("options")]
+	public Entity.AssetReportPdfGetRequestOptions Options { get; set; } = default!;
 }
