@@ -35,7 +35,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Partner.PartnerCustomerRemoveResponse>();
 
 	/// <summary>
-	/// <para>The <c>/partner/customer/oauth_institutions/get</c> endpoint is used by reseller partners to retrieve OAuth-institution registration information about a single end customer.</para>
+	/// <para>The <c>/partner/customer/oauth_institutions/get</c> endpoint is used by reseller partners to retrieve OAuth-institution registration information about a single end customer. To learn how to set up a webhook to listen to status update events, visit the <a href="https://plaid.com/docs/account/resellers/#enabling-end-customers">reseller documentation</a>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomeroauth_institutionsget" /></remarks>
 	public Task<Partner.PartnerCustomerOAuthInstitutionsGetResponse> PartnerCustomerOauthInstitutionsGetAsync(Partner.PartnerCustomerOAuthInstitutionsGetRequest request) =>

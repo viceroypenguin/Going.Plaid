@@ -60,6 +60,12 @@ public record TransferIntentGet
 	public string OriginationAccountId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account_id")]
+	public string FundingAccountId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
@@ -70,6 +76,12 @@ public record TransferIntentGet
 	/// </summary>
 	[JsonPropertyName("mode")]
 	public Entity.TransferIntentCreateMode Mode { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("network")]
+	public Entity.TransferIntentCreateNetwork Network { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>

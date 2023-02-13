@@ -67,10 +67,16 @@ public record RecurringTransfer
 	public string OriginationAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The account ID that should be credited/debited for this transfer.</para>
+	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account_id")]
+	public string FundingAccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The currency of the transfer amount, e.g. "USD"</para>

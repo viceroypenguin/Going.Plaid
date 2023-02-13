@@ -18,10 +18,16 @@ public record Transfer
 	public Entity.AchClass AchClass { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The account ID that should be credited/debited for this transfer.</para>
+	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account_id")]
+	public string FundingAccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
@@ -129,6 +135,12 @@ public record Transfer
 	/// </summary>
 	[JsonPropertyName("unauthorized_return_window")]
 	public DateOnly? UnauthorizedReturnWindow { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An estimation of the settlement date which can be useful when the transfer is <c>pending</c>. Only set for ACH transfers and is <c>null</c> for non-ACH transfers. This will be of the form YYYY-MM-DD.</para>
+	/// </summary>
+	[JsonPropertyName("expected_settlement_date")]
+	public DateOnly? ExpectedSettlementDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The Plaid client ID that is the originator of this transfer. Only present if created on behalf of another client as a third-party sender (TPS).</para>

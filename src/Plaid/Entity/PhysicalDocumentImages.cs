@@ -9,7 +9,7 @@ public record PhysicalDocumentImages
 	/// <para>Temporary URL that expires after 60 seconds for downloading the uncropped original image of the front of the document.</para>
 	/// </summary>
 	[JsonPropertyName("original_front")]
-	public string OriginalFront { get; init; } = default!;
+	public string? OriginalFront { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Temporary URL that expires after 60 seconds for downloading the original image of the back of the document. Might be null if the back of the document was not collected.</para>

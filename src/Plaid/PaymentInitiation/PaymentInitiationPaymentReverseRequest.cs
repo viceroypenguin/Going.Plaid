@@ -19,7 +19,7 @@ public partial class PaymentInitiationPaymentReverseRequest : RequestBase
 	public string IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A reference for the refund. This must be an alphanumeric string with at most 18 characters and must not contain any special characters or spaces.</para>
+	/// <para>A reference for the refund. This must be an alphanumeric string with 6 to 18 characters and must not contain any special characters or spaces.</para>
 	/// </summary>
 	[JsonPropertyName("reference")]
 	public string Reference { get; set; } = default!;

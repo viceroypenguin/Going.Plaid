@@ -24,7 +24,7 @@ public record TransferIntentCreate
 	public Entity.TransferIntentStatus Status { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited. Returned only if <c>account_id</c> was set on intent creation.</para>
+	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited. Returned only if <c>account_id</c> was set on intent creation.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string? AccountId { get; init; } = default!;
@@ -34,6 +34,12 @@ public record TransferIntentCreate
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	public string OriginationAccountId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account_id")]
+	public string FundingAccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>
@@ -46,6 +52,12 @@ public record TransferIntentCreate
 	/// </summary>
 	[JsonPropertyName("mode")]
 	public Entity.TransferIntentCreateMode Mode { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("network")]
+	public Entity.TransferIntentCreateNetwork Network { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>

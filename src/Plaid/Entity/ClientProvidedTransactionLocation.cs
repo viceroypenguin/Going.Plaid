@@ -1,8 +1,8 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A representation of where a transaction took place.</para>
-/// <para>Use this field to pass in structured location information you may have about your transactions.</para>
+/// <para>A representation of where a transaction took place. </para>
+/// <para>Use this field to pass in structured location information you may have about your transactions. Providing location data is optional but can increase result quality. If you have unstructured location information, it may be appended to the <c>description</c> field.</para>
 /// </summary>
 public class ClientProvidedTransactionLocation
 {

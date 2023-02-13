@@ -9,7 +9,7 @@ public class AddressData
 	/// <para>The full city name</para>
 	/// </summary>
 	[JsonPropertyName("city")]
-	public string City { get; set; } = default!;
+	public string? City { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The region or state. In API versions 2018-05-22 and earlier, this field is called <c>state</c>.</para>

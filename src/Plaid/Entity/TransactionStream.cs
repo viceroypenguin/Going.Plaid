@@ -18,16 +18,16 @@ public record TransactionStream
 	public string StreamId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ID of the category to which this transaction belongs. See <a href="https://plaid.com/docs/#category-overview">Categories</a>.</para>
-	/// </summary>
-	[JsonPropertyName("category_id")]
-	public string CategoryId { get; init; } = default!;
-
-	/// <summary>
-	/// <para>A hierarchical array of the categories to which this transaction belongs. See <a href="https://plaid.com/docs/#category-overview">Categories</a>.</para>
+	/// <para>A hierarchical array of the categories to which this transaction belongs. See <a href="https://plaid.com/docs/api/products/transactions/#categoriesget">Categories</a>.</para>
 	/// </summary>
 	[JsonPropertyName("category")]
 	public IReadOnlyList<string> Category { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The ID of the category to which this transaction belongs. See <a href="https://plaid.com/docs/api/products/transactions/#categoriesget">Categories</a>.</para>
+	/// </summary>
+	[JsonPropertyName("category_id")]
+	public string CategoryId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A description of the transaction stream.</para>

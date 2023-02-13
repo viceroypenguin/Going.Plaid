@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferCapabilitiesGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited. Required if not using <c>payment_profile_token</c>.</para>
+	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited. Returned only if <c>account_id</c> was set on intent creation.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; set; } = default!;

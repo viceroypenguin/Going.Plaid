@@ -12,6 +12,12 @@ public record WalletTransaction
 	public string TransactionId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
+	/// </summary>
+	[JsonPropertyName("wallet_id")]
+	public string WalletId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A reference for the transaction</para>
 	/// </summary>
 	[JsonPropertyName("reference")]

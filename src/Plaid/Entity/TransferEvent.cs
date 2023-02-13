@@ -30,6 +30,12 @@ public record TransferEvent
 	public string AccountId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account_id")]
+	public string FundingAccountId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Plaid’s unique identifier for a transfer.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_id")]

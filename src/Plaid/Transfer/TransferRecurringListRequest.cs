@@ -28,4 +28,10 @@ public partial class TransferRecurringListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("offset")]
 	public int Offset { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Filter recurring transfers to only those with the specified <c>funding_account_id</c>.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account_id")]
+	public string? FundingAccountId { get; set; } = default!;
 }

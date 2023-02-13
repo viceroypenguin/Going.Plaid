@@ -34,4 +34,10 @@ public record DocumentaryVerificationDocument
 	/// </summary>
 	[JsonPropertyName("analysis")]
 	public Entity.DocumentAnalysis Analysis { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An ISO8601 formatted timestamp.</para>
+	/// </summary>
+	[JsonPropertyName("redacted_at")]
+	public DateTimeOffset? RedactedAt { get; init; } = default!;
 }

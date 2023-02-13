@@ -3,6 +3,14 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para><c>/credit/bank_employment/get</c> returns the employment report(s) derived from bank transaction data for a specified user.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_employmentget" /></remarks>
+	public Task<Beta.CreditBankEmploymentGetResponse> BetaCreditV1BankEmploymentGetAsync(Beta.CreditBankEmploymentGetRequest request) =>
+		PostAsync("/beta/credit/v1/bank_employment/get", request)
+			.ParseResponseAsync<Beta.CreditBankEmploymentGetResponse>();
+
+	/// <summary>
 	/// <para>The <c>/beta/transactions/v1/enhance</c> endpoint enriches raw transaction data provided directly by clients.</para>
 	/// <para>The product is currently in beta.</para>
 	/// </summary>

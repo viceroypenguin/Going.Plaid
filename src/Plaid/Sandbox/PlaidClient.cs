@@ -96,7 +96,7 @@ public sealed partial class PlaidClient
 	/// <para>A test clock object represents an independent timeline and has a <c>virtual_time</c> field indicating the current timestamp of the timeline. Test clocks are used for testing recurring transfers in Sandbox.</para>
 	/// <para>A test clock can be associated with up to 5 recurring transfers.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertestclockcreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertest_clockcreate" /></remarks>
 	public Task<Sandbox.SandboxTransferTestClockCreateResponse> SandboxTransferTestClockCreateAsync(Sandbox.SandboxTransferTestClockCreateRequest request) =>
 		PostAsync("/sandbox/transfer/test_clock/create", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferTestClockCreateResponse>();
@@ -109,7 +109,7 @@ public sealed partial class PlaidClient
 	/// <para>The advancement of the test clock from its current <c>virtual_time</c> should be limited such that there are no more than 20 originations resulting from the advance operation on each <c>recurring_transfer</c> associated with the <c>test_clock</c>.</para>
 	/// <para>For instance, if the recurring transfer associated with this test clock originates once every 4 weeks, you can advance the <c>virtual_time</c> up to 80 weeks on each API call.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertestclockadvance" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertest_clockadvance" /></remarks>
 	public Task<Sandbox.SandboxTransferTestClockAdvanceResponse> SandboxTransferTestClockAdvanceAsync(Sandbox.SandboxTransferTestClockAdvanceRequest request) =>
 		PostAsync("/sandbox/transfer/test_clock/advance", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferTestClockAdvanceResponse>();
@@ -117,7 +117,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/test_clock/get</c> endpoint to get a <c>test_clock</c> in the Sandbox environment.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertestclockget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertest_clockget" /></remarks>
 	public Task<Sandbox.SandboxTransferTestClockGetResponse> SandboxTransferTestClockGetAsync(Sandbox.SandboxTransferTestClockGetRequest request) =>
 		PostAsync("/sandbox/transfer/test_clock/get", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferTestClockGetResponse>();
@@ -125,7 +125,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/test_clock/list</c> endpoint to see a list of all your test clocks in the Sandbox environment, by ascending <c>virtual_time</c>. Results are paginated; use the <c>count</c> and <c>offset</c> query parameters to retrieve the desired test clocks.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertestclocklist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertest_clocklist" /></remarks>
 	public Task<Sandbox.SandboxTransferTestClockListResponse> SandboxTransferTestClockListAsync(Sandbox.SandboxTransferTestClockListRequest request) =>
 		PostAsync("/sandbox/transfer/test_clock/list", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferTestClockListResponse>();
@@ -135,7 +135,7 @@ public sealed partial class PlaidClient
 	/// <para> After calling <c>/sandbox/payment_profile/reset_login</c>, calls to the <c>/transfer/authorization/create</c> with the Payment Profile will result in a <c>decision_rationale</c> <c>PAYMENT_PROFILE_LOGIN_REQUIRED</c>. You can then use update mode for Payment Profile to restore it into a good state.</para>
 	/// <para> In order to invoke this endpoint, you must first <a href="https://plaid.com/docs/transfer/add-to-app/#create-a-payment-profile-optional">create a Payment Profile</a> and <a href="https://plaid.com/docs/transfer/add-to-app/#create-a-link-token">go through the Link flow</a>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxpaymentprofilereset_login" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxpayment_profilereset_login" /></remarks>
 	public Task<Sandbox.SandboxPaymentProfileResetLoginResponse> SandboxPaymentProfileResetLoginAsync(Sandbox.SandboxPaymentProfileResetLoginRequest request) =>
 		PostAsync("/sandbox/payment_profile/reset_login", request)
 			.ParseResponseAsync<Sandbox.SandboxPaymentProfileResetLoginResponse>();

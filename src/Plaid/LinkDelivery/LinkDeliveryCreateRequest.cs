@@ -12,14 +12,8 @@ public partial class LinkDeliveryCreateRequest : RequestBase
 	public string LinkToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The delivery method to be used to deliver the Link Delivery URL.</para>
+	/// <para>The list of communication methods to send the link delivery URL to.</para>
 	/// </summary>
-	[JsonPropertyName("delivery_method")]
-	public Entity.LinkDeliveryDeliveryMethod DeliveryMethod { get; set; } = default!;
-
-	/// <summary>
-	/// <para>The email or phone number to be used to delivery the URL of the Link Delivery session</para>
-	/// </summary>
-	[JsonPropertyName("delivery_destination")]
-	public string DeliveryDestination { get; set; } = default!;
+	[JsonPropertyName("communication_methods")]
+	public IReadOnlyList<Entity.LinkDeliveryCommunicationMethod> CommunicationMethods { get; set; } = default!;
 }

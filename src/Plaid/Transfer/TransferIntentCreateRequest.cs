@@ -6,16 +6,28 @@ namespace Going.Plaid.Transfer;
 public partial class TransferIntentCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The Plaid <c>account_id</c> for the account that will be debited or credited.</para>
+	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string? AccountId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account_id")]
+	public string? FundingAccountId { get; set; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("mode")]
 	public Entity.TransferIntentCreateMode Mode { get; set; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("network")]
+	public Entity.TransferIntentCreateNetwork Network { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>

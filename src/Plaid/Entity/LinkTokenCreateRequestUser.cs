@@ -12,7 +12,7 @@ public class LinkTokenCreateRequestUser
 	public string ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's full legal name. Currently used only to support certain legacy flows.</para>
+	/// <para>The user's full legal name, used for <a href="https://plaid.com/docs/auth/coverage/">micro-deposit based verification flows</a>. For a small number of customers on legacy flows, providing this field is required to enable micro-deposit-based flows. For all other customers, this field is optional, but providing the user's name in this field when using micro-deposit-based verification will enable certain risk checks and can reduce micro-deposit fraud.</para>
 	/// </summary>
 	[JsonPropertyName("legal_name")]
 	public string LegalName { get; set; } = default!;
@@ -30,7 +30,7 @@ public class LinkTokenCreateRequestUser
 	public string PhoneNumber { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The date and time the phone number was verified in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDThh:mm:ssZ</c>). This field is optional, but required to enable any <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
+	/// <para>The date and time the phone number was verified in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDThh:mm:ssZ</c>). This was previously an optional field used in the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>. This field is no longer required to enable the returning user experience.</para>
 	/// <para> Only pass a verification time for a phone number that you have verified. If you have performed verification but don’t have the time, you may supply a signal value of the start of the UNIX epoch.</para>
 	/// <para> Example: <c>2020-01-01T00:00:00Z</c></para>
 	/// </summary>
@@ -38,13 +38,13 @@ public class LinkTokenCreateRequestUser
 	public DateTimeOffset? PhoneNumberVerifiedTime { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's email address. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user/#enabling-the-returning-user-experience">pre-authenticated returning user flow</a>.</para>
+	/// <para>The user's email address. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user/#pre-authenticated-rux">pre-authenticated returning user flow</a>.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string EmailAddress { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The date and time the email address was verified in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDThh:mm:ssZ</c>). This is an optional field used in the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
+	/// <para>The date and time the email address was verified in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDThh:mm:ssZ</c>). This was previously an optional field used in the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>. This field is no longer required to enable the returning user experience.</para>
 	/// <para> Only pass a verification time for an email address that you have verified. If you have performed verification but don’t have the time, you may supply a signal value of the start of the UNIX epoch.</para>
 	/// <para> Example: <c>2020-01-01T00:00:00Z</c></para>
 	/// </summary>

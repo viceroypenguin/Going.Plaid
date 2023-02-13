@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The Item's accounts that have Bank Income data.</para>
+/// <para>The Item's bank accounts that have the selected data.</para>
 /// </summary>
 public record CreditBankIncomeAccount
 {

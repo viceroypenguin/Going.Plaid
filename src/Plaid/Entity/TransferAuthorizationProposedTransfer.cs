@@ -18,6 +18,12 @@ public record TransferAuthorizationProposedTransfer
 	public string AccountId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account_id")]
+	public string FundingAccountId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
 	/// </summary>
 	[JsonPropertyName("type")]

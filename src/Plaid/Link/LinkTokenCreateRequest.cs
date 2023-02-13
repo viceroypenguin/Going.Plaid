@@ -36,7 +36,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <summary>
 	/// <para>List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted; required otherwise.</para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically be initialized when any other product is initialized.</para>
-	/// <para>The products specified here will determine which institutions will be available to your users in Link. Only institutions that support *all* requested products can be selected; a if a user attempts to select an institution that does not support a listed product, a "Connectivity not supported" error message will appear in Link. To maximize the number of institutions available, initialize Link with the minimal product set required for your use case. Additional products can be added after Link initialization by calling the relevant endpoints. For details and exceptions, see <a href="https://plaid.com/docs/link/best-practices/#choosing-when-to-initialize-products">Choosing when to initialize products</a>.</para>
+	/// <para>The products specified here will determine which institutions will be available to your users in Link. Only institutions that support *all* requested products can be selected; a if a user attempts to select an institution that does not support a listed product, a "Connectivity not supported" error message will appear in Link. To maximize the number of institutions available, initialize Link with the minimal product set required for your use case. Additional products can be added after Link initialization by calling the relevant endpoints. For details and exceptions, see <a href="https://plaid.com/docs/link/initializing-products/">Choosing when to initialize products</a>.</para>
 	/// <para>Note that, unless you have opted to disable Instant Match support, institutions that support Instant Match will also be shown in Link if <c>auth</c> is specified as a product, even though these institutions do not contain <c>auth</c> in their product array.</para>
 	/// <para>In Production, you will be billed for each product that you specify when initializing Link. Note that a product cannot be removed from an Item once the Item has been initialized with that product. To stop billing on an Item for subscription-based products, such as Liabilities, Investments, and Transactions, remove the Item via <c>/item/remove</c>.</para>
 	/// </summary>
@@ -112,6 +112,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("deposit_switch")]
 	public Entity.LinkTokenCreateRequestDepositSwitch DepositSwitch { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifies options for initializing Link for use with the Employment product. This field is required if <c>employment</c> is included in the <c>products</c> array.</para>
+	/// </summary>
+	[JsonPropertyName("employment")]
+	public Entity.LinkTokenCreateRequestEmployment Employment { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specifies options for initializing Link for use with the Income product. This field is required if <c>income_verification</c> is included in the <c>products</c> array.</para>

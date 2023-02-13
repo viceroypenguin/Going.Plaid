@@ -14,7 +14,7 @@ public record CreditBankIncomeSummary
 	public decimal TotalAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ISO 4217 currency code of the amount or balance. </para>
+	/// <para>The ISO 4217 currency code of the amount or balance.</para>
 	/// <para>Please use <a href="https://plaid.com/docs/api/products/income/#credit-bank_income-get-response-bank-income-bank-income-summary-total-amounts"><c>total_amounts</c></a> instead.</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]

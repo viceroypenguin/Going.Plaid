@@ -7,7 +7,7 @@ public record CreditBankIncomeHistoricalSummary
 {
 	/// <summary>
 	/// <para>Total amount of earnings for the income source(s) of the user for the month in the summary.</para>
-	/// <para>This may return an incorrect value if the summary includes income sources in multiple currencies. </para>
+	/// <para>This may return an incorrect value if the summary includes income sources in multiple currencies.</para>
 	/// <para>Please use <a href="https://plaid.com/docs/api/products/income/#credit-bank_income-get-response-bank-income-items-bank-income-sources-historical-summary-total-amounts"><c>total_amounts</c></a> instead.</para>
 	/// </summary>
 	[JsonPropertyName("total_amount")]

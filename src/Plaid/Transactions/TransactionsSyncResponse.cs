@@ -24,7 +24,7 @@ public record TransactionsSyncResponse : ResponseBase
 	public IReadOnlyList<Entity.RemovedTransaction> Removed { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Cursor used for fetching any future updates after the latest update provided in this response. The cursor obtained after all pages have been pulled (indicated by <c>has_more</c> being <c>false</c>) will be valid for at least 1 year. This cursor should be persisted for later calls.</para>
+	/// <para>Cursor used for fetching any future updates after the latest update provided in this response. The cursor obtained after all pages have been pulled (indicated by <c>has_more</c> being <c>false</c>) will be valid for at least 1 year. This cursor should be persisted for later calls. If transactions are not yet available, this will be an empty string.</para>
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
 	public string NextCursor { get; init; } = default!;

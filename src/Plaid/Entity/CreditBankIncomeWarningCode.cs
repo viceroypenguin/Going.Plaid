@@ -18,7 +18,7 @@ public enum CreditBankIncomeWarningCode
 	TransactionsUnavailable,
 
 	/// <summary>
-	/// <para>User did not grant permission to share income data for the Item</para>
+	/// <para>User did not grant permission to share data for the Item</para>
 	/// </summary>
 	[EnumMember(Value = "ITEM_UNAPPROVED")]
 	ItemUnapproved,
@@ -28,6 +28,12 @@ public enum CreditBankIncomeWarningCode
 	/// </summary>
 	[EnumMember(Value = "REPORT_DELETED")]
 	ReportDeleted,
+
+	/// <summary>
+	/// <para>No relevant data was found for the Item</para>
+	/// </summary>
+	[EnumMember(Value = "DATA_UNAVAILABLE")]
+	DataUnavailable,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

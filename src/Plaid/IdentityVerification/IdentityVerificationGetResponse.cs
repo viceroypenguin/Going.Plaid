@@ -93,4 +93,10 @@ public record IdentityVerificationGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("watchlist_screening_id")]
 	public string? WatchlistScreeningId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An ISO8601 formatted timestamp.</para>
+	/// </summary>
+	[JsonPropertyName("redacted_at")]
+	public DateTimeOffset? RedactedAt { get; init; } = default!;
 }

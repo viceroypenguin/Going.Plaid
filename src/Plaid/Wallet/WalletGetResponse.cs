@@ -28,4 +28,10 @@ public record WalletGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("recipient_id")]
 	public string RecipientId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The status of the wallet.</para>
+	/// </summary>
+	[JsonPropertyName("status")]
+	public Entity.WalletStatus Status { get; init; } = default!;
 }
