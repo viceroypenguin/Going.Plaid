@@ -98,596 +98,347 @@
   ],
   "Transactions": [
     {
-      "TransactionType": "special",
-      "CategoryId": "22001000",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Travel",
         "Airlines and Aviation Services"
       ],
+      "CategoryId": "22001000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "United Airlines",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
       "MerchantName": "United Airlines",
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "special",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "22016000",
+      "Amount": 6.33,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Travel",
         "Taxi"
       ],
+      "CategoryId": "22016000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Uber 072515 SF**POOL**",
-      "Amount": 6.33,
-      "IsoCurrencyCode": "USD",
+      "MerchantName": "Uber",
+      "PaymentMeta": {},
       "Pending": false,
-      "MerchantName": "Uber"
+      "TransactionType": "special"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "13005000",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Food and Drink",
         "Restaurants"
       ],
+      "CategoryId": "13005000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Tectra Inc",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "16000000",
+      "Amount": 2078.5,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Payment"
       ],
+      "CategoryId": "16000000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "AUTOMATIC PAYMENT - THANK",
-      "Amount": 2078.5,
-      "IsoCurrencyCode": "USD",
-      "Pending": false
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "special"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "13005032",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Food and Drink",
         "Restaurants",
         "Fast Food"
       ],
+      "CategoryId": "13005032",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "KFC",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
       "MerchantName": "KFC",
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "19046000",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Shops",
         "Sporting Goods"
       ],
+      "CategoryId": "19046000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Madison Bicycle Shop",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "16001000",
+      "Amount": 25.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Payment",
         "Credit Card"
       ],
+      "CategoryId": "16001000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "CREDIT CARD 3333 PAYMENT *//",
-      "Amount": 25.0,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "special",
       "PaymentChannel": "other"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "22016000",
+      "Amount": 5.4,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Travel",
         "Taxi"
       ],
+      "CategoryId": "22016000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Uber 063015 SF**POOL**",
-      "Amount": 5.4,
-      "IsoCurrencyCode": "USD",
+      "MerchantName": "Uber",
+      "PaymentMeta": {},
       "Pending": false,
-      "MerchantName": "Uber"
+      "TransactionType": "special"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "21006000",
+      "Amount": 5850.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Transfer",
         "Debit"
       ],
+      "CategoryId": "21006000",
       "Location": {},
+      "Name": "ACH Electronic CreditGUSTO PAY 123456",
       "PaymentMeta": {
         "PaymentMethod": "ACH"
       },
-      "Name": "ACH Electronic CreditGUSTO PAY 123456",
-      "Amount": 5850.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false
+      "Pending": false,
+      "TransactionType": "special"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "21007000",
+      "Amount": 1000.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Transfer",
         "Deposit"
       ],
+      "CategoryId": "21007000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "CD DEPOSIT .INITIAL.",
-      "Amount": 1000.0,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "special",
       "PaymentChannel": "other"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "17018000",
+      "Amount": 78.5,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Recreation",
         "Gyms and Fitness Centers"
       ],
+      "CategoryId": "17018000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Touchstone Climbing",
-      "Amount": 78.5,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "22001000",
+      "Amount": -500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Travel",
         "Airlines and Aviation Services"
       ],
+      "CategoryId": "22001000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "United Airlines",
-      "Amount": -500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
       "MerchantName": "United Airlines",
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "special",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "13005032",
+      "Amount": 12.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Food and Drink",
         "Restaurants",
         "Fast Food"
       ],
+      "CategoryId": "13005032",
       "Location": {
         "StoreNumber": "3322"
       },
-      "PaymentMeta": {},
       "Name": "McDonald's",
-      "Amount": 12.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
       "MerchantName": "McDonald's",
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "13005043",
+      "Amount": 4.33,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Food and Drink",
         "Restaurants",
         "Coffee Shop"
       ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "Starbucks",
-      "Amount": 4.33,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "MerchantName": "Starbucks",
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "place",
-      "CategoryId": "13005000",
-      "Category": [
-        "Food and Drink",
-        "Restaurants"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "SparkFun",
-      "Amount": 89.4,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "21005000",
-      "Category": [
-        "Transfer",
-        "Credit"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "INTRST PYMNT",
-      "Amount": -4.22,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "22001000",
-      "Category": [
-        "Travel",
-        "Airlines and Aviation Services"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "United Airlines",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "MerchantName": "United Airlines",
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "22016000",
-      "Category": [
-        "Travel",
-        "Taxi"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "Uber 072515 SF**POOL**",
-      "Amount": 6.33,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "MerchantName": "Uber"
-    },
-    {
-      "TransactionType": "place",
-      "CategoryId": "13005000",
-      "Category": [
-        "Food and Drink",
-        "Restaurants"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "Tectra Inc",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "16000000",
-      "Category": [
-        "Payment"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "AUTOMATIC PAYMENT - THANK",
-      "Amount": 2078.5,
-      "IsoCurrencyCode": "USD",
-      "Pending": false
-    },
-    {
-      "TransactionType": "place",
-      "CategoryId": "13005032",
-      "Category": [
-        "Food and Drink",
-        "Restaurants",
-        "Fast Food"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "KFC",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "MerchantName": "KFC",
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "place",
-      "CategoryId": "19046000",
-      "Category": [
-        "Shops",
-        "Sporting Goods"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "Madison Bicycle Shop",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "16001000",
-      "Category": [
-        "Payment",
-        "Credit Card"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "CREDIT CARD 3333 PAYMENT *//",
-      "Amount": 25.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "22016000",
-      "Category": [
-        "Travel",
-        "Taxi"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "Uber 063015 SF**POOL**",
-      "Amount": 5.4,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "MerchantName": "Uber"
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "21006000",
-      "Category": [
-        "Transfer",
-        "Debit"
-      ],
-      "Location": {},
-      "PaymentMeta": {
-        "PaymentMethod": "ACH"
-      },
-      "Name": "ACH Electronic CreditGUSTO PAY 123456",
-      "Amount": 5850.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "21007000",
-      "Category": [
-        "Transfer",
-        "Deposit"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "CD DEPOSIT .INITIAL.",
-      "Amount": 1000.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "other"
-    },
-    {
-      "TransactionType": "place",
-      "CategoryId": "17018000",
-      "Category": [
-        "Recreation",
-        "Gyms and Fitness Centers"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "Touchstone Climbing",
-      "Amount": 78.5,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "special",
-      "CategoryId": "22001000",
-      "Category": [
-        "Travel",
-        "Airlines and Aviation Services"
-      ],
-      "Location": {},
-      "PaymentMeta": {},
-      "Name": "United Airlines",
-      "Amount": -500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "MerchantName": "United Airlines",
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "place",
-      "CategoryId": "13005032",
-      "Category": [
-        "Food and Drink",
-        "Restaurants",
-        "Fast Food"
-      ],
-      "Location": {
-        "StoreNumber": "3322"
-      },
-      "PaymentMeta": {},
-      "Name": "McDonald's",
-      "Amount": 12.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
-      "MerchantName": "McDonald's",
-      "PaymentChannel": "in store"
-    },
-    {
-      "TransactionType": "place",
       "CategoryId": "13005043",
-      "Category": [
-        "Food and Drink",
-        "Restaurants",
-        "Coffee Shop"
-      ],
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Starbucks",
-      "Amount": 4.33,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
       "MerchantName": "Starbucks",
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "13005000",
+      "Amount": 89.4,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Food and Drink",
         "Restaurants"
       ],
+      "CategoryId": "13005000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "SparkFun",
-      "Amount": 89.4,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "21005000",
+      "Amount": -4.22,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Transfer",
         "Credit"
       ],
+      "CategoryId": "21005000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "INTRST PYMNT",
-      "Amount": -4.22,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "special",
       "PaymentChannel": "other"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "22001000",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Travel",
         "Airlines and Aviation Services"
       ],
+      "CategoryId": "22001000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "United Airlines",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
       "MerchantName": "United Airlines",
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "special",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "22016000",
+      "Amount": 6.33,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Travel",
         "Taxi"
       ],
+      "CategoryId": "22016000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Uber 072515 SF**POOL**",
-      "Amount": 6.33,
-      "IsoCurrencyCode": "USD",
+      "MerchantName": "Uber",
+      "PaymentMeta": {},
       "Pending": false,
-      "MerchantName": "Uber"
+      "TransactionType": "special"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "13005000",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Food and Drink",
         "Restaurants"
       ],
+      "CategoryId": "13005000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Tectra Inc",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "special",
-      "CategoryId": "16000000",
+      "Amount": 2078.5,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Payment"
       ],
+      "CategoryId": "16000000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "AUTOMATIC PAYMENT - THANK",
-      "Amount": 2078.5,
-      "IsoCurrencyCode": "USD",
-      "Pending": false
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "special"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "13005032",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Food and Drink",
         "Restaurants",
         "Fast Food"
       ],
+      "CategoryId": "13005032",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "KFC",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Pending": false,
       "MerchantName": "KFC",
+      "PaymentMeta": {},
+      "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     },
     {
-      "TransactionType": "place",
-      "CategoryId": "19046000",
+      "Amount": 500.0,
+      "IsoCurrencyCode": "USD",
       "Category": [
         "Shops",
         "Sporting Goods"
       ],
+      "CategoryId": "19046000",
       "Location": {},
-      "PaymentMeta": {},
       "Name": "Madison Bicycle Shop",
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
+      "PaymentMeta": {},
       "Pending": false,
+      "TransactionType": "place",
       "PaymentChannel": "in store"
     }
   ],
-  "TotalTransactions": 38,
+  "TotalTransactions": 22,
   "Item": {
     "InstitutionId": "ins_3",
     "Webhook": "",
