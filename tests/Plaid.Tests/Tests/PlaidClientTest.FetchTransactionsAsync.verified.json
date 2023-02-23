@@ -361,84 +361,9 @@
       "Pending": false,
       "TransactionType": "special",
       "PaymentChannel": "in store"
-    },
-    {
-      "Amount": 6.33,
-      "IsoCurrencyCode": "USD",
-      "Category": [
-        "Travel",
-        "Taxi"
-      ],
-      "CategoryId": "22016000",
-      "Location": {},
-      "Name": "Uber 072515 SF**POOL**",
-      "MerchantName": "Uber",
-      "PaymentMeta": {},
-      "Pending": false,
-      "TransactionType": "special"
-    },
-    {
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Category": [
-        "Food and Drink",
-        "Restaurants"
-      ],
-      "CategoryId": "13005000",
-      "Location": {},
-      "Name": "Tectra Inc",
-      "PaymentMeta": {},
-      "Pending": false,
-      "TransactionType": "place",
-      "PaymentChannel": "in store"
-    },
-    {
-      "Amount": 2078.5,
-      "IsoCurrencyCode": "USD",
-      "Category": [
-        "Payment"
-      ],
-      "CategoryId": "16000000",
-      "Location": {},
-      "Name": "AUTOMATIC PAYMENT - THANK",
-      "PaymentMeta": {},
-      "Pending": false,
-      "TransactionType": "special"
-    },
-    {
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Category": [
-        "Food and Drink",
-        "Restaurants",
-        "Fast Food"
-      ],
-      "CategoryId": "13005032",
-      "Location": {},
-      "Name": "KFC",
-      "MerchantName": "KFC",
-      "PaymentMeta": {},
-      "Pending": false,
-      "TransactionType": "place",
-      "PaymentChannel": "in store"
-    },
-    {
-      "Amount": 500.0,
-      "IsoCurrencyCode": "USD",
-      "Category": [
-        "Shops",
-        "Sporting Goods"
-      ],
-      "CategoryId": "19046000",
-      "Location": {},
-      "Name": "Madison Bicycle Shop",
-      "PaymentMeta": {},
-      "Pending": false,
-      "TransactionType": "place",
-      "PaymentChannel": "in store"
     }
   ],
-  "TotalTransactions": 22,
+  "TotalTransactions": 17,
   "Item": {
     "InstitutionId": "ins_3",
     "Webhook": "",
