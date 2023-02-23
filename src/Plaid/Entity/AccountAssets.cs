@@ -81,7 +81,7 @@ public record AccountAssets
 	public IReadOnlyList<Entity.Owner> Owners { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>How an asset is owned.</para>
 	/// </summary>
 	[JsonPropertyName("ownership_type")]
 	public Entity.OwnershipType? OwnershipType { get; init; } = default!;

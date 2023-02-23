@@ -15,5 +15,5 @@ public record CreditFreddieMacReportsGetResponse : ResponseBase
 	/// <para>Verification of Employment Report</para>
 	/// </summary>
 	[JsonPropertyName("VOE")]
-	public Entity.CreditFreddieVerificationOfEmployment_VOE_2_5 Voe { get; init; } = default!;
+	public Entity.CreditFreddieVerificationOfEmployment_VOE_2_5? Voe { get; init; } = default!;
 }

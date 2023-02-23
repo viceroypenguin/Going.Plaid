@@ -12,7 +12,7 @@ public class LinkTokenCreateRequestIncomeVerificationBankIncome
 	public int DaysRequested { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Whether to enable multiple items to be added in the link session</para>
+	/// <para>Whether to enable multiple Items to be added in the Link session</para>
 	/// </summary>
 	[JsonPropertyName("enable_multiple_items")]
 	public bool? EnableMultipleItems { get; set; } = default!;

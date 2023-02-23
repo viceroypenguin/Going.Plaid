@@ -51,12 +51,4 @@ public sealed partial class PlaidClient
 	public Task<Wallet.WalletTransactionListResponse> WalletTransactionListAsync(Wallet.WalletTransactionListRequest request) =>
 		PostAsync("/wallet/transaction/list", request)
 			.ParseResponseAsync<Wallet.WalletTransactionListResponse>();
-
-	/// <summary>
-	/// <para>This endpoint lists the latest transactions of the specified e-wallet. Transactions are returned in descending order by the <c>created_at</c> time.</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/virtual-accounts/#wallettransactionlist" /></remarks>
-	public Task<Wallet.WalletTransactionListResponse> WalletTransactionsListAsync(Wallet.WalletTransactionsListRequest request) =>
-		PostAsync("/wallet/transactions/list", request)
-			.ParseResponseAsync<Wallet.WalletTransactionListResponse>();
 }

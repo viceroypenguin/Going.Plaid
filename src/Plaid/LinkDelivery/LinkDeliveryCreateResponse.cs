@@ -12,7 +12,7 @@ public record LinkDeliveryCreateResponse : ResponseBase
 	public string LinkDeliveryUrl { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ID for the link delivery session. Same as the link token string excluding the "link-{env}-" prefix</para>
+	/// <para>The ID for the Link Delivery session. Same as the <c>link_token</c> string excluding the "link-{env}-" prefix.</para>
 	/// </summary>
 	[JsonPropertyName("link_delivery_session_id")]
 	public string LinkDeliverySessionId { get; init; } = default!;

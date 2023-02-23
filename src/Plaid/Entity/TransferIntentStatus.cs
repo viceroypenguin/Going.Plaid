@@ -1,24 +1,24 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>The status of the transfer intent.</para>
 /// </summary>
 public enum TransferIntentStatus
 {
 	/// <summary>
-	/// 
+	/// <para>The transfer intent is pending.</para>
 	/// </summary>
 	[EnumMember(Value = "PENDING")]
 	Pending,
 
 	/// <summary>
-	/// 
+	/// <para>The transfer intent was successfully created.</para>
 	/// </summary>
 	[EnumMember(Value = "SUCCEEDED")]
 	Succeeded,
 
 	/// <summary>
-	/// 
+	/// <para>The transfer intent was unable to be created.</para>
 	/// </summary>
 	[EnumMember(Value = "FAILED")]
 	Failed,

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record CreditSessionResults
 {
 	/// <summary>
-	/// <para>The set of item adds for the Link session.</para>
+	/// <para>The set of Item adds for the Link session.</para>
 	/// </summary>
 	[JsonPropertyName("item_add_results")]
 	public IReadOnlyList<Entity.CreditSessionItemAddResult> ItemAddResults { get; init; } = default!;

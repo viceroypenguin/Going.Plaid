@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Contains the authorization decision for a proposed transfer</para>
+/// <para>Contains the authorization decision for a proposed transfer.</para>
 /// </summary>
 public record TransferAuthorization
 {

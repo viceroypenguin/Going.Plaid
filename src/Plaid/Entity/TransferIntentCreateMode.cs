@@ -1,18 +1,18 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>The direction of the flow of transfer funds.</para>
 /// </summary>
 public enum TransferIntentCreateMode
 {
 	/// <summary>
-	/// 
+	/// <para>Transfers funds from an end user's account to your business account.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT")]
 	Payment,
 
 	/// <summary>
-	/// 
+	/// <para>Transfers funds from your business account to an end user's account.</para>
 	/// </summary>
 	[EnumMember(Value = "DISBURSEMENT")]
 	Disbursement,

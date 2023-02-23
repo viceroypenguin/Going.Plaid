@@ -24,7 +24,7 @@ public enum IdentityVerificationStatus
 	Failed,
 
 	/// <summary>
-	/// <para>The Identity Verification attempt was active for more than 48 hours without being completed and was automatically marked as expired.</para>
+	/// <para>The Identity Verification attempt was active for a long period of time without being completed and was automatically marked as expired. Note that sessions currently do not expire. Automatic expiration is expected to be enabled in the future.</para>
 	/// </summary>
 	[EnumMember(Value = "expired")]
 	Expired,

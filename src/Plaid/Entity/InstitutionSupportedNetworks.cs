@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Contains the supported RTP network and types by the linked item's institution</para>
+/// <para>Contains the RTP network and types supported by the linked Item's institution.</para>
 /// </summary>
 public record InstitutionSupportedNetworks
 {

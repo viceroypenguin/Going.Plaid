@@ -6,19 +6,19 @@ namespace Going.Plaid.Transactions;
 public record TransactionsSyncResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Transactions that have been added to the item since <c>cursor</c> ordered by ascending last modified time.</para>
+	/// <para>Transactions that have been added to the Item since <c>cursor</c> ordered by ascending last modified time.</para>
 	/// </summary>
 	[JsonPropertyName("added")]
 	public IReadOnlyList<Entity.Transaction> Added { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Transactions that have been modified on the item since <c>cursor</c> ordered by ascending last modified time.</para>
+	/// <para>Transactions that have been modified on the Item since <c>cursor</c> ordered by ascending last modified time.</para>
 	/// </summary>
 	[JsonPropertyName("modified")]
 	public IReadOnlyList<Entity.Transaction> Modified { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Transactions that have been removed from the item since <c>cursor</c> ordered by ascending last modified time.</para>
+	/// <para>Transactions that have been removed from the Item since <c>cursor</c> ordered by ascending last modified time.</para>
 	/// </summary>
 	[JsonPropertyName("removed")]
 	public IReadOnlyList<Entity.RemovedTransaction> Removed { get; init; } = default!;

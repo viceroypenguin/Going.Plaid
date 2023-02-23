@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public record TransferAuthorizationCreateResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Contains the authorization decision for a proposed transfer</para>
+	/// <para>Contains the authorization decision for a proposed transfer.</para>
 	/// </summary>
 	[JsonPropertyName("authorization")]
 	public Entity.TransferAuthorization Authorization { get; init; } = default!;

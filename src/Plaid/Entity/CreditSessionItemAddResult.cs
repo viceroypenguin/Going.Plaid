@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The details of an item add in Link</para>
+/// <para>The details of an Item add in Link.</para>
 /// </summary>
 public record CreditSessionItemAddResult
 {

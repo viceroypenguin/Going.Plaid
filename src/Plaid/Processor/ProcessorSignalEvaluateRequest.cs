@@ -1,16 +1,15 @@
-namespace Going.Plaid.Signal;
+namespace Going.Plaid.Processor;
 
 /// <summary>
-/// <para>SignalEvaluateRequest defines the request schema for <c>/signal/evaluate</c></para>
+/// <para>ProcessorSignalEvaluateRequest defines the request schema for <c>/processor/signal/evaluate</c></para>
 /// </summary>
-public partial class SignalEvaluateRequest : RequestBase
+public partial class ProcessorSignalEvaluateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The Plaid <c>account_id</c> of the account that is the funding source for the proposed transaction. The <c>account_id</c> is returned in the <c>/accounts/get</c> endpoint as well as the <a href="https://plaid.com/docs/link/ios/#link-ios-onsuccess-linkSuccess-metadata-accounts-id"><c>onSuccess</c></a> callback metadata.</para>
-	/// <para>This will return an <a href="https://plaid.com/docs/errors/invalid-input/#invalid_account_id"><c>INVALID_ACCOUNT_ID</c></a> error if the account has been removed at the bank or if the <c>account_id</c> is no longer valid.</para>
+	/// <para>The processor token obtained from the Plaid integration partner. Processor tokens are in the format: <c>processor-environment-identifier</c></para>
 	/// </summary>
-	[JsonPropertyName("account_id")]
-	public string AccountId { get; set; } = default!;
+	[JsonPropertyName("processor_token")]
+	public string ProcessorToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The unique ID that you would like to use to refer to this transaction. For your convenience mapping your internal data, you could use your internal ID/identifier for this transaction. The max length for this field is 36 characters.</para>
@@ -37,7 +36,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public string ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para><c>true</c> if the ACH transaction is a recurring transaction; <c>false</c> otherwise</para>
+	/// <para>**true** if the ACH transaction is a recurring transaction; **false** otherwise</para>
 	/// </summary>
 	[JsonPropertyName("is_recurring")]
 	public bool? IsRecurring { get; set; } = default!;

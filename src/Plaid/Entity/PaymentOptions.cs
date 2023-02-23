@@ -24,12 +24,6 @@ public class PaymentOptions
 	public Entity.PaymentInitiationOptionalRestrictionBacs? Bacs { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
-	/// </summary>
-	[JsonPropertyName("wallet_id")]
-	public string? WalletId { get; set; } = default!;
-
-	/// <summary>
 	/// <para>Payment scheme. If not specified - the default in the region will be used (e.g. <c>SEPA_CREDIT_TRANSFER</c> for EU). Using unsupported values will result in a failed payment.</para>
 	/// </summary>
 	[JsonPropertyName("scheme")]

@@ -138,14 +138,14 @@ public record Transaction
 
 	/// <summary>
 	/// <para>Date and time when a transaction was authorized in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
-	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00).</para>
+	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00). This field is only populated in API version 2019-05-29 and later.</para>
 	/// </summary>
 	[JsonPropertyName("authorized_datetime")]
 	public DateTimeOffset? AuthorizedDatetime { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Date and time when a transaction was posted in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
-	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00).</para>
+	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00). This field is only populated in API version 2019-05-29 and later.</para>
 	/// </summary>
 	[JsonPropertyName("datetime")]
 	public DateTimeOffset? Datetime { get; init; } = default!;

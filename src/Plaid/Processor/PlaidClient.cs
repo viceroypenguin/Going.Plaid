@@ -12,6 +12,32 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorAuthGetResponse>();
 
 	/// <summary>
+	/// <para>Use <c>/processor/signal/evaluate</c> to evaluate a planned ACH transaction as a processor to get a return risk assessment (such as a risk score and risk tier) and additional risk signals.</para>
+	/// <para>In order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If <c>/processor/signal/evaluate</c> is called on the same transaction multiple times within a 24-hour period, cached results may be returned. For more information please refer to our error documentation on <a href="https://plaid.com/docs/errors/item/">item errors</a> and <a href="https://plaid.com/docs/link/update-mode/">Link in Update Mode</a>.</para>
+	/// <para>Note: This request may take some time to complete if Signal is being added to an existing Item. This is because Plaid must communicate directly with the institution when retrieving the data for the first time.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignalevaluate" /></remarks>
+	public Task<Processor.ProcessorSignalEvaluateResponse> ProcessorSignalEvaluateAsync(Processor.ProcessorSignalEvaluateRequest request) =>
+		PostAsync("/processor/signal/evaluate", request)
+			.ParseResponseAsync<Processor.ProcessorSignalEvaluateResponse>();
+
+	/// <summary>
+	/// <para>After calling <c>/processor/signal/evaluate</c>, call <c>/processor/signal/decision/report</c> to report whether the transaction was initiated. This endpoint will return an <a href="https://plaid.com/docs/errors/invalid-request/#invalid_field"><c>INVALID_FIELD</c></a> error if called a second time with a different value for <c>initiated</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignaldecisionreport" /></remarks>
+	public Task<Processor.ProcessorSignalDecisionReportResponse> ProcessorSignalDecisionReportAsync(Processor.ProcessorSignalDecisionReportRequest request) =>
+		PostAsync("/processor/signal/decision/report", request)
+			.ParseResponseAsync<Processor.ProcessorSignalDecisionReportResponse>();
+
+	/// <summary>
+	/// <para>Call the <c>/processor/signal/return/report</c> endpoint to report a returned transaction that was previously sent to the <c>/processor/signal/evaluate</c> endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignalreturnreport" /></remarks>
+	public Task<Processor.ProcessorSignalReturnReportResponse> ProcessorSignalReturnReportAsync(Processor.ProcessorSignalReturnReportRequest request) =>
+		PostAsync("/processor/signal/return/report", request)
+			.ParseResponseAsync<Processor.ProcessorSignalReturnReportResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/processor/bank_transfer/create</c> endpoint to initiate a new bank transfer as a processor</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#bank_transfercreate" /></remarks>

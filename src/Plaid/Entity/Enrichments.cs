@@ -18,6 +18,12 @@ public record Enrichments
 	public IReadOnlyList<Entity.Counterparty> Counterparties { get; init; } = default!;
 
 	/// <summary>
+	/// <para>A unique, stable, Plaid-generated id that maps to the primary counterparty.</para>
+	/// </summary>
+	[JsonPropertyName("entity_id")]
+	public string? EntityId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The ID of the legacy category to which this transaction belongs. For a full list of legacy categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
 	/// <para>We recommend using the <c>personal_finance_category</c> for transaction categorization to obtain the best results.</para>
 	/// </summary>

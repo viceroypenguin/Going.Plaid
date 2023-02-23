@@ -150,7 +150,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestIdentityVerification IdentityVerification { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A user token generated using <c>/user/create</c>. Any item created during the link session will be associated with the user.</para>
+	/// <para>A user token generated using <c>/user/create</c>. Any Item created during the Link session will be associated with the user.</para>
 	/// </summary>
 	[JsonPropertyName("user_token")]
 	public string UserToken { get; set; } = default!;

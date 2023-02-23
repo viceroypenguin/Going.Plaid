@@ -12,7 +12,7 @@ public record TransactionsCategoryRule
 	public string Id { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique identifier of the item the rule was created for</para>
+	/// <para>A unique identifier of the Item the rule was created for.</para>
 	/// </summary>
 	[JsonPropertyName("item_id")]
 	public string ItemId { get; init; } = default!;
