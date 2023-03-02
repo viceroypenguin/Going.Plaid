@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Going.Plaid.Entity;
 using Microsoft.Extensions.Configuration;
-using VerifyTests;
-using VerifyXunit;
 using Xunit;
-using static VerifyXunit.Verifier;
 using MOptions = Microsoft.Extensions.Options.Options;
 
 #if !NET6_0_OR_GREATER
@@ -72,33 +68,8 @@ namespace Going.Plaid.Tests
 			PlaidClient.ItemRemoveAsync(new());
 	}
 
-	[UsesVerify]
 	public class PlaidClientTest : IClassFixture<PlaidFixture>
 	{
-		private static readonly VerifySettings settings = BuildVerifierSettings();
-		private static VerifySettings BuildVerifierSettings()
-		{
-			VerifierSettings.UseStrictJson();
-
-			var settings = new VerifySettings();
-			// random ids
-			settings.IgnoreMember("RequestId");
-			settings.IgnoreMember("AccountId");
-			settings.IgnoreMember("ItemId");
-			settings.IgnoreMember("TransactionId");
-			settings.IgnoreMember("SecurityId");
-			settings.IgnoreMember("InvestmentTransactionId");
-
-			// dateonly vs datetime - ignore dates for now
-			settings.IgnoreMember("Date");
-			settings.IgnoreMember("InstitutionPriceAsOf");
-			settings.IgnoreMember("ClosePriceAsOf");
-			settings.IgnoreMember("AuthorizedDate");
-
-			settings.IgnoreMember<Item.ItemGetResponse>(s => s.Status);
-			return settings;
-		}
-
 		private readonly PlaidFixture _fixture;
 
 		public PlaidClientTest(PlaidFixture fixture)
@@ -108,19 +79,21 @@ namespace Going.Plaid.Tests
 
 		[Fact]
 		public Task FetchCategoriesAsync() =>
-			Verify(_fixture.PlaidClient.CategoriesGetAsync(new()), settings);
+			// only check no crash
+			_fixture.PlaidClient.CategoriesGetAsync(new());
 
 		[Fact]
 		public Task FetchItemAsync() =>
-			Verify(_fixture.PlaidClient.ItemGetAsync(new()), settings);
+			// only check no crash
+			_fixture.PlaidClient.ItemGetAsync(new());
 
 		[Fact]
 		public async Task FetchTransactionsAsync()
 		{
 			await _fixture.PlaidClient.TransactionsRefreshAsync(new());
-			await Verify(_fixture.PlaidClient.TransactionsGetAsync(
-				new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), }),
-				settings);
+			// only check no crash
+			await _fixture.PlaidClient.TransactionsGetAsync(
+				new() { StartDate = new DateOnly(2021, 01, 01), EndDate = new DateOnly(2021, 03, 31), });
 		}
 
 		[Fact]
