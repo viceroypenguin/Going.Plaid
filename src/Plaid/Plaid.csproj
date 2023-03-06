@@ -69,7 +69,7 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
 		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
-		<PackageReference Include="System.Text.Json" Version="6.0.7" />
+		<PackageReference Include="System.Text.Json" Version="7.0.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
@@ -78,7 +78,7 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
 		<PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-		<PackageReference Include="System.Text.Json" Version="5.0.2" />
+		<PackageReference Include="System.Text.Json" Version="7.0.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
@@ -87,7 +87,7 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.31" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.31" />
 		<PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-		<PackageReference Include="System.Text.Json" Version="5.0.2" />
+		<PackageReference Include="System.Text.Json" Version="7.0.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
@@ -96,7 +96,7 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.31" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.31" />
 		<PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-		<PackageReference Include="System.Text.Json" Version="5.0.2" />
+		<PackageReference Include="System.Text.Json" Version="7.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
