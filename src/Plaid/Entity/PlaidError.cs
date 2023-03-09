@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Errors;
+﻿namespace Going.Plaid.Entity;
 
 /// <summary>
 /// The exception that is thrown when a response from the Plaid API contains an error.
@@ -9,14 +9,20 @@ public record PlaidError
 	/// <summary>
 	/// A broad categorization of the error.
 	/// </summary>
+	/// <remarks>
+	/// See also: <seealso href="https://plaid.com/docs/errors/"/> for more information regarding individual values.
+	/// </remarks>
 	[JsonPropertyName("error_type")]
-	public ErrorType ErrorType { get; init; }
+	public string ErrorType { get; init; } = null!;
 
 	/// <summary>
-	/// The particular error code.
+	/// The particular error code. Safe for programmatic use.
 	/// </summary>
+	/// <remarks>
+	/// See also: <seealso href="https://plaid.com/docs/errors/"/> for more information regarding individual values.
+	/// </remarks>
 	[JsonPropertyName("error_code")]
-	public ErrorCode ErrorCode { get; init; }
+	public string ErrorCode { get; init; } = null!;
 
 	/// <summary>
 	/// A developer-friendly representation of the error code.
@@ -26,7 +32,7 @@ public record PlaidError
 	public string ErrorMessage { get; init; } = null!;
 
 	/// <summary>
-	/// A user-friendly representation of the error code. <c>null</c> if the error is not related to user action.
+	/// A user-friendly representation of the error code. <see langword="null"/> if the error is not related to user action.
 	/// </summary>
 	/// <remarks>
 	/// This may change over time and is not safe for programmatic use.
@@ -44,7 +50,7 @@ public record PlaidError
 	/// <summary>
 	/// In the Assets product, a request can pertain to more than one Item. If an error is returned for such a request, causes will return an array of errors containing a breakdown of these errors on the individual Item level, if any can be identified.
 	/// </summary>
-	/// <remarks><see cref="Causes"/> will only be provided for the error type <see cref="ErrorType.AssetReportError"/>.</remarks>
+	/// <remarks><see cref="Causes"/> will only be provided for the <see cref="ErrorType"/> <c>ASSET_REPORT_ERROR</c>. <see cref="Causes"/> will also not be populated inside an error nested within a <see cref="Warning"/> object.</remarks>
 	[JsonPropertyName("causes")]
 	public IReadOnlyList<Cause>? Causes { get; init; }
 

@@ -253,18 +253,19 @@ public sealed partial class PlaidClient
 			}
 		}
 
-		private static Errors.PlaidError ParseError(int statusCode, string json)
+		private static PlaidError ParseError(int statusCode, string json)
 		{
 			try
 			{
-				return JsonSerializer.Deserialize<Errors.PlaidError>(json, options: JsonSerializerOptions)!;
+				return JsonSerializer.Deserialize<PlaidError>(json, options: JsonSerializerOptions)!;
 			}
 			catch (Exception ex)
 			{
-				return new Errors.PlaidError
+				return new PlaidError
 				{
 					StatusCode = statusCode,
-					ErrorCode = ErrorCode.ApiUnavailable,
+					ErrorType = "API_UNAVAILABLE",
+					ErrorCode = "API_UNAVAILABLE",
 					ErrorMessage = ex.Message,
 					DisplayMessage = "An error condition has occurred outside of Plaid. Please check your network conditions and try again at a different time.",
 				};

@@ -30,8 +30,8 @@ namespace Going.Plaid.Tests
 
 			Assert.NotNull(pdf);
 			Assert.NotNull(pdf.Error);
-			Assert.Equal(Entity.ErrorType.InvalidInput, pdf.Error!.ErrorType);
-			Assert.Equal(Entity.ErrorCode.InvalidAssetReportToken, pdf.Error!.ErrorCode);
+			Assert.Equal("INVALID_INPUT", pdf.Error!.ErrorType);
+			Assert.Equal("INVALID_ASSET_REPORT_TOKEN", pdf.Error!.ErrorCode);
 
 			_fixture.PlaidClient.AccessToken = oldToken;
 		}

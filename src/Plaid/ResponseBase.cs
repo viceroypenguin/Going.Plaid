@@ -15,7 +15,7 @@ public abstract record ResponseBase
 	/// An error response given by the server
 	/// </summary>
 	[JsonPropertyName("error")]
-	public Errors.PlaidError? Error { get; init; }
+	public PlaidError? Error { get; init; }
 
 	/// <summary>
 	/// The request identifier.

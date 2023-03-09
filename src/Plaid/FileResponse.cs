@@ -21,7 +21,7 @@ public record FileResponse : ResponseBase, IDisposable
 	/// <summary>
 	/// Constructor for failed response
 	/// </summary>
-	public FileResponse(HttpStatusCode status, ILookup<string, string> headers, Errors.PlaidError error)
+	public FileResponse(HttpStatusCode status, ILookup<string, string> headers, PlaidError error)
 	{
 		StatusCode = status;
 		Headers = headers;
