@@ -67,7 +67,7 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
 		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
 		<PackageReference Include="System.Text.Json" Version="6.0.7" />
 	</ItemGroup>
@@ -76,7 +76,7 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.31" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.31" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.31" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.31" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
 		<PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
 		<PackageReference Include="System.Text.Json" Version="5.0.2" />
 	</ItemGroup>
@@ -85,7 +85,7 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.31" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.31" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.31" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.31" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
 		<PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
 		<PackageReference Include="System.Text.Json" Version="5.0.2" />
 	</ItemGroup>
