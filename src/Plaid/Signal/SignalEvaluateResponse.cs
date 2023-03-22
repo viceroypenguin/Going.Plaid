@@ -22,4 +22,10 @@ public record SignalEvaluateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("core_attributes")]
 	public Entity.SignalEvaluateCoreAttributes CoreAttributes { get; init; } = default!;
+
+	/// <summary>
+	/// <para>If bank information was not able to be used as features into the Signal model, this array contains warnings describing why we were missing bank data</para>
+	/// </summary>
+	[JsonPropertyName("warnings")]
+	public IReadOnlyList<Entity.SignalWarning> Warnings { get; init; } = default!;
 }

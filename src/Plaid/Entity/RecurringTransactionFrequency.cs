@@ -36,6 +36,12 @@ public enum RecurringTransactionFrequency
 	Monthly,
 
 	/// <summary>
+	/// <para>Assigned to a transaction stream that occurs approximately every year.</para>
+	/// </summary>
+	[EnumMember(Value = "ANNUALLY")]
+	Annually,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

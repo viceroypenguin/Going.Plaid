@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class AssetReportGetRequestOptions
 {
 	/// <summary>
-	/// <para>The maximum integer number of days of history to include in the Asset Report.</para>
+	/// <para>The maximum number of days of history to include in the Asset Report.</para>
 	/// </summary>
 	[JsonPropertyName("days_to_include")]
 	public int? DaysToInclude { get; set; } = default!;

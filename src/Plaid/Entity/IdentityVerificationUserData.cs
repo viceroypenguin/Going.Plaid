@@ -33,7 +33,7 @@ public record IdentityVerificationUserData
 	/// <para>The full name provided by the user. If the user has not submitted their name, this field will be null. Otherwise, both fields are guaranteed to be filled.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
-	public Entity.UserName? Name { get; init; } = default!;
+	public Entity.IdentityVerificationResponseUserName? Name { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Even if an address has been collected, some fields may be null depending on the region's addressing system. For example:</para>

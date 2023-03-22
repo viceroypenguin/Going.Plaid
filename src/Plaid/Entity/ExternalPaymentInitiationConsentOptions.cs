@@ -12,7 +12,7 @@ public class ExternalPaymentInitiationConsentOptions
 	public bool? RequestRefundDetails { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The International Bank Account Number (IBAN) for the payer's account. If provided, the end user will be able to set up payment consent using only the specified bank account.</para>
+	/// <para>The International Bank Account Number (IBAN) for the payer's account. Where possible, the end user will be able to set up payment consent using only the specified bank account if provided.</para>
 	/// </summary>
 	[JsonPropertyName("iban")]
 	public string? Iban { get; set; } = default!;

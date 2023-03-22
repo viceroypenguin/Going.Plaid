@@ -89,6 +89,12 @@ public record IdentityVerificationCreateResponse : ResponseBase
 	public Entity.KYCCheckDetails? KycCheck { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Additional information for the <c>risk_check</c> step.</para>
+	/// </summary>
+	[JsonPropertyName("risk_check")]
+	public Entity.RiskCheckDetails? RiskCheck { get; init; } = default!;
+
+	/// <summary>
 	/// <para>ID of the associated screening.</para>
 	/// </summary>
 	[JsonPropertyName("watchlist_screening_id")]

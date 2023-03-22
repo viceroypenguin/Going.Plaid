@@ -12,7 +12,7 @@ public record PaymentAmountRefunded
 	public Entity.PaymentAmountCurrency Currency { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the payment. Must contain at most two digits of precision e.g. <c>1.23</c>. Minimum accepted value is <c>1</c>.</para>
+	/// <para>The amount of the payment. Must contain at most two digits of precision e.g. <c>1.23</c>.</para>
 	/// </summary>
 	[JsonPropertyName("value")]
 	public decimal Value { get; init; } = default!;

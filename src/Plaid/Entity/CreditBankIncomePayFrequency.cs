@@ -32,6 +32,12 @@ public enum CreditBankIncomePayFrequency
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "DAILY")]
+	Daily,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "UNKNOWN")]
 	Unknown,
 

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The billing contact for the end customer. Defaults to partner's technical contact if omitted.</para>
+/// <para>The billing contact for the end customer. Defaults to partner's billing contact if omitted.</para>
 /// </summary>
 public class PartnerEndCustomerBillingContact
 {

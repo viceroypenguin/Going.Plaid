@@ -12,7 +12,7 @@ public enum TransactionStreamStatus
 	Unknown,
 
 	/// <summary>
-	/// <para>A <c>MATURE</c> recurring stream should have at least 3 transactions and happen on a regular cadence.</para>
+	/// <para>A <c>MATURE</c> recurring stream should have at least 3 transactions and happen on a regular cadence (For Annual recurring stream, we will mark it <c>MATURE</c> after 2 instances).</para>
 	/// </summary>
 	[EnumMember(Value = "MATURE")]
 	Mature,

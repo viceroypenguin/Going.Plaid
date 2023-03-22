@@ -20,8 +20,8 @@ public partial class LinkTokenCreateRequest : RequestBase
 
 	/// <summary>
 	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/.</para>
-	/// <para>If Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. Note that while all countries are enabled by default in Sandbox and Development, in Production only US and Canada are enabled by default. To gain access to European institutions in the Production environment, <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access">file a product access Support ticket</a> via the Plaid dashboard. If you initialize with a European country code, your users will see the European consent panel during the Link flow.</para>
-	/// <para>If using a Link customization, make sure the country codes in the customization match those specified in <c>country_codes</c>. If both <c>country_codes</c> and a Link customization are used, the value in <c>country_codes</c> may override the value in the customization.</para>
+	/// <para>If Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. Note that while all countries are enabled by default in Sandbox and Development, in Production only US and Canada are enabled by default. Access to European institutions requires additional compliance steps. To request access to European institutions in the Production environment, <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access">file a product access Support ticket</a> via the Plaid dashboard. If you initialize with a European country code, your users will see the European consent panel during the Link flow.</para>
+	/// <para>If using a Link customization, make sure the country codes in the customization match those specified in <c>country_codes</c>, or the customization may not be applied.</para>
 	/// <para>If using the Auth features Instant Match, Same-day Micro-deposits, or Automated Micro-deposits, <c>country_codes</c> must be set to <c>['US']</c>.</para>
 	/// </summary>
 	[JsonPropertyName("country_codes")]
@@ -53,7 +53,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products> AdditionalConsentedProducts { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The destination URL to which any webhooks should be sent.</para>
+	/// <para>The destination URL to which any webhooks should be sent. Note that webhooks for Payment Initiation, Transfer, Bank Transfer (including Auth micro-deposit notification webhooks) and Identity Verification are configured via the Dashboard instead.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string Webhook { get; set; } = default!;

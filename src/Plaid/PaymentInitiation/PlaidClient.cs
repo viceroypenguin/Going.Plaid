@@ -18,8 +18,6 @@ public sealed partial class PlaidClient
 	/// <para>To refund partially, specify the amount as part of the request.</para>
 	/// <para>If the amount is not specified, the refund amount will be equal to all</para>
 	/// <para>of the remaining payment amount that has not been refunded yet.</para>
-	/// <para>If the remaining amount is less than one unit of currency</para>
-	/// <para>(e.g. 1 GBP or 1 EUR), the refund will fail.</para>
 	/// <para>The refund will go back to the source account that initiated the payment.</para>
 	/// <para>The original payment must have been initiated to a Plaid virtual account</para>
 	/// <para>so that this account can be used to initiate the refund.</para>

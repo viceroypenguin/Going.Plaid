@@ -12,7 +12,7 @@ public record Warning
 	public string WarningType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The warning code identifies a specific kind of warning. Currently, the only possible warning code is <c>OWNERS_UNAVAILABLE</c>, which indicates that account-owner information is not available.</para>
+	/// <para>The warning code identifies a specific kind of warning. <c>OWNERS_UNAVAILABLE</c> indicates that account-owner information is not available.<c>INVESTMENTS_UNAVAILABLE</c> indicates that Investments specific information is not available. <c>TRANSACTIONS_UNAVAILABLE</c> indicates that transactions information associated with Credit and Depository accounts are unavailable.</para>
 	/// </summary>
 	[JsonPropertyName("warning_code")]
 	public Entity.WarningWarningCodeEnum WarningCode { get; init; } = default!;

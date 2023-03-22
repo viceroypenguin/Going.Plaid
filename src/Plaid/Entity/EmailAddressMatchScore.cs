@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Score found by matching email provided by the API with the email on the account at the financial institution. If the account contains multiple owners, the maximum match score is filled.</para>
+/// <para>Score found by matching email provided by the API with the email on the account at the financial institution. 100 is a perfect match and 0 is a no match. If the account contains multiple owners, the maximum match score is filled.</para>
 /// </summary>
 public record EmailAddressMatchScore
 {

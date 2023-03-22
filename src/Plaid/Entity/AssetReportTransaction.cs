@@ -137,7 +137,8 @@ public record AssetReportTransaction
 	public string? DateTransacted { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Information describing the intent of the transaction. Most relevant for credit use cases, but not limited to such use cases.</para>
+	/// <para>Information describing the intent of the transaction. Most relevant for credit use cases, but not limited to such use cases. Please reach out to your account manager or sales representative if you would like to receive this field.</para>
+	/// <para>See the <a href="https://plaid.com/documents/credit-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of credit categories.</para>
 	/// </summary>
 	[JsonPropertyName("credit_category")]
 	public Entity.CreditCategory? CreditCategory { get; init; } = default!;

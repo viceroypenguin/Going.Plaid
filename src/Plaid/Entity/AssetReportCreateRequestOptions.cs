@@ -30,7 +30,7 @@ public class AssetReportCreateRequestOptions
 	public IReadOnlyList<string> Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Additional information that can be included in the asset report. Possible values: <c>"investments"</c>, <c>"fast_assets"</c></para>
+	/// <para>Additional information that can be included in the asset report. Possible values: <c>"fast_assets"</c></para>
 	/// </summary>
 	[JsonPropertyName("add_ons")]
 	public IReadOnlyList<Entity.AssetReportAddOns> AddOns { get; set; } = default!;

@@ -60,7 +60,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public Entity.PartnerEndCustomerTechnicalContact TechnicalContact { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The billing contact for the end customer. Defaults to partner's technical contact if omitted.</para>
+	/// <para>The billing contact for the end customer. Defaults to partner's billing contact if omitted.</para>
 	/// </summary>
 	[JsonPropertyName("billing_contact")]
 	public Entity.PartnerEndCustomerBillingContact BillingContact { get; set; } = default!;

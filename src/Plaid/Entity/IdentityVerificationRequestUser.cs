@@ -39,10 +39,10 @@ public class IdentityVerificationRequestUser
 	public DateOnly DateOfBirth { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The full name provided by the user. If the user has not submitted their name, this field will be null. Otherwise, both fields are guaranteed to be filled.</para>
+	/// <para>You can use this field to pre-populate the user's legal name; if it is provided here, they will not be prompted to enter their name in the identity verification attempt.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
-	public Entity.UserName? Name { get; set; } = default!;
+	public Entity.IdentityVerificationRequestUserName? Name { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Home address for the user.</para>

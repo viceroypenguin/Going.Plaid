@@ -16,4 +16,10 @@ public class LinkTokenCreateRequestIncomeVerificationPayrollIncome
 	/// </summary>
 	[JsonPropertyName("is_update_mode")]
 	public bool IsUpdateMode { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Uniquely identify a payroll income item to update with. It should only be used for update mode.</para>
+	/// </summary>
+	[JsonPropertyName("item_id_to_update")]
+	public string? ItemIdToUpdate { get; set; } = default!;
 }

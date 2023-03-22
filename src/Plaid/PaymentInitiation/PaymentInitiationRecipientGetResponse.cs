@@ -18,7 +18,7 @@ public record PaymentInitiationRecipientGetResponse : ResponseBase
 	public string Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The optional address of the payment recipient.</para>
+	/// <para>The optional address of the payment recipient. Required by most institutions outside of the UK.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.PaymentInitiationAddress? Address { get; init; } = default!;

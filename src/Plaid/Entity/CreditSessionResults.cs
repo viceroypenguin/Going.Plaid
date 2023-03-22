@@ -18,6 +18,12 @@ public record CreditSessionResults
 	public IReadOnlyList<Entity.CreditSessionBankIncomeResult> BankIncomeResults { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The set of bank employment verifications for the Link session.</para>
+	/// </summary>
+	[JsonPropertyName("bank_employment_results")]
+	public IReadOnlyList<Entity.CreditSessionBankEmploymentResult> BankEmploymentResults { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The set of payroll income verifications for the Link session.</para>
 	/// </summary>
 	[JsonPropertyName("payroll_income_results")]

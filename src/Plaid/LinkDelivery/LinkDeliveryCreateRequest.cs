@@ -12,8 +12,8 @@ public partial class LinkDeliveryCreateRequest : RequestBase
 	public string LinkToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The list of communication methods to send the Link Delivery URL to.</para>
+	/// <para>Optional metadata related to the link delivery session</para>
 	/// </summary>
-	[JsonPropertyName("communication_methods")]
-	public IReadOnlyList<Entity.LinkDeliveryCommunicationMethod> CommunicationMethods { get; set; } = default!;
+	[JsonPropertyName("options")]
+	public Entity.LinkDeliveryOptions Options { get; set; } = default!;
 }

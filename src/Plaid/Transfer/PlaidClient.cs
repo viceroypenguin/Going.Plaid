@@ -43,6 +43,22 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferCapabilitiesGetResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/transfer/configuration/get</c> endpoint to view your transfer product configurations.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferconfigurationget" /></remarks>
+	public Task<Transfer.TransferConfigurationGetResponse> TransferConfigurationGetAsync(Transfer.TransferConfigurationGetRequest request) =>
+		PostAsync("/transfer/configuration/get", request)
+			.ParseResponseAsync<Transfer.TransferConfigurationGetResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/metrics/get</c> endpoint to view your transfer product usage metrics.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfermetricsget" /></remarks>
+	public Task<Transfer.TransferMetricsGetResponse> TransferMetricsGetAsync(Transfer.TransferMetricsGetRequest request) =>
+		PostAsync("/transfer/metrics/get", request)
+			.ParseResponseAsync<Transfer.TransferMetricsGetResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/transfer/create</c> endpoint to initiate a new transfer.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfercreate" /></remarks>
