@@ -1,4 +1,4 @@
-namespace Going.Plaid.AssetReport;
+﻿namespace Going.Plaid.AssetReport;
 
 /// <summary>
 /// <para>AssetReportCreateRequest defines the request schema for <c>/asset_report/create</c></para>
@@ -29,10 +29,4 @@ public partial class AssetReportCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.AssetReportCreateRequestOptions Options { get; set; } = default!;
-
-	/// <summary>
-	/// <para>When set to <c>VERIFICATION_OF_EMPLOYMENT</c> and the Asset Report is added to an Audit Copy Token, the Asset Report will be retrieved by Freddie Mac in the Verification Of Employment (VOE) version instead of the default Verification Of Assets (VOA) version.</para>
-	/// </summary>
-	[JsonPropertyName("report_type")]
-	public Entity.FreddieReportType ReportType { get; set; } = default!;
 }
