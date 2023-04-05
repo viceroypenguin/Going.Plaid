@@ -40,17 +40,17 @@ public class ClientProvidedTransaction
 	/// <para>Use this field to pass in structured location information you may have about your transactions. Providing location data is optional but can increase result quality. If you have unstructured location information, it may be appended to the <c>description</c> field.</para>
 	/// </summary>
 	[JsonPropertyName("location")]
-	public Entity.ClientProvidedTransactionLocation Location { get; set; } = default!;
+	public Entity.ClientProvidedTransactionLocation? Location { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Merchant category codes (MCCs) are four-digit numbers that describe a merchant's primary business activities.</para>
 	/// </summary>
 	[JsonPropertyName("mcc")]
-	public string Mcc { get; set; } = default!;
+	public string? Mcc { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The date the transaction posted, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format.</para>
 	/// </summary>
 	[JsonPropertyName("date_posted")]
-	public DateOnly DatePosted { get; set; } = default!;
+	public DateOnly? DatePosted { get; set; } = default!;
 }

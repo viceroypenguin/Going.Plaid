@@ -11,17 +11,17 @@ public partial class TransactionsSyncRequest : RequestBase
 	/// <para>Note: The upper-bound length of this cursor is 256 characters of base64.</para>
 	/// </summary>
 	[JsonPropertyName("cursor")]
-	public string Cursor { get; set; } = default!;
+	public string? Cursor { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The number of transaction updates to fetch.</para>
 	/// </summary>
 	[JsonPropertyName("count")]
-	public int Count { get; set; } = default!;
+	public int? Count { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An optional object to be used with the request. If specified, <c>options</c> must not be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.TransactionsSyncRequestOptions Options { get; set; } = default!;
+	public Entity.TransactionsSyncRequestOptions? Options { get; set; } = default!;
 }

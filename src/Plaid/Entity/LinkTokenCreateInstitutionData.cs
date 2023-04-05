@@ -9,5 +9,5 @@ public class LinkTokenCreateInstitutionData
 	/// <para>The routing number of the bank to highlight.</para>
 	/// </summary>
 	[JsonPropertyName("routing_number")]
-	public string RoutingNumber { get; set; } = default!;
+	public string? RoutingNumber { get; set; } = default!;
 }

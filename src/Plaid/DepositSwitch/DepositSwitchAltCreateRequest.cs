@@ -21,7 +21,7 @@ public partial class DepositSwitchAltCreateRequest : RequestBase
 	/// <para>Options to configure the <c>/deposit_switch/create</c> request. If provided, cannot be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.DepositSwitchCreateRequestOptions Options { get; set; } = default!;
+	public Entity.DepositSwitchCreateRequestOptions? Options { get; set; } = default!;
 
 	/// <summary>
 	/// <para>ISO-3166-1 alpha-2 country code standard.</para>

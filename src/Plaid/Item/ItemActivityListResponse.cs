@@ -21,5 +21,5 @@ public record ItemActivityListResponse : ResponseBase
 	/// <para>Cursor used for pagination.</para>
 	/// </summary>
 	[JsonPropertyName("cursor")]
-	public string Cursor { get; init; } = default!;
+	public string? Cursor { get; init; } = default!;
 }

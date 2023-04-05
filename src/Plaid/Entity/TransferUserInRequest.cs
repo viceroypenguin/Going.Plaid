@@ -15,17 +15,17 @@ public partial class TransferUserInRequest : RequestBase
 	/// <para>The user's phone number.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
-	public string PhoneNumber { get; set; } = default!;
+	public string? PhoneNumber { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The user's email address.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
-	public string EmailAddress { get; set; } = default!;
+	public string? EmailAddress { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The address associated with the account holder. Providing this data will improve the likelihood that Plaid will be able to guarantee the transfer, if applicable.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.TransferUserAddressInRequest Address { get; set; } = default!;
+	public Entity.TransferUserAddressInRequest? Address { get; set; } = default!;
 }

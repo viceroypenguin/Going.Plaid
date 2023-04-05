@@ -54,11 +54,11 @@ public record Account
 	/// <para>The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]
-	public Entity.AccountVerificationStatusEnum VerificationStatus { get; init; } = default!;
+	public Entity.AccountVerificationStatusEnum? VerificationStatus { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently an opt-in field and only supported for Chase Items.</para>
 	/// </summary>
 	[JsonPropertyName("persistent_account_id")]
-	public string PersistentAccountId { get; init; } = default!;
+	public string? PersistentAccountId { get; init; } = default!;
 }

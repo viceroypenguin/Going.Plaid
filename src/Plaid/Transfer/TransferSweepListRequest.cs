@@ -27,7 +27,7 @@ public partial class TransferSweepListRequest : RequestBase
 	/// <para>The number of sweeps to skip before returning results.</para>
 	/// </summary>
 	[JsonPropertyName("offset")]
-	public int Offset { get; set; } = default!;
+	public int? Offset { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Filter sweeps to only those with the specified originator client.</para>

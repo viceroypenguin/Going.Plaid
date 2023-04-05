@@ -9,11 +9,11 @@ public record EntityScreeningHitNamesItems
 	/// <para>Summary object reflecting the match result of the associated data</para>
 	/// </summary>
 	[JsonPropertyName("analysis")]
-	public Entity.MatchSummary Analysis { get; init; } = default!;
+	public Entity.MatchSummary? Analysis { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Name information for the associated entity watchlist hit</para>
 	/// </summary>
 	[JsonPropertyName("data")]
-	public Entity.EntityScreeningHitNames Data { get; init; } = default!;
+	public Entity.EntityScreeningHitNames? Data { get; init; } = default!;
 }

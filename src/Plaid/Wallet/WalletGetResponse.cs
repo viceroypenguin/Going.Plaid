@@ -21,17 +21,17 @@ public record WalletGetResponse : ResponseBase
 	/// <para>An object representing the e-wallet account numbers</para>
 	/// </summary>
 	[JsonPropertyName("numbers")]
-	public Entity.WalletNumbers Numbers { get; init; } = default!;
+	public Entity.WalletNumbers? Numbers { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ID of the recipient that corresponds to the e-wallet account numbers</para>
 	/// </summary>
 	[JsonPropertyName("recipient_id")]
-	public string RecipientId { get; init; } = default!;
+	public string? RecipientId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The status of the wallet.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
-	public Entity.WalletStatus Status { get; init; } = default!;
+	public Entity.WalletStatus? Status { get; init; } = default!;
 }

@@ -9,7 +9,7 @@ public record Credit1099Filer
 	/// <para>Address on the pay stub.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.CreditPayStubAddress Address { get; init; } = default!;
+	public Entity.CreditPayStubAddress? Address { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Name of filer.</para>

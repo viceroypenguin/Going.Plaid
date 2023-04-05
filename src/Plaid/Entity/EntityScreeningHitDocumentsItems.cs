@@ -9,11 +9,11 @@ public record EntityScreeningHitDocumentsItems
 	/// <para>Summary object reflecting the match result of the associated data</para>
 	/// </summary>
 	[JsonPropertyName("analysis")]
-	public Entity.MatchSummary Analysis { get; init; } = default!;
+	public Entity.MatchSummary? Analysis { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An official document, usually issued by a governing body or institution, with an associated identifier.</para>
 	/// </summary>
 	[JsonPropertyName("data")]
-	public Entity.EntityDocument Data { get; init; } = default!;
+	public Entity.EntityDocument? Data { get; init; } = default!;
 }

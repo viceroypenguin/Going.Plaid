@@ -9,11 +9,11 @@ public record GenericScreeningHitLocationItems
 	/// <para>Summary object reflecting the match result of the associated data</para>
 	/// </summary>
 	[JsonPropertyName("analysis")]
-	public Entity.MatchSummary Analysis { get; init; } = default!;
+	public Entity.MatchSummary? Analysis { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Location information for the associated individual watchlist hit</para>
 	/// </summary>
 	[JsonPropertyName("data")]
-	public Entity.WatchlistScreeningHitLocations Data { get; init; } = default!;
+	public Entity.WatchlistScreeningHitLocations? Data { get; init; } = default!;
 }

@@ -15,5 +15,5 @@ public partial class SandboxProcessorTokenCreateRequest : RequestBase
 	/// <para>An optional set of options to be used when configuring the Item. If specified, must not be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.SandboxProcessorTokenCreateRequestOptions Options { get; set; } = default!;
+	public Entity.SandboxProcessorTokenCreateRequestOptions? Options { get; set; } = default!;
 }

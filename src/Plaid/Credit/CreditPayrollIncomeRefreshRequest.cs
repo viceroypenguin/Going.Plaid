@@ -15,5 +15,5 @@ public partial class CreditPayrollIncomeRefreshRequest : RequestBase
 	/// <para>An optional object for <c>/credit/payroll_income/refresh</c> request options.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.CreditPayrollIncomeRefreshRequestOptions Options { get; set; } = default!;
+	public Entity.CreditPayrollIncomeRefreshRequestOptions? Options { get; set; } = default!;
 }

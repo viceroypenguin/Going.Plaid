@@ -15,7 +15,7 @@ public partial class SandboxIncomeFireWebhookRequest : RequestBase
 	/// <para>The Plaid <c>user_id</c> of the User associated with this webhook, warning, or error.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
-	public string UserId { get; set; } = default!;
+	public string? UserId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The URL to which the webhook should be sent.</para>

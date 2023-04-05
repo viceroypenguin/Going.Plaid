@@ -33,11 +33,11 @@ public class DepositSwitchTargetUser
 	/// <para>The user's address.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.DepositSwitchAddressData Address { get; set; } = default!;
+	public Entity.DepositSwitchAddressData? Address { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The taxpayer ID of the user, generally their SSN, EIN, or TIN.</para>
 	/// </summary>
 	[JsonPropertyName("tax_payer_id")]
-	public string TaxPayerId { get; set; } = default!;
+	public string? TaxPayerId { get; set; } = default!;
 }

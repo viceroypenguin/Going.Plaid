@@ -9,11 +9,11 @@ public record ScreeningHitDateOfBirthItem
 	/// <para>Summary object reflecting the match result of the associated data</para>
 	/// </summary>
 	[JsonPropertyName("analysis")]
-	public Entity.MatchSummary Analysis { get; init; } = default!;
+	public Entity.MatchSummary? Analysis { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A date range with a start and end date</para>
 	/// </summary>
 	[JsonPropertyName("data")]
-	public Entity.DateRange Data { get; init; } = default!;
+	public Entity.DateRange? Data { get; init; } = default!;
 }

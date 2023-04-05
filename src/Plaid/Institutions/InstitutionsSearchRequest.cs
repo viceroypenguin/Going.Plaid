@@ -27,5 +27,5 @@ public partial class InstitutionsSearchRequest : RequestBase
 	/// <para>An optional object to filter <c>/institutions/search</c> results.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.InstitutionsSearchRequestOptions Options { get; set; } = default!;
+	public Entity.InstitutionsSearchRequestOptions? Options { get; set; } = default!;
 }

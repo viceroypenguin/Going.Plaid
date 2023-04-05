@@ -9,13 +9,13 @@ public partial class CreditPayrollIncomePrecheckRequest : RequestBase
 	/// <para>The user token associated with the User data is being requested for.</para>
 	/// </summary>
 	[JsonPropertyName("user_token")]
-	public string UserToken { get; set; } = default!;
+	public string? UserToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An array of access tokens corresponding to Items belonging to the user whose eligibility is being checked. Note that if the Items specified here are not already initialized with <c>transactions</c>, providing them in this field will cause these Items to be initialized with (and billed for) the Transactions product.</para>
 	/// </summary>
 	[JsonPropertyName("access_tokens")]
-	public IReadOnlyList<string> AccessTokens { get; set; } = default!;
+	public IReadOnlyList<string>? AccessTokens { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Information about the end user's employer</para>

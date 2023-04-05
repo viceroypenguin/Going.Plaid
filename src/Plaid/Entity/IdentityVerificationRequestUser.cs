@@ -24,7 +24,7 @@ public class IdentityVerificationRequestUser
 	/// <para>A valid email address.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
-	public string EmailAddress { get; set; } = default!;
+	public string? EmailAddress { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A phone number in E.164 format.</para>
@@ -36,7 +36,7 @@ public class IdentityVerificationRequestUser
 	/// <para>A date in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
 	/// </summary>
 	[JsonPropertyName("date_of_birth")]
-	public DateOnly DateOfBirth { get; set; } = default!;
+	public DateOnly? DateOfBirth { get; set; } = default!;
 
 	/// <summary>
 	/// <para>You can use this field to pre-populate the user's legal name; if it is provided here, they will not be prompted to enter their name in the identity verification attempt.</para>

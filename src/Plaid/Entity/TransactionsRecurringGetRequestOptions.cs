@@ -10,5 +10,5 @@ public class TransactionsRecurringGetRequestOptions
 	/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of personal finance categories.</para>
 	/// </summary>
 	[JsonPropertyName("include_personal_finance_category")]
-	public bool IncludePersonalFinanceCategory { get; set; } = default!;
+	public bool? IncludePersonalFinanceCategory { get; set; } = default!;
 }

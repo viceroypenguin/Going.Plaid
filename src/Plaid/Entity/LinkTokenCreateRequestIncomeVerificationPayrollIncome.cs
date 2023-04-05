@@ -15,7 +15,7 @@ public class LinkTokenCreateRequestIncomeVerificationPayrollIncome
 	/// <para>An identifier to indicate whether the income verification Link token will be used for an update or not</para>
 	/// </summary>
 	[JsonPropertyName("is_update_mode")]
-	public bool IsUpdateMode { get; set; } = default!;
+	public bool? IsUpdateMode { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Uniquely identify a payroll income item to update with. It should only be used for update mode.</para>

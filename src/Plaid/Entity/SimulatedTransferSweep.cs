@@ -10,32 +10,32 @@ public record SimulatedTransferSweep
 	/// <para>Identifier of the sweep.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
-	public string Id { get; init; } = default!;
+	public string? Id { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
-	public string FundingAccountId { get; init; } = default!;
+	public string? FundingAccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The datetime when the sweep occurred, in RFC 3339 format.</para>
 	/// </summary>
 	[JsonPropertyName("created")]
-	public DateTimeOffset Created { get; init; } = default!;
+	public DateTimeOffset? Created { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Signed decimal amount of the sweep as it appears on your sweep account ledger (e.g. "-10.00")</para>
 	/// <para>If amount is not present, the sweep was net-settled to zero and outstanding debits and credits between the sweep account and Plaid are balanced.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
-	public string Amount { get; init; } = default!;
+	public string? Amount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The currency of the sweep, e.g. "USD".</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
-	public string IsoCurrencyCode { get; init; } = default!;
+	public string? IsoCurrencyCode { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The date when the sweep settled, in the YYYY-MM-DD format.</para>

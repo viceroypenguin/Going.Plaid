@@ -9,5 +9,5 @@ public class WalletTransactionCounterpartyInternational
 	/// <para>International Bank Account Number (IBAN).</para>
 	/// </summary>
 	[JsonPropertyName("iban")]
-	public string Iban { get; set; } = default!;
+	public string? Iban { get; set; } = default!;
 }

@@ -9,7 +9,7 @@ public record TransferRecurringCreateResponse : ResponseBase
 	/// <para>Represents a recurring transfer within the Transfers API.</para>
 	/// </summary>
 	[JsonPropertyName("recurring_transfer")]
-	public Entity.RecurringTransfer RecurringTransfer { get; init; } = default!;
+	public Entity.RecurringTransfer? RecurringTransfer { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A decision regarding the proposed transfer.</para>

@@ -9,7 +9,7 @@ public record IncomeVerificationPaystubsGetResponse : ResponseBase
 	/// <para>Metadata for an income document.</para>
 	/// </summary>
 	[JsonPropertyName("document_metadata")]
-	public IReadOnlyList<Entity.DocumentMetadata> DocumentMetadata { get; init; } = default!;
+	public IReadOnlyList<Entity.DocumentMetadata>? DocumentMetadata { get; init; } = default!;
 
 	/// <summary>
 	/// 

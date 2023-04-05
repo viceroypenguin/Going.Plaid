@@ -27,5 +27,5 @@ public record Employee
 	/// <para>Taxpayer ID of the individual receiving the paystub.</para>
 	/// </summary>
 	[JsonPropertyName("taxpayer_id")]
-	public Entity.TaxpayerID TaxpayerId { get; init; } = default!;
+	public Entity.TaxpayerID? TaxpayerId { get; init; } = default!;
 }

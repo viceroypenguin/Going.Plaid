@@ -12,13 +12,13 @@ public record AccountIdentity
 	/// <para>Like all Plaid identifiers, the <c>account_id</c> is case sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string AccountId { get; init; } = default!;
+	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by <c>/accounts/balance/get</c>.</para>
 	/// </summary>
 	[JsonPropertyName("balances")]
-	public Entity.AccountBalance Balances { get; init; } = default!;
+	public Entity.AccountBalance? Balances { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.</para>
@@ -30,7 +30,7 @@ public record AccountIdentity
 	/// <para>The name of the account, either assigned by the user or by the financial institution itself</para>
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; init; } = default!;
+	public string? Name { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The official name of the account as given by the financial institution</para>
@@ -42,7 +42,7 @@ public record AccountIdentity
 	/// <para>See the <a href="https://plaid.com/docs/api/accounts#account-type-schema">Account type schema</a> for a full listing of account types and corresponding subtypes.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
-	public Entity.AccountType Type { get; init; } = default!;
+	public Entity.AccountType? Type { get; init; } = default!;
 
 	/// <summary>
 	/// <para>See the [Account type schema](https://plaid.com/docs/api/accounts/#account-type-schema) for a full listing of account types and corresponding subtypes.</para>
@@ -54,17 +54,17 @@ public record AccountIdentity
 	/// <para>The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]
-	public Entity.AccountIdentityVerificationStatusEnum VerificationStatus { get; init; } = default!;
+	public Entity.AccountIdentityVerificationStatusEnum? VerificationStatus { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently an opt-in field and only supported for Chase Items.</para>
 	/// </summary>
 	[JsonPropertyName("persistent_account_id")]
-	public string PersistentAccountId { get; init; } = default!;
+	public string? PersistentAccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Data returned by the financial institution about the account owner or owners. Only returned by Identity or Assets endpoints. For business accounts, the name reported may be either the name of the individual or the name of the business, depending on the institution. Multiple owners on a single account will be represented in the same <c>owner</c> object, not in multiple owner objects within the array. In API versions 2018-05-22 and earlier, the <c>owners</c> object is not returned, and instead identity information is returned in the top level <c>identity</c> object. For more details, see <a href="https://plaid.com/docs/api/versioning/#version-2019-05-29">Plaid API versioning</a></para>
 	/// </summary>
 	[JsonPropertyName("owners")]
-	public IReadOnlyList<Entity.Owner> Owners { get; init; } = default!;
+	public IReadOnlyList<Entity.Owner>? Owners { get; init; } = default!;
 }

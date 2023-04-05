@@ -17,11 +17,11 @@ public class TransactionsSyncRequestOptions
 	/// <para>We’re introducing Category Rules - a new beta endpoint that will enable you to change the <c>personal_finance_category</c> for a transaction based on your users’ needs. When rules are set, the selected category will override the Plaid provided category. To learn more, send a note to transactions-feedback@plaid.com.</para>
 	/// </summary>
 	[JsonPropertyName("include_personal_finance_category")]
-	public bool IncludePersonalFinanceCategory { get; set; } = default!;
+	public bool? IncludePersonalFinanceCategory { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Include counterparties and extra merchant fields in the transaction. This field is disabled by default. If you need this information in addition to the parsed data provided, contact your Plaid Account Manager.</para>
 	/// </summary>
 	[JsonPropertyName("include_logo_and_counterparty_beta")]
-	public bool IncludeLogoAndCounterpartyBeta { get; set; } = default!;
+	public bool? IncludeLogoAndCounterpartyBeta { get; set; } = default!;
 }

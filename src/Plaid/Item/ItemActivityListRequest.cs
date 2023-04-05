@@ -9,11 +9,11 @@ public partial class ItemActivityListRequest : RequestBase
 	/// <para>Cursor used for pagination.</para>
 	/// </summary>
 	[JsonPropertyName("cursor")]
-	public string Cursor { get; set; } = default!;
+	public string? Cursor { get; set; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("count")]
-	public int Count { get; set; } = default!;
+	public int? Count { get; set; } = default!;
 }

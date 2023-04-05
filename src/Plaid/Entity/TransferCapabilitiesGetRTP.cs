@@ -9,5 +9,5 @@ public record TransferCapabilitiesGetRTP
 	/// <para>When <c>true</c>, the linked Item's institution supports RTP credit transfer.</para>
 	/// </summary>
 	[JsonPropertyName("credit")]
-	public bool Credit { get; init; } = default!;
+	public bool? Credit { get; init; } = default!;
 }

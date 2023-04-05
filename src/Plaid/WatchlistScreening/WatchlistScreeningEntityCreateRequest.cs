@@ -15,5 +15,5 @@ public partial class WatchlistScreeningEntityCreateRequest : RequestBase
 	/// <para>An identifier to help you connect this object to your internal systems. For example, your database ID corresponding to this object.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
-	public string ClientUserId { get; set; } = default!;
+	public string? ClientUserId { get; set; } = default!;
 }

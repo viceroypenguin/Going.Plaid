@@ -40,7 +40,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
-	public Entity.AchClass AchClass { get; set; } = default!;
+	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>
@@ -58,7 +58,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// <para>The currency of the transfer amount. The default value is "USD".</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
-	public string IsoCurrencyCode { get; set; } = default!;
+	public string? IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The description of the recurring transfer.</para>

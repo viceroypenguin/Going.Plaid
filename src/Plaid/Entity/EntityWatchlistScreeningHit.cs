@@ -57,11 +57,11 @@ public record EntityWatchlistScreeningHit
 	/// <para>Analysis information describing why a screening hit matched the provided entity information</para>
 	/// </summary>
 	[JsonPropertyName("analysis")]
-	public Entity.EntityScreeningHitAnalysis Analysis { get; init; } = default!;
+	public Entity.EntityScreeningHitAnalysis? Analysis { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Information associated with the entity watchlist hit</para>
 	/// </summary>
 	[JsonPropertyName("data")]
-	public Entity.EntityScreeningHitData Data { get; init; } = default!;
+	public Entity.EntityScreeningHitData? Data { get; init; } = default!;
 }

@@ -9,5 +9,5 @@ public partial class AuthGetRequest : RequestBase
 	/// <para>An optional object to filter <c>/auth/get</c> results.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.AuthGetRequestOptions Options { get; set; } = default!;
+	public Entity.AuthGetRequestOptions? Options { get; set; } = default!;
 }

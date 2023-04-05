@@ -9,5 +9,5 @@ public class LinkDeliveryOptions
 	/// <para>Metadata related to the recipient. If the information required to populate this field is not available, leave it blank.</para>
 	/// </summary>
 	[JsonPropertyName("recipient")]
-	public Entity.LinkDeliveryRecipient Recipient { get; set; } = default!;
+	public Entity.LinkDeliveryRecipient? Recipient { get; set; } = default!;
 }

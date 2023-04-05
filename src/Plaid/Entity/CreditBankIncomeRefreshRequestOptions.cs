@@ -9,11 +9,11 @@ public class CreditBankIncomeRefreshRequestOptions
 	/// <para>How many days of data to include in the refresh. If not specified, this will default to the days requested in the most recently generated bank income report for the user.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
-	public int DaysRequested { get; set; } = default!;
+	public int? DaysRequested { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The URL where Plaid will send the bank income webhook.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
-	public string Webhook { get; set; } = default!;
+	public string? Webhook { get; set; } = default!;
 }

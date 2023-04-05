@@ -35,7 +35,7 @@ public record Enrichments
 	/// <para>We recommend using the <c>personal_finance_category</c> for transaction categorization to obtain the best results.</para>
 	/// </summary>
 	[JsonPropertyName("legacy_category")]
-	public IReadOnlyList<string> LegacyCategory { get; init; } = default!;
+	public IReadOnlyList<string>? LegacyCategory { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of where a transaction took place</para>

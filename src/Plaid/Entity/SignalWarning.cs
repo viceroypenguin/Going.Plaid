@@ -9,17 +9,17 @@ public record SignalWarning
 	/// <para>Broad categorization of the warning.</para>
 	/// </summary>
 	[JsonPropertyName("warning_type")]
-	public string WarningType { get; init; } = default!;
+	public string? WarningType { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The particular warning code.</para>
 	/// </summary>
 	[JsonPropertyName("warning_code")]
-	public string WarningCode { get; init; } = default!;
+	public string? WarningCode { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A developer-friendly representation of the warning code.</para>
 	/// </summary>
 	[JsonPropertyName("warning_message")]
-	public string WarningMessage { get; init; } = default!;
+	public string? WarningMessage { get; init; } = default!;
 }

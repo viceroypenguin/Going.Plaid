@@ -15,13 +15,13 @@ public partial class WalletTransactionListRequest : RequestBase
 	/// <para>A base64 value representing the latest transaction that has already been requested. Set this to <c>next_cursor</c> received from the previous <c>/wallet/transaction/list</c> request. If provided, the response will only contain transactions created before that transaction. If omitted, the response will contain transactions starting from the most recent, and in descending order by the <c>created_at</c> time.</para>
 	/// </summary>
 	[JsonPropertyName("cursor")]
-	public string Cursor { get; set; } = default!;
+	public string? Cursor { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The number of transactions to fetch</para>
 	/// </summary>
 	[JsonPropertyName("count")]
-	public int Count { get; set; } = default!;
+	public int? Count { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Additional wallet transaction options</para>

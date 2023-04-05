@@ -21,5 +21,5 @@ public class AssetReportRefreshRequestOptions
 	/// <para>The user object allows you to provide additional information about the user to be appended to the Asset Report. All fields are optional. The <c>first_name</c>, <c>last_name</c>, and <c>ssn</c> fields are required if you would like the Report to be eligible for Fannie Mae’s Day 1 Certainty™ program.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
-	public Entity.AssetReportUser User { get; set; } = default!;
+	public Entity.AssetReportUser? User { get; set; } = default!;
 }

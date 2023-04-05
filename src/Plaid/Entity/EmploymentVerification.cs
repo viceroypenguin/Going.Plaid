@@ -27,7 +27,7 @@ public record EmploymentVerification
 	/// <para>An object containing employer data.</para>
 	/// </summary>
 	[JsonPropertyName("employer")]
-	public Entity.EmployerVerification Employer { get; init; } = default!;
+	public Entity.EmployerVerification? Employer { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Current title of employee.</para>
@@ -39,5 +39,5 @@ public record EmploymentVerification
 	/// <para>An object containing a set of ids related to an employee</para>
 	/// </summary>
 	[JsonPropertyName("platform_ids")]
-	public Entity.PlatformIds PlatformIds { get; init; } = default!;
+	public Entity.PlatformIds? PlatformIds { get; init; } = default!;
 }

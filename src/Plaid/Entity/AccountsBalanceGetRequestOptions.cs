@@ -10,7 +10,7 @@ public class AccountsBalanceGetRequestOptions
 	/// <para>Note: An error will be returned if a provided <c>account_id</c> is not associated with the Item.</para>
 	/// </summary>
 	[JsonPropertyName("account_ids")]
-	public IReadOnlyList<string> AccountIds { get; set; } = default!;
+	public IReadOnlyList<string>? AccountIds { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Timestamp in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) indicating the oldest acceptable balance when making a request to <c>/accounts/balance/get</c>.</para>
@@ -18,5 +18,5 @@ public class AccountsBalanceGetRequestOptions
 	/// <para>This field is only used when the institution is <c>ins_128026</c> (Capital One), in which case a value must be provided or an <c>INVALID_REQUEST</c> error with the code of <c>INVALID_FIELD</c> will be returned. For all other institutions, this field is ignored.</para>
 	/// </summary>
 	[JsonPropertyName("min_last_updated_datetime")]
-	public DateTimeOffset MinLastUpdatedDatetime { get; set; } = default!;
+	public DateTimeOffset? MinLastUpdatedDatetime { get; set; } = default!;
 }

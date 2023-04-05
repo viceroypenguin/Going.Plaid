@@ -9,7 +9,7 @@ public record DocumentMetadata
 	/// <para>The name of the document.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; init; } = default!;
+	public string? Name { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The processing status of the document.</para>
@@ -24,11 +24,11 @@ public record DocumentMetadata
 	/// <para>An identifier of the document that is also present in the paystub response.</para>
 	/// </summary>
 	[JsonPropertyName("doc_id")]
-	public string DocId { get; init; } = default!;
+	public string? DocId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The type of document.</para>
 	/// </summary>
 	[JsonPropertyName("doc_type")]
-	public Entity.DocType DocType { get; init; } = default!;
+	public Entity.DocType? DocType { get; init; } = default!;
 }

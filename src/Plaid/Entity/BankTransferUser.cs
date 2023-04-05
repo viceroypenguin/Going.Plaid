@@ -21,5 +21,5 @@ public class BankTransferUser
 	/// <para>The account holder's routing number. This field is only used in response data. Do not provide this field when making requests.</para>
 	/// </summary>
 	[JsonPropertyName("routing_number")]
-	public string RoutingNumber { get; set; } = default!;
+	public string? RoutingNumber { get; set; } = default!;
 }

@@ -81,7 +81,7 @@ public record PaymentInitiationPayment
 	/// <para>The amount and currency of a payment</para>
 	/// </summary>
 	[JsonPropertyName("amount_refunded")]
-	public Entity.PaymentAmountRefunded AmountRefunded { get; init; } = default!;
+	public Entity.PaymentAmountRefunded? AmountRefunded { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>

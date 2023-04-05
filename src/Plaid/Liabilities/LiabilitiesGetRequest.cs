@@ -9,5 +9,5 @@ public partial class LiabilitiesGetRequest : RequestBase
 	/// <para>An optional object to filter <c>/liabilities/get</c> results. If provided, <c>options</c> cannot be null.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.LiabilitiesGetRequestOptions Options { get; set; } = default!;
+	public Entity.LiabilitiesGetRequestOptions? Options { get; set; } = default!;
 }

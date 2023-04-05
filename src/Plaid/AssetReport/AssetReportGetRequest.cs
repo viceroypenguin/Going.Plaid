@@ -15,17 +15,17 @@ public partial class AssetReportGetRequest : RequestBase
 	/// <para><c>true</c> if you would like to retrieve the Asset Report with Insights, <c>false</c> otherwise. This field defaults to <c>false</c> if omitted.</para>
 	/// </summary>
 	[JsonPropertyName("include_insights")]
-	public bool IncludeInsights { get; set; } = default!;
+	public bool? IncludeInsights { get; set; } = default!;
 
 	/// <summary>
 	/// <para><c>true</c> to fetch "fast" version of asset report. Defaults to false if omitted.</para>
 	/// </summary>
 	[JsonPropertyName("fast_report")]
-	public bool FastReport { get; set; } = default!;
+	public bool? FastReport { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An optional object to filter or add data to <c>/asset_report/get</c> results. If provided, must be non-<c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.AssetReportGetRequestOptions Options { get; set; } = default!;
+	public Entity.AssetReportGetRequestOptions? Options { get; set; } = default!;
 }

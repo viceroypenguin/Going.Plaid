@@ -9,5 +9,5 @@ public record PartnerCustomerEnableResponse : ResponseBase
 	/// <para>The end customer's secret key for the Production environment.</para>
 	/// </summary>
 	[JsonPropertyName("production_secret")]
-	public string ProductionSecret { get; init; } = default!;
+	public string? ProductionSecret { get; init; } = default!;
 }

@@ -9,5 +9,5 @@ public class LinkTokenEUConfig
 	/// <para>If <c>true</c>, open Link without an initial UI. Defaults to <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("headless")]
-	public bool Headless { get; set; } = default!;
+	public bool? Headless { get; set; } = default!;
 }

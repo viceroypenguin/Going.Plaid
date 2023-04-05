@@ -27,7 +27,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	/// 
 	/// </summary>
 	[JsonPropertyName("network")]
-	public Entity.TransferIntentCreateNetwork Network { get; set; } = default!;
+	public Entity.TransferIntentCreateNetwork? Network { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>
@@ -45,7 +45,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
-	public Entity.AchClass AchClass { get; set; } = default!;
+	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for the origination account for the intent. If not provided, the default account will be used.</para>
@@ -74,7 +74,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	/// <para>The currency of the transfer amount, e.g. "USD"</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
-	public string IsoCurrencyCode { get; set; } = default!;
+	public string? IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
 	/// <para>When <c>true</c>, the transfer requires a <c>GUARANTEED</c> decision by Plaid to proceed (Guarantee customers only).</para>

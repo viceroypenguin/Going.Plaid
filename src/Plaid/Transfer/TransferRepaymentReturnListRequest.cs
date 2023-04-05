@@ -21,5 +21,5 @@ public partial class TransferRepaymentReturnListRequest : RequestBase
 	/// <para>The number of repayments to skip before returning results.</para>
 	/// </summary>
 	[JsonPropertyName("offset")]
-	public int Offset { get; set; } = default!;
+	public int? Offset { get; set; } = default!;
 }

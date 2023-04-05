@@ -9,7 +9,7 @@ public partial class TransactionsGetRequest : RequestBase
 	/// <para>An optional object to be used with the request. If specified, <c>options</c> must not be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.TransactionsGetRequestOptions Options { get; set; } = default!;
+	public Entity.TransactionsGetRequestOptions? Options { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The earliest date for which data should be returned. Dates should be formatted as YYYY-MM-DD.</para>

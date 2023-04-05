@@ -29,7 +29,7 @@ public partial class PaymentInitiationPaymentCreateRequest : RequestBase
 	/// <para>The schedule that the payment will be executed on. If a schedule is provided, the payment is automatically set up as a standing order. If no schedule is specified, the payment will be executed only once.</para>
 	/// </summary>
 	[JsonPropertyName("schedule")]
-	public Entity.ExternalPaymentScheduleRequest Schedule { get; set; } = default!;
+	public Entity.ExternalPaymentScheduleRequest? Schedule { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Additional payment options</para>

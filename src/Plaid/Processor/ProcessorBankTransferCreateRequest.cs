@@ -52,7 +52,7 @@ public partial class ProcessorBankTransferCreateRequest : RequestBase
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
-	public Entity.AchClass AchClass { get; set; } = default!;
+	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The legal name and other information for the account holder.</para>

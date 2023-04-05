@@ -9,5 +9,5 @@ public class IdentityMatchRequestOptions
 	/// <para>An array of <c>account_ids</c> to perform fuzzy match</para>
 	/// </summary>
 	[JsonPropertyName("account_ids")]
-	public IReadOnlyList<string> AccountIds { get; set; } = default!;
+	public IReadOnlyList<string>? AccountIds { get; set; } = default!;
 }

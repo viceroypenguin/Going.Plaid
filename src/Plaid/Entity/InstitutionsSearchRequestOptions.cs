@@ -15,7 +15,7 @@ public class InstitutionsSearchRequestOptions
 	/// <para>When true, return the institution's homepage URL, logo and primary brand color.</para>
 	/// </summary>
 	[JsonPropertyName("include_optional_metadata")]
-	public bool IncludeOptionalMetadata { get; set; } = default!;
+	public bool? IncludeOptionalMetadata { get; set; } = default!;
 
 	/// <summary>
 	/// <para>When <c>true</c>, returns metadata related to the Auth product indicating which auth methods are supported.</para>

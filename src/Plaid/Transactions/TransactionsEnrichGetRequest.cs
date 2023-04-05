@@ -21,5 +21,5 @@ public partial class TransactionsEnrichGetRequest : RequestBase
 	/// <para>An optional object to be used with the request.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.TransactionsEnrichRequestOptions Options { get; set; } = default!;
+	public Entity.TransactionsEnrichRequestOptions? Options { get; set; } = default!;
 }

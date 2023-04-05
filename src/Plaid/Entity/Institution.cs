@@ -57,7 +57,7 @@ public record Institution
 	/// <para>A partial list of DTC numbers associated with the institution.</para>
 	/// </summary>
 	[JsonPropertyName("dtc_numbers")]
-	public IReadOnlyList<string> DtcNumbers { get; init; } = default!;
+	public IReadOnlyList<string>? DtcNumbers { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Indicates that the institution has a mandatory OAuth login flow. Note that <c>oauth</c> may be <c>false</c> even for institutions that support OAuth, if the institution is in the process of migrating to OAuth and some active Items still exist that do not use OAuth.</para>

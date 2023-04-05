@@ -21,7 +21,7 @@ public partial class BankTransferMigrateAccountRequest : RequestBase
 	/// <para>The user's wire transfer routing number. This is the ABA number; for some institutions, this may differ from the ACH number used in <c>routing_number</c>.</para>
 	/// </summary>
 	[JsonPropertyName("wire_routing_number")]
-	public string WireRoutingNumber { get; set; } = default!;
+	public string? WireRoutingNumber { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The type of the bank account (<c>checking</c> or <c>savings</c>).</para>

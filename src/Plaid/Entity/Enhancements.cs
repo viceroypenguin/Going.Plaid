@@ -64,11 +64,11 @@ public record Enhancements
 	/// <para>A link to the icon associated with the primary personal finance category. The logo will always be 100x100 pixels.</para>
 	/// </summary>
 	[JsonPropertyName("personal_finance_category_icon_url")]
-	public string PersonalFinanceCategoryIconUrl { get; init; } = default!;
+	public string? PersonalFinanceCategoryIconUrl { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The counterparties present in the transaction. Counterparties, such as the merchant or the financial institution, are extracted by Plaid from the raw description.</para>
 	/// </summary>
 	[JsonPropertyName("counterparties")]
-	public IReadOnlyList<Entity.Counterparty> Counterparties { get; init; } = default!;
+	public IReadOnlyList<Entity.Counterparty>? Counterparties { get; init; } = default!;
 }

@@ -9,7 +9,7 @@ public record Deductions
 	/// 
 	/// </summary>
 	[JsonPropertyName("subtotals")]
-	public IReadOnlyList<Entity.Total> Subtotals { get; init; } = default!;
+	public IReadOnlyList<Entity.Total>? Subtotals { get; init; } = default!;
 
 	/// <summary>
 	/// 
@@ -21,7 +21,7 @@ public record Deductions
 	/// 
 	/// </summary>
 	[JsonPropertyName("totals")]
-	public IReadOnlyList<Entity.Total> Totals { get; init; } = default!;
+	public IReadOnlyList<Entity.Total>? Totals { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object representing the total deductions for the pay period</para>

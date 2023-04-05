@@ -15,7 +15,7 @@ public record WalletTransactionGetResponse : ResponseBase
 	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
 	/// </summary>
 	[JsonPropertyName("wallet_id")]
-	public string WalletId { get; init; } = default!;
+	public string? WalletId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A reference for the transaction</para>
@@ -57,7 +57,7 @@ public record WalletTransactionGetResponse : ResponseBase
 	/// <para>The date and time of the last time the <c>status</c> was updated, in IS0 8601 format</para>
 	/// </summary>
 	[JsonPropertyName("last_status_update")]
-	public DateTimeOffset LastStatusUpdate { get; init; } = default!;
+	public DateTimeOffset? LastStatusUpdate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The payment id that this transaction is associated with, if any. This is present only for transaction types <c>PIS_PAY_IN</c> and <c>REFUND</c>.</para>

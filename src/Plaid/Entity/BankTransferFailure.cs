@@ -15,5 +15,5 @@ public class BankTransferFailure
 	/// <para>A human-readable description of the reason for the failure or reversal.</para>
 	/// </summary>
 	[JsonPropertyName("description")]
-	public string Description { get; set; } = default!;
+	public string? Description { get; set; } = default!;
 }

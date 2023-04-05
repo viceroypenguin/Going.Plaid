@@ -27,5 +27,5 @@ public partial class SandboxTransferTestClockListRequest : RequestBase
 	/// <para>The number of test clocks to skip before returning results.</para>
 	/// </summary>
 	[JsonPropertyName("offset")]
-	public int Offset { get; set; } = default!;
+	public int? Offset { get; set; } = default!;
 }

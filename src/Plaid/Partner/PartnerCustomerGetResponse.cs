@@ -9,5 +9,5 @@ public record PartnerCustomerGetResponse : ResponseBase
 	/// <para>The details for an end customer.</para>
 	/// </summary>
 	[JsonPropertyName("end_customer")]
-	public Entity.PartnerEndCustomer EndCustomer { get; init; } = default!;
+	public Entity.PartnerEndCustomer? EndCustomer { get; init; } = default!;
 }

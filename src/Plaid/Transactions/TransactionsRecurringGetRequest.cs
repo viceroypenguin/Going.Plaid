@@ -9,7 +9,7 @@ public partial class TransactionsRecurringGetRequest : RequestBase
 	/// <para>An optional object to be used with the request. If specified, <c>options</c> must not be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.TransactionsRecurringGetRequestOptions Options { get; set; } = default!;
+	public Entity.TransactionsRecurringGetRequestOptions? Options { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A list of <c>account_ids</c> to retrieve for the Item</para>

@@ -9,7 +9,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited. Returned only if <c>account_id</c> was set on intent creation.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string AccountId { get; set; } = default!;
+	public string? AccountId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding.</para>
@@ -21,7 +21,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <para>The payment profile token associated with the Payment Profile that will be debited or credited. Required if not using <c>access_token</c>.</para>
 	/// </summary>
 	[JsonPropertyName("payment_profile_token")]
-	public string PaymentProfileToken { get; set; } = default!;
+	public string? PaymentProfileToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
@@ -45,7 +45,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
-	public Entity.AchClass AchClass { get; set; } = default!;
+	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The legal name and other information for the account holder.</para>
@@ -57,19 +57,19 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <para>Information about the device being used to initiate the authorization.</para>
 	/// </summary>
 	[JsonPropertyName("device")]
-	public Entity.TransferAuthorizationDevice Device { get; set; } = default!;
+	public Entity.TransferAuthorizationDevice? Device { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid's unique identifier for the origination account for this authorization. If not specified, the default account will be used.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
-	public string OriginationAccountId { get; set; } = default!;
+	public string? OriginationAccountId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The currency of the transfer amount. The default value is "USD".</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
-	public string IsoCurrencyCode { get; set; } = default!;
+	public string? IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A random key provided by the client, per unique authorization. Maximum of 50 characters.</para>

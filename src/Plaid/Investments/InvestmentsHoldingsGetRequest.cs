@@ -9,5 +9,5 @@ public partial class InvestmentsHoldingsGetRequest : RequestBase
 	/// <para>An optional object to filter <c>/investments/holdings/get</c> results. If provided, must not be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.InvestmentHoldingsGetRequestOptions Options { get; set; } = default!;
+	public Entity.InvestmentHoldingsGetRequestOptions? Options { get; set; } = default!;
 }

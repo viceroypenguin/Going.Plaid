@@ -27,7 +27,7 @@ public record Wallet
 	/// <para>The ID of the recipient that corresponds to the e-wallet account numbers</para>
 	/// </summary>
 	[JsonPropertyName("recipient_id")]
-	public string RecipientId { get; init; } = default!;
+	public string? RecipientId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The status of the wallet.</para>

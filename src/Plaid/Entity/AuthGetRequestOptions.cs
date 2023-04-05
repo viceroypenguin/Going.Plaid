@@ -10,5 +10,5 @@ public class AuthGetRequestOptions
 	/// <para>Note: An error will be returned if a provided <c>account_id</c> is not associated with the Item.</para>
 	/// </summary>
 	[JsonPropertyName("account_ids")]
-	public IReadOnlyList<string> AccountIds { get; set; } = default!;
+	public IReadOnlyList<string>? AccountIds { get; set; } = default!;
 }

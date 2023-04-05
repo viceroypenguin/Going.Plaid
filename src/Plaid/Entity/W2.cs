@@ -9,13 +9,13 @@ public record W2
 	/// <para>Information about the employer on the paystub</para>
 	/// </summary>
 	[JsonPropertyName("employer")]
-	public Entity.Employer Employer { get; init; } = default!;
+	public Entity.Employer? Employer { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Data about the employee.</para>
 	/// </summary>
 	[JsonPropertyName("employee")]
-	public Entity.Employee Employee { get; init; } = default!;
+	public Entity.Employee? Employee { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The tax year of the W2 document.</para>
@@ -99,7 +99,7 @@ public record W2
 	/// 
 	/// </summary>
 	[JsonPropertyName("box_12")]
-	public IReadOnlyList<Entity.W2Box12> Box12 { get; init; } = default!;
+	public IReadOnlyList<Entity.W2Box12>? Box12 { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Statutory employee.</para>
@@ -129,5 +129,5 @@ public record W2
 	/// 
 	/// </summary>
 	[JsonPropertyName("state_and_local_wages")]
-	public IReadOnlyList<Entity.W2StateAndLocalWages> StateAndLocalWages { get; init; } = default!;
+	public IReadOnlyList<Entity.W2StateAndLocalWages>? StateAndLocalWages { get; init; } = default!;
 }

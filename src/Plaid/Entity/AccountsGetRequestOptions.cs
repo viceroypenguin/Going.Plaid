@@ -9,5 +9,5 @@ public class AccountsGetRequestOptions
 	/// <para>An array of <c>account_ids</c> to retrieve for the Account.</para>
 	/// </summary>
 	[JsonPropertyName("account_ids")]
-	public IReadOnlyList<string> AccountIds { get; set; } = default!;
+	public IReadOnlyList<string>? AccountIds { get; set; } = default!;
 }

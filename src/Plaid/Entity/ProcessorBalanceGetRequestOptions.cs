@@ -11,5 +11,5 @@ public class ProcessorBalanceGetRequestOptions
 	/// <para>This field is only used when the institution is <c>ins_128026</c> (Capital One), in which case a value must be provided or an <c>INVALID_REQUEST</c> error with the code of <c>INVALID_FIELD</c> will be returned. For all other institutions, this field is ignored.</para>
 	/// </summary>
 	[JsonPropertyName("min_last_updated_datetime")]
-	public DateTimeOffset MinLastUpdatedDatetime { get; set; } = default!;
+	public DateTimeOffset? MinLastUpdatedDatetime { get; set; } = default!;
 }

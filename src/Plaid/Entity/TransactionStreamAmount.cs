@@ -9,7 +9,7 @@ public record TransactionStreamAmount
 	/// <para>Represents the numerical value of an amount.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
-	public decimal Amount { get; init; } = default!;
+	public decimal? Amount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO-4217 currency code of the amount. Always <c>null</c> if <c>unofficial_currency_code</c> is non-<c>null</c>.</para>

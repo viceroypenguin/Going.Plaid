@@ -9,23 +9,23 @@ public record Earnings
 	/// 
 	/// </summary>
 	[JsonPropertyName("subtotals")]
-	public IReadOnlyList<Entity.EarningsTotal> Subtotals { get; init; } = default!;
+	public IReadOnlyList<Entity.EarningsTotal>? Subtotals { get; init; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("totals")]
-	public IReadOnlyList<Entity.EarningsTotal> Totals { get; init; } = default!;
+	public IReadOnlyList<Entity.EarningsTotal>? Totals { get; init; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("breakdown")]
-	public IReadOnlyList<Entity.EarningsBreakdown> Breakdown { get; init; } = default!;
+	public IReadOnlyList<Entity.EarningsBreakdown>? Breakdown { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object representing both the current pay period and year to date amount for an earning category.</para>
 	/// </summary>
 	[JsonPropertyName("total")]
-	public Entity.EarningsTotal Total { get; init; } = default!;
+	public Entity.EarningsTotal? Total { get; init; } = default!;
 }

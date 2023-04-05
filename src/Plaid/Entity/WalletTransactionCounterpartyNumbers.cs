@@ -9,7 +9,7 @@ public class WalletTransactionCounterpartyNumbers
 	/// <para>The account number and sort code of the counterparty's account</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
-	public Entity.WalletTransactionCounterpartyBACS Bacs { get; set; } = default!;
+	public Entity.WalletTransactionCounterpartyBACS? Bacs { get; set; } = default!;
 
 	/// <summary>
 	/// <para>International Bank Account Number for a Wallet Transaction</para>

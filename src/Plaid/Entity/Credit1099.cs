@@ -15,31 +15,31 @@ public record Credit1099
 	/// <para>Object representing metadata pertaining to the document.</para>
 	/// </summary>
 	[JsonPropertyName("document_metadata")]
-	public Entity.CreditDocumentMetadata DocumentMetadata { get; init; } = default!;
+	public Entity.CreditDocumentMetadata? DocumentMetadata { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Form 1099 Type</para>
 	/// </summary>
 	[JsonPropertyName("form_1099_type")]
-	public Entity.Form1099Type Form1099Type { get; init; } = default!;
+	public Entity.Form1099Type? Form1099Type { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object representing a recipient used in both 1099-K and 1099-MISC tax documents.</para>
 	/// </summary>
 	[JsonPropertyName("recipient")]
-	public Entity.Credit1099Recipient Recipient { get; init; } = default!;
+	public Entity.Credit1099Recipient? Recipient { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object representing a payer used by 1099-MISC tax documents.</para>
 	/// </summary>
 	[JsonPropertyName("payer")]
-	public Entity.Credit1099Payer Payer { get; init; } = default!;
+	public Entity.Credit1099Payer? Payer { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object representing a filer used by 1099-K tax documents.</para>
 	/// </summary>
 	[JsonPropertyName("filer")]
-	public Entity.Credit1099Filer Filer { get; init; } = default!;
+	public Entity.Credit1099Filer? Filer { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Tax year of the tax form.</para>

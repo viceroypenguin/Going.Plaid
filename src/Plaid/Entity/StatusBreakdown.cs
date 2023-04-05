@@ -27,5 +27,5 @@ public record StatusBreakdown
 	/// <para>The <c>refresh_interval</c> may be <c>DELAYED</c> or <c>STOPPED</c> even when the success rate is high. This value is only returned for Transactions status breakdowns.</para>
 	/// </summary>
 	[JsonPropertyName("refresh_interval")]
-	public Entity.StatusBreakdownRefreshIntervalEnum RefreshInterval { get; init; } = default!;
+	public Entity.StatusBreakdownRefreshIntervalEnum? RefreshInterval { get; init; } = default!;
 }

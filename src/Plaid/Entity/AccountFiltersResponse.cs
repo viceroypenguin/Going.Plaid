@@ -9,23 +9,23 @@ public record AccountFiltersResponse
 	/// <para>A filter to apply to <c>depository</c>-type accounts</para>
 	/// </summary>
 	[JsonPropertyName("depository")]
-	public Entity.DepositoryFilter Depository { get; init; } = default!;
+	public Entity.DepositoryFilter? Depository { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A filter to apply to <c>credit</c>-type accounts</para>
 	/// </summary>
 	[JsonPropertyName("credit")]
-	public Entity.CreditFilter Credit { get; init; } = default!;
+	public Entity.CreditFilter? Credit { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A filter to apply to <c>loan</c>-type accounts</para>
 	/// </summary>
 	[JsonPropertyName("loan")]
-	public Entity.LoanFilter Loan { get; init; } = default!;
+	public Entity.LoanFilter? Loan { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A filter to apply to <c>investment</c>-type accounts (or <c>brokerage</c>-type accounts for API versions 2018-05-22 and earlier).</para>
 	/// </summary>
 	[JsonPropertyName("investment")]
-	public Entity.InvestmentFilter Investment { get; init; } = default!;
+	public Entity.InvestmentFilter? Investment { get; init; } = default!;
 }

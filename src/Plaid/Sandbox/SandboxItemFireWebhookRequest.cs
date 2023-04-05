@@ -9,7 +9,7 @@ public partial class SandboxItemFireWebhookRequest : RequestBase
 	/// <para>The webhook types that can be fired by this test endpoint.</para>
 	/// </summary>
 	[JsonPropertyName("webhook_type")]
-	public Entity.WebhookType WebhookType { get; set; } = default!;
+	public Entity.WebhookType? WebhookType { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The webhook codes that can be fired by this test endpoint.</para>

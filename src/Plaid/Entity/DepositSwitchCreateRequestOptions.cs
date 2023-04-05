@@ -15,5 +15,5 @@ public class DepositSwitchCreateRequestOptions
 	/// <para>An array of access tokens corresponding to transaction items to use when attempting to match the user to their Payroll Provider. These tokens must be created by the same client id as the one creating the switch, and have access to the transactions product.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_item_access_tokens")]
-	public IReadOnlyList<string> TransactionItemAccessTokens { get; set; } = default!;
+	public IReadOnlyList<string>? TransactionItemAccessTokens { get; set; } = default!;
 }

@@ -9,5 +9,5 @@ public class LinkTokenCreateRequestUpdate
 	/// <para>If <c>true</c>, enables <a href="https://plaid.com/docs/link/update-mode/#using-update-mode-to-request-new-accounts">update mode with Account Select</a>.</para>
 	/// </summary>
 	[JsonPropertyName("account_selection_enabled")]
-	public bool AccountSelectionEnabled { get; set; } = default!;
+	public bool? AccountSelectionEnabled { get; set; } = default!;
 }

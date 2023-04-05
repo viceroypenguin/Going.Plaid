@@ -11,7 +11,7 @@ public record CreditBankIncomeHistoricalSummary
 	/// <para>Please use <a href="https://plaid.com/docs/api/products/income/#credit-bank_income-get-response-bank-income-items-bank-income-sources-historical-summary-total-amounts"><c>total_amounts</c></a> instead.</para>
 	/// </summary>
 	[JsonPropertyName("total_amount")]
-	public decimal TotalAmount { get; init; } = default!;
+	public decimal? TotalAmount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO 4217 currency code of the amount or balance.</para>
@@ -33,7 +33,7 @@ public record CreditBankIncomeHistoricalSummary
 	/// <para>This can contain multiple amounts, with each amount denominated in one unique currency.</para>
 	/// </summary>
 	[JsonPropertyName("total_amounts")]
-	public IReadOnlyList<Entity.CreditAmountWithCurrency> TotalAmounts { get; init; } = default!;
+	public IReadOnlyList<Entity.CreditAmountWithCurrency>? TotalAmounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The start date of the period covered in this monthly summary.</para>
@@ -41,7 +41,7 @@ public record CreditBankIncomeHistoricalSummary
 	/// <para>The date will be returned in an ISO 8601 format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]
-	public DateOnly StartDate { get; init; } = default!;
+	public DateOnly? StartDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The end date of the period included in this monthly summary.</para>
@@ -49,11 +49,11 @@ public record CreditBankIncomeHistoricalSummary
 	/// <para>The date will be returned in an ISO 8601 format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("end_date")]
-	public DateOnly EndDate { get; init; } = default!;
+	public DateOnly? EndDate { get; init; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("transactions")]
-	public IReadOnlyList<Entity.CreditBankIncomeTransaction> Transactions { get; init; } = default!;
+	public IReadOnlyList<Entity.CreditBankIncomeTransaction>? Transactions { get; init; } = default!;
 }

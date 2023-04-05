@@ -9,5 +9,5 @@ public class ItemImportRequestOptions
 	/// <para>Specifies a webhook URL to associate with an Item. Plaid fires a webhook if credentials fail.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
-	public string Webhook { get; set; } = default!;
+	public string? Webhook { get; set; } = default!;
 }

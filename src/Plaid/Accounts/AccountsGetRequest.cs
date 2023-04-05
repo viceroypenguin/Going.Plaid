@@ -9,5 +9,5 @@ public partial class AccountsGetRequest : RequestBase
 	/// <para>An optional object to filter <c>/accounts/get</c> results.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.AccountsGetRequestOptions Options { get; set; } = default!;
+	public Entity.AccountsGetRequestOptions? Options { get; set; } = default!;
 }

@@ -15,13 +15,13 @@ public record Transfer
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
-	public Entity.AchClass AchClass { get; init; } = default!;
+	public Entity.AchClass? AchClass { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string AccountId { get; init; } = default!;
+	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>

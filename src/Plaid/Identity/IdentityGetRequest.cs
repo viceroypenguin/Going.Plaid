@@ -9,5 +9,5 @@ public partial class IdentityGetRequest : RequestBase
 	/// <para>An optional object to filter <c>/identity/get</c> results.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.IdentityGetRequestOptions Options { get; set; } = default!;
+	public Entity.IdentityGetRequestOptions? Options { get; set; } = default!;
 }

@@ -27,7 +27,7 @@ public record ClientProvidedEnrichedTransaction
 	/// <para>The direction of the transaction from the perspective of the account holder:</para>
 	/// </summary>
 	[JsonPropertyName("direction")]
-	public Entity.EnrichTransactionDirection Direction { get; init; } = default!;
+	public Entity.EnrichTransactionDirection? Direction { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO-4217 currency code of the transaction e.g. USD.</para>

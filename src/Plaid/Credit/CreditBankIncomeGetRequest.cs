@@ -9,11 +9,11 @@ public partial class CreditBankIncomeGetRequest : RequestBase
 	/// <para>The user token associated with the User data is being requested for.</para>
 	/// </summary>
 	[JsonPropertyName("user_token")]
-	public string UserToken { get; set; } = default!;
+	public string? UserToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An optional object for <c>/credit/bank_income/get</c> request options.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.CreditBankIncomeGetRequestOptions Options { get; set; } = default!;
+	public Entity.CreditBankIncomeGetRequestOptions? Options { get; set; } = default!;
 }

@@ -181,8 +181,7 @@ static class Program
 				IsResponseType = isResponseType,
 			};
 
-			var properties = schema.Properties
-				.ToList();
+			var properties = schema.Properties.ToList();
 
 			foreach (var s in schema.AllOf)
 			{
@@ -198,7 +197,7 @@ static class Program
 				{
 					var propertyName = p.Key.ToLower().ToPascalCase();
 					var typeName = GetPropertyType(name, propertyName, p.Value, type);
-					if (p.Value.Nullable)
+					if (p.Value.Nullable || !schema.Required.Contains(p.Key))
 						typeName += "?";
 					return new Property(p.Key, typeName, propertyName, GetPropertyDescription(p.Value));
 				})

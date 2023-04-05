@@ -11,7 +11,7 @@ public record CreditBankIncomeSummary
 	/// <para>Please use <a href="https://plaid.com/docs/api/products/income/#credit-bank_income-get-response-bank-income-bank-income-summary-total-amounts"><c>total_amounts</c></a> instead.</para>
 	/// </summary>
 	[JsonPropertyName("total_amount")]
-	public decimal TotalAmount { get; init; } = default!;
+	public decimal? TotalAmount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO 4217 currency code of the amount or balance.</para>
@@ -33,43 +33,43 @@ public record CreditBankIncomeSummary
 	/// <para>This can contain multiple amounts, with each amount denominated in one unique currency.</para>
 	/// </summary>
 	[JsonPropertyName("total_amounts")]
-	public IReadOnlyList<Entity.CreditAmountWithCurrency> TotalAmounts { get; init; } = default!;
+	public IReadOnlyList<Entity.CreditAmountWithCurrency>? TotalAmounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The earliest date within the days requested in which all income sources identified by Plaid appear in a user's account.</para>
 	/// <para>The date will be returned in an ISO 8601 format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]
-	public DateOnly StartDate { get; init; } = default!;
+	public DateOnly? StartDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The latest date in which all income sources identified by Plaid appear in the user's account.</para>
 	/// <para>The date will be returned in an ISO 8601 format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("end_date")]
-	public DateOnly EndDate { get; init; } = default!;
+	public DateOnly? EndDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Number of income sources per end user.</para>
 	/// </summary>
 	[JsonPropertyName("income_sources_count")]
-	public int IncomeSourcesCount { get; init; } = default!;
+	public int? IncomeSourcesCount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Number of income categories per end user.</para>
 	/// </summary>
 	[JsonPropertyName("income_categories_count")]
-	public int IncomeCategoriesCount { get; init; } = default!;
+	public int? IncomeCategoriesCount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Number of income transactions per end user.</para>
 	/// </summary>
 	[JsonPropertyName("income_transactions_count")]
-	public int IncomeTransactionsCount { get; init; } = default!;
+	public int? IncomeTransactionsCount { get; init; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("historical_summary")]
-	public IReadOnlyList<Entity.CreditBankIncomeHistoricalSummary> HistoricalSummary { get; init; } = default!;
+	public IReadOnlyList<Entity.CreditBankIncomeHistoricalSummary>? HistoricalSummary { get; init; } = default!;
 }

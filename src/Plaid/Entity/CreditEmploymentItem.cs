@@ -21,5 +21,5 @@ public record CreditEmploymentItem
 	/// <para>Token to represent the underlying Employment data</para>
 	/// </summary>
 	[JsonPropertyName("employment_report_token")]
-	public string EmploymentReportToken { get; init; } = default!;
+	public string? EmploymentReportToken { get; init; } = default!;
 }

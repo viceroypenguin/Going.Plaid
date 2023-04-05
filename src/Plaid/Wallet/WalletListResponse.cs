@@ -15,5 +15,5 @@ public record WalletListResponse : ResponseBase
 	/// <para>Cursor used for fetching e-wallets created before the latest e-wallet provided in this response</para>
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
-	public string NextCursor { get; init; } = default!;
+	public string? NextCursor { get; init; } = default!;
 }

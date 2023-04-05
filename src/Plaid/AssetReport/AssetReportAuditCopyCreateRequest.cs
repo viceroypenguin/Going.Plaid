@@ -15,5 +15,5 @@ public partial class AssetReportAuditCopyCreateRequest : RequestBase
 	/// <para>The <c>auditor_id</c> of the third party with whom you would like to share the Asset Report.</para>
 	/// </summary>
 	[JsonPropertyName("auditor_id")]
-	public string AuditorId { get; set; } = default!;
+	public string? AuditorId { get; set; } = default!;
 }

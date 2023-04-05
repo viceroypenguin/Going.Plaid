@@ -21,11 +21,11 @@ public partial class SandboxPublicTokenCreateRequest : RequestBase
 	/// <para>An optional set of options to be used when configuring the Item. If specified, must not be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.SandboxPublicTokenCreateRequestOptions Options { get; set; } = default!;
+	public Entity.SandboxPublicTokenCreateRequestOptions? Options { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The user token associated with the User data is being requested for.</para>
 	/// </summary>
 	[JsonPropertyName("user_token")]
-	public string UserToken { get; set; } = default!;
+	public string? UserToken { get; set; } = default!;
 }

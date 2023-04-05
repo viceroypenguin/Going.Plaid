@@ -21,5 +21,5 @@ public partial class AssetReportRefreshRequest : RequestBase
 	/// <para>An optional object to filter <c>/asset_report/refresh</c> results. If provided, cannot be <c>null</c>. If not specified, the <c>options</c> from the original call to <c>/asset_report/create</c> will be used.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.AssetReportRefreshRequestOptions Options { get; set; } = default!;
+	public Entity.AssetReportRefreshRequestOptions? Options { get; set; } = default!;
 }

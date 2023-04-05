@@ -21,13 +21,13 @@ public partial class BankTransferListRequest : RequestBase
 	/// <para>The maximum number of bank transfers to return.</para>
 	/// </summary>
 	[JsonPropertyName("count")]
-	public int Count { get; set; } = default!;
+	public int? Count { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The number of bank transfers to skip before returning results.</para>
 	/// </summary>
 	[JsonPropertyName("offset")]
-	public int Offset { get; set; } = default!;
+	public int? Offset { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Filter bank transfers to only those originated through the specified origination account.</para>

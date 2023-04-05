@@ -27,13 +27,13 @@ public partial class IncomeVerificationPrecheckRequest : RequestBase
 	/// 
 	/// </summary>
 	[JsonPropertyName("transactions_access_token")]
-	public string TransactionsAccessToken { get; set; } = default!;
+	public string? TransactionsAccessToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An array of access tokens corresponding to Items belonging to the user whose eligibility is being checked. Note that if the Items specified here are not already initialized with <c>transactions</c>, providing them in this field will cause these Items to be initialized with (and billed for) the Transactions product.</para>
 	/// </summary>
 	[JsonPropertyName("transactions_access_tokens")]
-	public IReadOnlyList<string> TransactionsAccessTokens { get; set; } = default!;
+	public IReadOnlyList<string>? TransactionsAccessTokens { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Data about military info in the income verification precheck.</para>

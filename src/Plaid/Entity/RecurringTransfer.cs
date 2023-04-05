@@ -52,7 +52,7 @@ public record RecurringTransfer
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
-	public Entity.AchClass AchClass { get; init; } = default!;
+	public Entity.AchClass? AchClass { get; init; } = default!;
 
 	/// <summary>
 	/// 

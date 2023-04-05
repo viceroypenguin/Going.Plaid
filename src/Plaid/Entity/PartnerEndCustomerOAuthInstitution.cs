@@ -9,19 +9,19 @@ public record PartnerEndCustomerOAuthInstitution
 	/// 
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; init; } = default!;
+	public string? Name { get; init; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("institution_id")]
-	public string InstitutionId { get; init; } = default!;
+	public string? InstitutionId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Registration statuses by environment.</para>
 	/// </summary>
 	[JsonPropertyName("environments")]
-	public Entity.PartnerEndCustomerOAuthInstitutionEnvironments Environments { get; init; } = default!;
+	public Entity.PartnerEndCustomerOAuthInstitutionEnvironments? Environments { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The date on which the end customer's application was approved by the institution, or an empty string if their application has not yet been approved.</para>

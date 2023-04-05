@@ -15,5 +15,5 @@ public partial class ProcessorBalanceGetRequest : RequestBase
 	/// <para>An optional object to filter <c>/processor/balance/get</c> results.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.ProcessorBalanceGetRequestOptions Options { get; set; } = default!;
+	public Entity.ProcessorBalanceGetRequestOptions? Options { get; set; } = default!;
 }

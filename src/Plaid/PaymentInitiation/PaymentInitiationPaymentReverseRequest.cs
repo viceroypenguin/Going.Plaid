@@ -28,5 +28,5 @@ public partial class PaymentInitiationPaymentReverseRequest : RequestBase
 	/// <para>The amount and currency of a payment</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
-	public Entity.PaymentAmountToRefund Amount { get; set; } = default!;
+	public Entity.PaymentAmountToRefund? Amount { get; set; } = default!;
 }

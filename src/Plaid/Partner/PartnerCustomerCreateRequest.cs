@@ -27,13 +27,13 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	/// <para>If <c>true</c>, the end customer's default Link customization will be set to match the partner's. You can always change the end customer's Link customization in the Plaid Dashboard. See the <a href="https://plaid.com/docs/link/customization/">Link Customization docs</a> for more information.</para>
 	/// </summary>
 	[JsonPropertyName("create_link_customization")]
-	public bool CreateLinkCustomization { get; set; } = default!;
+	public bool? CreateLinkCustomization { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Base64-encoded representation of the end customer's logo. Must be a PNG of size 1024x1024 under 4MB. The logo will be shared with financial institutions and shown to the end user during Link flows. A logo is required if <c>create_link_customization</c> is <c>true</c>. If <c>create_link_customization</c> is <c>false</c> and the logo is omitted, a stock logo will be used.</para>
 	/// </summary>
 	[JsonPropertyName("logo")]
-	public string Logo { get; set; } = default!;
+	public string? Logo { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The end customer's legal name. This will be shared with financial institutions as part of the OAuth registration process. It will not be shown to end users.</para>
@@ -57,19 +57,19 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	/// <para>The technical contact for the end customer. Defaults to partner's technical contact if omitted.</para>
 	/// </summary>
 	[JsonPropertyName("technical_contact")]
-	public Entity.PartnerEndCustomerTechnicalContact TechnicalContact { get; set; } = default!;
+	public Entity.PartnerEndCustomerTechnicalContact? TechnicalContact { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The billing contact for the end customer. Defaults to partner's billing contact if omitted.</para>
 	/// </summary>
 	[JsonPropertyName("billing_contact")]
-	public Entity.PartnerEndCustomerBillingContact BillingContact { get; set; } = default!;
+	public Entity.PartnerEndCustomerBillingContact? BillingContact { get; set; } = default!;
 
 	/// <summary>
 	/// <para>This information is public. Users of your app will see this information when managing connections between your app and their bank accounts in Plaid Portal. Defaults to partner's customer support info if omitted.</para>
 	/// </summary>
 	[JsonPropertyName("customer_support_info")]
-	public Entity.PartnerEndCustomerCustomerSupportInfo CustomerSupportInfo { get; set; } = default!;
+	public Entity.PartnerEndCustomerCustomerSupportInfo? CustomerSupportInfo { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The end customer's address.</para>
@@ -87,11 +87,11 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	/// <para>Assets under management for the given end customer. Required for end customers with monthly service commitments.</para>
 	/// </summary>
 	[JsonPropertyName("assets_under_management")]
-	public Entity.PartnerEndCustomerAssetsUnderManagement AssetsUnderManagement { get; set; } = default!;
+	public Entity.PartnerEndCustomerAssetsUnderManagement? AssetsUnderManagement { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A list of URIs indicating the destination(s) where a user can be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. URIs should not contain any query parameters. When used in Production or Development, URIs must use https. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. To modify redirect URIs for an end customer after creating them, go to the end customer's <a href="https://dashboard.plaid.com/team/api">API page</a> in the Dashboard.</para>
 	/// </summary>
 	[JsonPropertyName("redirect_uris")]
-	public IReadOnlyList<string> RedirectUris { get; set; } = default!;
+	public IReadOnlyList<string>? RedirectUris { get; set; } = default!;
 }

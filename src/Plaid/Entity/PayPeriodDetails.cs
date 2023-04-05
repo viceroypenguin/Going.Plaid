@@ -15,7 +15,7 @@ public record PayPeriodDetails
 	/// 
 	/// </summary>
 	[JsonPropertyName("distribution_breakdown")]
-	public IReadOnlyList<Entity.DistributionBreakdown> DistributionBreakdown { get; init; } = default!;
+	public IReadOnlyList<Entity.DistributionBreakdown>? DistributionBreakdown { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The pay period end date, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format: "yyyy-mm-dd".</para>

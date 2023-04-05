@@ -15,5 +15,5 @@ public record Address
 	/// <para>When <c>true</c>, identifies the address as the primary address on an account.</para>
 	/// </summary>
 	[JsonPropertyName("primary")]
-	public bool Primary { get; init; } = default!;
+	public bool? Primary { get; init; } = default!;
 }

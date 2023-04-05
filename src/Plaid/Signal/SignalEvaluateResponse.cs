@@ -21,11 +21,11 @@ public record SignalEvaluateResponse : ResponseBase
 	/// <para>For the full list and detailed documentation of core attributes available, or to request that core attributes not be returned, contact Sales or your Plaid account manager</para>
 	/// </summary>
 	[JsonPropertyName("core_attributes")]
-	public Entity.SignalEvaluateCoreAttributes CoreAttributes { get; init; } = default!;
+	public Entity.SignalEvaluateCoreAttributes? CoreAttributes { get; init; } = default!;
 
 	/// <summary>
 	/// <para>If bank information was not able to be used as features into the Signal model, this array contains warnings describing why we were missing bank data</para>
 	/// </summary>
 	[JsonPropertyName("warnings")]
-	public IReadOnlyList<Entity.SignalWarning> Warnings { get; init; } = default!;
+	public IReadOnlyList<Entity.SignalWarning>? Warnings { get; init; } = default!;
 }

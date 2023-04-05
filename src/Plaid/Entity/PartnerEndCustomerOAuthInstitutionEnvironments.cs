@@ -9,11 +9,11 @@ public record PartnerEndCustomerOAuthInstitutionEnvironments
 	/// <para>The registration status for the end customer's application.</para>
 	/// </summary>
 	[JsonPropertyName("development")]
-	public Entity.PartnerEndCustomerOAuthInstitutionApplicationStatus Development { get; init; } = default!;
+	public Entity.PartnerEndCustomerOAuthInstitutionApplicationStatus? Development { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The registration status for the end customer's application.</para>
 	/// </summary>
 	[JsonPropertyName("production")]
-	public Entity.PartnerEndCustomerOAuthInstitutionApplicationStatus Production { get; init; } = default!;
+	public Entity.PartnerEndCustomerOAuthInstitutionApplicationStatus? Production { get; init; } = default!;
 }

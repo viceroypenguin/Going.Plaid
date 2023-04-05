@@ -9,5 +9,5 @@ public record RemovedTransaction
 	/// <para>The ID of the removed transaction.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_id")]
-	public string TransactionId { get; init; } = default!;
+	public string? TransactionId { get; init; } = default!;
 }

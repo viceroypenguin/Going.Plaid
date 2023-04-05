@@ -9,35 +9,35 @@ public record CreditBankIncomeItem
 	/// <para>The Item's accounts that have Bank Income data.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_accounts")]
-	public IReadOnlyList<Entity.CreditBankIncomeAccount> BankIncomeAccounts { get; init; } = default!;
+	public IReadOnlyList<Entity.CreditBankIncomeAccount>? BankIncomeAccounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The income sources for this Item. Each entry in the array is a single income source.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_sources")]
-	public IReadOnlyList<Entity.CreditBankIncomeSource> BankIncomeSources { get; init; } = default!;
+	public IReadOnlyList<Entity.CreditBankIncomeSource>? BankIncomeSources { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The time when this Item's data was last retrieved from the financial institution.</para>
 	/// </summary>
 	[JsonPropertyName("last_updated_time")]
-	public DateTimeOffset LastUpdatedTime { get; init; } = default!;
+	public DateTimeOffset? LastUpdatedTime { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The unique identifier of the institution associated with the Item.</para>
 	/// </summary>
 	[JsonPropertyName("institution_id")]
-	public string InstitutionId { get; init; } = default!;
+	public string? InstitutionId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The name of the institution associated with the Item.</para>
 	/// </summary>
 	[JsonPropertyName("institution_name")]
-	public string InstitutionName { get; init; } = default!;
+	public string? InstitutionName { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The unique identifier for the Item.</para>
 	/// </summary>
 	[JsonPropertyName("item_id")]
-	public string ItemId { get; init; } = default!;
+	public string? ItemId { get; init; } = default!;
 }

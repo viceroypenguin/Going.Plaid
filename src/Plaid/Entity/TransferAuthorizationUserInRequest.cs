@@ -15,17 +15,17 @@ public partial class TransferAuthorizationUserInRequest : RequestBase
 	/// <para>The user's phone number. In order to qualify for a guaranteed transfer, at least one of <c>phone_number</c> or <c>email_address</c> must be provided.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
-	public string PhoneNumber { get; set; } = default!;
+	public string? PhoneNumber { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The user's email address. In order to qualify for a guaranteed transfer, at least one of <c>phone_number</c> or <c>email_address</c> must be provided.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
-	public string EmailAddress { get; set; } = default!;
+	public string? EmailAddress { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The address associated with the account holder. Providing this data will improve the likelihood that Plaid will be able to guarantee the transfer, if applicable.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.TransferUserAddressInRequest Address { get; set; } = default!;
+	public Entity.TransferUserAddressInRequest? Address { get; set; } = default!;
 }

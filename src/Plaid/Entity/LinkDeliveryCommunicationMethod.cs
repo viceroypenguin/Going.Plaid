@@ -9,11 +9,11 @@ public class LinkDeliveryCommunicationMethod
 	/// <para>The delivery method to be used to deliver the Link Delivery URL.</para>
 	/// </summary>
 	[JsonPropertyName("method")]
-	public Entity.LinkDeliveryDeliveryMethod Method { get; set; } = default!;
+	public Entity.LinkDeliveryDeliveryMethod? Method { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The phone number / email address that link delivery sessions are delivered to. Phone numbers must be in E.164 format.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public string Address { get; set; } = default!;
+	public string? Address { get; set; } = default!;
 }

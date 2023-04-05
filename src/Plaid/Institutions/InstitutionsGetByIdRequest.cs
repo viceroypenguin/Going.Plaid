@@ -21,5 +21,5 @@ public partial class InstitutionsGetByIdRequest : RequestBase
 	/// <para>Specifies optional parameters for <c>/institutions/get_by_id</c>. If provided, must not be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.InstitutionsGetByIdRequestOptions Options { get; set; } = default!;
+	public Entity.InstitutionsGetByIdRequestOptions? Options { get; set; } = default!;
 }

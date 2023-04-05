@@ -39,7 +39,7 @@ public partial class BankTransferEventListRequest : RequestBase
 	/// <para>Filter events by event type.</para>
 	/// </summary>
 	[JsonPropertyName("event_types")]
-	public IReadOnlyList<Entity.BankTransferEventType> EventTypes { get; set; } = default!;
+	public IReadOnlyList<Entity.BankTransferEventType>? EventTypes { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The maximum number of bank transfer events to return. If the number of events matching the above parameters is greater than <c>count</c>, the most recent events will be returned.</para>

@@ -33,13 +33,13 @@ public record LinkTokenGetMetadataResponse
 	/// <para>A map containing data used to highlight institutions in Link.</para>
 	/// </summary>
 	[JsonPropertyName("institution_data")]
-	public Entity.LinkTokenCreateInstitutionData InstitutionData { get; init; } = default!;
+	public Entity.LinkTokenCreateInstitutionData? InstitutionData { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The <c>account_filters</c> specified in the original call to <c>/link/token/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("account_filters")]
-	public Entity.AccountFiltersResponse AccountFilters { get; init; } = default!;
+	public Entity.AccountFiltersResponse? AccountFilters { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The <c>redirect_uri</c> specified in the <c>/link/token/create</c> call.</para>

@@ -21,5 +21,5 @@ public record ProcessorSignalEvaluateResponse : ResponseBase
 	/// <para>For the full list and detailed documentation of core attributes available, or to request that core attributes not be returned, contact Sales or your Plaid account manager</para>
 	/// </summary>
 	[JsonPropertyName("core_attributes")]
-	public Entity.SignalEvaluateCoreAttributes CoreAttributes { get; init; } = default!;
+	public Entity.SignalEvaluateCoreAttributes? CoreAttributes { get; init; } = default!;
 }

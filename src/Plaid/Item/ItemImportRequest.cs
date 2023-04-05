@@ -21,5 +21,5 @@ public partial class ItemImportRequest : RequestBase
 	/// <para>An optional object to configure <c>/item/import</c> request.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.ItemImportRequestOptions Options { get; set; } = default!;
+	public Entity.ItemImportRequestOptions? Options { get; set; } = default!;
 }

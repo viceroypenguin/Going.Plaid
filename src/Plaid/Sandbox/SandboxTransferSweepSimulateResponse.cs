@@ -10,5 +10,5 @@ public record SandboxTransferSweepSimulateResponse : ResponseBase
 	/// <para>Can be null if there are no transfers to include in a sweep.</para>
 	/// </summary>
 	[JsonPropertyName("sweep")]
-	public Entity.SimulatedTransferSweep Sweep { get; init; } = default!;
+	public Entity.SimulatedTransferSweep? Sweep { get; init; } = default!;
 }

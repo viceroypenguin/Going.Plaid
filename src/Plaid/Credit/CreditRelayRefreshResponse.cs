@@ -15,5 +15,5 @@ public record CreditRelayRefreshResponse : ResponseBase
 	/// <para>A unique ID identifying an Asset Report. Like all Plaid identifiers, this ID is case sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("asset_report_id")]
-	public string AssetReportId { get; init; } = default!;
+	public string? AssetReportId { get; init; } = default!;
 }

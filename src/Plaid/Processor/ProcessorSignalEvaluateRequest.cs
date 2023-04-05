@@ -33,7 +33,7 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	/// <para>A unique ID that identifies the end user in your system. This ID is used to correlate requests by a user with multiple Items. The max length for this field is 36 characters. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
-	public string ClientUserId { get; set; } = default!;
+	public string? ClientUserId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>**true** if the ACH transaction is a recurring transaction; **false** otherwise</para>
@@ -58,11 +58,11 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	/// <para>Details about the end user initiating the transaction (i.e., the account holder).</para>
 	/// </summary>
 	[JsonPropertyName("user")]
-	public Entity.SignalUser User { get; set; } = default!;
+	public Entity.SignalUser? User { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Details about the end user's device</para>
 	/// </summary>
 	[JsonPropertyName("device")]
-	public Entity.SignalEvaluateDevice Device { get; set; } = default!;
+	public Entity.SignalEvaluateDevice? Device { get; set; } = default!;
 }

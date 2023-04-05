@@ -9,5 +9,5 @@ public class SandboxPublicTokenCreateRequestIncomeVerificationBankIncome
 	/// <para>The number of days of data to request for the Bank Income product</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
-	public int DaysRequested { get; set; } = default!;
+	public int? DaysRequested { get; set; } = default!;
 }
