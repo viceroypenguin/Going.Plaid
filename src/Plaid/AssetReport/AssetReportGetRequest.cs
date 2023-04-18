@@ -18,7 +18,7 @@ public partial class AssetReportGetRequest : RequestBase
 	public bool? IncludeInsights { get; set; } = default!;
 
 	/// <summary>
-	/// <para><c>true</c> to fetch "fast" version of asset report. Defaults to false if omitted.</para>
+	/// <para><c>true</c> to fetch "fast" version of asset report. Defaults to false if omitted. Can only be used if <c>/asset_report/create</c> was called with <c>options.add_ons</c> set to <c>["fast_assets"]</c>.</para>
 	/// </summary>
 	[JsonPropertyName("fast_report")]
 	public bool? FastReport { get; set; } = default!;

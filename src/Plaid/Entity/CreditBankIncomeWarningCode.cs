@@ -18,7 +18,7 @@ public enum CreditBankIncomeWarningCode
 	TransactionsUnavailable,
 
 	/// <summary>
-	/// <para>User did not grant permission to share data for the Item</para>
+	/// <para>User exited flow before giving permission to share data for the Item</para>
 	/// </summary>
 	[EnumMember(Value = "ITEM_UNAPPROVED")]
 	ItemUnapproved,

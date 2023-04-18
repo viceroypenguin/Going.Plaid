@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>The <c>/credit/audit_copy_token/update</c> endpoint updates the Audit Copy Token by adding the report tokens in the <c>report_tokens</c> field to the <c>audit_copy_token</c>. If the Audit Copy Token already contains a report of a certain type, it will be replaced with the token provided in the <c>report_tokens</c> field.</para>
+	/// <para>The <c>/credit/audit_copy_token/update</c> endpoint updates an existing  Audit Copy Token by adding the report tokens in the <c>report_tokens</c> field to the <c>audit_copy_token</c>. If the Audit Copy Token already contains a report of a certain type, it will be replaced with the token provided in the <c>report_tokens</c> field.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
 	public Task<Credit.CreditAuditCopyTokenUpdateResponse> CreditAuditCopyTokenUpdateAsync(Credit.CreditAuditCopyTokenUpdateRequest request) =>

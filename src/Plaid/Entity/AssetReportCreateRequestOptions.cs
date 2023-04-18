@@ -30,7 +30,7 @@ public class AssetReportCreateRequestOptions
 	public IReadOnlyList<string>? Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Additional information that can be included in the asset report. Possible values: <c>"fast_assets"</c></para>
+	/// <para>Use this field to request a <c>fast_asset</c> report. When Fast Assets is requested, Plaid will create two versions of the Asset Report: first, the Fast Asset Report, which will contain only current identity and balance information, and later, the Full Asset Report, which will also contain historical balance information and transaction data. A <c>PRODUCT_READY</c> webhook will be fired for each Asset Report when it is ready, and the <c>report_type</c> field will indicate whether the webhook is firing for the <c>full</c> or <c>fast</c> Asset Report. To retrieve the Fast Asset Report, call <c>/asset_report/get</c> with <c>fast_report</c> set to <c>true</c>. There is no additional charge for using Fast Assets.</para>
 	/// </summary>
 	[JsonPropertyName("add_ons")]
 	public IReadOnlyList<Entity.AssetReportAddOns>? AddOns { get; set; } = default!;

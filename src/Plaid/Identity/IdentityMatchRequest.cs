@@ -12,6 +12,12 @@ public partial class IdentityMatchRequest : RequestBase
 	public Entity.IdentityMatchUser? User { get; set; } = default!;
 
 	/// <summary>
+	/// <para>ID of the associated Identity Verification attempt. This field can be used instead of <c>user</c> to perform fuzzy match against the data collected during identity verification.</para>
+	/// </summary>
+	[JsonPropertyName("identity_verification_id")]
+	public string? IdentityVerificationId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>An optional object to filter /identity/match results</para>
 	/// </summary>
 	[JsonPropertyName("options")]

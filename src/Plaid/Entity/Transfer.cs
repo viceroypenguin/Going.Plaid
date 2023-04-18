@@ -137,7 +137,7 @@ public record Transfer
 	public DateOnly? UnauthorizedReturnWindow { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An estimation of the settlement date which can be useful when the transfer is <c>pending</c>. Only set for ACH transfers and is <c>null</c> for non-ACH transfers. This will be of the form YYYY-MM-DD.</para>
+	/// <para>The expected date when the full amount of the transfer settles at the consumers’ account, if the transfer is credit; or at the customer's business checking account, if the transfer is debit. Only set for ACH transfers and is null for non-ACH transfers. Only set for ACH transfers. This will be of the form YYYY-MM-DD.</para>
 	/// </summary>
 	[JsonPropertyName("expected_settlement_date")]
 	public DateOnly? ExpectedSettlementDate { get; init; } = default!;
@@ -159,4 +159,16 @@ public record Transfer
 	/// </summary>
 	[JsonPropertyName("recurring_transfer_id")]
 	public string? RecurringTransferId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The accumulated amount that have been swept to date. This number does not reflect <c>return_swept</c> amount if the transfer is returned. Only applies to ACH debit transfers.</para>
+	/// </summary>
+	[JsonPropertyName("settled_amount")]
+	public string? SettledAmount { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The expected settlement schedule of this transfer, if posted. Only applies to ACH debit transfers.</para>
+	/// </summary>
+	[JsonPropertyName("expected_settlement_schedule")]
+	public IReadOnlyList<Entity.TransferExpectedSettlementScheduleItem>? ExpectedSettlementSchedule { get; init; } = default!;
 }

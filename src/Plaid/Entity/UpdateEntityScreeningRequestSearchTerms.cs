@@ -46,16 +46,4 @@ public class UpdateEntityScreeningRequestSearchTerms
 	/// </summary>
 	[JsonPropertyName("url")]
 	public string? Url { get; set; } = default!;
-
-	/// <summary>
-	/// <para>Your Plaid API <c>client_id</c>. The <c>client_id</c> is required and may be provided either in the <c>PLAID-CLIENT-ID</c> header or as part of a request body.</para>
-	/// </summary>
-	[JsonPropertyName("client_id")]
-	public string ClientId { get; set; } = default!;
-
-	/// <summary>
-	/// <para>Your Plaid API <c>secret</c>. The <c>secret</c> is required and may be provided either in the <c>PLAID-SECRET</c> header or as part of a request body.</para>
-	/// </summary>
-	[JsonPropertyName("secret")]
-	public string Secret { get; set; } = default!;
 }

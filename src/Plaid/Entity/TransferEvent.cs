@@ -72,7 +72,7 @@ public record TransferEvent
 	public string? SweepId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A signed amount of how much was <c>swept</c> or <c>return_swept</c> (decimal string with two digits of precision e.g. "-5.50").</para>
+	/// <para>A signed amount of how much was <c>swept</c> or <c>return_swept</c> for this transfer (decimal string with two digits of precision e.g. "-5.50").</para>
 	/// </summary>
 	[JsonPropertyName("sweep_amount")]
 	public string? SweepAmount { get; init; } = default!;

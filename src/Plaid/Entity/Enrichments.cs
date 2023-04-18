@@ -75,6 +75,14 @@ public record Enrichments
 	public string PersonalFinanceCategoryIconUrl { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Insights relating to expenses and deposits that are predicted to occur on a scheduled basis, such as biweekly, monthly, or annually.</para>
+	/// <para>Common examples include loan payments, bill payments, subscriptions, and payroll income.</para>
+	/// <para>This is a beta field, available to all users.</para>
+	/// </summary>
+	[JsonPropertyName("recurrence")]
+	public Entity.Recurrence? Recurrence { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The website associated with this transaction.</para>
 	/// </summary>
 	[JsonPropertyName("website")]

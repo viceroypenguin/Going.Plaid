@@ -9,7 +9,7 @@ public record CreditFreddieMacReportsGetResponse : ResponseBase
 	/// <para>Verification of Assets Report</para>
 	/// </summary>
 	[JsonPropertyName("VOA")]
-	public Entity.CreditFreddieMacVerificationOfAssets_VOA_2_4 Voa { get; init; } = default!;
+	public Entity.CreditFreddieMacVerificationOfAssets_VOA_2_4? Voa { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Verification of Employment Report</para>

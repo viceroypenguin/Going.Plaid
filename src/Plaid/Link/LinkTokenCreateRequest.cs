@@ -34,7 +34,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestUser User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted; required otherwise.</para>
+	/// <para>List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted (unless you are using update mode to add Income or Assets to an Item); required otherwise.</para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically be initialized when any other product is initialized.</para>
 	/// <para>The products specified here will determine which institutions will be available to your users in Link. Only institutions that support *all* requested products can be selected; a if a user attempts to select an institution that does not support a listed product, a "Connectivity not supported" error message will appear in Link. To maximize the number of institutions available, initialize Link with the minimal product set required for your use case. Additional products can be added after Link initialization by calling the relevant endpoints. For details and exceptions, see <a href="https://plaid.com/docs/link/initializing-products/">Choosing when to initialize products</a>.</para>
 	/// <para>Note that, unless you have opted to disable Instant Match support, institutions that support Instant Match will also be shown in Link if <c>auth</c> is specified as a product, even though these institutions do not contain <c>auth</c> in their product array.</para>
@@ -53,7 +53,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products>? AdditionalConsentedProducts { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The destination URL to which any webhooks should be sent. Note that webhooks for Payment Initiation, Transfer, Bank Transfer (including Auth micro-deposit notification webhooks) and Identity Verification are configured via the Dashboard instead.</para>
+	/// <para>The destination URL to which any webhooks should be sent. Note that webhooks for Payment Initiation (e-wallet transactions only), Transfer, Bank Transfer (including Auth micro-deposit notification webhooks) and Identity Verification are configured via the Dashboard instead.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string? Webhook { get; set; } = default!;
@@ -65,13 +65,13 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public string? LinkCustomizationName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. The <c>redirect_uri</c> should not contain any query parameters. When used in Production or Development, must be an https URI. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. If <c>android_package_name</c> is specified, this field should be left blank.  Note that any redirect URI must also be added to the Allowed redirect URIs list in the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>.</para>
+	/// <para>A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. The <c>redirect_uri</c> should not contain any query parameters. When used in Production or Development, must be an https URI. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. Note that any redirect URI must also be added to the Allowed redirect URIs list in the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>. If initializing on Android, <c>android_package_name</c> must be specified instead and <c>redirect_uri</c> should be left blank.</para>
 	/// </summary>
 	[JsonPropertyName("redirect_uri")]
 	public string? RedirectUri { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The name of your app's Android package. Required if using the <c>link_token</c> to initialize Link on Android. When creating a <c>link_token</c> for initializing Link on other platforms, this field must be left blank. Any package name specified here must also be added to the Allowed Android package names setting on the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>.</para>
+	/// <para>The name of your app's Android package. Required if using the <c>link_token</c> to initialize Link on Android. Any package name specified here must also be added to the Allowed Android package names setting on the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>. When creating a <c>link_token</c> for initializing Link on other platforms, <c>android_package_name</c> must be left blank and <c>redirect_uri</c> should be used instead.</para>
 	/// </summary>
 	[JsonPropertyName("android_package_name")]
 	public string? AndroidPackageName { get; set; } = default!;

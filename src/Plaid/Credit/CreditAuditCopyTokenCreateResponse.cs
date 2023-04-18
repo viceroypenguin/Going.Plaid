@@ -6,7 +6,7 @@ namespace Going.Plaid.Credit;
 public record CreditAuditCopyTokenCreateResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A token that can be shared with a third party auditor to allow them to obtain access to the Asset or Income Report. This token should be stored securely.</para>
+	/// <para>A token that can be shared with a third party auditor, which allows them to fetch the Asset Reports attached to the token. This token should be stored securely.</para>
 	/// </summary>
 	[JsonPropertyName("audit_copy_token")]
 	public string AuditCopyToken { get; init; } = default!;

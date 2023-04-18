@@ -15,6 +15,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/asset_report/get</c> endpoint retrieves the Asset Report in JSON format. Before calling <c>/asset_report/get</c>, you must first create the Asset Report using <c>/asset_report/create</c> (or filter an Asset Report using <c>/asset_report/filter</c>) and then wait for the <a href="https://plaid.com/docs/api/products/assets/#product_ready"><c>PRODUCT_READY</c></a> webhook to fire, indicating that the Report is ready to be retrieved.</para>
 	/// <para>By default, an Asset Report includes transaction descriptions as returned by the bank, as opposed to parsed and categorized by Plaid. You can also receive cleaned and categorized transactions, as well as additional insights like merchant name or location information. We call this an Asset Report with Insights. An Asset Report with Insights provides transaction category, location, and merchant information in addition to the transaction strings provided in a standard Asset Report.</para>
+	/// <para>If report_type was set to <c>VERIFICATION_OF_EMPLOYMENT</c> when the Asset Report was created in asset_report/create, debit transactions and transaction amounts won’t be included in the report.</para>
 	/// <para>To retrieve an Asset Report with Insights, call the <c>/asset_report/get</c> endpoint with <c>include_insights</c> set to <c>true</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#asset_reportget" /></remarks>

@@ -43,7 +43,7 @@ public record CreditBankIncomeAccount
 	public Entity.CreditBankIncomeAccountType Type { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Data returned by the financial institution about the account owner or owners. Identity information is optional, so field may return an empty array.</para>
 	/// </summary>
 	[JsonPropertyName("owners")]
 	public IReadOnlyList<Entity.Owner> Owners { get; init; } = default!;

@@ -6,7 +6,7 @@ namespace Going.Plaid.Credit;
 public partial class CreditAuditCopyTokenCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>List of report tokens; can include both Asset Report tokens and Income Report tokens.</para>
+	/// <para>List of report tokens; can include at most one VOA/standard Asset Report tokens and one VOE Asset Report Token.</para>
 	/// </summary>
 	[JsonPropertyName("report_tokens")]
 	public IReadOnlyList<string> ReportTokens { get; set; } = default!;

@@ -12,7 +12,7 @@ public partial class CreditAuditCopyTokenUpdateRequest : RequestBase
 	public string AuditCopyToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Array of tokens which the specified Audit Copy Token will be updated with. The types of token supported are asset report token and employment report token. There can be at most 1 of each type can be in the array.</para>
+	/// <para>Array of tokens which the specified Audit Copy Token will be updated with. The types of token supported are asset report token and employment report token. There can be at most 1 of each token type in the array.</para>
 	/// </summary>
 	[JsonPropertyName("report_tokens")]
 	public IReadOnlyList<string> ReportTokens { get; set; } = default!;
