@@ -15,11 +15,11 @@ public record PSLFStatus
 	/// <para>The number of qualifying payments that have been made.</para>
 	/// </summary>
 	[JsonPropertyName("payments_made")]
-	public decimal? PaymentsMade { get; init; } = default!;
+	public int? PaymentsMade { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The number of qualifying payments remaining.</para>
 	/// </summary>
 	[JsonPropertyName("payments_remaining")]
-	public decimal? PaymentsRemaining { get; init; } = default!;
+	public int? PaymentsRemaining { get; init; } = default!;
 }

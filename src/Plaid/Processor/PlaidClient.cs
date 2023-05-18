@@ -12,6 +12,54 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorAuthGetResponse>();
 
 	/// <summary>
+	/// <para>The <c>/processor/transactions/get</c> endpoint allows developers to receive user-authorized transaction data for credit, depository, and some loan-type accounts (only those with account subtype <c>student</c>; coverage may be limited). Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.</para>
+	/// <para>Transactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.  Transactions are not immutable and can also be removed altogether by the institution; a removed transaction will no longer appear in <c>/processor/transactions/get</c>.  For more details, see <a href="https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions">Pending and posted transactions</a>.</para>
+	/// <para>Due to the potentially large number of transactions associated with an Item, results are paginated. Manipulate the <c>count</c> and <c>offset</c> parameters in conjunction with the <c>total_transactions</c> response body field to fetch all available transactions.</para>
+	/// <para>Data returned by <c>/processor/transactions/get</c> will be the data available for the Item as of the most recent successful check for new transactions. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. An Item's <c>status.transactions.last_successful_update</c> field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, you can use the <c>/processor/transactions/refresh</c> endpoint.</para>
+	/// <para>Note that data may not be immediately available to <c>/processor/transactions/get</c>. Plaid will begin to prepare transactions data upon Item link, if Link was initialized with <c>transactions</c>, or upon the first call to <c>/processor/transactions/get</c>, if it wasn't. If no transaction history is ready when <c>/processor/transactions/get</c> is called, it will return a <c>PRODUCT_NOT_READY</c> error.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortransactionsget" /></remarks>
+	public Task<Processor.ProcessorTransactionsGetResponse> ProcessorTransactionsGetAsync(Processor.ProcessorTransactionsGetRequest request) =>
+		PostAsync("/processor/transactions/get", request)
+			.ParseResponseAsync<Processor.ProcessorTransactionsGetResponse>();
+
+	/// <summary>
+	/// <para>This endpoint replaces <c>/processor/transactions/get</c> and its associated webhooks for most common use-cases.</para>
+	/// <para>The <c>/processor/transactions/sync</c> endpoint allows developers to subscribe to all transactions associated with an Item and get updates synchronously in a stream-like manner, using a cursor to track which updates have already been seen. <c>/processor/transactions/sync</c> provides the same functionality as <c>/processor/transactions/get</c> and can be used instead of <c>/processor/transactions/get</c> to simplify the process of tracking transactions updates.</para>
+	/// <para>This endpoint provides user-authorized transaction data for <c>credit</c>, <c>depository</c>, and some loan-type accounts (only those with account subtype <c>student</c>; coverage may be limited). For transaction history from <c>investments</c> accounts, use <c>/investments/transactions/get</c> instead.</para>
+	/// <para>Returned transactions data is grouped into three types of update, indicating whether the transaction was added, removed, or modified since the last call to the API.</para>
+	/// <para>In the first call to <c>/processor/transactions/sync</c> for an Item, the endpoint will return all historical transactions data associated with that Item up until the time of the API call (as "adds"), which then generates a <c>next_cursor</c> for that Item. In subsequent calls, send the <c>next_cursor</c> to receive only the changes that have occurred since the previous call.</para>
+	/// <para>Due to the potentially large number of transactions associated with an Item, results are paginated. The <c>has_more</c> field specifies if additional calls are necessary to fetch all available transaction updates. Call <c>/processor/transactions/sync</c> with the new cursor, pulling all updates, until <c>has_more</c> is <c>false</c>.</para>
+	/// <para>When retrieving paginated updates, track both the <c>next_cursor</c> from the latest response and the original cursor from the first call in which <c>has_more</c> was <c>true</c>; if a call to <c>/processor/transactions/sync</c> fails when retrieving a paginated update, which can occur as a result of the <a href="https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination"><c>TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION</c></a> error, the entire pagination request loop must be restarted beginning with the cursor for the first page of the update, rather than retrying only the single request that failed.</para>
+	/// <para>Whenever new or updated transaction data becomes available, <c>/processor/transactions/sync</c> will provide these updates. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. An Item's <c>status.transactions.last_successful_update</c> field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, use the <c>/processor/transactions/refresh</c> endpoint.</para>
+	/// <para>Note that for newly created Items, data may not be immediately available to <c>/processor/transactions/sync</c>. Plaid begins preparing transactions data when the Item is created, but the process can take anywhere from a few seconds to several minutes to complete, depending on the number of transactions available.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortransactionssync" /></remarks>
+	public Task<Processor.ProcessorTransactionsSyncResponse> ProcessorTransactionsSyncAsync(Processor.ProcessorTransactionsSyncRequest request) =>
+		PostAsync("/processor/transactions/sync", request)
+			.ParseResponseAsync<Processor.ProcessorTransactionsSyncResponse>();
+
+	/// <summary>
+	/// <para><c>/processor/transactions/refresh</c> is an optional endpoint for users of the Transactions product. It initiates an on-demand extraction to fetch the newest transactions for an Item. This on-demand extraction takes place in addition to the periodic extractions that automatically occur multiple times a day for any Transactions-enabled Item. If changes to transactions are discovered after calling <c>/processor/transactions/refresh</c>, Plaid will fire a webhook: for <c>/transactions/sync</c> users, <a href="https://plaid.com/docs/api/products/transactions/#sync_updates_available"><c>SYNC_UPDATES_AVAILABLE</c></a> will be fired if there are any transactions updated, added, or removed. For users of both <c>/processor/transactions/sync</c> and <c>/processor/transactions/get</c>, <a href="https://plaid.com/docs/api/products/transactions/#transactions_removed"><c>TRANSACTIONS_REMOVED</c></a> will be fired if any removed transactions are detected, and <a href="https://plaid.com/docs/api/products/transactions/#default_update"><c>DEFAULT_UPDATE</c></a> will be fired if any new transactions are detected. New transactions can be fetched by calling <c>/processor/transactions/get</c> or <c>/processor/transactions/sync</c>. Note that the <c>/processor/transactions/refresh</c> endpoint is not supported for Capital One (<c>ins_128026</c>) and will result in a <c>PRODUCT_NOT_SUPPORTED</c> error if called on an Item from that institution.</para>
+	/// <para><c>/processor/transactions/refresh</c> is offered as an add-on to Transactions and has a separate <a href="https://plaid.com/docs/account/billing/#per-request-flat-fee">fee model</a>. To request access to this endpoint, submit a <a href="https://dashboard.plaid.com/team/products">product access request</a> or contact your Plaid account manager.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortransactionsrefresh" /></remarks>
+	public Task<Processor.ProcessorTransactionsRefreshResponse> ProcessorTransactionsRefreshAsync(Processor.ProcessorTransactionsRefreshRequest request) =>
+		PostAsync("/processor/transactions/refresh", request)
+			.ParseResponseAsync<Processor.ProcessorTransactionsRefreshResponse>();
+
+	/// <summary>
+	/// <para>The <c>/processor/transactions/recurring/get</c> endpoint allows developers to receive a summary of the recurring outflow and inflow streams (expenses and deposits) from a user’s checking, savings or credit card accounts. Additionally, Plaid provides key insights about each recurring stream including the category, merchant, last amount, and more. Developers can use these insights to build tools and experiences that help their users better manage cash flow, monitor subscriptions, reduce spend, and stay on track with bill payments.</para>
+	/// <para>This endpoint is offered as an add-on to Transactions. To request access to this endpoint, submit a <a href="https://dashboard.plaid.com/team/products">product access request</a> or contact your Plaid account manager.</para>
+	/// <para>This endpoint can only be called on an Item that has already been initialized with Transactions (either during Link, by specifying it in <c>/link/token/create</c>; or after Link, by calling <c>/processor/transactions/get</c> or <c>/processor/transactions/sync</c>). Once all historical transactions have been fetched, call <c>/processor/transactions/recurring/get</c> to receive the Recurring Transactions streams and subscribe to the <a href="https://plaid.com/docs/api/products/transactions/#recurring_transactions_update"><c>RECURRING_TRANSACTIONS_UPDATE</c></a> webhook. To know when historical transactions have been fetched, if you are using <c>/transactions/sync</c> listen for the <a href="https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete"><c>SYNC_UPDATES_AVAILABLE</c></a> webhook and check that the <c>historical_update_complete</c> field in the payload is <c>true</c>. If using <c>/transactions/get</c>, listen for the <a href="https://plaid.com/docs/api/products/transactions/#historical_update"><c>HISTORICAL_UPDATE</c></a> webhook.</para>
+	/// <para>After the initial call, you can call <c>/processor/transactions/recurring/get</c> endpoint at any point in the future to retrieve the latest summary of recurring streams. Listen to the <a href="https://plaid.com/docs/api/products/transactions/#recurring_transactions_update"><c>RECURRING_TRANSACTIONS_UPDATE</c></a> webhook to be notified when new updates are available.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortransactionsrecurringget" /></remarks>
+	public Task<Processor.ProcessorTransactionsRecurringGetResponse> ProcessorTransactionsRecurringGetAsync(Processor.ProcessorTransactionsRecurringGetRequest request) =>
+		PostAsync("/processor/transactions/recurring/get", request)
+			.ParseResponseAsync<Processor.ProcessorTransactionsRecurringGetResponse>();
+
+	/// <summary>
 	/// <para>Use <c>/processor/signal/evaluate</c> to evaluate a planned ACH transaction as a processor to get a return risk assessment (such as a risk score and risk tier) and additional risk signals.</para>
 	/// <para>In order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If <c>/processor/signal/evaluate</c> is called on the same transaction multiple times within a 24-hour period, cached results may be returned. For more information please refer to our error documentation on <a href="https://plaid.com/docs/errors/item/">item errors</a> and <a href="https://plaid.com/docs/link/update-mode/">Link in Update Mode</a>.</para>
 	/// <para>Note: This request may take some time to complete if Signal is being added to an existing Item. This is because Plaid must communicate directly with the institution when retrieving the data for the first time.</para>
@@ -54,6 +102,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorIdentityGetResponse>();
 
 	/// <summary>
+	/// <para>The <c>/processor/identity/match</c> endpoint generates a match score, which indicates how well the provided identity data matches the identity information on file with the account holder's financial institution.</para>
+	/// <para>This request may take some time to complete if Identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processoridentitymatch" /></remarks>
+	public Task<Processor.ProcessorIdentityMatchResponse> ProcessorIdentityMatchAsync(Processor.ProcessorIdentityMatchRequest request) =>
+		PostAsync("/processor/identity/match", request)
+			.ParseResponseAsync<Processor.ProcessorIdentityMatchResponse>();
+
+	/// <summary>
 	/// <para>The <c>/processor/balance/get</c> endpoint returns the real-time balance for each of an Item's accounts. While other endpoints may return a balance object, only <c>/processor/balance/get</c> forces the available and current balance fields to be refreshed rather than cached.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorbalanceget" /></remarks>
@@ -68,6 +125,22 @@ public sealed partial class PlaidClient
 	public Task<Processor.ProcessorTokenCreateResponse> ProcessorTokenCreateAsync(Processor.ProcessorTokenCreateRequest request) =>
 		PostAsync("/processor/token/create", request)
 			.ParseResponseAsync<Processor.ProcessorTokenCreateResponse>();
+
+	/// <summary>
+	/// <para>Used to control a processor's access to products on the given processor token. By default, a processor will have access to all available products on the corresponding item. To restrict access to a particular set of products, call this endpoint with the desired products. To restore access to all available products, call this endpoint with an empty list. This endpoint can be called multiple times as your needs and your processor's needs change.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortokenpermissionsset" /></remarks>
+	public Task<Processor.ProcessorTokenPermissionsSetResponse> ProcessorTokenPermissionsSetAsync(Processor.ProcessorTokenPermissionsSetRequest request) =>
+		PostAsync("/processor/token/permissions/set", request)
+			.ParseResponseAsync<Processor.ProcessorTokenPermissionsSetResponse>();
+
+	/// <summary>
+	/// <para>Used to get a processor token's product permissions. The <c>products</c> field will be an empty list if the processor can access all available products.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortokenpermissionsget" /></remarks>
+	public Task<Processor.ProcessorTokenPermissionsGetResponse> ProcessorTokenPermissionsGetAsync(Processor.ProcessorTokenPermissionsGetRequest request) =>
+		PostAsync("/processor/token/permissions/get", request)
+			.ParseResponseAsync<Processor.ProcessorTokenPermissionsGetResponse>();
 
 	/// <summary>
 	/// <para>Used to create a token suitable for sending to Stripe to enable Plaid-Stripe integrations. For a detailed guide on integrating Stripe, see <a href="https://plaid.com/docs/auth/partnerships/stripe/">Add Stripe to your app</a>.</para>

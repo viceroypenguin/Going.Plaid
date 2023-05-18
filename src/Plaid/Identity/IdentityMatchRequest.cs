@@ -6,16 +6,10 @@ namespace Going.Plaid.Identity;
 public partial class IdentityMatchRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The user's legal name, phone number, email address and address used to perform fuzzy match.</para>
+	/// <para>The user's legal name, phone number, email address and address used to perform fuzzy match. If Financial Account Matching is enabled in the Identity Verification product, leave this field empty to automatically match against PII collected from the Identity Verification checks.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.IdentityMatchUser? User { get; set; } = default!;
-
-	/// <summary>
-	/// <para>ID of the associated Identity Verification attempt. This field can be used instead of <c>user</c> to perform fuzzy match against the data collected during identity verification.</para>
-	/// </summary>
-	[JsonPropertyName("identity_verification_id")]
-	public string? IdentityVerificationId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An optional object to filter /identity/match results</para>

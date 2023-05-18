@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The optional address of the payment recipient. Required by most institutions outside of the UK.</para>
+/// <para>The optional address of the payment recipient's bank account. Required by most institutions outside of the UK.</para>
 /// </summary>
 public class PaymentInitiationAddress
 {

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record AddressMatchScore
 {
 	/// <summary>
-	/// <para>Match score for address. The score can range from 0 to 100 where 100 is a perfect match and 0 is a no match. If the address is missing from either the API or financial institution, this is empty.</para>
+	/// <para>Match score for address. The score can range from 0 to 100 where 100 is a perfect match and 0 is a no match. If the address is missing from either the API or financial institution, this is null.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int? Score { get; init; } = default!;

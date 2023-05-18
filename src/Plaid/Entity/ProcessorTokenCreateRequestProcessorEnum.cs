@@ -164,6 +164,12 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "gemini")]
+	Gemini,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "apex_clearing")]
 	ApexClearing,
 

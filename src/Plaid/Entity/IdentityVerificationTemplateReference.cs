@@ -15,5 +15,5 @@ public record IdentityVerificationTemplateReference
 	/// <para>Version of the associated Identity Verification template.</para>
 	/// </summary>
 	[JsonPropertyName("version")]
-	public decimal Version { get; init; } = default!;
+	public int Version { get; init; } = default!;
 }

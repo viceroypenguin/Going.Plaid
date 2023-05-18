@@ -69,6 +69,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditPayrollIncomeGetResponse>();
 
 	/// <summary>
+	/// <para><c>/credit/payroll_income/risk_signals/get</c> can be used as part of the Document Income flow to assess a user-uploaded document for signs of potential fraud or tampering. It returns a risk score for each uploaded document that indicates the likelihood of the document being fraudulent, in addition to details on the individual risk signals contributing to the score. <c>/credit/payroll_income/risk_signals/get</c> can be called at any time after the <c>INCOME_VERIFICATION</c> webhook has been fired.</para>
+	/// <para><c>/credit/payroll_income/risk_signals/get</c> is offered as an add-on to Document Income and is billed separately. To request access to this endpoint, submit a product access request or contact your Plaid account manager.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomerisk_signalsget" /></remarks>
+	public Task<Credit.CreditPayrollIncomeRiskSignalsGetResponse> CreditPayrollIncomeRiskSignalsGetAsync(Credit.CreditPayrollIncomeRiskSignalsGetRequest request) =>
+		PostAsync("/credit/payroll_income/risk_signals/get", request)
+			.ParseResponseAsync<Credit.CreditPayrollIncomeRiskSignalsGetResponse>();
+
+	/// <summary>
 	/// <para><c>/credit/payroll_income/precheck</c> is an optional endpoint that can be called before initializing a Link session for income verification. It evaluates whether a given user is supportable by digital income verification. If the user is eligible for digital verification, that information will be associated with the user token, and in this way will generate a Link UI optimized for the end user and their specific employer. If the user cannot be confirmed as eligible, the user can still use the income verification flow, but they may be required to manually upload a paystub to verify their income.</para>
 	/// <para>While all request fields are optional, providing <c>employer</c> data will increase the chance of receiving a useful result.</para>
 	/// <para>When testing in Sandbox, you can control the results by providing special test values in the <c>employer</c> and <c>access_tokens</c> fields. <c>employer_good</c> and <c>employer_bad</c> will result in <c>HIGH</c> and <c>LOW</c> confidence values, respectively. <c>employer_multi</c> will result in a <c>HIGH</c> confidence with multiple payroll options. Likewise, <c>access_good</c> and <c>access_bad</c> will result in <c>HIGH</c> and <c>LOW</c> confidence values, respectively. Any other value for <c>employer</c> and <c>access_tokens</c> in Sandbox will result in <c>UNKNOWN</c> confidence.</para>

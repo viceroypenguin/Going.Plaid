@@ -50,7 +50,7 @@ public partial class TransferCreateRequest : RequestBase
 	public string? Amount { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The transfer description. Maximum of 10 characters. If reprocessing a returned transfer, please note that the <c>description</c> field must be <c>"Retry"</c> to indicate that it's a retry of a previously returned transfer. You may retry a transfer up to 2 times, within 180 days of creating the original transfer. Only transfers that were returned with code <c>R01</c> or <c>R09</c> may be retried. For a full listing of ACH return codes, see <a href="https://plaid.com/docs/errors/transfer/#ach-return-codes">Transfer errors</a>.</para>
+	/// <para>The transfer description. Maximum of 15 characters. If reprocessing a returned transfer, please note that the <c>description</c> field must be <c>"Retry"</c> to indicate that it's a retry of a previously returned transfer. You may retry a transfer up to 2 times, within 180 days of creating the original transfer. Only transfers that were returned with code <c>R01</c> or <c>R09</c> may be retried. For a full listing of ACH return codes, see <a href="https://plaid.com/docs/errors/transfer/#ach-return-codes">Transfer errors</a>.</para>
 	/// </summary>
 	[JsonPropertyName("description")]
 	public string Description { get; set; } = default!;

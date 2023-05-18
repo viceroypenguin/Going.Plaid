@@ -86,6 +86,12 @@ public enum CreditBankIncomeCategory
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "BENEFIT_OTHER")]
+	BenefitOther,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "OTHER")]
 	Other,
 

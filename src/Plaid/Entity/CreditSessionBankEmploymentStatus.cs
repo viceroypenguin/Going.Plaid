@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The terminal status of the bank employment verification.</para>
+/// <para>Status of the Bank Employment Link session.</para>
 /// </summary>
 public enum CreditSessionBankEmploymentStatus
 {

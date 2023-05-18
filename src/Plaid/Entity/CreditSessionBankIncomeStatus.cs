@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The terminal status of the bank income verification.</para>
+/// <para>Status of the Bank Income Link session.</para>
 /// </summary>
 public enum CreditSessionBankIncomeStatus
 {

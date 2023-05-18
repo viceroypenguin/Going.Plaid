@@ -30,7 +30,7 @@ public record WatchlistScreeningEntityUpdateResponse : ResponseBase
 	public Entity.WatchlistScreeningStatus Status { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An identifier to help you connect this object to your internal systems. For example, your database ID corresponding to this object.</para>
+	/// <para>A unique ID that identifies the end user in your system. This ID can also be used to associate user-specific data from other Plaid products. Financial Account Matching requires this field and the Link Token Create <c>client_user_id</c> to be consistent. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; init; } = default!;

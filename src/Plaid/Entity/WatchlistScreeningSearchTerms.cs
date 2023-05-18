@@ -39,5 +39,5 @@ public record WatchlistScreeningSearchTerms
 	/// <para>The current version of the search terms. Starts at <c>1</c> and increments with each edit to <c>search_terms</c>.</para>
 	/// </summary>
 	[JsonPropertyName("version")]
-	public decimal Version { get; init; } = default!;
+	public int Version { get; init; } = default!;
 }

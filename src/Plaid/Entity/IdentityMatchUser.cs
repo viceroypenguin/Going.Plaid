@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The user's legal name, phone number, email address and address used to perform fuzzy match.</para>
+/// <para>The user's legal name, phone number, email address and address used to perform fuzzy match. If Financial Account Matching is enabled in the Identity Verification product, leave this field empty to automatically match against PII collected from the Identity Verification checks.</para>
 /// </summary>
 public class IdentityMatchUser
 {

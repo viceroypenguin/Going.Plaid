@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record CreditSessionBankEmploymentResult
 {
 	/// <summary>
-	/// <para>The terminal status of the bank employment verification.</para>
+	/// <para>Status of the Bank Employment Link session.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.CreditSessionBankEmploymentStatus? Status { get; init; } = default!;

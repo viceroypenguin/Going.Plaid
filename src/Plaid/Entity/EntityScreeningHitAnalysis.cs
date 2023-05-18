@@ -45,5 +45,5 @@ public record EntityScreeningHitAnalysis
 	/// <para>The version of the entity screening's <c>search_terms</c> that were compared when the entity screening hit was added. entity screening hits are immutable once they have been reviewed. If changes are detected due to updates to the entity screening's <c>search_terms</c>, the associated entity program, or the list's source data prior to review, the entity screening hit will be updated to reflect those changes.</para>
 	/// </summary>
 	[JsonPropertyName("search_terms_version")]
-	public decimal SearchTermsVersion { get; init; } = default!;
+	public int SearchTermsVersion { get; init; } = default!;
 }

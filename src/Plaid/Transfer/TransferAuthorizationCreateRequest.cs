@@ -103,4 +103,10 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifies the source of funds for the transfer. Only valid for <c>credit</c> transfers, and defaults to <c>sweep</c> if not specified. This field is not specified for <c>debit</c> transfers.</para>
+	/// </summary>
+	[JsonPropertyName("credit_funds_source")]
+	public Entity.TransferCreditFundsSource? CreditFundsSource { get; set; } = default!;
 }

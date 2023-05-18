@@ -24,10 +24,10 @@ public record Transfer
 	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited.</para>
+	/// <para>The id of the associated funding account, available in the Plaid Dashboard. If present, this indicates which of your business checking accounts will be credited or debited.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
-	public string FundingAccountId { get; init; } = default!;
+	public string? FundingAccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
@@ -161,14 +161,14 @@ public record Transfer
 	public string? RecurringTransferId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The accumulated amount that have been swept to date. This number does not reflect <c>return_swept</c> amount if the transfer is returned. Only applies to ACH debit transfers.</para>
+	/// <para>The expected sweep settlement schedule of this transfer, assuming this transfer is not <c>returned</c>. Only applies to ACH debit transfers.</para>
 	/// </summary>
-	[JsonPropertyName("settled_amount")]
-	public string? SettledAmount { get; init; } = default!;
+	[JsonPropertyName("expected_sweep_settlement_schedule")]
+	public IReadOnlyList<Entity.TransferExpectedSweepSettlementScheduleItem>? ExpectedSweepSettlementSchedule { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The expected settlement schedule of this transfer, if posted. Only applies to ACH debit transfers.</para>
+	/// <para>Specifies the source of funds for the transfer. Only valid for <c>credit</c> transfers, and defaults to <c>sweep</c> if not specified. This field is not specified for <c>debit</c> transfers.</para>
 	/// </summary>
-	[JsonPropertyName("expected_settlement_schedule")]
-	public IReadOnlyList<Entity.TransferExpectedSettlementScheduleItem>? ExpectedSettlementSchedule { get; init; } = default!;
+	[JsonPropertyName("credit_funds_source")]
+	public Entity.TransferCreditFundsSource? CreditFundsSource { get; init; } = default!;
 }

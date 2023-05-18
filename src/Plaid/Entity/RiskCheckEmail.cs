@@ -60,7 +60,7 @@ public record RiskCheckEmail
 	public Entity.RiskCheckEmailTopLevelDomainIsSuspicious TopLevelDomainIsSuspicious { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>A list of online services where this email address has been detected to have accounts or other activity.</para>
 	/// </summary>
 	[JsonPropertyName("linked_services")]
 	public IReadOnlyList<Entity.RiskCheckLinkedService> LinkedServices { get; init; } = default!;

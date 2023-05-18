@@ -12,7 +12,7 @@ public record Activity
 	public Entity.ActivityType ActivityType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date and time this activity was initiated <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
+	/// <para>The date this activity was initiated <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
 	/// </summary>
 	[JsonPropertyName("initiated_date")]
 	public DateOnly InitiatedDate { get; init; } = default!;

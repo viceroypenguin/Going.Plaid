@@ -24,7 +24,7 @@ public class LinkTokenCreateRequestUser
 	public Entity.LinkTokenCreateRequestUserNameObject? Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>.</para>
+	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>. Can also be used to prefill Link fields when used with Identity Verification.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public string? PhoneNumber { get; set; } = default!;
@@ -38,7 +38,7 @@ public class LinkTokenCreateRequestUser
 	public DateTimeOffset? PhoneNumberVerifiedTime { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's email address. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user/#pre-authenticated-rux">pre-authenticated returning user flow</a>.</para>
+	/// <para>The user's email address. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user/#pre-authenticated-rux">pre-authenticated returning user flow</a>. Can also be used to prefill Link fields when used with Identity Verification.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string? EmailAddress { get; set; } = default!;
@@ -52,26 +52,26 @@ public class LinkTokenCreateRequestUser
 	public DateTimeOffset? EmailAddressVerifiedTime { get; set; } = default!;
 
 	/// <summary>
-	/// <para>To be provided in the format "ddd-dd-dddd". Not currently used.</para>
+	/// <para>Deprecated and not currently used, use the <c>id_number</c> field instead.</para>
 	/// </summary>
 	[JsonPropertyName("ssn")]
 	public string? Ssn { get; set; } = default!;
 
 	/// <summary>
-	/// <para>To be provided in the format "yyyy-mm-dd". Not currently used.</para>
+	/// <para>To be provided in the format "yyyy-mm-dd". Can be used to prefill Link fields when used with Identity Verification.</para>
 	/// </summary>
 	[JsonPropertyName("date_of_birth")]
 	public DateOnly? DateOfBirth { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Home address for the user.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.UserAddress? Address { get; set; } = default!;
+	public Entity.LinkTokenCreateRequestUserAddressObject? Address { get; set; } = default!;
 
 	/// <summary>
-	/// <para>ID number submitted by the user, currently used only for the Identity Verification product. If the user has not submitted this data yet, this field will be <c>null</c>. Otherwise, both fields are guaranteed to be filled.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("id_number")]
-	public Entity.UserIDNumber? IdNumber { get; set; } = default!;
+	public Entity.LinkTokenCreateRequestUserIdNumberObject? IdNumber { get; set; } = default!;
 }

@@ -15,7 +15,7 @@ public record DocumentaryVerificationDocument
 	/// <para>The <c>attempt</c> field begins with 1 and increments with each subsequent document upload.</para>
 	/// </summary>
 	[JsonPropertyName("attempt")]
-	public decimal Attempt { get; init; } = default!;
+	public int Attempt { get; init; } = default!;
 
 	/// <summary>
 	/// <para>URLs for downloading original and cropped images for this document submission. The URLs are designed to only allow downloading, not hot linking, so the URL will only serve the document image for 60 seconds before expiring. The expiration time is 60 seconds after the <c>GET</c> request for the associated Identity Verification attempt. A new expiring URL is generated with each request, so you can always rerequest the Identity Verification attempt if one of your URLs expires.</para>

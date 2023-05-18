@@ -26,13 +26,21 @@ public sealed partial class PlaidClient
 	/// <para>  - To approve a transfer with the rationale code <c>ITEM_LOGIN_REQUIRED</c>, <a href="https://plaid.com/docs/sandbox/#item_login_required">reset the login for an Item</a>.</para>
 	/// <para>  - To decline a transfer with the rationale code <c>NSF</c>, the available balance on the account must be less than the authorization <c>amount</c>. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
 	/// <para>  - To decline a transfer with the rationale code <c>RISK</c>, the available balance on the account must be exactly $0. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
-	/// <para><c>device.ip_address</c>, <c>device.user_agent</c> are required fields.</para>
+	/// <para>The fields <c>device.ip_address</c> and <c>device.user_agent</c> are required for all sessions where the end-user is present. For example, when a user is authorizing a one-time payment from their device.</para>
 	/// <para>For <a href="https://www.plaid.com/docs//transfer/guarantee/">Guarantee</a>, the following fields are required : <c>idempotency_key</c>, <c>user.phone_number</c> (optional if <c>email_address</c> provided), <c>user.email_address</c> (optional if <c>phone_number</c> provided), <c>device.ip_address</c>, <c>device.user_agent</c>, and <c>user_present</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferauthorizationcreate" /></remarks>
 	public Task<Transfer.TransferAuthorizationCreateResponse> TransferAuthorizationCreateAsync(Transfer.TransferAuthorizationCreateRequest request) =>
 		PostAsync("/transfer/authorization/create", request)
 			.ParseResponseAsync<Transfer.TransferAuthorizationCreateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/balance/get</c> endpoint to view a balance held with Plaid.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferbalanceget" /></remarks>
+	public Task<Transfer.TransferBalanceGetResponse> TransferBalanceGetAsync(Transfer.TransferBalanceGetRequest request) =>
+		PostAsync("/transfer/balance/get", request)
+			.ParseResponseAsync<Transfer.TransferBalanceGetResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/transfer/capabilities/get</c> endpoint to determine the RTP eligibility information of a transfer.</para>
@@ -193,6 +201,14 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferQuestionnaireCreateResponse> TransferQuestionnaireCreateAsync(Transfer.TransferQuestionnaireCreateRequest request) =>
 		PostAsync("/transfer/questionnaire/create", request)
 			.ParseResponseAsync<Transfer.TransferQuestionnaireCreateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/diligence/submit</c> endpoint to submit transfer diligence on behalf of the originator.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferdiligencesubmit" /></remarks>
+	public Task<Transfer.TransferDiligenceSubmitResponse> TransferDiligenceSubmitAsync(Transfer.TransferDiligenceSubmitRequest request) =>
+		PostAsync("/transfer/diligence/submit", request)
+			.ParseResponseAsync<Transfer.TransferDiligenceSubmitResponse>();
 
 	/// <summary>
 	/// <para>The <c>/transfer/originator/get</c> endpoint gets status updates for an originator's onboarding process. This information is also available via the Transfer page on the Plaid dashboard.</para>
