@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The address associated with the account holder. Providing this data will improve the likelihood that Plaid will be able to guarantee the transfer, if applicable.</para>
 /// </summary>
-public partial class TransferUserAddressInRequest : RequestBase
+public partial class TransferUserAddressInRequest
 {
 	/// <summary>
 	/// <para>The street number and name (i.e., "100 Market St.").</para>

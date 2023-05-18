@@ -29,11 +29,9 @@ static class Program
 
 		ProcessUris(doc);
 		ProcessAccountTypes(doc);
+		ProcessWebhookTypes(doc);
 
 		var plaidSrcPath = Path.Combine(basePath, "src", "Plaid");
-		if (!Directory.Exists(Path.Combine(plaidSrcPath, "Entity")))
-			Directory.CreateDirectory(Path.Combine(plaidSrcPath, "Entity"));
-
 		SaveApis(plaidSrcPath);
 		SaveSchemas(plaidSrcPath);
 	}
@@ -63,6 +61,7 @@ static class Program
 		["YTDGrossIncomeSummaryFieldNumber"] = "YtdGrossIncomeSummaryFieldNumber",
 		["YTDNetIncomeSummaryFieldNumber"] = "YtdNetIncomeSummaryFieldNumber",
 		["Error"] = "PlaidError",
+		["WebhookType"] = "SandboxItemFireWebhookRequestWebhookTypeEnum",
 	};
 	private static readonly string[] excludes = new[]
 	{
@@ -110,12 +109,12 @@ static class Program
 
 			var requestSchema = op.RequestBody.Content["application/json"].Schema;
 			var requestType = $"{basePath}.{requestSchema.Reference.Id}";
-			AddSchemaEntity(basePath, requestSchema.Reference.Id, isResponseType: false, requestSchema, SchemaType.Class);
+			AddSchemaEntity(basePath, requestSchema.Reference.Id, BaseType.Request, requestSchema, SchemaType.Class);
 
 			var responseSchema = op.Responses["200"].Content["application/json"].Schema;
 			var responsePath = responseSchema.Reference.Id.EndsWith("Response") ? basePath : "Entity";
 			var responseType = $"{responsePath}.{responseSchema.Reference.Id}";
-			AddSchemaEntity(responsePath, responseSchema.Reference.Id, isResponseType: true, responseSchema, SchemaType.Record);
+			AddSchemaEntity(responsePath, responseSchema.Reference.Id, BaseType.Response, responseSchema, SchemaType.Record);
 
 			apiCalls.Add(new(
 				uri,
@@ -128,7 +127,7 @@ static class Program
 		}
 	}
 
-	private static void AddSchemaEntity(string basePath, string name, bool isResponseType, OpenApiSchema schema, SchemaType type)
+	private static void AddSchemaEntity(string basePath, string name, BaseType baseType, OpenApiSchema schema, SchemaType type)
 	{
 		if (excludes.Contains(name)) return;
 
@@ -141,8 +140,8 @@ static class Program
 				entity.SchemaType = SchemaType.Class;
 			}
 
-			if (isResponseType && !entity.IsResponseType)
-				entity.IsResponseType = true;
+			if (baseType == BaseType.Response && entity.BaseType != BaseType.Response)
+				entity.BaseType = BaseType.Response;
 
 			return;
 		}
@@ -178,7 +177,7 @@ static class Program
 				BasePath = basePath,
 				Name = name,
 				Description = GetPropertyDescription(schema),
-				IsResponseType = isResponseType,
+				BaseType = baseType,
 			};
 
 			var properties = schema.Properties.ToList();
@@ -189,13 +188,22 @@ static class Program
 			}
 
 			e.Properties = properties
-				.Where(p => !(
-					(name.EndsWith("Request")
-						&& (p.Key is "client_id" or "secret" or "access_token"))
-					|| (isResponseType && p.Key is "request_id" or "error")))
+				.Where(p => baseType switch
+				{
+					BaseType.Request => p.Key is not "client_id" and not "secret" and not "access_token",
+					BaseType.Response => p.Key is not "request_id" and not "error",
+					BaseType.Webhook => p.Key is not "environment",
+					_ => true,
+				})
 				.Select(p =>
 				{
 					var propertyName = p.Key.ToLower().ToPascalCase();
+					if (baseType == BaseType.Webhook && p.Key is "webhook_type" or "webhook_code")
+					{
+						var code = p.Value.Description.Trim('`', '"');
+						return new Property(code, propertyName, propertyName, code.ToLower().ToPascalCase());
+					}
+
 					var typeName = GetPropertyType(name, propertyName, p.Value, type);
 					if (p.Value.Nullable || !schema.Required.Contains(p.Key))
 						typeName += "?";
@@ -332,7 +340,7 @@ static class Program
 		}
 
 		entityName = nameFixups.GetValueOrDefault(entityName, entityName);
-		AddSchemaEntity("Entity", entityName, isResponseType: false, schema, entityType);
+		AddSchemaEntity("Entity", entityName, BaseType.None, schema, entityType);
 		return entityName == "PlaidException"
 			? "Exceptions.PlaidException"
 			: $"Entity.{entityName}";
@@ -405,6 +413,67 @@ static class Program
 		};
 	}
 
+	private static void ProcessWebhookTypes(OpenApiDocument doc)
+	{
+		var schemas = doc.Components.Schemas
+			.Select(x => x.Value)
+			.Select(x => (schema: x, name: x.Title ?? x.Reference?.Id!))
+			.Where(x => !string.IsNullOrWhiteSpace(x.name))
+			.Where(x => x.name.EndsWith("Webhook"))
+			.Where(x => x.schema.Properties.Any(p => p.Key == "webhook_code"))
+			.ToList();
+
+		foreach (var (schema, name) in schemas)
+		{
+			var entityName = nameFixups.GetValueOrDefault(name, name);
+			AddSchemaEntity("Webhook", entityName, BaseType.Webhook, schema, SchemaType.Record);
+		}
+
+		var types = schemas
+			.Select(x => nameFixups.GetValueOrDefault(x.name, x.name))
+			.Select(x => schemaEntities[x])
+			.Select(x => x.Properties!.Single(p => p.Name == "WebhookType"))
+			.Select(x => (jsonName: x.JsonName, name: x.Description!))
+			.Distinct();
+
+		schemaEntities["WebhookType"] = new()
+		{
+			SchemaType = SchemaType.Enum,
+			BasePath = "Entity",
+			Name = "WebhookType",
+			Description = "A list of supported Webhook Payload types.",
+			Properties = types
+				.Select(e => new Property(
+					e.jsonName,
+					string.Empty,
+					e.name,
+					null))
+				.ToList(),
+		};
+
+		var codes = schemas
+			.Select(x => nameFixups.GetValueOrDefault(x.name, x.name))
+			.Select(x => schemaEntities[x])
+			.Select(x => x.Properties!.Single(p => p.Name == "WebhookCode"))
+			.Select(x => (jsonName: x.JsonName, name: x.Description!))
+			.Distinct();
+
+		schemaEntities["WebhookCode"] = new()
+		{
+			SchemaType = SchemaType.Enum,
+			BasePath = "Entity",
+			Name = "WebhookCode",
+			Description = "A list of supported Webhook Payload codes.",
+			Properties = codes
+				.Select(e => new Property(
+					e.jsonName,
+					string.Empty,
+					e.name,
+					null))
+				.ToList(),
+		};
+	}
+
 	private static void AddAccountSubtype(OpenApiDocument doc, string subtypeName, string descriptionSchemaName)
 	{
 		var schema = doc.Components.Schemas[subtypeName];
@@ -439,10 +508,6 @@ static class Program
 	{
 		foreach (var g in apiCalls.GroupBy(a => a.BasePath))
 		{
-			var apiFolder = Path.Combine(plaidSrcPath, g.Key);
-			if (!Directory.Exists(apiFolder))
-				Directory.CreateDirectory(apiFolder);
-
 			static string remarks(string url) =>
 				string.IsNullOrWhiteSpace(url) ? string.Empty :
 				$@"
@@ -462,6 +527,8 @@ public sealed partial class PlaidClient
 {{{string.Join(Environment.NewLine, methods)}
 }}";
 
+			var apiFolder = Path.Combine(plaidSrcPath, g.Key);
+			Directory.CreateDirectory(apiFolder);
 			File.WriteAllText(Path.Combine(apiFolder, "PlaidClient.cs"), body);
 		}
 	}
@@ -496,9 +563,7 @@ public sealed partial class PlaidClient
 			?? Array.Empty<string>();
 
 		var basePath = string.Empty;
-		if (i.BaseClass != null)
-			basePath = " : " + i.BaseClass;
-		else if (i.Name.EndsWith("Request"))
+		if (i.BaseType == BaseType.Request)
 			basePath = " : RequestBase";
 
 		var body = $@"namespace Going.Plaid.{i.BasePath};
@@ -510,12 +575,16 @@ public {(i.Name.EndsWith("Request") ? "partial class" : "class")} {i.Name}{baseP
 {{{string.Join(Environment.NewLine, properties)}
 }}";
 
-		File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), body);
+		var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
+		Directory.CreateDirectory(baseFolder);
+		File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
 	}
 
 	private static void SaveRecord(string plaidSrcPath, SchemaEntity i)
 	{
-		var properties = i.Properties?.Select(p => $@"
+		var properties = i.Properties
+			?.ExceptBy(new[] { "WebhookType", "WebhookCode", }, x => x.Name)
+			?.Select(p => $@"
 	/// <summary>
 {FormatDescription(p.Description ?? string.Empty, 1)}
 	/// </summary>
@@ -524,10 +593,27 @@ public {(i.Name.EndsWith("Request") ? "partial class" : "class")} {i.Name}{baseP
 			?? Array.Empty<string>();
 
 		var basePath = string.Empty;
-		if (i.BaseClass != null)
-			basePath = " : " + i.BaseClass;
-		else if (i.IsResponseType)
+		if (i.BaseType == BaseType.Response)
 			basePath = " : ResponseBase";
+		else if (i.BaseType == BaseType.Webhook)
+		{
+			var type = i.Properties!
+				.Single(p => p.Name == "WebhookType")
+				.Description;
+			var code = i.Properties!
+				.Single(p => p.Name == "WebhookCode")
+				.Description;
+
+			properties = properties
+				.Prepend($@"
+	/// <inheritdoc />
+	public override WebhookType WebhookType => WebhookType.{type};
+
+	/// <inheritdoc />
+	public override WebhookCode WebhookCode => WebhookCode.{code};");
+
+			basePath = " : WebhookBase";
+		}
 
 		var body = $@"namespace Going.Plaid.{i.BasePath};
 
@@ -538,7 +624,9 @@ public record {i.Name}{basePath}
 {{{string.Join(Environment.NewLine, properties)}
 }}";
 
-		File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), body);
+		var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
+		Directory.CreateDirectory(baseFolder);
+		File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
 	}
 
 	private static readonly Property unknownProperty = new("undefined", string.Empty, "Undefined", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.");
@@ -569,9 +657,18 @@ public enum {i.Name}
 
 public enum SchemaType
 {
+	None,
 	Class,
 	Record,
 	Enum,
+}
+
+public enum BaseType
+{
+	None,
+	Request,
+	Response,
+	Webhook,
 }
 
 public record struct ApiCall(string Uri, string BasePath, string MethodName, string Description, string ExternalUrl, string RequestType, string ResponseType);
@@ -583,7 +680,6 @@ public class SchemaEntity
 	public string BasePath { get; init; } = default!;
 	public string Name { get; init; } = default!;
 	public string Description { get; init; } = default!;
-	public string? BaseClass { get; set; }
-	public bool IsResponseType { get; set; }
+	public BaseType BaseType { get; set; }
 	public IReadOnlyList<Property>? Properties { get; set; } = default!;
 }

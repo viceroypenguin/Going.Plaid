@@ -1,27 +1,45 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The webhook types that can be fired by this test endpoint.</para>
+/// <para>A list of supported Webhook Payload types.</para>
 /// </summary>
 public enum WebhookType
 {
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "SCREENING")]
+	Screening,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "ENTITY_SCREENING")]
+	EntityScreening,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "IDENTITY_VERIFICATION")]
+	IdentityVerification,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "TRANSACTIONS")]
+	Transactions,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "IDENTITY")]
+	Identity,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "AUTH")]
 	Auth,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "HOLDINGS")]
-	Holdings,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "INVESTMENTS_TRANSACTIONS")]
-	InvestmentsTransactions,
 
 	/// <summary>
 	/// 
@@ -32,14 +50,74 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "INCOME")]
+	Income,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "BANK_TRANSFERS")]
+	BankTransfers,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "TRANSFER")]
+	Transfer,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "INVESTMENTS_TRANSACTIONS")]
+	InvestmentsTransactions,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "HOLDINGS")]
+	Holdings,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "PARTNER")]
+	Partner,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "LIABILITIES")]
 	Liabilities,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "TRANSACTIONS")]
-	Transactions,
+	[EnumMember(Value = "PAYMENT_INITIATION")]
+	PaymentInitiation,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "WALLET")]
+	Wallet,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "DEPOSIT_SWITCH")]
+	DepositSwitch,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "LINK_DELIVERY")]
+	LinkDelivery,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "LINK")]
+	Link,
 
 	/// <summary>
 	/// 
