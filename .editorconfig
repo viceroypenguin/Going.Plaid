@@ -1,4 +1,6 @@
-# EditorConfig is awesome: https://EditorConfig.org
+# http://editorconfig.org/
+
+root = true
 
 [*]
 indent_style = tab
@@ -13,32 +15,18 @@ insert_final_newline = false
 indent_style = spaces
 indent_size = 2
 
+# XML project files
+[*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj,props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct}]
+indent_size = 2
+
 # Code files
-[*.{cs,csx,vb,vbx}]
+[*.cs]
 indent_size = 4
+tab_width = 4
 charset = utf-8-bom
 
-# XML project files
-[*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj}]
-indent_size = 2
-
-# XML config files
-[*.{props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct}]
-indent_size = 2
-
-# JSON files
-[*.json]
-indent_size = 2
-
-# Powershell files
-[*.ps1]
-indent_size = 2
-
-# Dotnet code style settings:
-[*.{cs,vb}]
-
 # IDE0055: Fix formatting
-dotnet_diagnostic.IDE0055.severity = warning
+dotnet_diagnostic.IDE0055.severity = error
 
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = true
