@@ -6,9 +6,11 @@ namespace Going.Plaid.Webhook;
 public record PendingExpirationWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.Item;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.PendingExpiration;
 
 	/// <summary>

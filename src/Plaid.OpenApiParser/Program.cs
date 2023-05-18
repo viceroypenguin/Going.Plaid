@@ -34,6 +34,7 @@ static class Program
 		var plaidSrcPath = Path.Combine(basePath, "src", "Plaid");
 		SaveApis(plaidSrcPath);
 		SaveSchemas(plaidSrcPath);
+		SaveConverterMap(plaidSrcPath);
 	}
 
 	private static string GetBasePath()
@@ -46,6 +47,7 @@ static class Program
 
 	private static readonly List<ApiCall> apiCalls = new();
 	private static readonly Dictionary<string, SchemaEntity> schemaEntities = new();
+	private static readonly Dictionary<(string type, string code), string> webhookDictionaryMap = new();
 	private static readonly Dictionary<string, string> nameFixups = new()
 	{
 		["address"] = "AddressMatchScore",
@@ -423,18 +425,24 @@ static class Program
 			.Where(x => x.schema.Properties.Any(p => p.Key == "webhook_code"))
 			.ToList();
 
+		var types = new HashSet<(string jsonName, string name)>();
+		var codes = new HashSet<(string jsonName, string name)>();
+
 		foreach (var (schema, name) in schemas)
 		{
 			var entityName = nameFixups.GetValueOrDefault(name, name);
 			AddSchemaEntity("Webhook", entityName, BaseType.Webhook, schema, SchemaType.Record);
-		}
 
-		var types = schemas
-			.Select(x => nameFixups.GetValueOrDefault(x.name, x.name))
-			.Select(x => schemaEntities[x])
-			.Select(x => x.Properties!.Single(p => p.Name == "WebhookType"))
-			.Select(x => (jsonName: x.JsonName, name: x.Description!))
-			.Distinct();
+			var se = schemaEntities[entityName];
+			var type = se.Properties!
+				.Single(p => p.Name == "WebhookType");
+			var code = se.Properties!
+				.Single(p => p.Name == "WebhookCode");
+
+			webhookDictionaryMap[(type.Description!, code.Description!)] = entityName;
+			_ = types.Add((type.JsonName, type.Description!));
+			_ = codes.Add((code.JsonName, code.Description!));
+		}
 
 		schemaEntities["WebhookType"] = new()
 		{
@@ -450,13 +458,6 @@ static class Program
 					null))
 				.ToList(),
 		};
-
-		var codes = schemas
-			.Select(x => nameFixups.GetValueOrDefault(x.name, x.name))
-			.Select(x => schemaEntities[x])
-			.Select(x => x.Properties!.Single(p => p.Name == "WebhookCode"))
-			.Select(x => (jsonName: x.JsonName, name: x.Description!))
-			.Distinct();
 
 		schemaEntities["WebhookCode"] = new()
 		{
@@ -607,9 +608,11 @@ public {(i.Name.EndsWith("Request") ? "partial class" : "class")} {i.Name}{baseP
 			properties = properties
 				.Prepend($@"
 	/// <inheritdoc />
+	[JsonPropertyName(""webhook_type"")]
 	public override WebhookType WebhookType => WebhookType.{type};
 
 	/// <inheritdoc />
+	[JsonPropertyName(""webhook_code"")]
 	public override WebhookCode WebhookCode => WebhookCode.{code};");
 
 			basePath = " : WebhookBase";
@@ -652,6 +655,28 @@ public enum {i.Name}
 }}";
 
 		File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), body);
+	}
+
+	private static void SaveConverterMap(string plaidSrcPath)
+	{
+		var types = webhookDictionaryMap
+			.Select(x => $@"			[(WebhookType.{x.Key.type}, WebhookCode.{x.Key.code})] = typeof({x.Value}),");
+
+		var body = $@"using Going.Plaid.Webhook;
+
+namespace Going.Plaid.Converters;
+
+/// <inheritdoc />
+public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
+{{
+	private static readonly Dictionary<(WebhookType, WebhookCode), Type> Map =
+		new()
+		{{
+{string.Join(Environment.NewLine, types)}
+		}};
+}}";
+
+		File.WriteAllText(Path.Combine(plaidSrcPath, "Converters", "WebhookBaseConverter.Map.cs"), body);
 	}
 }
 

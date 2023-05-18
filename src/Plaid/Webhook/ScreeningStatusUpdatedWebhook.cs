@@ -6,9 +6,11 @@ namespace Going.Plaid.Webhook;
 public record ScreeningStatusUpdatedWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.Screening;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.StatusUpdated;
 
 	/// <summary>

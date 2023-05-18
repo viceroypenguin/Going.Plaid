@@ -6,9 +6,11 @@ namespace Going.Plaid.Webhook;
 public record IncomeVerificationRiskSignalsStatusWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.Income;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.IncomeVerificationRiskSignals;
 
 	/// <summary>

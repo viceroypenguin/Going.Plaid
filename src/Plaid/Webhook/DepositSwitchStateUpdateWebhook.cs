@@ -6,9 +6,11 @@ namespace Going.Plaid.Webhook;
 public record DepositSwitchStateUpdateWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.DepositSwitch;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.SwitchStateUpdate;
 
 	/// <summary>

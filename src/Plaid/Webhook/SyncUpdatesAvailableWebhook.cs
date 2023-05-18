@@ -9,9 +9,11 @@ namespace Going.Plaid.Webhook;
 public record SyncUpdatesAvailableWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.Transactions;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.SyncUpdatesAvailable;
 
 	/// <summary>

@@ -6,9 +6,11 @@ namespace Going.Plaid.Webhook;
 public record InvestmentsDefaultUpdateWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.InvestmentsTransactions;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.DefaultUpdate;
 
 	/// <summary>

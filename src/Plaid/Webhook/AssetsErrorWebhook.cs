@@ -6,9 +6,11 @@ namespace Going.Plaid.Webhook;
 public record AssetsErrorWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.Assets;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.Error;
 
 	/// <summary>

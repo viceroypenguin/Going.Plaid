@@ -6,8 +6,10 @@ namespace Going.Plaid.Webhook;
 public record BankTransfersEventsUpdateWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.BankTransfers;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.BankTransfersEventsUpdate;
 }

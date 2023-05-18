@@ -6,9 +6,11 @@ namespace Going.Plaid.Webhook;
 public record FallbackAuthMicrodepositAutoVerifiedWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.Auth;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.AutomaticallyVerified;
 
 	/// <summary>

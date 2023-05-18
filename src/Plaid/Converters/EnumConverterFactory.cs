@@ -40,6 +40,27 @@ public sealed class EnumConverterFactory : JsonConverterFactory
 		return converter;
 	}
 
+	internal static T ParseEnumValue<T>(string? text) where T : struct, Enum
+	{
+		if (Enum.TryParse<T>(text, out var e)
+			|| Enum.TryParse<T>(text, ignoreCase: true, out e))
+			return e;
+
+		foreach (var value in typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static))
+		{
+			var ema = value.GetCustomAttribute<EnumMemberAttribute>();
+			if (ema?.Value != null && ema.Value.Equals(text, StringComparison.OrdinalIgnoreCase))
+				return (T)value.GetRawConstantValue()!;
+		}
+
+		// Plaid may return new/unknown values on parse. Don't crash at least...
+#if NETCOREAPP3_1_OR_GREATER
+		return Enum.Parse<T>("Undefined");
+#else
+		return (T)Enum.Parse(typeof(T), "Undefined");
+#endif
+	}
+
 	private Dictionary<Type, JsonConverter> _converters = new();
 
 	internal sealed class EnumMemberEnumConverterNotNull<T> : JsonConverter<T>
@@ -58,24 +79,7 @@ public sealed class EnumConverterFactory : JsonConverterFactory
 				return Unsafe.As<int, T>(ref i);
 			}
 
-			var enumText = reader.GetString();
-			if (Enum.TryParse<T>(enumText, out var e)
-				|| Enum.TryParse<T>(enumText, ignoreCase: true, out e))
-				return e;
-
-			foreach (var value in typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static))
-			{
-				var ema = value.GetCustomAttribute<EnumMemberAttribute>();
-				if (ema?.Value != null && ema.Value.Equals(enumText, StringComparison.OrdinalIgnoreCase))
-					return (T)value.GetRawConstantValue()!;
-			}
-
-			// Plaid may return new/unknown values on parse. Don't crash at least...
-#if NETCOREAPP3_1_OR_GREATER
-			return Enum.Parse<T>("Undefined");
-#else
-			return (T)Enum.Parse(typeof(T), "Undefined");
-#endif
+			return ParseEnumValue<T>(reader.GetString());
 		}
 
 		public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options) =>

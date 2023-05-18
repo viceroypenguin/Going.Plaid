@@ -7,9 +7,11 @@ namespace Going.Plaid.Webhook;
 public record HistoricalUpdateWebhook : WebhookBase
 {
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
 	public override WebhookType WebhookType => WebhookType.Transactions;
 
 	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.HistoricalUpdate;
 
 	/// <summary>

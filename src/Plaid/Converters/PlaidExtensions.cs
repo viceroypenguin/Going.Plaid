@@ -17,6 +17,7 @@ public static class PlaidExtensions
 		options.Converters.Add(new DateTimeConverter());
 		options.Converters.Add(new DateTimeOffsetConverter());
 		options.Converters.Add(new EnumConverterFactory());
+		options.Converters.Add(new WebhookBaseConverter());
 		return options;
 	}
 }
