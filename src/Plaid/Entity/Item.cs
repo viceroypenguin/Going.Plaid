@@ -42,13 +42,13 @@ public record Item
 	public IReadOnlyList<Entity.Products> BilledProducts { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of authorized products for the Item.</para>
+	/// <para>A list of initialized products for the Item. In almost all cases, this will be the same as the <c>billed_products</c> field. For some products, it is possible for the product to be initialized on an Item but not yet billed (e.g. Assets, before <c>/asset_report/create</c> has been called), in which case the product may appear in <c>products</c> but not in <c>billed_products</c>.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products>? Products { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Beta: A list of products that have gone through consent collection for the Item. Only present for those enabled in the beta.</para>
+	/// <para>A list of products that have gone through consent collection for the Item. Only present for those enabled in the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency</a> beta. If you are not enrolled in Data Transparency, this field is not used.</para>
 	/// </summary>
 	[JsonPropertyName("consented_products")]
 	public IReadOnlyList<Entity.Products>? ConsentedProducts { get; init; } = default!;

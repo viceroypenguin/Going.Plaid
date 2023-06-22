@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class InstitutionsSearchRequestOptions
 {
 	/// <summary>
-	/// <para>Limit results to institutions with or without mandatory OAuth login flows. Note that institutions will only have <c>oauth</c> set to <c>true</c> if *all* Items associated with that institution are required to use OAuth flows; institutions in a state of migration to OAuth may have the <c>oauth</c> attribute set to <c>false</c> even if they support OAuth.</para>
+	/// <para>Limit results to institutions with or without OAuth login flows. Note that institutions will have <c>oauth</c> set to <c>true</c> if some Items associated with that institution are required to use OAuth flows; institutions in a state of migration to OAuth will have the <c>oauth</c> attribute set to <c>true</c>.</para>
 	/// </summary>
 	[JsonPropertyName("oauth")]
 	public bool? Oauth { get; set; } = default!;

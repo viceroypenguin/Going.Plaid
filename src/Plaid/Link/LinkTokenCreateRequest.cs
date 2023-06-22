@@ -44,13 +44,24 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>(Beta) This field has no effect unless you are participating in the Product Scope Transparency beta program.</para>
+	/// <para>(Beta) This field has no effect unless you are participating in the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency</a> beta program.</para>
 	/// <para>List of additional Plaid product(s) you wish to collect consent for. These products will not be billed until you start using them by calling the relevant endpoints.</para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically have consent collected.</para>
 	/// <para>Institutions that do not support these products will still be shown in Link</para>
 	/// </summary>
 	[JsonPropertyName("additional_consented_products")]
 	public IReadOnlyList<Entity.Products>? AdditionalConsentedProducts { get; set; } = default!;
+
+	/// <summary>
+	/// <para>List of Plaid product(s) you wish to use only if the institution and accounts selected by the user support the product. Institutions that do not support these products will still be shown in Link. The products will only be extracted if the user selects an institution that supports them.</para>
+	/// <para>If the institution and accounts selected by the user support a product specified in this field, but Plaid is unable to successfully fetch data for the product (for example, because the institution uses an OAuth connection and the end user does not grant the required product permission(s) in the institution's OAuth flow) the error will be presented to the user in Link and they will be prompted to fix the error.</para>
+	/// <para>There should be no overlap between <c>products</c> and <c>required_if_supported_products</c>. The <c>products</c> array must have at least one product. Valid <c>required_if_supported_products</c> are:</para>
+	/// <para><c>transactions</c>, <c>auth</c>, <c>identity</c>, <c>investments</c>, <c>liabilities</c></para>
+	/// <para>Example: <c>['identity']</c></para>
+	/// <para>In Production, you will only be billed for required if supported products when they are supported and added to the Item. To see the full list of products added to the item during Link, call <c>/item/get</c>.</para>
+	/// </summary>
+	[JsonPropertyName("required_if_supported_products")]
+	public IReadOnlyList<Entity.Products>? RequiredIfSupportedProducts { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The destination URL to which any webhooks should be sent. Note that webhooks for Payment Initiation (e-wallet transactions only), Transfer, Bank Transfer (including Auth micro-deposit notification webhooks) and Identity Verification are configured via the Dashboard instead.</para>
@@ -160,4 +171,10 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("investments")]
 	public Entity.LinkTokenInvestments? Investments { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Configuration parameters for the Investments Auth Product</para>
+	/// </summary>
+	[JsonPropertyName("investments_auth")]
+	public Entity.LinkTokenInvestmentsAuth? InvestmentsAuth { get; set; } = default!;
 }

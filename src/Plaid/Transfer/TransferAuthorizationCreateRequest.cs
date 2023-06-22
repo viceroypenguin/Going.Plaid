@@ -81,19 +81,19 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string? IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Required for Guarantee. If the end user is initiating the specific transfer themselves via an interactive UI, this should be <c>true</c>; for automatic recurring payments where the end user is not actually initiating each individual transfer, it should be <c>false</c>.</para>
+	/// <para>If the end user is initiating the specific transfer themselves via an interactive UI, this should be <c>true</c>; for automatic recurring payments where the end user is not actually initiating each individual transfer, it should be <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_present")]
 	public bool? UserPresent { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If set to <c>false</c>, Plaid will not offer a <c>guarantee_decision</c> for this request(Guarantee customers only).</para>
+	/// <para>If set to <c>false</c>, Plaid will not offer a <c>guarantee_decision</c> for this request (Guarantee customers only).</para>
 	/// </summary>
 	[JsonPropertyName("with_guarantee")]
 	public bool? WithGuarantee { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The unique identifier returned by Plaid's <a href="https://plaid.com/docs/transfer/guarantee/#using-a-beacon">beacon</a> when it is run on your webpage. Required for Guarantee customers who are not using <a href="https://plaid.com/docs/transfer/using-transfer-ui/">Transfer UI</a> and have a web checkout experience.</para>
+	/// <para>The unique identifier returned by Plaid's <a href="https://plaid.com/docs/transfer/guarantee/#using-a-beacon">beacon</a> when it is run on your webpage.</para>
 	/// </summary>
 	[JsonPropertyName("beacon_session_id")]
 	public string? BeaconSessionId { get; set; } = default!;

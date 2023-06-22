@@ -24,7 +24,7 @@ public record SelfieCheckSelfie
 	public Entity.SelfieCapture Capture { get; init; } = default!;
 
 	/// <summary>
-	/// <para>High level descriptions of how the associated selfie was processed. If a seflfie fails verification, the details in the <c>analysis</c> object should help clarify why the selfie was rejected.</para>
+	/// <para>High level descriptions of how the associated selfie was processed. If a selfie fails verification, the details in the <c>analysis</c> object should help clarify why the selfie was rejected.</para>
 	/// </summary>
 	[JsonPropertyName("analysis")]
 	public Entity.SelfieAnalysis Analysis { get; init; } = default!;

@@ -61,6 +61,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditBankIncomeRefreshResponse>();
 
 	/// <summary>
+	/// <para><c>/credit/bank_statements/uploads/get</c> returns data from user-uploaded bank statements.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_statementsuploadsget" /></remarks>
+	public Task<Credit.CreditBankStatementsUploadsGetResponse> CreditBankStatementsUploadsGetAsync(Credit.CreditBankStatementsUploadsGetRequest request) =>
+		PostAsync("/credit/bank_statements/uploads/get", request)
+			.ParseResponseAsync<Credit.CreditBankStatementsUploadsGetResponse>();
+
+	/// <summary>
 	/// <para>This endpoint gets payroll income information for a specific user, either as a result of the user connecting to their payroll provider or uploading a pay related document.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomeget" /></remarks>
@@ -69,7 +77,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditPayrollIncomeGetResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/payroll_income/risk_signals/get</c> can be used as part of the Document Income flow to assess a user-uploaded document for signs of potential fraud or tampering. It returns a risk score for each uploaded document that indicates the likelihood of the document being fraudulent, in addition to details on the individual risk signals contributing to the score. <c>/credit/payroll_income/risk_signals/get</c> can be called at any time after the <c>INCOME_VERIFICATION</c> webhook has been fired.</para>
+	/// <para><c>/credit/payroll_income/risk_signals/get</c> can be used as part of the Document Income flow to assess a user-uploaded document for signs of potential fraud or tampering. It returns a risk score for each uploaded document that indicates the likelihood of the document being fraudulent, in addition to details on the individual risk signals contributing to the score. <c>/credit/payroll_income/risk_signals/get</c> can be called at any time after the <c>INCOME_VERIFICATION_RISK_SIGNALS</c> webhook has been fired.</para>
 	/// <para><c>/credit/payroll_income/risk_signals/get</c> is offered as an add-on to Document Income and is billed separately. To request access to this endpoint, submit a product access request or contact your Plaid account manager.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomerisk_signalsget" /></remarks>

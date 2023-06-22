@@ -20,4 +20,13 @@ public sealed partial class PlaidClient
 	public Task<Identity.IdentityMatchResponse> IdentityMatchAsync(Identity.IdentityMatchRequest request) =>
 		PostAsync("/identity/match", request)
 			.ParseResponseAsync<Identity.IdentityMatchResponse>();
+
+	/// <summary>
+	/// <para><c>/identity/refresh</c> is an optional endpoint for users of the Identity product. It initiates an on-demand extraction to fetch the most up to date Identity information from the Financial Institution. This on-demand extraction takes place in addition to the periodic extractions that automatically occur any Identity-enabled Item. If changes to Identity are discovered after calling <c>/identity/refresh</c>, Plaid will fire a webhook <a href="https://plaid.com/docs/api/products/identity/#default_update"><c>DEFAULT_UPDATE</c></a>.</para>
+	/// <para><c>/identity/refresh</c> is offered as an add-on to Identity and has a separate <a href="https://plaid.com/docs/account/billing/#per-request-flat-fee">fee model</a>. To request access to this endpoint, submit a <a href="https://dashboard.plaid.com/team/products">product access request</a> or contact your Plaid account manager.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/identity/#identityrefresh" /></remarks>
+	public Task<Identity.IdentityRefreshResponse> IdentityRefreshAsync(Identity.IdentityRefreshRequest request) =>
+		PostAsync("/identity/refresh", request)
+			.ParseResponseAsync<Identity.IdentityRefreshResponse>();
 }

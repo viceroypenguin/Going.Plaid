@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public class LinkDeliveryCommunicationMethod
 {
 	/// <summary>
-	/// <para>The delivery method to be used to deliver the Link Delivery URL.</para>
+	/// <para>The delivery method to be used to deliver the Hosted Link session URL.</para>
 	/// </summary>
 	[JsonPropertyName("method")]
 	public Entity.LinkDeliveryDeliveryMethod? Method { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The phone number / email address that link delivery sessions are delivered to. Phone numbers must be in E.164 format.</para>
+	/// <para>The phone number / email address that Hosted Link sessions are delivered to. Phone numbers must be in E.164 format.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public string? Address { get; set; } = default!;

@@ -16,4 +16,16 @@ public class WalletTransactionCounterparty
 	/// </summary>
 	[JsonPropertyName("numbers")]
 	public Entity.WalletTransactionCounterpartyNumbers Numbers { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The optional address of the payment recipient's bank account. Required by most institutions outside of the UK.</para>
+	/// </summary>
+	[JsonPropertyName("address")]
+	public Entity.PaymentInitiationAddress? Address { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The counterparty's birthdate, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format.</para>
+	/// </summary>
+	[JsonPropertyName("date_of_birth")]
+	public DateOnly? DateOfBirth { get; set; } = default!;
 }

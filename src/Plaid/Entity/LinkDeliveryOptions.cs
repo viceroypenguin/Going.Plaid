@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Optional metadata related to the link delivery session</para>
+/// <para>Optional metadata related to the Hosted Link session</para>
 /// </summary>
 public class LinkDeliveryOptions
 {

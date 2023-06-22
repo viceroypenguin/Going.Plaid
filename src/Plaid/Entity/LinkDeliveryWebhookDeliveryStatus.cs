@@ -8,14 +8,14 @@ public enum LinkDeliveryWebhookDeliveryStatus
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "succeeded")]
-	Succeeded,
+	[EnumMember(Value = "SUCCESS")]
+	Success,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "failed")]
-	Failed,
+	[EnumMember(Value = "FAILURE")]
+	Failure,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

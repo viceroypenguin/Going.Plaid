@@ -28,7 +28,7 @@ public record CreditDocumentMetadata
 	public string? DocumentType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Signed URL to retrieve the underlying file.</para>
+	/// <para>Signed URL to retrieve the underlying file. This download URL can only be used once. To generate a new download URL, call <c>/credit/payroll_income/get</c> again.</para>
 	/// </summary>
 	[JsonPropertyName("download_url")]
 	public string? DownloadUrl { get; init; } = default!;
@@ -38,4 +38,10 @@ public record CreditDocumentMetadata
 	/// </summary>
 	[JsonPropertyName("status")]
 	public string? Status { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of pages of the uploaded document (if available).</para>
+	/// </summary>
+	[JsonPropertyName("page_count")]
+	public int? PageCount { get; init; } = default!;
 }

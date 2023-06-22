@@ -104,6 +104,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "PRODUCT_PERMISSIONS_REQUIRED")]
+	ProductPermissionsRequired,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "BANK_TRANSFERS_EVENTS_UPDATE")]
 	BankTransfersEventsUpdate,
 
@@ -190,6 +196,18 @@ public enum WebhookCode
 	/// </summary>
 	[EnumMember(Value = "LINK_CALLBACK")]
 	LinkCallback,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "BANK_INCOME_REFRESH_UPDATE")]
+	BankIncomeRefreshUpdate,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "BANK_INCOME_REFRESH_COMPLETE")]
+	BankIncomeRefreshComplete,
 
 	/// <summary>
 	/// 

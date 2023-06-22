@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class PaymentConsentMaxPaymentAmount
 {
 	/// <summary>
-	/// <para>The ISO-4217 currency code of the payment. For standing orders and payment consents, <c>"GBP"</c> must be used.</para>
+	/// <para>The ISO-4217 currency code of the payment. For standing orders and payment consents, <c>"GBP"</c> must be used. For Poland, Denmark, Sweden and Norway, only the local currency is currently supported.</para>
 	/// </summary>
 	[JsonPropertyName("currency")]
 	public Entity.PaymentAmountCurrency? Currency { get; set; } = default!;

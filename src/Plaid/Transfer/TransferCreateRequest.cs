@@ -89,4 +89,10 @@ public partial class TransferCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string? IsoCurrencyCode { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>transfer</c> is created at the <c>virtual_time</c> on the provided <c>test_clock</c>.</para>
+	/// </summary>
+	[JsonPropertyName("test_clock_id")]
+	public string? TestClockId { get; set; } = default!;
 }

@@ -10,10 +10,4 @@ public class CreditBankIncomeRefreshRequestOptions
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;
-
-	/// <summary>
-	/// <para>The URL where Plaid will send the bank income webhook.</para>
-	/// </summary>
-	[JsonPropertyName("webhook")]
-	public string? Webhook { get; set; } = default!;
 }

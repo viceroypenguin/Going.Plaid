@@ -38,6 +38,12 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "investments_auth")]
+	InvestmentsAuth,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "liabilities")]
 	Liabilities,
 

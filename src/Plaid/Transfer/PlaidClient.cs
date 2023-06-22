@@ -27,7 +27,6 @@ public sealed partial class PlaidClient
 	/// <para>  - To decline a transfer with the rationale code <c>NSF</c>, the available balance on the account must be less than the authorization <c>amount</c>. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
 	/// <para>  - To decline a transfer with the rationale code <c>RISK</c>, the available balance on the account must be exactly $0. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
 	/// <para>The fields <c>device.ip_address</c> and <c>device.user_agent</c> are required for all sessions where the end-user is present. For example, when a user is authorizing a one-time payment from their device.</para>
-	/// <para>For <a href="https://www.plaid.com/docs//transfer/guarantee/">Guarantee</a>, the following fields are required : <c>idempotency_key</c>, <c>user.phone_number</c> (optional if <c>email_address</c> provided), <c>user.email_address</c> (optional if <c>phone_number</c> provided), <c>device.ip_address</c>, <c>device.user_agent</c>, and <c>user_present</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferauthorizationcreate" /></remarks>
 	public Task<Transfer.TransferAuthorizationCreateResponse> TransferAuthorizationCreateAsync(Transfer.TransferAuthorizationCreateRequest request) =>
@@ -123,7 +122,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferEventListResponse>();
 
 	/// <summary>
-	/// <para><c>/transfer/event/sync</c> allows you to request up to the next 25 transfer events that happened after a specific <c>event_id</c>. Use the <c>/transfer/event/sync</c> endpoint to guarantee you have seen all transfer events. When using Auth with micro-deposit verification enabled, this endpoint can be used to fetch status updates on ACH micro-deposits. For more details, see <a href="https://www.plaid.com/docs/auth/coverage/microdeposit-events/">micro-deposit events</a>.</para>
+	/// <para><c>/transfer/event/sync</c> allows you to request up to the next 25 transfer events that happened after a specific <c>event_id</c>. Use the <c>/transfer/event/sync</c> endpoint to guarantee you have seen all transfer events.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfereventsync" /></remarks>
 	public Task<Transfer.TransferEventSyncResponse> TransferEventSyncAsync(Transfer.TransferEventSyncRequest request) =>

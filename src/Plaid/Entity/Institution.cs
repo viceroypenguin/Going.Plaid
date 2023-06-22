@@ -60,7 +60,7 @@ public record Institution
 	public IReadOnlyList<string>? DtcNumbers { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates that the institution has a mandatory OAuth login flow. Note that <c>oauth</c> may be <c>false</c> even for institutions that support OAuth, if the institution is in the process of migrating to OAuth and some active Items still exist that do not use OAuth.</para>
+	/// <para>Indicates that the institution has an OAuth login flow. This will be <c>true</c> if OAuth is supported for any Items associated with the institution, even if the institution also supports non-OAuth connections.</para>
 	/// </summary>
 	[JsonPropertyName("oauth")]
 	public bool Oauth { get; init; } = default!;

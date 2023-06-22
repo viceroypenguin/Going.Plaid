@@ -8,13 +8,13 @@ public enum LinkDeliveryWebhookCommunicationMethod
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "sms")]
+	[EnumMember(Value = "SMS")]
 	Sms,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "email")]
+	[EnumMember(Value = "EMAIL")]
 	Email,
 
 	/// <summary>

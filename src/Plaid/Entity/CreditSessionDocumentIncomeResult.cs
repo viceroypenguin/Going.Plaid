@@ -16,4 +16,10 @@ public record CreditSessionDocumentIncomeResult
 	/// </summary>
 	[JsonPropertyName("num_w2s_uploaded")]
 	public int NumW2sUploaded { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of bank statements uploaded by the user.</para>
+	/// </summary>
+	[JsonPropertyName("num_bank_statements_uploaded")]
+	public int NumBankStatementsUploaded { get; init; } = default!;
 }

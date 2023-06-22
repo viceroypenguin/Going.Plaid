@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class LinkDeliveryRecipient
 {
 	/// <summary>
-	/// <para>The list of communication methods to send the Link Delivery URL to. If delivery is not required, leave this field blank.</para>
+	/// <para>The list of communication methods to send the Hosted Link session URL to. If delivery is not required, leave this field blank.</para>
 	/// </summary>
 	[JsonPropertyName("communication_methods")]
 	public IReadOnlyList<Entity.LinkDeliveryCommunicationMethod>? CommunicationMethods { get; set; } = default!;

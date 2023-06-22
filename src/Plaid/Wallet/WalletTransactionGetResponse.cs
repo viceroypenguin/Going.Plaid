@@ -30,6 +30,12 @@ public record WalletTransactionGetResponse : ResponseBase
 	public Entity.WalletTransactionGetResponseTypeEnum Type { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The payment scheme used to execute this transaction. This is present only for transaction types <c>PAYOUT</c> and <c>REFUND</c>.</para>
+	/// </summary>
+	[JsonPropertyName("scheme")]
+	public Entity.WalletPaymentScheme? Scheme { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The amount and currency of a transaction</para>
 	/// </summary>
 	[JsonPropertyName("amount")]

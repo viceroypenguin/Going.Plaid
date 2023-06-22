@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The status of the given Link Delivery Session.</para>
+/// <para>The status of the given Hosted Link session.</para>
 /// </summary>
 public enum LinkDeliverySessionStatus
 {

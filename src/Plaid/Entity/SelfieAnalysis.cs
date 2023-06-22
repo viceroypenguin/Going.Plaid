@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>High level descriptions of how the associated selfie was processed. If a seflfie fails verification, the details in the <c>analysis</c> object should help clarify why the selfie was rejected.</para>
+/// <para>High level descriptions of how the associated selfie was processed. If a selfie fails verification, the details in the <c>analysis</c> object should help clarify why the selfie was rejected.</para>
 /// </summary>
 public record SelfieAnalysis
 {

@@ -12,6 +12,12 @@ public partial class SandboxTransferSimulateRequest : RequestBase
 	public string TransferId { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Plaid’s unique identifier for a test clock. If provided, the event to be simulated is created at the <c>virtual_time</c> on the provided <c>test_clock</c>.</para>
+	/// </summary>
+	[JsonPropertyName("test_clock_id")]
+	public string? TestClockId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The asynchronous event to be simulated. May be: <c>posted</c>, <c>settled</c>, <c>failed</c>, or <c>returned</c>.</para>
 	/// <para>An error will be returned if the event type is incompatible with the current transfer status. Compatible status --> event type transitions include:</para>
 	/// <para><c>pending</c> --> <c>failed</c></para>

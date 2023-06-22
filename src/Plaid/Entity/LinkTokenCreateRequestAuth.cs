@@ -30,6 +30,12 @@ public class LinkTokenCreateRequestAuth
 	public bool? SameDayMicrodepositsEnabled { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specifies what type of Reroute to Credentials pane should be used in the Link session for the Same Day Micro-deposits flow.</para>
+	/// </summary>
+	[JsonPropertyName("reroute_to_credentials")]
+	public Entity.LinkTokenCreateRequestAuthRerouteToCredentialsEnum? RerouteToCredentials { get; set; } = default!;
+
+	/// <summary>
 	/// <para>This field has been deprecated in favor of <c>auth_type_select_enabled</c>.</para>
 	/// </summary>
 	[JsonPropertyName("flow_type")]

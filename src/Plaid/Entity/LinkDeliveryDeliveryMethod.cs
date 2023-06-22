@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The delivery method to be used to deliver the Link Delivery URL.</para>
+/// <para>The delivery method to be used to deliver the Hosted Link session URL.</para>
 /// </summary>
 public enum LinkDeliveryDeliveryMethod
 {

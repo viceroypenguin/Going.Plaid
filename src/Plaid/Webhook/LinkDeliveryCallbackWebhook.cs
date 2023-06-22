@@ -14,7 +14,7 @@ public record LinkDeliveryCallbackWebhook : WebhookBase
 	public override WebhookCode WebhookCode => WebhookCode.LinkCallback;
 
 	/// <summary>
-	/// <para>The ID of the link delivery session.</para>
+	/// <para>The ID of the Hosted Link session.</para>
 	/// </summary>
 	[JsonPropertyName("link_delivery_session_id")]
 	public string LinkDeliverySessionId { get; init; } = default!;

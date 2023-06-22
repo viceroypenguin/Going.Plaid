@@ -36,6 +36,12 @@ public enum CounterpartyType
 	PaymentTerminal,
 
 	/// <summary>
+	/// <para>the payer in an income transaction (e.g., an employer, client, or government agency)</para>
+	/// </summary>
+	[EnumMember(Value = "income_source")]
+	IncomeSource,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

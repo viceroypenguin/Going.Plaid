@@ -6,7 +6,7 @@ namespace Going.Plaid.LinkDelivery;
 public partial class LinkDeliveryGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The ID for the Link Delivery session from a previous invocation of <c>/link_delivery/create</c>.</para>
+	/// <para>The ID for the Hosted Link session from a previous invocation of <c>/link_delivery/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("link_delivery_session_id")]
 	public string LinkDeliverySessionId { get; set; } = default!;

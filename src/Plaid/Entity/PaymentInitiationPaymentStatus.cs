@@ -18,7 +18,7 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusProcessing,
 
 	/// <summary>
-	/// <para>The payment has been successfully authorised and accepted by the financial institution but has not been executed.</para>
+	/// <para>The payment has been successfully authorised and accepted by the financial institution. Further status transitions can be to REJECTED and, when supported by the institution, to EXECUTED.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_INITIATED")]
 	PaymentStatusInitiated,
@@ -54,7 +54,7 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusUnknown,
 
 	/// <summary>
-	/// <para>The payment has been successfully executed and is considered complete.</para>
+	/// <para>The funds have successfully left the payer account and payment is considered complete. This status isn’t supported by some institutions.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_EXECUTED")]
 	PaymentStatusExecuted,

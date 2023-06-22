@@ -81,7 +81,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para><c>/item/import</c> creates an Item via your Plaid Exchange Integration and returns an <c>access_token</c>. As part of an <c>/item/import</c> request, you will include a User ID (<c>user_auth.user_id</c>) and Authentication Token (<c>user_auth.auth_token</c>) that enable data aggregation through your Plaid Exchange API endpoints. These authentication principals are to be chosen by you.</para>
-	/// <para>Upon creating an Item via <c>/item/import</c>, Plaid will automatically begin an extraction of that Item through the Plaid Exchange infrastructure you have already integrated. This will automatically generate the Plaid native account ID for the account the user will switch their direct deposit to (<c>target_account_id</c>).</para>
+	/// <para>Upon creating an Item via <c>/item/import</c>, Plaid will automatically begin an extraction of that Item through the Plaid Exchange infrastructure you have already integrated.</para>
 	/// </summary>
 	public Task<Item.ItemImportResponse> ItemImportAsync(Item.ItemImportRequest request) =>
 		PostAsync("/item/import", request)
