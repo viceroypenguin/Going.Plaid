@@ -9,13 +9,13 @@ public record AssetReportTransaction
 	/// <para>The ID of the account in which this transaction occurred.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string? AccountId { get; init; } = default!;
+	public string AccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The settled value of the transaction, denominated in the transactions's currency, as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
-	public decimal? Amount { get; init; } = default!;
+	public decimal Amount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO-4217 currency code of the transaction. Always <c>null</c> if <c>unofficial_currency_code</c> is non-null.</para>
@@ -29,6 +29,12 @@ public record AssetReportTransaction
 	/// </summary>
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The string returned by the financial institution to describe the transaction. For transactions returned by <c>/transactions/get</c>, this field is in beta and will be omitted unless the client is both enrolled in the closed beta program and has set <c>options.include_original_description</c> to <c>true</c>.</para>
+	/// </summary>
+	[JsonPropertyName("original_description")]
+	public string? OriginalDescription { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
@@ -47,6 +53,13 @@ public record AssetReportTransaction
 	public string? CategoryId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Information describing the intent of the transaction. Most relevant for credit use cases, but not limited to such use cases. Please reach out to your account manager or sales representative if you would like to receive this field.</para>
+	/// <para>See the <a href="https://plaid.com/documents/credit-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of credit categories.</para>
+	/// </summary>
+	[JsonPropertyName("credit_category")]
+	public Entity.CreditCategory? CreditCategory { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>
 	/// </summary>
 	[JsonPropertyName("check_number")]
@@ -56,7 +69,13 @@ public record AssetReportTransaction
 	/// <para>For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted. Both dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
 	/// </summary>
 	[JsonPropertyName("date")]
-	public DateOnly? Date { get; init; } = default!;
+	public DateOnly Date { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The date on which the transaction took place, in IS0 8601 format.</para>
+	/// </summary>
+	[JsonPropertyName("date_transacted")]
+	public string? DateTransacted { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of where a transaction took place</para>
@@ -78,12 +97,6 @@ public record AssetReportTransaction
 	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The string returned by the financial institution to describe the transaction. For transactions returned by <c>/transactions/get</c>, this field is in beta and will be omitted unless the client is both enrolled in the closed beta program and has set <c>options.include_original_description</c> to <c>true</c>.</para>
-	/// </summary>
-	[JsonPropertyName("original_description")]
-	public string? OriginalDescription { get; init; } = default!;
-
-	/// <summary>
 	/// <para>Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be <c>null</c>.</para>
 	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/get</c>, the <c>payment_meta</c> key will always appear, but no data elements are guaranteed. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
@@ -94,7 +107,7 @@ public record AssetReportTransaction
 	/// <para>When <c>true</c>, identifies the transaction as pending or unsettled. Pending transaction details (name, type, amount, category ID) may change before they are settled.</para>
 	/// </summary>
 	[JsonPropertyName("pending")]
-	public bool? Pending { get; init; } = default!;
+	public bool Pending { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ID of a posted transaction's associated pending transaction, where applicable.</para>
@@ -112,36 +125,17 @@ public record AssetReportTransaction
 	/// <para>The unique ID of the transaction. Like all Plaid identifiers, the <c>transaction_id</c> is case sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_id")]
-	public string? TransactionId { get; init; } = default!;
+	public string TransactionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Please use the <c>payment_channel</c> field, <c>transaction_type</c> will be deprecated in the future.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("transaction_type")]
-	public Entity.AssetReportTransactionTransactionTypeEnum? TransactionType { get; init; } = default!;
+	public Entity.AssetReportTransactionType? TransactionType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The logo associated with the merchant, if available. Formatted as a 100x100 pixels PNG file path.</para>
+	/// <para>A unique identifier for an income source.</para>
 	/// </summary>
-	[JsonPropertyName("logo_url")]
-	public string? LogoUrl { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The website associated with the merchant, if available.</para>
-	/// </summary>
-	[JsonPropertyName("website")]
-	public string? Website { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The date on which the transaction took place, in IS0 8601 format.</para>
-	/// </summary>
-	[JsonPropertyName("date_transacted")]
-	public string? DateTransacted { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Information describing the intent of the transaction. Most relevant for credit use cases, but not limited to such use cases. Please reach out to your account manager or sales representative if you would like to receive this field.</para>
-	/// <para>See the <a href="https://plaid.com/documents/credit-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of credit categories.</para>
-	/// </summary>
-	[JsonPropertyName("credit_category")]
-	public Entity.CreditCategory? CreditCategory { get; init; } = default!;
+	[JsonPropertyName("income_source_id")]
+	public string? IncomeSourceId { get; init; } = default!;
 }

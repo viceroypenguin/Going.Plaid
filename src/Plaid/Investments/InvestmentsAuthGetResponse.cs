@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Investments;
+namespace Going.Plaid.Investments;
 
 /// <summary>
 /// <para>InvestmentsAuthGetResponse defines the response schema for <c>/investments/auth/get</c></para>

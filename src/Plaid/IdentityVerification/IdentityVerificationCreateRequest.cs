@@ -6,6 +6,12 @@ namespace Going.Plaid.IdentityVerification;
 public partial class IdentityVerificationCreateRequest : RequestBase
 {
 	/// <summary>
+	/// <para>A unique ID that identifies the end user in your system. This ID can also be used to associate user-specific data from other Plaid products. Financial Account Matching requires this field and the Link Token Create <c>client_user_id</c> to be consistent. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
+	/// </summary>
+	[JsonPropertyName("client_user_id")]
+	public string? ClientUserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>A flag specifying whether you would like Plaid to expose a shareable URL for the verification being created.</para>
 	/// </summary>
 	[JsonPropertyName("is_shareable")]
@@ -38,7 +44,7 @@ public partial class IdentityVerificationCreateRequest : RequestBase
 	/// <para>If you are not using the shareable URL feature, you can optionally provide these fields via <c>/link/token/create</c> instead; both <c>/identity_verification/create</c> and <c>/link/token/create</c> are valid ways to provide this information. Note that if you provide a non-<c>null</c> user data object via <c>/identity_verification/create</c>, any user data fields entered via <c>/link/token/create</c> for the same <c>client_user_id</c> will be ignored when prefilling Link.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
-	public Entity.IdentityVerificationRequestUser User { get; set; } = default!;
+	public Entity.IdentityVerificationCreateRequestUser? User { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An optional flag specifying how you would like Plaid to handle attempts to create an Identity Verification when an Identity Verification already exists for the provided <c>client_user_id</c> and <c>template_id</c>.</para>

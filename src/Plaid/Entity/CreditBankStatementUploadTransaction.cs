@@ -22,4 +22,10 @@ public record CreditBankStatementUploadTransaction
 	/// </summary>
 	[JsonPropertyName("original_description")]
 	public string? OriginalDescription { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The unique id of the bank account that this transaction occurs in</para>
+	/// </summary>
+	[JsonPropertyName("account_id")]
+	public string? AccountId { get; init; } = default!;
 }

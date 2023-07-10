@@ -30,6 +30,12 @@ public partial class TransferSweepListRequest : RequestBase
 	public int? Offset { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Filter sweeps to only those with the specified amount.</para>
+	/// </summary>
+	[JsonPropertyName("amount")]
+	public string? Amount { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Filter sweeps to only those with the specified originator client.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]

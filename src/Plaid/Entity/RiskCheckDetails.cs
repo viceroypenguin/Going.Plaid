@@ -34,4 +34,10 @@ public record RiskCheckDetails
 	/// </summary>
 	[JsonPropertyName("devices")]
 	public IReadOnlyList<Entity.RiskCheckDevice> Devices { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Result summary object capturing abuse signals related to <c>identity abuse</c>, e.g. stolen and synthetic identity fraud.</para>
+	/// </summary>
+	[JsonPropertyName("identity_abuse_signals")]
+	public Entity.RiskCheckIdentityAbuseSignals? IdentityAbuseSignals { get; init; } = default!;
 }

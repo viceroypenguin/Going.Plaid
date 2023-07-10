@@ -40,4 +40,10 @@ public record CreditBankStatementUploadBankAccount
 	/// </summary>
 	[JsonPropertyName("periods")]
 	public IReadOnlyList<Entity.CreditBankStatementUploadBankAccountPeriod> Periods { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The unique id of the bank account</para>
+	/// </summary>
+	[JsonPropertyName("account_id")]
+	public string? AccountId { get; init; } = default!;
 }

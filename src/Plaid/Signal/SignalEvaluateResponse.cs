@@ -24,7 +24,7 @@ public record SignalEvaluateResponse : ResponseBase
 	public Entity.SignalEvaluateCoreAttributes? CoreAttributes { get; init; } = default!;
 
 	/// <summary>
-	/// <para>If bank information was not able to be used as features into the Signal model, this array contains warnings describing why we were missing bank data. If you want to receive an API error instead of Signal scores in case of missing bank data, please contact sales or your Plaid account manager.</para>
+	/// <para>If bank information was not available to be used in the Signal model, this array contains warnings describing why bank data is missing. If you want to receive an API error instead of Signal scores in the case of missing bank data, file a support ticket or contact your Plaid account manager.</para>
 	/// </summary>
 	[JsonPropertyName("warnings")]
 	public IReadOnlyList<Entity.SignalWarning> Warnings { get; init; } = default!;

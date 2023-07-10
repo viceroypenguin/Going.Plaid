@@ -53,7 +53,7 @@ public record Transaction
 	public string? CheckNumber { get; init; } = default!;
 
 	/// <summary>
-	/// <para>For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted. Both dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
+	/// <para>For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted. Both dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ). To receive information about the date that a posted transaction was initiated, see the <c>authorized_date</c> field.</para>
 	/// </summary>
 	[JsonPropertyName("date")]
 	public DateOnly? Date { get; init; } = default!;
@@ -133,20 +133,20 @@ public record Transaction
 	public string? Website { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date that the transaction was authorized. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
+	/// <para>The date that the transaction was authorized. For posted transactions, the <c>date</c> field will indicate the posted date, but <c>authorized_date</c> will indicate the day the transaction was authorized by the financial institution. If presenting transactions to the user in a UI, the <c>authorized_date</c>, when available, is generally preferable to use over the <c>date</c> field for posted transactions, as it will generally represent the date the user actually made the transaction. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DD</c> ).</para>
 	/// </summary>
 	[JsonPropertyName("authorized_date")]
 	public DateOnly? AuthorizedDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Date and time when a transaction was authorized in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
+	/// <para>Date and time when a transaction was authorized in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ). For posted transactions, the <c>datetime</c> field will indicate the posted date, but <c>authorized_datetime</c> will indicate the day the transaction was authorized by the financial institution. If presenting transactions to the user in a UI, the <c>authorized_datetime</c>, when available, is generally preferable to use over the <c>datetime</c> field for posted transactions, as it will generally represent the date the user actually made the transaction.</para>
 	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00). This field is only populated in API version 2019-05-29 and later.</para>
 	/// </summary>
 	[JsonPropertyName("authorized_datetime")]
 	public DateTimeOffset? AuthorizedDatetime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Date and time when a transaction was posted in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
+	/// <para>Date and time when a transaction was posted in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ). For the date that the transaction was initiated, rather than posted, see the <c>authorized_datetime</c> field.</para>
 	/// <para>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00). This field is only populated in API version 2019-05-29 and later.</para>
 	/// </summary>
 	[JsonPropertyName("datetime")]

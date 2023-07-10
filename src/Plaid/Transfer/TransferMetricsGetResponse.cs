@@ -24,6 +24,18 @@ public record TransferMetricsGetResponse : ResponseBase
 	public string MonthlyTransferVolume { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Sum of dollar amount of debit transfers in current calendar month (decimal string with two digits of precision e.g. "10.00").</para>
+	/// </summary>
+	[JsonPropertyName("monthly_debit_transfer_volume")]
+	public string MonthlyDebitTransferVolume { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Sum of dollar amount of credit transfers in current calendar month (decimal string with two digits of precision e.g. "10.00").</para>
+	/// </summary>
+	[JsonPropertyName("monthly_credit_transfer_volume")]
+	public string MonthlyCreditTransferVolume { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The currency of the dollar amount, e.g. "USD".</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]

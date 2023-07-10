@@ -18,7 +18,7 @@ public record TransactionStream
 	public string StreamId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A hierarchical array of the categories to which this transaction belongs. See <a href="https://plaid.com/docs/api/products/transactions/#categoriesget">Categories</a>. </para>
+	/// <para>A hierarchical array of the categories to which this transaction belongs. See <a href="https://plaid.com/docs/api/products/transactions/#categoriesget">Categories</a>.</para>
 	/// <para>All implementations are encouraged to use the new <c>personal_finance_category</c> instead of <c>category</c>. <c>personal_finance_category</c> provides more meaningful categorization and greater accuracy.</para>
 	/// </summary>
 	[JsonPropertyName("category")]

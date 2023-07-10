@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>The <c>USER_PERMISSION_REVOKED</c> webhook is fired when an end user has used either the <a href="https://my.plaid.com">my.plaid.com portal</a> or the financial institution’s consent portal to revoke the permission that they previously granted to access an Item. Once access to an Item has been revoked, it cannot be restored. If the user subsequently returns to your application, a new Item must be created for the user.</para>
+/// <para>The <c>USER_PERMISSION_REVOKED</c> webhook may be fired when an end user has used either the <a href="https://my.plaid.com">my.plaid.com portal</a> or the financial institution’s OAuth consent portal to revoke the permission that they previously granted to access an Item. This webhook is not guaranteed to always be fired upon consent revocation, since some institutions’ consent portals do not trigger this webhook. Once access to an Item has been revoked, it cannot be restored. If the user subsequently returns to your application, a new Item must be created for the user.</para>
 /// </summary>
 public record UserPermissionRevokedWebhook : WebhookBase
 {

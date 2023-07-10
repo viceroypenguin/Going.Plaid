@@ -210,6 +210,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferDiligenceSubmitResponse>();
 
 	/// <summary>
+	/// <para>Third-party sender customers can use <c>/transfer/diligence/document/upload</c> endpoint to upload a document on behalf of its end customer (i.e. originator) to Plaid. You’ll need to send a request of type multipart/form-data.</para>
+	/// <para>You must provide the <c>client_id</c> in the <c>PLAID-CLIENT-ID</c> header and <c>secret</c> in the <c>PLAID-SECRET</c> header.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferdiligencedocumentupload" /></remarks>
+	public Task<Transfer.TransferDiligenceDocumentUploadResponse> TransferDiligenceDocumentUploadAsync(Transfer.TransferDiligenceDocumentUploadRequest request) =>
+		PostAsync("/transfer/diligence/document/upload", request)
+			.ParseResponseAsync<Transfer.TransferDiligenceDocumentUploadResponse>();
+
+	/// <summary>
 	/// <para>The <c>/transfer/originator/get</c> endpoint gets status updates for an originator's onboarding process. This information is also available via the Transfer page on the Plaid dashboard.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferoriginatorget" /></remarks>

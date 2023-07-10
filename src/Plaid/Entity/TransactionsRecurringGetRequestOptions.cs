@@ -7,7 +7,7 @@ public class TransactionsRecurringGetRequestOptions
 {
 	/// <summary>
 	/// <para>Include the <a href="https://plaid.com/docs/api/products/transactions/#transactions-get-response-transactions-personal-finance-category"><c>personal_finance_category</c></a> object for each transaction stream in the response.</para>
-	/// <para>All implementations are encouraged to set this field to <c>true</c> and to use the <c>personal_finance_category</c> field instead of <c>category</c>. Personal finance categories are the preferred categorization system for transactions, providing higher accuracy and more meaningful categories. </para>
+	/// <para>All implementations are encouraged to set this field to <c>true</c> and to use the <c>personal_finance_category</c> field instead of <c>category</c>. Personal finance categories are the preferred categorization system for transactions, providing higher accuracy and more meaningful categories.</para>
 	/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of personal finance categories.</para>
 	/// </summary>
 	[JsonPropertyName("include_personal_finance_category")]

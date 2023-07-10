@@ -13,7 +13,7 @@ public partial class ProcessorBankTransferCreateRequest : RequestBase
 	public string IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The processor token obtained from the Plaid integration partner. Processor tokens are in the format: <c>processor-environment-identifier</c></para>
+	/// <para>The processor token obtained from the Plaid integration partner. Processor tokens are in the format: <c>processor-&lt;environment&gt;-&lt;identifier&gt;</c></para>
 	/// </summary>
 	[JsonPropertyName("processor_token")]
 	public string ProcessorToken { get; set; } = default!;

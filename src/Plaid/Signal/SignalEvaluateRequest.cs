@@ -31,7 +31,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public bool? UserPresent { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A unique ID that identifies the end user in your system. This ID is used to correlate requests by a user with multiple Items. The max length for this field is 36 characters. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
+	/// <para>A unique ID that identifies the end user in your system. This ID is used to correlate requests by a user with multiple Items. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; set; } = default!;

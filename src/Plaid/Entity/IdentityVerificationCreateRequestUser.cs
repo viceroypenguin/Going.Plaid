@@ -11,8 +11,9 @@ namespace Going.Plaid.Entity;
 /// <para><c>id_number</c></para>
 /// <para>Specifically, these fields are optional in that they can either be fully provided (satisfying every required field in their subschema) or omitted from the request entirely by not providing the key or value.</para>
 /// <para>Providing these fields via the API will result in Link skipping the data collection process for the associated user. All verification steps enabled in the associated Identity Verification Template will still be run. Verification steps will either be run immediately, or once the user completes the <c>accept_tos</c> step, depending on the value provided to the <c>gave_consent</c> field.</para>
+/// <para>If you are not using the shareable URL feature, you can optionally provide these fields via <c>/link/token/create</c> instead; both <c>/identity_verification/create</c> and <c>/link/token/create</c> are valid ways to provide this information. Note that if you provide a non-<c>null</c> user data object via <c>/identity_verification/create</c>, any user data fields entered via <c>/link/token/create</c> for the same <c>client_user_id</c> will be ignored when prefilling Link.</para>
 /// </summary>
-public class IdentityVerificationRequestUser
+public class IdentityVerificationCreateRequestUser
 {
 	/// <summary>
 	/// <para>A valid email address.</para>
@@ -49,4 +50,10 @@ public class IdentityVerificationRequestUser
 	/// </summary>
 	[JsonPropertyName("id_number")]
 	public Entity.UserIDNumber? IdNumber { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifying <c>user.client_user_id</c> is deprecated. Please provide <c>client_user_id</c> at the root level instead.</para>
+	/// </summary>
+	[JsonPropertyName("client_user_id")]
+	public string? ClientUserId { get; set; } = default!;
 }

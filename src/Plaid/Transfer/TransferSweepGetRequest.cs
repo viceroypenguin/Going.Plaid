@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferSweepGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a sweep.</para>
+	/// <para>Plaid's unique identifier for the sweep (UUID) or a shortened form consisting of the first 8 characters of the identifier (8-digit hexadecimal string).</para>
 	/// </summary>
 	[JsonPropertyName("sweep_id")]
 	public string SweepId { get; set; } = default!;

@@ -151,12 +151,20 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxBankTransferFireWebhookResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/income/fire_webhook</c> endpoint to manually trigger an Income webhook in the Sandbox environment.</para>
+	/// <para>Use the <c>/sandbox/income/fire_webhook</c> endpoint to manually trigger a Payroll Income webhook in the Sandbox environment.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxincomefire_webhook" /></remarks>
 	public Task<Sandbox.SandboxIncomeFireWebhookResponse> SandboxIncomeFireWebhookAsync(Sandbox.SandboxIncomeFireWebhookRequest request) =>
 		PostAsync("/sandbox/income/fire_webhook", request)
 			.ParseResponseAsync<Sandbox.SandboxIncomeFireWebhookResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/bank_income/fire_webhook</c> endpoint to manually trigger a Bank Income webhook in the Sandbox environment.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxbankincomefire_webhook" /></remarks>
+	public Task<Sandbox.SandboxBankIncomeFireWebhookResponse> SandboxBankIncomeFireWebhookAsync(Sandbox.SandboxBankIncomeFireWebhookRequest request) =>
+		PostAsync("/sandbox/bank_income/fire_webhook", request)
+			.ParseResponseAsync<Sandbox.SandboxBankIncomeFireWebhookResponse>();
 
 	/// <summary>
 	/// <para>Save the selected accounts when connecting to the Platypus Oauth institution</para>

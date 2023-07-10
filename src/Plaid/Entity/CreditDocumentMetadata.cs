@@ -28,7 +28,7 @@ public record CreditDocumentMetadata
 	public string? DocumentType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Signed URL to retrieve the underlying file. This download URL can only be used once. To generate a new download URL, call <c>/credit/payroll_income/get</c> again.</para>
+	/// <para>Signed URL to retrieve the underlying file. This download URL can only be used once and expires after two minutes. To generate a new download URL, call <c>/credit/payroll_income/get</c> again.</para>
 	/// </summary>
 	[JsonPropertyName("download_url")]
 	public string? DownloadUrl { get; init; } = default!;

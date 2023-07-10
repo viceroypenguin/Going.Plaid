@@ -72,9 +72,9 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string? IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A random key provided by the client, per unique authorization. Maximum of 50 characters.</para>
+	/// <para>A random key provided by the client, per unique authorization, which expires after 48 hours. Maximum of 50 characters.</para>
 	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create an authorization fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single authorization is created.</para>
-	/// <para>Failure to provide this key may result in duplicate charges.</para>
+	/// <para>This idempotency key expires after 48 hours, after which the same key can be reused. Failure to provide this key may result in duplicate charges.</para>
 	/// <para>Required for guaranteed ACH customers.</para>
 	/// </summary>
 	[JsonPropertyName("idempotency_key")]
@@ -109,4 +109,10 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
 	public Entity.TransferCreditFundsSource? CreditFundsSource { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>authorization</c> is created at the <c>virtual_time</c> on the provided <c>test_clock</c>.</para>
+	/// </summary>
+	[JsonPropertyName("test_clock_id")]
+	public string? TestClockId { get; set; } = default!;
 }

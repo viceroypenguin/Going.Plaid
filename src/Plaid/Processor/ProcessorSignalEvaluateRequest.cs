@@ -6,7 +6,7 @@ namespace Going.Plaid.Processor;
 public partial class ProcessorSignalEvaluateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The processor token obtained from the Plaid integration partner. Processor tokens are in the format: <c>processor-environment-identifier</c></para>
+	/// <para>The processor token obtained from the Plaid integration partner. Processor tokens are in the format: <c>processor-&lt;environment&gt;-&lt;identifier&gt;</c></para>
 	/// </summary>
 	[JsonPropertyName("processor_token")]
 	public string ProcessorToken { get; set; } = default!;
@@ -30,7 +30,7 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	public bool? UserPresent { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A unique ID that identifies the end user in your system. This ID is used to correlate requests by a user with multiple Items. The max length for this field is 36 characters. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
+	/// <para>A unique ID that identifies the end user in your system. This ID is used to correlate requests by a user with multiple Items. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; set; } = default!;
