@@ -50,7 +50,6 @@ static class Program
 	private static readonly Dictionary<(string type, string code), string> webhookDictionaryMap = new();
 	private static readonly Dictionary<string, string> nameFixups = new()
 	{
-		["address"] = "AddressMatchScore",
 		["ACHClass"] = "AchClass",
 		["APR"] = "Apr",
 		["ISO Currency Code"] = "IsoCurrencyCode",
@@ -64,6 +63,7 @@ static class Program
 		["YTDNetIncomeSummaryFieldNumber"] = "YtdNetIncomeSummaryFieldNumber",
 		["Error"] = "PlaidError",
 		["WebhookType"] = "SandboxItemFireWebhookRequestWebhookTypeEnum",
+		["purpose"] = "TransferDocumentPurpose",
 	};
 	private static readonly string[] excludes = new[]
 	{
@@ -230,7 +230,10 @@ static class Program
 		Regex.Replace(
 			description,
 			@"<(\w+)>",
-			"$1");
+			m => m.Groups[1].Value == "em" ? "<em>" : $"&lt;{m.Groups[1].Value}&gt;");
+
+	private static string FixAmpersands(string description) =>
+		description.Replace("&", "&amp;");
 
 	private static string FixCodeBlocks(string description) =>
 		Regex.Replace(
@@ -240,7 +243,7 @@ static class Program
 
 	private static string FixupDescription(string description) =>
 		string.IsNullOrWhiteSpace(description) ? string.Empty :
-		FixCodeBlocks(FixBrackets(FixLinkBlocks(description))).TrimEnd();
+		FixCodeBlocks(FixLinkBlocks(FixBrackets(FixAmpersands(description)))).TrimEnd();
 
 	private static readonly string[] newLineSplits = { "\r\n", "\r", "\n", };
 	private static (string enumDescription, Dictionary<string, string> propertyDescription) ParseEnumDescription(string description)
