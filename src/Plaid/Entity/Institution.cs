@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public record Institution
 {
 	/// <summary>
-	/// <para>Unique identifier for the institution</para>
+	/// <para>Unique identifier for the institution. Note that the same institution may have multiple records, each with different institution IDs; for example, if the institution has migrated to OAuth, there may be separate <c>institution_id</c>s for the OAuth and non-OAuth versions of the institution. Institutions that operate in different countries or with multiple login portals may also have separate <c>institution_id</c>s for each country or portal.</para>
 	/// </summary>
 	[JsonPropertyName("institution_id")]
 	public string InstitutionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The official name of the institution</para>
+	/// <para>The official name of the institution.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string Name { get; init; } = default!;

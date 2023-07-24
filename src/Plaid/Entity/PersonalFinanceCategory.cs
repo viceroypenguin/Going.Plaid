@@ -17,4 +17,15 @@ public record PersonalFinanceCategory
 	/// </summary>
 	[JsonPropertyName("detailed")]
 	public string Detailed { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A description of how confident we are that the provided categories accurately describe the transaction intent.</para>
+	/// <para><c>very_high</c>: We are more than 98% confident that this category reflects the intent of the transaction.</para>
+	/// <para><c>high</c>: We are more than 90% confident that this category reflects the intent of the transaction.</para>
+	/// <para><c>medium</c>: We are moderately confident that this category reflects the intent of the transaction.</para>
+	/// <para><c>low</c>: This category may reflect the intent, but there may be other categories that are more accurate.</para>
+	/// <para><c>unknown</c>: Error</para>
+	/// </summary>
+	[JsonPropertyName("confidence_level")]
+	public string? ConfidenceLevel { get; init; } = default!;
 }

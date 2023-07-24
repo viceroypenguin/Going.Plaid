@@ -11,5 +11,5 @@ public record RiskCheckSyntheticIdentity
 	/// <para>A score from 0 to 100 indicating the likelihood that the user is a synthetic identity.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
-	public int? Score { get; init; } = default!;
+	public int Score { get; init; } = default!;
 }

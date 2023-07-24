@@ -13,7 +13,7 @@ public record NumbersAch
 
 	/// <summary>
 	/// <para>The ACH account number for the account.</para>
-	/// <para>Note that when using OAuth with Chase Bank (<c>ins_56</c>), Chase will issue "tokenized" routing and account numbers, which are not the user's actual account and routing numbers. These tokenized numbers should work identically to normal account and routing numbers. The digits returned in the <c>mask</c> field will continue to reflect the actual account number, rather than the tokenized account number; for this reason, when displaying account numbers to the user to help them identify their account in your UI, always use the <c>mask</c> rather than truncating the <c>account</c> number. If a user revokes their permissions to your app, the tokenized numbers will continue to work for ACH deposits, but not withdrawals.</para>
+	/// <para>Note that when using OAuth with Chase Bank (<c>ins_56</c>), Chase will issue "tokenized" routing and account numbers, which are not the user's actual account and routing numbers. These tokenized account numbers (also known as TANs) should work identically to normal account and routing numbers. The digits returned in the <c>mask</c> field will continue to reflect the actual account number, rather than the tokenized account number; for this reason, when displaying account numbers to the user to help them identify their account in your UI, always use the <c>mask</c> rather than truncating the <c>account</c> number. If a user revokes their permissions to your app, the tokenized numbers will continue to work for ACH deposits, but not withdrawals.</para>
 	/// </summary>
 	[JsonPropertyName("account")]
 	public string Account { get; init; } = default!;

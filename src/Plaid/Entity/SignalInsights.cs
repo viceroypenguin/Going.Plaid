@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Signal insights including scores and attributes.</para>
+/// <para>Signal insights including scores and attributes. This response is offered as an add-on to <c>/transfer/authorization/create</c>. To request access to these fields please contact your Plaid account manager.</para>
 /// </summary>
 public record SignalInsights
 {
@@ -10,18 +10,6 @@ public record SignalInsights
 	/// </summary>
 	[JsonPropertyName("scores")]
 	public Entity.SignalEvaluateScores? Scores { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The core attributes object contains additional data that can be used to assess the ACH return risk. Examples of data include:</para>
-	/// <para><c>days_since_first_plaid_connection</c>: The number of days since the first time the Item was connected to an application via Plaid</para>
-	/// <para><c>plaid_connections_count_7d</c>: The number of times the Item has been connected to applications via Plaid over the past 7 days</para>
-	/// <para><c>plaid_connections_count_30d</c>: The number of times the Item has been connected to applications via Plaid over the past 30 days</para>
-	/// <para><c>total_plaid_connections_count</c>: The number of times the Item has been connected to applications via Plaid</para>
-	/// <para><c>is_savings_or_money_market_account</c>: Indicates whether the ACH transaction funding account is a savings/money market account</para>
-	/// <para>For the full list and detailed documentation of core attributes available, or to request that core attributes not be returned, contact Sales or your Plaid account manager</para>
-	/// </summary>
-	[JsonPropertyName("core_attributes")]
-	public Entity.SignalEvaluateCoreAttributes? CoreAttributes { get; init; } = default!;
 
 	/// <summary>
 	/// <para>If bank information was not available to be used in the Signal model, this array contains warnings describing why bank data is missing. If you want to receive an API error instead of Signal scores in the case of missing bank data, file a support ticket or contact your Plaid account manager.</para>

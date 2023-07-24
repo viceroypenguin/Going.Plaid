@@ -30,7 +30,7 @@ public record TransferAuthorization
 	public Entity.TransferAuthorizationDecisionRationale? DecisionRationale { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Signal insights including scores and attributes.</para>
+	/// <para>Signal insights including scores and attributes. This response is offered as an add-on to <c>/transfer/authorization/create</c>. To request access to these fields please contact your Plaid account manager.</para>
 	/// </summary>
 	[JsonPropertyName("signal_insights")]
 	public Entity.SignalInsights? SignalInsights { get; init; } = default!;

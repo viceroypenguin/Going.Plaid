@@ -18,7 +18,7 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusProcessing,
 
 	/// <summary>
-	/// <para>The payment has been successfully authorised and accepted by the financial institution. Further status transitions can be to REJECTED and, when supported by the institution, to EXECUTED.</para>
+	/// <para>The payment has been successfully authorised and accepted by the financial institution. For successful payments, this is a potential terminal status. Further status transitions can be to REJECTED and, when supported by the institution, to EXECUTED.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_INITIATED")]
 	PaymentStatusInitiated,
@@ -36,13 +36,13 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusInsufficientFunds,
 
 	/// <summary>
-	/// <para>The payment has failed to be initiated. This error is retryable once the root cause is resolved.</para>
+	/// <para>The payment has failed to be initiated. This error may be caused by transient system outages and is retryable once the root cause is resolved.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_FAILED")]
 	PaymentStatusFailed,
 
 	/// <summary>
-	/// <para>The payment has been blocked. This is a retryable error.</para>
+	/// <para>The payment has been blocked by Plaid. This can occur, for example, due to Plaid flagging the payment as potentially risky. This is a retryable error.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_BLOCKED")]
 	PaymentStatusBlocked,
@@ -54,13 +54,13 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusUnknown,
 
 	/// <summary>
-	/// <para>The funds have successfully left the payer account and payment is considered complete. This status isn’t supported by some institutions.</para>
+	/// <para>The funds have successfully left the payer account and payment is considered complete. Not all institutions support this status: support is more common in the UK, and less common in the EU. For institutions where this status is not supported, the terminal status for a successful payment will be <c>PAYMENT_STATUS_INITIATED</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_EXECUTED")]
 	PaymentStatusExecuted,
 
 	/// <summary>
-	/// <para>The payment has settled and funds are available for use. Payment settlement can only be guaranteed by using Plaid virtual accounts. A payment will typically settle within seconds to several days, depending on which payment rail is used.</para>
+	/// <para>The payment has settled and funds are available for use. A payment will typically settle within seconds to several days, depending on which payment rail is used. This status is only available to customers using <a href="https://plaid.com/docs/virtual-accounts/">Plaid Virtual Accounts</a>.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_SETTLED")]
 	PaymentStatusSettled,
@@ -72,7 +72,7 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusAuthorising,
 
 	/// <summary>
-	/// <para>The payment was cancelled during authorisation.</para>
+	/// <para>The payment was cancelled (typically by the end user) during authorisation.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_CANCELLED")]
 	PaymentStatusCancelled,

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record NameMatchScore
 {
 	/// <summary>
-	/// <para>Represents the match score for name. 100 is a perfect score, 85-99 means a strong match, 50-84 is a partial match, less than 50 is a weak match and 0 is a complete mismatch. If the name is missing from either the API or financial institution, this is null.</para>
+	/// <para>Match score for name. 100 is a perfect score, 85-99 means a strong match, 84-70 is a partial match, any score less than 70 is a mismatch. Typically, the match threshold should be set to a score of 70 or higher. If the name is missing from either the API or financial institution, this is null.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int? Score { get; init; } = default!;

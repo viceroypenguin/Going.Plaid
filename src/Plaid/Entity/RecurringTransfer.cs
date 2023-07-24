@@ -22,7 +22,7 @@ public record RecurringTransfer
 	/// <para>The next transfer origination date after bank holiday adjustment.</para>
 	/// </summary>
 	[JsonPropertyName("next_origination_date")]
-	public DateOnly NextOriginationDate { get; init; } = default!;
+	public DateOnly? NextOriginationDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a test clock.</para>

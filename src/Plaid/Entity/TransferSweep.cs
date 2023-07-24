@@ -44,4 +44,10 @@ public record TransferSweep
 	/// </summary>
 	[JsonPropertyName("settled")]
 	public DateOnly? Settled { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The status of a sweep transfer</para>
+	/// </summary>
+	[JsonPropertyName("status")]
+	public Entity.SweepStatus? Status { get; init; } = default!;
 }

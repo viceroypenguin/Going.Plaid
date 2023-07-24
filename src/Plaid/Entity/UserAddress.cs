@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Home address for the user.</para>
+/// <para>Home address for the user. For more context on this field, see <a href="https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country">Input Validation by Country</a>.</para>
 /// </summary>
 public class UserAddress
 {
@@ -27,13 +27,13 @@ public class UserAddress
 	/// <para>An ISO 3166-2 subdivision code. Related terms would be "state", "province", "prefecture", "zone", "subdivision", etc.</para>
 	/// </summary>
 	[JsonPropertyName("region")]
-	public string Region { get; set; } = default!;
+	public string? Region { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The postal code for the associated address. Between 2 and 10 alphanumeric characters. For US-based addresses this must be 5 numeric digits.</para>
 	/// </summary>
 	[JsonPropertyName("postal_code")]
-	public string PostalCode { get; set; } = default!;
+	public string? PostalCode { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Valid, capitalized, two-letter ISO code representing the country of this object. Must be in ISO 3166-1 alpha-2 form.</para>

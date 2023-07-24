@@ -66,7 +66,7 @@ public record Transaction
 
 	/// <summary>
 	/// <para>The merchant name or transaction description.</para>
-	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/get</c>, this field will always appear. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
+	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, this field will always appear. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string? Name { get; init; } = default!;
@@ -78,14 +78,14 @@ public record Transaction
 	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The string returned by the financial institution to describe the transaction. For transactions returned by <c>/transactions/get</c>, this field is in beta and will be omitted unless the client is both enrolled in the closed beta program and has set <c>options.include_original_description</c> to <c>true</c>.</para>
+	/// <para>The string returned by the financial institution to describe the transaction. For transactions returned by <c>/transactions/sync</c> or <c>/transactions/get</c>, this field is in beta and will be omitted unless the client is both enrolled in the closed beta program and has set <c>options.include_original_description</c> to <c>true</c>.</para>
 	/// </summary>
 	[JsonPropertyName("original_description")]
 	public string? OriginalDescription { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be <c>null</c>.</para>
-	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/get</c>, the <c>payment_meta</c> key will always appear, but no data elements are guaranteed. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
+	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync or </c>/transactions/get<c>, the </c>payment_meta<c> key will always appear, but no data elements are guaranteed. If the </c>transactions<c> object was returned by an Assets endpoint such as </c>/asset_report/get/<c> or </c>/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("payment_meta")]
 	public Entity.PaymentMeta? PaymentMeta { get; init; } = default!;

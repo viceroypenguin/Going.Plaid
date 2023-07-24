@@ -18,7 +18,7 @@ public enum AccountIdentityVerificationStatusEnum
 	PendingAutomaticVerification,
 
 	/// <summary>
-	/// <para>The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the two amounts.</para>
+	/// <para>The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the micro-deposit.</para>
 	/// </summary>
 	[EnumMember(Value = "pending_manual_verification")]
 	PendingManualVerification,

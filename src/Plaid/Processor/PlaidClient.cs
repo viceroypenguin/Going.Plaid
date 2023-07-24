@@ -143,6 +143,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorTokenPermissionsGetResponse>();
 
 	/// <summary>
+	/// <para>This endpoint allows you to update the webhook URL associated with a processor token. This request triggers a <c>WEBHOOK_UPDATE_ACKNOWLEDGED</c> webhook to the newly specified webhook URL.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortokenwebhookupdate" /></remarks>
+	public Task<Processor.ProcessorTokenWebhookUpdateResponse> ProcessorTokenWebhookUpdateAsync(Processor.ProcessorTokenWebhookUpdateRequest request) =>
+		PostAsync("/processor/token/webhook/update", request)
+			.ParseResponseAsync<Processor.ProcessorTokenWebhookUpdateResponse>();
+
+	/// <summary>
 	/// <para>Used to create a token suitable for sending to Stripe to enable Plaid-Stripe integrations. For a detailed guide on integrating Stripe, see <a href="https://plaid.com/docs/auth/partnerships/stripe/">Add Stripe to your app</a>.</para>
 	/// <para>Note that the Stripe bank account token is a one-time use token. To store bank account information for later use, you can use a Stripe customer object and create an associated bank account from the token, or you can use a Stripe Custom account and create an associated external bank account from the token. This bank account information should work indefinitely, unless the user's bank account information changes or they revoke Plaid's permissions to access their account. Stripe bank account information cannot be modified once the bank account token has been created. If you ever need to change the bank account details used by Stripe for a specific customer, have the user go through Link again and create a new bank account token from the new <c>access_token</c>.</para>
 	/// <para>Bank account tokens can also be revoked, using <c>/item/remove</c>.</para>

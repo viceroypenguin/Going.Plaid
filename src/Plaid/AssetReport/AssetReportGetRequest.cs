@@ -9,7 +9,13 @@ public partial class AssetReportGetRequest : RequestBase
 	/// <para>A token that can be provided to endpoints such as <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c> to fetch or update an Asset Report.</para>
 	/// </summary>
 	[JsonPropertyName("asset_report_token")]
-	public string AssetReportToken { get; set; } = default!;
+	public string? AssetReportToken { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The user token associated with the User for which to create an asset report for. The latest asset report associated with the User will be returned</para>
+	/// </summary>
+	[JsonPropertyName("user_token")]
+	public string? UserToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para><c>true</c> if you would like to retrieve the Asset Report with Insights, <c>false</c> otherwise. This field defaults to <c>false</c> if omitted.</para>

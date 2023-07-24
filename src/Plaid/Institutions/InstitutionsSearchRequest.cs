@@ -18,7 +18,7 @@ public partial class InstitutionsSearchRequest : RequestBase
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify an array of Plaid-supported country codes this institution supports, using the ISO-3166-1 alpha-2 country code standard. In API versions 2019-05-29 and earlier, the <c>country_codes</c> parameter is an optional parameter within the <c>options</c> object and will default to <c>[US]</c> if it is not supplied.</para>
+	/// <para>Specify which country or countries to include institutions from, using the ISO-3166-1 alpha-2 country code standard. In API versions 2019-05-29 and earlier, the <c>country_codes</c> parameter is an optional parameter within the <c>options</c> object and will default to <c>[US]</c> if it is not supplied.</para>
 	/// </summary>
 	[JsonPropertyName("country_codes")]
 	public IReadOnlyList<Entity.CountryCode> CountryCodes { get; set; } = default!;

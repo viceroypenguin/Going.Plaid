@@ -39,7 +39,7 @@ public class IdentityVerificationRequestUser
 	public Entity.IdentityVerificationRequestUserName? Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Home address for the user.</para>
+	/// <para>Home address for the user. For more context on this field, see <a href="https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country">Input Validation by Country</a>.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.UserAddress? Address { get; set; } = default!;

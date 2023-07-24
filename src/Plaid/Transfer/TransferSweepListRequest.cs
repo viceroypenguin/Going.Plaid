@@ -36,6 +36,12 @@ public partial class TransferSweepListRequest : RequestBase
 	public string? Amount { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The status of a sweep transfer</para>
+	/// </summary>
+	[JsonPropertyName("status")]
+	public Entity.SweepStatus? Status { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Filter sweeps to only those with the specified originator client.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
@@ -46,4 +52,10 @@ public partial class TransferSweepListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Filter sweeps to only those with the included <c>transfer_id</c>.</para>
+	/// </summary>
+	[JsonPropertyName("transfer_id")]
+	public string? TransferId { get; set; } = default!;
 }

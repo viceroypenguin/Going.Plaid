@@ -18,6 +18,12 @@ public enum LinkDeliverySessionStatus
 	Opened,
 
 	/// <summary>
+	/// <para>The session has been exited by the user</para>
+	/// </summary>
+	[EnumMember(Value = "EXITED")]
+	Exited,
+
+	/// <summary>
 	/// <para>The session has been completed by the user</para>
 	/// </summary>
 	[EnumMember(Value = "COMPLETED")]

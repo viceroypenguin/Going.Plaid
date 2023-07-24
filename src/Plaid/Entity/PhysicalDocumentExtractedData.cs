@@ -34,4 +34,20 @@ public record PhysicalDocumentExtractedData
 	/// </summary>
 	[JsonPropertyName("issuing_region")]
 	public string? IssuingRegion { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A date extracted from the document in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
+	/// </summary>
+	[JsonPropertyName("date_of_birth")]
+	public DateOnly? DateOfBirth { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The address extracted from the document. The address must at least contain the following fields to be a valid address: <c>street</c>, <c>city</c>, <c>country</c>. If any are missing or unable to be extracted, the address will be null.</para>
+	/// <para><c>region</c>, and <c>postal_code</c> may be null based on the addressing system. For example:</para>
+	/// <para>Addresses from the United Kingdom will not include a region</para>
+	/// <para>Addresses from Hong Kong will not include postal code</para>
+	/// <para>Note: Optical Character Recognition (OCR) technology may sometimes extract incorrect data from a document.</para>
+	/// </summary>
+	[JsonPropertyName("address")]
+	public Entity.IdentityVerificationDocumentAddressResponse? Address { get; init; } = default!;
 }
