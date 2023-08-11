@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="CaseExtensions" Version="1.1.0" />
-    <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.6.5" />
+    <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.6.6" />
   </ItemGroup>
 
 </Project>
