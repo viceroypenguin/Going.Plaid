@@ -53,5 +53,7 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 			[(WebhookType.Link, WebhookCode.Events)] = typeof(LinkEventsWebhook),
 			[(WebhookType.Assets, WebhookCode.ProductReady)] = typeof(AssetsProductReadyWebhook),
 			[(WebhookType.Assets, WebhookCode.Error)] = typeof(AssetsErrorWebhook),
+			[(WebhookType.BaseReport, WebhookCode.ProductReady)] = typeof(BaseReportsProductReadyWebhook),
+			[(WebhookType.BaseReport, WebhookCode.Error)] = typeof(BaseReportsErrorWebhook),
 		};
 }

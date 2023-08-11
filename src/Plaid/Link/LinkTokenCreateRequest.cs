@@ -134,6 +134,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestIncomeVerification? IncomeVerification { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specifies options for initializing Link for use with the Base Report product. This field is required if <c>assets</c> is included in the <c>products</c> array and the client is CRA-enabled.</para>
+	/// </summary>
+	[JsonPropertyName("base_report")]
+	public Entity.LinkTokenCreateRequestBaseReport? BaseReport { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager.</para>
 	/// </summary>
 	[JsonPropertyName("auth")]

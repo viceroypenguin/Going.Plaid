@@ -30,6 +30,12 @@ public record TransferRefund
 	public Entity.TransferRefundStatus Status { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The failure reason if the event type for a refund is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
+	/// </summary>
+	[JsonPropertyName("failure_reason")]
+	public Entity.TransferRefundFailure? FailureReason { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The datetime when this refund was created. This will be of the form <c>2006-01-02T15:04:05Z</c></para>
 	/// </summary>
 	[JsonPropertyName("created")]

@@ -10,4 +10,10 @@ public record KYCCheckPhoneSummary
 	/// </summary>
 	[JsonPropertyName("summary")]
 	public Entity.MatchSummaryCode Summary { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An enum indicating the match type between data provided by user and data checked against an external data source.</para>
+	/// </summary>
+	[JsonPropertyName("area_code")]
+	public Entity.MatchSummaryCode AreaCode { get; init; } = default!;
 }

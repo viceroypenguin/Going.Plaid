@@ -10,4 +10,10 @@ public record InvestmentsAuthGetNumbers
 	/// </summary>
 	[JsonPropertyName("acats")]
 	public IReadOnlyList<Entity.NumbersACATS>? Acats { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("aton")]
+	public IReadOnlyList<Entity.NumbersATON>? Aton { get; init; } = default!;
 }

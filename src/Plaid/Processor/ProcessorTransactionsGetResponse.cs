@@ -22,10 +22,4 @@ public record ProcessorTransactionsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("total_transactions")]
 	public int TotalTransactions { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Metadata about the Item.</para>
-	/// </summary>
-	[JsonPropertyName("item")]
-	public Entity.Item Item { get; init; } = default!;
 }

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Catpures and analysis from a user's selfie.</para>
+/// <para>Captures and analysis from a user's selfie.</para>
 /// </summary>
 public record SelfieCheckSelfie
 {

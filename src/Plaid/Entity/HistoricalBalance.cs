@@ -26,7 +26,7 @@ public record HistoricalBalance
 
 	/// <summary>
 	/// <para>The unofficial currency code associated with the balance. Always <c>null</c> if <c>iso_currency_code</c> is non-<c>null</c>.</para>
-	/// <para>See the <a href="https://plaid.com/docs/api/accounts#currency-code-schema">currency code schema</a> for a full listing of supported <c>iso_currency_code</c>s.</para>
+	/// <para>See the <a href="https://plaid.com/docs/api/accounts#currency-code-schema">currency code schema</a> for a full listing of supported <c>unofficial_currency_code</c>s.</para>
 	/// </summary>
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;

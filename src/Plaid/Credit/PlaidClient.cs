@@ -61,6 +61,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditBankIncomeRefreshResponse>();
 
 	/// <summary>
+	/// <para><c>/credit/bank_income/webhook/update</c> allows you to subscribe or unsubscribe a user for income webhook notifications.</para>
+	/// <para>If a user is subscribed, on significant changes to the user's income profile, you will receive a <c>BANK_INCOME_REFRESH_UPDATE</c> webhook, prompting you to refresh bank income data for the user.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomewebhookupdate" /></remarks>
+	public Task<Credit.CreditBankIncomeWebhookUpdateResponse> CreditBankIncomeWebhookUpdateAsync(Credit.CreditBankIncomeWebhookUpdateRequest request) =>
+		PostAsync("/credit/bank_income/webhook/update", request)
+			.ParseResponseAsync<Credit.CreditBankIncomeWebhookUpdateResponse>();
+
+	/// <summary>
 	/// <para><c>/credit/bank_statements/uploads/get</c> returns data from user-uploaded bank statements.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_statementsuploadsget" /></remarks>

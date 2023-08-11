@@ -27,5 +27,5 @@ public class IdentityMatchUser
 	/// <para>Data about the components comprising an address.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.AddressData? Address { get; set; } = default!;
+	public Entity.AddressDataNullableNoRequiredFields? Address { get; set; } = default!;
 }

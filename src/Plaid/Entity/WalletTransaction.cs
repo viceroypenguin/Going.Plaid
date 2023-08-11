@@ -70,4 +70,10 @@ public record WalletTransaction
 	/// </summary>
 	[JsonPropertyName("payment_id")]
 	public string? PaymentId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The error code of a failed transaction. Error codes include:</para>
+	/// </summary>
+	[JsonPropertyName("failure_reason")]
+	public Entity.WalletTransactionFailureReason? FailureReason { get; init; } = default!;
 }

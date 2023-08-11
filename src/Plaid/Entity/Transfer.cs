@@ -12,6 +12,12 @@ public record Transfer
 	public string Id { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Plaid’s unique identifier for a transfer authorization.</para>
+	/// </summary>
+	[JsonPropertyName("authorization_id")]
+	public string AuthorizationId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]

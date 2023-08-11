@@ -2,7 +2,7 @@ namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be <c>null</c>.</para>
-/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync or </c>/transactions/get<c>, the </c>payment_meta<c> key will always appear, but no data elements are guaranteed. If the </c>transactions<c> object was returned by an Assets endpoint such as </c>/asset_report/get/<c> or </c>/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.</para>
+/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, the <c>payment_meta</c> key will always appear, but no data elements are guaranteed. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 /// </summary>
 public record PaymentMeta
 {
