@@ -10,4 +10,10 @@ public partial class UserCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string ClientUserId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>ConsumerReportUserIdentity defines the user identity data collected for consumer report purpose. This field is required to be set if you later use the created user for consumer report purpose.</para>
+	/// </summary>
+	[JsonPropertyName("consumer_report_user_identity")]
+	public Entity.ConsumerReportUserIdentity? ConsumerReportUserIdentity { get; set; } = default!;
 }

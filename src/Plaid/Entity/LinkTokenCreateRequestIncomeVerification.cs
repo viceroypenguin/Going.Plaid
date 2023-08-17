@@ -43,7 +43,7 @@ public class LinkTokenCreateRequestIncomeVerification
 	public Entity.LinkTokenCreateRequestIncomeVerificationBankIncome? BankIncome { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with Payroll Income.</para>
+	/// <para>Specifies options for initializing Link for use with Payroll Income (including Document Income). Further customization options for Document Income, such as customizing which document types may be uploaded, are also available via the <a href="https://dashboard.plaid.com/link">Link Customization pane</a> in the Dashboard. (Requires Production enablement.)</para>
 	/// </summary>
 	[JsonPropertyName("payroll_income")]
 	public Entity.LinkTokenCreateRequestIncomeVerificationPayrollIncome? PayrollIncome { get; set; } = default!;

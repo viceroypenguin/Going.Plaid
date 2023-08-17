@@ -12,6 +12,12 @@ public record TransferBalance
 	public string Available { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The available balance, plus amount of pending funds that in processing (decimal string with two digits of precision e.g. "10.00").</para>
+	/// </summary>
+	[JsonPropertyName("current")]
+	public string? Current { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The type of balance.</para>
 	/// </summary>
 	[JsonPropertyName("type")]

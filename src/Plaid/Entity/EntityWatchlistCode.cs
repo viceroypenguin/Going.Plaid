@@ -30,7 +30,7 @@ public enum EntityWatchlistCode
 	IzUnc,
 
 	/// <summary>
-	/// 
+	/// <para>World Bank Listing of Ineligible Firms and Individuals</para>
 	/// </summary>
 	[EnumMember(Value = "IZ_WBK")]
 	IzWbk,

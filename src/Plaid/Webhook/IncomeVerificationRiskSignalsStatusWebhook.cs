@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a risk signal is available for documents uploaded via Document Income. It will typically take a minute or two for this webhook to fire after the end user has uploaded their documents in the Document Income flow. Once this webhook has fired, <c>/credit/payroll_income/risk_signals/get</c> may then be called to retrieve risk data.</para>
+/// <para>Fired when risk signals have been processed for documents uploaded via Document Income. It will typically take a minute or two for this webhook to fire after the end user has uploaded their documents in the Document Income flow. Once this webhook has fired, <c>/credit/payroll_income/risk_signals/get</c> may then be called to determine whether the documents were successfully processed and to retrieve risk data.</para>
 /// </summary>
 public record IncomeVerificationRiskSignalsStatusWebhook : WebhookBase
 {

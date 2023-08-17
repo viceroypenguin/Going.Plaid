@@ -3,10 +3,10 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The result of the bank income refresh report generation</para>
 /// </summary>
-public enum BankIncomeRefreshCompleteResult
+public enum BankIncomeCompleteResult
 {
 	/// <summary>
-	/// <para>The refreshed report was successfully generated and can be retrieved via <c>/credit/bank_income/get</c>.</para>
+	/// <para>The refreshed report was successfully generated and can be retrieved via <c>/cra/bank_income/get</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "SUCCESS")]
 	Success,

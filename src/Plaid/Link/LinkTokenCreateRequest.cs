@@ -164,6 +164,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestIdentityVerification? IdentityVerification { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specifies options for initializing Link for use with the Statements product.</para>
+	/// </summary>
+	[JsonPropertyName("statements")]
+	public Entity.LinkTokenCreateRequestStatements? Statements { get; set; } = default!;
+
+	/// <summary>
 	/// <para>A user token generated using <c>/user/create</c>. Any Item created during the Link session will be associated with the user.</para>
 	/// </summary>
 	[JsonPropertyName("user_token")]
@@ -180,4 +186,10 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("investments_auth")]
 	public Entity.LinkTokenInvestmentsAuth? InvestmentsAuth { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Configuration parameters for Hosted Link</para>
+	/// </summary>
+	[JsonPropertyName("hosted_link")]
+	public Entity.LinkTokenCreateHostedLink? HostedLink { get; set; } = default!;
 }

@@ -16,4 +16,10 @@ public record RiskSignalDocumentReference
 	/// </summary>
 	[JsonPropertyName("document_name")]
 	public string? DocumentName { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Status of a document for risk signal analysis</para>
+	/// </summary>
+	[JsonPropertyName("status")]
+	public Entity.RiskSignalDocumentStatus? Status { get; init; } = default!;
 }

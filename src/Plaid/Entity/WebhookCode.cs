@@ -216,6 +216,18 @@ public enum WebhookCode
 	Events,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "SESSION_FINISHED")]
+	SessionFinished,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "BANK_INCOME_COMPLETE")]
+	BankIncomeComplete,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

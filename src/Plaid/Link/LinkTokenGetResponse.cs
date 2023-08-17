@@ -24,6 +24,12 @@ public record LinkTokenGetResponse : ResponseBase
 	public DateTimeOffset? Expiration { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Information about link sessions created using this <c>link_token</c>.</para>
+	/// </summary>
+	[JsonPropertyName("link_sessions")]
+	public IReadOnlyList<Entity.LinkTokenGetSessionsResponse>? LinkSessions { get; init; } = default!;
+
+	/// <summary>
 	/// <para>An object specifying the arguments originally provided to the <c>/link/token/create</c> call.</para>
 	/// </summary>
 	[JsonPropertyName("metadata")]

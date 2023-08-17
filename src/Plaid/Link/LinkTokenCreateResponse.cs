@@ -16,4 +16,10 @@ public record LinkTokenCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("expiration")]
 	public DateTimeOffset Expiration { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A URL of a Plaid-hosted Link flow that will use the Link token returned by this request</para>
+	/// </summary>
+	[JsonPropertyName("hosted_link_url")]
+	public string? HostedLinkUrl { get; init; } = default!;
 }

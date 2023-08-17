@@ -6,8 +6,14 @@ namespace Going.Plaid.Transfer;
 public partial class TransferBalanceGetRequest : RequestBase
 {
 	/// <summary>
+	/// <para>Client ID of the end customer.</para>
+	/// </summary>
+	[JsonPropertyName("originator_client_id")]
+	public string? OriginatorClientId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The type of balance.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
-	public Entity.TransferBalanceType Type { get; set; } = default!;
+	public Entity.TransferBalanceType? Type { get; set; } = default!;
 }

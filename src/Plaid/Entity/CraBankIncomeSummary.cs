@@ -59,8 +59,8 @@ public record CraBankIncomeSummary
 	/// <summary>
 	/// <para>The predicted average monthly income amount for the income source(s).</para>
 	/// </summary>
-	[JsonPropertyName("forcasted_average_monthly_income")]
-	public IReadOnlyList<Entity.CreditAmountWithCurrency>? ForcastedAverageMonthlyIncome { get; init; } = default!;
+	[JsonPropertyName("forecasted_average_monthly_income")]
+	public IReadOnlyList<Entity.CreditAmountWithCurrency>? ForecastedAverageMonthlyIncome { get; init; } = default!;
 
 	/// <summary>
 	/// 

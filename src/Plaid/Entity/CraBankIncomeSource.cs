@@ -90,8 +90,8 @@ public record CraBankIncomeSource
 	/// <summary>
 	/// <para>The predicted average monthly net income amount for the income source(s).</para>
 	/// </summary>
-	[JsonPropertyName("forcasted_average_monthly_income")]
-	public decimal? ForcastedAverageMonthlyIncome { get; init; } = default!;
+	[JsonPropertyName("forecasted_average_monthly_income")]
+	public decimal? ForecastedAverageMonthlyIncome { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The object containing employer data.</para>
