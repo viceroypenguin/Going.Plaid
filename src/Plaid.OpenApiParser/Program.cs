@@ -328,8 +328,11 @@ static class Program
 		{
 			if (schema.Reference.Id.EndsWith("Nullable"))
 			{
-				var realType = schema.AllOf.First();
-				return GetPropertyType(className, propertyName, realType, entityType);
+				if (schema.AllOf.Count > 0)
+				{
+					var realType = schema.AllOf.First();
+					return GetPropertyType(className, propertyName, realType, entityType);
+				}
 			}
 			else if (schema.AdditionalProperties != null)
 				return $"IReadOnlyDictionary<string, {GetPropertyType(className, propertyName, schema.AdditionalProperties, type)}>";
