@@ -140,6 +140,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestBaseReport? BaseReport { get; set; } = default!;
 
 	/// <summary>
+	/// <para>This enum describes the reason a consumer report is created for</para>
+	/// </summary>
+	[JsonPropertyName("consumer_report_permissible_purpose")]
+	public Entity.ConsumerReportPermissiblePurpose? ConsumerReportPermissiblePurpose { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager.</para>
 	/// </summary>
 	[JsonPropertyName("auth")]

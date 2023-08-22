@@ -31,19 +31,7 @@ public record BaseReportTransaction
 	public string? OriginalDescription { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
-	/// </summary>
-	[JsonPropertyName("category")]
-	public IReadOnlyList<string>? Category { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The ID of the category to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
-	/// </summary>
-	[JsonPropertyName("category_id")]
-	public string? CategoryId { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Information describing the intent of the transaction. Most relevant for credit use cases, but not limited to such use cases. Please reach out to your account manager or sales representative if you would like to receive this field.</para>
+	/// <para>Information describing the intent of the transaction. Most relevant for credit use cases, but not limited to such use cases.</para>
 	/// <para>See the <a href="https://plaid.com/documents/credit-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of credit categories.</para>
 	/// </summary>
 	[JsonPropertyName("credit_category")]
@@ -74,23 +62,10 @@ public record BaseReportTransaction
 	public Entity.Location? Location { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The merchant name or transaction description.</para>
-	/// </summary>
-	[JsonPropertyName("name")]
-	public string? Name { get; init; } = default!;
-
-	/// <summary>
 	/// <para>The merchant name, as enriched by Plaid from the <c>name</c> field. This is typically a more human-readable version of the merchant counterparty in the transaction. For some bank transactions (such as checks or account transfers) where there is no meaningful merchant name, this value will be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("merchant_name")]
 	public string? MerchantName { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be <c>null</c>.</para>
-	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, the <c>payment_meta</c> key will always appear, but no data elements are guaranteed. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
-	/// </summary>
-	[JsonPropertyName("payment_meta")]
-	public Entity.PaymentMeta? PaymentMeta { get; init; } = default!;
 
 	/// <summary>
 	/// <para>When <c>true</c>, identifies the transaction as pending or unsettled. Pending transaction details (name, type, amount, category ID) may change before they are settled.</para>
@@ -103,10 +78,4 @@ public record BaseReportTransaction
 	/// </summary>
 	[JsonPropertyName("account_owner")]
 	public string? AccountOwner { get; init; } = default!;
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[JsonPropertyName("transaction_type")]
-	public Entity.BaseReportTransactionType? TransactionType { get; init; } = default!;
 }

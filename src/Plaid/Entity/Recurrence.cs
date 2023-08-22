@@ -12,4 +12,10 @@ public record Recurrence
 	/// </summary>
 	[JsonPropertyName("is_recurring")]
 	public bool? IsRecurring { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Describes the frequency of the transaction stream.</para>
+	/// </summary>
+	[JsonPropertyName("frequency")]
+	public Entity.RecurringFrequency? Frequency { get; init; } = default!;
 }

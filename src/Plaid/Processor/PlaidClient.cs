@@ -73,7 +73,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorSignalEvaluateResponse>();
 
 	/// <summary>
-	/// <para>After calling <c>/processor/signal/evaluate</c>, call <c>/processor/signal/decision/report</c> to report whether the transaction was initiated. This endpoint will return an <a href="https://plaid.com/docs/errors/invalid-request/#invalid_field"><c>INVALID_FIELD</c></a> error if called a second time with a different value for <c>initiated</c>.</para>
+	/// <para>After calling <c>/processor/signal/evaluate</c>, call <c>/processor/signal/decision/report</c> to report whether the transaction was initiated.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignaldecisionreport" /></remarks>
 	public Task<Processor.ProcessorSignalDecisionReportResponse> ProcessorSignalDecisionReportAsync(Processor.ProcessorSignalDecisionReportRequest request) =>
