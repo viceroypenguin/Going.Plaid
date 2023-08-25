@@ -38,8 +38,8 @@ public enum ConsumerReportPermissiblePurpose
 	/// <summary>
 	/// <para>For a legitimate business need in connection with a business transaction made primarily for personal, family, or household initiated by the consumer pursuant to FCRA Section 604(a)(3)(F)(i).</para>
 	/// </summary>
-	[EnumMember(Value = "LEGITIMATE_BUSINESS_NEED_TENANT_OTHER")]
-	LegitimateBusinessNeedTenantOther,
+	[EnumMember(Value = "LEGITIMATE_BUSINESS_NEED_OTHER")]
+	LegitimateBusinessNeedOther,
 
 	/// <summary>
 	/// <para>In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), to evaluate an application’s profile to make an offer to the consumer.</para>

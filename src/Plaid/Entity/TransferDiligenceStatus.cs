@@ -8,6 +8,18 @@ public enum TransferDiligenceStatus
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "not_submitted")]
+	NotSubmitted,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "submitted")]
+	Submitted,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "under_review")]
 	UnderReview,
 

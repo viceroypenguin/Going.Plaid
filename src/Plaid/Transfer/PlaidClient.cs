@@ -58,6 +58,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferConfigurationGetResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/transfer/ledger/get</c> endpoint to view a balance on the ledger held with Plaid.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferledgerget" /></remarks>
+	public Task<Transfer.TransferLedgerGetResponse> TransferLedgerGetAsync(Transfer.TransferLedgerGetRequest request) =>
+		PostAsync("/transfer/ledger/get", request)
+			.ParseResponseAsync<Transfer.TransferLedgerGetResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/transfer/metrics/get</c> endpoint to view your transfer product usage metrics.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfermetricsget" /></remarks>

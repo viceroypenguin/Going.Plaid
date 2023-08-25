@@ -12,7 +12,7 @@ public partial class CreditRelayGetRequest : RequestBase
 	public string RelayToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The report type. It can be <c>assets</c> or <c>income</c>.</para>
+	/// <para>The report type. It can be <c>asset</c>. Income report types are not yet supported.</para>
 	/// </summary>
 	[JsonPropertyName("report_type")]
 	public Entity.ReportType ReportType { get; set; } = default!;
