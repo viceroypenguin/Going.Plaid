@@ -36,6 +36,12 @@ public abstract class RequestBase
 	public bool? ShowRawJson { get; set; }
 
 	/// <summary>
+	/// Pass additional request headers.
+	/// </summary>
+	[JsonIgnore]
+	public Dictionary<string, string>? AdditionalHeaders { get; set; }
+
+	/// <summary>
 	/// Indicates whether to include the AccessToken on an API call.
 	/// </summary>
 	protected internal virtual bool IncludeAccessToken => true;

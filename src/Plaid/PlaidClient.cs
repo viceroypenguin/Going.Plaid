@@ -115,6 +115,11 @@ public sealed partial class PlaidClient
 	/// Debug option to include the raw json in the returned DTO
 	/// </summary>
 	public bool ShowRawJson { get; set; }
+
+	/// <summary>
+	/// Additional request headers used for all API calls.
+	/// </summary>
+	public Dictionary<string, string>? AdditionalHeaders { get; set; }
 	#endregion
 
 	#region Private Members
@@ -137,6 +142,10 @@ public sealed partial class PlaidClient
 				},
 			Content = JsonContent.Create(request, options: JsonSerializerOptions),
 		};
+
+		AddRequestHeaders(requestMessage, AdditionalHeaders);
+		AddRequestHeaders(requestMessage, request.AdditionalHeaders);
+
 		return new ResponseParser
 		{
 			Message = client.SendAsync(requestMessage),
@@ -144,6 +153,17 @@ public sealed partial class PlaidClient
 			IncludeRawJson = request.ShowRawJson ?? ShowRawJson,
 			Logger = _logger,
 		};
+	}
+
+	private static void AddRequestHeaders(HttpRequestMessage requestMessage, Dictionary<string, string>? headers)
+	{
+		if (headers != null)
+		{
+			foreach (var header in headers)
+			{
+				requestMessage.Headers.Add(header.Key, header.Value);
+			}
+		}
 	}
 
 	private readonly struct ResponseParser
