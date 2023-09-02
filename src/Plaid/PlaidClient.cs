@@ -137,6 +137,15 @@ public sealed partial class PlaidClient
 				},
 			Content = JsonContent.Create(request, options: JsonSerializerOptions),
 		};
+
+		if (request.AdditionalHeaders != null)
+		{
+			foreach (var header in request.AdditionalHeaders)
+			{
+				requestMessage.Headers.Add(header.Key, header.Value);
+			}
+		}
+
 		return new ResponseParser
 		{
 			Message = client.SendAsync(requestMessage),
