@@ -12,6 +12,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorAuthGetResponse>();
 
 	/// <summary>
+	/// <para>This endpoint returns the account associated with a given processor token.</para>
+	/// <para>This endpoint retrieves cached information, rather than extracting fresh information from the institution. As a result, the account balance returned may not be up-to-date; for realtime balance information, use <c>/processor/balance/get</c> instead. Note that some information is nullable.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processoraccountget" /></remarks>
+	public Task<Processor.ProcessorAccountGetResponse> ProcessorAccountGetAsync(Processor.ProcessorAccountGetRequest request) =>
+		PostAsync("/processor/account/get", request)
+			.ParseResponseAsync<Processor.ProcessorAccountGetResponse>();
+
+	/// <summary>
 	/// <para>The <c>/processor/transactions/get</c> endpoint allows developers to receive user-authorized transaction data for credit, depository, and some loan-type accounts (only those with account subtype <c>student</c>; coverage may be limited). Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.</para>
 	/// <para>Transactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.  Transactions are not immutable and can also be removed altogether by the institution; a removed transaction will no longer appear in <c>/processor/transactions/get</c>.  For more details, see <a href="https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions">Pending and posted transactions</a>.</para>
 	/// <para>Due to the potentially large number of transactions associated with a processor token, results are paginated. Manipulate the <c>count</c> and <c>offset</c> parameters in conjunction with the <c>total_transactions</c> response body field to fetch all available transactions.</para>
@@ -146,7 +155,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorTokenPermissionsGetResponse>();
 
 	/// <summary>
-	/// <para>This endpoint allows you to update the webhook URL associated with a processor token. This request triggers a <c>WEBHOOK_UPDATE_ACKNOWLEDGED</c> webhook to the newly specified webhook URL.</para>
+	/// <para>This endpoint allows you, the processor, to update the webhook URL associated with a processor token. This request triggers a <c>WEBHOOK_UPDATE_ACKNOWLEDGED</c> webhook to the newly specified webhook URL.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortokenwebhookupdate" /></remarks>
 	public Task<Processor.ProcessorTokenWebhookUpdateResponse> ProcessorTokenWebhookUpdateAsync(Processor.ProcessorTokenWebhookUpdateRequest request) =>

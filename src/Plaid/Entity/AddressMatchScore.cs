@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record AddressMatchScore
 {
 	/// <summary>
-	/// <para>Match score for address. 100 is a perfect match, 99-90 is a strong match, 89-80 is a partial match, anything below 80 is considered a weak match. Typically, the match threshold should be set to a score of 80 or higher. If the address is missing from either the API or financial institution, this is null.</para>
+	/// <para>Match score for address. 100 is a perfect match, 99-90 is a strong match, 89-70 is a partial match, anything below 70 is considered a weak match. Typically, the match threshold should be set to a score of 70 or higher. If the address is missing from either the API or financial institution, this is null.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int? Score { get; init; } = default!;

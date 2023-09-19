@@ -58,4 +58,10 @@ public partial class TransferSweepListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("transfer_id")]
 	public string? TransferId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The trigger of the sweep</para>
+	/// </summary>
+	[JsonPropertyName("trigger")]
+	public Entity.SweepTrigger? Trigger { get; set; } = default!;
 }

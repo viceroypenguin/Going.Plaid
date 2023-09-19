@@ -44,21 +44,22 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>(Beta) This field has no effect unless you are participating in the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency</a> beta program.</para>
-	/// <para>List of additional Plaid product(s) you wish to collect consent for. These products will not be billed until you start using them by calling the relevant endpoints.</para>
-	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically have consent collected.</para>
-	/// <para>Institutions that do not support these products will still be shown in Link</para>
-	/// </summary>
-	[JsonPropertyName("additional_consented_products")]
-	public IReadOnlyList<Entity.Products>? AdditionalConsentedProducts { get; set; } = default!;
-
-	/// <summary>
 	/// <para>List of Plaid product(s) you wish to use only if the institution and account(s) selected by the user support the product. Institutions that do not support these products will still be shown in Link. The products will only be extracted and billed if the user selects an institution and account type that supports them.</para>
-	/// <para>There should be no overlap between <c>products</c> and <c>required_if_supported_products</c>. The <c>products</c> array must have at least one product.</para>
+	/// <para>There should be no overlap between this array and the <c>products</c> or <c>additional_consented_products</c> arrays. The <c>products</c> array must have at least one product.</para>
 	/// <para>For more details on using this feature, see <a href="https://www.plaid.com/docs/link/initializing-products/#required-if-supported-products">Required if Supported Products</a>.</para>
 	/// </summary>
 	[JsonPropertyName("required_if_supported_products")]
 	public IReadOnlyList<Entity.Products>? RequiredIfSupportedProducts { get; set; } = default!;
+
+	/// <summary>
+	/// <para>(Beta) This field has no effect unless you are participating in the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency</a> beta program.</para>
+	/// <para>List of additional Plaid product(s) you wish to collect consent for. These products will not be billed until you start using them by calling the relevant endpoints.</para>
+	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically have consent collected.</para>
+	/// <para>Institutions that do not support these products will still be shown in Link.</para>
+	/// <para>There should be no overlap between this array and the <c>products</c> or <c>required_if_supported_products</c> arrays.</para>
+	/// </summary>
+	[JsonPropertyName("additional_consented_products")]
+	public IReadOnlyList<Entity.Products>? AdditionalConsentedProducts { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The destination URL to which any webhooks should be sent. Note that webhooks for Payment Initiation (e-wallet transactions only), Transfer, Bank Transfer (including Auth micro-deposit notification webhooks) and Identity Verification are configured via the Dashboard instead.</para>

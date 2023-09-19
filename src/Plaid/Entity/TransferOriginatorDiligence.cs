@@ -46,4 +46,10 @@ public class TransferOriginatorDiligence
 	/// </summary>
 	[JsonPropertyName("naics_code")]
 	public string NaicsCode { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The originator's funding account, linked with Plaid Link or /transfer/migrate_account.</para>
+	/// </summary>
+	[JsonPropertyName("funding_account")]
+	public Entity.TransferFundingAccount FundingAccount { get; set; } = default!;
 }

@@ -13,7 +13,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Signal.SignalEvaluateResponse>();
 
 	/// <summary>
-	/// <para>After calling <c>/signal/evaluate</c>, call <c>/signal/decision/report</c> to report whether the transaction was initiated. This endpoint will return an <a href="https://plaid.com/docs/errors/invalid-request/#invalid_field"><c>INVALID_FIELD</c></a> error if called a second time with a different value for <c>initiated</c>.</para>
+	/// <para>After calling <c>/signal/evaluate</c>, call <c>/signal/decision/report</c> to report whether the transaction was initiated.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signaldecisionreport" /></remarks>
 	public Task<Signal.SignalDecisionReportResponse> SignalDecisionReportAsync(Signal.SignalDecisionReportRequest request) =>
@@ -32,6 +32,7 @@ public sealed partial class PlaidClient
 	/// <para>When Link is not initialized with Signal, call <c>/signal/prepare</c> to opt-in that Item to the Signal data collection process, developing a Signal score.</para>
 	/// <para>If you are using other Plaid products after Link, e.g. Identity or Assets, call <c>/signal/prepare</c> after those product calls are complete.</para>
 	/// <para>Example flow: Link is initialized with Auth, call <c>/auth/get</c> for the account and routing number, call <c>/identity/get</c> to retrieve bank ownership details, then call <c>/signal/prepare</c> to begin Signal data collection. Later, once you have obtained details about the proposed transaction from the user, call <c>/signal/evaluate</c> for a Signal score. For more information please see <a href="https://www.plaid.com/docs/link/initializing-products/#recommendations-for-initializing-link-with-specific-product-combinations">Recommendations for initializing Link with specific product combinations</a>.</para>
+	/// <para>If run on an Item that is already initialized with Signal, this endpoint will return a 200 response and will not modify the Item.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signalprepare" /></remarks>
 	public Task<Signal.SignalPrepareResponse> SignalPrepareAsync(Signal.SignalPrepareRequest request) =>

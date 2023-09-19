@@ -12,8 +12,8 @@ public class TransferRecurringSchedule
 	public Entity.TransferScheduleIntervalUnit IntervalUnit { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The number of recurring <c>interval_units</c> between originations. The recurring interval(before holiday adjustment) is calculated by multiplying <c>interval_unit</c> and <c>interval_count</c>.</para>
-	/// <para>For instance, to schedule a recurring transfer which originates once every two weeks, set <c>interval_unit</c> = <c>week</c> and <c>interval_count</c> = 2.</para>
+	/// <para>The number of recurring <c>interval_units</c> between originations. The recurring interval (before holiday adjustment) is calculated by multiplying <c>interval_unit</c> and <c>interval_count</c>.</para>
+	/// <para>For example, to schedule a recurring transfer which originates once every two weeks, set <c>interval_unit</c> = <c>week</c> and <c>interval_count</c> = 2.</para>
 	/// </summary>
 	[JsonPropertyName("interval_count")]
 	public int IntervalCount { get; set; } = default!;
@@ -22,7 +22,7 @@ public class TransferRecurringSchedule
 	/// <para>The day of the interval on which to schedule the transfer.</para>
 	/// <para>If the <c>interval_unit</c> is <c>week</c>, <c>interval_execution_day</c> should be an integer from 1 (Monday) to 5 (Friday).</para>
 	/// <para>If the <c>interval_unit</c> is <c>month</c>, <c>interval_execution_day</c> should be an integer indicating which day of the month to make the transfer on. Integers from 1 to 28 can be used to make a transfer on that day of the month. Negative integers from -1 to -5 can be used to make a transfer relative to the end of the month. To make a transfer on the last day of the month, use -1; to make the transfer on the second-to-last day, use -2, and so on.</para>
-	/// <para>The transfer will be originated on next available banking day if the designated day is a non banking day.</para>
+	/// <para>The transfer will be originated on the next available banking day if the designated day is a non banking day.</para>
 	/// </summary>
 	[JsonPropertyName("interval_execution_day")]
 	public int IntervalExecutionDay { get; set; } = default!;

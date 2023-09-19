@@ -19,13 +19,13 @@ public record PersonalFinanceCategory
 	public string Detailed { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Note: This field is only available for <c>/transactions/enrich</c> endpoint currently.</para>
+	/// <para>This field is currently only available for the <c>/transactions/enrich</c> endpoint.</para>
 	/// <para>A description of how confident we are that the provided categories accurately describe the transaction intent.</para>
 	/// <para><c>VERY_HIGH</c>: We are more than 98% confident that this category reflects the intent of the transaction.</para>
 	/// <para><c>HIGH</c>: We are more than 90% confident that this category reflects the intent of the transaction.</para>
 	/// <para><c>MEDIUM</c>: We are moderately confident that this category reflects the intent of the transaction.</para>
 	/// <para><c>LOW</c>: This category may reflect the intent, but there may be other categories that are more accurate.</para>
-	/// <para><c>UNKNOWN</c>: Error</para>
+	/// <para><c>UNKNOWN</c>: We don’t know the confidence level for this category.</para>
 	/// </summary>
 	[JsonPropertyName("confidence_level")]
 	public string? ConfidenceLevel { get; init; } = default!;

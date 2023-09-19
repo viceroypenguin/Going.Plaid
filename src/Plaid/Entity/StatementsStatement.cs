@@ -18,7 +18,7 @@ public record StatementsStatement
 	public int Month { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Year. Possible values: 2010-{current_year}.</para>
+	/// <para>The year of statement.</para>
 	/// </summary>
 	[JsonPropertyName("year")]
 	public int Year { get; init; } = default!;

@@ -32,7 +32,7 @@ public record Transaction
 
 	/// <summary>
 	/// <para>A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
-	/// <para>All Transactions implementations are recommended to use the new <c>personal_finance_category</c> instead of <c>category</c>. <c>personal_finance_category</c> provides more meaningful categorization and greater accuracy.</para>
+	/// <para>All Transactions implementations are recommended to use the new <c>personal_finance_category</c> instead of <c>category_id</c>, as it provides greater accuracy and more meaningful categorization.</para>
 	/// <para>If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("category")]
@@ -121,7 +121,7 @@ public record Transaction
 	public Entity.TransactionTransactionTypeEnum? TransactionType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The logo associated with the merchant, if available. Formatted as a 100x100 pixels PNG file path.</para>
+	/// <para>The URL of a logo associated with the merchant, if available. The logo will always be 100×100 pixel PNG file.</para>
 	/// </summary>
 	[JsonPropertyName("logo_url")]
 	public string? LogoUrl { get; init; } = default!;
@@ -172,7 +172,7 @@ public record Transaction
 	public Entity.TransactionCode? TransactionCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A link to the icon associated with the primary personal finance category. The logo will always be 100x100 pixels.</para>
+	/// <para>The URL of an icon associated with the primary personal finance category. The icon will always be 100×100 pixel PNG file.</para>
 	/// </summary>
 	[JsonPropertyName("personal_finance_category_icon_url")]
 	public string? PersonalFinanceCategoryIconUrl { get; init; } = default!;
@@ -182,4 +182,10 @@ public record Transaction
 	/// </summary>
 	[JsonPropertyName("counterparties")]
 	public IReadOnlyList<Entity.Counterparty>? Counterparties { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A unique, stable, Plaid-generated ID that maps to the merchant.</para>
+	/// </summary>
+	[JsonPropertyName("merchant_entity_id")]
+	public string? MerchantEntityId { get; init; } = default!;
 }

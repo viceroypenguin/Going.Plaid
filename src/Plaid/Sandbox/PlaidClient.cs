@@ -23,11 +23,12 @@ public sealed partial class PlaidClient
 	/// <para><c>DEFAULT_UPDATE</c>: Transactions update webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>NEW_ACCOUNTS_AVAILABLE</c>: Webhook to be fired for a given Sandbox Item created with Account Select v2.</para>
 	/// <para><c>AUTH_DATA_UPDATE</c>: Webhook to be fired for a given Sandbox Item created with Auth as an enabled product.</para>
+	/// <para><c>LOGIN_REPAIRED</c>: Fired when an Item recovers from the <c>ITEM_LOGIN_REQUIRED</c> without the user going through update mode in your app.</para>
 	/// <para><c>RECURRING_TRANSACTIONS_UPDATE</c>: Recurring Transactions webhook to be fired for a given Sandbox Item. If the Item does not support Recurring Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>SYNC_UPDATES_AVAILABLE</c>: Transactions webhook to be fired for a given Sandbox Item.  If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>PRODUCT_READY</c>: Assets webhook to be fired when a given asset report has been successfully generated. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>ERROR</c>: Assets webhook to be fired when asset report generation has failed. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
-	/// <para>Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development.</para>
+	/// <para>Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development (except for webhooks of type <c>TRANSFER</c>).</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxitemfire_webhook" /></remarks>
 	public Task<Sandbox.SandboxItemFireWebhookResponse> SandboxItemFireWebhookAsync(Sandbox.SandboxItemFireWebhookRequest request) =>
@@ -78,6 +79,30 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferSimulateResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/sandbox/transfer/ledger/simulate_available</c> endpoint to simulate converting pending balance to available balance for all originators in the Sandbox environment.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferledgersimulate_available" /></remarks>
+	public Task<Sandbox.SandboxTransferLedgerSimulateAvailableResponse> SandboxTransferLedgerSimulateAvailableAsync(Sandbox.SandboxTransferLedgerSimulateAvailableRequest request) =>
+		PostAsync("/sandbox/transfer/ledger/simulate_available", request)
+			.ParseResponseAsync<Sandbox.SandboxTransferLedgerSimulateAvailableResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/transfer/ledger/deposit/simulate</c> endpoint to simulate a ledger deposit event in the Sandbox environment.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferledgerdepositsimulate" /></remarks>
+	public Task<Sandbox.SandboxTransferLedgerDepositSimulateResponse> SandboxTransferLedgerDepositSimulateAsync(Sandbox.SandboxTransferLedgerDepositSimulateRequest request) =>
+		PostAsync("/sandbox/transfer/ledger/deposit/simulate", request)
+			.ParseResponseAsync<Sandbox.SandboxTransferLedgerDepositSimulateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/transfer/ledger/withdraw/simulate</c> endpoint to simulate a ledger withdraw event in the Sandbox environment.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferledgerwithdrawsimulate" /></remarks>
+	public Task<Sandbox.SandboxTransferLedgerWithdrawSimulateResponse> SandboxTransferLedgerWithdrawSimulateAsync(Sandbox.SandboxTransferLedgerWithdrawSimulateRequest request) =>
+		PostAsync("/sandbox/transfer/ledger/withdraw/simulate", request)
+			.ParseResponseAsync<Sandbox.SandboxTransferLedgerWithdrawSimulateResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/repayment/simulate</c> endpoint to trigger the creation of a repayment. As a side effect of calling this route, a repayment is created that includes all unreimbursed returns of guaranteed transfers. If there are no such returns, an 400 error is returned.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferrepaymentsimulate" /></remarks>
@@ -86,7 +111,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferRepaymentSimulateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/transfer/fire_webhook</c> endpoint to manually trigger a Transfer webhook in the Sandbox environment.</para>
+	/// <para>Use the <c>/sandbox/transfer/fire_webhook</c> endpoint to manually trigger a <c>TRANSFER_EVENTS_UPDATE</c> webhook in the Sandbox environment.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferfire_webhook" /></remarks>
 	public Task<Sandbox.SandboxTransferFireWebhookResponse> SandboxTransferFireWebhookAsync(Sandbox.SandboxTransferFireWebhookRequest request) =>
@@ -107,9 +132,9 @@ public sealed partial class PlaidClient
 	/// <para>Use the <c>/sandbox/transfer/test_clock/advance</c> endpoint to advance a <c>test_clock</c> in the Sandbox environment.</para>
 	/// <para>A test clock object represents an independent timeline and has a <c>virtual_time</c> field indicating the current timestamp of the timeline. A test clock can be advanced by incrementing <c>virtual_time</c>, but may never go back to a lower <c>virtual_time</c>.</para>
 	/// <para>If a test clock is advanced, we will simulate the changes that ought to occur during the time that elapsed.</para>
-	/// <para>For instance, a client creates a weekly recurring transfer with a test clock set at t. When the client advances the test clock by setting <c>virtual_time</c> = t + 15 days, 2 new originations should be created, along with the webhook events.</para>
+	/// <para>For example, a client creates a weekly recurring transfer with a test clock set at t. When the client advances the test clock by setting <c>virtual_time</c> = t + 15 days, 2 new originations should be created, along with the webhook events.</para>
 	/// <para>The advancement of the test clock from its current <c>virtual_time</c> should be limited such that there are no more than 20 originations resulting from the advance operation on each <c>recurring_transfer</c> associated with the <c>test_clock</c>.</para>
-	/// <para>For instance, if the recurring transfer associated with this test clock originates once every 4 weeks, you can advance the <c>virtual_time</c> up to 80 weeks on each API call.</para>
+	/// <para>For example, if the recurring transfer associated with this test clock originates once every 4 weeks, you can advance the <c>virtual_time</c> up to 80 weeks on each API call.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertest_clockadvance" /></remarks>
 	public Task<Sandbox.SandboxTransferTestClockAdvanceResponse> SandboxTransferTestClockAdvanceAsync(Sandbox.SandboxTransferTestClockAdvanceRequest request) =>

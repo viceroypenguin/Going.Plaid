@@ -6,13 +6,13 @@ namespace Going.Plaid.Transfer;
 public partial class TransferAuthorizationCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited. Required when creating a transfer using an <c>access_token</c>.</para>
+	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string? AccountId { get; set; } = default!;
+	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding.</para>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding. You can find your list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;
@@ -48,13 +48,13 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The legal name and other information for the account holder.</para>
+	/// <para>The legal name and other information for the account holder. The <c>user.legal_name</c> field is required. Other fields are not currently used and are present to support planned future functionality.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.TransferAuthorizationUserInRequest User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Information about the device being used to initiate the authorization.</para>
+	/// <para>Information about the device being used to initiate the authorization. These fields are not currently incorporated into the risk check.</para>
 	/// </summary>
 	[JsonPropertyName("device")]
 	public Entity.TransferAuthorizationDevice? Device { get; set; } = default!;
@@ -75,13 +75,12 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <para>A random key provided by the client, per unique authorization, which expires after 48 hours. Maximum of 50 characters.</para>
 	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create an authorization fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single authorization is created.</para>
 	/// <para>This idempotency key expires after 48 hours, after which the same key can be reused. Failure to provide this key may result in duplicate charges.</para>
-	/// <para>Required for guaranteed ACH customers.</para>
 	/// </summary>
 	[JsonPropertyName("idempotency_key")]
 	public string? IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If the end user is initiating the specific transfer themselves via an interactive UI, this should be <c>true</c>; for automatic recurring payments where the end user is not actually initiating each individual transfer, it should be <c>false</c>.</para>
+	/// <para>If the end user is initiating the specific transfer themselves via an interactive UI, this should be <c>true</c>; for automatic recurring payments where the end user is not actually initiating each individual transfer, it should be <c>false</c>. This field is not currently used and is present to support planned future functionality.</para>
 	/// </summary>
 	[JsonPropertyName("user_present")]
 	public bool? UserPresent { get; set; } = default!;
@@ -111,7 +110,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public Entity.TransferCreditFundsSource? CreditFundsSource { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>authorization</c> is created at the <c>virtual_time</c> on the provided <c>test_clock</c>.</para>
+	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>authorization</c> is created at the <c>virtual_time</c> on the provided test clock.</para>
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;

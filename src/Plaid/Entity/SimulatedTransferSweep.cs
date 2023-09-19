@@ -48,4 +48,16 @@ public record SimulatedTransferSweep
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.SweepStatus? Status { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The trigger of the sweep</para>
+	/// </summary>
+	[JsonPropertyName("trigger")]
+	public Entity.SweepTrigger? Trigger { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The description of the deposit that will be passed to the receiving bank (up to 10 characters). Note that banks utilize this field differently, and may or may not show it on the bank statement.</para>
+	/// </summary>
+	[JsonPropertyName("description")]
+	public string? Description { get; init; } = default!;
 }

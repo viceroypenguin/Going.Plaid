@@ -17,5 +17,5 @@ public record BaseReportsProductReadyWebhook : WebhookBase
 	/// <para>The <c>user_id</c> corresponding to the User ID the webhook has fired for.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
-	public string? UserId { get; init; } = default!;
+	public string UserId { get; init; } = default!;
 }

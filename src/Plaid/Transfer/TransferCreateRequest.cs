@@ -14,16 +14,10 @@ public partial class TransferCreateRequest : RequestBase
 	public string? IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited. Required when creating a transfer using an <c>access_token</c>.</para>
+	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string? AccountId { get; set; } = default!;
-
-	/// <summary>
-	/// <para>The payment profile token associated with the Payment Profile that will be debited or credited. Required if not using <c>access_token</c>.</para>
-	/// </summary>
-	[JsonPropertyName("payment_profile_token")]
-	public string? PaymentProfileToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a transfer authorization. This parameter also serves the purpose of acting as an idempotency identifier.</para>

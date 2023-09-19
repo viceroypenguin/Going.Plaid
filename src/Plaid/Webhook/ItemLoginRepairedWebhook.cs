@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when an Item login is repaired and the Item no longer needs to go through update mode. This will occur when the user completed the update mode flow for the Item, either in your application or in another Plaid-connected app. If you have messaging that tells the user to complete the update mode flow (such as in-app banners or out-of-band notifications) you should silence this messaging upon receiving the <c>LOGIN_REPAIRED</c> webhook.</para>
+/// <para>Fired when an Item has exited the <c>ITEM_LOGIN_REQUIRED</c> state without the user having gone through the update mode flow in your app (this can happen if the user completed the update mode in a different app). If you have messaging that tells the user to complete the update mode flow, you should silence this messaging upon receiving the <c>LOGIN_REPAIRED</c> webhook.</para>
 /// </summary>
 public record ItemLoginRepairedWebhook : WebhookBase
 {

@@ -66,6 +66,12 @@ public enum StudentRepaymentPlanTypeEnum
 	Standard,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "saving on a valuable education")]
+	SavingOnAValuableEducation,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

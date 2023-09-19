@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The type of event that this transfer represents.</para>
+/// <para>The type of event that this transfer represents. Event types with prefix <c>sweep</c> represents events for Plaid Ledger sweeps.</para>
 /// </summary>
 public enum TransferEventType
 {
@@ -58,6 +58,36 @@ public enum TransferEventType
 	/// </summary>
 	[EnumMember(Value = "return_swept")]
 	ReturnSwept,
+
+	/// <summary>
+	/// <para>A new ledger sweep was created; it is in the pending state.</para>
+	/// </summary>
+	[EnumMember(Value = "sweep.pending")]
+	SweepPending,
+
+	/// <summary>
+	/// <para>The ledger sweep has been successfully submitted to the payment network.</para>
+	/// </summary>
+	[EnumMember(Value = "sweep.posted")]
+	SweepPosted,
+
+	/// <summary>
+	/// <para>The transaction has settled in the funding account. This means that funds withdrawn from Plaid Ledger balance have reached the funding account, or funds to be deposited into the Plaid Ledger Balance have been pulled, and the hold period has begun.</para>
+	/// </summary>
+	[EnumMember(Value = "sweep.settled")]
+	SweepSettled,
+
+	/// <summary>
+	/// <para>A posted ledger sweep was returned.</para>
+	/// </summary>
+	[EnumMember(Value = "sweep.returned")]
+	SweepReturned,
+
+	/// <summary>
+	/// <para>The ledger sweep failed, no funds were moved.</para>
+	/// </summary>
+	[EnumMember(Value = "sweep.failed")]
+	SweepFailed,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

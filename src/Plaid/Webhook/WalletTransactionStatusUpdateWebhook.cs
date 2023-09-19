@@ -20,7 +20,7 @@ public record WalletTransactionStatusUpdateWebhook : WebhookBase
 	public string TransactionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The <c>payment_id</c> associated with the transaction. This will be present in case of <c>REFUND</c> and <c>PIS_PAY_IN</c></para>
+	/// <para>The <c>payment_id</c> associated with the transaction. This will be present in case of <c>REFUND</c> and <c>PIS_PAY_IN</c>.</para>
 	/// </summary>
 	[JsonPropertyName("payment_id")]
 	public string? PaymentId { get; init; } = default!;

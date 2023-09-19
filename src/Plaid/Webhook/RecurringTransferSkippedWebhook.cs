@@ -26,7 +26,7 @@ public record RecurringTransferSkippedWebhook : WebhookBase
 	public Entity.TransferAuthorizationDecision AuthorizationDecision { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A code representing the rationale for approving or declining the proposed transfer. Possible values are:</para>
+	/// <para>A code representing the rationale for approving or declining the proposed transfer.</para>
 	/// </summary>
 	[JsonPropertyName("authorization_decision_rationale_code")]
 	public Entity.TransferAuthorizationDecisionRationaleCode? AuthorizationDecisionRationaleCode { get; init; } = default!;

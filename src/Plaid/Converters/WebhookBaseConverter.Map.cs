@@ -48,14 +48,15 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 			[(WebhookType.Item, WebhookCode.NewAccountsAvailable)] = typeof(NewAccountsAvailableWebhook),
 			[(WebhookType.LinkDelivery, WebhookCode.DeliveryStatus)] = typeof(LinkUserDeliveryStatusWebhook),
 			[(WebhookType.LinkDelivery, WebhookCode.LinkCallback)] = typeof(LinkDeliveryCallbackWebhook),
+			[(WebhookType.BaseReport, WebhookCode.ProductReady)] = typeof(BaseReportsProductReadyWebhook),
+			[(WebhookType.BaseReport, WebhookCode.Error)] = typeof(BaseReportsErrorWebhook),
+			[(WebhookType.CraIncome, WebhookCode.BankIncomeComplete)] = typeof(CraBankIncomeCompleteWebhook),
+			[(WebhookType.Income, WebhookCode.BankIncomeComplete)] = typeof(BankIncomeCompleteWebhook),
 			[(WebhookType.Income, WebhookCode.BankIncomeRefreshUpdate)] = typeof(BankIncomeRefreshUpdateWebhook),
 			[(WebhookType.Income, WebhookCode.BankIncomeRefreshComplete)] = typeof(BankIncomeRefreshCompleteWebhook),
 			[(WebhookType.Link, WebhookCode.Events)] = typeof(LinkEventsWebhook),
 			[(WebhookType.Link, WebhookCode.SessionFinished)] = typeof(LinkSessionFinishedWebhook),
 			[(WebhookType.Assets, WebhookCode.ProductReady)] = typeof(AssetsProductReadyWebhook),
 			[(WebhookType.Assets, WebhookCode.Error)] = typeof(AssetsErrorWebhook),
-			[(WebhookType.BaseReport, WebhookCode.ProductReady)] = typeof(BaseReportsProductReadyWebhook),
-			[(WebhookType.BaseReport, WebhookCode.Error)] = typeof(BaseReportsErrorWebhook),
-			[(WebhookType.CraIncome, WebhookCode.BankIncomeComplete)] = typeof(BankIncomeCompleteWebhook),
 		};
 }

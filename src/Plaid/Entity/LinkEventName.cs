@@ -92,6 +92,12 @@ public enum LinkEventName
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "SELECT_FILTERED_INSTITUTION")]
+	SelectFilteredInstitution,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "SELECT_INSTITUTION")]
 	SelectInstitution,
 

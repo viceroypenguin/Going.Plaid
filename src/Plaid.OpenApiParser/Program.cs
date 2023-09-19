@@ -153,7 +153,7 @@ static class Program
 			var (pd, ed) = ParseEnumDescription(schema.Description);
 
 			static string GetEnumName(string name) =>
-				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.ToLower().ToPascalCase()}";
+				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.Replace(".", "_").ToLower().ToPascalCase()}";
 
 			schemaEntities[name] = new()
 			{
@@ -250,6 +250,9 @@ static class Program
 	{
 		if (string.IsNullOrWhiteSpace(description))
 			return (string.Empty, new Dictionary<string, string>());
+		if (description.StartsWith("The asynchronous event to be simulated.", StringComparison.OrdinalIgnoreCase))
+			return (FixupDescription(description), new Dictionary<string, string>());
+
 		var lines = description.Split(newLineSplits, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
 		if (lines.Length == 1)

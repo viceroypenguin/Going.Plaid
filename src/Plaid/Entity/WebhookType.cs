@@ -116,18 +116,6 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "LINK")]
-	Link,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "ASSETS")]
-	Assets,
-
-	/// <summary>
-	/// 
-	/// </summary>
 	[EnumMember(Value = "BASE_REPORT")]
 	BaseReport,
 
@@ -136,6 +124,18 @@ public enum WebhookType
 	/// </summary>
 	[EnumMember(Value = "CRA_INCOME")]
 	CraIncome,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "LINK")]
+	Link,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "ASSETS")]
+	Assets,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

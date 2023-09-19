@@ -20,7 +20,7 @@ public class TransactionsSyncRequestOptions
 	public bool? IncludePersonalFinanceCategory { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Include counterparties and extra merchant fields in the transaction. This field is disabled by default. If you need this information in addition to the parsed data provided, contact your Plaid Account Manager.</para>
+	/// <para>Include counterparties and extra merchant fields in the response.</para>
 	/// </summary>
 	[JsonPropertyName("include_logo_and_counterparty_beta")]
 	public bool? IncludeLogoAndCounterpartyBeta { get; set; } = default!;

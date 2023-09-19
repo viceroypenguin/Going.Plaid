@@ -200,6 +200,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "BANK_INCOME_COMPLETE")]
+	BankIncomeComplete,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "BANK_INCOME_REFRESH_UPDATE")]
 	BankIncomeRefreshUpdate,
 
@@ -220,12 +226,6 @@ public enum WebhookCode
 	/// </summary>
 	[EnumMember(Value = "SESSION_FINISHED")]
 	SessionFinished,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "BANK_INCOME_COMPLETE")]
-	BankIncomeComplete,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

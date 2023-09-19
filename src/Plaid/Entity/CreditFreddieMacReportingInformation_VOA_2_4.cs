@@ -20,6 +20,12 @@ public record CreditFreddieMacReportingInformation_VOA_2_4
 	/// <summary>
 	/// <para>Documentation not found in the MISMO model viewer and not provided by Freddie Mac.</para>
 	/// </summary>
+	[JsonPropertyName("ReportingInformationParentIdentifier")]
+	public string? Reportinginformationparentidentifier { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Documentation not found in the MISMO model viewer and not provided by Freddie Mac.</para>
+	/// </summary>
 	[JsonPropertyName("ReportingInformationIdentifier")]
 	public string Reportinginformationidentifier { get; init; } = default!;
 }

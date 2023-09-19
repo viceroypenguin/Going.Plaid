@@ -18,7 +18,7 @@ public class ConsumerReportUserIdentity
 	public string LastName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's phone numbers</para>
+	/// <para>The user's phone numbers. The format of phone number will be validated and for better normalization, it is expected to be in E.164 format +{countrycode}{number}, for example <c>+14151234567</c>.</para>
 	/// </summary>
 	[JsonPropertyName("phone_numbers")]
 	public IReadOnlyList<string> PhoneNumbers { get; set; } = default!;

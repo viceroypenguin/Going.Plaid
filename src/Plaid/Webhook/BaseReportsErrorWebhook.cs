@@ -20,8 +20,8 @@ public record BaseReportsErrorWebhook : WebhookBase
 	public Entity.PlaidError? Error { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ID associated with the Asset Report.</para>
+	/// <para>The <c>user_id</c> corresponding to the User ID the webhook has fired for.</para>
 	/// </summary>
-	[JsonPropertyName("asset_report_id")]
-	public string? AssetReportId { get; init; } = default!;
+	[JsonPropertyName("user_id")]
+	public string UserId { get; init; } = default!;
 }

@@ -1,13 +1,13 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a refreshed bank income report has finished generating or failed to generate, triggered by calling <c>/cra/bank_income/get</c>.</para>
+/// <para>Fired when a bank income report has finished generating or failed to generate, triggered by calling <c>/credit/bank_income/get</c> in CRA enabled client.</para>
 /// </summary>
 public record BankIncomeCompleteWebhook : WebhookBase
 {
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_type")]
-	public override WebhookType WebhookType => WebhookType.CraIncome;
+	public override WebhookType WebhookType => WebhookType.Income;
 
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]
@@ -20,7 +20,7 @@ public record BankIncomeCompleteWebhook : WebhookBase
 	public string UserId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The result of the bank income refresh report generation</para>
+	/// <para>The result of the bank income report generation</para>
 	/// </summary>
 	[JsonPropertyName("result")]
 	public Entity.BankIncomeCompleteResult Result { get; init; } = default!;

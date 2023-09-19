@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record TransferAuthorizationDecisionRationale
 {
 	/// <summary>
-	/// <para>A code representing the rationale for approving or declining the proposed transfer. Possible values are:</para>
+	/// <para>A code representing the rationale for approving or declining the proposed transfer.</para>
 	/// </summary>
 	[JsonPropertyName("code")]
 	public Entity.TransferAuthorizationDecisionRationaleCode Code { get; init; } = default!;

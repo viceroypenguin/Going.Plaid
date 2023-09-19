@@ -19,14 +19,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferRecurringGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to determine transfer failure risk.</para>
+	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to authorize a transfer. This endpoint must be called prior to calling <c>/transfer/create</c>. </para>
+	/// <para>There are three possible outcomes to calling this endpoint: If the <c>authorization.decision</c> in the response is <c>declined</c>, the proposed transfer has failed the risk check and you cannot proceed with the transfer. If the <c>authorization.decision</c> is <c>approved</c>, and the <c>authorization.rationale_code</c> is <c>null</c>, the transfer has passed the risk check and you can proceed to call <c>/transfer/create</c>. If the <c>authorization.decision</c> is <c>approved</c> and the <c>authorization.rationale_code</c> is non-<c>null</c>, the risk check could not be run: you may proceed with the transfer, but should perform your own risk evaluation. For more details, see the response schema.</para>
 	/// <para>In Plaid's Sandbox environment the decisions will be returned as follows:</para>
-	/// <para>  - To approve a transfer with null rationale code, make an authorization request with an <c>amount</c> less than the available balance in the account.</para>
+	/// <para>  - To approve a transfer with <c>null</c> rationale code, make an authorization request with an <c>amount</c> less than the available balance in the account.</para>
 	/// <para>  - To approve a transfer with the rationale code <c>MANUALLY_VERIFIED_ITEM</c>, create an Item in Link through the <a href="https://plaid.com/docs/auth/coverage/testing/#testing-same-day-micro-deposits">Same Day Micro-deposits flow</a>.</para>
 	/// <para>  - To approve a transfer with the rationale code <c>ITEM_LOGIN_REQUIRED</c>, <a href="https://plaid.com/docs/sandbox/#item_login_required">reset the login for an Item</a>.</para>
 	/// <para>  - To decline a transfer with the rationale code <c>NSF</c>, the available balance on the account must be less than the authorization <c>amount</c>. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
 	/// <para>  - To decline a transfer with the rationale code <c>RISK</c>, the available balance on the account must be exactly $0. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
-	/// <para>The fields <c>device.ip_address</c> and <c>device.user_agent</c> are required for all sessions where the end-user is present. For example, when a user is authorizing a one-time payment from their device.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferauthorizationcreate" /></remarks>
 	public Task<Transfer.TransferAuthorizationCreateResponse> TransferAuthorizationCreateAsync(Transfer.TransferAuthorizationCreateRequest request) =>
@@ -64,6 +64,30 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferLedgerGetResponse> TransferLedgerGetAsync(Transfer.TransferLedgerGetRequest request) =>
 		PostAsync("/transfer/ledger/get", request)
 			.ParseResponseAsync<Transfer.TransferLedgerGetResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/ledger/deposit</c> endpoint to deposit funds into Plaid Ledger.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferledgerdeposit" /></remarks>
+	public Task<Transfer.TransferLedgerDepositResponse> TransferLedgerDepositAsync(Transfer.TransferLedgerDepositRequest request) =>
+		PostAsync("/transfer/ledger/deposit", request)
+			.ParseResponseAsync<Transfer.TransferLedgerDepositResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/ledger/withdraw</c> endpoint to withdraw funds from a Plaid Ledger balance.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferledgerwithdraw" /></remarks>
+	public Task<Transfer.TransferLedgerWithdrawResponse> TransferLedgerWithdrawAsync(Transfer.TransferLedgerWithdrawRequest request) =>
+		PostAsync("/transfer/ledger/withdraw", request)
+			.ParseResponseAsync<Transfer.TransferLedgerWithdrawResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/originator/funding_account/update</c> endpoint to update the funding account associated with the originator.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferoriginatorfundingaccountupdate" /></remarks>
+	public Task<Transfer.TransferOriginatorFundingAccountUpdateResponse> TransferOriginatorFundingAccountUpdateAsync(Transfer.TransferOriginatorFundingAccountUpdateRequest request) =>
+		PostAsync("/transfer/originator/funding_account/update", request)
+			.ParseResponseAsync<Transfer.TransferOriginatorFundingAccountUpdateResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/transfer/metrics/get</c> endpoint to view your transfer product usage metrics.</para>

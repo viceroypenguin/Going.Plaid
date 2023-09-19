@@ -26,8 +26,8 @@ public record IncomeVerificationStatusWebhook : WebhookBase
 	public string? UserId { get; init; } = default!;
 
 	/// <summary>
-	/// <para><c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>: The income verification status processing has completed. If the user uploaded multiple documents, this webhook will fire when all documents have finished processing. Call the <c>/credit/payroll_income/get</c> endpoint and check the document metadata to see which documents were successfully parsed.</para>
-	/// <para><c>VERIFICATION_STATUS_PROCESSING_FAILED</c>: A failure occurred when attempting to process the verification documentation.</para>
+	/// <para><c>VERIFICATION_STATUS_PROCESSING_COMPLETE</c>:  The income verification processing has completed. This indicates that the documents have been parsed successfully or that the documents were not parsable. If the user uploaded multiple documents, this webhook will fire when all documents have finished processing. Call the <c>/credit/payroll_income/get</c> endpoint and check the document metadata to see which documents were successfully parsed.</para>
+	/// <para><c>VERIFICATION_STATUS_PROCESSING_FAILED</c>: An unexpected internal error occurred when attempting to process the verification documentation.</para>
 	/// <para><c>VERIFICATION_STATUS_PENDING_APPROVAL</c>: (deprecated) The income verification has been sent to the user for review.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]

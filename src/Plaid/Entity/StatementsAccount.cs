@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Account associated with the item.</para>
+/// <para>Account associated with the Item.</para>
 /// </summary>
 public record StatementsAccount
 {

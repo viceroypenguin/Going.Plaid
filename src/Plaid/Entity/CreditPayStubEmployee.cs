@@ -18,7 +18,7 @@ public record CreditPayStubEmployee
 	public string? Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Marital status of the employee - either <c>SINGLE</c> or <c>MARRIED</c>.</para>
+	/// <para>Marital status of the employee - either <c>SINGLE</c> or <c>MARRIED</c> or <c>NOT LISTED</c>.</para>
 	/// </summary>
 	[JsonPropertyName("marital_status")]
 	public string? MaritalStatus { get; init; } = default!;

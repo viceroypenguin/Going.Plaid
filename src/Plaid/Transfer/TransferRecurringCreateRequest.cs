@@ -13,13 +13,13 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	public string IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited. Required when creating a transfer using an <c>access_token</c>.</para>
+	/// <para>The Plaid <c>account_id</c> corresponding to the end-user account that will be debited or credited.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding.</para>
+	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding. You can find your list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;

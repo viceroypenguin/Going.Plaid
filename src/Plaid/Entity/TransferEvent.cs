@@ -18,16 +18,16 @@ public record TransferEvent
 	public DateTimeOffset Timestamp { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of event that this transfer represents.</para>
+	/// <para>The type of event that this transfer represents. Event types with prefix <c>sweep</c> represents events for Plaid Ledger sweeps.</para>
 	/// </summary>
 	[JsonPropertyName("event_type")]
 	public Entity.TransferEventType EventType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The account ID associated with the transfer.</para>
+	/// <para>The account ID associated with the transfer. This field is omitted for Plaid Ledger Sweep events.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string AccountId { get; init; } = default!;
+	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The id of the associated funding account, available in the Plaid Dashboard. If present, this indicates which of your business checking accounts will be credited or debited.</para>
@@ -36,7 +36,7 @@ public record TransferEvent
 	public string? FundingAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer.</para>
+	/// <para>Plaid’s unique identifier for a transfer. This field is <c>null</c> for Plaid Ledger Sweep events.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_id")]
 	public string TransferId { get; init; } = default!;
@@ -48,16 +48,16 @@ public record TransferEvent
 	public string? OriginationAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
+	/// <para>The type of transfer. Valid values are <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account. This field is omitted for Plaid Ledger Sweep events.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_type")]
-	public Entity.TransferType TransferType { get; init; } = default!;
+	public Entity.OmittableTransferType? TransferType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>
+	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00"). This field is omitted for Plaid Ledger Sweep events.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_amount")]
-	public string TransferAmount { get; init; } = default!;
+	public string? TransferAmount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The failure reason if the event type for a transfer is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
