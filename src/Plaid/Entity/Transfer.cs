@@ -149,7 +149,7 @@ public record Transfer
 	public DateOnly? ExpectedSettlementDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid client ID that is the originator of this transfer. Only present if created on behalf of another client as a third-party sender (TPS).</para>
+	/// <para>The Plaid client ID that is the originator of this transfer. Only present if created on behalf of another client as a <a href="https://plaid.com/docs/transfer/application/#originators-vs-platforms">Platform customer</a>.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; init; } = default!;
@@ -177,4 +177,10 @@ public record Transfer
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
 	public Entity.TransferCreditFundsSource? CreditFundsSource { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform’s Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer’s Ledger balance. This must be less than or equal to the <c>transfer.amount</c>.</para>
+	/// </summary>
+	[JsonPropertyName("facilitator_fee")]
+	public string? FacilitatorFee { get; init; } = default!;
 }

@@ -31,4 +31,20 @@ public sealed partial class PlaidClient
 	public Task<Beacon.BeaconReportCreateResponse> BeaconReportCreateAsync(Beacon.BeaconReportCreateRequest request) =>
 		PostAsync("/beacon/report/create", request)
 			.ParseResponseAsync<Beacon.BeaconReportCreateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/beacon/report/list</c> endpoint to view all Beacon Reports you created for a specific Beacon User. The reports returned by this endpoint are exclusively reports you created for a specific user. A Beacon User can only have one active report at a time, but a new report can be created if a previous report has been deleted. The results from this endpoint are paginated; the <c>next_cursor</c> field will be populated if there is another page of results that can be retrieved. To fetch the next page, pass the <c>next_cursor</c> value as the <c>cursor</c> parameter in the next request.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreportlist" /></remarks>
+	public Task<Beacon.BeaconReportListResponse> BeaconReportListAsync(Beacon.BeaconReportListRequest request) =>
+		PostAsync("/beacon/report/list", request)
+			.ParseResponseAsync<Beacon.BeaconReportListResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/beacon/report_syndication/list</c> endpoint to view all Beacon Reports that have been syndicated to a specific Beacon User. This endpoint returns Beacon Report Syndications which are references to Beacon Reports created either by you, or another Beacon customer, that matched the specified Beacon User. A Beacon User can have multiple active Beacon Report Syndications at once. The results from this endpoint are paginated; the <c>next_cursor</c> field will be populated if there is another page of results that can be retrieved. To fetch the next page, pass the <c>next_cursor</c> value as the <c>cursor</c> parameter in the next request.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreportsyndicationlist" /></remarks>
+	public Task<Beacon.BeaconReportSyndicationListResponse> BeaconReportSyndicationListAsync(Beacon.BeaconReportSyndicationListRequest request) =>
+		PostAsync("/beacon/report_syndication/list", request)
+			.ParseResponseAsync<Beacon.BeaconReportSyndicationListResponse>();
 }

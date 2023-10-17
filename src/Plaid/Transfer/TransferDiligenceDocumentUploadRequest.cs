@@ -12,7 +12,7 @@ public partial class TransferDiligenceDocumentUploadRequest : RequestBase
 	public string OriginatorClientId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A file to upload.</para>
+	/// <para>A file to upload. The file size must be less than 20MB. Supported file extensions: .pdf, .docx, .doc.</para>
 	/// </summary>
 	[JsonPropertyName("file")]
 	public string File { get; set; } = default!;

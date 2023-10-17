@@ -60,7 +60,7 @@ public record TransferAuthorizationProposedTransfer
 	public string IsoCurrencyCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid client ID that is the originator of this transfer. Only present if created on behalf of another client as a third-party sender (TPS).</para>
+	/// <para>The Plaid client ID that is the originator of this transfer. Only present if created on behalf of another client as a <a href="https://plaid.com/docs/transfer/application/#originators-vs-platforms">Platform customer</a>.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; init; } = default!;

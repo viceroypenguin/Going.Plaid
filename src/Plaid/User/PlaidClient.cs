@@ -13,7 +13,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserCreateResponse>();
 
 	/// <summary>
-	/// <para>This endpoint is used to update user information associated with an existing <c>user_token</c>. The <c>user_token</c> should be in the response of <c>/user/create</c> call </para>
+	/// <para>This endpoint is used to update user information associated with an existing <c>user_token</c>. The <c>user_token</c> should be in the response of <c>/user/create</c> call</para>
 	/// <para>If you call the endpoint with a non-exist <c>user_token</c>, the call will fail with an error message indicating that the user token is not found.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#userupdate" /></remarks>

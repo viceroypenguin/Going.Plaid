@@ -134,6 +134,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "DASHBOARD_CONFIGURED_ALERT")]
+	DashboardConfiguredAlert,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "ASSETS")]
 	Assets,
 

@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferMetricsGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The Plaid client ID of the transfer originator. Should only be present if <c>client_id</c> is a third-party sender (TPS).</para>
+	/// <para>The Plaid client ID of the transfer originator. Should only be present if <c>client_id</c> is a <a href="https://plaid.com/docs/transfer/application/#originators-vs-platforms">Platform customer</a>.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; set; } = default!;

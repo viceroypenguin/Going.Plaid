@@ -28,4 +28,10 @@ public record InvestmentsHoldingsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("item")]
 	public Entity.Item Item { get; init; } = default!;
+
+	/// <summary>
+	/// <para>When true, this field indicates that the Item's portfolio was manually created with the Investments Fallback flow.</para>
+	/// </summary>
+	[JsonPropertyName("is_investments_fallback_item")]
+	public bool? IsInvestmentsFallbackItem { get; init; } = default!;
 }

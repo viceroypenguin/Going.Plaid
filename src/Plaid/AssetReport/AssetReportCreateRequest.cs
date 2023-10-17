@@ -12,12 +12,6 @@ public partial class AssetReportCreateRequest : RequestBase
 	public IReadOnlyList<string>? AccessTokens { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user token associated with the User for which to create an asset report for. All items associated with the User will be included in the report.</para>
-	/// </summary>
-	[JsonPropertyName("user_token")]
-	public string? UserToken { get; set; } = default!;
-
-	/// <summary>
 	/// <para>The maximum integer number of days of history to include in the Asset Report. If using Fannie Mae Day 1 Certainty, <c>days_requested</c> must be at least 61 for new originations or at least 31 for refinancings.</para>
 	/// <para>An Asset Report requested with "Additional History" (that is, with more than 61 days of transaction history) will incur an Additional History fee.</para>
 	/// </summary>

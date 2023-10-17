@@ -19,7 +19,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferRecurringGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to authorize a transfer. This endpoint must be called prior to calling <c>/transfer/create</c>. </para>
+	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to authorize a transfer. This endpoint must be called prior to calling <c>/transfer/create</c>.</para>
 	/// <para>There are three possible outcomes to calling this endpoint: If the <c>authorization.decision</c> in the response is <c>declined</c>, the proposed transfer has failed the risk check and you cannot proceed with the transfer. If the <c>authorization.decision</c> is <c>approved</c>, and the <c>authorization.rationale_code</c> is <c>null</c>, the transfer has passed the risk check and you can proceed to call <c>/transfer/create</c>. If the <c>authorization.decision</c> is <c>approved</c> and the <c>authorization.rationale_code</c> is non-<c>null</c>, the risk check could not be run: you may proceed with the transfer, but should perform your own risk evaluation. For more details, see the response schema.</para>
 	/// <para>In Plaid's Sandbox environment the decisions will be returned as follows:</para>
 	/// <para>  - To approve a transfer with <c>null</c> rationale code, make an authorization request with an <c>amount</c> less than the available balance in the account.</para>
@@ -42,7 +42,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferBalanceGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/capabilities/get</c> endpoint to determine the RTP eligibility information of a transfer.</para>
+	/// <para>Use the <c>/transfer/capabilities/get</c> endpoint to determine the RTP eligibility information of a transfer. To simulate RTP eligiblity in Sandbox, log in using the username <c>user_good</c> and password <c>pass_good</c> and use the first two checking and savings accounts in the "First Platypus Bank" institution (ending in 0000 or 1111), which will return <c>true</c>. Any other account will return <c>false</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transfercapabilitiesget" /></remarks>
 	public Task<Transfer.TransferCapabilitiesGetResponse> TransferCapabilitiesGetAsync(Transfer.TransferCapabilitiesGetRequest request) =>
@@ -84,7 +84,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/originator/funding_account/update</c> endpoint to update the funding account associated with the originator.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferoriginatorfundingaccountupdate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferoriginatorfunding_accountupdate" /></remarks>
 	public Task<Transfer.TransferOriginatorFundingAccountUpdateResponse> TransferOriginatorFundingAccountUpdateAsync(Transfer.TransferOriginatorFundingAccountUpdateRequest request) =>
 		PostAsync("/transfer/originator/funding_account/update", request)
 			.ParseResponseAsync<Transfer.TransferOriginatorFundingAccountUpdateResponse>();
@@ -106,7 +106,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/recurring/create</c> endpoint to initiate a new recurring transfer.</para>
+	/// <para>Use the <c>/transfer/recurring/create</c> endpoint to initiate a new recurring transfer. This capability is not currently supported for Transfer UI or Platform Payments (beta) customers.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrecurringcreate" /></remarks>
 	public Task<Transfer.TransferRecurringCreateResponse> TransferRecurringCreateAsync(Transfer.TransferRecurringCreateRequest request) =>
@@ -234,7 +234,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferQuestionnaireCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/diligence/submit</c> endpoint to submit transfer diligence on behalf of the originator.</para>
+	/// <para>Use the <c>/transfer/diligence/submit</c> endpoint to submit transfer diligence on behalf of the originator (i.e., the end customer).</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferdiligencesubmit" /></remarks>
 	public Task<Transfer.TransferDiligenceSubmitResponse> TransferDiligenceSubmitAsync(Transfer.TransferDiligenceSubmitRequest request) =>

@@ -40,4 +40,13 @@ public sealed partial class PlaidClient
 	public Task<Beta.TransactionsRulesRemoveResponse> BetaTransactionsRulesV1RemoveAsync(Beta.TransactionsRulesRemoveRequest request) =>
 		PostAsync("/beta/transactions/rules/v1/remove", request)
 			.ParseResponseAsync<Beta.TransactionsRulesRemoveResponse>();
+
+	/// <summary>
+	/// <para>The <c>/beta/transactions/user_insights/v1/get</c> gets user insights for clients who have enriched data with <c>/transactions/enrich</c>.</para>
+	/// <para>The product is currently in beta.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/enrich/#userinsightsget" /></remarks>
+	public Task<Beta.TransactionsUserInsightsGetResponse> BetaTransactionsUserInsightsV1GetAsync(Beta.TransactionsUserInsightsGetRequest request) =>
+		PostAsync("/beta/transactions/user_insights/v1/get", request)
+			.ParseResponseAsync<Beta.TransactionsUserInsightsGetResponse>();
 }

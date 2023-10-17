@@ -43,7 +43,7 @@ public record BeaconReportCreateResponse : ResponseBase
 	/// <para><c>fraud_amount</c> should be omitted to indicate an unknown fraud amount.</para>
 	/// </summary>
 	[JsonPropertyName("fraud_amount")]
-	public Entity.FraudAmount FraudAmount { get; init; } = default!;
+	public Entity.FraudAmount? FraudAmount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Information about the last change made to the parent object specifying what caused the change as well as when it occurred.</para>

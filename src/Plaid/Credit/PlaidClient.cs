@@ -70,6 +70,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditBankIncomeWebhookUpdateResponse>();
 
 	/// <summary>
+	/// <para><c>/credit/payroll_income/parsing_config/update</c> updates the parsing configuration for a document income verification.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomeparsing_configupdate" /></remarks>
+	public Task<Credit.CreditPayrollIncomeParsingConfigUpdateResponse> CreditPayrollIncomeParsingConfigUpdateAsync(Credit.CreditPayrollIncomeParsingConfigUpdateRequest request) =>
+		PostAsync("/credit/payroll_income/parsing_config/update", request)
+			.ParseResponseAsync<Credit.CreditPayrollIncomeParsingConfigUpdateResponse>();
+
+	/// <summary>
 	/// <para><c>/credit/bank_statements/uploads/get</c> returns data from user-uploaded bank statements.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_statementsuploadsget" /></remarks>

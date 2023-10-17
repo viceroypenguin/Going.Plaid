@@ -12,7 +12,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding. You can find your list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column.</para>
+	/// <para>Specify the account used to fund the transfer. Should be specified if using legacy funding methods only. If using Plaid Ledger, leave this field blank. Customers can find a list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column. If this field is left blank and you are using legacy funding methods, this will default to the default <c>funding_account_id</c> specified during onboarding. Otherwise, Plaid Ledger will be used.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;
@@ -98,7 +98,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string? BeaconSessionId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid client ID that is the originator of this transfer. Only needed if creating transfers on behalf of another client as a third-party sender (TPS).</para>
+	/// <para>The Plaid client ID that is the originator of this transfer. Only needed if creating transfers on behalf of another client as a <a href="https://plaid.com/docs/transfer/application/#originators-vs-platforms">Platform customer</a>.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; set; } = default!;

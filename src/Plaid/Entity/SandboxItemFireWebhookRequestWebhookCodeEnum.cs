@@ -26,6 +26,12 @@ public enum SandboxItemFireWebhookRequestWebhookCodeEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "AUTHORIZATION_GRANTED")]
+	AuthorizationGranted,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "RECURRING_TRANSACTIONS_UPDATE")]
 	RecurringTransactionsUpdate,
 

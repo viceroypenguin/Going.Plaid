@@ -12,15 +12,13 @@ public class TransactionsSyncRequestOptions
 	public bool? IncludeOriginalDescription { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Include the <a href="https://plaid.com/docs/api/products/transactions/#transactions-sync-response-added-personal-finance-category"><c>personal_finance_category</c></a> object in the response.</para>
-	/// <para>All implementations are encouraged to use set this field to <c>true</c> and to use the <c>personal_finance_category</c> instead of <c>category</c> for more meaningful and accurate categorization.</para>
-	/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of personal finance categories.</para>
+	/// <para>Personal finance categories are now returned by default.</para>
 	/// </summary>
 	[JsonPropertyName("include_personal_finance_category")]
 	public bool? IncludePersonalFinanceCategory { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Include counterparties and extra merchant fields in the response.</para>
+	/// <para>Counterparties and extra merchant fields are now returned by default.</para>
 	/// </summary>
 	[JsonPropertyName("include_logo_and_counterparty_beta")]
 	public bool? IncludeLogoAndCounterpartyBeta { get; set; } = default!;

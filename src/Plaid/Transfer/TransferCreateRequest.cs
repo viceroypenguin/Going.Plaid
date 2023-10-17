@@ -89,4 +89,10 @@ public partial class TransferCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform’s Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer’s Ledger balance. This must be less than or equal to the <c>transfer.amount</c>.</para>
+	/// </summary>
+	[JsonPropertyName("facilitator_fee")]
+	public string? FacilitatorFee { get; set; } = default!;
 }

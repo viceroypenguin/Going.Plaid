@@ -9,5 +9,5 @@ public class LinkTokenCreateRequestBaseReport
 	/// <para>The maximum integer number of days of history to include in the Base Report.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
-	public int? DaysRequested { get; set; } = default!;
+	public int DaysRequested { get; set; } = default!;
 }

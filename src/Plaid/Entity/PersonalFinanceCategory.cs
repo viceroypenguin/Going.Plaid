@@ -2,7 +2,7 @@ namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>Information describing the intent of the transaction. Most relevant for personal finance use cases, but not limited to such use cases.</para>
-/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy csv file</c></a> for a full list of personal finance categories.</para>
+/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy CSV file</c></a> for a full list of personal finance categories. If you are migrating to personal finance categories from the legacy categories, also refer to the <a href="https://plaid.com/docs/transactions/pfc-migration/"><c>migration guide</c></a>.</para>
 /// </summary>
 public record PersonalFinanceCategory
 {
@@ -19,7 +19,6 @@ public record PersonalFinanceCategory
 	public string Detailed { get; init; } = default!;
 
 	/// <summary>
-	/// <para>This field is currently only available for the <c>/transactions/enrich</c> endpoint.</para>
 	/// <para>A description of how confident we are that the provided categories accurately describe the transaction intent.</para>
 	/// <para><c>VERY_HIGH</c>: We are more than 98% confident that this category reflects the intent of the transaction.</para>
 	/// <para><c>HIGH</c>: We are more than 90% confident that this category reflects the intent of the transaction.</para>

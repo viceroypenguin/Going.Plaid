@@ -19,7 +19,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding. You can find your list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column.</para>
+	/// <para>Specify the account used to fund the transfer. Customers can find a list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column. If this field is left blank, it will default to the default <c>funding_account_id</c> specified during onboarding.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;
@@ -88,5 +88,5 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// <para>Information about the device being used to initiate the authorization.</para>
 	/// </summary>
 	[JsonPropertyName("device")]
-	public Entity.TransferDevice Device { get; set; } = default!;
+	public Entity.TransferDevice? Device { get; set; } = default!;
 }

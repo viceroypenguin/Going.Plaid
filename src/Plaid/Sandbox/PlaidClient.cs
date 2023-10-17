@@ -63,7 +63,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxBankTransferSimulateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/transfer/sweep/simulate</c> endpoint to create a sweep and associated events in the Sandbox environment. Upon calling this endpoint, all <c>posted</c> or <c>pending</c> transfers with a sweep status of <c>unswept</c> will become <c>swept</c>, and all <c>returned</c> transfers with a sweep status of <c>swept</c> will become <c>return_swept</c>.</para>
+	/// <para>Use the <c>/sandbox/transfer/sweep/simulate</c> endpoint to create a sweep and associated events in the Sandbox environment. Upon calling this endpoint, all transfers with a sweep status of <c>swept</c> will become <c>swept_settled</c>, all <c>posted</c> or <c>pending</c> transfers with a sweep status of <c>unswept</c> will become <c>swept</c>, and all <c>returned</c> transfers with a sweep status of <c>swept</c> will become <c>return_swept</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfersweepsimulate" /></remarks>
 	public Task<Sandbox.SandboxTransferSweepSimulateResponse> SandboxTransferSweepSimulateAsync(Sandbox.SandboxTransferSweepSimulateRequest request) =>
@@ -77,6 +77,14 @@ public sealed partial class PlaidClient
 	public Task<Sandbox.SandboxTransferSimulateResponse> SandboxTransferSimulateAsync(Sandbox.SandboxTransferSimulateRequest request) =>
 		PostAsync("/sandbox/transfer/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxTransferSimulateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/transfer/refund/simulate</c> endpoint to simulate a refund event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as <c>/transfer/event/sync</c> or <c>/transfer/event/list</c>, no transactions will actually take place and funds will not move between accounts, even within the Sandbox.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferrefundsimulate" /></remarks>
+	public Task<Sandbox.SandboxTransferRefundSimulateResponse> SandboxTransferRefundSimulateAsync(Sandbox.SandboxTransferRefundSimulateRequest request) =>
+		PostAsync("/sandbox/transfer/refund/simulate", request)
+			.ParseResponseAsync<Sandbox.SandboxTransferRefundSimulateResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/ledger/simulate_available</c> endpoint to simulate converting pending balance to available balance for all originators in the Sandbox environment.</para>

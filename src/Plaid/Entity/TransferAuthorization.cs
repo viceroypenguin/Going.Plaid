@@ -30,12 +30,6 @@ public record TransferAuthorization
 	public Entity.TransferAuthorizationDecisionRationale? DecisionRationale { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Signal insights including scores and attributes. This response is offered as an add-on to <c>/transfer/authorization/create</c>. To request access to these fields please contact your Plaid account manager.</para>
-	/// </summary>
-	[JsonPropertyName("signal_insights")]
-	public Entity.SignalInsights? SignalInsights { get; init; } = default!;
-
-	/// <summary>
 	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guarantee customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the <c>guarantee_decision_rationale</c> field. Refer to the <c>code</c> field in <c>guarantee_decision_rationale</c> for details.</para>
 	/// </summary>
 	[JsonPropertyName("guarantee_decision")]
@@ -46,6 +40,12 @@ public record TransferAuthorization
 	/// </summary>
 	[JsonPropertyName("guarantee_decision_rationale")]
 	public Entity.TransferAuthorizationGuaranteeDecisionRationale? GuaranteeDecisionRationale { get; init; } = default!;
+
+	/// <summary>
+	/// <para>This object includes the scores and risk level. This response is offered as an add-on to /transfer/authorization/create. To request access to these fields please contact your Plaid account manager.</para>
+	/// </summary>
+	[JsonPropertyName("payment_risk")]
+	public Entity.TransferAuthorizationPaymentRisk? PaymentRisk { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Details regarding the proposed transfer.</para>

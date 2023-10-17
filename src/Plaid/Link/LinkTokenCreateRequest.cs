@@ -36,7 +36,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <summary>
 	/// <para>List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted (unless you are using update mode to add Income or Assets to an Item); required otherwise.</para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically be initialized when any other product is initialized.</para>
-	/// <para>The products specified here will determine which institutions will be available to your users in Link. Only institutions that support *all* requested products can be selected; a if a user attempts to select an institution that does not support a listed product, a "Connectivity not supported" error message will appear in Link. To maximize the number of institutions available, initialize Link with the minimal product set required for your use case. Additional products can be included via the <a href="https://plaid.com/docs/api/tokens/#link-token-create-request-required-if-supported-products"><c>required_if_supported_products</c></a> field, or can be initialized by calling the endpoint after obtaining an access token. For details and exceptions, see <a href="https://plaid.com/docs/link/initializing-products/">Choosing when to initialize products</a>.</para>
+	/// <para>The products specified here will determine which institutions will be available to your users in Link. Only institutions that support *all* requested products can be selected; a if a user attempts to select an institution that does not support a listed product, a "Connectivity not supported" error message will appear in Link. To maximize the number of institutions available, initialize Link with the minimal product set required for your use case. Additional products can be included via the <a href="https://plaid.com/docs/api/tokens/#link-token-create-request-optional-products"><c>optional_products</c></a> or  <a href="https://plaid.com/docs/api/tokens/#link-token-create-request-required-if-supported-products"><c>required_if_supported_products</c></a> fields, or can be initialized by calling the endpoint after obtaining an access token. For details and exceptions, see <a href="https://plaid.com/docs/link/initializing-products/">Choosing when to initialize products</a>.</para>
 	/// <para>Note that, unless you have opted to disable Instant Match support, institutions that support Instant Match will also be shown in Link if <c>auth</c> is specified as a product, even though these institutions do not contain <c>auth</c> in their product array.</para>
 	/// <para>In Production, you will be billed for each product that you specify when initializing Link. Note that a product cannot be removed from an Item once the Item has been initialized with that product. To stop billing on an Item for subscription-based products, such as Liabilities, Investments, and Transactions, remove the Item via <c>/item/remove</c>.</para>
 	/// </summary>
@@ -45,11 +45,19 @@ public partial class LinkTokenCreateRequest : RequestBase
 
 	/// <summary>
 	/// <para>List of Plaid product(s) you wish to use only if the institution and account(s) selected by the user support the product. Institutions that do not support these products will still be shown in Link. The products will only be extracted and billed if the user selects an institution and account type that supports them.</para>
-	/// <para>There should be no overlap between this array and the <c>products</c> or <c>additional_consented_products</c> arrays. The <c>products</c> array must have at least one product.</para>
+	/// <para>There should be no overlap between this array and the <c>products</c>, <c>optional_products</c>, or <c>additional_consented_products</c> arrays. The <c>products</c> array must have at least one product.</para>
 	/// <para>For more details on using this feature, see <a href="https://www.plaid.com/docs/link/initializing-products/#required-if-supported-products">Required if Supported Products</a>.</para>
 	/// </summary>
 	[JsonPropertyName("required_if_supported_products")]
 	public IReadOnlyList<Entity.Products>? RequiredIfSupportedProducts { get; set; } = default!;
+
+	/// <summary>
+	/// <para>List of Plaid product(s) that you may wish to use but that are not required for your use case. Plaid will attempt to fetch data for these products on a best-effort basis, and failure to support these products will not affect Item creation.</para>
+	/// <para>There should be no overlap between this array and the <c>products</c>, <c>required_if_supported_products</c>, or <c>additional_consented_products</c> arrays. The <c>products</c> array must have at least one product.</para>
+	/// <para>For more details on using this feature, see <a href="https://www.plaid.com/docs/link/initializing-products/#optional-products">Optional Products</a>.</para>
+	/// </summary>
+	[JsonPropertyName("optional_products")]
+	public IReadOnlyList<Entity.Products>? OptionalProducts { get; set; } = default!;
 
 	/// <summary>
 	/// <para>(Beta) This field has no effect unless you are participating in the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency</a> beta program.</para>

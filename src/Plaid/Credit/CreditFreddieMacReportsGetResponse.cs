@@ -6,14 +6,14 @@ namespace Going.Plaid.Credit;
 public record CreditFreddieMacReportsGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Verification of Assets Report</para>
+	/// <para>An object representing an Asset Report with Freddie Mac schema.</para>
 	/// </summary>
-	[JsonPropertyName("VOA")]
-	public Entity.CreditFreddieMacVerificationOfAssets_VOA_2_4? Voa { get; init; } = default!;
+	[JsonPropertyName("DEAL")]
+	public Entity.CreditFreddieMacVerificationOfAssetsDeal Deal { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Verification of Employment Report</para>
+	/// <para>The Verification Of Assets (VOA) schema version.</para>
 	/// </summary>
-	[JsonPropertyName("VOE")]
-	public Entity.CreditFreddieVerificationOfEmployment_VOE_2_5? Voe { get; init; } = default!;
+	[JsonPropertyName("SchemaVersion")]
+	public decimal Schemaversion { get; init; } = default!;
 }

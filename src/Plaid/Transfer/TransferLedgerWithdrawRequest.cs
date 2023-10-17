@@ -6,13 +6,13 @@ namespace Going.Plaid.Transfer;
 public partial class TransferLedgerWithdrawRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Client ID of the customer that owns the Ledger balance. This is so Plaid knows which of your customers to payout or collect funds. Only applicable for Platform customers. Do not include if you’re paying out to yourself.</para>
+	/// <para>Client ID of the customer that owns the Ledger balance. This is so Plaid knows which of your customers to payout or collect funds. Only applicable for <a href="https://plaid.com/docs/transfer/application/#originators-vs-platforms">Platform customers</a>. Do not include if you’re paying out to yourself.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The id of the funding account to use, available in the Plaid Dashboard. This determines which of your business checking accounts will be credited or debited. Defaults to the account configured during onboarding. You can find your list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column.</para>
+	/// <para>Specify which funding account linked to this Plaid Ledger to use. Customers can find a list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column. If this field is left blank, this will default to the default <c>funding_account_id</c> specified during onboarding. If an <c>originator_client_id</c> is specified, the <c>funding_account_id</c> must belong to the specified originator, and if <c>funding_account_id</c> is left blank, the originator's default <c>funding_account_id</c> will be used.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;

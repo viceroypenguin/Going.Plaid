@@ -14,8 +14,8 @@ public enum ServiceProductFulfillmentIdentifier
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "VOETRANSACTIONS")]
-	Voetransactions,
+	[EnumMember(Value = "VOE")]
+	Voe,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
