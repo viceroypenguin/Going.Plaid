@@ -18,10 +18,10 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public bool IsDiligenceAttested { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The products to be enabled for the end customer.</para>
+	/// <para>The products to be enabled for the end customer. If empty or <c>null</c>, this field will default to the products enabled for the reseller at the time this endpoint is called.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
-	public IReadOnlyList<Entity.Products> Products { get; set; } = default!;
+	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;
 
 	/// <summary>
 	/// <para>If <c>true</c>, the end customer's default Link customization will be set to match the partner's. You can always change the end customer's Link customization in the Plaid Dashboard. See the <a href="https://plaid.com/docs/link/customization/">Link Customization docs</a> for more information.</para>
@@ -30,7 +30,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public bool? CreateLinkCustomization { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Base64-encoded representation of the end customer's logo. Must be a PNG of size 1024x1024 under 4MB. The logo will be shared with financial institutions and shown to the end user during Link flows. A logo is required if <c>create_link_customization</c> is <c>true</c>. If <c>create_link_customization</c> is <c>false</c> and the logo is omitted, a stock logo will be used.</para>
+	/// <para>Base64-encoded representation of the end customer's logo. Must be a PNG of size 1024x1024 under 4MB. The logo will be shared with financial institutions and shown to the end user during Link flows. A logo is required if <c>create_link_customization</c> is <c>true</c>. If <c>create_link_customization</c> is <c>false</c> and the logo is omitted, the partner's logo will be used if one exists, otherwise a stock logo will be used.</para>
 	/// </summary>
 	[JsonPropertyName("logo")]
 	public string? Logo { get; set; } = default!;

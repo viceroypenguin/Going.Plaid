@@ -36,7 +36,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public Entity.TransferNetwork Network { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00").</para>
+	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00"). When calling <c>/transfer/authorization/create</c>, specify the maximum amount to authorize. When calling <c>/transfer/create</c>, specify the exact amount of the transfer, up to a maximum of the amount authorized. If this field is left blank when calling <c>/transfer/create</c>, the maximum amount authorized in the <c>authorization_id</c> will be sent.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string Amount { get; set; } = default!;

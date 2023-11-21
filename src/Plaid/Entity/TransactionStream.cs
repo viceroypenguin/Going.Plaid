@@ -97,4 +97,16 @@ public record TransactionStream
 	/// </summary>
 	[JsonPropertyName("personal_finance_category")]
 	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;
+
+	/// <summary>
+	/// <para>This will be set to <c>true</c> if the stream has been modified by request to a <c>/transactions/recurring/streams</c> endpoint. It will be <c>false</c> for all other streams.</para>
+	/// </summary>
+	[JsonPropertyName("is_user_modified")]
+	public bool IsUserModified { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The date of the most recent user modification. This will only be set if <c>is_user_modified</c> is <c>true</c>.</para>
+	/// </summary>
+	[JsonPropertyName("last_user_modified_date")]
+	public DateOnly? LastUserModifiedDate { get; init; } = default!;
 }

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a change to the user's income is detected. You should call <c>/credit/bank_income/refresh</c> to get updated income data for the user</para>
+/// <para>Fired when a change to the user's income is detected. You should call <c>/credit/bank_income/refresh</c> to get updated income data for the user. To receive this webhook, subscribe in the <a href="https://dashboard.plaid.com/developers/webhooks">Dashboard</a>.</para>
 /// </summary>
 public record BankIncomeRefreshUpdateWebhook : WebhookBase
 {

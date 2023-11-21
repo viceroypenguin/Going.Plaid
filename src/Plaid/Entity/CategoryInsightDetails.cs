@@ -33,5 +33,5 @@ public record CategoryInsightDetails
 	/// <para>The most common counterparties associated with this category sorted by outflow.</para>
 	/// </summary>
 	[JsonPropertyName("top_counterparties")]
-	public IReadOnlyList<Entity.Counterparty> TopCounterparties { get; init; } = default!;
+	public IReadOnlyList<string>? TopCounterparties { get; init; } = default!;
 }

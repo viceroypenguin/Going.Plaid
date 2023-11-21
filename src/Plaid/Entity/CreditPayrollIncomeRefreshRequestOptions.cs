@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class CreditPayrollIncomeRefreshRequestOptions
 {
 	/// <summary>
-	/// <para>An array of <c>item_id</c>s to be refreshed. Each <c>item_id</c> should uniquely identify a payroll income item.</para>
+	/// <para>An array of <c>item_id</c>s to be refreshed. Each <c>item_id</c> should uniquely identify a payroll income item. If this field is not provided, all <c>item_id</c>s associated with the <c>user_token</c> will be refreshed.</para>
 	/// </summary>
 	[JsonPropertyName("item_ids")]
 	public IReadOnlyList<string>? ItemIds { get; set; } = default!;

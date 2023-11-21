@@ -32,14 +32,14 @@ public record MerchantInsights
 	/// <summary>
 	/// <para>The primary personal finance category associated with this merchant.</para>
 	/// </summary>
-	[JsonPropertyName("primary_personal_finance_category")]
-	public string? PrimaryPersonalFinanceCategory { get; init; } = default!;
+	[JsonPropertyName("personal_finance_category_primary")]
+	public string? PersonalFinanceCategoryPrimary { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The detailed personal finance category associated with this merchant.</para>
 	/// </summary>
-	[JsonPropertyName("detailed_personal_finance_category")]
-	public string? DetailedPersonalFinanceCategory { get; init; } = default!;
+	[JsonPropertyName("personal_finance_category_detailed")]
+	public string? PersonalFinanceCategoryDetailed { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Sum of outflow amounts.</para>

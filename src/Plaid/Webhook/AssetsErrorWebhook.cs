@@ -24,4 +24,10 @@ public record AssetsErrorWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("asset_report_id")]
 	public string AssetReportId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The <c>user_id</c> corresponding to the User ID the webhook has fired for.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; init; } = default!;
 }

@@ -24,7 +24,7 @@ public class LinkTokenCreateRequestIncomeVerificationPayrollIncome
 	public string? ItemIdToUpdate { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The types of analysis to enable for document uploads. If none are specified, then docs will undergo OCR parsing only. This field is only relevant to participants in the Document Fraud beta.</para>
+	/// <para>The types of analysis to enable for document uploads. If this field is not provided, then docs will undergo OCR parsing only.</para>
 	/// </summary>
 	[JsonPropertyName("parsing_config")]
 	public IReadOnlyList<Entity.IncomeVerificationDocParsingConfig>? ParsingConfig { get; set; } = default!;

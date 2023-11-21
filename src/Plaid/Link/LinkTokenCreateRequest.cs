@@ -20,6 +20,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 
 	/// <summary>
 	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/.</para>
+	/// <para>If using Identity Verification, <c>country_codes</c> should be set to the country where your company is based, not the country where your user is located. For all other products, <c>country_codes</c> represents the location of your user's financial institution.</para>
 	/// <para>If Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. Note that while all countries are enabled by default in Sandbox and Development, in Production only US and Canada are enabled by default. Access to European institutions requires additional compliance steps. To request access to European institutions in the Production environment, <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access">file a product access Support ticket</a> via the Plaid dashboard. If you initialize with a European country code, your users will see the European consent panel during the Link flow.</para>
 	/// <para>If using a Link customization, make sure the country codes in the customization match those specified in <c>country_codes</c>, or the customization may not be applied.</para>
 	/// <para>If using the Auth features Instant Match, Same-day Micro-deposits, or Automated Micro-deposits, <c>country_codes</c> must be set to <c>['US']</c>.</para>
@@ -76,6 +77,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public string? Webhook { get; set; } = default!;
 
 	/// <summary>
+	/// <para>A list of access tokens associated with the items to update in Link update mode for the Assets product. Using this instead of the <c>access_token</c> field allows the updating of multiple items at once. This feature is in closed beta, please contact your account manager for more info.</para>
+	/// </summary>
+	[JsonPropertyName("access_tokens")]
+	public IReadOnlyList<string>? AccessTokens { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The name of the Link customization from the Plaid Dashboard to be applied to Link. If not specified, the <c>default</c> customization will be used. When using a Link customization, the language in the customization must match the language selected via the <c>language</c> parameter, and the countries in the customization should match the country codes selected via <c>country_codes</c>.</para>
 	/// </summary>
 	[JsonPropertyName("link_customization_name")]
@@ -101,7 +108,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 
 	/// <summary>
 	/// <para>By default, Link will provide limited account filtering: it will only display Institutions that are compatible with all products supplied in the <c>products</c> parameter of <c>/link/token/create</c>, and, if <c>auth</c> is specified in the <c>products</c> array, will also filter out accounts other than <c>checking</c> and <c>savings</c> accounts on the Account Select pane. You can further limit the accounts shown in Link by using <c>account_filters</c> to specify the account subtypes to be shown in Link. Only the specified subtypes will be shown. This filtering applies to both the Account Select view (if enabled) and the Institution Select view. Institutions that do not support the selected subtypes will be omitted from Link. To indicate that all subtypes should be shown, use the value <c>"all"</c>. If the <c>account_filters</c> filter is used, any account type for which a filter is not specified will be entirely omitted from Link. For a full list of valid types and subtypes, see the <a href="https://plaid.com/docs/api/accounts#account-type-schema">Account schema</a>.</para>
-	/// <para>For institutions using OAuth, the filter will not affect the list of accounts shown by the bank in the OAuth window.</para>
+	/// <para>The filter may or may not impact the list of accounts shown by the institution in the OAuth account selection flow, depending on the specific institution. If the user selects excluded account subtypes in the OAuth flow, these accounts will not be added to the Item. If the user selects only excluded account subtypes, the link attempt will fail and the user will be prompted to try again.</para>
 	/// </summary>
 	[JsonPropertyName("account_filters")]
 	public Entity.LinkTokenAccountFilters? AccountFilters { get; set; } = default!;
@@ -207,4 +214,10 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("hosted_link")]
 	public Entity.LinkTokenCreateHostedLink? HostedLink { get; set; } = default!;
+
+	/// <summary>
+	/// <para>If <c>true</c>, request a CRA connection. Defaults to <c>false</c>.</para>
+	/// </summary>
+	[JsonPropertyName("cra_enabled")]
+	public bool? CraEnabled { get; set; } = default!;
 }

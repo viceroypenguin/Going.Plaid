@@ -98,6 +98,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorSignalReturnReportResponse>();
 
 	/// <summary>
+	/// <para>When a processor token is not initialized with Signal, call <c>/processor/signal/prepare</c> to opt-in that processor token to the Signal data collection process, which will improve the accuracy of the Signal score.</para>
+	/// <para>If this endpoint is called with a processor token that is already initialized with Signal, it will return a 200 response and will not modify the processor token.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignalprepare" /></remarks>
+	public Task<Processor.ProcessorSignalPrepareResponse> ProcessorSignalPrepareAsync(Processor.ProcessorSignalPrepareRequest request) =>
+		PostAsync("/processor/signal/prepare", request)
+			.ParseResponseAsync<Processor.ProcessorSignalPrepareResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/processor/bank_transfer/create</c> endpoint to initiate a new bank transfer as a processor</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#bank_transfercreate" /></remarks>
@@ -115,6 +124,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>The <c>/processor/identity/match</c> endpoint generates a match score, which indicates how well the provided identity data matches the identity information on file with the account holder's financial institution.</para>
+	/// <para>Fields within the <c>balances</c> object will always be null when retrieved by <c>/identity/match</c>. Instead, use the free <c>/accounts/get</c> endpoint to request balance cached data, or <c>/accounts/balance/get</c> for real-time data.</para>
 	/// <para>This request may take some time to complete if Identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processoridentitymatch" /></remarks>

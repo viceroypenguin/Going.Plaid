@@ -3,11 +3,11 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The asynchronous event to be simulated. May be: <c>posted</c>, <c>settled</c>, <c>failed</c>, or <c>returned</c>.</para>
 /// <para>An error will be returned if the event type is incompatible with the current ledger sweep status. Compatible status --> event type transitions include:</para>
-/// <para><c>pending</c> --> <c>posted</c></para>
-/// <para><c>pending</c> --> <c>failed</c></para>
-/// <para><c>posted</c> --> <c>settled</c></para>
-/// <para><c>posted</c> --> <c>returned</c></para>
-/// <para><c>settled</c> --> <c>returned</c></para>
+/// <para><c>sweep.pending</c> --> <c>sweep.posted</c></para>
+/// <para><c>sweep.pending</c> --> <c>sweep.failed</c></para>
+/// <para><c>sweep.posted</c> --> <c>sweep.settled</c></para>
+/// <para><c>sweep.posted</c> --> <c>sweep.returned</c></para>
+/// <para><c>sweep.settled</c> --> <c>sweep.returned</c></para>
 /// </summary>
 public enum TransferLedgerSweepSimulateEventType
 {

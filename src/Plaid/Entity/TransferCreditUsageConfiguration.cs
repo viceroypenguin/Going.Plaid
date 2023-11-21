@@ -32,7 +32,7 @@ public class TransferCreditUsageConfiguration
 	/// <summary>
 	/// <para>Specifies the expected use cases for the originator’s credit transfers. This should be a list that contains one or more of the following codes:</para>
 	/// <para><c>"ccd"</c> - Corporate Credit or Debit - fund transfer between two corporate bank accounts</para>
-	/// <para><c>"ppd"</c> - Prearranged Payment or Deposit - the transfer is part of a pre-existing relationship with a consumer, eg. bill payment</para>
+	/// <para><c>"ppd"</c> - Prearranged Payment or Deposit - the transfer is part of a pre-existing relationship with a consumer, e.g. bill payment</para>
 	/// <para><c>"web"</c> - A credit Entry initiated by or on behalf of a holder of a Consumer Account that is intended for a Consumer Account of a Receiver</para>
 	/// </summary>
 	[JsonPropertyName("sec_codes")]

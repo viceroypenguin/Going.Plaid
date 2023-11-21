@@ -27,5 +27,11 @@ public partial class SandboxIncomeFireWebhookRequest : RequestBase
 	/// 
 	/// </summary>
 	[JsonPropertyName("verification_status")]
-	public Entity.SandboxIncomeFireWebhookRequestVerificationStatusEnum VerificationStatus { get; set; } = default!;
+	public Entity.SandboxIncomeFireWebhookRequestVerificationStatusEnum? VerificationStatus { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The webhook codes that can be fired by this test endpoint.</para>
+	/// </summary>
+	[JsonPropertyName("webhook_code")]
+	public Entity.SandboxIncomeWebhookFireRequestWebhookCode WebhookCode { get; set; } = default!;
 }

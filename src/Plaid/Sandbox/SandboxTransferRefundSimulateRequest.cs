@@ -24,6 +24,7 @@ public partial class SandboxTransferRefundSimulateRequest : RequestBase
 	/// <para><c>refund.pending</c> --> <c>refund.posted</c></para>
 	/// <para><c>refund.posted</c> --> <c>refund.returned</c></para>
 	/// <para><c>refund.posted</c> --> <c>refund.settled</c></para>
+	/// <para><c>refund.posted</c> events can only be simulated if the refunded transfer has been transitioned to settled. This mimics the ordering of events in Production.</para>
 	/// </summary>
 	[JsonPropertyName("event_type")]
 	public string EventType { get; set; } = default!;

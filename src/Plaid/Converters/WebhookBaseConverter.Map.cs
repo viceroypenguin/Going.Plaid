@@ -10,6 +10,7 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 		{
 			[(WebhookType.Screening, WebhookCode.StatusUpdated)] = typeof(ScreeningStatusUpdatedWebhook),
 			[(WebhookType.EntityScreening, WebhookCode.StatusUpdated)] = typeof(EntityScreeningStatusUpdatedWebhook),
+			[(WebhookType.Beacon, WebhookCode.UserStatusUpdated)] = typeof(BeaconUserStatusUpdatedWebhook),
 			[(WebhookType.IdentityVerification, WebhookCode.StepUpdated)] = typeof(IdentityVerificationStepUpdatedWebhook),
 			[(WebhookType.IdentityVerification, WebhookCode.Retried)] = typeof(IdentityVerificationRetriedWebhook),
 			[(WebhookType.IdentityVerification, WebhookCode.StatusUpdated)] = typeof(IdentityVerificationStatusUpdatedWebhook),
@@ -52,6 +53,7 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 			[(WebhookType.BaseReport, WebhookCode.Error)] = typeof(BaseReportsErrorWebhook),
 			[(WebhookType.CraIncome, WebhookCode.BankIncomeComplete)] = typeof(CraBankIncomeCompleteWebhook),
 			[(WebhookType.Income, WebhookCode.BankIncomeComplete)] = typeof(BankIncomeCompleteWebhook),
+			[(WebhookType.Income, WebhookCode.IncomeVerificationRefreshReconnectNeeded)] = typeof(IncomeVerificationRefreshReconnectNeededWebhook),
 			[(WebhookType.Income, WebhookCode.BankIncomeRefreshUpdate)] = typeof(BankIncomeRefreshUpdateWebhook),
 			[(WebhookType.Income, WebhookCode.BankIncomeRefreshComplete)] = typeof(BankIncomeRefreshCompleteWebhook),
 			[(WebhookType.Link, WebhookCode.Events)] = typeof(LinkEventsWebhook),

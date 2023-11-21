@@ -14,8 +14,8 @@ public enum BeaconReportType
 	/// <summary>
 	/// <para>If this is a different individual from the one who submitted the KYC.</para>
 	/// </summary>
-	[EnumMember(Value = "third_party")]
-	ThirdParty,
+	[EnumMember(Value = "stolen")]
+	Stolen,
 
 	/// <summary>
 	/// <para>If this is an individual using fabricated information.</para>

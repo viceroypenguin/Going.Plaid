@@ -43,6 +43,7 @@ public record LinkSessionSuccessMetadataAccount
 	/// <para><c>manually_verified</c>: The Item has successfully been manually verified</para>
 	/// <para><c>verification_expired</c>: Plaid was unable to automatically verify the deposit within 7 calendar days and will no longer attempt to validate the Item. Users may retry by submitting their information again through Link.</para>
 	/// <para><c>verification_failed</c>: The Item failed manual micro-deposit verification because the user exhausted all 3 verification attempts. Users may retry by submitting their information again through Link.</para>
+	/// <para><c>database_matched</c>: The Item has successfully been verified using Plaid's data sources. Note: Database Match is currently a beta feature, please contact your account manager for more information.</para>
 	/// <para><c>null</c>: micro-deposit-based verification is not being used for the Item.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]

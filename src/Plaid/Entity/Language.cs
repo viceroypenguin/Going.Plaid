@@ -70,8 +70,14 @@ namespace Going.Plaid.Entity
 		/// <summary>
 		/// Use Polish in the Plaid Link Tool.
 		/// </summary>
-		[EnumMember(Value = "po")]
+		[EnumMember(Value = "pl")]
 		Polish,
+
+		/// <summary>
+		/// Use Polish in the Plaid Link Tool.
+		/// </summary>
+		[EnumMember(Value = "pt")]
+		Portuguese,
 
 		/// <summary>
 		/// Use Romanian in the Plaid Link Tool.
@@ -88,7 +94,7 @@ namespace Going.Plaid.Entity
 		/// <summary>
 		/// Use Swedish in the Plaid Link Tool.
 		/// </summary>
-		[EnumMember(Value = "se")]
+		[EnumMember(Value = "sv")]
 		Swedish,
 	}
 }

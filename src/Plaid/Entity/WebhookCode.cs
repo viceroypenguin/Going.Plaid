@@ -14,6 +14,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "USER_STATUS_UPDATED")]
+	UserStatusUpdated,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "STEP_UPDATED")]
 	StepUpdated,
 
@@ -202,6 +208,12 @@ public enum WebhookCode
 	/// </summary>
 	[EnumMember(Value = "BANK_INCOME_COMPLETE")]
 	BankIncomeComplete,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "INCOME_VERIFICATION_REFRESH_RECONNECT_NEEDED")]
+	IncomeVerificationRefreshReconnectNeeded,
 
 	/// <summary>
 	/// 

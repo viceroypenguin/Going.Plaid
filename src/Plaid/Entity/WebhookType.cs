@@ -20,6 +20,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "BEACON")]
+	Beacon,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "IDENTITY_VERIFICATION")]
 	IdentityVerification,
 

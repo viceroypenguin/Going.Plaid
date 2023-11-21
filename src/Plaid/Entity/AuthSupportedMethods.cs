@@ -22,4 +22,10 @@ public record AuthSupportedMethods
 	/// </summary>
 	[JsonPropertyName("automated_micro_deposits")]
 	public bool AutomatedMicroDeposits { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates if instant microdeposits are supported.</para>
+	/// </summary>
+	[JsonPropertyName("instant_micro_deposits")]
+	public bool InstantMicroDeposits { get; init; } = default!;
 }

@@ -24,6 +24,21 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beacon.BeaconUserGetResponse>();
 
 	/// <summary>
+	/// <para>Update the status of a Beacon User.</para>
+	/// <para>When updating a Beacon User's status via this endpoint, Plaid validates that the status change is consistent with the related state for this Beacon User. Specifically, we will check:</para>
+	/// <para>1. Whether there are any associated Beacon Reports connected to the Beacon User, and</para>
+	/// <para>2. Whether there are any confirmed Beacon Report Syndications connected to the Beacon User.</para>
+	/// <para>When updating a Beacon User's status to "rejected", we enforce that either a Beacon Report has been created for the Beacon User or a Beacon Report Syndication has been confirmed.</para>
+	/// <para>When updating a Beacon User's status to "cleared", we enforce that there are no active Beacon Reports or confirmed Beacon Report Syndications associated with the user. If you previously created a Beacon Report for this user, you must delete it before updating the Beacon User's status to "cleared".</para>
+	/// <para>There are no restrictions on updating a Beacon User's status to "pending_review".</para>
+	/// <para>If these conditions are not met, the request will be rejected with an error explaining the issue.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconuserreview" /></remarks>
+	public Task<Beacon.BeaconUserGetResponse> BeaconUserReviewAsync(Beacon.BeaconUserReviewRequest request) =>
+		PostAsync("/beacon/user/review", request)
+			.ParseResponseAsync<Beacon.BeaconUserGetResponse>();
+
+	/// <summary>
 	/// <para>Create a fraud report for a given Beacon User.</para>
 	/// <para>Note: If you are creating users with the express purpose of providing historical fraud data, you should use the <c>/beacon/user/create</c> endpoint instead and embed the fraud report in the request. This will ensure that the Beacon User you create will not be subject to any billing costs.</para>
 	/// </summary>

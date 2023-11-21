@@ -20,6 +20,12 @@ public record AssetsProductReadyWebhook : WebhookBase
 	public string AssetReportId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The <c>user_id</c> corresponding to the User ID the webhook has fired for.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The report type, indicating whether the Asset Report is a <c>full</c> or <c>fast</c> report.</para>
 	/// </summary>
 	[JsonPropertyName("report_type")]

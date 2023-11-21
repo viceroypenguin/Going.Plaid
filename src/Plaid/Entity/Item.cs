@@ -42,7 +42,7 @@ public record Item
 	public IReadOnlyList<Entity.Products> BilledProducts { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of initialized products for the Item. In almost all cases, this will be the same as the <c>billed_products</c> field. For some products, it is possible for the product to be initialized on an Item but not yet billed (e.g. Assets, before <c>/asset_report/create</c> has been called), in which case the product may appear in <c>products</c> but not in <c>billed_products</c>.</para>
+	/// <para>A list of products added to the Item. In almost all cases, this will be the same as the <c>billed_products</c> field. For some products, it is possible for the product to be added to an Item but not yet billed (e.g. Assets, before <c>/asset_report/create</c> has been called, or Auth or Identity when added as Optional Products but before their endpoints have been called), in which case the product may appear in <c>products</c> but not in <c>billed_products</c>.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products>? Products { get; init; } = default!;

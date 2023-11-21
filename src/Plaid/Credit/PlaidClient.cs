@@ -61,7 +61,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditBankIncomeRefreshResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/bank_income/webhook/update</c> allows you to subscribe or unsubscribe a user for income webhook notifications.</para>
+	/// <para><c>/credit/bank_income/webhook/update</c> allows you to subscribe or unsubscribe a user for income webhook notifications. By default, all users start out unsubscribed.</para>
 	/// <para>If a user is subscribed, on significant changes to the user's income profile, you will receive a <c>BANK_INCOME_REFRESH_UPDATE</c> webhook, prompting you to refresh bank income data for the user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomewebhookupdate" /></remarks>
@@ -78,7 +78,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditPayrollIncomeParsingConfigUpdateResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/bank_statements/uploads/get</c> returns data from user-uploaded bank statements.</para>
+	/// <para><c>/credit/bank_statements/uploads/get</c> returns parsed data from bank statements uploaded by users as part of the Document Income flow. If your account is not enabled for Document Parsing, contact your account manager to request access.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_statementsuploadsget" /></remarks>
 	public Task<Credit.CreditBankStatementsUploadsGetResponse> CreditBankStatementsUploadsGetAsync(Credit.CreditBankStatementsUploadsGetRequest request) =>
@@ -94,7 +94,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditPayrollIncomeGetResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/payroll_income/risk_signals/get</c> can be used as part of the Document Income flow to assess a user-uploaded document for signs of potential fraud or tampering. It returns a risk score for each uploaded document that indicates the likelihood of the document being fraudulent, in addition to details on the individual risk signals contributing to the score. <c>/credit/payroll_income/risk_signals/get</c> can be called at any time after the <c>INCOME_VERIFICATION_RISK_SIGNALS</c> webhook has been fired.</para>
+	/// <para><c>/credit/payroll_income/risk_signals/get</c> can be used as part of the Document Income flow to assess a user-uploaded document for signs of potential fraud or tampering. It returns a risk score for each uploaded document that indicates the likelihood of the document being fraudulent, in addition to details on the individual risk signals contributing to the score.</para>
+	/// <para>To trigger risk signal generation for an Item, call <c>/link/token/create</c> with <c>parsing_config</c> set to include <c>fraud_risk</c>, or call <c>/credit/payroll_income/parsing_config/update</c>. Once risk signal generation has been triggered, <c>/credit/payroll_income/risk_signals/get</c> can be called at any time after the <c>INCOME_VERIFICATION_RISK_SIGNALS</c> webhook has been fired.</para>
 	/// <para><c>/credit/payroll_income/risk_signals/get</c> is offered as an add-on to Document Income and is billed separately. To request access to this endpoint, submit a product access request or contact your Plaid account manager.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomerisk_signalsget" /></remarks>

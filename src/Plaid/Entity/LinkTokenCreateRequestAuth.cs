@@ -30,10 +30,22 @@ public class LinkTokenCreateRequestAuth
 	public bool? SameDayMicrodepositsEnabled { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specifies whether the Link session is enabled for the Instant Micro-deposits flow.</para>
+	/// </summary>
+	[JsonPropertyName("instant_microdeposits_enabled")]
+	public bool? InstantMicrodepositsEnabled { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Specifies what type of [Reroute to Credentials](https://plaid.com/docs/auth/coverage/same-day/#reroute-to-credentials) pane should be used in the Link session for the Same Day Micro-deposits flow. As of October 15 2023, the default setting is <c>OPTIONAL</c>.</para>
 	/// </summary>
 	[JsonPropertyName("reroute_to_credentials")]
 	public Entity.LinkTokenCreateRequestAuthRerouteToCredentialsEnum? RerouteToCredentials { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifies whether the Link session is enabled for the Database Match flow.</para>
+	/// </summary>
+	[JsonPropertyName("database_match_enabled")]
+	public bool? DatabaseMatchEnabled { get; set; } = default!;
 
 	/// <summary>
 	/// <para>This field has been deprecated in favor of <c>auth_type_select_enabled</c>.</para>

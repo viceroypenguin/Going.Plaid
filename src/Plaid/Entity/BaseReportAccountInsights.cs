@@ -9,13 +9,13 @@ public record BaseReportAccountInsights
 	/// <para>Date of the earliest transaction in the base report for the account.</para>
 	/// </summary>
 	[JsonPropertyName("oldest_transaction_date")]
-	public string? OldestTransactionDate { get; init; } = default!;
+	public DateOnly? OldestTransactionDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Date of the most recent transaction in the base report for the account.</para>
 	/// </summary>
 	[JsonPropertyName("most_recent_transaction_date")]
-	public string? MostRecentTransactionDate { get; init; } = default!;
+	public DateOnly? MostRecentTransactionDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Number of days days available in the base report for the account.</para>

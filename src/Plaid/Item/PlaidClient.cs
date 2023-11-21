@@ -17,6 +17,16 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Item.ItemApplicationListResponse>();
 
 	/// <summary>
+	/// <para>Unlink a user’s connected application. On an unlink request, Plaid will immediately revoke the Application’s access to the User’s data.  The User will have to redo the OAuth authentication process in order to restore functionality.</para>
+	/// <para>This endpoint only removes ongoing data access permissions, therefore the User will need to reach out to the Application itself in order to disable and delete their account and delete any data that the Application already received (if the Application does not do so by default).</para>
+	/// <para>This endpoint should be called in real time as the User is unlinking an Application, and should not be batched in order to ensure that the change is reflected as soon as possible.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docsnone" /></remarks>
+	public Task<Item.ItemApplicationUnlinkResponse> ItemApplicationUnlinkAsync(Item.ItemApplicationUnlinkRequest request) =>
+		PostAsync("/item/application/unlink", request)
+			.ParseResponseAsync<Item.ItemApplicationUnlinkResponse>();
+
+	/// <summary>
 	/// <para>Enable consumers to update product access on selected accounts for an application.</para>
 	/// </summary>
 	public Task<Item.ItemApplicationScopesUpdateResponse> ItemApplicationScopesUpdateAsync(Item.ItemApplicationScopesUpdateRequest request) =>

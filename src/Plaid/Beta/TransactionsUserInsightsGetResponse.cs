@@ -22,4 +22,10 @@ public record TransactionsUserInsightsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("category_insights")]
 	public Entity.CategoryInsights? CategoryInsights { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Insights object for recurring transactions for <c>/beta/transactions/user_insights/v1/get</c> endpoint</para>
+	/// </summary>
+	[JsonPropertyName("recurring_transactions")]
+	public Entity.RecurringTransactions? RecurringTransactions { get; init; } = default!;
 }

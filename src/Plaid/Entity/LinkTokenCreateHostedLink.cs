@@ -17,4 +17,10 @@ public class LinkTokenCreateHostedLink
 	/// </summary>
 	[JsonPropertyName("completion_redirect_uri")]
 	public string? CompletionRedirectUri { get; set; } = default!;
+
+	/// <summary>
+	/// <para>How many seconds the link will be valid for. Must be positive. Cannot be longer than 21 days.</para>
+	/// </summary>
+	[JsonPropertyName("url_lifetime_seconds")]
+	public int? UrlLifetimeSeconds { get; set; } = default!;
 }

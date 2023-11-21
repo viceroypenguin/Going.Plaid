@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record ConnectedApplication
 {
 	/// <summary>
-	/// <para>This field will map to the application ID that is returned from /item/applications/list, or provided to the institution in an oauth redirect.</para>
+	/// <para>This field will map to the application ID that is returned from /item/application/list, or provided to the institution in an oauth redirect.</para>
 	/// </summary>
 	[JsonPropertyName("application_id")]
 	public string ApplicationId { get; init; } = default!;
@@ -45,7 +45,7 @@ public record ConnectedApplication
 	/// <para>The date this application was linked in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
 	/// </summary>
 	[JsonPropertyName("created_at")]
-	public DateOnly CreatedAt { get; init; } = default!;
+	public DateTimeOffset CreatedAt { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The scopes object</para>

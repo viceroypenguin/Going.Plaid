@@ -184,7 +184,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxBankTransferFireWebhookResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/income/fire_webhook</c> endpoint to manually trigger a Payroll Income webhook in the Sandbox environment.</para>
+	/// <para>Use the <c>/sandbox/income/fire_webhook</c> endpoint to manually trigger a Payroll or Document Income webhook in the Sandbox environment.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxincomefire_webhook" /></remarks>
 	public Task<Sandbox.SandboxIncomeFireWebhookResponse> SandboxIncomeFireWebhookAsync(Sandbox.SandboxIncomeFireWebhookRequest request) =>

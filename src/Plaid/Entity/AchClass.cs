@@ -12,7 +12,7 @@ public enum AchClass
 	Ccd,
 
 	/// <summary>
-	/// <para>Prearranged Payment or Deposit - the transfer is part of a pre-existing relationship with a consumer, eg. bill payment</para>
+	/// <para>Prearranged Payment or Deposit - the transfer is part of a pre-existing relationship with a consumer, e.g. bill payment</para>
 	/// </summary>
 	[EnumMember(Value = "ppd")]
 	Ppd,

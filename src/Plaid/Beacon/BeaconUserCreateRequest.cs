@@ -26,10 +26,4 @@ public partial class BeaconUserCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.BeaconUserRequestData User { get; set; } = default!;
-
-	/// <summary>
-	/// <para>Data for creating a Beacon Report as part of an initial Beacon User creation. Providing a fraud report as part of an initial Beacon User creation will omit the Beacon User from any billing charges.</para>
-	/// </summary>
-	[JsonPropertyName("report")]
-	public Entity.BeaconUserCreateEmbeddedReport? Report { get; set; } = default!;
 }

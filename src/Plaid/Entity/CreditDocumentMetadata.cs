@@ -28,7 +28,8 @@ public record CreditDocumentMetadata
 	public string? DocumentType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Signed URL to retrieve the underlying file. This download URL can only be used once and expires after two minutes. To generate a new download URL, call <c>/credit/payroll_income/get</c> again.</para>
+	/// <para>Signed URL to retrieve the underlying file. For Payroll Income, the file type will always be PDF, and the file may not be available, in which case the field will be <c>null</c>. If you would like Plaid to generate a PDF if the original is not available, contact your Account Manager. For Document Income, this field will not be <c>null</c>, and the file type will be the original file type uploaded by the user. For more details on available file types, see the <a href="https://www.plaid.com/docs/income/payroll-income">Document Income</a> documentation.</para>
+	/// <para>This download URL can only be used once and expires after two minutes. To generate a new download URL, call <c>/credit/payroll_income/get</c> again.</para>
 	/// </summary>
 	[JsonPropertyName("download_url")]
 	public string? DownloadUrl { get; init; } = default!;

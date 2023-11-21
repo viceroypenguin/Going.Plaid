@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a refreshed bank income report has finished generating or failed to generate, triggered by calling <c>/credit/bank_income/refresh</c>.</para>
+/// <para>Fired when a refreshed bank income report has finished generating or failed to generate, triggered by calling <c>/credit/bank_income/refresh</c>. To get this webhook, subscribe via the <a href="https://dashboard.plaid.com/developers/webhooks">Dashboard</a>.</para>
 /// </summary>
 public record BankIncomeRefreshCompleteWebhook : WebhookBase
 {

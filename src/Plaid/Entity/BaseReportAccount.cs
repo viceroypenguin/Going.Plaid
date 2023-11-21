@@ -6,10 +6,10 @@ namespace Going.Plaid.Entity;
 public record BaseReportAccount
 {
 	/// <summary>
-	/// <para>A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by <c>/accounts/balance/get</c>.</para>
+	/// <para>Base Report information about an account's balances</para>
 	/// </summary>
 	[JsonPropertyName("balances")]
-	public Entity.AccountBalance Balances { get; init; } = default!;
+	public Entity.BaseReportAccountBalances Balances { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.</para>
