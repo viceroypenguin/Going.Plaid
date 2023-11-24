@@ -37,6 +37,15 @@ namespace Going.Plaid.Link
 	}
 }
 
+namespace Going.Plaid.PaymentInitiation
+{
+	public partial class PaymentInitiationRecipientCreateRequest : RequestBase
+	{
+		/// <inheritdoc />
+		protected internal override bool IncludeAccessToken => false;
+	}
+}
+
 namespace Going.Plaid.Processor
 {
 	public partial class ProcessorTokenCreateRequest : RequestBase
