@@ -216,6 +216,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateHostedLink? HostedLink { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Configuration parameters for the Transactions product</para>
+	/// </summary>
+	[JsonPropertyName("transactions")]
+	public Entity.LinkTokenTransactions? Transactions { get; set; } = default!;
+
+	/// <summary>
 	/// <para>If <c>true</c>, request a CRA connection. Defaults to <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("cra_enabled")]

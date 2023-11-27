@@ -47,4 +47,10 @@ public class TransactionsGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("include_logo_and_counterparty_beta")]
 	public bool? IncludeLogoAndCounterpartyBeta { get; set; } = default!;
+
+	/// <summary>
+	/// <para>If Transactions has not already been added to the Item, this option controls the maximum number of days of transaction history Plaid will request from the financial institution. If Transactions has already been added to the Item, this field will have no effect.</para>
+	/// </summary>
+	[JsonPropertyName("days_requested")]
+	public int? DaysRequested { get; set; } = default!;
 }

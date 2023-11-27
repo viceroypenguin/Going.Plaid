@@ -20,6 +20,30 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "REPORT_CREATED")]
+	ReportCreated,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "REPORT_UPDATED")]
+	ReportUpdated,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "REPORT_SYNDICATION_CREATED")]
+	ReportSyndicationCreated,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "DUPLICATE_DETECTED")]
+	DuplicateDetected,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "STEP_UPDATED")]
 	StepUpdated,
 

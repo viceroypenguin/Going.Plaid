@@ -16,4 +16,10 @@ public class SandboxPublicTokenCreateRequestOptionsTransactions
 	/// </summary>
 	[JsonPropertyName("end_date")]
 	public DateOnly? EndDate { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The maximum number of days of transaction history to request for the Transactions product.</para>
+	/// </summary>
+	[JsonPropertyName("days_requested")]
+	public int? DaysRequested { get; set; } = default!;
 }
