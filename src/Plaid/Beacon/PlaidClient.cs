@@ -62,4 +62,12 @@ public sealed partial class PlaidClient
 	public Task<Beacon.BeaconReportSyndicationListResponse> BeaconReportSyndicationListAsync(Beacon.BeaconReportSyndicationListRequest request) =>
 		PostAsync("/beacon/report_syndication/list", request)
 			.ParseResponseAsync<Beacon.BeaconReportSyndicationListResponse>();
+
+	/// <summary>
+	/// <para>Returns a Beacon report for a given Beacon report id.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreportget" /></remarks>
+	public Task<Beacon.BeaconReportGetResponse> BeaconReportGetAsync(Beacon.BeaconReportGetRequest request) =>
+		PostAsync("/beacon/report/get", request)
+			.ParseResponseAsync<Beacon.BeaconReportGetResponse>();
 }

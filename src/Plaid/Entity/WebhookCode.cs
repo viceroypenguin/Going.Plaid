@@ -266,6 +266,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "HOSTED_VERIFICATION")]
+	HostedVerification,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "INSTITUTION_STATUS_ALERT_TRIGGERED")]
 	InstitutionStatusAlertTriggered,
 

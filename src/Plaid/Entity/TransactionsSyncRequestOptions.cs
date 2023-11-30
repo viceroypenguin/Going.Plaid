@@ -24,7 +24,8 @@ public class TransactionsSyncRequestOptions
 	public bool? IncludeLogoAndCounterpartyBeta { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If Transactions has not already been added to the Item, this option controls the maximum number of days of transaction history Plaid will request from the financial institution. If Transactions has already been added to the Item, this field will have no effect.</para>
+	/// <para>This option only applies to calls for Items that were not initialized with Transactions during Link and are now adding the Transactions product to the Item for the first time. In these cases, this option controls the maximum number of days of transaction history that Plaid will request from the financial institution. For developer accounts created after December 3, 2023, if no value is specified, this will default to 90 days. For developer accounts created on December 3, 2023 or earlier, if no value is specified, this will default to 730 days until June 24, 2024, at which point it will default to 90 days.</para>
+	/// <para>If Transactions has already been added to the Item prior to this call, this field will have no effect.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;

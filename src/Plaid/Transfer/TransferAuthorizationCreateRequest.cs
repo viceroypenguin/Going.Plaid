@@ -104,10 +104,10 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string? OriginatorClientId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies the source of funds for the transfer. Only valid for <c>credit</c> transfers, and defaults to <c>sweep</c> if not specified. This field is not specified for <c>debit</c> transfers.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
-	public Entity.TransferCreditFundsSource? CreditFundsSource { get; set; } = default!;
+	public string? CreditFundsSource { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>authorization</c> is created at the <c>virtual_time</c> on the provided test clock.</para>

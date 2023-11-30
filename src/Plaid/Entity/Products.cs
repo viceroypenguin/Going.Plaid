@@ -32,6 +32,12 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "identity_match")]
+	IdentityMatch,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "investments")]
 	Investments,
 

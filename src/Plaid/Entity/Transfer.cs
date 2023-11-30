@@ -173,10 +173,10 @@ public record Transfer
 	public IReadOnlyList<Entity.TransferExpectedSweepSettlementScheduleItem>? ExpectedSweepSettlementSchedule { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Specifies the source of funds for the transfer. Only valid for <c>credit</c> transfers, and defaults to <c>sweep</c> if not specified. This field is not specified for <c>debit</c> transfers.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
-	public Entity.TransferCreditFundsSource? CreditFundsSource { get; init; } = default!;
+	public string CreditFundsSource { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform’s Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer’s Ledger balance. This must be less than or equal to the <c>transfer.amount</c>.</para>
