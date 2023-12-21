@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Information related to the callback from the hosted Link session.</para>
+/// <para>Information related to the callback from the Hosted Link session.</para>
 /// </summary>
 public record LinkCallbackMetadata
 {

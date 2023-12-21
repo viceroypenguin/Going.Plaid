@@ -17,4 +17,10 @@ public record AccountsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("item")]
 	public Entity.Item Item { get; init; } = default!;
+
+	/// <summary>
+	/// <para>This object provides detailed risk assessment for the requested transaction</para>
+	/// </summary>
+	[JsonPropertyName("payment_risk_assessment")]
+	public Entity.AccountsBalanceGetResponsePaymentRiskAssessment? PaymentRiskAssessment { get; init; } = default!;
 }

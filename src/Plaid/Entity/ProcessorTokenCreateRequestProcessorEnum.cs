@@ -264,6 +264,18 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	Knot,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "sardine")]
+	Sardine,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "alloy")]
+	Alloy,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

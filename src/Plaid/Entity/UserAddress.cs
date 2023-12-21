@@ -1,7 +1,8 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Home address for the user. For more context on this field, see <a href="https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country">Input Validation by Country</a>.</para>
+/// <para>Home address for the user. Supported values are: not provided, address with only country code or full address.</para>
+/// <para>For more context on this field, see <a href="https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country">Input Validation by Country</a>.</para>
 /// </summary>
 public class UserAddress
 {
@@ -9,7 +10,7 @@ public class UserAddress
 	/// <para>The primary street portion of an address. If the user has submitted their address, this field will always be filled.</para>
 	/// </summary>
 	[JsonPropertyName("street")]
-	public string Street { get; set; } = default!;
+	public string? Street { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Extra street information, like an apartment or suite number.</para>
@@ -21,7 +22,7 @@ public class UserAddress
 	/// <para>City from the end user's address</para>
 	/// </summary>
 	[JsonPropertyName("city")]
-	public string City { get; set; } = default!;
+	public string? City { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An ISO 3166-2 subdivision code. Related terms would be "state", "province", "prefecture", "zone", "subdivision", etc.</para>

@@ -94,4 +94,10 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("redirect_uris")]
 	public IReadOnlyList<string>? RedirectUris { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The unique identifier assigned to a financial institution by regulatory authorities, if applicable. For banks, this is the FDIC Certificate Number. For credit unions, this is the Credit Union Charter Number.</para>
+	/// </summary>
+	[JsonPropertyName("registration_number")]
+	public string? RegistrationNumber { get; set; } = default!;
 }

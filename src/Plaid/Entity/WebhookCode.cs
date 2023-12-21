@@ -230,6 +230,18 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "USER_ACCOUNT_REVOKED")]
+	UserAccountRevoked,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "STATEMENTS_REFRESH_COMPLETE")]
+	StatementsRefreshComplete,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "BANK_INCOME_COMPLETE")]
 	BankIncomeComplete,
 

@@ -89,7 +89,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public string? LinkCustomizationName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. The <c>redirect_uri</c> should not contain any query parameters. When used in Production or Development, must be an https URI. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. Note that any redirect URI must also be added to the Allowed redirect URIs list in the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>. If initializing on Android, <c>android_package_name</c> must be specified instead and <c>redirect_uri</c> should be left blank.</para>
+	/// <para>A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. The <c>redirect_uri</c> should not contain any query parameters. When used in Production or Development, must be an https URI. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. Note that any redirect URI must also be added to the Allowed redirect URIs list in the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>. If initializing on Android, <c>android_package_name</c> must be specified instead and <c>redirect_uri</c> should be left blank. If using Hosted Link (beta) the <c>redirect_uri</c> must be set to <c>https://hosted.plaid.com/oauth/redirect</c>.</para>
 	/// </summary>
 	[JsonPropertyName("redirect_uri")]
 	public string? RedirectUri { get; set; } = default!;
@@ -216,7 +216,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenInvestmentsAuth? InvestmentsAuth { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Configuration parameters for Hosted Link</para>
+	/// <para>Configuration parameters for Hosted Link (beta). Only available for participants in the Hosted Link beta program.</para>
 	/// </summary>
 	[JsonPropertyName("hosted_link")]
 	public Entity.LinkTokenCreateHostedLink? HostedLink { get; set; } = default!;

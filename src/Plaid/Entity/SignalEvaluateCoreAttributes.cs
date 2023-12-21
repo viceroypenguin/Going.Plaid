@@ -400,4 +400,16 @@ public record SignalEvaluateCoreAttributes
 	/// </summary>
 	[JsonPropertyName("transactions_last_updated")]
 	public DateTimeOffset? TransactionsLastUpdated { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates if the receiver bank account is closed</para>
+	/// </summary>
+	[JsonPropertyName("is_account_closed")]
+	public bool? IsAccountClosed { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates if the receiver bank account is either frozen or restricted</para>
+	/// </summary>
+	[JsonPropertyName("is_account_frozen_or_restricted")]
+	public bool? IsAccountFrozenOrRestricted { get; init; } = default!;
 }

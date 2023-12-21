@@ -10,4 +10,10 @@ public partial class AccountsBalanceGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.AccountsBalanceGetRequestOptions? Options { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An optional object containing payment details. If set, a payment risk assessment is performed and returned as AccountsBalanceGetResponsePaymentRiskAssessment.</para>
+	/// </summary>
+	[JsonPropertyName("payment_details")]
+	public Entity.AccountsBalanceGetRequestPaymentDetails? PaymentDetails { get; set; } = default!;
 }

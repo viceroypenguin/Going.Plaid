@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Webhook indicating that the status of the delivery of the hosted link session to a user</para>
+/// <para>Webhook indicating that the status of the delivery of the Hosted Link session to a user</para>
 /// </summary>
 public record LinkUserDeliveryStatusWebhook : WebhookBase
 {

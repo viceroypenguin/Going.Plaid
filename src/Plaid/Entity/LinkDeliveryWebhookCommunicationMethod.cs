@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The communication method used to deliver the hosted link session</para>
+/// <para>The communication method used to deliver the Hosted Link session</para>
 /// </summary>
 public enum LinkDeliveryWebhookCommunicationMethod
 {

@@ -24,7 +24,7 @@ public record LinkTokenGetResponse : ResponseBase
 	public DateTimeOffset? Expiration { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Information about link sessions created using this <c>link_token</c>.</para>
+	/// <para>Information about Link sessions created using this <c>link_token</c>. This field will only be present if your client is enabled for Hosted Link (beta). Session data will be provided for up to six hours after the session has ended.</para>
 	/// </summary>
 	[JsonPropertyName("link_sessions")]
 	public IReadOnlyList<Entity.LinkTokenGetSessionsResponse>? LinkSessions { get; init; } = default!;

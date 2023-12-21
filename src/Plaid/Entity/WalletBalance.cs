@@ -16,4 +16,10 @@ public record WalletBalance
 	/// </summary>
 	[JsonPropertyName("current")]
 	public decimal Current { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total amount of funds in the account after subtracting pending debit transaction amounts</para>
+	/// </summary>
+	[JsonPropertyName("available")]
+	public decimal Available { get; init; } = default!;
 }

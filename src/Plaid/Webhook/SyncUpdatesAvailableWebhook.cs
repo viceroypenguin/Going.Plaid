@@ -23,13 +23,13 @@ public record SyncUpdatesAvailableWebhook : WebhookBase
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates if initial pull information is available.</para>
+	/// <para>Indicates if initial pull information (most recent 30 days of transaction history) is available.</para>
 	/// </summary>
 	[JsonPropertyName("initial_update_complete")]
 	public bool InitialUpdateComplete { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates if historical pull information is available.</para>
+	/// <para>Indicates if historical pull information (maximum transaction history requested, up to 2 years) is available.</para>
 	/// </summary>
 	[JsonPropertyName("historical_update_complete")]
 	public bool HistoricalUpdateComplete { get; init; } = default!;

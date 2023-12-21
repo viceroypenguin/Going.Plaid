@@ -62,6 +62,12 @@ public record Enrichments
 	public Entity.PaymentChannel PaymentChannel { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The phone number associated with the primary_counterparty in E. 164 format. If there is a location match (i.e. a street address is returned in the location object), the phone number will be location specific.</para>
+	/// </summary>
+	[JsonPropertyName("phone_number")]
+	public string? PhoneNumber { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Information describing the intent of the transaction. Most relevant for personal finance use cases, but not limited to such use cases.</para>
 	/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy CSV file</c></a> for a full list of personal finance categories. If you are migrating to personal finance categories from the legacy categories, also refer to the <a href="https://plaid.com/docs/transactions/pfc-migration/"><c>migration guide</c></a>.</para>
 	/// </summary>

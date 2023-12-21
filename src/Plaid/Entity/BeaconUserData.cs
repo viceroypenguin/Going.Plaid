@@ -41,7 +41,7 @@ public record BeaconUserData
 	/// <para>The ID number associated with a Beacon User.</para>
 	/// </summary>
 	[JsonPropertyName("id_number")]
-	public Entity.BeaconUserIDNumber IdNumber { get; init; } = default!;
+	public Entity.BeaconUserIDNumber? IdNumber { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An IPv4 or IPV6 address.</para>

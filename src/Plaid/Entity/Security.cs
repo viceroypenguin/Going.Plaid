@@ -112,4 +112,17 @@ public record Security
 	/// </summary>
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The ISO-10383 Market Identifier Code of the exchange or market in which the security is being traded.</para>
+	/// </summary>
+	[JsonPropertyName("market_identifier_code")]
+	public string? MarketIdentifierCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Details about the option security.</para>
+	/// <para>For the Sandbox environment, this data is currently only available if the item is using a custom configuration object, and the <c>ticker</c> field of the custom security follows the <a href="https://en.wikipedia.org/wiki/Option_symbol#The_OCC_Option_Symbol">OCC Option Symbol</a> standard with no spaces.</para>
+	/// </summary>
+	[JsonPropertyName("option_contract")]
+	public Entity.OptionContract? OptionContract { get; init; } = default!;
 }

@@ -67,4 +67,10 @@ public record AccountIdentity
 	/// </summary>
 	[JsonPropertyName("owners")]
 	public IReadOnlyList<Entity.Owner>? Owners { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Array of documents that identity data is dervied from. This array will be empty if none of the account identity is from a document.</para>
+	/// </summary>
+	[JsonPropertyName("documents")]
+	public IReadOnlyList<Entity.IdentityDocument>? Documents { get; init; } = default!;
 }

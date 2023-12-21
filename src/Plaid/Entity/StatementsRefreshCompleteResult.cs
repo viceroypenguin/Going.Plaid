@@ -1,18 +1,18 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The status of the delivery of the Hosted Link to the user</para>
+/// <para>The result of the statement refresh extraction</para>
 /// </summary>
-public enum LinkDeliveryWebhookDeliveryStatus
+public enum StatementsRefreshCompleteResult
 {
 	/// <summary>
-	/// 
+	/// <para>The statements were successfully extracted and can be listed via <c>/statements/list/</c> and downloaded via <c>/statements/download/</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "SUCCESS")]
 	Success,
 
 	/// <summary>
-	/// 
+	/// <para>The statements failed to be extracted.</para>
 	/// </summary>
 	[EnumMember(Value = "FAILURE")]
 	Failure,

@@ -29,4 +29,10 @@ public record Owner
 	/// </summary>
 	[JsonPropertyName("addresses")]
 	public IReadOnlyList<Entity.Address> Addresses { get; init; } = default!;
+
+	/// <summary>
+	/// <para>document_id is the id of the document that this identity belongs to</para>
+	/// </summary>
+	[JsonPropertyName("document_id")]
+	public string? DocumentId { get; init; } = default!;
 }

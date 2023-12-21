@@ -12,7 +12,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	public string? AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify the account used to fund the transfer. Customers can find a list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column. If this field is left blank, it will default to the default <c>funding_account_id</c> specified during onboarding.</para>
+	/// <para>Specify the account used to fund the transfer. Should be specified if using legacy funding methods only. If using Plaid Ledger, leave this field blank. Customers can find a list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column. If this field is left blank and you are using legacy funding methods, this will default to the default <c>funding_account_id</c> specified during onboarding. Otherwise, Plaid Ledger will be used.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;

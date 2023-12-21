@@ -70,4 +70,25 @@ public sealed partial class PlaidClient
 	public Task<Beacon.BeaconReportGetResponse> BeaconReportGetAsync(Beacon.BeaconReportGetRequest request) =>
 		PostAsync("/beacon/report/get", request)
 			.ParseResponseAsync<Beacon.BeaconReportGetResponse>();
+
+	/// <summary>
+	/// <para>Returns a Beacon Report Syndication for a given Beacon Report Syndication id.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreportsyndicationget" /></remarks>
+	public Task<Beacon.BeaconReportSyndicationGetResponse> BeaconReportSyndicationGetAsync(Beacon.BeaconReportSyndicationGetRequest request) =>
+		PostAsync("/beacon/report_syndication/get", request)
+			.ParseResponseAsync<Beacon.BeaconReportSyndicationGetResponse>();
+
+	/// <summary>
+	/// <para>Update the identity data for a Beacon User in your Beacon Program.</para>
+	/// <para>Similar to <c>/beacon/user/create</c>, several checks are performed immediately when you submit a change to <c>/beacon/user/update</c>:</para>
+	/// <para>  - The user's updated PII is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of <c>pending_review</c>.</para>
+	/// <para>  - The user's updated PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of <c>rejected</c>.</para>
+	/// <para>  - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a <c>pending_review</c> status if your program has enabled automatic flagging based on network fraud.</para>
+	/// <para>Plaid maintains a version history for each Beacon User, so the Beacon User's identity data before and after the update is retained as separate versions.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconuserupdate" /></remarks>
+	public Task<Beacon.BeaconUserUpdateResponse> BeaconUserUpdateAsync(Beacon.BeaconUserUpdateRequest request) =>
+		PostAsync("/beacon/user/update", request)
+			.ParseResponseAsync<Beacon.BeaconUserUpdateResponse>();
 }

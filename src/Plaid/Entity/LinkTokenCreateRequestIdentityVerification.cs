@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class LinkTokenCreateRequestIdentityVerification
 {
 	/// <summary>
-	/// <para>ID of the associated Identity Verification template.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("template_id")]
 	public string TemplateId { get; set; } = default!;

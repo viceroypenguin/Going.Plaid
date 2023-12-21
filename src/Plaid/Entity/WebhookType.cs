@@ -122,6 +122,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "STATEMENTS")]
+	Statements,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "BASE_REPORT")]
 	BaseReport,
 

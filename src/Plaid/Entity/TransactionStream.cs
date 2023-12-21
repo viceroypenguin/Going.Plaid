@@ -105,8 +105,8 @@ public record TransactionStream
 	public bool IsUserModified { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date of the most recent user modification. This will only be set if <c>is_user_modified</c> is <c>true</c>.</para>
+	/// <para>The date and time of the most recent user modification. This will only be set if <c>is_user_modified</c> is <c>true</c>.</para>
 	/// </summary>
-	[JsonPropertyName("last_user_modified_date")]
-	public DateOnly? LastUserModifiedDate { get; init; } = default!;
+	[JsonPropertyName("last_user_modified_datetime")]
+	public DateTimeOffset? LastUserModifiedDatetime { get; init; } = default!;
 }
