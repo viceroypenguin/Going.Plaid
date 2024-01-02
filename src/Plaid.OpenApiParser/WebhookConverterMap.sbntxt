@@ -1,0 +1,15 @@
+﻿using Going.Plaid.Webhook;
+
+namespace Going.Plaid.Converters;
+
+/// <inheritdoc />
+public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
+{
+	private static readonly Dictionary<(WebhookType, WebhookCode), Type> Map =
+		new()
+		{
+			{{~ for hook in hooks ~}}
+			[(WebhookType.{{ hook.type }}, WebhookCode.{{ hook.code }})] = typeof({{ hook.value }}),
+			{{~ end ~}}
+		};
+}

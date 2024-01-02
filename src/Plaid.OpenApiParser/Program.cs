@@ -1,8 +1,10 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Reflection;
+using System.Text.RegularExpressions;
 using CaseExtensions;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
+using Scriban;
 
 namespace Plaid.OpenApiParser;
 
@@ -190,7 +192,7 @@ internal static partial class Program
 					BaseType.Request => p.Key is not "client_id" and not "secret" and not "access_token",
 					BaseType.Response => p.Key is not "request_id" and not "error",
 					BaseType.Webhook => p.Key is not "environment",
-					BaseType.None => throw new NotSupportedException(),
+					BaseType.None => true,
 					_ => true,
 				})
 				.Select(p =>
@@ -678,24 +680,26 @@ public enum {i.Name}
 
 	private static void SaveConverterMap(string plaidSrcPath)
 	{
-		var types = WebhookDictionaryMap
-			.Select(x => $@"			[(WebhookType.{x.Key.type}, WebhookCode.{x.Key.code})] = typeof({x.Value}),");
+		var template = Template.Parse(GetTemplate("WebhookConverterMap"));
+		var source = template.Render(new
+		{
+			Hooks = WebhookDictionaryMap
+				.Select(kvp => new { Type = kvp.Key.type, Code = kvp.Key.code, kvp.Value, })
+		});
+		File.WriteAllText(Path.Combine(plaidSrcPath, "Converters", "WebhookBaseConverter.Map.cs"), source);
+	}
 
-		var body = $@"using Going.Plaid.Webhook;
+	private static string GetTemplate(string templateName)
+	{
+		using var stream = Assembly
+			.GetExecutingAssembly()
+			.GetManifestResourceStream(
+				typeof(Program),
+				$"{templateName}.sbntxt"
+			)!;
 
-namespace Going.Plaid.Converters;
-
-/// <inheritdoc />
-public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
-{{
-	private static readonly Dictionary<(WebhookType, WebhookCode), Type> Map =
-		new()
-		{{
-{string.Join(Environment.NewLine, types)}
-		}};
-}}";
-
-		File.WriteAllText(Path.Combine(plaidSrcPath, "Converters", "WebhookBaseConverter.Map.cs"), body);
+		using var reader = new StreamReader(stream);
+		return reader.ReadToEnd();
 	}
 }
 
