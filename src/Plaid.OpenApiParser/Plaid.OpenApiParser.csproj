@@ -7,8 +7,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="*.sbntxt" />
+		<EmbeddedResource Include="*.sbntxt" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CaseExtensions" />
 		<PackageReference Include="Microsoft.OpenApi.Readers" />
+		<PackageReference Include="Scriban" />
 	</ItemGroup>
 
 </Project>
