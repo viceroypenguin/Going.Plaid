@@ -1,0 +1,70 @@
+<Project>
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageVersion Include="CaseExtensions" Version="1.1.0" />
+		<PackageVersion Include="CommunityToolkit.Diagnostics" Version="8.2.2" />
+		<PackageVersion Include="coverlet.collector" Version="6.0.0" />
+		<PackageVersion Include="coverlet.msbuild" Version="6.0.0" />
+		<PackageVersion Include="GitHubActionsTestLogger" Version="2.3.3" />
+		<PackageVersion Include="Microsoft.CodeAnalysis.PerformanceSensitiveAnalyzers" Version="3.3.1" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+		<PackageVersion Include="Microsoft.OpenApi.Readers" Version="1.6.11" />
+		<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
+		<PackageVersion Include="MinVer" Version="4.3.0" />
+		<PackageVersion Include="PolySharp" Version="1.14.0" />
+		<PackageVersion Include="xunit" Version="2.6.3" />
+		<PackageVersion Include="xunit.runner.visualstudio" Version="2.5.5" />
+	</ItemGroup>
+	
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+		<PackageVersion Include="System.Net.Http.Json" Version="8.0.0" />
+		<PackageVersion Include="System.Text.Json" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Http" Version="7.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+		<PackageVersion Include="System.Net.Http.Json" Version="7.0.1" />
+		<PackageVersion Include="System.Text.Json" Version="7.0.3" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Http" Version="6.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+		<PackageVersion Include="System.Net.Http.Json" Version="6.0.0" />
+		<PackageVersion Include="System.Text.Json" Version="6.0.7" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.31" />
+		<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.31" />
+		<PackageVersion Include="Microsoft.Extensions.Http" Version="3.1.31" />
+		<PackageVersion Include="Microsoft.Extensions.Logging" Version="3.1.31" />
+		<PackageVersion Include="System.Net.Http.Json" Version="5.0.0" />
+		<PackageVersion Include="System.Text.Json" Version="6.0.7" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.31" />
+		<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.31" />
+		<PackageVersion Include="Microsoft.Extensions.Http" Version="3.1.31" />
+		<PackageVersion Include="Microsoft.Extensions.Logging" Version="3.1.31" />
+		<PackageVersion Include="System.Net.Http.Json" Version="5.0.0" />
+		<PackageVersion Include="System.Text.Json" Version="6.0.7" />
+	</ItemGroup>
+</Project>

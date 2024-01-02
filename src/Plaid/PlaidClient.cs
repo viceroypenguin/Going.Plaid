@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using CommunityToolkit.Diagnostics;
+using Going.Plaid.Converters;
 
 namespace Going.Plaid;
 
@@ -9,13 +10,7 @@ public sealed partial class PlaidClient
 {
 	#region Initialization
 
-	/// <summary>
-	/// Initializes a new instance of the <see cref="PlaidClient"/> class using parameters that can all come from Dependency Injextion.
-	/// </summary>
-	/// <param name="options"><see cref="PlaidOptions"/> initialized from an IConfiguration section</param>
-	/// <param name="httpClientFactory">A factory instance used to create <see cref="HttpClient" /> instances. If one is not provided, a service collection will be created and used instead. For more information, see <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests"/> for more information.</param>
-	/// <param name="logger">A logging instance. Log entries will be provided at Information level at completion of each api call; and at Trace level with request and content details at the start and end of each api call. If not provided, a <see cref="NullLogger" /> instance will be used.</param>
-	public PlaidClient(
+	internal PlaidClient(
 		IOptions<PlaidOptions> options,
 		IHttpClientFactory? httpClientFactory = null,
 		ILogger<PlaidClient>? logger = null)
@@ -63,11 +58,13 @@ public sealed partial class PlaidClient
 		};
 		_baseUrl = new Uri($"https://{subDomain}.plaid.com/");
 
+#pragma warning disable IDE0072 // Add missing cases
 		_apiVersion = apiVersion switch
 		{
 			ApiVersion.v20200914 => "2020-09-14",
 			_ => throw new ArgumentOutOfRangeException(nameof(apiVersion), "Invalid API version provided."),
 		};
+#pragma warning restore IDE0072 // Add missing cases
 
 		_secret = secret;
 		_clientId = clientId;
@@ -76,7 +73,7 @@ public sealed partial class PlaidClient
 		if (httpClientFactory == null)
 		{
 			var collection = new ServiceCollection();
-			collection.AddPlaidHttpClient();
+			_ = collection.AddPlaidHttpClient();
 			_serviceProvider = collection.BuildServiceProvider();
 			_clientFactory = _serviceProvider.GetService<IHttpClientFactory>()!;
 		}
@@ -119,29 +116,33 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// Additional request headers used for all API calls.
 	/// </summary>
-	public Dictionary<string, string>? AdditionalHeaders { get; set; }
+	public Dictionary<string, string>? AdditionalHeaders { get; } = [];
 	#endregion
 
 	#region Private Members
 
 	private ResponseParser PostAsync<TRequest>(string path, TRequest request) where TRequest : RequestBase
 	{
+		Guard.IsNotNull(request);
+
 		request.SetCredentials(_secret, _clientId, AccessToken);
 
 		var client = _clientFactory.CreateClient("PlaidClient");
 		var url = new Uri(_baseUrl, path);
 		_logger.LogTrace("Initiating request. Method: {Method}; Url: {Url}; Content: {@Content}", "POST", url, request);
 
+#pragma warning disable CA2000 // Dispose objects before losing scope
 		var requestMessage = new HttpRequestMessage
 		{
 			Method = HttpMethod.Post,
 			RequestUri = url,
 			Headers =
-				{
-					{ "Plaid-Version", _apiVersion },
-				},
+			{
+				{ "Plaid-Version", _apiVersion },
+			},
 			Content = JsonContent.Create(request, options: JsonSerializerOptions),
 		};
+#pragma warning restore CA2000 // Dispose objects before losing scope
 
 		AddRequestHeaders(requestMessage, AdditionalHeaders);
 		AddRequestHeaders(requestMessage, request.AdditionalHeaders);
@@ -175,16 +176,15 @@ public sealed partial class PlaidClient
 
 		public readonly async Task<TResponse> ParseResponseAsync<TResponse>() where TResponse : ResponseBase, new()
 		{
-			using (var response = await Message.ConfigureAwait(false))
-			{
-				Logger.LogInformation("Completed request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
+			using var response = await Message.ConfigureAwait(false);
 
-				var result = await BuildResponse<TResponse>(response).ConfigureAwait(false);
-				Logger.LogTrace("Completed request details. Url: {Url}; Response: {@Result}",
-					Url,
-					result);
-				return result;
-			}
+			Logger.LogInformation("Completed request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
+
+			var result = await BuildResponse<TResponse>(response).ConfigureAwait(false);
+			Logger.LogTrace("Completed request details. Url: {Url}; Response: {@Result}",
+				Url,
+				result);
+			return result;
 		}
 
 		public readonly async Task<FileResponse> ParseFileResponseAsync()
@@ -204,7 +204,7 @@ public sealed partial class PlaidClient
 			{
 				var requestid = headers["plaid-request-id"].FirstOrDefault();
 
-				var stream = response.Content == null ? System.IO.Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+				var stream = response.Content == null ? Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 				var result = new FileResponse(status, headers, stream, response) { RequestId = requestid };
 
 				if (Logger.IsEnabled(LogLevel.Trace))
@@ -279,7 +279,7 @@ public sealed partial class PlaidClient
 			{
 				return JsonSerializer.Deserialize<PlaidError>(json, options: JsonSerializerOptions)!;
 			}
-			catch (Exception ex)
+			catch (JsonException ex)
 			{
 				return new PlaidError
 				{
@@ -291,7 +291,6 @@ public sealed partial class PlaidClient
 				};
 			}
 		}
-
 	}
 
 	#endregion Private Members

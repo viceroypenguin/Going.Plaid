@@ -27,9 +27,9 @@ public abstract class RequestBase
 	/// Enable to receive the raw JSON provided by the Plaid server.
 	/// Values:
 	/// <list type="table">
-	/// <item><term><c>false</c></term><description>Do not return the raw JSON.</description></item>
-	/// <item><term><c>true</c></term><description>Return the raw JSON.</description></item>
-	/// <item><term><c>null</c>/<c>default</c></term><description>Use the value in <see cref="PlaidClient.ShowRawJson"/>.</description></item>
+	/// <item><term><see langword="false" /></term><description>Do not return the raw JSON.</description></item>
+	/// <item><term><see langword="true" /></term><description>Return the raw JSON.</description></item>
+	/// <item><term><see langword="null" /></term><description>Use the value in <see cref="PlaidClient.ShowRawJson"/>.</description></item>
 	/// </list>
 	/// </summary>
 	[JsonIgnore]
@@ -39,7 +39,7 @@ public abstract class RequestBase
 	/// Pass additional request headers.
 	/// </summary>
 	[JsonIgnore]
-	public Dictionary<string, string>? AdditionalHeaders { get; set; }
+	public Dictionary<string, string>? AdditionalHeaders { get; init; }
 
 	/// <summary>
 	/// Indicates whether to include the AccessToken on an API call.

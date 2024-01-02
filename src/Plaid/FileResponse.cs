@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Going.Plaid;
+﻿namespace Going.Plaid;
 
 /// <summary>
 /// A file returned from Plaid API

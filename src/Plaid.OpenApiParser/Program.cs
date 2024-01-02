@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using CaseExtensions;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
 
-namespace PlaidOpenApiParser;
+namespace Plaid.OpenApiParser;
 
-static class Program
+internal static partial class Program
 {
-	static void Main(string[] args)
+	private static void Main()
 	{
 		var basePath = GetBasePath();
 		var reader = new OpenApiStringReader();
@@ -24,7 +20,7 @@ static class Program
 			&& diagnostic.Errors.Count != 0)
 		{
 			// supposedly yaml is invalid?
-			// throw new InvalidOperationException("Invalid plaid yaml file.");
+			throw new InvalidOperationException("Invalid plaid yaml file.");
 		}
 
 		ProcessUris(doc);
@@ -45,10 +41,10 @@ static class Program
 		return path;
 	}
 
-	private static readonly List<ApiCall> apiCalls = new();
-	private static readonly Dictionary<string, SchemaEntity> schemaEntities = new();
-	private static readonly Dictionary<(string type, string code), string> webhookDictionaryMap = new();
-	private static readonly Dictionary<string, string> nameFixups = new()
+	private static readonly List<ApiCall> ApiCalls = [];
+	private static readonly Dictionary<string, SchemaEntity> SchemaEntities = [];
+	private static readonly Dictionary<(string type, string code), string> WebhookDictionaryMap = [];
+	private static readonly Dictionary<string, string> NameFixups = new()
 	{
 		["ACHClass"] = "AchClass",
 		["APR"] = "Apr",
@@ -65,8 +61,8 @@ static class Program
 		["WebhookType"] = "SandboxItemFireWebhookRequestWebhookTypeEnum",
 		["purpose"] = "TransferDocumentPurpose",
 	};
-	private static readonly string[] excludes = new[]
-	{
+	private static readonly string[] Excludes =
+	[
 		"PlaidException",
 		"Error",
 		"PlaidError",
@@ -83,17 +79,17 @@ static class Program
 		"InvestmentAccountSubtype",
 		"InvestmentAccountSubtypes",
 		"AccountSubtype",
-	};
-	private static readonly string[] excludeApis = new[]
-	{
+	];
+	private static readonly string[] ExcludeApis =
+	[
 		"/credit/asset_report/freddie_mac/get",
-	};
+	];
 
 	private static void ProcessUris(OpenApiDocument doc)
 	{
 		foreach (var (uri, item) in doc.Paths)
 		{
-			if (excludeApis.Contains(uri))
+			if (ExcludeApis.Contains(uri))
 				continue;
 
 			var basePath = uri[1..].Split('/')[0].ToPascalCase();
@@ -114,11 +110,11 @@ static class Program
 			AddSchemaEntity(basePath, requestSchema.Reference.Id, BaseType.Request, requestSchema, SchemaType.Class);
 
 			var responseSchema = op.Responses["200"].Content["application/json"].Schema;
-			var responsePath = responseSchema.Reference.Id.EndsWith("Response") ? basePath : "Entity";
+			var responsePath = responseSchema.Reference.Id.EndsWith("Response", StringComparison.Ordinal) ? basePath : "Entity";
 			var responseType = $"{responsePath}.{responseSchema.Reference.Id}";
 			AddSchemaEntity(responsePath, responseSchema.Reference.Id, BaseType.Response, responseSchema, SchemaType.Record);
 
-			apiCalls.Add(new(
+			ApiCalls.Add(new(
 				uri,
 				basePath,
 				string.Concat(uri[1..].Split('/').Select(s => s.ToPascalCase())),
@@ -131,19 +127,18 @@ static class Program
 
 	private static void AddSchemaEntity(string basePath, string name, BaseType baseType, OpenApiSchema schema, SchemaType type)
 	{
-		if (excludes.Contains(name)) return;
+		if (Excludes.Contains(name)) return;
 
-		if (schemaEntities.ContainsKey(name))
+		if (SchemaEntities.TryGetValue(name, out var value))
 		{
-			var entity = schemaEntities[name];
-			if (entity.SchemaType == SchemaType.Record
+			if (value.SchemaType == SchemaType.Record
 				&& type == SchemaType.Class)
 			{
-				entity.SchemaType = SchemaType.Class;
+				value.SchemaType = SchemaType.Class;
 			}
 
-			if (baseType == BaseType.Response && entity.BaseType != BaseType.Response)
-				entity.BaseType = BaseType.Response;
+			if (baseType == BaseType.Response && value.BaseType != BaseType.Response)
+				value.BaseType = BaseType.Response;
 
 			return;
 		}
@@ -153,9 +148,9 @@ static class Program
 			var (pd, ed) = ParseEnumDescription(schema.Description);
 
 			static string GetEnumName(string name) =>
-				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.Replace(".", "_").ToLower().ToPascalCase()}";
+				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.Replace(".", "_", StringComparison.Ordinal).ToLower(null).ToPascalCase()}";
 
-			schemaEntities[name] = new()
+			SchemaEntities[name] = new()
 			{
 				SchemaType = type,
 				BasePath = basePath,
@@ -173,7 +168,7 @@ static class Program
 		}
 		else
 		{
-			var e = schemaEntities[name] = new()
+			var e = SchemaEntities[name] = new()
 			{
 				SchemaType = type,
 				BasePath = basePath,
@@ -195,15 +190,16 @@ static class Program
 					BaseType.Request => p.Key is not "client_id" and not "secret" and not "access_token",
 					BaseType.Response => p.Key is not "request_id" and not "error",
 					BaseType.Webhook => p.Key is not "environment",
+					BaseType.None => throw new NotSupportedException(),
 					_ => true,
 				})
 				.Select(p =>
 				{
-					var propertyName = p.Key.ToLower().ToPascalCase();
+					var propertyName = p.Key.ToLower(null).ToPascalCase();
 					if (baseType == BaseType.Webhook && p.Key is "webhook_type" or "webhook_code")
 					{
 						var code = p.Value.Description.Trim('`', '"');
-						return new Property(code, propertyName, propertyName, code.ToLower().ToPascalCase());
+						return new Property(code, propertyName, propertyName, code.ToLower(null).ToPascalCase());
 					}
 
 					var typeName = GetPropertyType(name, propertyName, p.Value, type);
@@ -216,36 +212,46 @@ static class Program
 	}
 
 	private static string PrefixPlaidUrl(string url) =>
-		url.StartsWith("/")
+		url.StartsWith('/')
 			? "https://plaid.com" + url
 			: url;
 
+	[GeneratedRegex(@"\[([^]]+)\]\(([^)]+)\)")]
+	private static partial Regex LinkBlockRegex();
+
 	private static string FixLinkBlocks(string description) =>
-		Regex.Replace(
+		LinkBlockRegex().Replace(
 			description,
-			@"\[([^]]+)\]\(([^)]+)\)",
 			m => "<a href=\"" + PrefixPlaidUrl(m.Groups[2].Value) + "\">" + m.Groups[1].Value + "</a>");
 
+	[GeneratedRegex(@"<(\w+)>")]
+	private static partial Regex BracketRegex();
+
 	private static string FixBrackets(string description) =>
-		Regex.Replace(
+		BracketRegex().Replace(
 			description,
-			@"<(\w+)>",
 			m => m.Groups[1].Value == "em" ? "<em>" : $"&lt;{m.Groups[1].Value}&gt;");
 
 	private static string FixAmpersands(string description) =>
-		description.Replace("&", "&amp;");
+		description.Replace("&", "&amp;", StringComparison.Ordinal);
+
+	[GeneratedRegex(@"`([^`]+)`")]
+	private static partial Regex CodeBlockRegex();
 
 	private static string FixCodeBlocks(string description) =>
-		Regex.Replace(
+		CodeBlockRegex().Replace(
 			description,
-			@"`([^`]+)`",
 			"<c>$1</c>");
 
 	private static string FixupDescription(string description) =>
 		string.IsNullOrWhiteSpace(description) ? string.Empty :
 		FixCodeBlocks(FixLinkBlocks(FixBrackets(FixAmpersands(description)))).TrimEnd();
 
-	private static readonly string[] newLineSplits = { "\r\n", "\r", "\n", };
+	private static readonly string[] NewLineSplits = ["\r\n", "\r", "\n"];
+
+	[GeneratedRegex("^`\"?(.+?)\"?:?`\\s*:?-?\\s*(.*)$")]
+	private static partial Regex EnumDescriptionRegex();
+
 	private static (string enumDescription, Dictionary<string, string> propertyDescription) ParseEnumDescription(string description)
 	{
 		if (string.IsNullOrWhiteSpace(description))
@@ -253,7 +259,7 @@ static class Program
 		if (description.StartsWith("The asynchronous event to be simulated.", StringComparison.OrdinalIgnoreCase))
 			return (FixupDescription(description), new Dictionary<string, string>());
 
-		var lines = description.Split(newLineSplits, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+		var lines = description.Split(NewLineSplits, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
 		if (lines.Length == 1)
 			return (FixCodeBlocks(lines[0]), new Dictionary<string, string>());
@@ -267,7 +273,7 @@ static class Program
 
 			var pd = lines
 				.Where(l => l.StartsWith('`'))
-				.Select(l => Regex.Match(l, "^`\"?(.+?)\"?:?`\\s*:?-?\\s*(.*)$"))
+				.Select(l => EnumDescriptionRegex().Match(l))
 				.ToDictionary(
 					m => m.Groups[1].Value,
 					m => FixupDescription(m.Groups[2].Value));
@@ -313,10 +319,11 @@ static class Program
 		{
 			if (schema.Description.Contains("YYYY-MM-DD", StringComparison.OrdinalIgnoreCase))
 				return "DateOnly";
-			if (schema.Description.Contains("ISO8601"))
+			if (schema.Description.Contains("ISO8601", StringComparison.OrdinalIgnoreCase)
+				|| schema.Description.Contains("ISO 8601", StringComparison.OrdinalIgnoreCase))
+			{
 				return "DateTimeOffset";
-			if (schema.Description.Contains("ISO 8601"))
-				return "DateTimeOffset";
+			}
 		}
 
 		var entityType = (schema.Enum?.Any() ?? false) ? SchemaType.Enum : type;
@@ -329,7 +336,7 @@ static class Program
 
 		if (schema.Reference != null)
 		{
-			if (schema.Reference.Id.EndsWith("Nullable"))
+			if (schema.Reference.Id.EndsWith("Nullable", StringComparison.OrdinalIgnoreCase))
 			{
 				if (schema.AllOf.Count > 0)
 				{
@@ -344,21 +351,21 @@ static class Program
 		var entityName = schema.Title ?? schema.Reference?.Id;
 		if (string.IsNullOrWhiteSpace(entityName))
 		{
-			var parentName = className.EndsWith("Object") ? className[..^6] : className;
+			var parentName = className.EndsWith("Object", StringComparison.OrdinalIgnoreCase) ? className[..^6] : className;
 			entityName = parentName
 				+ propertyName.ToPascalCase()
 				+ (entityType == SchemaType.Enum ? "Enum" : "Object");
 		}
 
-		entityName = nameFixups.GetValueOrDefault(entityName, entityName);
+		entityName = NameFixups.GetValueOrDefault(entityName, entityName);
 		AddSchemaEntity("Entity", entityName, BaseType.None, schema, entityType);
 		return entityName == "PlaidException"
 			? "Exceptions.PlaidException"
 			: $"Entity.{entityName}";
 	}
 
-	static string GetEnumName(string name) =>
-		$"{(char.IsDigit(name[0]) ? "_" : "")}{name.ToLower().ToPascalCase()}";
+	private static string GetEnumName(string name) =>
+		$"{(char.IsDigit(name[0]) ? "_" : "")}{name.ToLower(null).ToPascalCase()}";
 
 	private static void ProcessAccountTypes(OpenApiDocument doc)
 	{
@@ -377,7 +384,7 @@ static class Program
 					.Properties["other"].Description),
 		};
 
-		schemaEntities["AccountType"] = new()
+		SchemaEntities["AccountType"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -408,7 +415,7 @@ static class Program
 		foreach (var p in doc.Components.Schemas["InvestmentAccountSubtypeStandalone"].Properties)
 			pd[p.Key] = FixupDescription(p.Value.Description).TrimEnd();
 
-		schemaEntities["AccountSubtype"] = new()
+		SchemaEntities["AccountSubtype"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -430,7 +437,7 @@ static class Program
 			.Select(x => x.Value)
 			.Select(x => (schema: x, name: x.Title ?? x.Reference?.Id!))
 			.Where(x => !string.IsNullOrWhiteSpace(x.name))
-			.Where(x => x.name.EndsWith("Webhook"))
+			.Where(x => x.name.EndsWith("Webhook", StringComparison.OrdinalIgnoreCase))
 			.Where(x => x.schema.Properties.Any(p => p.Key == "webhook_code"))
 			.ToList();
 
@@ -439,21 +446,21 @@ static class Program
 
 		foreach (var (schema, name) in schemas)
 		{
-			var entityName = nameFixups.GetValueOrDefault(name, name);
+			var entityName = NameFixups.GetValueOrDefault(name, name);
 			AddSchemaEntity("Webhook", entityName, BaseType.Webhook, schema, SchemaType.Record);
 
-			var se = schemaEntities[entityName];
+			var se = SchemaEntities[entityName];
 			var type = se.Properties!
 				.Single(p => p.Name == "WebhookType");
 			var code = se.Properties!
 				.Single(p => p.Name == "WebhookCode");
 
-			webhookDictionaryMap[(type.Description!, code.Description!)] = entityName;
+			WebhookDictionaryMap[(type.Description!, code.Description!)] = entityName;
 			_ = types.Add((type.JsonName, type.Description!));
 			_ = codes.Add((code.JsonName, code.Description!));
 		}
 
-		schemaEntities["WebhookType"] = new()
+		SchemaEntities["WebhookType"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -468,7 +475,7 @@ static class Program
 				.ToList(),
 		};
 
-		schemaEntities["WebhookCode"] = new()
+		SchemaEntities["WebhookCode"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -488,7 +495,7 @@ static class Program
 	{
 		var schema = doc.Components.Schemas[subtypeName];
 		var descriptions = doc.Components.Schemas[descriptionSchemaName].Properties;
-		schemaEntities[subtypeName] = new()
+		SchemaEntities[subtypeName] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -509,16 +516,16 @@ static class Program
 	{
 		var prefix = "/// ".PadLeft(index + 4, '\t');
 		return string.Join(Environment.NewLine,
-			description.Split(newLineSplits, StringSplitOptions.RemoveEmptyEntries)
+			description.Split(NewLineSplits, StringSplitOptions.RemoveEmptyEntries)
 				.Select(l => $"{prefix}<para>{l}</para>")
 				.DefaultIfEmpty(prefix));
 	}
 
 	private static void SaveApis(string plaidSrcPath)
 	{
-		foreach (var g in apiCalls.GroupBy(a => a.BasePath))
+		foreach (var g in ApiCalls.GroupBy(a => a.BasePath))
 		{
-			static string remarks(string url) =>
+			static string Remarks(string url) =>
 				string.IsNullOrWhiteSpace(url) ? string.Empty :
 				$@"
 	/// <remarks><see href=""https://plaid.com/docs{url}"" /></remarks>";
@@ -526,7 +533,7 @@ static class Program
 			var methods = g.Select(c => $@"
 	/// <summary>
 {FormatDescription(c.Description, 1)}
-	/// </summary>{remarks(c.ExternalUrl)}
+	/// </summary>{Remarks(c.ExternalUrl)}
 	public Task<{c.ResponseType}> {c.MethodName}Async({c.RequestType} request) =>
 		PostAsync(""{c.Uri}"", request)
 			.ParseResponseAsync<{c.ResponseType}>();");
@@ -538,14 +545,14 @@ public sealed partial class PlaidClient
 }}";
 
 			var apiFolder = Path.Combine(plaidSrcPath, g.Key);
-			Directory.CreateDirectory(apiFolder);
+			_ = Directory.CreateDirectory(apiFolder);
 			File.WriteAllText(Path.Combine(apiFolder, "PlaidClient.cs"), body);
 		}
 	}
 
 	private static void SaveSchemas(string plaidSrcPath)
 	{
-		foreach (var i in schemaEntities.Values)
+		foreach (var i in SchemaEntities.Values)
 		{
 			switch (i.SchemaType)
 			{
@@ -558,6 +565,9 @@ public sealed partial class PlaidClient
 				case SchemaType.Enum:
 					SaveEnum(plaidSrcPath, i);
 					break;
+				case SchemaType.None:
+				default:
+					throw new NotSupportedException();
 			}
 		}
 	}
@@ -581,19 +591,19 @@ public sealed partial class PlaidClient
 /// <summary>
 {FormatDescription(i.Description, 0)}
 /// </summary>
-public {(i.Name.EndsWith("Request") ? "partial class" : "class")} {i.Name}{basePath}
+public {(i.Name.EndsWith("Request", StringComparison.OrdinalIgnoreCase) ? "partial class" : "class")} {i.Name}{basePath}
 {{{string.Join(Environment.NewLine, properties)}
 }}";
 
 		var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
-		Directory.CreateDirectory(baseFolder);
+		_ = Directory.CreateDirectory(baseFolder);
 		File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
 	}
 
 	private static void SaveRecord(string plaidSrcPath, SchemaEntity i)
 	{
 		var properties = i.Properties
-			?.ExceptBy(new[] { "WebhookType", "WebhookCode", }, x => x.Name)
+			?.ExceptBy(["WebhookType", "WebhookCode"], x => x.Name)
 			?.Select(p => $@"
 	/// <summary>
 {FormatDescription(p.Description ?? string.Empty, 1)}
@@ -637,16 +647,16 @@ public record {i.Name}{basePath}
 }}";
 
 		var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
-		Directory.CreateDirectory(baseFolder);
+		_ = Directory.CreateDirectory(baseFolder);
 		File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
 	}
 
-	private static readonly Property unknownProperty = new("undefined", string.Empty, "Undefined", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.");
+	private static readonly Property UnknownProperty = new("undefined", string.Empty, "Undefined", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.");
 	private static void SaveEnum(string plaidSrcPath, SchemaEntity i)
 	{
 		IEnumerable<Property> list = i.Properties ?? Array.Empty<Property>();
 		if (!list.Any(p => p.Name == "Undefined"))
-			list = list.Append(unknownProperty);
+			list = list.Append(UnknownProperty);
 		var properties = list
 			.Select(p => $@"
 	/// <summary>
@@ -668,7 +678,7 @@ public enum {i.Name}
 
 	private static void SaveConverterMap(string plaidSrcPath)
 	{
-		var types = webhookDictionaryMap
+		var types = WebhookDictionaryMap
 			.Select(x => $@"			[(WebhookType.{x.Key.type}, WebhookCode.{x.Key.code})] = typeof({x.Value}),");
 
 		var body = $@"using Going.Plaid.Webhook;

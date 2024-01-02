@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-		<Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CaseExtensions" Version="1.1.0" />
-    <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.6.11" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CaseExtensions" />
+		<PackageReference Include="Microsoft.OpenApi.Readers" />
+	</ItemGroup>
 
 </Project>

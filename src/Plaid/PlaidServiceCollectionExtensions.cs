@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Extensions.DependencyInjection;
+﻿namespace Going.Plaid;
 
 /// <summary>
 /// Holding class for extension methods.
@@ -58,7 +58,7 @@ public static class PlaidServiceCollectionExtensions
 #if NETCOREAPP3_1_OR_GREATER
 					AutomaticDecompression = DecompressionMethods.All,
 #else
-					AutomaticDecompression = 
+					AutomaticDecompression =
 						DecompressionMethods.GZip
 						| DecompressionMethods.Deflate,
 #endif

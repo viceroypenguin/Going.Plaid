@@ -1,4 +1,6 @@
-﻿namespace Going.Plaid.Entity;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Going.Plaid.Entity;
 
 /// <summary>
 /// The exception that is thrown when a response from the Plaid API contains an error.
@@ -52,6 +54,7 @@ public record PlaidError
 	/// </summary>
 	/// <remarks><see cref="Causes"/> will only be provided for the <see cref="ErrorType"/> <c>ASSET_REPORT_ERROR</c>. <see cref="Causes"/> will also not be populated inside an error nested within a <see cref="Warning"/> object.</remarks>
 	[JsonPropertyName("causes")]
+	[SuppressMessage("Security", "CA5362:Potential reference cycle in deserialized object graph", Justification = "Actual data will not cause a reference cycle.")]
 	public IReadOnlyList<Cause>? Causes { get; init; }
 
 	/// <summary>
