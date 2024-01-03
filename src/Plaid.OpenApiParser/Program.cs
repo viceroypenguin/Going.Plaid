@@ -554,41 +554,31 @@ public sealed partial class PlaidClient
 
 	private static void SaveSchemas(string plaidSrcPath)
 	{
-		foreach (var i in SchemaEntities.Values)
-		{
-			switch (i.SchemaType)
-			{
-				case SchemaType.Class:
-					SaveClass(plaidSrcPath, i);
-					break;
-				case SchemaType.Record:
-					SaveRecord(plaidSrcPath, i);
-					break;
-				case SchemaType.Enum:
-					SaveEnum(plaidSrcPath, i);
-					break;
-				case SchemaType.None:
-				default:
-					throw new NotSupportedException();
-			}
-		}
+		var l = SchemaEntities.Values
+			.ToLookup(i => i.SchemaType);
+
+		SaveClasses(plaidSrcPath, l[SchemaType.Class]);
+		SaveRecords(plaidSrcPath, l[SchemaType.Record]);
+		SaveEnums(plaidSrcPath, l[SchemaType.Enum]);
 	}
 
-	private static void SaveClass(string plaidSrcPath, SchemaEntity i)
+	private static void SaveClasses(string plaidSrcPath, IEnumerable<SchemaEntity> classes)
 	{
-		var properties = i.Properties?.Select(p => $@"
+		foreach (var i in classes)
+		{
+			var properties = i.Properties?.Select(p => $@"
 	/// <summary>
 {FormatDescription(p.Description ?? string.Empty, 1)}
 	/// </summary>
 	[JsonPropertyName(""{p.JsonName}"")]
 	public {p.Type} {p.Name} {{ get; set; }} = default!;")
-			?? Array.Empty<string>();
+				?? Array.Empty<string>();
 
-		var basePath = string.Empty;
-		if (i.BaseType == BaseType.Request)
-			basePath = " : RequestBase";
+			var basePath = string.Empty;
+			if (i.BaseType == BaseType.Request)
+				basePath = " : RequestBase";
 
-		var body = $@"namespace Going.Plaid.{i.BasePath};
+			var body = $@"namespace Going.Plaid.{i.BasePath};
 
 /// <summary>
 {FormatDescription(i.Description, 0)}
@@ -597,37 +587,40 @@ public {(i.Name.EndsWith("Request", StringComparison.OrdinalIgnoreCase) ? "parti
 {{{string.Join(Environment.NewLine, properties)}
 }}";
 
-		var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
-		_ = Directory.CreateDirectory(baseFolder);
-		File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
+			var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
+			_ = Directory.CreateDirectory(baseFolder);
+			File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
+		}
 	}
 
-	private static void SaveRecord(string plaidSrcPath, SchemaEntity i)
+	private static void SaveRecords(string plaidSrcPath, IEnumerable<SchemaEntity> records)
 	{
-		var properties = i.Properties
-			?.ExceptBy(["WebhookType", "WebhookCode"], x => x.Name)
-			?.Select(p => $@"
+		foreach (var i in records)
+		{
+			var properties = i.Properties
+				?.ExceptBy(["WebhookType", "WebhookCode"], x => x.Name)
+				?.Select(p => $@"
 	/// <summary>
 {FormatDescription(p.Description ?? string.Empty, 1)}
 	/// </summary>
 	[JsonPropertyName(""{p.JsonName}"")]
 	public {p.Type} {p.Name} {{ get; init; }} = default!;")
-			?? Array.Empty<string>();
+				?? Array.Empty<string>();
 
-		var basePath = string.Empty;
-		if (i.BaseType == BaseType.Response)
-			basePath = " : ResponseBase";
-		else if (i.BaseType == BaseType.Webhook)
-		{
-			var type = i.Properties!
-				.Single(p => p.Name == "WebhookType")
-				.Description;
-			var code = i.Properties!
-				.Single(p => p.Name == "WebhookCode")
-				.Description;
+			var basePath = string.Empty;
+			if (i.BaseType == BaseType.Response)
+				basePath = " : ResponseBase";
+			else if (i.BaseType == BaseType.Webhook)
+			{
+				var type = i.Properties!
+					.Single(p => p.Name == "WebhookType")
+					.Description;
+				var code = i.Properties!
+					.Single(p => p.Name == "WebhookCode")
+					.Description;
 
-			properties = properties
-				.Prepend($@"
+				properties = properties
+					.Prepend($@"
 	/// <inheritdoc />
 	[JsonPropertyName(""webhook_type"")]
 	public override WebhookType WebhookType => WebhookType.{type};
@@ -636,10 +629,10 @@ public {(i.Name.EndsWith("Request", StringComparison.OrdinalIgnoreCase) ? "parti
 	[JsonPropertyName(""webhook_code"")]
 	public override WebhookCode WebhookCode => WebhookCode.{code};");
 
-			basePath = " : WebhookBase";
-		}
+				basePath = " : WebhookBase";
+			}
 
-		var body = $@"namespace Going.Plaid.{i.BasePath};
+			var body = $@"namespace Going.Plaid.{i.BasePath};
 
 /// <summary>
 {FormatDescription(i.Description, 0)}
@@ -648,25 +641,28 @@ public record {i.Name}{basePath}
 {{{string.Join(Environment.NewLine, properties)}
 }}";
 
-		var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
-		_ = Directory.CreateDirectory(baseFolder);
-		File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
+			var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
+			_ = Directory.CreateDirectory(baseFolder);
+			File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
+		}
 	}
 
 	private static readonly Property UnknownProperty = new("undefined", string.Empty, "Undefined", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.");
-	private static void SaveEnum(string plaidSrcPath, SchemaEntity i)
+	private static void SaveEnums(string plaidSrcPath, IEnumerable<SchemaEntity> enums)
 	{
-		IEnumerable<Property> list = i.Properties ?? Array.Empty<Property>();
-		if (!list.Any(p => p.Name == "Undefined"))
-			list = list.Append(UnknownProperty);
-		var properties = list
-			.Select(p => $@"
+		foreach (var i in enums)
+		{
+			IEnumerable<Property> list = i.Properties ?? Array.Empty<Property>();
+			if (!list.Any(p => p.Name == "Undefined"))
+				list = list.Append(UnknownProperty);
+			var properties = list
+				.Select(p => $@"
 	/// <summary>
 {FormatDescription(p.Description ?? string.Empty, 1)}
 	/// </summary>
 	[EnumMember(Value = ""{p.JsonName}"")]
 	{p.Name},");
-		var body = $@"namespace Going.Plaid.{i.BasePath};
+			var body = $@"namespace Going.Plaid.{i.BasePath};
 
 /// <summary>
 {FormatDescription(i.Description, 0)}
@@ -675,7 +671,8 @@ public enum {i.Name}
 {{{string.Join(Environment.NewLine, properties)}
 }}";
 
-		File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), body);
+			File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), body);
+		}
 	}
 
 	private static void SaveConverterMap(string plaidSrcPath)
