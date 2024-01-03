@@ -161,4 +161,5 @@ public sealed partial class PlaidClient
 	public Task<WatchlistScreening.WatchlistScreeningIndividualUpdateResponse> WatchlistScreeningIndividualUpdateAsync(WatchlistScreening.WatchlistScreeningIndividualUpdateRequest request) =>
 		PostAsync("/watchlist_screening/individual/update", request)
 			.ParseResponseAsync<WatchlistScreening.WatchlistScreeningIndividualUpdateResponse>();
+
 }

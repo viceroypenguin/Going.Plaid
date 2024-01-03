@@ -27,4 +27,5 @@ public sealed partial class PlaidClient
 	public Task<PaymentProfile.PaymentProfileRemoveResponse> PaymentProfileRemoveAsync(PaymentProfile.PaymentProfileRemoveRequest request) =>
 		PostAsync("/payment_profile/remove", request)
 			.ParseResponseAsync<PaymentProfile.PaymentProfileRemoveResponse>();
+
 }

@@ -20,4 +20,5 @@ public sealed partial class PlaidClient
 	public Task<User.UserUpdateResponse> UserUpdateAsync(User.UserUpdateRequest request) =>
 		PostAsync("/user/update", request)
 			.ParseResponseAsync<User.UserUpdateResponse>();
+
 }

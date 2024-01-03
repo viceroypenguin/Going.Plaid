@@ -10,4 +10,5 @@ public sealed partial class PlaidClient
 	public Task<Employers.EmployersSearchResponse> EmployersSearchAsync(Employers.EmployersSearchRequest request) =>
 		PostAsync("/employers/search", request)
 			.ParseResponseAsync<Employers.EmployersSearchResponse>();
+
 }

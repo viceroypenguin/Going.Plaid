@@ -17,4 +17,5 @@ public sealed partial class PlaidClient
 	public Task<DashboardUser.DashboardUserListResponse> DashboardUserListAsync(DashboardUser.DashboardUserListRequest request) =>
 		PostAsync("/dashboard_user/list", request)
 			.ParseResponseAsync<DashboardUser.DashboardUserListResponse>();
+
 }

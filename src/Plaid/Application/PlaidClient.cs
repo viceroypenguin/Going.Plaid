@@ -8,4 +8,5 @@ public sealed partial class PlaidClient
 	public Task<Application.ApplicationGetResponse> ApplicationGetAsync(Application.ApplicationGetRequest request) =>
 		PostAsync("/application/get", request)
 			.ParseResponseAsync<Application.ApplicationGetResponse>();
+
 }

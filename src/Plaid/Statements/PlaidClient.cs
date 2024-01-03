@@ -17,4 +17,5 @@ public sealed partial class PlaidClient
 	public Task<Statements.StatementsDownloadResponse> StatementsDownloadAsync(Statements.StatementsDownloadRequest request) =>
 		PostAsync("/statements/download", request)
 			.ParseResponseAsync<Statements.StatementsDownloadResponse>();
+
 }

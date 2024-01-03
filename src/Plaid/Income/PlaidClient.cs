@@ -37,4 +37,5 @@ public sealed partial class PlaidClient
 	public Task<Income.IncomeVerificationPrecheckResponse> IncomeVerificationPrecheckAsync(Income.IncomeVerificationPrecheckRequest request) =>
 		PostAsync("/income/verification/precheck", request)
 			.ParseResponseAsync<Income.IncomeVerificationPrecheckResponse>();
+
 }

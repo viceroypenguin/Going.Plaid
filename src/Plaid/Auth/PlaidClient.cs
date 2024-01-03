@@ -11,4 +11,5 @@ public sealed partial class PlaidClient
 	public Task<Auth.AuthGetResponse> AuthGetAsync(Auth.AuthGetRequest request) =>
 		PostAsync("/auth/get", request)
 			.ParseResponseAsync<Auth.AuthGetResponse>();
+
 }

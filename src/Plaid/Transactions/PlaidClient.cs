@@ -60,4 +60,5 @@ public sealed partial class PlaidClient
 	public Task<Transactions.TransactionsEnrichResponse> TransactionsEnrichAsync(Transactions.TransactionsEnrichRequest request) =>
 		PostAsync("/transactions/enrich", request)
 			.ParseResponseAsync<Transactions.TransactionsEnrichResponse>();
+
 }

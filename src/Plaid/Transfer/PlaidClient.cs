@@ -298,4 +298,5 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferRefundCancelResponse> TransferRefundCancelAsync(Transfer.TransferRefundCancelRequest request) =>
 		PostAsync("/transfer/refund/cancel", request)
 			.ParseResponseAsync<Transfer.TransferRefundCancelResponse>();
+
 }

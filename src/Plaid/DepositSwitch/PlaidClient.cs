@@ -33,4 +33,5 @@ public sealed partial class PlaidClient
 	public Task<DepositSwitch.DepositSwitchAltCreateResponse> DepositSwitchAltCreateAsync(DepositSwitch.DepositSwitchAltCreateRequest request) =>
 		PostAsync("/deposit_switch/alt/create", request)
 			.ParseResponseAsync<DepositSwitch.DepositSwitchAltCreateResponse>();
+
 }

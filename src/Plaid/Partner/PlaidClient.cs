@@ -41,4 +41,5 @@ public sealed partial class PlaidClient
 	public Task<Partner.PartnerCustomerOAuthInstitutionsGetResponse> PartnerCustomerOauthInstitutionsGetAsync(Partner.PartnerCustomerOAuthInstitutionsGetRequest request) =>
 		PostAsync("/partner/customer/oauth_institutions/get", request)
 			.ParseResponseAsync<Partner.PartnerCustomerOAuthInstitutionsGetResponse>();
+
 }

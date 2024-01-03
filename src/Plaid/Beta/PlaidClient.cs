@@ -49,4 +49,5 @@ public sealed partial class PlaidClient
 	public Task<Beta.TransactionsUserInsightsGetResponse> BetaTransactionsUserInsightsV1GetAsync(Beta.TransactionsUserInsightsGetRequest request) =>
 		PostAsync("/beta/transactions/user_insights/v1/get", request)
 			.ParseResponseAsync<Beta.TransactionsUserInsightsGetResponse>();
+
 }

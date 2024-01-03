@@ -38,4 +38,5 @@ public sealed partial class PlaidClient
 	public Task<Investments.InvestmentsAuthGetResponse> InvestmentsAuthGetAsync(Investments.InvestmentsAuthGetRequest request) =>
 		PostAsync("/investments/auth/get", request)
 			.ParseResponseAsync<Investments.InvestmentsAuthGetResponse>();
+
 }

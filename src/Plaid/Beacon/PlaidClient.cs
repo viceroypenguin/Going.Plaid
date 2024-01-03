@@ -91,4 +91,5 @@ public sealed partial class PlaidClient
 	public Task<Beacon.BeaconUserUpdateResponse> BeaconUserUpdateAsync(Beacon.BeaconUserUpdateRequest request) =>
 		PostAsync("/beacon/user/update", request)
 			.ParseResponseAsync<Beacon.BeaconUserUpdateResponse>();
+
 }

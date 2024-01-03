@@ -10,4 +10,5 @@ public sealed partial class PlaidClient
 	public Task<WebhookVerificationKey.WebhookVerificationKeyGetResponse> WebhookVerificationKeyGetAsync(WebhookVerificationKey.WebhookVerificationKeyGetRequest request) =>
 		PostAsync("/webhook_verification_key/get", request)
 			.ParseResponseAsync<WebhookVerificationKey.WebhookVerificationKeyGetResponse>();
+
 }

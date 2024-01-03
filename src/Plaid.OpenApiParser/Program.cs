@@ -527,30 +527,26 @@ internal static partial class Program
 
 	private static void SaveApis(string plaidSrcPath)
 	{
+		var template = Template.Parse(GetTemplate("Api"));
 		foreach (var g in ApiCalls.GroupBy(a => a.BasePath))
 		{
-			static string Remarks(string url) =>
-				string.IsNullOrWhiteSpace(url) ? string.Empty :
-				$@"
-	/// <remarks><see href=""https://plaid.com/docs{url}"" /></remarks>";
-
-			var methods = g.Select(c => $@"
-	/// <summary>
-{FormatDescription(c.Description, 1)}
-	/// </summary>{Remarks(c.ExternalUrl)}
-	public Task<{c.ResponseType}> {c.MethodName}Async({c.RequestType} request) =>
-		PostAsync(""{c.Uri}"", request)
-			.ParseResponseAsync<{c.ResponseType}>();");
-
-			var body = $@"namespace Going.Plaid;
-
-public sealed partial class PlaidClient
-{{{string.Join(Environment.NewLine, methods)}
-}}";
+			var source = template.Render(new
+			{
+				Methods = g
+					.Select(m => new
+					{
+						m.MethodName,
+						m.RequestType,
+						m.ResponseType,
+						Description = FormatDescription(m.Description, 0),
+						m.Uri,
+						Url = m.ExternalUrl,
+					}),
+			});
 
 			var apiFolder = Path.Combine(plaidSrcPath, g.Key);
 			_ = Directory.CreateDirectory(apiFolder);
-			File.WriteAllText(Path.Combine(apiFolder, "PlaidClient.cs"), body);
+			File.WriteAllText(Path.Combine(apiFolder, "PlaidClient.cs"), source);
 		}
 	}
 

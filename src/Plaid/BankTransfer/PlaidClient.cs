@@ -83,4 +83,5 @@ public sealed partial class PlaidClient
 	public Task<BankTransfer.BankTransferMigrateAccountResponse> BankTransferMigrateAccountAsync(BankTransfer.BankTransferMigrateAccountRequest request) =>
 		PostAsync("/bank_transfer/migrate_account", request)
 			.ParseResponseAsync<BankTransfer.BankTransferMigrateAccountResponse>();
+
 }

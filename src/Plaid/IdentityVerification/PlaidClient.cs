@@ -35,4 +35,5 @@ public sealed partial class PlaidClient
 	public Task<IdentityVerification.IdentityVerificationRetryResponse> IdentityVerificationRetryAsync(IdentityVerification.IdentityVerificationRetryRequest request) =>
 		PostAsync("/identity_verification/retry", request)
 			.ParseResponseAsync<IdentityVerification.IdentityVerificationRetryResponse>();
+
 }

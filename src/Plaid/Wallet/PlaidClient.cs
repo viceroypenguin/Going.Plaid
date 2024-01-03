@@ -51,4 +51,5 @@ public sealed partial class PlaidClient
 	public Task<Wallet.WalletTransactionListResponse> WalletTransactionListAsync(Wallet.WalletTransactionListRequest request) =>
 		PostAsync("/wallet/transaction/list", request)
 			.ParseResponseAsync<Wallet.WalletTransactionListResponse>();
+
 }

@@ -17,4 +17,5 @@ public sealed partial class PlaidClient
 	public Task<Cra.CraBankIncomeGetResponse> CraBankIncomeGetAsync(Cra.CraBankIncomeGetRequest request) =>
 		PostAsync("/cra/bank_income/get", request)
 			.ParseResponseAsync<Cra.CraBankIncomeGetResponse>();
+
 }

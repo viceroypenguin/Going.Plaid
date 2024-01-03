@@ -10,4 +10,5 @@ public sealed partial class PlaidClient
 	public Task<Employment.EmploymentVerificationGetResponse> EmploymentVerificationGetAsync(Employment.EmploymentVerificationGetRequest request) =>
 		PostAsync("/employment/verification/get", request)
 			.ParseResponseAsync<Employment.EmploymentVerificationGetResponse>();
+
 }

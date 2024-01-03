@@ -20,4 +20,5 @@ public sealed partial class PlaidClient
 	public Task<Accounts.AccountsGetResponse> AccountsBalanceGetAsync(Accounts.AccountsBalanceGetRequest request) =>
 		PostAsync("/accounts/balance/get", request)
 			.ParseResponseAsync<Accounts.AccountsGetResponse>();
+
 }

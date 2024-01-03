@@ -1,0 +1,17 @@
+﻿namespace Going.Plaid;
+
+public sealed partial class PlaidClient
+{
+	{{~ for m in methods ~}}
+	/// <summary>
+	{{ m.description }}
+	/// </summary>
+	{{~ if !string.empty m.url ~}}
+	/// <remarks><see href="https://plaid.com/docs{{ m.url }}" /></remarks>
+	{{~ end ~}}
+	public Task<{{ m.response_type }}> {{ m.method_name }}Async({{ m.request_type }} request) =>
+		PostAsync("{{ m.uri }}", request)
+			.ParseResponseAsync<{{ m.response_type }}>();
+
+	{{~ end ~}}
+}

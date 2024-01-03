@@ -38,4 +38,5 @@ public sealed partial class PlaidClient
 	public Task<Signal.SignalPrepareResponse> SignalPrepareAsync(Signal.SignalPrepareRequest request) =>
 		PostAsync("/signal/prepare", request)
 			.ParseResponseAsync<Signal.SignalPrepareResponse>();
+
 }

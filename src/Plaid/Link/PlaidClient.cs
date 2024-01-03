@@ -28,4 +28,5 @@ public sealed partial class PlaidClient
 	public Task<Link.LinkOAuthCorrelationIdExchangeResponse> LinkOauthCorrelationIdExchangeAsync(Link.LinkOAuthCorrelationIdExchangeRequest request) =>
 		PostAsync("/link/oauth/correlation_id/exchange", request)
 			.ParseResponseAsync<Link.LinkOAuthCorrelationIdExchangeResponse>();
+
 }

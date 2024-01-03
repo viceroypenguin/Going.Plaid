@@ -17,4 +17,5 @@ public sealed partial class PlaidClient
 	public Task<LinkDelivery.LinkDeliveryGetResponse> LinkDeliveryGetAsync(LinkDelivery.LinkDeliveryGetRequest request) =>
 		PostAsync("/link_delivery/get", request)
 			.ParseResponseAsync<LinkDelivery.LinkDeliveryGetResponse>();
+
 }

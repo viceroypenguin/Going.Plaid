@@ -75,4 +75,5 @@ public sealed partial class PlaidClient
 	public Task<AssetReport.AssetReportAuditCopyRemoveResponse> AssetReportAuditCopyRemoveAsync(AssetReport.AssetReportAuditCopyRemoveRequest request) =>
 		PostAsync("/asset_report/audit_copy/remove", request)
 			.ParseResponseAsync<AssetReport.AssetReportAuditCopyRemoveResponse>();
+
 }

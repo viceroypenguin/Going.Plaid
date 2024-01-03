@@ -28,4 +28,5 @@ public sealed partial class PlaidClient
 	public Task<Institutions.InstitutionsGetByIdResponse> InstitutionsGetByIdAsync(Institutions.InstitutionsGetByIdRequest request) =>
 		PostAsync("/institutions/get_by_id", request)
 			.ParseResponseAsync<Institutions.InstitutionsGetByIdResponse>();
+
 }

@@ -30,4 +30,5 @@ public sealed partial class PlaidClient
 	public Task<Identity.IdentityRefreshResponse> IdentityRefreshAsync(Identity.IdentityRefreshRequest request) =>
 		PostAsync("/identity/refresh", request)
 			.ParseResponseAsync<Identity.IdentityRefreshResponse>();
+
 }

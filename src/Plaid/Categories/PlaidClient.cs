@@ -10,4 +10,5 @@ public sealed partial class PlaidClient
 	public Task<Categories.CategoriesGetResponse> CategoriesGetAsync(Categories.CategoriesGetRequest request) =>
 		PostAsync("/categories/get", request)
 			.ParseResponseAsync<Categories.CategoriesGetResponse>();
+
 }

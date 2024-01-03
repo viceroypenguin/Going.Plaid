@@ -110,4 +110,5 @@ public sealed partial class PlaidClient
 	public Task<PaymentInitiation.PaymentInitiationPaymentListResponse> PaymentInitiationPaymentListAsync(PaymentInitiation.PaymentInitiationPaymentListRequest request) =>
 		PostAsync("/payment_initiation/payment/list", request)
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationPaymentListResponse>();
+
 }

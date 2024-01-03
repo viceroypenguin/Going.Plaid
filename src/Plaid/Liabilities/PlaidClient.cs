@@ -11,4 +11,5 @@ public sealed partial class PlaidClient
 	public Task<Liabilities.LiabilitiesGetResponse> LiabilitiesGetAsync(Liabilities.LiabilitiesGetRequest request) =>
 		PostAsync("/liabilities/get", request)
 			.ParseResponseAsync<Liabilities.LiabilitiesGetResponse>();
+
 }
