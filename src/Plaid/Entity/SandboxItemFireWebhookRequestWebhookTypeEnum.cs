@@ -52,4 +52,5 @@ public enum SandboxItemFireWebhookRequestWebhookTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

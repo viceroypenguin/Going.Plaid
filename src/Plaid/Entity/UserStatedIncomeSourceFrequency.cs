@@ -40,4 +40,5 @@ public enum UserStatedIncomeSourceFrequency
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

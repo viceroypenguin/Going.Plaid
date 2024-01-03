@@ -46,4 +46,5 @@ public enum SignalPaymentMethod
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

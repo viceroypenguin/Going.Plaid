@@ -22,4 +22,5 @@ public enum TransferScheduleIntervalUnit
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

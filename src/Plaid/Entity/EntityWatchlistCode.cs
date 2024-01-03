@@ -94,4 +94,5 @@ public enum EntityWatchlistCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -28,4 +28,5 @@ public enum POBoxStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

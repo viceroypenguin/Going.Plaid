@@ -52,4 +52,5 @@ public enum LinkDeliveryVerificationStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

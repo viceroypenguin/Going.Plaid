@@ -28,4 +28,5 @@ public enum CreditACHClass
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

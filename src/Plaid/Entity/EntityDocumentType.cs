@@ -46,4 +46,5 @@ public enum EntityDocumentType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

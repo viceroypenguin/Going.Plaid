@@ -58,4 +58,5 @@ public enum RecurringFrequency
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

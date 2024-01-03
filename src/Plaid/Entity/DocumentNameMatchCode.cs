@@ -28,4 +28,5 @@ public enum DocumentNameMatchCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

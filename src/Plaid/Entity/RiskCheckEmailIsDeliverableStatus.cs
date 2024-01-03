@@ -28,4 +28,5 @@ public enum RiskCheckEmailIsDeliverableStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

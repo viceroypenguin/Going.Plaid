@@ -34,4 +34,5 @@ public enum TransferSweepStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -76,4 +76,5 @@ public enum StudentRepaymentPlanTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

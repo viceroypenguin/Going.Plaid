@@ -28,4 +28,5 @@ public enum LinkDeliveryWebhookCallbackType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

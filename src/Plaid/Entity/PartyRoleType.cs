@@ -16,4 +16,5 @@ public enum PartyRoleType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

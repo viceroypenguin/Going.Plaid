@@ -82,4 +82,5 @@ public enum DocType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

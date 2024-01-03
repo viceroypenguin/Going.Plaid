@@ -22,4 +22,5 @@ public enum TransferIntentCreateMode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -28,4 +28,5 @@ public enum DepositSwitchGetResponseSwitchMethodEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

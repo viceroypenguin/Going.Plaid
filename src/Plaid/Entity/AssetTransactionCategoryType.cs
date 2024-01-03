@@ -652,4 +652,5 @@ public enum AssetTransactionCategoryType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

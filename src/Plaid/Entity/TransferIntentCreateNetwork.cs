@@ -22,4 +22,5 @@ public enum TransferIntentCreateNetwork
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

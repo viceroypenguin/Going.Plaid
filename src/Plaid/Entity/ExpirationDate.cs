@@ -28,4 +28,5 @@ public enum ExpirationDate
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

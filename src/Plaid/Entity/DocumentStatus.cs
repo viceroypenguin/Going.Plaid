@@ -28,4 +28,5 @@ public enum DocumentStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -28,4 +28,5 @@ public enum LinkTokenCreateRequestAuthRerouteToCredentialsEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

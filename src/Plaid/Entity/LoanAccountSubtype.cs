@@ -82,4 +82,5 @@ public enum LoanAccountSubtype
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

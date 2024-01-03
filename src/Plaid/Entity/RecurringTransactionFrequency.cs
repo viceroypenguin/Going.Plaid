@@ -46,4 +46,5 @@ public enum RecurringTransactionFrequency
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

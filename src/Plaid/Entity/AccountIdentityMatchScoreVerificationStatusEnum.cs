@@ -52,4 +52,5 @@ public enum AccountIdentityMatchScoreVerificationStatusEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

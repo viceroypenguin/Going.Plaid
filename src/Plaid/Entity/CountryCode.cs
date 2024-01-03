@@ -118,4 +118,5 @@ public enum CountryCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

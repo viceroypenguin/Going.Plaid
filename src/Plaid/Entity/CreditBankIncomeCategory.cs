@@ -100,4 +100,5 @@ public enum CreditBankIncomeCategory
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -34,4 +34,5 @@ public enum DocumentAuthenticityMatchCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

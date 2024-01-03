@@ -298,4 +298,5 @@ public enum InvestmentTransactionSubtype
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -22,4 +22,5 @@ public enum DepositSwitchTargetAccountAccountSubtypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

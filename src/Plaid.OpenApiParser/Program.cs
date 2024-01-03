@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
 using Scriban;
+using Scriban.Runtime;
 
 namespace Plaid.OpenApiParser;
 
@@ -514,9 +515,10 @@ internal static partial class Program
 		};
 	}
 
-	private static string FormatDescription(string description, int index)
+	private static string FormatDescription(string? description, int index)
 	{
 		var prefix = "/// ".PadLeft(index + 4, '\t');
+		description ??= string.Empty;
 		return string.Join(Environment.NewLine,
 			description.Split(NewLineSplits, StringSplitOptions.RemoveEmptyEntries)
 				.Select(l => $"{prefix}<para>{l}</para>")
@@ -650,28 +652,27 @@ public record {i.Name}{basePath}
 	private static readonly Property UnknownProperty = new("undefined", string.Empty, "Undefined", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.");
 	private static void SaveEnums(string plaidSrcPath, IEnumerable<SchemaEntity> enums)
 	{
+		var template = Template.Parse(GetTemplate("EnumType"));
 		foreach (var i in enums)
 		{
 			IEnumerable<Property> list = i.Properties ?? Array.Empty<Property>();
 			if (!list.Any(p => p.Name == "Undefined"))
 				list = list.Append(UnknownProperty);
-			var properties = list
-				.Select(p => $@"
-	/// <summary>
-{FormatDescription(p.Description ?? string.Empty, 1)}
-	/// </summary>
-	[EnumMember(Value = ""{p.JsonName}"")]
-	{p.Name},");
-			var body = $@"namespace Going.Plaid.{i.BasePath};
 
-/// <summary>
-{FormatDescription(i.Description, 0)}
-/// </summary>
-public enum {i.Name}
-{{{string.Join(Environment.NewLine, properties)}
-}}";
-
-			File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), body);
+			var source = template.Render(new
+			{
+				i.BasePath,
+				i.Name,
+				Description = FormatDescription(i.Description, 0),
+				Properties = list
+					.Select(p => new
+					{
+						p.JsonName,
+						p.Name,
+						Description = FormatDescription(p.Description, 0),
+					})
+			});
+			File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), source);
 		}
 	}
 

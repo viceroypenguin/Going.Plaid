@@ -70,4 +70,5 @@ public enum ActivityType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

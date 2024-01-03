@@ -154,4 +154,5 @@ public enum IndividualWatchlistCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

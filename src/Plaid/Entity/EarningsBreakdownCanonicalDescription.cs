@@ -64,4 +64,5 @@ public enum EarningsBreakdownCanonicalDescription
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -40,4 +40,5 @@ public enum TransferLedgerSweepSimulateEventType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -70,4 +70,5 @@ public enum DepositoryAccountSubtype
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -40,4 +40,5 @@ public enum LinkDeliverySessionStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

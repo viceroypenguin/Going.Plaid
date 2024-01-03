@@ -28,4 +28,5 @@ public enum RiskCheckEmailDomainIsFreeProvider
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

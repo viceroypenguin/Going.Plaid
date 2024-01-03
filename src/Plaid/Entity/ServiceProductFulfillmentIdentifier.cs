@@ -22,4 +22,5 @@ public enum ServiceProductFulfillmentIdentifier
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

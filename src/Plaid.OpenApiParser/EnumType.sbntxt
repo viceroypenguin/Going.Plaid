@@ -1,0 +1,16 @@
+﻿namespace Going.Plaid.{{ base_path }};
+
+/// <summary>
+{{ description }}
+/// </summary>
+public enum {{ name }}
+{
+	{{~ for p in properties ~}}
+	/// <summary>
+	{{ p.description }}
+	/// </summary>
+	[EnumMember(Value = "{{ p.json_name }}")]
+	{{ p.name }},
+
+	{{~ end ~}}
+}

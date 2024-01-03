@@ -22,4 +22,5 @@ public enum BankIncomeCompleteResult
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

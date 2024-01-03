@@ -16,4 +16,5 @@ public enum CreditBankIncomeAccountType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

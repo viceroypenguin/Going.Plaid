@@ -40,4 +40,5 @@ public enum PaymentInitiationConsentStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

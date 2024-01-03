@@ -22,4 +22,5 @@ public enum SandboxIncomeWebhookFireRequestWebhookCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

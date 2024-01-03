@@ -28,4 +28,5 @@ public enum WarningWarningCodeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

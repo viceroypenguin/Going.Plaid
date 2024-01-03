@@ -34,4 +34,5 @@ public enum BeaconMatchSummaryCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

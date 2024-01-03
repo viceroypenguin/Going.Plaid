@@ -34,4 +34,5 @@ public enum PaymentScheme
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -28,4 +28,5 @@ public enum BeaconUserStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

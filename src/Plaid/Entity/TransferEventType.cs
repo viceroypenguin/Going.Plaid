@@ -94,4 +94,5 @@ public enum TransferEventType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

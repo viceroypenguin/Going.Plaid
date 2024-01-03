@@ -22,4 +22,5 @@ public enum LinkDeliveryDeliveryMethod
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

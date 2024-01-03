@@ -22,4 +22,5 @@ public enum TransferType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

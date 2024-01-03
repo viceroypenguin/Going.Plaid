@@ -28,4 +28,5 @@ public enum WatchlistScreeningStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

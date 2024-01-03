@@ -22,4 +22,5 @@ public enum PaymentInitiationConsentScope
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

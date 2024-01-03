@@ -40,4 +40,5 @@ public enum SignalDecisionOutcome
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

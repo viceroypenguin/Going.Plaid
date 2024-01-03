@@ -22,4 +22,5 @@ public enum TransactionsRuleType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

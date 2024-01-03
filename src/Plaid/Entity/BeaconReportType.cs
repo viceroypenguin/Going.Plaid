@@ -40,4 +40,5 @@ public enum BeaconReportType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -40,4 +40,5 @@ public enum MatchSummaryCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

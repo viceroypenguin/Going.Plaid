@@ -28,4 +28,5 @@ public enum IncomeVerificationPrecheckConfidence
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -22,4 +22,5 @@ public enum EnrichTransactionDirection
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

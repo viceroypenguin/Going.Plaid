@@ -22,4 +22,5 @@ public enum BankTransferDirection
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

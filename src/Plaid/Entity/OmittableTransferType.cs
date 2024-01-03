@@ -22,4 +22,5 @@ public enum OmittableTransferType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

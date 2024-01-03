@@ -28,4 +28,5 @@ public enum ProductStatusStatusEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

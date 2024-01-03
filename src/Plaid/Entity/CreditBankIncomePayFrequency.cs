@@ -46,4 +46,5 @@ public enum CreditBankIncomePayFrequency
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

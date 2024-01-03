@@ -34,4 +34,5 @@ public enum Strategy
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

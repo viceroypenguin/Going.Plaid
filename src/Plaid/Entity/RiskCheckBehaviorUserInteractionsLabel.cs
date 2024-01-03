@@ -34,4 +34,5 @@ public enum RiskCheckBehaviorUserInteractionsLabel
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

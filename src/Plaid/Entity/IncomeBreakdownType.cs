@@ -28,4 +28,5 @@ public enum IncomeBreakdownType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

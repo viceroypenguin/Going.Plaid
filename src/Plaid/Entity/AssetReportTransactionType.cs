@@ -34,4 +34,5 @@ public enum AssetReportTransactionType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

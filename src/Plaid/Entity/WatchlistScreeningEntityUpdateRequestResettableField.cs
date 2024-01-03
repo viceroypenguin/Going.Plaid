@@ -16,4 +16,5 @@ public enum WatchlistScreeningEntityUpdateRequestResettableField
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

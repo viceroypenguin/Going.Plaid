@@ -22,4 +22,5 @@ public enum BaseReportWarningCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

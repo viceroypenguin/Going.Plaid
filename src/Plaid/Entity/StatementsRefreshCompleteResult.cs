@@ -22,4 +22,5 @@ public enum StatementsRefreshCompleteResult
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

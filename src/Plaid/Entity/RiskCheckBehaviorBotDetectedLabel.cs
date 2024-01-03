@@ -28,4 +28,5 @@ public enum RiskCheckBehaviorBotDetectedLabel
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

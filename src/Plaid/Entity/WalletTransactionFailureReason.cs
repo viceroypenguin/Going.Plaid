@@ -40,4 +40,5 @@ public enum WalletTransactionFailureReason
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

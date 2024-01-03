@@ -34,4 +34,5 @@ public enum BeaconAuditTrailSource
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

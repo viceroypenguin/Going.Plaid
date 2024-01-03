@@ -22,4 +22,5 @@ public enum ScopesContext
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

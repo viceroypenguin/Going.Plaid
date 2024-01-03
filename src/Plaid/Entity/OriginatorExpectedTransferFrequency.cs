@@ -34,4 +34,5 @@ public enum OriginatorExpectedTransferFrequency
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

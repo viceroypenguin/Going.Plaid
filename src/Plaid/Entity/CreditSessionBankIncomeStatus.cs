@@ -28,4 +28,5 @@ public enum CreditSessionBankIncomeStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

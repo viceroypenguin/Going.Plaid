@@ -34,4 +34,5 @@ public enum PaystubPayFrequency
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

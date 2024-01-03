@@ -40,4 +40,5 @@ public enum BankTransferEventType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

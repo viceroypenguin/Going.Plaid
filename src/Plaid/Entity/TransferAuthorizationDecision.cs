@@ -22,4 +22,5 @@ public enum TransferAuthorizationDecision
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

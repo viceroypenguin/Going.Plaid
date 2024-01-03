@@ -28,4 +28,5 @@ public enum EmailTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

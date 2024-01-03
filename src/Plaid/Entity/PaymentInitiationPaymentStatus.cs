@@ -94,4 +94,5 @@ public enum PaymentInitiationPaymentStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

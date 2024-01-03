@@ -34,4 +34,5 @@ public enum IdentityUpdateTypes
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

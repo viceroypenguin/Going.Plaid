@@ -76,4 +76,5 @@ public enum IdentityVerificationStepStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

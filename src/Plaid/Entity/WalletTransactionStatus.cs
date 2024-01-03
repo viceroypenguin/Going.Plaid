@@ -46,4 +46,5 @@ public enum WalletTransactionStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

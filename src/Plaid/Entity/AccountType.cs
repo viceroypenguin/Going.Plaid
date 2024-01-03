@@ -40,4 +40,5 @@ public enum AccountType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

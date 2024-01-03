@@ -106,4 +106,5 @@ public enum CreditBankIncomeErrorType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

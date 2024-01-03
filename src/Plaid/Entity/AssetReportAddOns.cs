@@ -22,4 +22,5 @@ public enum AssetReportAddOns
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

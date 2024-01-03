@@ -76,4 +76,5 @@ public enum UserStatedIncomeSourceCategory
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

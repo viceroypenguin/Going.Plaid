@@ -40,4 +40,5 @@ public enum TransferAuthorizationGuaranteeDecisionRationaleCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -40,4 +40,5 @@ public enum RiskSignalDocumentStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

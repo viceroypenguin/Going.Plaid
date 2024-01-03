@@ -22,4 +22,5 @@ public enum TaxpayerIdentifierType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -28,4 +28,5 @@ public enum TransferRecurringStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

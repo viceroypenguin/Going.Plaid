@@ -22,4 +22,5 @@ public enum IncomeVerificationDocParsingConfig
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

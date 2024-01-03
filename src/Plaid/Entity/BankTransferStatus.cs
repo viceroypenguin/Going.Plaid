@@ -40,4 +40,5 @@ public enum BankTransferStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

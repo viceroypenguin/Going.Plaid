@@ -16,4 +16,5 @@ public enum TransferDocumentPurpose
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

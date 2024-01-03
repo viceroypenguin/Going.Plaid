@@ -28,4 +28,5 @@ public enum TransferNetwork
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

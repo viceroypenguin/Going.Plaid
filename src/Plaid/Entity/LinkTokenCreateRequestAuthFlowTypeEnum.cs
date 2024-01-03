@@ -16,4 +16,5 @@ public enum LinkTokenCreateRequestAuthFlowTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

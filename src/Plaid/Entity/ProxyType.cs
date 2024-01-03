@@ -40,4 +40,5 @@ public enum ProxyType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

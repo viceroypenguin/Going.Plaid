@@ -22,4 +22,5 @@ public enum IsoCurrencyCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

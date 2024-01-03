@@ -34,4 +34,5 @@ public enum OwnershipType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

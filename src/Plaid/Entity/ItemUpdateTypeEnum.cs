@@ -22,4 +22,5 @@ public enum ItemUpdateTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

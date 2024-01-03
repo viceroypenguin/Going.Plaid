@@ -28,4 +28,5 @@ public enum CreditPayStubPayBasisType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

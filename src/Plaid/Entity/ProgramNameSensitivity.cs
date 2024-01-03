@@ -34,4 +34,5 @@ public enum ProgramNameSensitivity
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

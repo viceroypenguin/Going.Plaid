@@ -22,4 +22,5 @@ public enum EmploymentSourceType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

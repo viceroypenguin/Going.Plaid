@@ -22,4 +22,5 @@ public enum CraBankIncomeCompleteResult
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

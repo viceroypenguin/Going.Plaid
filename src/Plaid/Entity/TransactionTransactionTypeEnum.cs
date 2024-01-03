@@ -34,4 +34,5 @@ public enum TransactionTransactionTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

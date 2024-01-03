@@ -28,4 +28,5 @@ public enum AddressPurposeLabel
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

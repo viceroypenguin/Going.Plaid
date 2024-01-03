@@ -46,4 +46,5 @@ public enum TransferStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

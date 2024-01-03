@@ -46,4 +46,5 @@ public enum TransferRefundStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

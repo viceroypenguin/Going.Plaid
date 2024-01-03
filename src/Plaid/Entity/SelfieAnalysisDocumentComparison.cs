@@ -28,4 +28,5 @@ public enum SelfieAnalysisDocumentComparison
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

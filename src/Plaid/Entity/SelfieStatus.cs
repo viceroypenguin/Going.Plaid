@@ -22,4 +22,5 @@ public enum SelfieStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

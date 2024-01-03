@@ -40,4 +40,5 @@ public enum ActionState
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

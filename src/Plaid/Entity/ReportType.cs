@@ -16,4 +16,5 @@ public enum ReportType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

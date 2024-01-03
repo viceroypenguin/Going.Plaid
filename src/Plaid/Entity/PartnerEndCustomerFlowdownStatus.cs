@@ -34,4 +34,5 @@ public enum PartnerEndCustomerFlowdownStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

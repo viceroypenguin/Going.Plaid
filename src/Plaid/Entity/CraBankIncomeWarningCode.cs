@@ -34,4 +34,5 @@ public enum CraBankIncomeWarningCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -22,4 +22,5 @@ public enum LoanIdentifierType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

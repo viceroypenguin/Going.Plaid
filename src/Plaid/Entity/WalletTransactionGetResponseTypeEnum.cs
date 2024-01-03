@@ -46,4 +46,5 @@ public enum WalletTransactionGetResponseTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

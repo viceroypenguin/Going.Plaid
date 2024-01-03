@@ -34,4 +34,5 @@ public enum PaymentConsentPeriodicInterval
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

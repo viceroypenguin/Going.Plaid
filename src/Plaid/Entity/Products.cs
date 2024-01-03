@@ -136,4 +136,5 @@ public enum Products
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

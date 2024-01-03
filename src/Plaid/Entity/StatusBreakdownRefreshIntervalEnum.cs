@@ -28,4 +28,5 @@ public enum StatusBreakdownRefreshIntervalEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

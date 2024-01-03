@@ -46,4 +46,5 @@ public enum PhysicalDocumentCategory
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

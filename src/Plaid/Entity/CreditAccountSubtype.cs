@@ -28,4 +28,5 @@ public enum CreditAccountSubtype
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -40,4 +40,5 @@ public enum PartnerEndCustomerOAuthInstitutionApplicationStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

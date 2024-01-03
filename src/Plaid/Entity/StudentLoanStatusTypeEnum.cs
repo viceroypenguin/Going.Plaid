@@ -118,4 +118,5 @@ public enum StudentLoanStatusTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

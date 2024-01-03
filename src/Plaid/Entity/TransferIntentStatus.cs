@@ -28,4 +28,5 @@ public enum TransferIntentStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

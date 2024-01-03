@@ -22,4 +22,5 @@ public enum AssetTransactionType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -28,4 +28,5 @@ public enum WeakAliasDetermination
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

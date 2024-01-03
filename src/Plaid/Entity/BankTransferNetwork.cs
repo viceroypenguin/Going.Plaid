@@ -28,4 +28,5 @@ public enum BankTransferNetwork
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

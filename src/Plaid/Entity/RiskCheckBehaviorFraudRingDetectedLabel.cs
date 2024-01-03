@@ -28,4 +28,5 @@ public enum RiskCheckBehaviorFraudRingDetectedLabel
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

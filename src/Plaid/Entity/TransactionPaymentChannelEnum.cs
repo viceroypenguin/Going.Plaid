@@ -28,4 +28,5 @@ public enum TransactionPaymentChannelEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -46,4 +46,5 @@ public enum PaymentAmountCurrency
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

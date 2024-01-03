@@ -28,4 +28,5 @@ public enum UserStatedIncomeSourcePayType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -28,4 +28,5 @@ public enum RiskCheckEmailDomainIsDisposable
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -22,4 +22,5 @@ public enum LinkSessionSuccessMetadataTransferStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

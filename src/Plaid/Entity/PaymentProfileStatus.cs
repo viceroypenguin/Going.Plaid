@@ -28,4 +28,5 @@ public enum PaymentProfileStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

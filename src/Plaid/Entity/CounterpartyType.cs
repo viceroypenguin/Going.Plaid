@@ -46,4 +46,5 @@ public enum CounterpartyType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

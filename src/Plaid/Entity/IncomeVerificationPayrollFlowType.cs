@@ -22,4 +22,5 @@ public enum IncomeVerificationPayrollFlowType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

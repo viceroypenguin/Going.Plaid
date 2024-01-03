@@ -40,4 +40,5 @@ public enum AssetType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

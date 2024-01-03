@@ -40,4 +40,5 @@ public enum IncidentUpdateStatusEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

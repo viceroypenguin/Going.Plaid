@@ -28,4 +28,5 @@ public enum WalletPaymentScheme
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

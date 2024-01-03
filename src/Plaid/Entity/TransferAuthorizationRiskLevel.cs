@@ -40,4 +40,5 @@ public enum TransferAuthorizationRiskLevel
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

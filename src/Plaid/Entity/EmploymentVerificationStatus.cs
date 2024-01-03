@@ -22,4 +22,5 @@ public enum EmploymentVerificationStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

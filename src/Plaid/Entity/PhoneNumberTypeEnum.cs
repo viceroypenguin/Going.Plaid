@@ -46,4 +46,5 @@ public enum PhoneNumberTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

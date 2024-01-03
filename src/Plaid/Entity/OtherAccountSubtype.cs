@@ -22,4 +22,5 @@ public enum OtherAccountSubtype
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

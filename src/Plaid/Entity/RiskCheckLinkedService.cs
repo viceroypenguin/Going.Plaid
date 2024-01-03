@@ -214,4 +214,5 @@ public enum RiskCheckLinkedService
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

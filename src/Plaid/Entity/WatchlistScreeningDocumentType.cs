@@ -88,4 +88,5 @@ public enum WatchlistScreeningDocumentType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -28,4 +28,5 @@ public enum DashboardUserStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

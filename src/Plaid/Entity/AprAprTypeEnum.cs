@@ -34,4 +34,5 @@ public enum AprAprTypeEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

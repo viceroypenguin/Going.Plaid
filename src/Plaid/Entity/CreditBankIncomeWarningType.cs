@@ -16,4 +16,5 @@ public enum CreditBankIncomeWarningType
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

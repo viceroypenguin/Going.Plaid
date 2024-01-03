@@ -28,4 +28,5 @@ public enum RiskCheckEmailTopLevelDomainIsSuspicious
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

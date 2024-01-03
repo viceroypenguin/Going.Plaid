@@ -34,4 +34,5 @@ public enum Source
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

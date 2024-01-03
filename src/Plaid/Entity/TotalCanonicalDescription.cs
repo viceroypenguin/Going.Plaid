@@ -106,4 +106,5 @@ public enum TotalCanonicalDescription
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

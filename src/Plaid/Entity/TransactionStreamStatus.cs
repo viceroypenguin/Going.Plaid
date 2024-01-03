@@ -34,4 +34,5 @@ public enum TransactionStreamStatus
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

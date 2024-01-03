@@ -22,4 +22,5 @@ public enum TransferACHNetwork
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

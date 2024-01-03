@@ -22,4 +22,5 @@ public enum PaymentScheduleInterval
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

@@ -34,4 +34,5 @@ public enum SweepTrigger
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

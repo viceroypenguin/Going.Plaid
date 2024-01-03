@@ -34,4 +34,5 @@ public enum AchClass
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

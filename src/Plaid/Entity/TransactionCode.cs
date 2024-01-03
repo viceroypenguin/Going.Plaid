@@ -82,4 +82,5 @@ public enum TransactionCode
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

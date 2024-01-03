@@ -280,4 +280,5 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

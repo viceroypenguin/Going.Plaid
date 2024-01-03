@@ -58,4 +58,5 @@ public enum ConsumerReportPermissiblePurpose
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }

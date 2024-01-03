@@ -28,4 +28,5 @@ public enum Form1099Type
 	/// </summary>
 	[EnumMember(Value = "undefined")]
 	Undefined,
+
 }
