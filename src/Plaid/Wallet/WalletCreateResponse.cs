@@ -34,4 +34,5 @@ public record WalletCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.WalletStatus? Status { get; init; } = default!;
+
 }

@@ -142,4 +142,5 @@ public record CreditW2
 	/// </summary>
 	[JsonPropertyName("state_and_local_wages")]
 	public IReadOnlyList<Entity.W2StateAndLocalWages> StateAndLocalWages { get; init; } = default!;
+
 }

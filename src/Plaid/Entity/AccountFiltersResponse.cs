@@ -28,4 +28,5 @@ public record AccountFiltersResponse
 	/// </summary>
 	[JsonPropertyName("investment")]
 	public Entity.InvestmentFilter? Investment { get; init; } = default!;
+
 }

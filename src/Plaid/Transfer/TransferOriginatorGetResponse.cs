@@ -10,4 +10,5 @@ public record TransferOriginatorGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("originator")]
 	public Entity.Originator Originator { get; init; } = default!;
+
 }

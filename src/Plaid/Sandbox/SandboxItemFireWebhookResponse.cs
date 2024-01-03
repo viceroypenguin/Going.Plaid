@@ -10,4 +10,5 @@ public record SandboxItemFireWebhookResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("webhook_fired")]
 	public bool WebhookFired { get; init; } = default!;
+
 }

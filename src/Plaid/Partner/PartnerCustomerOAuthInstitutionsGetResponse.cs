@@ -22,4 +22,5 @@ public record PartnerCustomerOAuthInstitutionsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("institutions")]
 	public IReadOnlyList<Entity.PartnerEndCustomerOAuthInstitution>? Institutions { get; init; } = default!;
+
 }

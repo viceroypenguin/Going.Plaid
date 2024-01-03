@@ -17,4 +17,5 @@ public record InvestmentsAuthOwner
 	/// </summary>
 	[JsonPropertyName("names")]
 	public IReadOnlyList<string>? Names { get; init; } = default!;
+
 }

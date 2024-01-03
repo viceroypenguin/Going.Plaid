@@ -34,4 +34,5 @@ public record LinkTokenGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("metadata")]
 	public Entity.LinkTokenGetMetadataResponse Metadata { get; init; } = default!;
+
 }

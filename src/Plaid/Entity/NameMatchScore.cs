@@ -28,4 +28,5 @@ public record NameMatchScore
 	/// </summary>
 	[JsonPropertyName("is_business_name_detected")]
 	public bool? IsBusinessNameDetected { get; init; } = default!;
+
 }

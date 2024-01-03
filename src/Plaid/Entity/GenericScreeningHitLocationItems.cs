@@ -16,4 +16,5 @@ public record GenericScreeningHitLocationItems
 	/// </summary>
 	[JsonPropertyName("data")]
 	public Entity.WatchlistScreeningHitLocations? Data { get; init; } = default!;
+
 }

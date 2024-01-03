@@ -111,4 +111,5 @@ public record IdentityVerificationRetryResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("redacted_at")]
 	public DateTimeOffset? RedactedAt { get; init; } = default!;
+
 }

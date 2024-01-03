@@ -40,4 +40,5 @@ public record EmploymentVerification
 	/// </summary>
 	[JsonPropertyName("platform_ids")]
 	public Entity.PlatformIds? PlatformIds { get; init; } = default!;
+
 }

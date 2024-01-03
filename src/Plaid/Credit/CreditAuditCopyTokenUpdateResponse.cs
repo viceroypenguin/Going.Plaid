@@ -10,4 +10,5 @@ public record CreditAuditCopyTokenUpdateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("updated")]
 	public bool Updated { get; init; } = default!;
+
 }

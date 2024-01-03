@@ -88,4 +88,5 @@ public record TransferEvent
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; init; } = default!;
+
 }

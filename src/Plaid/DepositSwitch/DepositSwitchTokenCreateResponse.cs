@@ -16,4 +16,5 @@ public record DepositSwitchTokenCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("deposit_switch_token_expiration_time")]
 	public DateTimeOffset DepositSwitchTokenExpirationTime { get; init; } = default!;
+
 }

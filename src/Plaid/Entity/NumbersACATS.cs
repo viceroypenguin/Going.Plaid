@@ -22,4 +22,5 @@ public record NumbersACATS
 	/// </summary>
 	[JsonPropertyName("dtc_numbers")]
 	public IReadOnlyList<string> DtcNumbers { get; init; } = default!;
+
 }

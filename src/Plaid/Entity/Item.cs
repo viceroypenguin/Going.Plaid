@@ -65,4 +65,5 @@ public record Item
 	/// </summary>
 	[JsonPropertyName("update_type")]
 	public Entity.ItemUpdateTypeEnum UpdateType { get; init; } = default!;
+
 }

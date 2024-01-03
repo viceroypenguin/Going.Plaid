@@ -16,4 +16,5 @@ public record LinkSessionExitMetadataInstitution
 	/// </summary>
 	[JsonPropertyName("institution_id")]
 	public string? InstitutionId { get; init; } = default!;
+
 }

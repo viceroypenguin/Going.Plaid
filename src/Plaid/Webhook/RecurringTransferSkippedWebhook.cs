@@ -36,4 +36,5 @@ public record RecurringTransferSkippedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("skipped_origination_date")]
 	public DateOnly SkippedOriginationDate { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record InstitutionsGetByIdResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("institution")]
 	public Entity.Institution Institution { get; init; } = default!;
+
 }

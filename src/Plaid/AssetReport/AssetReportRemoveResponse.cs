@@ -10,4 +10,5 @@ public record AssetReportRemoveResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("removed")]
 	public bool Removed { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record Status
 	/// </summary>
 	[JsonPropertyName("StatusDescription")]
 	public string? Statusdescription { get; init; } = default!;
+
 }

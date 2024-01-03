@@ -35,4 +35,5 @@ public record CreditBankStatementUploadAccountOwnerAddress
 	/// </summary>
 	[JsonPropertyName("street")]
 	public string? Street { get; init; } = default!;
+
 }

@@ -29,4 +29,5 @@ public record DeductionsTotal
 	/// </summary>
 	[JsonPropertyName("ytd_amount")]
 	public decimal? YtdAmount { get; init; } = default!;
+
 }

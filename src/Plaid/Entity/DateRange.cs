@@ -16,4 +16,5 @@ public record DateRange
 	/// </summary>
 	[JsonPropertyName("ending")]
 	public DateOnly Ending { get; init; } = default!;
+
 }

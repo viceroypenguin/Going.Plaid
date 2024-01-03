@@ -29,4 +29,5 @@ public record BeaconReportSyndicationOriginalReport
 	/// </summary>
 	[JsonPropertyName("fraud_date")]
 	public DateOnly FraudDate { get; init; } = default!;
+
 }

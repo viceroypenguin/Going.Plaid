@@ -10,4 +10,5 @@ public record PartnerCustomerEnableResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("production_secret")]
 	public string? ProductionSecret { get; init; } = default!;
+
 }

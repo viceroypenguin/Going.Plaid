@@ -112,4 +112,5 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("transaction_id")]
 	public string? TransactionId { get; init; } = default!;
+
 }

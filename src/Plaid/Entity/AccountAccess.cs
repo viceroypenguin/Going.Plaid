@@ -22,4 +22,5 @@ public record AccountAccess
 	/// </summary>
 	[JsonPropertyName("account_product_access")]
 	public Entity.AccountProductAccess? AccountProductAccess { get; init; } = default!;
+
 }

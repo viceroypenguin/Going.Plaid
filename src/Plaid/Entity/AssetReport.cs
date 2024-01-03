@@ -40,4 +40,5 @@ public record AssetReport
 	/// </summary>
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.AssetReportItem> Items { get; init; } = default!;
+
 }

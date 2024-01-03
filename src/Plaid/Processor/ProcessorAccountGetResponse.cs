@@ -10,4 +10,5 @@ public record ProcessorAccountGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("account")]
 	public Entity.Account Account { get; init; } = default!;
+
 }

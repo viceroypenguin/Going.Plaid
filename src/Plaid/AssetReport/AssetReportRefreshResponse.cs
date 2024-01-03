@@ -16,4 +16,5 @@ public record AssetReportRefreshResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("asset_report_token")]
 	public string AssetReportToken { get; init; } = default!;
+
 }

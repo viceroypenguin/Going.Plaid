@@ -28,4 +28,5 @@ public record CreditPayStubEmployee
 	/// </summary>
 	[JsonPropertyName("taxpayer_id")]
 	public Entity.PayStubTaxpayerID TaxpayerId { get; init; } = default!;
+
 }

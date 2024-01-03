@@ -10,4 +10,5 @@ public record AssetReportAuditCopyCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("audit_copy_token")]
 	public string AuditCopyToken { get; init; } = default!;
+
 }

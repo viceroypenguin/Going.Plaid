@@ -24,4 +24,5 @@ public record BaseReportAverageFlowInsights
 	/// </summary>
 	[JsonPropertyName("total_amount")]
 	public Entity.CreditAmountWithCurrency? TotalAmount { get; init; } = default!;
+
 }

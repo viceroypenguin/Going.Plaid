@@ -32,4 +32,5 @@ public record ProcessorInitialUpdateWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; init; } = default!;
+
 }

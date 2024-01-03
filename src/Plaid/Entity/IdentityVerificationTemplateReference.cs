@@ -16,4 +16,5 @@ public record IdentityVerificationTemplateReference
 	/// </summary>
 	[JsonPropertyName("version")]
 	public int Version { get; init; } = default!;
+
 }

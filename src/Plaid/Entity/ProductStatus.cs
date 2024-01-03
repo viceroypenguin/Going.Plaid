@@ -22,4 +22,5 @@ public record ProductStatus
 	/// </summary>
 	[JsonPropertyName("breakdown")]
 	public Entity.StatusBreakdown Breakdown { get; init; } = default!;
+
 }

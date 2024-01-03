@@ -22,4 +22,5 @@ public record AuthGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("item")]
 	public Entity.Item Item { get; init; } = default!;
+
 }

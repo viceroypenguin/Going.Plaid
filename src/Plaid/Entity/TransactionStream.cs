@@ -109,4 +109,5 @@ public record TransactionStream
 	/// </summary>
 	[JsonPropertyName("last_user_modified_datetime")]
 	public DateTimeOffset? LastUserModifiedDatetime { get; init; } = default!;
+
 }

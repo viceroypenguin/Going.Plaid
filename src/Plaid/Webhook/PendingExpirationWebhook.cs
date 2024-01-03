@@ -24,4 +24,5 @@ public record PendingExpirationWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("consent_expiration_time")]
 	public DateTimeOffset ConsentExpirationTime { get; init; } = default!;
+
 }

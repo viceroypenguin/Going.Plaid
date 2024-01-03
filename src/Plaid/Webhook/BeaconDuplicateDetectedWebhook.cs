@@ -18,4 +18,5 @@ public record BeaconDuplicateDetectedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("beacon_duplicate_id")]
 	public string BeaconDuplicateId { get; init; } = default!;
+
 }

@@ -22,4 +22,5 @@ public record RiskSignalDocumentReference
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.RiskSignalDocumentStatus? Status { get; init; } = default!;
+
 }

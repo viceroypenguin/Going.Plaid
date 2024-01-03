@@ -28,4 +28,5 @@ public record CreditBankStatementUploadItem
 	/// </summary>
 	[JsonPropertyName("updated_at")]
 	public DateTimeOffset? UpdatedAt { get; init; } = default!;
+
 }

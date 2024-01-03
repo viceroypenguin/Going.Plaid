@@ -18,4 +18,5 @@ public record Recurrence
 	/// </summary>
 	[JsonPropertyName("frequency")]
 	public Entity.RecurringFrequency? Frequency { get; init; } = default!;
+
 }

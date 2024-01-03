@@ -135,4 +135,5 @@ public record TransferIntentGet
 	/// </summary>
 	[JsonPropertyName("guarantee_decision_rationale")]
 	public Entity.TransferAuthorizationGuaranteeDecisionRationale? GuaranteeDecisionRationale { get; init; } = default!;
+
 }

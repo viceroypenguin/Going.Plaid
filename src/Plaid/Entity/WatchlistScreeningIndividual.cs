@@ -40,4 +40,5 @@ public record WatchlistScreeningIndividual
 	/// </summary>
 	[JsonPropertyName("audit_trail")]
 	public Entity.WatchlistScreeningAuditTrail AuditTrail { get; init; } = default!;
+
 }

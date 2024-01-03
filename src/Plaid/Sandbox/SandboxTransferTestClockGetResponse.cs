@@ -10,4 +10,5 @@ public record SandboxTransferTestClockGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("test_clock")]
 	public Entity.TransferTestClock TestClock { get; init; } = default!;
+
 }

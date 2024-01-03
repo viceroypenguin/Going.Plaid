@@ -48,4 +48,5 @@ public record WalletTransactionStatusUpdateWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("timestamp")]
 	public DateTimeOffset Timestamp { get; init; } = default!;
+
 }

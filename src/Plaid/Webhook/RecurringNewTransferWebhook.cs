@@ -24,4 +24,5 @@ public record RecurringNewTransferWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("transfer_id")]
 	public string TransferId { get; init; } = default!;
+
 }

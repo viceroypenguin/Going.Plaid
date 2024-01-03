@@ -10,4 +10,5 @@ public record LinkOAuthCorrelationIdExchangeResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("link_token")]
 	public string LinkToken { get; init; } = default!;
+
 }

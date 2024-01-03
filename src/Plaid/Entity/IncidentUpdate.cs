@@ -22,4 +22,5 @@ public record IncidentUpdate
 	/// </summary>
 	[JsonPropertyName("updated_date")]
 	public DateTimeOffset? UpdatedDate { get; init; } = default!;
+
 }

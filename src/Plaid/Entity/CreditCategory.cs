@@ -17,4 +17,5 @@ public record CreditCategory
 	/// </summary>
 	[JsonPropertyName("detailed")]
 	public string Detailed { get; init; } = default!;
+
 }

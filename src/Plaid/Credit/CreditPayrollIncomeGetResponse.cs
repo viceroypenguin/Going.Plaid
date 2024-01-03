@@ -10,4 +10,5 @@ public record CreditPayrollIncomeGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.PayrollItem> Items { get; init; } = default!;
+
 }

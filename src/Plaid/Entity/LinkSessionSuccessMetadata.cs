@@ -28,4 +28,5 @@ public record LinkSessionSuccessMetadata
 	/// </summary>
 	[JsonPropertyName("transfer_status")]
 	public Entity.LinkSessionSuccessMetadataTransferStatus? TransferStatus { get; init; } = default!;
+
 }

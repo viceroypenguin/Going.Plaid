@@ -46,4 +46,5 @@ public record PaymentInitiationConsentGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("scopes")]
 	public IReadOnlyList<Entity.PaymentInitiationConsentScope>? Scopes { get; init; } = default!;
+
 }

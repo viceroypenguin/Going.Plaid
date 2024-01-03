@@ -28,4 +28,5 @@ public record CreditSession
 	/// </summary>
 	[JsonPropertyName("errors")]
 	public IReadOnlyList<Entity.CreditSessionError>? Errors { get; init; } = default!;
+
 }

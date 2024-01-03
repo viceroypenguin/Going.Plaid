@@ -34,4 +34,5 @@ public record CreditSessionResults
 	/// </summary>
 	[JsonPropertyName("document_income_results")]
 	public Entity.CreditSessionDocumentIncomeResult? DocumentIncomeResults { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record BankTransferListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("bank_transfers")]
 	public IReadOnlyList<Entity.BankTransfer> BankTransfers { get; init; } = default!;
+
 }

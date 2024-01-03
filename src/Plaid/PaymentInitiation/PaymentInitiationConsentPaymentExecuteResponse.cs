@@ -16,4 +16,5 @@ public record PaymentInitiationConsentPaymentExecuteResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.PaymentInitiationPaymentStatus Status { get; init; } = default!;
+
 }

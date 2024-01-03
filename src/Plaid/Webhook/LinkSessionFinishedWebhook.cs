@@ -36,4 +36,5 @@ public record LinkSessionFinishedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("public_token")]
 	public string? PublicToken { get; init; } = default!;
+
 }

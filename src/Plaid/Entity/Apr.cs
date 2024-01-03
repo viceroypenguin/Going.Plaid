@@ -28,4 +28,5 @@ public record Apr
 	/// </summary>
 	[JsonPropertyName("interest_charge_amount")]
 	public decimal? InterestChargeAmount { get; init; } = default!;
+
 }

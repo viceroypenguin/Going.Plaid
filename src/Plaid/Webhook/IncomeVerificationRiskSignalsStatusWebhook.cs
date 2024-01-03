@@ -30,4 +30,5 @@ public record IncomeVerificationRiskSignalsStatusWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("risk_signals_status")]
 	public string? RiskSignalsStatus { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record CreditPayStubEmployer
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string? Name { get; init; } = default!;
+
 }

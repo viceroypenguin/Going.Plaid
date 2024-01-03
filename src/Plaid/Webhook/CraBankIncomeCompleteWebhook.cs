@@ -24,4 +24,5 @@ public record CraBankIncomeCompleteWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("result")]
 	public Entity.CraBankIncomeCompleteResult Result { get; init; } = default!;
+
 }

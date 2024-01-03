@@ -16,4 +16,5 @@ public record EntityScreeningHitDocumentsItems
 	/// </summary>
 	[JsonPropertyName("data")]
 	public Entity.EntityDocument? Data { get; init; } = default!;
+
 }

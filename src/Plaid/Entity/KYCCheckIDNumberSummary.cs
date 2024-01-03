@@ -10,4 +10,5 @@ public record KYCCheckIDNumberSummary
 	/// </summary>
 	[JsonPropertyName("summary")]
 	public Entity.MatchSummaryCode Summary { get; init; } = default!;
+
 }

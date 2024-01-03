@@ -28,4 +28,5 @@ public record PayrollIncomeObject
 	/// </summary>
 	[JsonPropertyName("form1099s")]
 	public IReadOnlyList<Entity.Credit1099> Form1099s { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record CategoryInsights
 	/// </summary>
 	[JsonPropertyName("detailed_category_insights")]
 	public IReadOnlyList<Entity.CategoryInsightDetails>? DetailedCategoryInsights { get; init; } = default!;
+
 }

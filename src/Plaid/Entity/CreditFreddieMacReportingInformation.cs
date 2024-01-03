@@ -28,4 +28,5 @@ public record CreditFreddieMacReportingInformation
 	/// </summary>
 	[JsonPropertyName("ReportingInformationIdentifier")]
 	public string Reportinginformationidentifier { get; init; } = default!;
+
 }

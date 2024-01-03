@@ -10,4 +10,5 @@ public record AssetOwner
 	/// </summary>
 	[JsonPropertyName("AssetOwnerText")]
 	public string? Assetownertext { get; init; } = default!;
+
 }

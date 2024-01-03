@@ -22,4 +22,5 @@ public record PartnerEndCustomer
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.PartnerEndCustomerStatus? Status { get; init; } = default!;
+
 }

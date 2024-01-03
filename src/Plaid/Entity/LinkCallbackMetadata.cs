@@ -46,4 +46,5 @@ public record LinkCallbackMetadata
 	/// </summary>
 	[JsonPropertyName("accounts")]
 	public IReadOnlyList<Entity.LinkDeliveryAccount>? Accounts { get; init; } = default!;
+
 }

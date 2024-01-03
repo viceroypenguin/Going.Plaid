@@ -10,4 +10,5 @@ public record CategoriesGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("categories")]
 	public IReadOnlyList<Entity.Category> Categories { get; init; } = default!;
+
 }

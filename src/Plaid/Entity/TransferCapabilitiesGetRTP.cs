@@ -10,4 +10,5 @@ public record TransferCapabilitiesGetRTP
 	/// </summary>
 	[JsonPropertyName("credit")]
 	public bool? Credit { get; init; } = default!;
+
 }

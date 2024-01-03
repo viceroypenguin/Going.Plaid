@@ -57,4 +57,5 @@ public record IdentityVerificationStepSummary
 	/// </summary>
 	[JsonPropertyName("risk_check")]
 	public Entity.IdentityVerificationStepStatus RiskCheck { get; init; } = default!;
+
 }

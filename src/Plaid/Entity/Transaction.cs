@@ -188,4 +188,5 @@ public record Transaction
 	/// </summary>
 	[JsonPropertyName("merchant_entity_id")]
 	public string? MerchantEntityId { get; init; } = default!;
+
 }

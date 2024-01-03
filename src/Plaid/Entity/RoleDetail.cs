@@ -10,4 +10,5 @@ public record RoleDetail
 	/// </summary>
 	[JsonPropertyName("PartyRoleType")]
 	public Entity.PartyRoleType Partyroletype { get; init; } = default!;
+
 }

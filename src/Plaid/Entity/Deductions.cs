@@ -28,4 +28,5 @@ public record Deductions
 	/// </summary>
 	[JsonPropertyName("total")]
 	public Entity.DeductionsTotal Total { get; init; } = default!;
+
 }

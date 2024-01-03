@@ -36,4 +36,5 @@ public record ServicerAddressData
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string? Country { get; init; } = default!;
+
 }

@@ -12,4 +12,5 @@ public record RiskCheckStolenIdentity
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int Score { get; init; } = default!;
+
 }

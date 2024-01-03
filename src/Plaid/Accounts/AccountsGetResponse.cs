@@ -23,4 +23,5 @@ public record AccountsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("payment_risk_assessment")]
 	public Entity.AccountsBalanceGetResponsePaymentRiskAssessment? PaymentRiskAssessment { get; init; } = default!;
+
 }

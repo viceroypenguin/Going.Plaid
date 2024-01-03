@@ -70,4 +70,5 @@ public record TransferAuthorizationProposedTransfer
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
 	public string CreditFundsSource { get; init; } = default!;
+
 }

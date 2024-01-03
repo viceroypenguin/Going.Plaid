@@ -10,4 +10,5 @@ public record ValidationSources
 	/// </summary>
 	[JsonPropertyName("VALIDATION_SOURCE")]
 	public IReadOnlyList<Entity.ValidationSource> ValidationSource { get; init; } = default!;
+
 }

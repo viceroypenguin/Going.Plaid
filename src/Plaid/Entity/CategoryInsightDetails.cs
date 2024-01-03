@@ -34,4 +34,5 @@ public record CategoryInsightDetails
 	/// </summary>
 	[JsonPropertyName("top_counterparties")]
 	public IReadOnlyList<string>? TopCounterparties { get; init; } = default!;
+
 }

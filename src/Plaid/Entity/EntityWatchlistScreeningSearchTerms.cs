@@ -52,4 +52,5 @@ public record EntityWatchlistScreeningSearchTerms
 	/// </summary>
 	[JsonPropertyName("version")]
 	public int Version { get; init; } = default!;
+
 }

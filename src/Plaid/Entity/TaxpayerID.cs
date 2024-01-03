@@ -22,4 +22,5 @@ public record TaxpayerID
 	/// </summary>
 	[JsonPropertyName("last_4_digits")]
 	public string? Last4Digits { get; init; } = default!;
+
 }

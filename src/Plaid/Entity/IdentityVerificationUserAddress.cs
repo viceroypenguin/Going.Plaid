@@ -42,4 +42,5 @@ public record IdentityVerificationUserAddress
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string Country { get; init; } = default!;
+
 }

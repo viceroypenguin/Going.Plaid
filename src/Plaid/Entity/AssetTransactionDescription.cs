@@ -10,4 +10,5 @@ public record AssetTransactionDescription
 	/// </summary>
 	[JsonPropertyName("AssetTransactionDescription")]
 	public string Assettransactiondescription { get; init; } = default!;
+
 }

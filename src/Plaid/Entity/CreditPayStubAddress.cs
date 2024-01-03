@@ -35,4 +35,5 @@ public record CreditPayStubAddress
 	/// </summary>
 	[JsonPropertyName("street")]
 	public string? Street { get; init; } = default!;
+
 }

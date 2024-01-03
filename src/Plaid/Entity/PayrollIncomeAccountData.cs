@@ -22,4 +22,5 @@ public record PayrollIncomeAccountData
 	/// </summary>
 	[JsonPropertyName("pay_frequency")]
 	public string? PayFrequency { get; init; } = default!;
+
 }

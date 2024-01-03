@@ -59,4 +59,5 @@ public record InstitutionStatus
 	/// </summary>
 	[JsonPropertyName("health_incidents")]
 	public IReadOnlyList<Entity.HealthIncident>? HealthIncidents { get; init; } = default!;
+
 }

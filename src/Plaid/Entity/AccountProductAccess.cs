@@ -22,4 +22,5 @@ public record AccountProductAccess
 	/// </summary>
 	[JsonPropertyName("tax_documents")]
 	public bool? TaxDocuments { get; init; } = default!;
+
 }

@@ -63,4 +63,5 @@ public record CreditEmploymentVerification
 	/// </summary>
 	[JsonPropertyName("last_paystub_date")]
 	public DateOnly? LastPaystubDate { get; init; } = default!;
+
 }

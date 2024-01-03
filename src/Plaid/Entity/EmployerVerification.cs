@@ -10,4 +10,5 @@ public record EmployerVerification
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string? Name { get; init; } = default!;
+
 }

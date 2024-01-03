@@ -28,4 +28,5 @@ public record DashboardUser
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.DashboardUserStatus Status { get; init; } = default!;
+
 }

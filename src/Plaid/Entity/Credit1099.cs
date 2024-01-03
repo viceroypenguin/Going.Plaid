@@ -316,4 +316,5 @@ public record Credit1099
 	/// </summary>
 	[JsonPropertyName("secondary_state_income_tax")]
 	public decimal? SecondaryStateIncomeTax { get; init; } = default!;
+
 }

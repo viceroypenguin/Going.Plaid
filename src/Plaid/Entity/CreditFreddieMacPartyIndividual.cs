@@ -10,4 +10,5 @@ public record CreditFreddieMacPartyIndividual
 	/// </summary>
 	[JsonPropertyName("NAME")]
 	public Entity.CreditFreddieMacIndividualName Name { get; init; } = default!;
+
 }

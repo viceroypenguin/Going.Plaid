@@ -1,0 +1,26 @@
+﻿namespace Going.Plaid.{{ base_path }};
+
+/// <summary>
+{{ description }}
+/// </summary>
+public record {{ name }}{{ if !string.empty base }} : {{ base }}Base{{ end }}
+{
+	{{~ if base == "Webhook" ~}}
+	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
+	public override WebhookType WebhookType => WebhookType.{{ webhook_type }};
+
+	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
+	public override WebhookCode WebhookCode => WebhookCode.{{ webhook_code }};
+
+	{{~ end ~}}
+	{{~ for p in properties ~}}
+	/// <summary>
+	{{ p.description }}
+	/// </summary>
+	[JsonPropertyName("{{ p.json_name }}")]
+	public {{ p.type }} {{ p.name }} { get; init; } = default!;
+
+	{{~ end ~}}
+}

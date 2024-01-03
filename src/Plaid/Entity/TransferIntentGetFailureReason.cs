@@ -22,4 +22,5 @@ public record TransferIntentGetFailureReason
 	/// </summary>
 	[JsonPropertyName("error_message")]
 	public string? ErrorMessage { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record CreditRelayCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("relay_token")]
 	public string RelayToken { get; init; } = default!;
+
 }

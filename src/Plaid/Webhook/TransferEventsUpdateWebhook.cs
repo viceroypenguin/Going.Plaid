@@ -12,4 +12,5 @@ public record TransferEventsUpdateWebhook : WebhookBase
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.TransferEventsUpdate;
+
 }

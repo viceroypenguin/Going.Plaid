@@ -22,4 +22,5 @@ public record RiskCheckDevice
 	/// </summary>
 	[JsonPropertyName("ip_timezone_offset")]
 	public string? IpTimezoneOffset { get; init; } = default!;
+
 }

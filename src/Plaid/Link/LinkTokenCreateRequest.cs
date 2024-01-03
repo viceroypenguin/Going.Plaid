@@ -12,11 +12,27 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public string ClientName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The language that Link should be displayed in.</para>
+	/// <para>The language that Link should be displayed in. When initializing with Identity Verification, this field is not used; for more details, see <a href="https://www.plaid.com/docs/identity-verification/#supported-languages">Identity Verification supported languages</a>.</para>
+	/// <para>Supported languages are:</para>
+	/// <para>- Danish (<c>'da'</c>)</para>
+	/// <para>- Dutch (<c>'nl'</c>)</para>
+	/// <para>- English (<c>'en'</c>)</para>
+	/// <para>- Estonian (<c>'et'</c>)</para>
+	/// <para>- French (<c>'fr'</c>)</para>
+	/// <para>- German (<c>'de'</c>)</para>
+	/// <para>- Italian (<c>'it'</c>)</para>
+	/// <para>- Latvian (<c>'lv'</c>)</para>
+	/// <para>- Lithuanian (<c>'lt'</c>)</para>
+	/// <para>- Norwegian (<c>'no'</c>)</para>
+	/// <para>- Polish (<c>'pl'</c>)</para>
+	/// <para>- Portuguese (<c>'pt'</c>)</para>
+	/// <para>- Romanian (<c>'ro'</c>)</para>
+	/// <para>- Spanish (<c>'es'</c>)</para>
+	/// <para>- Swedish (<c>'sv'</c>)</para>
 	/// <para>When using a Link customization, the language configured here must match the setting in the customization, or the customization will not be applied.</para>
 	/// </summary>
 	[JsonPropertyName("language")]
-	public Language Language { get; set; } = default!;
+	public string Language { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/.</para>

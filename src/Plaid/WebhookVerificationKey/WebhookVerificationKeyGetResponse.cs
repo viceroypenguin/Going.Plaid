@@ -10,4 +10,5 @@ public record WebhookVerificationKeyGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("key")]
 	public Entity.JWKPublicKey Key { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record VerificationOfAssetResponse
 	/// </summary>
 	[JsonPropertyName("ASSETS")]
 	public Entity.CreditFreddieMacAssets Assets { get; init; } = default!;
+
 }

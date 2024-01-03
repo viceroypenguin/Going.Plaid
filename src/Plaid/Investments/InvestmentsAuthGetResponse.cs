@@ -40,4 +40,5 @@ public record InvestmentsAuthGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("item")]
 	public Entity.Item Item { get; init; } = default!;
+
 }

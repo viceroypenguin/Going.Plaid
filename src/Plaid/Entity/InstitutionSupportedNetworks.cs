@@ -10,4 +10,5 @@ public record InstitutionSupportedNetworks
 	/// </summary>
 	[JsonPropertyName("rtp")]
 	public Entity.TransferCapabilitiesGetRTP Rtp { get; init; } = default!;
+
 }

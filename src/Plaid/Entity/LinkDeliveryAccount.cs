@@ -46,4 +46,5 @@ public record LinkDeliveryAccount
 	/// </summary>
 	[JsonPropertyName("class_type")]
 	public string? ClassType { get; init; } = default!;
+
 }

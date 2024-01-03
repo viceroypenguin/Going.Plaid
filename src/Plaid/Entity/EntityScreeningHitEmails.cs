@@ -10,4 +10,5 @@ public record EntityScreeningHitEmails
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string EmailAddress { get; init; } = default!;
+
 }

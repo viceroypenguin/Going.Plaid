@@ -73,4 +73,5 @@ public record BaseReportAccountBalances
 	/// </summary>
 	[JsonPropertyName("most_recent_thirty_day_average_balance")]
 	public decimal? MostRecentThirtyDayAverageBalance { get; init; } = default!;
+
 }

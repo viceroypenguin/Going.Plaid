@@ -16,4 +16,5 @@ public record CreditFreddieMacService
 	/// </summary>
 	[JsonPropertyName("STATUSES")]
 	public Entity.Statuses Statuses { get; init; } = default!;
+
 }

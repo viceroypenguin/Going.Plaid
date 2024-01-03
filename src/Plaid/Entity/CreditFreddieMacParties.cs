@@ -10,4 +10,5 @@ public record CreditFreddieMacParties
 	/// </summary>
 	[JsonPropertyName("PARTY")]
 	public IReadOnlyList<Entity.CreditFreddieMacParty> Party { get; init; } = default!;
+
 }

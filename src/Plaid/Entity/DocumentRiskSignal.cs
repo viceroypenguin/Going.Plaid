@@ -52,4 +52,5 @@ public record DocumentRiskSignal
 	/// </summary>
 	[JsonPropertyName("page_number")]
 	public int? PageNumber { get; init; } = default!;
+
 }

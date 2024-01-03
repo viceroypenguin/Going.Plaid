@@ -10,4 +10,5 @@ public record PaymentInitiationRecipientCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("recipient_id")]
 	public string RecipientId { get; init; } = default!;
+
 }

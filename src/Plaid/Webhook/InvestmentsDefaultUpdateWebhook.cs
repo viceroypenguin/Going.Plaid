@@ -36,4 +36,5 @@ public record InvestmentsDefaultUpdateWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("canceled_investments_transactions")]
 	public decimal CanceledInvestmentsTransactions { get; init; } = default!;
+
 }

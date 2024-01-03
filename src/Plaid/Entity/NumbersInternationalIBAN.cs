@@ -16,4 +16,5 @@ public record NumbersInternationalIBAN
 	/// </summary>
 	[JsonPropertyName("bic")]
 	public string Bic { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record EntityScreeningHitPhoneNumbers
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public string PhoneNumber { get; init; } = default!;
+
 }

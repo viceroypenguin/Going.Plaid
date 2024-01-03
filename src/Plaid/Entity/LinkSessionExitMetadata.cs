@@ -28,4 +28,5 @@ public record LinkSessionExitMetadata
 	/// </summary>
 	[JsonPropertyName("request_id")]
 	public string? RequestId { get; init; } = default!;
+
 }

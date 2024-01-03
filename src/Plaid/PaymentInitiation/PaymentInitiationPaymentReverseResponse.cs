@@ -16,4 +16,5 @@ public record PaymentInitiationPaymentReverseResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.WalletTransactionStatus Status { get; init; } = default!;
+
 }

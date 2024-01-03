@@ -16,4 +16,5 @@ public record ItemStatusLastWebhook
 	/// </summary>
 	[JsonPropertyName("code_sent")]
 	public string? CodeSent { get; init; } = default!;
+
 }

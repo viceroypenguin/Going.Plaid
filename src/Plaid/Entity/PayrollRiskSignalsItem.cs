@@ -16,4 +16,5 @@ public record PayrollRiskSignalsItem
 	/// </summary>
 	[JsonPropertyName("verification_risk_signals")]
 	public IReadOnlyList<Entity.DocumentRiskSignalsObject> VerificationRiskSignals { get; init; } = default!;
+
 }

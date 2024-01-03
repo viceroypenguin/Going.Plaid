@@ -24,4 +24,5 @@ public record InstitutionStatusAlertWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("institution_overall_success_rate")]
 	public decimal InstitutionOverallSuccessRate { get; init; } = default!;
+
 }

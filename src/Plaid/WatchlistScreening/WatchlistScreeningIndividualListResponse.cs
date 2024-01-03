@@ -16,4 +16,5 @@ public record WatchlistScreeningIndividualListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
 	public string? NextCursor { get; init; } = default!;
+
 }

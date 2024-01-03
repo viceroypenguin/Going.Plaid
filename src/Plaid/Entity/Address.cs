@@ -16,4 +16,5 @@ public record Address
 	/// </summary>
 	[JsonPropertyName("primary")]
 	public bool? Primary { get; init; } = default!;
+
 }

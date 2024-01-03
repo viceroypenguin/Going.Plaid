@@ -34,4 +34,5 @@ public record PartnerEndCustomerOAuthInstitution
 	/// </summary>
 	[JsonPropertyName("classic_disablement_date")]
 	public string? ClassicDisablementDate { get; init; } = default!;
+
 }

@@ -52,4 +52,5 @@ public record BeaconUserCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("audit_trail")]
 	public Entity.BeaconAuditTrail AuditTrail { get; init; } = default!;
+
 }

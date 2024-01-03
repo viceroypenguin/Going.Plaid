@@ -34,4 +34,5 @@ public record ClientProvidedEnhancedTransaction
 	/// </summary>
 	[JsonPropertyName("enhancements")]
 	public Entity.Enhancements Enhancements { get; init; } = default!;
+
 }

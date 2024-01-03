@@ -10,4 +10,5 @@ public record CreditBankStatementsUploadsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.CreditBankStatementUploadItem> Items { get; init; } = default!;
+
 }

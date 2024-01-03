@@ -28,4 +28,5 @@ public record BankTransferSweep
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;
+
 }

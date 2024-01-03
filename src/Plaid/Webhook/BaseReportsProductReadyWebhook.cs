@@ -18,4 +18,5 @@ public record BaseReportsProductReadyWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string UserId { get; init; } = default!;
+
 }

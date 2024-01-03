@@ -10,4 +10,5 @@ public record PartnerCustomerCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("end_customer")]
 	public Entity.PartnerEndCustomerWithSecrets? EndCustomer { get; init; } = default!;
+
 }

@@ -22,4 +22,5 @@ public record ItemActivityListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; init; } = default!;
+
 }

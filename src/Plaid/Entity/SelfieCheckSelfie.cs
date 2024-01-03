@@ -28,4 +28,5 @@ public record SelfieCheckSelfie
 	/// </summary>
 	[JsonPropertyName("analysis")]
 	public Entity.SelfieAnalysis Analysis { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record PaystubYTDDetails
 	/// </summary>
 	[JsonPropertyName("net_earnings")]
 	public decimal? NetEarnings { get; init; } = default!;
+
 }

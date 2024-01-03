@@ -64,4 +64,5 @@ public record AssetDetail
 	/// </summary>
 	[JsonPropertyName("AssetOwnershipType")]
 	public string? Assetownershiptype { get; init; } = default!;
+
 }

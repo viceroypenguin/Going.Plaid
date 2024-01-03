@@ -28,4 +28,5 @@ public record ProcessorNumber
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.NumbersBacs? Bacs { get; init; } = default!;
+
 }

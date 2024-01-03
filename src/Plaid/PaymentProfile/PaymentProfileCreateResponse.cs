@@ -10,4 +10,5 @@ public record PaymentProfileCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("payment_profile_token")]
 	public string PaymentProfileToken { get; init; } = default!;
+
 }

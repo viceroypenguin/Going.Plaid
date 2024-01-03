@@ -24,4 +24,5 @@ public record BankIncomeCompleteWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("result")]
 	public Entity.BankIncomeCompleteResult Result { get; init; } = default!;
+
 }

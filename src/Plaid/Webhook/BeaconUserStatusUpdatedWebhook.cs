@@ -18,4 +18,5 @@ public record BeaconUserStatusUpdatedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("beacon_user_id")]
 	public string BeaconUserId { get; init; } = default!;
+
 }

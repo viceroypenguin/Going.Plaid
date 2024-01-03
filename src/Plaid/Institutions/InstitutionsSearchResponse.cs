@@ -10,4 +10,5 @@ public record InstitutionsSearchResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("institutions")]
 	public IReadOnlyList<Entity.Institution> Institutions { get; init; } = default!;
+
 }

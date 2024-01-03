@@ -16,4 +16,5 @@ public record PartnerEndCustomerOAuthInstitutionEnvironments
 	/// </summary>
 	[JsonPropertyName("production")]
 	public Entity.PartnerEndCustomerOAuthInstitutionApplicationStatus? Production { get; init; } = default!;
+
 }

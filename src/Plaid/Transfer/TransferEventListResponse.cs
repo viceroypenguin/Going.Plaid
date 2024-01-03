@@ -10,4 +10,5 @@ public record TransferEventListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("transfer_events")]
 	public IReadOnlyList<Entity.TransferEvent> TransferEvents { get; init; } = default!;
+
 }

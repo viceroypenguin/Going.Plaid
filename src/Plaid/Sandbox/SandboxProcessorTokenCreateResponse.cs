@@ -10,4 +10,5 @@ public record SandboxProcessorTokenCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("processor_token")]
 	public string ProcessorToken { get; init; } = default!;
+
 }

@@ -32,4 +32,5 @@ public record IncomeVerificationStatusWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("verification_status")]
 	public string VerificationStatus { get; init; } = default!;
+
 }

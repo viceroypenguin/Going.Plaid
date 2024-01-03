@@ -58,4 +58,5 @@ public record AssetTransactionDetail
 	/// </summary>
 	[JsonPropertyName("FinancialInstitutionTransactionIdentifier")]
 	public string? Financialinstitutiontransactionidentifier { get; init; } = default!;
+
 }

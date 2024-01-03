@@ -24,4 +24,5 @@ public record BaseReportLongestGapInsights
 	/// </summary>
 	[JsonPropertyName("days")]
 	public int? Days { get; init; } = default!;
+
 }

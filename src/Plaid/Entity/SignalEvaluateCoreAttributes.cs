@@ -412,4 +412,5 @@ public record SignalEvaluateCoreAttributes
 	/// </summary>
 	[JsonPropertyName("is_account_frozen_or_restricted")]
 	public bool? IsAccountFrozenOrRestricted { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record TransferAuthorizationCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("authorization")]
 	public Entity.TransferAuthorization Authorization { get; init; } = default!;
+
 }

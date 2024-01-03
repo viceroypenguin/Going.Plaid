@@ -10,4 +10,5 @@ public record BankTransferGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("bank_transfer")]
 	public Entity.BankTransfer BankTransfer { get; init; } = default!;
+
 }

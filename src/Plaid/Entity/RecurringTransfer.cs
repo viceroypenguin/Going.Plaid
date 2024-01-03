@@ -107,4 +107,5 @@ public record RecurringTransfer
 	/// </summary>
 	[JsonPropertyName("schedule")]
 	public Entity.TransferRecurringSchedule Schedule { get; init; } = default!;
+
 }

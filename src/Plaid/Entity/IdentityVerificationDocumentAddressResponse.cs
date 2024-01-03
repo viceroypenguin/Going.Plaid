@@ -38,4 +38,5 @@ public record IdentityVerificationDocumentAddressResponse
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string Country { get; init; } = default!;
+
 }

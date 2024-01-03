@@ -10,4 +10,5 @@ public record TaxpayerIdentifiers
 	/// </summary>
 	[JsonPropertyName("TAXPAYER_IDENTIFIER")]
 	public Entity.TaxpayerIdentifier TaxpayerIdentifier { get; init; } = default!;
+
 }

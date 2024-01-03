@@ -16,4 +16,5 @@ public record SignalEvaluateScores
 	/// </summary>
 	[JsonPropertyName("bank_initiated_return_risk")]
 	public Entity.BankInitiatedReturnRisk? BankInitiatedReturnRisk { get; init; } = default!;
+
 }

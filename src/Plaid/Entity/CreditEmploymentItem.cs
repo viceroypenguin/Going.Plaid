@@ -22,4 +22,5 @@ public record CreditEmploymentItem
 	/// </summary>
 	[JsonPropertyName("employment_report_token")]
 	public string? EmploymentReportToken { get; init; } = default!;
+
 }

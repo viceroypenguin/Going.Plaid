@@ -10,4 +10,5 @@ public record BankTransferEventSyncResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("bank_transfer_events")]
 	public IReadOnlyList<Entity.BankTransferEvent> BankTransferEvents { get; init; } = default!;
+
 }

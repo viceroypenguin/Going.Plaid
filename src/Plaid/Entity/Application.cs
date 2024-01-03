@@ -82,4 +82,5 @@ public record Application
 	/// </summary>
 	[JsonPropertyName("country_code")]
 	public string? CountryCode { get; init; } = default!;
+
 }

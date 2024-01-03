@@ -24,4 +24,5 @@ public record StatementsRefreshCompleteWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("result")]
 	public Entity.StatementsRefreshCompleteResult Result { get; init; } = default!;
+
 }

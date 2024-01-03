@@ -136,4 +136,5 @@ public record AssetReportTransaction
 	/// </summary>
 	[JsonPropertyName("income_source_id")]
 	public string? IncomeSourceId { get; init; } = default!;
+
 }

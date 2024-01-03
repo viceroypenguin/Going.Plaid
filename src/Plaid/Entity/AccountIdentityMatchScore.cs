@@ -85,4 +85,5 @@ public record AccountIdentityMatchScore
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.AddressMatchScore? Address { get; init; } = default!;
+
 }

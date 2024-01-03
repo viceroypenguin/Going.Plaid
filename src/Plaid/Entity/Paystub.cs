@@ -70,4 +70,5 @@ public record Paystub
 	/// </summary>
 	[JsonPropertyName("ytd_earnings")]
 	public Entity.PaystubYTDDetails? YtdEarnings { get; init; } = default!;
+
 }

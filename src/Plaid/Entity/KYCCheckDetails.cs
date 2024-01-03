@@ -40,4 +40,5 @@ public record KYCCheckDetails
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public Entity.KYCCheckPhoneSummary PhoneNumber { get; init; } = default!;
+
 }

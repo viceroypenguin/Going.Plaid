@@ -16,4 +16,5 @@ public record CreditFreddieMacLoan
 	/// </summary>
 	[JsonPropertyName("LoanRoleType")]
 	public string Loanroletype { get; init; } = default!;
+
 }

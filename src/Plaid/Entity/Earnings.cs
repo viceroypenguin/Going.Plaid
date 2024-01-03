@@ -28,4 +28,5 @@ public record Earnings
 	/// </summary>
 	[JsonPropertyName("total")]
 	public Entity.EarningsTotal? Total { get; init; } = default!;
+
 }

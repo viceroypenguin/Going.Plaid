@@ -28,4 +28,5 @@ public record TransactionsUserInsightsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("recurring_transactions")]
 	public Entity.RecurringTransactions? RecurringTransactions { get; init; } = default!;
+
 }

@@ -22,4 +22,5 @@ public record CraBankIncomeWarning
 	/// </summary>
 	[JsonPropertyName("cause")]
 	public Entity.CraBankIncomeCause? Cause { get; init; } = default!;
+
 }

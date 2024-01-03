@@ -52,4 +52,5 @@ public record DetectedAccount
 	/// </summary>
 	[JsonPropertyName("total_inflows")]
 	public decimal TotalInflows { get; init; } = default!;
+
 }

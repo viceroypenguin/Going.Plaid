@@ -22,4 +22,5 @@ public record CreditFreddieMacIndividualName
 	/// </summary>
 	[JsonPropertyName("MiddleName")]
 	public string Middlename { get; init; } = default!;
+
 }

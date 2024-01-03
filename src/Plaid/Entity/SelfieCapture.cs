@@ -16,4 +16,5 @@ public record SelfieCapture
 	/// </summary>
 	[JsonPropertyName("video_url")]
 	public string? VideoUrl { get; init; } = default!;
+
 }

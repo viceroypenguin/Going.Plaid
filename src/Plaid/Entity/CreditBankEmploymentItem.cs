@@ -40,4 +40,5 @@ public record CreditBankEmploymentItem
 	/// </summary>
 	[JsonPropertyName("bank_employment_accounts")]
 	public IReadOnlyList<Entity.CreditBankIncomeAccount> BankEmploymentAccounts { get; init; } = default!;
+
 }

@@ -22,4 +22,5 @@ public record Taxform
 	/// </summary>
 	[JsonPropertyName("w2")]
 	public Entity.W2? W2 { get; init; } = default!;
+
 }

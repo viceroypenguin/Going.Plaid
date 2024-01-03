@@ -10,4 +10,5 @@ public record CreditEmploymentGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.CreditEmploymentItem> Items { get; init; } = default!;
+
 }

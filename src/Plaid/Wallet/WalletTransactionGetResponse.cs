@@ -76,4 +76,5 @@ public record WalletTransactionGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.WalletTransactionFailureReason? FailureReason { get; init; } = default!;
+
 }

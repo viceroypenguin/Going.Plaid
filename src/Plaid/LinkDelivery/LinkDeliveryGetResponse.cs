@@ -34,4 +34,5 @@ public record LinkDeliveryGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("item_ids")]
 	public IReadOnlyList<string>? ItemIds { get; init; } = default!;
+
 }

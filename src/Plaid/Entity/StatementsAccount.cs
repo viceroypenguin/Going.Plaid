@@ -28,4 +28,5 @@ public record StatementsAccount
 	/// </summary>
 	[JsonPropertyName("statements")]
 	public IReadOnlyList<Entity.StatementsStatement> Statements { get; init; } = default!;
+
 }

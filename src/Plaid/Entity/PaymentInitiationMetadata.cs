@@ -35,4 +35,5 @@ public record PaymentInitiationMetadata
 	/// </summary>
 	[JsonPropertyName("standing_order_metadata")]
 	public Entity.PaymentInitiationStandingOrderMetadata? StandingOrderMetadata { get; init; } = default!;
+
 }

@@ -40,4 +40,5 @@ public record CreditBankIncome
 	/// </summary>
 	[JsonPropertyName("warnings")]
 	public IReadOnlyList<Entity.CreditBankIncomeWarning>? Warnings { get; init; } = default!;
+
 }

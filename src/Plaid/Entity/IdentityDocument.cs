@@ -16,4 +16,5 @@ public record IdentityDocument
 	/// </summary>
 	[JsonPropertyName("document_id")]
 	public string? DocumentId { get; init; } = default!;
+
 }

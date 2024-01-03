@@ -58,4 +58,5 @@ public record ProductAccess
 	/// </summary>
 	[JsonPropertyName("customers_profiles")]
 	public bool? CustomersProfiles { get; init; } = default!;
+
 }

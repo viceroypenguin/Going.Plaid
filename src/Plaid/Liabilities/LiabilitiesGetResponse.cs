@@ -22,4 +22,5 @@ public record LiabilitiesGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("liabilities")]
 	public Entity.LiabilitiesObject Liabilities { get; init; } = default!;
+
 }

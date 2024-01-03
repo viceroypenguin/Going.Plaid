@@ -16,4 +16,5 @@ public record TransferExpectedSweepSettlementScheduleItem
 	/// </summary>
 	[JsonPropertyName("swept_settled_amount")]
 	public string SweptSettledAmount { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record TransferCapabilitiesGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("institution_supported_networks")]
 	public Entity.InstitutionSupportedNetworks InstitutionSupportedNetworks { get; init; } = default!;
+
 }

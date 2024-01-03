@@ -28,4 +28,5 @@ public record BaseReportItem
 	/// </summary>
 	[JsonPropertyName("accounts")]
 	public IReadOnlyList<Entity.BaseReportAccount> Accounts { get; init; } = default!;
+
 }

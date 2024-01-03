@@ -31,4 +31,5 @@ public record OptionContract
 	/// </summary>
 	[JsonPropertyName("underlying_security_ticker")]
 	public string UnderlyingSecurityTicker { get; init; } = default!;
+
 }

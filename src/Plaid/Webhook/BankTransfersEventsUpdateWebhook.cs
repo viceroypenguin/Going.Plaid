@@ -12,4 +12,5 @@ public record BankTransfersEventsUpdateWebhook : WebhookBase
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]
 	public override WebhookCode WebhookCode => WebhookCode.BankTransfersEventsUpdate;
+
 }

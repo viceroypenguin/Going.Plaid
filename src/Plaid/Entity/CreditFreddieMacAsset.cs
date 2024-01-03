@@ -34,4 +34,5 @@ public record CreditFreddieMacAsset
 	/// </summary>
 	[JsonPropertyName("VALIDATION_SOURCES")]
 	public Entity.ValidationSources ValidationSources { get; init; } = default!;
+
 }

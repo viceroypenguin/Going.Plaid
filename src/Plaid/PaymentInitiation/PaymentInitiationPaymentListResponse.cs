@@ -16,4 +16,5 @@ public record PaymentInitiationPaymentListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
 	public DateTimeOffset? NextCursor { get; init; } = default!;
+
 }

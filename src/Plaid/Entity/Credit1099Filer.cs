@@ -28,4 +28,5 @@ public record Credit1099Filer
 	/// </summary>
 	[JsonPropertyName("type")]
 	public string? Type { get; init; } = default!;
+
 }

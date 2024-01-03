@@ -10,4 +10,5 @@ public record TransferRefundCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("refund")]
 	public Entity.TransferRefund Refund { get; init; } = default!;
+
 }

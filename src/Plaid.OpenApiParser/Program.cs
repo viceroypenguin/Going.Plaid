@@ -594,55 +594,44 @@ public sealed partial class PlaidClient
 
 	private static void SaveRecords(string plaidSrcPath, IEnumerable<SchemaEntity> records)
 	{
+		var template = Template.Parse(GetTemplate("RecordType"));
 		foreach (var i in records)
 		{
-			var properties = i.Properties
-				?.ExceptBy(["WebhookType", "WebhookCode"], x => x.Name)
-				?.Select(p => $@"
-	/// <summary>
-{FormatDescription(p.Description ?? string.Empty, 1)}
-	/// </summary>
-	[JsonPropertyName(""{p.JsonName}"")]
-	public {p.Type} {p.Name} {{ get; init; }} = default!;")
-				?? Array.Empty<string>();
-
-			var basePath = string.Empty;
-			if (i.BaseType == BaseType.Response)
-				basePath = " : ResponseBase";
-			else if (i.BaseType == BaseType.Webhook)
+			var source = template.Render(new
 			{
-				var type = i.Properties!
-					.Single(p => p.Name == "WebhookType")
-					.Description;
-				var code = i.Properties!
-					.Single(p => p.Name == "WebhookCode")
-					.Description;
+				i.Name,
+				i.BasePath,
+				Base = i.BaseType switch
+				{
+					BaseType.Webhook => "Webhook",
+					BaseType.Response => "Response",
+					BaseType.Request => throw new NotSupportedException(),
+					BaseType.None or _ => "",
+				},
+				Description = FormatDescription(i.Description, 0),
 
-				properties = properties
-					.Prepend($@"
-	/// <inheritdoc />
-	[JsonPropertyName(""webhook_type"")]
-	public override WebhookType WebhookType => WebhookType.{type};
+				WebhookType = i.Properties
+					?.FirstOrDefault(p => p.Name == "WebhookType")
+					.Description,
+				WebhookCode = i.Properties
+					?.FirstOrDefault(p => p.Name == "WebhookCode")
+					.Description,
 
-	/// <inheritdoc />
-	[JsonPropertyName(""webhook_code"")]
-	public override WebhookCode WebhookCode => WebhookCode.{code};");
-
-				basePath = " : WebhookBase";
-			}
-
-			var body = $@"namespace Going.Plaid.{i.BasePath};
-
-/// <summary>
-{FormatDescription(i.Description, 0)}
-/// </summary>
-public record {i.Name}{basePath}
-{{{string.Join(Environment.NewLine, properties)}
-}}";
+				Properties = i.Properties
+					?.ExceptBy(["WebhookType", "WebhookCode"], x => x.Name)
+					?.Select(p => new
+					{
+						p.Type,
+						p.Name,
+						p.JsonName,
+						Description = FormatDescription(p.Description, 0),
+					})
+					?? [],
+			});
 
 			var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
 			_ = Directory.CreateDirectory(baseFolder);
-			File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
+			File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), source);
 		}
 	}
 

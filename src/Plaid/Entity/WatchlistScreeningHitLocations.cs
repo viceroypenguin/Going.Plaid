@@ -16,4 +16,5 @@ public record WatchlistScreeningHitLocations
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string Country { get; init; } = default!;
+
 }

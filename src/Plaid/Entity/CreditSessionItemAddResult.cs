@@ -22,4 +22,5 @@ public record CreditSessionItemAddResult
 	/// </summary>
 	[JsonPropertyName("institution_id")]
 	public string? InstitutionId { get; init; } = default!;
+
 }

@@ -76,4 +76,5 @@ public record BaseReportAccount
 	/// </summary>
 	[JsonPropertyName("account_insights")]
 	public Entity.BaseReportAccountInsights? AccountInsights { get; init; } = default!;
+
 }

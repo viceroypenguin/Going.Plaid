@@ -16,4 +16,5 @@ public record LoanIdentifier
 	/// </summary>
 	[JsonPropertyName("LoanIdentifierType")]
 	public Entity.LoanIdentifierType? Loanidentifiertype { get; init; } = default!;
+
 }

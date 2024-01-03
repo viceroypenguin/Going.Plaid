@@ -16,4 +16,5 @@ public record ServiceProductFulfillmentDetail
 	/// </summary>
 	[JsonPropertyName("ServiceProductFulfillmentIdentifier")]
 	public Entity.ServiceProductFulfillmentIdentifier Serviceproductfulfillmentidentifier { get; init; } = default!;
+
 }

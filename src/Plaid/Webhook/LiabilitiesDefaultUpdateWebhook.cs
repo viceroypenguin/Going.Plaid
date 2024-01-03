@@ -37,4 +37,5 @@ public record LiabilitiesDefaultUpdateWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("account_ids_with_updated_liabilities")]
 	public IReadOnlyDictionary<string, IReadOnlyList<string>> AccountIdsWithUpdatedLiabilities { get; init; } = default!;
+
 }

@@ -34,4 +34,5 @@ public record PaystubDetails
 	/// </summary>
 	[JsonPropertyName("pay_frequency")]
 	public Entity.PaystubPayFrequency? PayFrequency { get; init; } = default!;
+
 }

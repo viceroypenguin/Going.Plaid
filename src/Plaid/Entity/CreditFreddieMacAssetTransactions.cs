@@ -10,4 +10,5 @@ public record CreditFreddieMacAssetTransactions
 	/// </summary>
 	[JsonPropertyName("ASSET_TRANSACTION")]
 	public IReadOnlyList<Entity.CreditFreddieMacAssetTransaction> AssetTransaction { get; init; } = default!;
+
 }

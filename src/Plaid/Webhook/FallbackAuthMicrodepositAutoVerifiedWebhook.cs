@@ -30,4 +30,5 @@ public record FallbackAuthMicrodepositAutoVerifiedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("item_id")]
 	public string ItemId { get; init; } = default!;
+
 }

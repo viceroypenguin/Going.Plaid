@@ -16,4 +16,5 @@ public record BeaconAuditTrail
 	/// </summary>
 	[JsonPropertyName("dashboard_user_id")]
 	public string? DashboardUserId { get; init; } = default!;
+
 }

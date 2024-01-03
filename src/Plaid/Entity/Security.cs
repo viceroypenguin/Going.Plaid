@@ -125,4 +125,5 @@ public record Security
 	/// </summary>
 	[JsonPropertyName("option_contract")]
 	public Entity.OptionContract? OptionContract { get; init; } = default!;
+
 }

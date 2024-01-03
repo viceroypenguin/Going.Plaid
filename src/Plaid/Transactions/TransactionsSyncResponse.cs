@@ -34,4 +34,5 @@ public record TransactionsSyncResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("has_more")]
 	public bool HasMore { get; init; } = default!;
+
 }

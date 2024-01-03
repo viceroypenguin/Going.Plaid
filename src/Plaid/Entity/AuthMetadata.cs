@@ -10,4 +10,5 @@ public record AuthMetadata
 	/// </summary>
 	[JsonPropertyName("supported_methods")]
 	public Entity.AuthSupportedMethods? SupportedMethods { get; init; } = default!;
+
 }

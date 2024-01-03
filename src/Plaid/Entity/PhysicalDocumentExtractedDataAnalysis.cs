@@ -28,4 +28,5 @@ public record PhysicalDocumentExtractedDataAnalysis
 	/// </summary>
 	[JsonPropertyName("issuing_country")]
 	public Entity.IssuingCountry IssuingCountry { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record CreditPayStubDeductions
 	/// </summary>
 	[JsonPropertyName("total")]
 	public Entity.PayStubDeductionsTotal Total { get; init; } = default!;
+
 }

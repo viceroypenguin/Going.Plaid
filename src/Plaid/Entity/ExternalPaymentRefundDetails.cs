@@ -22,4 +22,5 @@ public record ExternalPaymentRefundDetails
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.RecipientBACS? Bacs { get; init; } = default!;
+
 }

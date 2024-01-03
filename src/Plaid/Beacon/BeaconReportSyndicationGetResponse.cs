@@ -25,4 +25,5 @@ public record BeaconReportSyndicationGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("analysis")]
 	public Entity.BeaconReportSyndicationAnalysis Analysis { get; init; } = default!;
+
 }

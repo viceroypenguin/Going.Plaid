@@ -18,4 +18,5 @@ public record EntityScreeningStatusUpdatedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("screening_id")]
 	public string ScreeningId { get; init; } = default!;
+
 }

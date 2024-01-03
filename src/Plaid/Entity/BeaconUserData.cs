@@ -48,4 +48,5 @@ public record BeaconUserData
 	/// </summary>
 	[JsonPropertyName("ip_address")]
 	public string? IpAddress { get; init; } = default!;
+
 }

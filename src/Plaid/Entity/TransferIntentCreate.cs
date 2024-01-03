@@ -99,4 +99,5 @@ public record TransferIntentCreate
 	/// </summary>
 	[JsonPropertyName("require_guarantee")]
 	public bool? RequireGuarantee { get; init; } = default!;
+
 }

@@ -34,4 +34,5 @@ public record InvestmentsHoldingsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("is_investments_fallback_item")]
 	public bool? IsInvestmentsFallbackItem { get; init; } = default!;
+
 }

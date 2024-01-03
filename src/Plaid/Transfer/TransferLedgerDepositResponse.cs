@@ -13,4 +13,5 @@ public record TransferLedgerDepositResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("sweep")]
 	public Entity.TransferSweep Sweep { get; init; } = default!;
+
 }

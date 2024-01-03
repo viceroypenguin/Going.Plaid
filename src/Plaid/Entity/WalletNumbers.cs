@@ -16,4 +16,5 @@ public record WalletNumbers
 	/// </summary>
 	[JsonPropertyName("international")]
 	public Entity.NumbersInternationalIBAN? International { get; init; } = default!;
+
 }

@@ -22,4 +22,5 @@ public record SingleDocumentRiskSignal
 	/// </summary>
 	[JsonPropertyName("risk_summary")]
 	public Entity.DocumentRiskSummary RiskSummary { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record NAME
 	/// </summary>
 	[JsonPropertyName("FullName")]
 	public string Fullname { get; init; } = default!;
+
 }

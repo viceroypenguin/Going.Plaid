@@ -10,4 +10,5 @@ public record DocumentRiskSummary
 	/// </summary>
 	[JsonPropertyName("risk_score")]
 	public decimal? RiskScore { get; init; } = default!;
+
 }

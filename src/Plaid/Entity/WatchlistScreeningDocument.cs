@@ -16,4 +16,5 @@ public record WatchlistScreeningDocument
 	/// </summary>
 	[JsonPropertyName("number")]
 	public string Number { get; init; } = default!;
+
 }

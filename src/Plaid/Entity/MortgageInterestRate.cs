@@ -16,4 +16,5 @@ public record MortgageInterestRate
 	/// </summary>
 	[JsonPropertyName("type")]
 	public string? Type { get; init; } = default!;
+
 }

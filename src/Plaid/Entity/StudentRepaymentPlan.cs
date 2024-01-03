@@ -16,4 +16,5 @@ public record StudentRepaymentPlan
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.StudentRepaymentPlanTypeEnum? Type { get; init; } = default!;
+
 }

@@ -36,4 +36,5 @@ public record LinkDeliveryCallbackWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("link_callback_metadata")]
 	public Entity.LinkCallbackMetadata LinkCallbackMetadata { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record RecurringTransactions
 	/// </summary>
 	[JsonPropertyName("outflow_streams")]
 	public IReadOnlyList<Entity.RecurringInsightsStream> OutflowStreams { get; init; } = default!;
+
 }

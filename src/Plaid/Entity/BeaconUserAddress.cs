@@ -42,4 +42,5 @@ public record BeaconUserAddress
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string Country { get; init; } = default!;
+
 }

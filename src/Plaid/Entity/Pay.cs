@@ -16,4 +16,5 @@ public record Pay
 	/// </summary>
 	[JsonPropertyName("currency")]
 	public string? Currency { get; init; } = default!;
+
 }

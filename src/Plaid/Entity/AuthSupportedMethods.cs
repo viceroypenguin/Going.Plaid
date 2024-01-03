@@ -28,4 +28,5 @@ public record AuthSupportedMethods
 	/// </summary>
 	[JsonPropertyName("instant_micro_deposits")]
 	public bool InstantMicroDeposits { get; init; } = default!;
+
 }

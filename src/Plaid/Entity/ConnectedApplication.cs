@@ -52,4 +52,5 @@ public record ConnectedApplication
 	/// </summary>
 	[JsonPropertyName("scopes")]
 	public Entity.Scopes? Scopes { get; init; } = default!;
+
 }

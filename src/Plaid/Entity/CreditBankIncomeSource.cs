@@ -66,4 +66,5 @@ public record CreditBankIncomeSource
 	/// </summary>
 	[JsonPropertyName("historical_summary")]
 	public IReadOnlyList<Entity.CreditBankIncomeHistoricalSummary>? HistoricalSummary { get; init; } = default!;
+
 }

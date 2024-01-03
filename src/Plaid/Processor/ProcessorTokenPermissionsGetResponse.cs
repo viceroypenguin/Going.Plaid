@@ -10,4 +10,5 @@ public record ProcessorTokenPermissionsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products> Products { get; init; } = default!;
+
 }

@@ -34,4 +34,5 @@ public record CreditBankEmployment
 	/// </summary>
 	[JsonPropertyName("earliest_deposit_date")]
 	public DateOnly EarliestDepositDate { get; init; } = default!;
+
 }

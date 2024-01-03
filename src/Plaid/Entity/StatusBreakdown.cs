@@ -28,4 +28,5 @@ public record StatusBreakdown
 	/// </summary>
 	[JsonPropertyName("refresh_interval")]
 	public Entity.StatusBreakdownRefreshIntervalEnum? RefreshInterval { get; init; } = default!;
+
 }

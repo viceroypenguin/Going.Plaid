@@ -22,4 +22,5 @@ public record DocumentRiskSignalsObject
 	/// </summary>
 	[JsonPropertyName("multi_document_risk_signals")]
 	public IReadOnlyList<Entity.MultiDocumentRiskSignal> MultiDocumentRiskSignals { get; init; } = default!;
+
 }

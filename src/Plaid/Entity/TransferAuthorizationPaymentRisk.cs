@@ -32,4 +32,5 @@ public record TransferAuthorizationPaymentRisk
 	/// </summary>
 	[JsonPropertyName("warnings")]
 	public IReadOnlyList<Entity.SignalWarning> Warnings { get; init; } = default!;
+
 }

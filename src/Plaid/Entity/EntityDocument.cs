@@ -16,4 +16,5 @@ public record EntityDocument
 	/// </summary>
 	[JsonPropertyName("number")]
 	public string Number { get; init; } = default!;
+
 }

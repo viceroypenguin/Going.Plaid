@@ -16,4 +16,5 @@ public record IncomeVerificationPaystubsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("paystubs")]
 	public IReadOnlyList<Entity.Paystub> Paystubs { get; init; } = default!;
+
 }

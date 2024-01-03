@@ -28,4 +28,5 @@ public record PartnerEndCustomerWithSecrets
 	/// </summary>
 	[JsonPropertyName("secrets")]
 	public Entity.PartnerEndCustomerSecrets? Secrets { get; init; } = default!;
+
 }

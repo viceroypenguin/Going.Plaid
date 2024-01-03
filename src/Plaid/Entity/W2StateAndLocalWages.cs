@@ -46,4 +46,5 @@ public record W2StateAndLocalWages
 	/// </summary>
 	[JsonPropertyName("locality_name")]
 	public string? LocalityName { get; init; } = default!;
+
 }

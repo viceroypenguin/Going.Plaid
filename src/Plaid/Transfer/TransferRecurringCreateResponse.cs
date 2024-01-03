@@ -22,4 +22,5 @@ public record TransferRecurringCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("decision_rationale")]
 	public Entity.TransferAuthorizationDecisionRationale? DecisionRationale { get; init; } = default!;
+
 }

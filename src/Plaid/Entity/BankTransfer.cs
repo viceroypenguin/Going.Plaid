@@ -111,4 +111,5 @@ public record BankTransfer
 	/// </summary>
 	[JsonPropertyName("direction")]
 	public Entity.BankTransferDirection? Direction { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record BaseReportGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("warnings")]
 	public IReadOnlyList<Entity.BaseReportWarning>? Warnings { get; init; } = default!;
+
 }

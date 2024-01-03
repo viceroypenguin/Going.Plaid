@@ -10,4 +10,5 @@ public record IncomeVerificationCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("income_verification_id")]
 	public string IncomeVerificationId { get; init; } = default!;
+
 }

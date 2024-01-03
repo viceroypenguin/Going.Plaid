@@ -58,4 +58,5 @@ public record CreditCardLiability
 	/// </summary>
 	[JsonPropertyName("next_payment_due_date")]
 	public DateOnly? NextPaymentDueDate { get; init; } = default!;
+
 }

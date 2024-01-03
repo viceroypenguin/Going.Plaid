@@ -28,4 +28,5 @@ public record IncomeBreakdown
 	/// </summary>
 	[JsonPropertyName("total")]
 	public decimal? Total { get; init; } = default!;
+
 }

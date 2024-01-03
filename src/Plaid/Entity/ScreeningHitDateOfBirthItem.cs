@@ -16,4 +16,5 @@ public record ScreeningHitDateOfBirthItem
 	/// </summary>
 	[JsonPropertyName("data")]
 	public Entity.DateRange? Data { get; init; } = default!;
+
 }

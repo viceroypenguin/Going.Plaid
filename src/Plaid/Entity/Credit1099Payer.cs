@@ -28,4 +28,5 @@ public record Credit1099Payer
 	/// </summary>
 	[JsonPropertyName("telephone_number")]
 	public string? TelephoneNumber { get; init; } = default!;
+
 }

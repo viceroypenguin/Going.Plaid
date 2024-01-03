@@ -22,4 +22,5 @@ public record RiskCheckBehavior
 	/// </summary>
 	[JsonPropertyName("bot_detected")]
 	public Entity.RiskCheckBehaviorBotDetectedLabel BotDetected { get; init; } = default!;
+
 }

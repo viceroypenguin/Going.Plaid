@@ -47,4 +47,5 @@ public record CreditBankIncomeAccount
 	/// </summary>
 	[JsonPropertyName("owners")]
 	public IReadOnlyList<Entity.Owner> Owners { get; init; } = default!;
+
 }

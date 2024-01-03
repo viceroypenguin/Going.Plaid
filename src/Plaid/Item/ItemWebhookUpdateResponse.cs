@@ -10,4 +10,5 @@ public record ItemWebhookUpdateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("item")]
 	public Entity.Item Item { get; init; } = default!;
+
 }

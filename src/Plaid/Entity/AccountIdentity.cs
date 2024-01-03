@@ -73,4 +73,5 @@ public record AccountIdentity
 	/// </summary>
 	[JsonPropertyName("documents")]
 	public IReadOnlyList<Entity.IdentityDocument>? Documents { get; init; } = default!;
+
 }

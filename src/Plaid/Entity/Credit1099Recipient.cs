@@ -40,4 +40,5 @@ public record Credit1099Recipient
 	/// </summary>
 	[JsonPropertyName("second_tin_exists")]
 	public string? SecondTinExists { get; init; } = default!;
+
 }

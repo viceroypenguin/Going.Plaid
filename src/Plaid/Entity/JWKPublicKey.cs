@@ -58,4 +58,5 @@ public record JWKPublicKey
 	/// </summary>
 	[JsonPropertyName("expired_at")]
 	public int? ExpiredAt { get; init; } = default!;
+
 }

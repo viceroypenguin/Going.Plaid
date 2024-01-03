@@ -16,4 +16,5 @@ public record CreditFreddieMacReportsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("SchemaVersion")]
 	public decimal Schemaversion { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record TransferRecurringListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("recurring_transfers")]
 	public IReadOnlyList<Entity.RecurringTransfer> RecurringTransfers { get; init; } = default!;
+
 }

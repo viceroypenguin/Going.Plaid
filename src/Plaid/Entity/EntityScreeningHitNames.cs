@@ -22,4 +22,5 @@ public record EntityScreeningHitNames
 	/// </summary>
 	[JsonPropertyName("weak_alias_determination")]
 	public Entity.WeakAliasDetermination WeakAliasDetermination { get; init; } = default!;
+
 }

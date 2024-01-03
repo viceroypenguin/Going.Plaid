@@ -25,4 +25,5 @@ public record BeaconReportSyndication
 	/// </summary>
 	[JsonPropertyName("analysis")]
 	public Entity.BeaconReportSyndicationAnalysis Analysis { get; init; } = default!;
+
 }

@@ -24,4 +24,5 @@ public record BaseReportNumberFlowInsights
 	/// </summary>
 	[JsonPropertyName("count")]
 	public int? Count { get; init; } = default!;
+
 }

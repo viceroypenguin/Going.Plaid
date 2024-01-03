@@ -10,4 +10,5 @@ public record ProcessorStripeBankAccountTokenCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("stripe_bank_account_token")]
 	public string StripeBankAccountToken { get; init; } = default!;
+
 }

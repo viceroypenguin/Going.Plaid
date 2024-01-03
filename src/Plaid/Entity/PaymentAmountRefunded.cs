@@ -16,4 +16,5 @@ public record PaymentAmountRefunded
 	/// </summary>
 	[JsonPropertyName("value")]
 	public decimal? Value { get; init; } = default!;
+
 }

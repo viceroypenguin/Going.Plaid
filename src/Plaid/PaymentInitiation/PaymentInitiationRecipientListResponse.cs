@@ -10,4 +10,5 @@ public record PaymentInitiationRecipientListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("recipients")]
 	public IReadOnlyList<Entity.PaymentInitiationRecipient> Recipients { get; init; } = default!;
+
 }

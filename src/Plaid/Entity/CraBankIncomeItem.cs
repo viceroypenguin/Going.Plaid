@@ -34,4 +34,5 @@ public record CraBankIncomeItem
 	/// </summary>
 	[JsonPropertyName("institution_name")]
 	public string? InstitutionName { get; init; } = default!;
+
 }

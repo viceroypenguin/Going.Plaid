@@ -28,4 +28,5 @@ public record PersonalFinanceCategory
 	/// </summary>
 	[JsonPropertyName("confidence_level")]
 	public string? ConfidenceLevel { get; init; } = default!;
+
 }

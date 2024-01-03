@@ -15,4 +15,5 @@ public record PayrollItemStatus
 	/// </summary>
 	[JsonPropertyName("processing_status")]
 	public string? ProcessingStatus { get; init; } = default!;
+
 }

@@ -30,4 +30,5 @@ public record HistoricalBalance
 	/// </summary>
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
+
 }

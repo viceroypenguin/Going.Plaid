@@ -16,4 +16,5 @@ public record PaymentInitiationPaymentTokenCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("payment_token_expiration_time")]
 	public DateTimeOffset PaymentTokenExpirationTime { get; init; } = default!;
+
 }

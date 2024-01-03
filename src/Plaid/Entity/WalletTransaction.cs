@@ -76,4 +76,5 @@ public record WalletTransaction
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.WalletTransactionFailureReason? FailureReason { get; init; } = default!;
+
 }

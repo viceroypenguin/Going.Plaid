@@ -22,4 +22,5 @@ public record WalletBalance
 	/// </summary>
 	[JsonPropertyName("available")]
 	public decimal Available { get; init; } = default!;
+
 }

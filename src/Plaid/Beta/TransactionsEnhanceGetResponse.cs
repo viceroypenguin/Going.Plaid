@@ -10,4 +10,5 @@ public record TransactionsEnhanceGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("enhanced_transactions")]
 	public IReadOnlyList<Entity.ClientProvidedEnhancedTransaction> EnhancedTransactions { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record CreditBankStatementUploadAccountOwner
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.CreditBankStatementUploadAccountOwnerAddress Address { get; init; } = default!;
+
 }

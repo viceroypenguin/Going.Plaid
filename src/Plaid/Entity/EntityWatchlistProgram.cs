@@ -52,4 +52,5 @@ public record EntityWatchlistProgram
 	/// </summary>
 	[JsonPropertyName("is_archived")]
 	public bool IsArchived { get; init; } = default!;
+
 }

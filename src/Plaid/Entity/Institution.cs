@@ -83,4 +83,5 @@ public record Institution
 	/// </summary>
 	[JsonPropertyName("auth_metadata")]
 	public Entity.AuthMetadata? AuthMetadata { get; init; } = default!;
+
 }

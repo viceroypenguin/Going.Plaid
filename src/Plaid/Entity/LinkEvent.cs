@@ -22,4 +22,5 @@ public record LinkEvent
 	/// </summary>
 	[JsonPropertyName("event_id")]
 	public string EventId { get; init; } = default!;
+
 }

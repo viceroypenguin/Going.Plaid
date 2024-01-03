@@ -16,4 +16,5 @@ public record ScreeningHitDocumentsItems
 	/// </summary>
 	[JsonPropertyName("data")]
 	public Entity.WatchlistScreeningDocument? Data { get; init; } = default!;
+
 }

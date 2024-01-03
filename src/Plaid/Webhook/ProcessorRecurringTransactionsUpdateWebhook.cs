@@ -20,4 +20,5 @@ public record ProcessorRecurringTransactionsUpdateWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; init; } = default!;
+
 }

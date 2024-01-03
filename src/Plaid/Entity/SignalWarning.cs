@@ -22,4 +22,5 @@ public record SignalWarning
 	/// </summary>
 	[JsonPropertyName("warning_message")]
 	public string? WarningMessage { get; init; } = default!;
+
 }

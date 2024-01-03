@@ -53,4 +53,5 @@ public record DistributionBreakdown
 	/// </summary>
 	[JsonPropertyName("current_pay")]
 	public Entity.Pay? CurrentPay { get; init; } = default!;
+
 }

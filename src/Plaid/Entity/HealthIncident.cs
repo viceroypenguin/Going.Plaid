@@ -28,4 +28,5 @@ public record HealthIncident
 	/// </summary>
 	[JsonPropertyName("incident_updates")]
 	public IReadOnlyList<Entity.IncidentUpdate> IncidentUpdates { get; init; } = default!;
+
 }

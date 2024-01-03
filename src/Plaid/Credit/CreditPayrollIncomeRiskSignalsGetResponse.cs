@@ -10,4 +10,5 @@ public record CreditPayrollIncomeRiskSignalsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.PayrollRiskSignalsItem> Items { get; init; } = default!;
+
 }

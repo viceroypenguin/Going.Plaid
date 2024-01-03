@@ -50,4 +50,5 @@ public record BeaconReportGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("audit_trail")]
 	public Entity.BeaconAuditTrail AuditTrail { get; init; } = default!;
+
 }

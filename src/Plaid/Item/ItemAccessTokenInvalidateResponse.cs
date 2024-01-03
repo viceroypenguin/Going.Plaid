@@ -10,4 +10,5 @@ public record ItemAccessTokenInvalidateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("new_access_token")]
 	public string NewAccessToken { get; init; } = default!;
+
 }

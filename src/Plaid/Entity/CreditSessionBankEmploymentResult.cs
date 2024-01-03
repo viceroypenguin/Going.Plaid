@@ -22,4 +22,5 @@ public record CreditSessionBankEmploymentResult
 	/// </summary>
 	[JsonPropertyName("institution_id")]
 	public string? InstitutionId { get; init; } = default!;
+
 }

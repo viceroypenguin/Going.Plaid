@@ -16,4 +16,5 @@ public record IncomeVerificationTaxformsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("taxforms")]
 	public IReadOnlyList<Entity.Taxform> Taxforms { get; init; } = default!;
+
 }

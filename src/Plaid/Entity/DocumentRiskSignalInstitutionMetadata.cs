@@ -10,4 +10,5 @@ public record DocumentRiskSignalInstitutionMetadata
 	/// </summary>
 	[JsonPropertyName("item_id")]
 	public string ItemId { get; init; } = default!;
+
 }

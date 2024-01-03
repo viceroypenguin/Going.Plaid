@@ -111,4 +111,5 @@ public record IdentityVerification
 	/// </summary>
 	[JsonPropertyName("redacted_at")]
 	public DateTimeOffset? RedactedAt { get; init; } = default!;
+
 }

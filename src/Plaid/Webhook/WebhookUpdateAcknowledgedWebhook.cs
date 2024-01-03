@@ -30,4 +30,5 @@ public record WebhookUpdateAcknowledgedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("error")]
 	public Entity.PlaidError? Error { get; init; } = default!;
+
 }

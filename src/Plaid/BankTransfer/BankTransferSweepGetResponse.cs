@@ -10,4 +10,5 @@ public record BankTransferSweepGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("sweep")]
 	public Entity.BankTransferSweep Sweep { get; init; } = default!;
+
 }

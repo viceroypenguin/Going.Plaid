@@ -28,4 +28,5 @@ public record AuthGetNumbers
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public IReadOnlyList<Entity.NumbersBacs> Bacs { get; init; } = default!;
+
 }

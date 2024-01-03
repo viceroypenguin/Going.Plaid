@@ -16,4 +16,5 @@ public record AddressMatchScore
 	/// </summary>
 	[JsonPropertyName("is_postal_code_match")]
 	public bool? IsPostalCodeMatch { get; init; } = default!;
+
 }

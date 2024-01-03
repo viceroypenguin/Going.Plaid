@@ -22,4 +22,5 @@ public record StatementsStatement
 	/// </summary>
 	[JsonPropertyName("year")]
 	public int Year { get; init; } = default!;
+
 }

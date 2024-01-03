@@ -22,4 +22,5 @@ public record Email
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.EmailTypeEnum Type { get; init; } = default!;
+
 }

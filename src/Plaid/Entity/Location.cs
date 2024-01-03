@@ -52,4 +52,5 @@ public record Location
 	/// </summary>
 	[JsonPropertyName("store_number")]
 	public string? StoreNumber { get; init; } = default!;
+
 }

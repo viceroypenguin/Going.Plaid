@@ -53,4 +53,5 @@ public record EarningsBreakdown
 	/// </summary>
 	[JsonPropertyName("ytd_amount")]
 	public decimal? YtdAmount { get; init; } = default!;
+
 }

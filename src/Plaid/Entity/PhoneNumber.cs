@@ -22,4 +22,5 @@ public record PhoneNumber
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.PhoneNumberTypeEnum Type { get; init; } = default!;
+
 }

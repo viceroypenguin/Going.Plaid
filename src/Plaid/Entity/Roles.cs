@@ -10,4 +10,5 @@ public record Roles
 	/// </summary>
 	[JsonPropertyName("ROLE")]
 	public Entity.Role Role { get; init; } = default!;
+
 }

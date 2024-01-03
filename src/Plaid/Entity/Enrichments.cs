@@ -93,4 +93,5 @@ public record Enrichments
 	/// </summary>
 	[JsonPropertyName("website")]
 	public string? Website { get; init; } = default!;
+
 }

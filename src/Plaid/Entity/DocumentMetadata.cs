@@ -31,4 +31,5 @@ public record DocumentMetadata
 	/// </summary>
 	[JsonPropertyName("doc_type")]
 	public Entity.DocType? DocType { get; init; } = default!;
+
 }

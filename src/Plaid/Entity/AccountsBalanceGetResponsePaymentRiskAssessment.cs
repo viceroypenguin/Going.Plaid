@@ -16,4 +16,5 @@ public record AccountsBalanceGetResponsePaymentRiskAssessment
 	/// </summary>
 	[JsonPropertyName("exceeds_balance_threshold")]
 	public bool? ExceedsBalanceThreshold { get; init; } = default!;
+
 }

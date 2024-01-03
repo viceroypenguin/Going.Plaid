@@ -48,4 +48,5 @@ public record IdentityVerificationUserData
 	/// </summary>
 	[JsonPropertyName("id_number")]
 	public Entity.UserIDNumber? IdNumber { get; init; } = default!;
+
 }

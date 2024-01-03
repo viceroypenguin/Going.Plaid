@@ -34,4 +34,5 @@ public record Wallet
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.WalletStatus Status { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record CraBankIncomeEmployer
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string? Name { get; init; } = default!;
+
 }

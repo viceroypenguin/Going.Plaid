@@ -16,4 +16,5 @@ public record CounterpartyInsights
 	/// </summary>
 	[JsonPropertyName("merchant_insights")]
 	public IReadOnlyList<Entity.MerchantInsights>? MerchantInsights { get; init; } = default!;
+
 }

@@ -35,4 +35,5 @@ public record Owner
 	/// </summary>
 	[JsonPropertyName("document_id")]
 	public string? DocumentId { get; init; } = default!;
+
 }

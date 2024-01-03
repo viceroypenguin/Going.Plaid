@@ -40,4 +40,5 @@ public record CreditBankIncomeItem
 	/// </summary>
 	[JsonPropertyName("item_id")]
 	public string? ItemId { get; init; } = default!;
+
 }

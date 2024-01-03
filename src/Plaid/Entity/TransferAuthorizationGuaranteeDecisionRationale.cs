@@ -16,4 +16,5 @@ public record TransferAuthorizationGuaranteeDecisionRationale
 	/// </summary>
 	[JsonPropertyName("description")]
 	public string Description { get; init; } = default!;
+
 }

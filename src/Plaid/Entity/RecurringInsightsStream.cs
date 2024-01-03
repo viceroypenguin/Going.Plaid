@@ -94,4 +94,5 @@ public record RecurringInsightsStream
 	/// </summary>
 	[JsonPropertyName("personal_finance_category_detailed")]
 	public string? PersonalFinanceCategoryDetailed { get; init; } = default!;
+
 }

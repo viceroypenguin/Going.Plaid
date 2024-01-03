@@ -16,4 +16,5 @@ public record InvestmentsAuthGetNumbers
 	/// </summary>
 	[JsonPropertyName("aton")]
 	public IReadOnlyList<Entity.NumbersATON>? Aton { get; init; } = default!;
+
 }

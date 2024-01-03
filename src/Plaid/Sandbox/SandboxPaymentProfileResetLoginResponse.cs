@@ -10,4 +10,5 @@ public record SandboxPaymentProfileResetLoginResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("reset_login")]
 	public bool ResetLogin { get; init; } = default!;
+
 }

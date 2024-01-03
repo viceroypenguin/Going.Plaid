@@ -34,4 +34,5 @@ public record PhysicalDocumentImages
 	/// </summary>
 	[JsonPropertyName("face")]
 	public string? Face { get; init; } = default!;
+
 }

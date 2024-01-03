@@ -17,4 +17,5 @@ public record DocumentaryVerification
 	/// </summary>
 	[JsonPropertyName("documents")]
 	public IReadOnlyList<Entity.DocumentaryVerificationDocument> Documents { get; init; } = default!;
+
 }

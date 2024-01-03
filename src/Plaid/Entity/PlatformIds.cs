@@ -22,4 +22,5 @@ public record PlatformIds
 	/// </summary>
 	[JsonPropertyName("position_id")]
 	public string? PositionId { get; init; } = default!;
+
 }

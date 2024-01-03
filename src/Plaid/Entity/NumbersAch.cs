@@ -41,4 +41,5 @@ public record NumbersAch
 	/// </summary>
 	[JsonPropertyName("can_transfer_out")]
 	public bool? CanTransferOut { get; init; } = default!;
+
 }

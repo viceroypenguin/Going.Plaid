@@ -16,4 +16,5 @@ public record AssetReportFilterResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("asset_report_id")]
 	public string AssetReportId { get; init; } = default!;
+
 }

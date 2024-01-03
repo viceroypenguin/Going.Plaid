@@ -33,4 +33,5 @@ public record SyncUpdatesAvailableWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("historical_update_complete")]
 	public bool HistoricalUpdateComplete { get; init; } = default!;
+
 }

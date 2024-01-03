@@ -46,4 +46,5 @@ public record CreditBankStatementUploadBankAccount
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string? AccountId { get; init; } = default!;
+
 }

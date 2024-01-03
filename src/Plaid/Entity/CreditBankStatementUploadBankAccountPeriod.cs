@@ -28,4 +28,5 @@ public record CreditBankStatementUploadBankAccountPeriod
 	/// </summary>
 	[JsonPropertyName("ending_balance")]
 	public decimal? EndingBalance { get; init; } = default!;
+
 }

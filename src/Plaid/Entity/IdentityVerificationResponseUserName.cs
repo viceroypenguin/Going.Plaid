@@ -16,4 +16,5 @@ public record IdentityVerificationResponseUserName
 	/// </summary>
 	[JsonPropertyName("family_name")]
 	public string FamilyName { get; init; } = default!;
+
 }

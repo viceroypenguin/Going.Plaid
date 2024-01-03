@@ -22,4 +22,5 @@ public record Category
 	/// </summary>
 	[JsonPropertyName("hierarchy")]
 	public IReadOnlyList<string> Hierarchy { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record SelfieCheck
 	/// </summary>
 	[JsonPropertyName("selfies")]
 	public IReadOnlyList<Entity.SelfieCheckSelfie> Selfies { get; init; } = default!;
+
 }

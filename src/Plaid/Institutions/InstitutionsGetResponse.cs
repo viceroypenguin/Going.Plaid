@@ -16,4 +16,5 @@ public record InstitutionsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("total")]
 	public int Total { get; init; } = default!;
+
 }

@@ -18,4 +18,5 @@ public record BeaconReportSyndicationCreatedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("beacon_report_syndication_id")]
 	public string BeaconReportSyndicationId { get; init; } = default!;
+
 }

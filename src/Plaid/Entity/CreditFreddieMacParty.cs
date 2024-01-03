@@ -22,4 +22,5 @@ public record CreditFreddieMacParty
 	/// </summary>
 	[JsonPropertyName("TAXPAYER_IDENTIFIERS")]
 	public Entity.TaxpayerIdentifiers TaxpayerIdentifiers { get; init; } = default!;
+
 }

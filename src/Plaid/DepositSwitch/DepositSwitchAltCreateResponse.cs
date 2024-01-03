@@ -10,4 +10,5 @@ public record DepositSwitchAltCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("deposit_switch_id")]
 	public string DepositSwitchId { get; init; } = default!;
+
 }

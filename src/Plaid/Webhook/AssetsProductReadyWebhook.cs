@@ -30,4 +30,5 @@ public record AssetsProductReadyWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("report_type")]
 	public string? ReportType { get; init; } = default!;
+
 }

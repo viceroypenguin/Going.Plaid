@@ -22,4 +22,5 @@ public record KYCCheckAddressSummary
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.AddressPurposeLabel Type { get; init; } = default!;
+
 }

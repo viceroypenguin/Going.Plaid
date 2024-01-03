@@ -33,4 +33,5 @@ public record CraBankIncomeHistoricalSummary
 	/// </summary>
 	[JsonPropertyName("transactions")]
 	public IReadOnlyList<Entity.CraBankIncomeTransaction>? Transactions { get; init; } = default!;
+
 }

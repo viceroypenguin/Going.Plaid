@@ -16,4 +16,5 @@ public record ItemPublicTokenCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("expiration")]
 	public DateTimeOffset? Expiration { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record W2Box12
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string? Amount { get; init; } = default!;
+
 }

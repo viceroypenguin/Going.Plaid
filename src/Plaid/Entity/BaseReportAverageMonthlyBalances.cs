@@ -24,4 +24,5 @@ public record BaseReportAverageMonthlyBalances
 	/// </summary>
 	[JsonPropertyName("average_balance")]
 	public Entity.CreditAmountWithCurrency? AverageBalance { get; init; } = default!;
+
 }

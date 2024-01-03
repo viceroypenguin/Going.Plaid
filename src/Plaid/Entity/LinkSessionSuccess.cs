@@ -16,4 +16,5 @@ public record LinkSessionSuccess
 	/// </summary>
 	[JsonPropertyName("metadata")]
 	public Entity.LinkSessionSuccessMetadata? Metadata { get; init; } = default!;
+
 }

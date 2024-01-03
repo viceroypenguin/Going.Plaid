@@ -10,4 +10,5 @@ public record SelfieAnalysis
 	/// </summary>
 	[JsonPropertyName("document_comparison")]
 	public Entity.SelfieAnalysisDocumentComparison DocumentComparison { get; init; } = default!;
+
 }

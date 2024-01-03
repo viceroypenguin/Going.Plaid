@@ -16,4 +16,5 @@ public record BankTransferBalanceGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	public string? OriginationAccountId { get; init; } = default!;
+
 }

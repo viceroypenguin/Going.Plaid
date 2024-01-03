@@ -34,4 +34,5 @@ public record LinkTokenGetSessionsResponse
 	/// </summary>
 	[JsonPropertyName("on_exit")]
 	public Entity.LinkSessionExit? OnExit { get; init; } = default!;
+
 }

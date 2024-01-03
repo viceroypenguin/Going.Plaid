@@ -36,4 +36,5 @@ public record HoldingsDefaultUpdateWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("updated_holdings")]
 	public decimal UpdatedHoldings { get; init; } = default!;
+
 }

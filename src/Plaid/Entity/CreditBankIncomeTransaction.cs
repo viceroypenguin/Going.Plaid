@@ -63,4 +63,5 @@ public record CreditBankIncomeTransaction
 	/// </summary>
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
+
 }

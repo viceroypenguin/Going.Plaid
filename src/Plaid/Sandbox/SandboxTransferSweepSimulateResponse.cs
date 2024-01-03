@@ -11,4 +11,5 @@ public record SandboxTransferSweepSimulateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("sweep")]
 	public Entity.SimulatedTransferSweep? Sweep { get; init; } = default!;
+
 }

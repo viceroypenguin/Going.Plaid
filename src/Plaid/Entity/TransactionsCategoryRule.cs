@@ -35,4 +35,5 @@ public record TransactionsCategoryRule
 	/// </summary>
 	[JsonPropertyName("rule_details")]
 	public Entity.TransactionsRuleDetails? RuleDetails { get; init; } = default!;
+
 }

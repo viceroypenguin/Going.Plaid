@@ -34,4 +34,5 @@ public record AssetReportItem
 	/// </summary>
 	[JsonPropertyName("accounts")]
 	public IReadOnlyList<Entity.AccountAssets> Accounts { get; init; } = default!;
+
 }

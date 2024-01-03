@@ -22,4 +22,5 @@ public record PaymentInitiationStandingOrderMetadata
 	/// </summary>
 	[JsonPropertyName("valid_standing_order_intervals")]
 	public IReadOnlyList<Entity.PaymentScheduleInterval> ValidStandingOrderIntervals { get; init; } = default!;
+
 }

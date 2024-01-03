@@ -61,4 +61,5 @@ public record Account
 	/// </summary>
 	[JsonPropertyName("persistent_account_id")]
 	public string? PersistentAccountId { get; init; } = default!;
+
 }

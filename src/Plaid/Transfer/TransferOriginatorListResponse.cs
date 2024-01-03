@@ -10,4 +10,5 @@ public record TransferOriginatorListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("originators")]
 	public IReadOnlyList<Entity.Originator> Originators { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record KYCCheckPhoneSummary
 	/// </summary>
 	[JsonPropertyName("area_code")]
 	public Entity.MatchSummaryCode AreaCode { get; init; } = default!;
+
 }

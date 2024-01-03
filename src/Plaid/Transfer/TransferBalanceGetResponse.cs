@@ -10,4 +10,5 @@ public record TransferBalanceGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("balance")]
 	public Entity.TransferBalance Balance { get; init; } = default!;
+
 }

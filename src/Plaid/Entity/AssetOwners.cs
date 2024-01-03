@@ -10,4 +10,5 @@ public record AssetOwners
 	/// </summary>
 	[JsonPropertyName("ASSET_OWNER")]
 	public IReadOnlyList<Entity.AssetOwner> AssetOwner { get; init; } = default!;
+
 }

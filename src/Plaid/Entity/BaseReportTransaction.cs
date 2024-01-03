@@ -78,4 +78,5 @@ public record BaseReportTransaction
 	/// </summary>
 	[JsonPropertyName("account_owner")]
 	public string? AccountOwner { get; init; } = default!;
+
 }

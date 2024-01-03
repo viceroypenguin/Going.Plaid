@@ -10,4 +10,5 @@ public record TransactionsRulesListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("rules")]
 	public IReadOnlyList<Entity.TransactionsCategoryRule> Rules { get; init; } = default!;
+
 }

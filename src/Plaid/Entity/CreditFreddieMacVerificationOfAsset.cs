@@ -22,4 +22,5 @@ public record CreditFreddieMacVerificationOfAsset
 	/// </summary>
 	[JsonPropertyName("VERIFICATION_OF_ASSET_RESPONSE")]
 	public Entity.VerificationOfAssetResponse VerificationOfAssetResponse { get; init; } = default!;
+
 }

@@ -40,4 +40,5 @@ public record RiskCheckDetails
 	/// </summary>
 	[JsonPropertyName("identity_abuse_signals")]
 	public Entity.RiskCheckIdentityAbuseSignals? IdentityAbuseSignals { get; init; } = default!;
+
 }

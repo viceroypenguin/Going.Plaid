@@ -22,4 +22,5 @@ public record CreditSessionDocumentIncomeResult
 	/// </summary>
 	[JsonPropertyName("num_bank_statements_uploaded")]
 	public int NumBankStatementsUploaded { get; init; } = default!;
+
 }

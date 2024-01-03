@@ -28,4 +28,5 @@ public record ScreeningHitData
 	/// </summary>
 	[JsonPropertyName("names")]
 	public IReadOnlyList<Entity.ScreeningHitNamesItems>? Names { get; init; } = default!;
+
 }

@@ -22,4 +22,5 @@ public record CustomerInitiatedReturnRisk
 	/// </summary>
 	[JsonPropertyName("risk_tier")]
 	public int RiskTier { get; init; } = default!;
+
 }

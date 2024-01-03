@@ -34,4 +34,5 @@ public record TransferUserAddressInResponse
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string? Country { get; init; } = default!;
+
 }

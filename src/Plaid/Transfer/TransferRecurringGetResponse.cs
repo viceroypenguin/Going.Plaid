@@ -10,4 +10,5 @@ public record TransferRecurringGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("recurring_transfer")]
 	public Entity.RecurringTransfer RecurringTransfer { get; init; } = default!;
+
 }

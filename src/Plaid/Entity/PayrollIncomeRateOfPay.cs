@@ -16,4 +16,5 @@ public record PayrollIncomeRateOfPay
 	/// </summary>
 	[JsonPropertyName("pay_amount")]
 	public decimal? PayAmount { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record TransactionsEnrichResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("enriched_transactions")]
 	public IReadOnlyList<Entity.ClientProvidedEnrichedTransaction> EnrichedTransactions { get; init; } = default!;
+
 }

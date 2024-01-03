@@ -16,4 +16,5 @@ public record ItemGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.ItemStatus? Status { get; init; } = default!;
+
 }

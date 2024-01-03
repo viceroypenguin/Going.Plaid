@@ -112,4 +112,5 @@ public record PaymentInitiationPayment
 	/// </summary>
 	[JsonPropertyName("transaction_id")]
 	public string? TransactionId { get; init; } = default!;
+
 }

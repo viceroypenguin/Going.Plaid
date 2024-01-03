@@ -10,4 +10,5 @@ public record CreditFreddieMacLoanIdentifiers
 	/// </summary>
 	[JsonPropertyName("LOAN_IDENTIFIER")]
 	public IReadOnlyList<Entity.LoanIdentifier> LoanIdentifier { get; init; } = default!;
+
 }

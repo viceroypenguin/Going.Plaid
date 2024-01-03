@@ -70,4 +70,5 @@ public record BankTransferEvent
 	/// </summary>
 	[JsonPropertyName("direction")]
 	public Entity.BankTransferDirection? Direction { get; init; } = default!;
+
 }

@@ -28,4 +28,5 @@ public record CreditSessionError
 	/// </summary>
 	[JsonPropertyName("display_message")]
 	public string? DisplayMessage { get; init; } = default!;
+
 }

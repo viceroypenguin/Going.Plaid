@@ -64,4 +64,5 @@ public record BaseReportAccountInsights
 	/// </summary>
 	[JsonPropertyName("number_of_days_no_transactions")]
 	public int? NumberOfDaysNoTransactions { get; init; } = default!;
+
 }

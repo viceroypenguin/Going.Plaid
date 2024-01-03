@@ -54,4 +54,5 @@ public record LinkSessionSuccessMetadataAccount
 	/// </summary>
 	[JsonPropertyName("class_type")]
 	public string? ClassType { get; init; } = default!;
+
 }

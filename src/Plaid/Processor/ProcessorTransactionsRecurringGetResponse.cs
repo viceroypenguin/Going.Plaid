@@ -22,4 +22,5 @@ public record ProcessorTransactionsRecurringGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("updated_datetime")]
 	public DateTimeOffset UpdatedDatetime { get; init; } = default!;
+
 }

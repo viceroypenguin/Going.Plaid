@@ -30,4 +30,5 @@ public record LinkEventsWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("link_token")]
 	public string LinkToken { get; init; } = default!;
+
 }

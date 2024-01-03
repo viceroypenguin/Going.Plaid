@@ -25,4 +25,5 @@ public record RecurringTransactionsUpdateWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("account_ids")]
 	public IReadOnlyList<string> AccountIds { get; init; } = default!;
+
 }

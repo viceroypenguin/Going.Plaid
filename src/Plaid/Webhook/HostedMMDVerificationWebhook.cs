@@ -30,4 +30,5 @@ public record HostedMMDVerificationWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; init; } = default!;
+
 }

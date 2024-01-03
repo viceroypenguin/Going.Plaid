@@ -28,4 +28,5 @@ public record DashboardUserGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.DashboardUserStatus Status { get; init; } = default!;
+
 }

@@ -18,4 +18,5 @@ public record RecurringCancelledWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("recurring_transfer_id")]
 	public string RecurringTransferId { get; init; } = default!;
+
 }

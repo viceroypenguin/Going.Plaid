@@ -16,4 +16,5 @@ public record EntityScreeningHitNamesItems
 	/// </summary>
 	[JsonPropertyName("data")]
 	public Entity.EntityScreeningHitNames? Data { get; init; } = default!;
+
 }

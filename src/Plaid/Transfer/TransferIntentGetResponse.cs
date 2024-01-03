@@ -10,4 +10,5 @@ public record TransferIntentGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("transfer_intent")]
 	public Entity.TransferIntentGet TransferIntent { get; init; } = default!;
+
 }

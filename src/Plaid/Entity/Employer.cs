@@ -28,4 +28,5 @@ public record Employer
 	/// </summary>
 	[JsonPropertyName("confidence_score")]
 	public decimal ConfidenceScore { get; init; } = default!;
+
 }

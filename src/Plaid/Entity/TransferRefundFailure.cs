@@ -16,4 +16,5 @@ public record TransferRefundFailure
 	/// </summary>
 	[JsonPropertyName("description")]
 	public string? Description { get; init; } = default!;
+
 }

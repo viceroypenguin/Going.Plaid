@@ -38,4 +38,5 @@ public record ExternalPaymentScheduleGet
 	/// </summary>
 	[JsonPropertyName("adjusted_start_date")]
 	public DateOnly? AdjustedStartDate { get; init; } = default!;
+
 }

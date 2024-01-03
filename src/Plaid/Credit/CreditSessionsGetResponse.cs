@@ -10,4 +10,5 @@ public record CreditSessionsGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("sessions")]
 	public IReadOnlyList<Entity.CreditSession>? Sessions { get; init; } = default!;
+
 }

@@ -46,4 +46,5 @@ public record BeaconReportSyndicationAnalysis
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public Entity.BeaconMatchSummaryCode PhoneNumber { get; init; } = default!;
+
 }

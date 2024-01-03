@@ -28,4 +28,5 @@ public record CreditBankStatementUploadObject
 	/// </summary>
 	[JsonPropertyName("bank_accounts")]
 	public IReadOnlyList<Entity.CreditBankStatementUploadBankAccount> BankAccounts { get; init; } = default!;
+
 }

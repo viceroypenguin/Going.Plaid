@@ -30,4 +30,5 @@ public record LinkUserDeliveryStatusWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("link_delivery_metadata")]
 	public Entity.LinkDeliveryMetadata LinkDeliveryMetadata { get; init; } = default!;
+
 }

@@ -36,4 +36,5 @@ public record PartnerEndCustomerOAuthStatusUpdatedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.PartnerEndCustomerOAuthStatusUpdatedValues Status { get; init; } = default!;
+
 }

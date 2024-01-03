@@ -46,4 +46,5 @@ public record PayrollItem
 	/// </summary>
 	[JsonPropertyName("updated_at")]
 	public DateTimeOffset? UpdatedAt { get; init; } = default!;
+
 }

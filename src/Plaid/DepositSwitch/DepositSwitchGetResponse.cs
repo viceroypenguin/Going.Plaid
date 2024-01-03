@@ -94,4 +94,5 @@ public record DepositSwitchGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("date_completed")]
 	public DateOnly? DateCompleted { get; init; } = default!;
+
 }

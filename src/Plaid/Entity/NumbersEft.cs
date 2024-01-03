@@ -28,4 +28,5 @@ public record NumbersEft
 	/// </summary>
 	[JsonPropertyName("branch")]
 	public string Branch { get; init; } = default!;
+
 }

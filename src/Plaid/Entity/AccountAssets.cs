@@ -97,4 +97,5 @@ public record AccountAssets
 	/// </summary>
 	[JsonPropertyName("historical_balances")]
 	public IReadOnlyList<Entity.HistoricalBalance> HistoricalBalances { get; init; } = default!;
+
 }

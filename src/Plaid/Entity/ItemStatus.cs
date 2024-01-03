@@ -22,4 +22,5 @@ public record ItemStatus
 	/// </summary>
 	[JsonPropertyName("last_webhook")]
 	public Entity.ItemStatusLastWebhook? LastWebhook { get; init; } = default!;
+
 }

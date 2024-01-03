@@ -24,4 +24,5 @@ public record NewAccountsAvailableWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("error")]
 	public Entity.PlaidError? Error { get; init; } = default!;
+
 }

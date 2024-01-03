@@ -22,4 +22,5 @@ public record NumbersInternational
 	/// </summary>
 	[JsonPropertyName("bic")]
 	public string Bic { get; init; } = default!;
+
 }

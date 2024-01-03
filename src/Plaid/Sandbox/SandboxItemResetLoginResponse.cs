@@ -10,4 +10,5 @@ public record SandboxItemResetLoginResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("reset_login")]
 	public bool ResetLogin { get; init; } = default!;
+
 }

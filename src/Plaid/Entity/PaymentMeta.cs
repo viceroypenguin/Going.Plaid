@@ -53,4 +53,5 @@ public record PaymentMeta
 	/// </summary>
 	[JsonPropertyName("reason")]
 	public string? Reason { get; init; } = default!;
+
 }

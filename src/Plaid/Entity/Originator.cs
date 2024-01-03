@@ -22,4 +22,5 @@ public record Originator
 	/// </summary>
 	[JsonPropertyName("company_name")]
 	public string CompanyName { get; init; } = default!;
+
 }

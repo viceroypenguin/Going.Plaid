@@ -58,4 +58,5 @@ public record TransferConfigurationGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;
+
 }

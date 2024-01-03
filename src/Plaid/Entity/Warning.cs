@@ -22,4 +22,5 @@ public record Warning
 	/// </summary>
 	[JsonPropertyName("cause")]
 	public Entity.Cause Cause { get; init; } = default!;
+
 }

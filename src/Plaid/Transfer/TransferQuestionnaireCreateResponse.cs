@@ -10,4 +10,5 @@ public record TransferQuestionnaireCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("onboarding_url")]
 	public string OnboardingUrl { get; init; } = default!;
+
 }

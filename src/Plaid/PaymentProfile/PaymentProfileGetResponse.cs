@@ -28,4 +28,5 @@ public record PaymentProfileGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.PaymentProfileStatus Status { get; init; } = default!;
+
 }

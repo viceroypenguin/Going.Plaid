@@ -45,4 +45,5 @@ public record Counterparty
 	/// </summary>
 	[JsonPropertyName("confidence_level")]
 	public string? ConfidenceLevel { get; init; } = default!;
+
 }

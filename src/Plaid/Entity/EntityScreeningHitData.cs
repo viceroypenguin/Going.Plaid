@@ -40,4 +40,5 @@ public record EntityScreeningHitData
 	/// </summary>
 	[JsonPropertyName("urls")]
 	public IReadOnlyList<Entity.EntityScreeningHitUrlsItems>? Urls { get; init; } = default!;
+
 }

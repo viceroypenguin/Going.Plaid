@@ -16,4 +16,5 @@ public record PayStubTaxpayerID
 	/// </summary>
 	[JsonPropertyName("id_mask")]
 	public string? IdMask { get; init; } = default!;
+
 }

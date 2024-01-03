@@ -64,4 +64,5 @@ public record ClientProvidedEnrichedTransaction
 	/// </summary>
 	[JsonPropertyName("enrichments")]
 	public Entity.Enrichments Enrichments { get; init; } = default!;
+
 }

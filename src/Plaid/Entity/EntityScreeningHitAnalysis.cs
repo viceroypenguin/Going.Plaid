@@ -46,4 +46,5 @@ public record EntityScreeningHitAnalysis
 	/// </summary>
 	[JsonPropertyName("search_terms_version")]
 	public int SearchTermsVersion { get; init; } = default!;
+
 }

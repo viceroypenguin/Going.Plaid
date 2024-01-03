@@ -10,4 +10,5 @@ public record TransferRepaymentListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("repayments")]
 	public IReadOnlyList<Entity.TransferRepayment> Repayments { get; init; } = default!;
+
 }

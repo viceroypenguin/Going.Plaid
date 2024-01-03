@@ -22,4 +22,5 @@ public record DocumentAnalysis
 	/// </summary>
 	[JsonPropertyName("extracted_data")]
 	public Entity.PhysicalDocumentExtractedDataAnalysis? ExtractedData { get; init; } = default!;
+
 }

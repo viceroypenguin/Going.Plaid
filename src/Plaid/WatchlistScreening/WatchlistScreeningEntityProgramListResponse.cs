@@ -16,4 +16,5 @@ public record WatchlistScreeningEntityProgramListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
 	public string? NextCursor { get; init; } = default!;
+
 }

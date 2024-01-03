@@ -52,4 +52,5 @@ public record TransferAuthorization
 	/// </summary>
 	[JsonPropertyName("proposed_transfer")]
 	public Entity.TransferAuthorizationProposedTransfer ProposedTransfer { get; init; } = default!;
+
 }

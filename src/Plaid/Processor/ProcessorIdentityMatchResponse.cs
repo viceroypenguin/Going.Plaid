@@ -10,4 +10,5 @@ public record ProcessorIdentityMatchResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("account")]
 	public Entity.AccountIdentityMatchScore Account { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record SandboxPublicTokenCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("public_token")]
 	public string PublicToken { get; init; } = default!;
+
 }

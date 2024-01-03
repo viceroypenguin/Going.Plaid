@@ -55,4 +55,5 @@ public record AccountBalance
 	/// </summary>
 	[JsonPropertyName("last_updated_datetime")]
 	public DateTimeOffset? LastUpdatedDatetime { get; init; } = default!;
+
 }

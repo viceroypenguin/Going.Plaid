@@ -10,4 +10,5 @@ public record ApplicationGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("application")]
 	public Entity.Application Application { get; init; } = default!;
+
 }

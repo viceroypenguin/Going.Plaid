@@ -22,4 +22,5 @@ public record NumbersBacs
 	/// </summary>
 	[JsonPropertyName("sort_code")]
 	public string SortCode { get; init; } = default!;
+
 }

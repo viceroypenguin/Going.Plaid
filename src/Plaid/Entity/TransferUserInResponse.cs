@@ -28,4 +28,5 @@ public record TransferUserInResponse
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.TransferUserAddressInResponse? Address { get; init; } = default!;
+
 }

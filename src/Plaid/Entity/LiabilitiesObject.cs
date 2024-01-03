@@ -22,4 +22,5 @@ public record LiabilitiesObject
 	/// </summary>
 	[JsonPropertyName("student")]
 	public IReadOnlyList<Entity.StudentLoan>? Student { get; init; } = default!;
+
 }

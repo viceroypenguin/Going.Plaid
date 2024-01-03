@@ -10,4 +10,5 @@ public record CreditAuditCopyTokenRemoveResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("removed")]
 	public bool Removed { get; init; } = default!;
+
 }

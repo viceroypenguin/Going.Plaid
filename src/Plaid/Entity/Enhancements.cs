@@ -71,4 +71,5 @@ public record Enhancements
 	/// </summary>
 	[JsonPropertyName("counterparties")]
 	public IReadOnlyList<Entity.Counterparty>? Counterparties { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record CreditBankIncomeGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("bank_income")]
 	public IReadOnlyList<Entity.CreditBankIncome>? BankIncome { get; init; } = default!;
+
 }

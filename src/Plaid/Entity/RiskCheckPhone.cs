@@ -10,4 +10,5 @@ public record RiskCheckPhone
 	/// </summary>
 	[JsonPropertyName("linked_services")]
 	public IReadOnlyList<Entity.RiskCheckLinkedService> LinkedServices { get; init; } = default!;
+
 }

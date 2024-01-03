@@ -64,4 +64,5 @@ public record EntityWatchlistScreeningHit
 	/// </summary>
 	[JsonPropertyName("data")]
 	public Entity.EntityScreeningHitData? Data { get; init; } = default!;
+
 }

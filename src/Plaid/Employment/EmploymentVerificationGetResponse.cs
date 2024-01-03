@@ -10,4 +10,5 @@ public record EmploymentVerificationGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("employments")]
 	public IReadOnlyList<Entity.EmploymentVerification> Employments { get; init; } = default!;
+
 }

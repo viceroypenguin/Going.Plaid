@@ -10,4 +10,5 @@ public record Statuses
 	/// </summary>
 	[JsonPropertyName("STATUS")]
 	public Entity.Status Status { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record TransferCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("transfer")]
 	public Entity.Transfer Transfer { get; init; } = default!;
+
 }

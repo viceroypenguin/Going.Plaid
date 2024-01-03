@@ -10,4 +10,5 @@ public record TransactionsRulesCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("rule")]
 	public Entity.TransactionsCategoryRule Rule { get; init; } = default!;
+
 }

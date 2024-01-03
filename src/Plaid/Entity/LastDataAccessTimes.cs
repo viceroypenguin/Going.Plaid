@@ -58,4 +58,5 @@ public record LastDataAccessTimes
 	/// </summary>
 	[JsonPropertyName("transaction_risk_info")]
 	public DateTimeOffset? TransactionRiskInfo { get; init; } = default!;
+
 }

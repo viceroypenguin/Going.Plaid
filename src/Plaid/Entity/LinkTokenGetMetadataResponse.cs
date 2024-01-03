@@ -52,4 +52,5 @@ public record LinkTokenGetMetadataResponse
 	/// </summary>
 	[JsonPropertyName("client_name")]
 	public string? ClientName { get; init; } = default!;
+
 }

@@ -10,4 +10,5 @@ public record BankTransferSweepListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("sweeps")]
 	public IReadOnlyList<Entity.BankTransferSweep> Sweeps { get; init; } = default!;
+
 }

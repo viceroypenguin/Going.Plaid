@@ -10,4 +10,5 @@ public record CreditPayrollIncomePrecheckResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("confidence")]
 	public Entity.IncomeVerificationPrecheckConfidence Confidence { get; init; } = default!;
+
 }

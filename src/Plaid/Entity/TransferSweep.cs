@@ -69,4 +69,5 @@ public record TransferSweep
 	/// </summary>
 	[JsonPropertyName("network_trace_id")]
 	public string? NetworkTraceId { get; init; } = default!;
+
 }

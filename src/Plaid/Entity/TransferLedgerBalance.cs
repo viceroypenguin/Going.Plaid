@@ -16,4 +16,5 @@ public record TransferLedgerBalance
 	/// </summary>
 	[JsonPropertyName("pending")]
 	public string Pending { get; init; } = default!;
+
 }

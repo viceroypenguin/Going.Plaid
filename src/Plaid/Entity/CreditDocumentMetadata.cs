@@ -48,4 +48,5 @@ public record CreditDocumentMetadata
 	/// </summary>
 	[JsonPropertyName("page_count")]
 	public int? PageCount { get; init; } = default!;
+
 }

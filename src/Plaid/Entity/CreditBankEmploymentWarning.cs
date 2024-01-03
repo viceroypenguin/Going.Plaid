@@ -22,4 +22,5 @@ public record CreditBankEmploymentWarning
 	/// </summary>
 	[JsonPropertyName("cause")]
 	public Entity.CreditBankIncomeCause Cause { get; init; } = default!;
+
 }

@@ -34,4 +34,5 @@ public record PaymentInitiationRecipientGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.RecipientBACS? Bacs { get; init; } = default!;
+
 }

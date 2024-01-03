@@ -22,4 +22,5 @@ public record CreditFreddieMacVerificationOfAssetsDeal
 	/// </summary>
 	[JsonPropertyName("SERVICES")]
 	public Entity.CreditFreddieMacServices Services { get; init; } = default!;
+
 }

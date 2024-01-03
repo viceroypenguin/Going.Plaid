@@ -40,4 +40,5 @@ public record UserDataOverview
 	/// </summary>
 	[JsonPropertyName("total_inflows")]
 	public decimal TotalInflows { get; init; } = default!;
+
 }

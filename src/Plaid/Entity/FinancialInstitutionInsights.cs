@@ -28,4 +28,5 @@ public record FinancialInstitutionInsights
 	/// </summary>
 	[JsonPropertyName("detected_accounts")]
 	public IReadOnlyList<Entity.DetectedAccount> DetectedAccounts { get; init; } = default!;
+
 }

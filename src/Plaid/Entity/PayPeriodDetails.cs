@@ -52,4 +52,5 @@ public record PayPeriodDetails
 	/// </summary>
 	[JsonPropertyName("start_date")]
 	public DateOnly? StartDate { get; init; } = default!;
+
 }

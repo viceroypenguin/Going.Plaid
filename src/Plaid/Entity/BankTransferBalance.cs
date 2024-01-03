@@ -16,4 +16,5 @@ public record BankTransferBalance
 	/// </summary>
 	[JsonPropertyName("transactable")]
 	public string Transactable { get; init; } = default!;
+
 }

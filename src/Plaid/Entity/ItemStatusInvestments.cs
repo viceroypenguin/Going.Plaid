@@ -16,4 +16,5 @@ public record ItemStatusInvestments
 	/// </summary>
 	[JsonPropertyName("last_failed_update")]
 	public DateTimeOffset? LastFailedUpdate { get; init; } = default!;
+
 }

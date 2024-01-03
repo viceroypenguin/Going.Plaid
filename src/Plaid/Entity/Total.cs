@@ -28,4 +28,5 @@ public record Total
 	/// </summary>
 	[JsonPropertyName("ytd_pay")]
 	public Entity.Pay? YtdPay { get; init; } = default!;
+
 }

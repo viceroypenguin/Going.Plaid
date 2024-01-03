@@ -52,4 +52,5 @@ public record CreditPayStub
 	/// </summary>
 	[JsonPropertyName("pay_period_details")]
 	public Entity.PayStubPayPeriodDetails PayPeriodDetails { get; init; } = default!;
+
 }

@@ -124,4 +124,5 @@ public record MortgageLiability
 	/// </summary>
 	[JsonPropertyName("ytd_principal_paid")]
 	public decimal? YtdPrincipalPaid { get; init; } = default!;
+
 }

@@ -16,4 +16,5 @@ public record TransferMigrateAccountResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; init; } = default!;
+
 }

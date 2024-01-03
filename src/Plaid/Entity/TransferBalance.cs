@@ -22,4 +22,5 @@ public record TransferBalance
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.TransferBalanceType Type { get; init; } = default!;
+
 }

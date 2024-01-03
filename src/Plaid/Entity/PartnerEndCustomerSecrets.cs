@@ -16,4 +16,5 @@ public record PartnerEndCustomerSecrets
 	/// </summary>
 	[JsonPropertyName("development")]
 	public string? Development { get; init; } = default!;
+
 }

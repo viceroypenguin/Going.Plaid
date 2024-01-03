@@ -10,4 +10,5 @@ public record EntityScreeningHitUrls
 	/// </summary>
 	[JsonPropertyName("url")]
 	public string Url { get; init; } = default!;
+
 }

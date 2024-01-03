@@ -28,4 +28,5 @@ public record Employee
 	/// </summary>
 	[JsonPropertyName("taxpayer_id")]
 	public Entity.TaxpayerID? TaxpayerId { get; init; } = default!;
+
 }

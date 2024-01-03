@@ -10,4 +10,5 @@ public record ItemApplicationListResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("applications")]
 	public IReadOnlyList<Entity.ConnectedApplication> Applications { get; init; } = default!;
+
 }

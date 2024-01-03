@@ -13,4 +13,5 @@ public record CreditPayrollIncomeRefreshResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("verification_refresh_status")]
 	public string VerificationRefreshStatus { get; init; } = default!;
+
 }

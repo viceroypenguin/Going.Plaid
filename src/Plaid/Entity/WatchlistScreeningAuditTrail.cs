@@ -22,4 +22,5 @@ public record WatchlistScreeningAuditTrail
 	/// </summary>
 	[JsonPropertyName("timestamp")]
 	public DateTimeOffset Timestamp { get; init; } = default!;
+
 }

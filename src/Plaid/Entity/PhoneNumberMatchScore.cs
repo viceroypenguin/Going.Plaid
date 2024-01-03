@@ -10,4 +10,5 @@ public record PhoneNumberMatchScore
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int? Score { get; init; } = default!;
+
 }

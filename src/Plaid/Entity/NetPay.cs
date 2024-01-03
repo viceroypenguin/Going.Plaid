@@ -41,4 +41,5 @@ public record NetPay
 	/// </summary>
 	[JsonPropertyName("total")]
 	public Entity.Total? Total { get; init; } = default!;
+
 }

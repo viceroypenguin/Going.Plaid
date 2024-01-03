@@ -30,4 +30,5 @@ public record UserAccountRevokedWebhook : WebhookBase
 	/// </summary>
 	[JsonPropertyName("error")]
 	public Entity.PlaidError? Error { get; init; } = default!;
+
 }

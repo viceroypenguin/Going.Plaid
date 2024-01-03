@@ -10,4 +10,5 @@ public record CreditBankEmploymentGetResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("bank_employment_reports")]
 	public IReadOnlyList<Entity.CreditBankEmploymentReport> BankEmploymentReports { get; init; } = default!;
+
 }

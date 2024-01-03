@@ -16,4 +16,5 @@ public record EmploymentDetails
 	/// </summary>
 	[JsonPropertyName("hire_date")]
 	public DateOnly? HireDate { get; init; } = default!;
+
 }

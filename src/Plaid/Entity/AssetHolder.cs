@@ -10,4 +10,5 @@ public record AssetHolder
 	/// </summary>
 	[JsonPropertyName("NAME")]
 	public Entity.NAME Name { get; init; } = default!;
+
 }

@@ -150,4 +150,5 @@ public record StudentLoan
 	/// </summary>
 	[JsonPropertyName("ytd_principal_paid")]
 	public decimal? YtdPrincipalPaid { get; init; } = default!;
+
 }

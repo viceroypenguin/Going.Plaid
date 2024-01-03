@@ -22,4 +22,5 @@ public record LinkTokenCreateResponse : ResponseBase
 	/// </summary>
 	[JsonPropertyName("hosted_link_url")]
 	public string? HostedLinkUrl { get; init; } = default!;
+
 }
