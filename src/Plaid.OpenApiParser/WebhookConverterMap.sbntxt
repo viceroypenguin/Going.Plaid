@@ -3,13 +3,13 @@
 namespace Going.Plaid.Converters;
 
 /// <inheritdoc />
-public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
+public partial class {{ prefix }}WebhookBaseConverter : JsonConverter<{{ prefix }}WebhookBase>
 {
-	private static readonly Dictionary<(WebhookType, WebhookCode), Type> Map =
+	private static readonly Dictionary<({{ prefix }}WebhookType, {{ prefix }}WebhookCode), Type> Map =
 		new()
 		{
 			{{~ for hook in hooks ~}}
-			[(WebhookType.{{ hook.type }}, WebhookCode.{{ hook.code }})] = typeof({{ hook.value }}),
+			[({{ prefix }}WebhookType.{{ hook.type }}, {{ prefix }}WebhookCode.{{ hook.code }})] = typeof({{ hook.value }}),
 			{{~ end ~}}
 		};
 }

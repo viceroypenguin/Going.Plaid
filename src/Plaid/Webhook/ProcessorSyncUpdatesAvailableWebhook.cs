@@ -7,15 +7,15 @@ namespace Going.Plaid.Webhook;
 /// <para>Note that to receive this webhook for an Item, <c>/processor/transactions/sync</c> must have been called at least once on that Item. This means that, unlike the <c>INITIAL_UPDATE</c> and <c>HISTORICAL_UPDATE</c> webhooks, it will not fire immediately upon Item creation. If <c>/transactions/sync</c> is called on an Item that was *not* initialized with Transactions, the webhook will fire twice: once the first 30 days of transactions data has been fetched, and a second time when all available historical transactions data has been fetched.</para>
 /// <para>This webhook will typically not fire in the Sandbox environment, due to the lack of dynamic transactions data. To test this webhook in Sandbox, call <c>/sandbox/item/fire_webhook</c>.</para>
 /// </summary>
-public record ProcessorSyncUpdatesAvailableWebhook : WebhookBase
+public record ProcessorSyncUpdatesAvailableWebhook : ProcessorWebhookBase
 {
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_type")]
-	public override WebhookType WebhookType => WebhookType.Transactions;
+	public override ProcessorWebhookType WebhookType => ProcessorWebhookType.Transactions;
 
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]
-	public override WebhookCode WebhookCode => WebhookCode.SyncUpdatesAvailable;
+	public override ProcessorWebhookCode WebhookCode => ProcessorWebhookCode.SyncUpdatesAvailable;
 
 	/// <summary>
 	/// <para>The ID of the account.</para>

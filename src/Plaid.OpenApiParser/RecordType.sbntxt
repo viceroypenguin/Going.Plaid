@@ -15,6 +15,16 @@ public record {{ name }}{{ if !string.empty base }} : {{ base }}Base{{ end }}
 	public override WebhookCode WebhookCode => WebhookCode.{{ webhook_code }};
 
 	{{~ end ~}}
+	{{~ if base == "ProcessorWebhook" ~}}
+	/// <inheritdoc />
+	[JsonPropertyName("webhook_type")]
+	public override ProcessorWebhookType WebhookType => ProcessorWebhookType.{{ webhook_type }};
+
+	/// <inheritdoc />
+	[JsonPropertyName("webhook_code")]
+	public override ProcessorWebhookCode WebhookCode => ProcessorWebhookCode.{{ webhook_code }};
+
+	{{~ end ~}}
 	{{~ for p in properties ~}}
 	/// <summary>
 	{{ p.description }}

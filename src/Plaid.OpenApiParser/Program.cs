@@ -5,7 +5,6 @@ using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
 using Scriban;
-using Scriban.Runtime;
 
 namespace Plaid.OpenApiParser;
 
@@ -28,12 +27,18 @@ internal static partial class Program
 
 		ProcessUris(doc);
 		ProcessAccountTypes(doc);
-		ProcessWebhookTypes(doc);
+
+		var webhookMap = new Dictionary<(string type, string code), string>();
+		ProcessWebhookTypes(doc, isProcessor: false, webhookMap);
+
+		var processorWebhookMap = new Dictionary<(string type, string code), string>();
+		ProcessWebhookTypes(doc, isProcessor: true, processorWebhookMap);
 
 		var plaidSrcPath = Path.Combine(basePath, "src", "Plaid");
 		SaveApis(plaidSrcPath);
 		SaveSchemas(plaidSrcPath);
-		SaveConverterMap(plaidSrcPath);
+		SaveConverterMap(plaidSrcPath, isProcessor: false, webhookMap);
+		SaveConverterMap(plaidSrcPath, isProcessor: true, processorWebhookMap);
 	}
 
 	private static string GetBasePath()
@@ -46,7 +51,6 @@ internal static partial class Program
 
 	private static readonly List<ApiCall> ApiCalls = [];
 	private static readonly Dictionary<string, SchemaEntity> SchemaEntities = [];
-	private static readonly Dictionary<(string type, string code), string> WebhookDictionaryMap = [];
 	private static readonly Dictionary<string, string> NameFixups = new()
 	{
 		["ACHClass"] = "AchClass",
@@ -192,14 +196,14 @@ internal static partial class Program
 				{
 					BaseType.Request => p.Key is not "client_id" and not "secret" and not "access_token",
 					BaseType.Response => p.Key is not "request_id" and not "error",
-					BaseType.Webhook => p.Key is not "environment",
+					BaseType.Webhook or BaseType.ProcessorWebhook => p.Key is not "environment",
 					BaseType.None => true,
 					_ => true,
 				})
 				.Select(p =>
 				{
 					var propertyName = p.Key.ToLower(null).ToPascalCase();
-					if (baseType == BaseType.Webhook && p.Key is "webhook_type" or "webhook_code")
+					if (baseType is BaseType.Webhook or BaseType.ProcessorWebhook && p.Key is "webhook_type" or "webhook_code")
 					{
 						var code = p.Value.Description.Trim('`', '"');
 						return new Property(code, propertyName, propertyName, code.ToLower(null).ToPascalCase());
@@ -434,13 +438,17 @@ internal static partial class Program
 		};
 	}
 
-	private static void ProcessWebhookTypes(OpenApiDocument doc)
+	private static void ProcessWebhookTypes(OpenApiDocument doc, bool isProcessor, Dictionary<(string type, string code), string> webhookMap)
 	{
+		var prefix = isProcessor ? "Processor" : "";
+		var baseType = isProcessor ? BaseType.ProcessorWebhook : BaseType.Webhook;
+
 		var schemas = doc.Components.Schemas
 			.Select(x => x.Value)
 			.Select(x => (schema: x, name: x.Title ?? x.Reference?.Id!))
 			.Where(x => !string.IsNullOrWhiteSpace(x.name))
 			.Where(x => x.name.EndsWith("Webhook", StringComparison.OrdinalIgnoreCase))
+			.Where(x => isProcessor == x.name.StartsWith("Processor", StringComparison.OrdinalIgnoreCase))
 			.Where(x => x.schema.Properties.Any(p => p.Key == "webhook_code"))
 			.ToList();
 
@@ -450,7 +458,7 @@ internal static partial class Program
 		foreach (var (schema, name) in schemas)
 		{
 			var entityName = NameFixups.GetValueOrDefault(name, name);
-			AddSchemaEntity("Webhook", entityName, BaseType.Webhook, schema, SchemaType.Record);
+			AddSchemaEntity("Webhook", entityName, baseType, schema, SchemaType.Record);
 
 			var se = SchemaEntities[entityName];
 			var type = se.Properties!
@@ -458,16 +466,16 @@ internal static partial class Program
 			var code = se.Properties!
 				.Single(p => p.Name == "WebhookCode");
 
-			WebhookDictionaryMap[(type.Description!, code.Description!)] = entityName;
+			webhookMap[(type.Description!, code.Description!)] = entityName;
 			_ = types.Add((type.JsonName, type.Description!));
 			_ = codes.Add((code.JsonName, code.Description!));
 		}
 
-		SchemaEntities["WebhookType"] = new()
+		SchemaEntities[prefix + "WebhookType"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
-			Name = "WebhookType",
+			Name = prefix + "WebhookType",
 			Description = "A list of supported Webhook Payload types.",
 			Properties = types
 				.Select(e => new Property(
@@ -478,11 +486,11 @@ internal static partial class Program
 				.ToList(),
 		};
 
-		SchemaEntities["WebhookCode"] = new()
+		SchemaEntities[prefix + "WebhookCode"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
-			Name = "WebhookCode",
+			Name = prefix + "WebhookCode",
 			Description = "A list of supported Webhook Payload codes.",
 			Properties = codes
 				.Select(e => new Property(
@@ -601,6 +609,7 @@ internal static partial class Program
 				{
 					BaseType.Webhook => "Webhook",
 					BaseType.Response => "Response",
+					BaseType.ProcessorWebhook => "ProcessorWebhook",
 					BaseType.Request => throw new NotSupportedException(),
 					BaseType.None or _ => "",
 				},
@@ -658,15 +667,17 @@ internal static partial class Program
 		}
 	}
 
-	private static void SaveConverterMap(string plaidSrcPath)
+	private static void SaveConverterMap(string plaidSrcPath, bool isProcessor, Dictionary<(string type, string code), string> webhookMap)
 	{
 		var template = Template.Parse(GetTemplate("WebhookConverterMap"));
+		var prefix = isProcessor ? "Processor" : "";
 		var source = template.Render(new
 		{
-			Hooks = WebhookDictionaryMap
+			Prefix = prefix,
+			Hooks = webhookMap
 				.Select(kvp => new { Type = kvp.Key.type, Code = kvp.Key.code, kvp.Value, })
 		});
-		File.WriteAllText(Path.Combine(plaidSrcPath, "Converters", "WebhookBaseConverter.Map.cs"), source);
+		File.WriteAllText(Path.Combine(plaidSrcPath, "Converters", prefix + "WebhookBaseConverter.Map.cs"), source);
 	}
 
 	private static string GetTemplate(string templateName)
@@ -697,6 +708,7 @@ public enum BaseType
 	Request,
 	Response,
 	Webhook,
+	ProcessorWebhook,
 }
 
 public record struct ApiCall(string Uri, string BasePath, string MethodName, string Description, string ExternalUrl, string RequestType, string ResponseType);
