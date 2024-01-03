@@ -22,4 +22,5 @@ public class BankTransferUser
 	/// </summary>
 	[JsonPropertyName("routing_number")]
 	public string? RoutingNumber { get; set; } = default!;
+
 }

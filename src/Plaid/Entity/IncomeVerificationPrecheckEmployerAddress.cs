@@ -36,4 +36,5 @@ public class IncomeVerificationPrecheckEmployerAddress
 	/// </summary>
 	[JsonPropertyName("street")]
 	public string? Street { get; set; } = default!;
+
 }

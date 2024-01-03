@@ -16,4 +16,5 @@ public partial class TransferEventSyncRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("count")]
 	public int? Count { get; set; } = default!;
+
 }

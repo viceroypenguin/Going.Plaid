@@ -16,4 +16,5 @@ public class SandboxPublicTokenCreateRequestOptionsIncomeVerification
 	/// </summary>
 	[JsonPropertyName("bank_income")]
 	public Entity.SandboxPublicTokenCreateRequestIncomeVerificationBankIncome? BankIncome { get; set; } = default!;
+
 }

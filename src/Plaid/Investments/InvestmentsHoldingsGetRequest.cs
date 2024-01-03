@@ -10,4 +10,5 @@ public partial class InvestmentsHoldingsGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.InvestmentHoldingsGetRequestOptions? Options { get; set; } = default!;
+
 }

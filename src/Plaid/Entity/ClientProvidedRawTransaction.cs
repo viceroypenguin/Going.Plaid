@@ -30,4 +30,5 @@ public class ClientProvidedRawTransaction
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; set; } = default!;
+
 }

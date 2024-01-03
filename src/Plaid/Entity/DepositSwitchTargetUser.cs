@@ -40,4 +40,5 @@ public class DepositSwitchTargetUser
 	/// </summary>
 	[JsonPropertyName("tax_payer_id")]
 	public string? TaxPayerId { get; set; } = default!;
+
 }

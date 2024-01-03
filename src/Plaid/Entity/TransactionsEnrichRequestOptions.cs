@@ -11,4 +11,5 @@ public class TransactionsEnrichRequestOptions
 	/// </summary>
 	[JsonPropertyName("include_legacy_category")]
 	public bool? IncludeLegacyCategory { get; set; } = default!;
+
 }

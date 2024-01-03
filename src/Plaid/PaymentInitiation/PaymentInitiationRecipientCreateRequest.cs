@@ -28,4 +28,5 @@ public partial class PaymentInitiationRecipientCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.PaymentInitiationAddress? Address { get; set; } = default!;
+
 }

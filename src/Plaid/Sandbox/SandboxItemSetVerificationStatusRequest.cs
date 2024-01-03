@@ -16,4 +16,5 @@ public partial class SandboxItemSetVerificationStatusRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("verification_status")]
 	public Entity.SandboxItemSetVerificationStatusRequestVerificationStatusEnum VerificationStatus { get; set; } = default!;
+
 }

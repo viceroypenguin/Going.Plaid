@@ -10,4 +10,5 @@ public partial class WatchlistScreeningIndividualProgramListRequest : RequestBas
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public partial class ProcessorBalanceGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.ProcessorBalanceGetRequestOptions? Options { get; set; } = default!;
+
 }

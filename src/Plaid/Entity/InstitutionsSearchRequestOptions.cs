@@ -34,4 +34,5 @@ public class InstitutionsSearchRequestOptions
 	/// </summary>
 	[JsonPropertyName("payment_initiation")]
 	public Entity.InstitutionsSearchPaymentInitiationOptions? PaymentInitiation { get; set; } = default!;
+
 }

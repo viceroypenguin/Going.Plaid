@@ -10,4 +10,5 @@ public partial class CreditAuditCopyTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("report_tokens")]
 	public IReadOnlyList<string> ReportTokens { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public class LinkDeliveryCommunicationMethod
 	/// </summary>
 	[JsonPropertyName("address")]
 	public string? Address { get; set; } = default!;
+
 }

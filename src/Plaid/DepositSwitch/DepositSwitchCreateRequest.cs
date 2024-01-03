@@ -28,4 +28,5 @@ public partial class DepositSwitchCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.DepositSwitchCreateRequestOptions? Options { get; set; } = default!;
+
 }

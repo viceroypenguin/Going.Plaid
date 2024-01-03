@@ -10,4 +10,5 @@ public partial class CreditBankStatementsUploadsGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user_token")]
 	public string UserToken { get; set; } = default!;
+
 }

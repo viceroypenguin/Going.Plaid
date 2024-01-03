@@ -42,4 +42,5 @@ public partial class SignalDecisionReportRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("amount_instantly_available")]
 	public decimal? AmountInstantlyAvailable { get; set; } = default!;
+
 }

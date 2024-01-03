@@ -22,4 +22,5 @@ public class LinkTokenCreateHostedLink
 	/// </summary>
 	[JsonPropertyName("url_lifetime_seconds")]
 	public int? UrlLifetimeSeconds { get; set; } = default!;
+
 }

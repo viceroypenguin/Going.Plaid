@@ -28,4 +28,5 @@ public partial class SandboxTransferTestClockListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("offset")]
 	public int? Offset { get; set; } = default!;
+
 }

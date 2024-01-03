@@ -16,4 +16,5 @@ public partial class WatchlistScreeningIndividualCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; set; } = default!;
+
 }

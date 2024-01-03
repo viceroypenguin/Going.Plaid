@@ -52,4 +52,5 @@ public class TransferOriginatorDiligence
 	/// </summary>
 	[JsonPropertyName("funding_account")]
 	public Entity.TransferFundingAccount FundingAccount { get; set; } = default!;
+
 }

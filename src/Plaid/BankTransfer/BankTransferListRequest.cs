@@ -40,4 +40,5 @@ public partial class BankTransferListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("direction")]
 	public Entity.BankTransferDirection? Direction { get; set; } = default!;
+
 }

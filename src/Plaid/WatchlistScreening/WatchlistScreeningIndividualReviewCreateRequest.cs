@@ -28,4 +28,5 @@ public partial class WatchlistScreeningIndividualReviewCreateRequest : RequestBa
 	/// </summary>
 	[JsonPropertyName("watchlist_screening_id")]
 	public string WatchlistScreeningId { get; set; } = default!;
+
 }

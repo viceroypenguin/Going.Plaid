@@ -10,4 +10,5 @@ public class LinkTokenCreateRequestBaseReport
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int DaysRequested { get; set; } = default!;
+
 }

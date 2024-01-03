@@ -10,4 +10,5 @@ public partial class LinkTokenGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("link_token")]
 	public string LinkToken { get; set; } = default!;
+
 }

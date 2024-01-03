@@ -28,4 +28,5 @@ public class IncomeVerificationPrecheckEmployer
 	/// </summary>
 	[JsonPropertyName("url")]
 	public string? Url { get; set; } = default!;
+
 }

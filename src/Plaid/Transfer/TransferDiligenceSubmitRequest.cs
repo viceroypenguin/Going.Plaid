@@ -16,4 +16,5 @@ public partial class TransferDiligenceSubmitRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("originator_diligence")]
 	public Entity.TransferOriginatorDiligence OriginatorDiligence { get; set; } = default!;
+
 }

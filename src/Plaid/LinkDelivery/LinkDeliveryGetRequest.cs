@@ -10,4 +10,5 @@ public partial class LinkDeliveryGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("link_delivery_session_id")]
 	public string LinkDeliverySessionId { get; set; } = default!;
+
 }

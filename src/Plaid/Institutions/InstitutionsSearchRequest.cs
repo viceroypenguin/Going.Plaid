@@ -28,4 +28,5 @@ public partial class InstitutionsSearchRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.InstitutionsSearchRequestOptions? Options { get; set; } = default!;
+
 }

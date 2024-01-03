@@ -114,4 +114,5 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;
+
 }

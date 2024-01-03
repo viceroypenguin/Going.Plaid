@@ -16,4 +16,5 @@ public class IdentityVerificationRequestUserName
 	/// </summary>
 	[JsonPropertyName("family_name")]
 	public string FamilyName { get; set; } = default!;
+
 }

@@ -22,4 +22,5 @@ public partial class IdentityVerificationListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; set; } = default!;
+
 }

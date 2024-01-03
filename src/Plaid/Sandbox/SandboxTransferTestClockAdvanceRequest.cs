@@ -16,4 +16,5 @@ public partial class SandboxTransferTestClockAdvanceRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("new_virtual_time")]
 	public DateTimeOffset NewVirtualTime { get; set; } = default!;
+
 }

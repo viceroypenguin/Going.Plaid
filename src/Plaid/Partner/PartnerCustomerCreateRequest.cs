@@ -100,4 +100,5 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("registration_number")]
 	public string? RegistrationNumber { get; set; } = default!;
+
 }

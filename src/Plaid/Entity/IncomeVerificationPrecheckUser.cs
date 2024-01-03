@@ -28,4 +28,5 @@ public class IncomeVerificationPrecheckUser
 	/// </summary>
 	[JsonPropertyName("home_address")]
 	public Entity.AddressData? HomeAddress { get; set; } = default!;
+
 }

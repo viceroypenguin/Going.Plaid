@@ -29,4 +29,5 @@ public class AccountsBalanceGetRequestPaymentDetails
 	/// </summary>
 	[JsonPropertyName("balance_threshold_percentage")]
 	public int? BalanceThresholdPercentage { get; set; } = default!;
+
 }

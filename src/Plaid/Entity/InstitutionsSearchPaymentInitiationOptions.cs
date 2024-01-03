@@ -16,4 +16,5 @@ public class InstitutionsSearchPaymentInitiationOptions
 	/// </summary>
 	[JsonPropertyName("consent_id")]
 	public string? ConsentId { get; set; } = default!;
+
 }

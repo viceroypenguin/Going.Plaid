@@ -10,4 +10,5 @@ public partial class TransferIntentGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("transfer_intent_id")]
 	public string TransferIntentId { get; set; } = default!;
+
 }

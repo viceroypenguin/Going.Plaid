@@ -28,4 +28,5 @@ public partial class SandboxPublicTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user_token")]
 	public string? UserToken { get; set; } = default!;
+
 }

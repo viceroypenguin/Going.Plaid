@@ -22,4 +22,5 @@ public class AssetReportRefreshRequestOptions
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.AssetReportUser? User { get; set; } = default!;
+
 }

@@ -28,4 +28,5 @@ public class TransferUserInRequestDeprecated
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.TransferUserAddressInRequest? Address { get; set; } = default!;
+
 }

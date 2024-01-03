@@ -16,4 +16,5 @@ public class TransferFailure
 	/// </summary>
 	[JsonPropertyName("description")]
 	public string? Description { get; set; } = default!;
+
 }

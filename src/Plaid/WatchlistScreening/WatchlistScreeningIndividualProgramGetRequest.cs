@@ -10,4 +10,5 @@ public partial class WatchlistScreeningIndividualProgramGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("watchlist_program_id")]
 	public string WatchlistProgramId { get; set; } = default!;
+
 }

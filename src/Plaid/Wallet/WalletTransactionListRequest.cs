@@ -28,4 +28,5 @@ public partial class WalletTransactionListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.WalletTransactionListRequestOptions? Options { get; set; } = default!;
+
 }

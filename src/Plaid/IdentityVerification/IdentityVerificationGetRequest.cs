@@ -10,4 +10,5 @@ public partial class IdentityVerificationGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("identity_verification_id")]
 	public string IdentityVerificationId { get; set; } = default!;
+
 }

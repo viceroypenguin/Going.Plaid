@@ -10,4 +10,5 @@ public partial class TransactionsRulesRemoveRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("rule_id")]
 	public string RuleId { get; set; } = default!;
+
 }

@@ -22,4 +22,5 @@ public partial class SandboxBankIncomeFireWebhookRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("webhook_fields")]
 	public Entity.SandboxBankIncomeWebhookFireRequestWebhookFields WebhookFields { get; set; } = default!;
+
 }

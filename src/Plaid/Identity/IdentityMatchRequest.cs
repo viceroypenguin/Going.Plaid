@@ -16,4 +16,5 @@ public partial class IdentityMatchRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.IdentityMatchRequestOptions? Options { get; set; } = default!;
+
 }

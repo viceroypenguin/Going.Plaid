@@ -24,4 +24,5 @@ public partial class TransactionsSyncRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.TransactionsSyncRequestOptions? Options { get; set; } = default!;
+
 }

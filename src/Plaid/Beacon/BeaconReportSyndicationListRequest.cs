@@ -16,4 +16,5 @@ public partial class BeaconReportSyndicationListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; set; } = default!;
+
 }

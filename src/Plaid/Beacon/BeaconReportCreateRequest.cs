@@ -29,4 +29,5 @@ public partial class BeaconReportCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("fraud_amount")]
 	public Entity.FraudAmount? FraudAmount { get; set; } = default!;
+
 }

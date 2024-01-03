@@ -16,4 +16,5 @@ public partial class BeaconUserUpdateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.BeaconUserUpdateRequestData User { get; set; } = default!;
+
 }

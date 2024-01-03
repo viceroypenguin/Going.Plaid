@@ -16,4 +16,5 @@ public partial class CreditBankIncomeWebhookUpdateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("enable_webhooks")]
 	public bool EnableWebhooks { get; set; } = default!;
+
 }

@@ -10,4 +10,5 @@ public partial class ProcessorStripeBankAccountTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; set; } = default!;
+
 }

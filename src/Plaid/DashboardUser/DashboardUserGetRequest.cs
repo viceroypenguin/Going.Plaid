@@ -10,4 +10,5 @@ public partial class DashboardUserGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("dashboard_user_id")]
 	public string DashboardUserId { get; set; } = default!;
+
 }

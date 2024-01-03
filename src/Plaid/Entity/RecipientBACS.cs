@@ -16,4 +16,5 @@ public class RecipientBACS
 	/// </summary>
 	[JsonPropertyName("sort_code")]
 	public string? SortCode { get; set; } = default!;
+
 }

@@ -64,4 +64,5 @@ public partial class TransferSweepListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("trigger")]
 	public Entity.SweepTrigger? Trigger { get; set; } = default!;
+
 }

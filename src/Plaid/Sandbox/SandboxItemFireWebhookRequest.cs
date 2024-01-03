@@ -16,4 +16,5 @@ public partial class SandboxItemFireWebhookRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("webhook_code")]
 	public Entity.SandboxItemFireWebhookRequestWebhookCodeEnum WebhookCode { get; set; } = default!;
+
 }

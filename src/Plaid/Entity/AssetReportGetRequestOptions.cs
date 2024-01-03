@@ -10,4 +10,5 @@ public class AssetReportGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("days_to_include")]
 	public int? DaysToInclude { get; set; } = default!;
+
 }

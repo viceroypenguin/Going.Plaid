@@ -16,4 +16,5 @@ public class WalletTransactionCounterpartyBACS
 	/// </summary>
 	[JsonPropertyName("sort_code")]
 	public string? SortCode { get; set; } = default!;
+
 }

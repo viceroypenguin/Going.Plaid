@@ -232,4 +232,5 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("cra_enabled")]
 	public bool? CraEnabled { get; set; } = default!;
+
 }

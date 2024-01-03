@@ -16,4 +16,5 @@ public class WalletTransactionListRequestOptions
 	/// </summary>
 	[JsonPropertyName("end_time")]
 	public DateTimeOffset? EndTime { get; set; } = default!;
+
 }

@@ -11,4 +11,5 @@ public class LiabilitiesGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("account_ids")]
 	public IReadOnlyList<string>? AccountIds { get; set; } = default!;
+
 }

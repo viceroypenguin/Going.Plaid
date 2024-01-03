@@ -16,4 +16,5 @@ public partial class TransferOriginatorFundingAccountUpdateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("funding_account")]
 	public Entity.TransferFundingAccount FundingAccount { get; set; } = default!;
+
 }

@@ -12,4 +12,5 @@ public class ProcessorBalanceGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("min_last_updated_datetime")]
 	public DateTimeOffset? MinLastUpdatedDatetime { get; set; } = default!;
+
 }

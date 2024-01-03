@@ -22,4 +22,5 @@ public class ExternalPaymentInitiationConsentOptions
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.PaymentInitiationOptionalRestrictionBacs? Bacs { get; set; } = default!;
+
 }

@@ -10,4 +10,5 @@ public partial class AccountsGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.AccountsGetRequestOptions? Options { get; set; } = default!;
+
 }

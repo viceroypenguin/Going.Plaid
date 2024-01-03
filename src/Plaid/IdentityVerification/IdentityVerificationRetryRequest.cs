@@ -47,4 +47,5 @@ public partial class IdentityVerificationRetryRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("steps")]
 	public Entity.IdentityVerificationRetryRequestStepsObject? Steps { get; set; } = default!;
+
 }

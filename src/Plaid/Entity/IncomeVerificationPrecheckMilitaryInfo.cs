@@ -17,4 +17,5 @@ public class IncomeVerificationPrecheckMilitaryInfo
 	/// </summary>
 	[JsonPropertyName("branch")]
 	public string? Branch { get; set; } = default!;
+
 }

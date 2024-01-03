@@ -10,4 +10,5 @@ public partial class BankTransferSweepGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("sweep_id")]
 	public string SweepId { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public partial class CreditRelayGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("report_type")]
 	public Entity.ReportType ReportType { get; set; } = default!;
+
 }

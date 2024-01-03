@@ -10,4 +10,5 @@ public class LinkTokenCreateCardSwitch
 	/// </summary>
 	[JsonPropertyName("card_bin")]
 	public string CardBin { get; set; } = default!;
+
 }

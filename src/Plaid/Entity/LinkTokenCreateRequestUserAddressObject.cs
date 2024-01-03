@@ -40,4 +40,5 @@ public class LinkTokenCreateRequestUserAddressObject
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string? Country { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public partial class TransferBalanceGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.TransferBalanceType? Type { get; set; } = default!;
+
 }

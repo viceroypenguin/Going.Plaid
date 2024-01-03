@@ -22,4 +22,5 @@ public class Scopes
 	/// </summary>
 	[JsonPropertyName("new_accounts")]
 	public bool? NewAccounts { get; set; } = default!;
+
 }

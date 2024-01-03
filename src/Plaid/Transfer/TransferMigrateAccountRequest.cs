@@ -28,4 +28,5 @@ public partial class TransferMigrateAccountRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("account_type")]
 	public string AccountType { get; set; } = default!;
+
 }

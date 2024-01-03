@@ -10,4 +10,5 @@ public partial class BeaconReportSyndicationGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("beacon_report_syndication_id")]
 	public string BeaconReportSyndicationId { get; set; } = default!;
+
 }

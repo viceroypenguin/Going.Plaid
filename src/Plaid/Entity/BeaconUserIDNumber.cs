@@ -16,4 +16,5 @@ public class BeaconUserIDNumber
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.IDNumberType Type { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public class LinkTokenInvestmentsAuth
 	/// </summary>
 	[JsonPropertyName("masked_number_match_enabled")]
 	public bool? MaskedNumberMatchEnabled { get; set; } = default!;
+
 }

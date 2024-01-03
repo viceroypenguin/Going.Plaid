@@ -40,4 +40,5 @@ public class LinkTokenCreateRequestUserStatedIncomeSource
 	/// </summary>
 	[JsonPropertyName("pay_frequency")]
 	public Entity.UserStatedIncomeSourceFrequency? PayFrequency { get; set; } = default!;
+
 }

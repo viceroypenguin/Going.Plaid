@@ -28,4 +28,5 @@ public class WalletTransactionCounterparty
 	/// </summary>
 	[JsonPropertyName("date_of_birth")]
 	public DateOnly? DateOfBirth { get; set; } = default!;
+
 }

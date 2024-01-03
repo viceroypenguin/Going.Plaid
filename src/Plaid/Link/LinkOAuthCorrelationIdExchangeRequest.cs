@@ -10,4 +10,5 @@ public partial class LinkOAuthCorrelationIdExchangeRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("link_correlation_id")]
 	public string LinkCorrelationId { get; set; } = default!;
+
 }

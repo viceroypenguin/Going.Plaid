@@ -89,4 +89,5 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("device")]
 	public Entity.TransferDevice? Device { get; set; } = default!;
+
 }

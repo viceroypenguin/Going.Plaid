@@ -10,4 +10,5 @@ public partial class StatementsDownloadRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("statement_id")]
 	public string StatementId { get; set; } = default!;
+
 }

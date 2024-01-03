@@ -16,4 +16,5 @@ public class LinkTokenCreateRequestStatements
 	/// </summary>
 	[JsonPropertyName("end_date")]
 	public DateOnly? EndDate { get; set; } = default!;
+
 }

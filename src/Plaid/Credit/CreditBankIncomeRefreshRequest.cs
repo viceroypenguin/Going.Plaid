@@ -16,4 +16,5 @@ public partial class CreditBankIncomeRefreshRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.CreditBankIncomeRefreshRequestOptions? Options { get; set; } = default!;
+
 }

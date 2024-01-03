@@ -46,4 +46,5 @@ public class EntityWatchlistSearchTerms
 	/// </summary>
 	[JsonPropertyName("url")]
 	public string? Url { get; set; } = default!;
+
 }

@@ -10,4 +10,5 @@ public partial class TransferRecurringCancelRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("recurring_transfer_id")]
 	public string RecurringTransferId { get; set; } = default!;
+
 }

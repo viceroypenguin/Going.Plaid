@@ -22,4 +22,5 @@ public partial class WalletListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("count")]
 	public int? Count { get; set; } = default!;
+
 }

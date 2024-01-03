@@ -34,4 +34,5 @@ public class TransferOriginatorAddress
 	/// </summary>
 	[JsonPropertyName("country_code")]
 	public string CountryCode { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public partial class AccountsBalanceGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("payment_details")]
 	public Entity.AccountsBalanceGetRequestPaymentDetails? PaymentDetails { get; set; } = default!;
+
 }

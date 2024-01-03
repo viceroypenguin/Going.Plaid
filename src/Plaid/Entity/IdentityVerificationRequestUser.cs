@@ -50,4 +50,5 @@ public class IdentityVerificationRequestUser
 	/// </summary>
 	[JsonPropertyName("id_number")]
 	public Entity.UserIDNumber? IdNumber { get; set; } = default!;
+
 }

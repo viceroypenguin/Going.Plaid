@@ -16,4 +16,5 @@ public class LinkTokenCreateRequestUserIdNumberObject
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.IDNumberType? Type { get; set; } = default!;
+
 }

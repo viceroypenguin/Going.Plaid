@@ -16,4 +16,5 @@ public partial class ProcessorTokenPermissionsSetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products> Products { get; set; } = default!;
+
 }

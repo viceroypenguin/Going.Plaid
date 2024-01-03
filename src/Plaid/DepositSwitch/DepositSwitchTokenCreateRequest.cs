@@ -10,4 +10,5 @@ public partial class DepositSwitchTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("deposit_switch_id")]
 	public string DepositSwitchId { get; set; } = default!;
+
 }

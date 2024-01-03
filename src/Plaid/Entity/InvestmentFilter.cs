@@ -10,4 +10,5 @@ public class InvestmentFilter
 	/// </summary>
 	[JsonPropertyName("account_subtypes")]
 	public IReadOnlyList<Entity.InvestmentAccountSubtype> AccountSubtypes { get; set; } = default!;
+
 }

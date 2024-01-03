@@ -10,4 +10,5 @@ public partial class TransferSweepGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("sweep_id")]
 	public string SweepId { get; set; } = default!;
+
 }

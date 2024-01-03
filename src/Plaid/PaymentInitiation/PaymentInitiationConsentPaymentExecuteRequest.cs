@@ -23,4 +23,5 @@ public partial class PaymentInitiationConsentPaymentExecuteRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("idempotency_key")]
 	public string IdempotencyKey { get; set; } = default!;
+
 }

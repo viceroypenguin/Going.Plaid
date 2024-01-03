@@ -36,4 +36,5 @@ public partial class PaymentInitiationPaymentCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.PaymentOptions? Options { get; set; } = default!;
+
 }

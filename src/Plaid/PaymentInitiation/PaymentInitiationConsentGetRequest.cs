@@ -10,4 +10,5 @@ public partial class PaymentInitiationConsentGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("consent_id")]
 	public string ConsentId { get; set; } = default!;
+
 }

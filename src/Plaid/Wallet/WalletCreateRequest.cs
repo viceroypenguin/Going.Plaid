@@ -10,4 +10,5 @@ public partial class WalletCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
 	public Entity.IsoCurrencyCode IsoCurrencyCode { get; set; } = default!;
+
 }

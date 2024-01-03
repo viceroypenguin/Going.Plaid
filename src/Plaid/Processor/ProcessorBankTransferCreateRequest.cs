@@ -82,4 +82,5 @@ public partial class ProcessorBankTransferCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	public string? OriginationAccountId { get; set; } = default!;
+
 }

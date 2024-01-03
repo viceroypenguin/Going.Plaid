@@ -18,4 +18,5 @@ public partial class TransactionsRulesCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("rule_details")]
 	public Entity.TransactionsRuleDetails RuleDetails { get; set; } = default!;
+
 }

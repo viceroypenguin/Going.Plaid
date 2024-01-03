@@ -10,4 +10,5 @@ public partial class ProcessorTransactionsRefreshRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("processor_token")]
 	public string ProcessorToken { get; set; } = default!;
+
 }

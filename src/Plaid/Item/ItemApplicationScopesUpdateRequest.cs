@@ -28,4 +28,5 @@ public partial class ItemApplicationScopesUpdateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("context")]
 	public Entity.ScopesContext Context { get; set; } = default!;
+
 }

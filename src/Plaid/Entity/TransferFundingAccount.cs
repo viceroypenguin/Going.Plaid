@@ -16,4 +16,5 @@ public class TransferFundingAccount
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; set; } = default!;
+
 }

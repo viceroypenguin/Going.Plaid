@@ -40,4 +40,5 @@ public partial class IncomeVerificationPrecheckRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("us_military_info")]
 	public Entity.IncomeVerificationPrecheckMilitaryInfo? UsMilitaryInfo { get; set; } = default!;
+
 }

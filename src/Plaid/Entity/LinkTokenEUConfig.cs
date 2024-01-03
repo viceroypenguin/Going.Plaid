@@ -10,4 +10,5 @@ public class LinkTokenEUConfig
 	/// </summary>
 	[JsonPropertyName("headless")]
 	public bool? Headless { get; set; } = default!;
+
 }

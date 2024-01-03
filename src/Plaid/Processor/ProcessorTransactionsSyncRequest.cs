@@ -30,4 +30,5 @@ public partial class ProcessorTransactionsSyncRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.TransactionsSyncRequestOptions? Options { get; set; } = default!;
+
 }

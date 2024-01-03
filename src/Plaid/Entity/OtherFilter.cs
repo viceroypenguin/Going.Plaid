@@ -10,4 +10,5 @@ public class OtherFilter
 	/// </summary>
 	[JsonPropertyName("account_subtypes")]
 	public IReadOnlyList<Entity.OtherAccountSubtype> AccountSubtypes { get; set; } = default!;
+
 }

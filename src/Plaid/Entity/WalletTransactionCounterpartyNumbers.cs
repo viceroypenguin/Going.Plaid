@@ -16,4 +16,5 @@ public class WalletTransactionCounterpartyNumbers
 	/// </summary>
 	[JsonPropertyName("international")]
 	public Entity.WalletTransactionCounterpartyInternational? International { get; set; } = default!;
+
 }

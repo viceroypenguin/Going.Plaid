@@ -16,4 +16,5 @@ public class WalletTransactionAmount
 	/// </summary>
 	[JsonPropertyName("value")]
 	public decimal Value { get; set; } = default!;
+
 }

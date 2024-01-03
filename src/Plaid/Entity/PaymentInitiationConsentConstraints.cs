@@ -22,4 +22,5 @@ public class PaymentInitiationConsentConstraints
 	/// </summary>
 	[JsonPropertyName("periodic_amounts")]
 	public IReadOnlyList<Entity.PaymentConsentPeriodicAmount> PeriodicAmounts { get; set; } = default!;
+
 }

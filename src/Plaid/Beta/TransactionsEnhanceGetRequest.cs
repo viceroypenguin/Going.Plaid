@@ -16,4 +16,5 @@ public partial class TransactionsEnhanceGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("transactions")]
 	public IReadOnlyList<Entity.ClientProvidedRawTransaction> Transactions { get; set; } = default!;
+
 }

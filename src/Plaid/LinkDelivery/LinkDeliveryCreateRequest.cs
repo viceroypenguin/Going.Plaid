@@ -16,4 +16,5 @@ public partial class LinkDeliveryCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.LinkDeliveryOptions? Options { get; set; } = default!;
+
 }

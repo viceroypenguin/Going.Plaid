@@ -10,4 +10,5 @@ public class WalletTransactionCounterpartyInternational
 	/// </summary>
 	[JsonPropertyName("iban")]
 	public string? Iban { get; set; } = default!;
+
 }

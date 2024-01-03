@@ -16,4 +16,5 @@ public partial class UserCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("consumer_report_user_identity")]
 	public Entity.ConsumerReportUserIdentity? ConsumerReportUserIdentity { get; set; } = default!;
+
 }

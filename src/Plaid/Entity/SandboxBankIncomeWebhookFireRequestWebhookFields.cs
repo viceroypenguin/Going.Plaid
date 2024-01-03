@@ -16,4 +16,5 @@ public class SandboxBankIncomeWebhookFireRequestWebhookFields
 	/// </summary>
 	[JsonPropertyName("bank_income_refresh_complete_result")]
 	public Entity.BankIncomeRefreshCompleteResult? BankIncomeRefreshCompleteResult { get; set; } = default!;
+
 }

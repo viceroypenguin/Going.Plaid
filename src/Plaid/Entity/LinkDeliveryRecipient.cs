@@ -16,4 +16,5 @@ public class LinkDeliveryRecipient
 	/// </summary>
 	[JsonPropertyName("first_name")]
 	public string? FirstName { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public class UserIDNumber
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.IDNumberType Type { get; set; } = default!;
+
 }

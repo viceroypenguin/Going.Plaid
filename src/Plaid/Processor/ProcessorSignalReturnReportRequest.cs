@@ -29,4 +29,5 @@ public partial class ProcessorSignalReturnReportRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("returned_at")]
 	public DateTimeOffset? ReturnedAt { get; set; } = default!;
+
 }

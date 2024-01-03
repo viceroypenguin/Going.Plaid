@@ -16,4 +16,5 @@ public partial class BeaconReportListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; set; } = default!;
+
 }

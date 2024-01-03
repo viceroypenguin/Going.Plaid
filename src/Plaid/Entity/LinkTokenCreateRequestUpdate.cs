@@ -10,4 +10,5 @@ public class LinkTokenCreateRequestUpdate
 	/// </summary>
 	[JsonPropertyName("account_selection_enabled")]
 	public bool? AccountSelectionEnabled { get; set; } = default!;
+
 }

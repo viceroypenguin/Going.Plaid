@@ -16,4 +16,5 @@ public partial class TransferOriginatorListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("offset")]
 	public int? Offset { get; set; } = default!;
+
 }

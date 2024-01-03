@@ -28,4 +28,5 @@ public class InvestmentsTransactionsGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("async_update")]
 	public bool? AsyncUpdate { get; set; } = default!;
+
 }

@@ -28,4 +28,5 @@ public partial class BankTransferSweepListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("count")]
 	public int? Count { get; set; } = default!;
+
 }

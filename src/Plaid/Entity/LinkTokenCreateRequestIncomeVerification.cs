@@ -47,4 +47,5 @@ public class LinkTokenCreateRequestIncomeVerification
 	/// </summary>
 	[JsonPropertyName("stated_income_sources")]
 	public IReadOnlyList<Entity.LinkTokenCreateRequestUserStatedIncomeSource>? StatedIncomeSources { get; set; } = default!;
+
 }

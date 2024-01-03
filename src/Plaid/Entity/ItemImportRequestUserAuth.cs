@@ -16,4 +16,5 @@ public class ItemImportRequestUserAuth
 	/// </summary>
 	[JsonPropertyName("auth_token")]
 	public string AuthToken { get; set; } = default!;
+
 }

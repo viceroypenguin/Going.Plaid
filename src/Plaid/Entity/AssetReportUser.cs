@@ -47,4 +47,5 @@ public class AssetReportUser
 	/// </summary>
 	[JsonPropertyName("email")]
 	public string? Email { get; set; } = default!;
+
 }

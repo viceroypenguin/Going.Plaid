@@ -10,4 +10,5 @@ public partial class SandboxTransferSweepSimulateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;
+
 }

@@ -28,4 +28,5 @@ public class DepositSwitchTargetAccount
 	/// </summary>
 	[JsonPropertyName("account_subtype")]
 	public Entity.DepositSwitchTargetAccountAccountSubtypeEnum AccountSubtype { get; set; } = default!;
+
 }

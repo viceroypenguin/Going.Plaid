@@ -10,4 +10,5 @@ public class InvestmentHoldingsGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("account_ids")]
 	public IReadOnlyList<string>? AccountIds { get; set; } = default!;
+
 }

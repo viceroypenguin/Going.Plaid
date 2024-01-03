@@ -10,4 +10,5 @@ public partial class BankTransferGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("bank_transfer_id")]
 	public string BankTransferId { get; set; } = default!;
+
 }

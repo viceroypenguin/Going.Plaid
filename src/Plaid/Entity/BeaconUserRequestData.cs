@@ -46,4 +46,5 @@ public class BeaconUserRequestData
 	/// </summary>
 	[JsonPropertyName("ip_address")]
 	public string? IpAddress { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public class PaymentConsentMaxPaymentAmount
 	/// </summary>
 	[JsonPropertyName("value")]
 	public decimal? Value { get; set; } = default!;
+
 }

@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The schedule that the payment will be executed on. If a schedule is provided, the payment is automatically set up as a standing order. If no schedule is specified, the payment will be executed only once.</para>
 /// </summary>
-public partial class ExternalPaymentScheduleRequest
+public class ExternalPaymentScheduleRequest
 {
 	/// <summary>
 	/// <para>The frequency interval of the payment.</para>
@@ -38,4 +38,5 @@ public partial class ExternalPaymentScheduleRequest
 	/// </summary>
 	[JsonPropertyName("adjusted_start_date")]
 	public DateOnly? AdjustedStartDate { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public partial class WatchlistScreeningEntityReviewListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; set; } = default!;
+
 }

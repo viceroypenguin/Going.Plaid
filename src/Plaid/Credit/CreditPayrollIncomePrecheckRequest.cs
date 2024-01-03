@@ -34,4 +34,5 @@ public partial class CreditPayrollIncomePrecheckRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("payroll_institution")]
 	public Entity.IncomeVerificationPrecheckPayrollInstitution? PayrollInstitution { get; set; } = default!;
+
 }

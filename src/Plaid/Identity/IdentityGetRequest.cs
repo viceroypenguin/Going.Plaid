@@ -10,4 +10,5 @@ public partial class IdentityGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.IdentityGetRequestOptions? Options { get; set; } = default!;
+
 }

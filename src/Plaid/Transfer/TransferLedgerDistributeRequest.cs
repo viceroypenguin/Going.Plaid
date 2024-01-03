@@ -35,4 +35,5 @@ public partial class TransferLedgerDistributeRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("description")]
 	public string? Description { get; set; } = default!;
+
 }

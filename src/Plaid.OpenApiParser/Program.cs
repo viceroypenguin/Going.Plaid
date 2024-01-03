@@ -566,32 +566,29 @@ public sealed partial class PlaidClient
 
 	private static void SaveClasses(string plaidSrcPath, IEnumerable<SchemaEntity> classes)
 	{
+		var template = Template.Parse(GetTemplate("ClassType"));
 		foreach (var i in classes)
 		{
-			var properties = i.Properties?.Select(p => $@"
-	/// <summary>
-{FormatDescription(p.Description ?? string.Empty, 1)}
-	/// </summary>
-	[JsonPropertyName(""{p.JsonName}"")]
-	public {p.Type} {p.Name} {{ get; set; }} = default!;")
-				?? Array.Empty<string>();
-
-			var basePath = string.Empty;
-			if (i.BaseType == BaseType.Request)
-				basePath = " : RequestBase";
-
-			var body = $@"namespace Going.Plaid.{i.BasePath};
-
-/// <summary>
-{FormatDescription(i.Description, 0)}
-/// </summary>
-public {(i.Name.EndsWith("Request", StringComparison.OrdinalIgnoreCase) ? "partial class" : "class")} {i.Name}{basePath}
-{{{string.Join(Environment.NewLine, properties)}
-}}";
+			var source = template.Render(new
+			{
+				i.Name,
+				i.BasePath,
+				IsRequest = i.BaseType == BaseType.Request,
+				Description = FormatDescription(i.Description, 0),
+				Properties = i.Properties
+					?.Select(p => new
+					{
+						p.Type,
+						p.Name,
+						p.JsonName,
+						Description = FormatDescription(p.Description, 0),
+					})
+					?? [],
+			});
 
 			var baseFolder = Path.Combine(plaidSrcPath, i.BasePath);
 			_ = Directory.CreateDirectory(baseFolder);
-			File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), body);
+			File.WriteAllText(Path.Combine(baseFolder, i.Name + ".cs"), source);
 		}
 	}
 

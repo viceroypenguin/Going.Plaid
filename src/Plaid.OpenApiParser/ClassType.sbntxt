@@ -1,0 +1,16 @@
+﻿namespace Going.Plaid.{{ base_path }};
+
+/// <summary>
+{{ description }}
+/// </summary>
+public {{ if is_request }}partial {{ end }}class {{ name }}{{ if is_request }} : RequestBase{{ end }}
+{
+	{{~ for p in properties ~}}
+	/// <summary>
+	{{ p.description }}
+	/// </summary>
+	[JsonPropertyName("{{ p.json_name }}")]
+	public {{ p.type }} {{ p.name }} { get; set; } = default!;
+
+	{{~ end ~}}
+}

@@ -26,4 +26,5 @@ public partial class SandboxBankTransferSimulateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.BankTransferFailure? FailureReason { get; set; } = default!;
+
 }

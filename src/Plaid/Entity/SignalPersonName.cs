@@ -34,4 +34,5 @@ public class SignalPersonName
 	/// </summary>
 	[JsonPropertyName("suffix")]
 	public string? Suffix { get; set; } = default!;
+
 }

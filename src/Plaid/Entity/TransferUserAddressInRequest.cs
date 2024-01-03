@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The address associated with the account holder.</para>
 /// </summary>
-public partial class TransferUserAddressInRequest
+public class TransferUserAddressInRequest
 {
 	/// <summary>
 	/// <para>The street number and name (i.e., "100 Market St.").</para>
@@ -34,4 +34,5 @@ public partial class TransferUserAddressInRequest
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string? Country { get; set; } = default!;
+
 }

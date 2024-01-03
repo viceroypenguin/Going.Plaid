@@ -16,4 +16,5 @@ public class TransferAuthorizationDevice
 	/// </summary>
 	[JsonPropertyName("user_agent")]
 	public string? UserAgent { get; set; } = default!;
+
 }

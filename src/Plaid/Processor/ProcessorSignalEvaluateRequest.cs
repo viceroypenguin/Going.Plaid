@@ -65,4 +65,5 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("device")]
 	public Entity.SignalEvaluateDevice? Device { get; set; } = default!;
+
 }

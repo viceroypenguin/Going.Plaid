@@ -10,4 +10,5 @@ public class IncomeVerificationCreateRequestOptions
 	/// </summary>
 	[JsonPropertyName("access_tokens")]
 	public IReadOnlyList<string>? AccessTokens { get; set; } = default!;
+
 }

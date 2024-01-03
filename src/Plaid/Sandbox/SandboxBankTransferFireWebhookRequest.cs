@@ -10,4 +10,5 @@ public partial class SandboxBankTransferFireWebhookRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string Webhook { get; set; } = default!;
+
 }

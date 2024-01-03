@@ -23,4 +23,5 @@ public class LinkTokenCreateRequestIdentityVerification
 	/// </summary>
 	[JsonPropertyName("gave_consent")]
 	public bool? GaveConsent { get; set; } = default!;
+
 }

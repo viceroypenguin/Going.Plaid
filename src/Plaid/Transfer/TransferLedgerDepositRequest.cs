@@ -41,4 +41,5 @@ public partial class TransferLedgerDepositRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("network")]
 	public Entity.TransferACHNetwork Network { get; set; } = default!;
+
 }

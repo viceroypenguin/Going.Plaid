@@ -57,4 +57,5 @@ public class IdentityVerificationCreateRequestUser
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; set; } = default!;
+
 }

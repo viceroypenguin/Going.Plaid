@@ -34,4 +34,5 @@ public partial class SandboxTransferRefundSimulateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.TransferFailure? FailureReason { get; set; } = default!;
+
 }

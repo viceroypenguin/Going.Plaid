@@ -55,4 +55,5 @@ public class TransactionsGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;
+
 }

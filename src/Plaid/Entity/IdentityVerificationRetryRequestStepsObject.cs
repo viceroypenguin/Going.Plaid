@@ -32,4 +32,5 @@ public class IdentityVerificationRetryRequestStepsObject
 	/// </summary>
 	[JsonPropertyName("selfie_check")]
 	public bool SelfieCheck { get; set; } = default!;
+
 }

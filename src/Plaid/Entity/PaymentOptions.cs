@@ -28,4 +28,5 @@ public class PaymentOptions
 	/// </summary>
 	[JsonPropertyName("scheme")]
 	public Entity.PaymentScheme? Scheme { get; set; } = default!;
+
 }

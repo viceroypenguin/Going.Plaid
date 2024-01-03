@@ -10,4 +10,5 @@ public partial class ProcessorSignalPrepareRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("processor_token")]
 	public string ProcessorToken { get; set; } = default!;
+
 }

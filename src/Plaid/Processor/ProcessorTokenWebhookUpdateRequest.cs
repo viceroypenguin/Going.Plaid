@@ -16,4 +16,5 @@ public partial class ProcessorTokenWebhookUpdateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string? Webhook { get; set; } = default!;
+
 }

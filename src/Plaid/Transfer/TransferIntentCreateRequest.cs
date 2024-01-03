@@ -81,4 +81,5 @@ public partial class TransferIntentCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("require_guarantee")]
 	public bool? RequireGuarantee { get; set; } = default!;
+
 }

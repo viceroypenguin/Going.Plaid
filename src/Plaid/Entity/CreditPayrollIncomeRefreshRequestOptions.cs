@@ -16,4 +16,5 @@ public class CreditPayrollIncomeRefreshRequestOptions
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string? Webhook { get; set; } = default!;
+
 }

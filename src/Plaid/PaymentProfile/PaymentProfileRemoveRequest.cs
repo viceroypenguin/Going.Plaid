@@ -10,4 +10,5 @@ public partial class PaymentProfileRemoveRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("payment_profile_token")]
 	public string PaymentProfileToken { get; set; } = default!;
+
 }

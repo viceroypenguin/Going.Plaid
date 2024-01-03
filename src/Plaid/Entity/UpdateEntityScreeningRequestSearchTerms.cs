@@ -46,4 +46,5 @@ public class UpdateEntityScreeningRequestSearchTerms
 	/// </summary>
 	[JsonPropertyName("url")]
 	public string? Url { get; set; } = default!;
+
 }

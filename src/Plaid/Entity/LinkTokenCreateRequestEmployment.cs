@@ -16,4 +16,5 @@ public class LinkTokenCreateRequestEmployment
 	/// </summary>
 	[JsonPropertyName("bank_employment")]
 	public Entity.LinkTokenCreateRequestEmploymentBankIncome? BankEmployment { get; set; } = default!;
+
 }

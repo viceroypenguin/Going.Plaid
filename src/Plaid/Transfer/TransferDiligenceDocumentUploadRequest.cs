@@ -22,4 +22,5 @@ public partial class TransferDiligenceDocumentUploadRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("purpose")]
 	public Entity.TransferDocumentPurpose Purpose { get; set; } = default!;
+
 }

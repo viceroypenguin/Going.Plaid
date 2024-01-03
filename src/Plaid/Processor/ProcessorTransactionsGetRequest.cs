@@ -28,4 +28,5 @@ public partial class ProcessorTransactionsGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("end_date")]
 	public DateOnly EndDate { get; set; } = default!;
+
 }

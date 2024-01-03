@@ -77,4 +77,5 @@ public class ClientProvidedTransaction
 	/// </summary>
 	[JsonPropertyName("date_posted")]
 	public DateOnly? DatePosted { get; set; } = default!;
+
 }

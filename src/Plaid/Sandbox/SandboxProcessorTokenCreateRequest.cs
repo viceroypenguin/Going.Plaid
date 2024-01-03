@@ -16,4 +16,5 @@ public partial class SandboxProcessorTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.SandboxProcessorTokenCreateRequestOptions? Options { get; set; } = default!;
+
 }

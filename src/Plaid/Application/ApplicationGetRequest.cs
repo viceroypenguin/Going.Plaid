@@ -10,4 +10,5 @@ public partial class ApplicationGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("application_id")]
 	public string ApplicationId { get; set; } = default!;
+
 }

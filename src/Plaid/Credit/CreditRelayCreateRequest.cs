@@ -22,4 +22,5 @@ public partial class CreditRelayCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string? Webhook { get; set; } = default!;
+
 }

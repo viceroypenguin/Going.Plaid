@@ -22,4 +22,5 @@ public partial class TransferRepaymentReturnListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("offset")]
 	public int? Offset { get; set; } = default!;
+
 }

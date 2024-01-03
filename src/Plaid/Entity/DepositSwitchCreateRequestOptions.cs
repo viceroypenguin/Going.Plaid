@@ -16,4 +16,5 @@ public class DepositSwitchCreateRequestOptions
 	/// </summary>
 	[JsonPropertyName("transaction_item_access_tokens")]
 	public IReadOnlyList<string>? TransactionItemAccessTokens { get; set; } = default!;
+
 }

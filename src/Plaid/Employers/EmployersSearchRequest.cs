@@ -16,4 +16,5 @@ public partial class EmployersSearchRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<string> Products { get; set; } = default!;
+
 }

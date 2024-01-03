@@ -41,4 +41,5 @@ public class InstitutionsGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("include_payment_initiation_metadata")]
 	public bool? IncludePaymentInitiationMetadata { get; set; } = default!;
+
 }

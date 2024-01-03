@@ -22,4 +22,5 @@ public partial class TransactionsEnrichRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.TransactionsEnrichRequestOptions? Options { get; set; } = default!;
+
 }

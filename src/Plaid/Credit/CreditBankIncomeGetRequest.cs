@@ -16,4 +16,5 @@ public partial class CreditBankIncomeGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.CreditBankIncomeGetRequestOptions? Options { get; set; } = default!;
+
 }

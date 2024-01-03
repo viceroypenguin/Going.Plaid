@@ -35,4 +35,5 @@ public class ClientProvidedTransactionLocation
 	/// </summary>
 	[JsonPropertyName("postal_code")]
 	public string? PostalCode { get; set; } = default!;
+
 }

@@ -10,4 +10,5 @@ public partial class CreditFreddieMacReportsGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("audit_copy_token")]
 	public string AuditCopyToken { get; set; } = default!;
+
 }

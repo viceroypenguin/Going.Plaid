@@ -40,4 +40,5 @@ public partial class WatchlistScreeningEntityUpdateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("reset_fields")]
 	public IReadOnlyList<Entity.WatchlistScreeningEntityUpdateRequestResettableField>? ResetFields { get; set; } = default!;
+
 }

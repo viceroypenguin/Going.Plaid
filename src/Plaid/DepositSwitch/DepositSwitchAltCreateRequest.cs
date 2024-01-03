@@ -28,4 +28,5 @@ public partial class DepositSwitchAltCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("country_code")]
 	public Entity.CountryCode? CountryCode { get; set; } = default!;
+
 }

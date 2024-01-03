@@ -10,4 +10,5 @@ public partial class ProcessorApexProcessorTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string AccountId { get; set; } = default!;
+
 }

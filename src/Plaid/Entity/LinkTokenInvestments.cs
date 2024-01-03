@@ -16,4 +16,5 @@ public class LinkTokenInvestments
 	/// </summary>
 	[JsonPropertyName("allow_manual_entry")]
 	public bool? AllowManualEntry { get; set; } = default!;
+
 }

@@ -22,4 +22,5 @@ public partial class CreditPayrollIncomeParsingConfigUpdateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("parsing_config")]
 	public IReadOnlyList<Entity.IncomeVerificationDocParsingConfig> ParsingConfig { get; set; } = default!;
+
 }

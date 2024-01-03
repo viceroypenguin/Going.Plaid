@@ -16,4 +16,5 @@ public partial class SandboxOauthSelectAccountsRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("accounts")]
 	public IReadOnlyList<string> Accounts { get; set; } = default!;
+
 }

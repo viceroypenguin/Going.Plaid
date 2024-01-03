@@ -34,4 +34,5 @@ public partial class TransferRecurringListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;
+
 }

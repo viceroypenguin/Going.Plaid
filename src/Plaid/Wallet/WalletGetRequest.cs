@@ -10,4 +10,5 @@ public partial class WalletGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("wallet_id")]
 	public string WalletId { get; set; } = default!;
+
 }

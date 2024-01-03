@@ -34,4 +34,5 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.ExternalPaymentInitiationConsentOptions? Options { get; set; } = default!;
+
 }

@@ -10,4 +10,5 @@ public partial class TransferRefundGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("refund_id")]
 	public string RefundId { get; set; } = default!;
+
 }

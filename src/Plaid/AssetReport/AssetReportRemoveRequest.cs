@@ -10,4 +10,5 @@ public partial class AssetReportRemoveRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("asset_report_token")]
 	public string AssetReportToken { get; set; } = default!;
+
 }

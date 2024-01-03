@@ -16,4 +16,5 @@ public class LinkTokenCreateRequestUserNameObject
 	/// </summary>
 	[JsonPropertyName("family_name")]
 	public string? FamilyName { get; set; } = default!;
+
 }

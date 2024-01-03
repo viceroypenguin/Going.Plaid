@@ -41,4 +41,5 @@ public partial class TransferLedgerWithdrawRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("network")]
 	public Entity.TransferNetwork Network { get; set; } = default!;
+
 }

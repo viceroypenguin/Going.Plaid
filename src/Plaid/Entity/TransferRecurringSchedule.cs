@@ -40,4 +40,5 @@ public class TransferRecurringSchedule
 	/// </summary>
 	[JsonPropertyName("end_date")]
 	public DateOnly? EndDate { get; set; } = default!;
+
 }

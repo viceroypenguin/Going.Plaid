@@ -16,4 +16,5 @@ public class LinkTokenCreateRequestIncomeVerificationBankIncome
 	/// </summary>
 	[JsonPropertyName("enable_multiple_items")]
 	public bool? EnableMultipleItems { get; set; } = default!;
+
 }

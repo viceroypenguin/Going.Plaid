@@ -38,4 +38,5 @@ public class TransferDebitUsageConfiguration
 	/// </summary>
 	[JsonPropertyName("sec_codes")]
 	public IReadOnlyList<Entity.AchClass> SecCodes { get; set; } = default!;
+
 }

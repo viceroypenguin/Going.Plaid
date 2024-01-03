@@ -16,4 +16,5 @@ public partial class TransferQuestionnaireCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("redirect_uri")]
 	public string RedirectUri { get; set; } = default!;
+
 }

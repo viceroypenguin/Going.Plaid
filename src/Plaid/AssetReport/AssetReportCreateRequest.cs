@@ -23,4 +23,5 @@ public partial class AssetReportCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.AssetReportCreateRequestOptions? Options { get; set; } = default!;
+
 }

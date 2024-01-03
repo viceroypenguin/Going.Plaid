@@ -76,4 +76,5 @@ public partial class TransferEventListRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;
+
 }

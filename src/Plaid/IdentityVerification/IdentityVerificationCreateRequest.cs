@@ -52,4 +52,5 @@ public partial class IdentityVerificationCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("is_idempotent")]
 	public bool? IsIdempotent { get; set; } = default!;
+
 }

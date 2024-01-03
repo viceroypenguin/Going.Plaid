@@ -10,4 +10,5 @@ public class DepositoryFilter
 	/// </summary>
 	[JsonPropertyName("account_subtypes")]
 	public IReadOnlyList<Entity.DepositoryAccountSubtype> AccountSubtypes { get; set; } = default!;
+
 }

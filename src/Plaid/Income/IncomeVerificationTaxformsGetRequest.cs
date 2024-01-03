@@ -10,4 +10,5 @@ public partial class IncomeVerificationTaxformsGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("income_verification_id")]
 	public string? IncomeVerificationId { get; set; } = default!;
+
 }

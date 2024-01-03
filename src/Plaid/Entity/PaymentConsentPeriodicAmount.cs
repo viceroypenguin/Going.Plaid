@@ -22,4 +22,5 @@ public class PaymentConsentPeriodicAmount
 	/// </summary>
 	[JsonPropertyName("alignment")]
 	public Entity.PaymentConsentPeriodicAlignment Alignment { get; set; } = default!;
+
 }

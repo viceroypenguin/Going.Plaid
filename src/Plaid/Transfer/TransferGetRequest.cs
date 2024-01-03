@@ -16,4 +16,5 @@ public partial class TransferGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; set; } = default!;
+
 }

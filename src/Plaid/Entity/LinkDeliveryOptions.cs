@@ -10,4 +10,5 @@ public class LinkDeliveryOptions
 	/// </summary>
 	[JsonPropertyName("recipient")]
 	public Entity.LinkDeliveryRecipient? Recipient { get; set; } = default!;
+
 }

@@ -28,4 +28,5 @@ public class IdentityMatchUser
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.AddressDataNullableNoRequiredFields? Address { get; set; } = default!;
+
 }

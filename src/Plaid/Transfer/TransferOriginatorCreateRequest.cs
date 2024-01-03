@@ -10,4 +10,5 @@ public partial class TransferOriginatorCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("company_name")]
 	public string CompanyName { get; set; } = default!;
+
 }

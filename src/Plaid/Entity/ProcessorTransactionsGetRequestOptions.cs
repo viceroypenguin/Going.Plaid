@@ -40,4 +40,5 @@ public class ProcessorTransactionsGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("include_logo_and_counterparty_beta")]
 	public bool? IncludeLogoAndCounterpartyBeta { get; set; } = default!;
+
 }

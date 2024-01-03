@@ -37,4 +37,5 @@ public class TransferCreditUsageConfiguration
 	/// </summary>
 	[JsonPropertyName("sec_codes")]
 	public IReadOnlyList<Entity.CreditACHClass> SecCodes { get; set; } = default!;
+
 }

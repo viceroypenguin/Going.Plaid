@@ -10,4 +10,5 @@ public partial class PaymentInitiationPaymentGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("payment_id")]
 	public string PaymentId { get; set; } = default!;
+
 }

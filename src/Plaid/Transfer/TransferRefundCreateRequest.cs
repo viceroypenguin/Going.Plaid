@@ -23,4 +23,5 @@ public partial class TransferRefundCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("idempotency_key")]
 	public string IdempotencyKey { get; set; } = default!;
+
 }

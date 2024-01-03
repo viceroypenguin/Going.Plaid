@@ -22,4 +22,5 @@ public partial class IncomeVerificationCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.IncomeVerificationCreateRequestOptions? Options { get; set; } = default!;
+
 }

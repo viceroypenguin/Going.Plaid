@@ -34,4 +34,5 @@ public class ConsumerReportUserIdentity
 	/// </summary>
 	[JsonPropertyName("primary_address")]
 	public Entity.AddressData PrimaryAddress { get; set; } = default!;
+
 }

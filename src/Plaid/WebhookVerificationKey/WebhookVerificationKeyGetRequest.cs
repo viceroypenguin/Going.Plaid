@@ -10,4 +10,5 @@ public partial class WebhookVerificationKeyGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("key_id")]
 	public string KeyId { get; set; } = default!;
+
 }

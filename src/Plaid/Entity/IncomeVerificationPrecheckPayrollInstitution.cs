@@ -10,4 +10,5 @@ public class IncomeVerificationPrecheckPayrollInstitution
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string? Name { get; set; } = default!;
+
 }

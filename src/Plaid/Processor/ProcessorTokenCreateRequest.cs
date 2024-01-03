@@ -16,4 +16,5 @@ public partial class ProcessorTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("processor")]
 	public Entity.ProcessorTokenCreateRequestProcessorEnum Processor { get; set; } = default!;
+
 }

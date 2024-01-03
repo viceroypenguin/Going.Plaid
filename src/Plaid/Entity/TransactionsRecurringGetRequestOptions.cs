@@ -10,4 +10,5 @@ public class TransactionsRecurringGetRequestOptions
 	/// </summary>
 	[JsonPropertyName("include_personal_finance_category")]
 	public bool? IncludePersonalFinanceCategory { get; set; } = default!;
+
 }

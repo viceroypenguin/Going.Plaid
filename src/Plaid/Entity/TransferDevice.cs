@@ -16,4 +16,5 @@ public class TransferDevice
 	/// </summary>
 	[JsonPropertyName("user_agent")]
 	public string UserAgent { get; set; } = default!;
+
 }

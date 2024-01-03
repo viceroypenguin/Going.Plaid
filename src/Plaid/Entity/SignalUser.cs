@@ -28,4 +28,5 @@ public class SignalUser
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.AddressData? Address { get; set; } = default!;
+
 }

@@ -16,4 +16,5 @@ public partial class AssetReportFilterRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("account_ids_to_exclude")]
 	public IReadOnlyList<string> AccountIdsToExclude { get; set; } = default!;
+
 }

@@ -34,4 +34,5 @@ public partial class SandboxIncomeFireWebhookRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("webhook_code")]
 	public Entity.SandboxIncomeWebhookFireRequestWebhookCode WebhookCode { get; set; } = default!;
+
 }

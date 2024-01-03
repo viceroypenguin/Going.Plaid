@@ -16,4 +16,5 @@ public partial class ProcessorIdentityMatchRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.IdentityMatchUser? User { get; set; } = default!;
+
 }

@@ -95,4 +95,5 @@ public partial class TransferCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("facilitator_fee")]
 	public string? FacilitatorFee { get; set; } = default!;
+
 }

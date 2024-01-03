@@ -16,4 +16,5 @@ public class PaymentConsentValidDateTime
 	/// </summary>
 	[JsonPropertyName("to")]
 	public DateTimeOffset? To { get; set; } = default!;
+
 }

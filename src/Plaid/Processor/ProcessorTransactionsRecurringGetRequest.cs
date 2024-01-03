@@ -16,4 +16,5 @@ public partial class ProcessorTransactionsRecurringGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.TransactionsRecurringGetRequestOptions? Options { get; set; } = default!;
+
 }

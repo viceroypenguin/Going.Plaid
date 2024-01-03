@@ -26,4 +26,5 @@ public partial class BeaconUserCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.BeaconUserRequestData User { get; set; } = default!;
+
 }

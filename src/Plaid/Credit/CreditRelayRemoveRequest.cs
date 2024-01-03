@@ -10,4 +10,5 @@ public partial class CreditRelayRemoveRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("relay_token")]
 	public string RelayToken { get; set; } = default!;
+
 }

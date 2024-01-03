@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The legal name and other information for the account holder. The <c>user.legal_name</c> field is required. Other fields are not currently used and are present to support planned future functionality.</para>
 /// </summary>
-public partial class TransferAuthorizationUserInRequest
+public class TransferAuthorizationUserInRequest
 {
 	/// <summary>
 	/// <para>The user's legal name. If the user is a business, provide the business name.</para>
@@ -28,4 +28,5 @@ public partial class TransferAuthorizationUserInRequest
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.TransferUserAddressInRequest? Address { get; set; } = default!;
+
 }

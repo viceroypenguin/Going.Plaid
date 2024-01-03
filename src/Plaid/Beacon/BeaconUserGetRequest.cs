@@ -10,4 +10,5 @@ public partial class BeaconUserGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("beacon_user_id")]
 	public string BeaconUserId { get; set; } = default!;
+
 }

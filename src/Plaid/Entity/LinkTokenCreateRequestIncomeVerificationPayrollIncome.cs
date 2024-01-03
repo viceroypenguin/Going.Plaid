@@ -28,4 +28,5 @@ public class LinkTokenCreateRequestIncomeVerificationPayrollIncome
 	/// </summary>
 	[JsonPropertyName("parsing_config")]
 	public IReadOnlyList<Entity.IncomeVerificationDocParsingConfig>? ParsingConfig { get; set; } = default!;
+
 }

@@ -10,4 +10,5 @@ public partial class ItemPublicTokenExchangeRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("public_token")]
 	public string PublicToken { get; set; } = default!;
+
 }

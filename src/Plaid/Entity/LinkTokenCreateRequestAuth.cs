@@ -52,4 +52,5 @@ public class LinkTokenCreateRequestAuth
 	/// </summary>
 	[JsonPropertyName("flow_type")]
 	public Entity.LinkTokenCreateRequestAuthFlowTypeEnum? FlowType { get; set; } = default!;
+
 }

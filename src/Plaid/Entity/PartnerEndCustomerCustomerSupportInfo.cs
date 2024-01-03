@@ -28,4 +28,5 @@ public class PartnerEndCustomerCustomerSupportInfo
 	/// </summary>
 	[JsonPropertyName("link_update_url")]
 	public string? LinkUpdateUrl { get; set; } = default!;
+
 }

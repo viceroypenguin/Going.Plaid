@@ -10,4 +10,5 @@ public class CreditBankIncomeRefreshRequestOptions
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;
+
 }

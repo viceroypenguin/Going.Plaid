@@ -35,4 +35,5 @@ public class LinkTokenAccountFilters
 	/// </summary>
 	[JsonPropertyName("other")]
 	public Entity.OtherFilter? Other { get; set; } = default!;
+
 }

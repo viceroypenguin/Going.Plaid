@@ -41,4 +41,5 @@ public class UserAddress
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string Country { get; set; } = default!;
+
 }

@@ -36,4 +36,5 @@ public class DepositSwitchAddressData
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string Country { get; set; } = default!;
+
 }

@@ -10,4 +10,5 @@ public class CreditFilter
 	/// </summary>
 	[JsonPropertyName("account_subtypes")]
 	public IReadOnlyList<Entity.CreditAccountSubtype> AccountSubtypes { get; set; } = default!;
+
 }

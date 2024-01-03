@@ -36,4 +36,5 @@ public partial class WalletTransactionExecuteRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("reference")]
 	public string Reference { get; set; } = default!;
+
 }

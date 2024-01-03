@@ -10,4 +10,5 @@ public partial class LiabilitiesGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.LiabilitiesGetRequestOptions? Options { get; set; } = default!;
+
 }

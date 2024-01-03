@@ -10,4 +10,5 @@ public partial class DepositSwitchGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("deposit_switch_id")]
 	public string DepositSwitchId { get; set; } = default!;
+
 }

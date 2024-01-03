@@ -22,4 +22,5 @@ public partial class AssetReportRefreshRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.AssetReportRefreshRequestOptions? Options { get; set; } = default!;
+
 }

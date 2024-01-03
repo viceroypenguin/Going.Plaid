@@ -22,4 +22,5 @@ public class PartnerEndCustomerBillingContact
 	/// </summary>
 	[JsonPropertyName("email")]
 	public string? Email { get; set; } = default!;
+
 }

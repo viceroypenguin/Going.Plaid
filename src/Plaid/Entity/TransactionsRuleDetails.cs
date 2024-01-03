@@ -22,4 +22,5 @@ public class TransactionsRuleDetails
 	/// </summary>
 	[JsonPropertyName("query")]
 	public string Query { get; set; } = default!;
+
 }
