@@ -36,3 +36,9 @@ jobs:
     - name: Push to Nuget
       run: dotnet nuget push "./nupkgs/*.nupkg" --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGETPUBLISHKEY }}
       if: startsWith(github.ref, 'refs/tags/')
+
+    - name: Create Release
+      uses: ncipollo/release-action@v1
+      with:
+        generateReleaseNotes: 'true'
+        makeLatest: 'true'
