@@ -6,6 +6,23 @@
 public static class PlaidServiceCollectionExtensions
 {
 	/// <summary>
+	/// Registers and configures all of the Plaid infrastructure.
+	/// </summary>
+	/// <param name="services">The <see cref="IServiceCollection"/> to add the services to</param>
+	/// <param name="configure">A callback allowing for configuration of the <see cref="PlaidOptions"/></param>
+	/// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained</returns>
+	public static IServiceCollection AddPlaid(
+		this IServiceCollection services,
+		Action<OptionsBuilder<PlaidOptions>> configure)
+	{
+		var optionsBuilder = services.AddOptions<PlaidOptions>();
+		configure?.Invoke(optionsBuilder);
+		return services
+			.AddPlaidHttpClient()
+			.AddPlaidClient();
+	}
+
+	/// <summary>
 	/// Registers all of the Plaid infrastructure, including <see cref="PlaidOptions"/> 
 	/// configuration data stored in the <see cref="PlaidOptions.SectionKey"/> (<c>"Plaid"</c>)
 	/// section of the provided configuration root.
@@ -28,10 +45,7 @@ public static class PlaidServiceCollectionExtensions
 	public static IServiceCollection AddPlaid(
 		this IServiceCollection services,
 		IConfiguration configuration)
-		=> services
-			.Configure<PlaidOptions>(configuration)
-			.AddPlaidHttpClient()
-			.AddPlaidClient();
+		=> services.AddPlaid(opt => opt.Bind(configuration));
 
 	/// <summary>
 	/// Registers the <see cref="PlaidClient"/> as a singleton for use in the DI system.
