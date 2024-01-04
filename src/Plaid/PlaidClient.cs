@@ -10,7 +10,13 @@ public sealed partial class PlaidClient
 {
 	#region Initialization
 
-	internal PlaidClient(
+	/// <summary>
+	/// Initializes a new instance of the <see cref="PlaidClient"/> class using parameters that can all come from Dependency Injextion.
+	/// </summary>
+	/// <param name="options"><see cref="PlaidOptions"/> initialized from an IConfiguration section</param>
+	/// <param name="httpClientFactory">A factory instance used to create <see cref="HttpClient" /> instances. If one is not provided, a service collection will be created and used instead. For more information, see <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests"/> for more information.</param>
+	/// <param name="logger">A logging instance. Log entries will be provided at Information level at completion of each api call; and at Trace level with request and content details at the start and end of each api call. If not provided, a <see cref="NullLogger" /> instance will be used.</param>
+	public PlaidClient(
 		IOptions<PlaidOptions> options,
 		IHttpClientFactory? httpClientFactory = null,
 		ILogger<PlaidClient>? logger = null)
