@@ -115,6 +115,16 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorBankTransferCreateResponse>();
 
 	/// <summary>
+	/// <para>The <c>/processor/liabilities/get</c> endpoint returns various details about a loan or credit account. Liabilities data is available primarily for US financial institutions, with some limited coverage of Canadian institutions. Currently supported account types are account type <c>credit</c> with account subtype <c>credit card</c> or <c>paypal</c>, and account type <c>loan</c> with account subtype <c>student</c> or <c>mortgage</c>.</para>
+	/// <para>The types of information returned by Liabilities can include balances and due dates, loan terms, and account details such as original loan amount and guarantor. Data is refreshed approximately once per day; the latest data can be retrieved by calling <c>/processor/liabilities/get</c>.</para>
+	/// <para>Note: This request may take some time to complete if <c>liabilities</c> was not specified as an initial product when creating the processor token. This is because Plaid must communicate directly with the institution to retrieve the additional data.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorliabilitiesget" /></remarks>
+	public Task<Processor.ProcessorLiabilitiesGetResponse> ProcessorLiabilitiesGetAsync(Processor.ProcessorLiabilitiesGetRequest request) =>
+		PostAsync("/processor/liabilities/get", request)
+			.ParseResponseAsync<Processor.ProcessorLiabilitiesGetResponse>();
+
+	/// <summary>
 	/// <para>The <c>/processor/identity/get</c> endpoint allows you to retrieve various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processoridentityget" /></remarks>

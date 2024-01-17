@@ -1,9 +1,9 @@
 namespace Going.Plaid.IdentityVerification;
 
 /// <summary>
-/// <para>Request input for fetching an Identity Verification</para>
+/// <para>Request input to autofill an Identity Verification</para>
 /// </summary>
-public partial class IdentityVerificationGetRequest : RequestBase
+public partial class IdentityVerificationAutofillCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>ID of the associated Identity Verification attempt.</para>

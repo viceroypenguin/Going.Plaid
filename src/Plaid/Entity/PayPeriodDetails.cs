@@ -39,7 +39,7 @@ public record PayPeriodDetails
 	/// <para>The frequency at which an individual is paid.</para>
 	/// </summary>
 	[JsonPropertyName("pay_frequency")]
-	public Entity.PayPeriodDetailsPayFrequencyEnum? PayFrequency { get; init; } = default!;
+	public Entity.PayPeriodDetailsPayFrequency? PayFrequency { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The date on which the paystub was issued, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ("yyyy-mm-dd").</para>

@@ -57,7 +57,7 @@ public record AccountAssets
 	public Entity.AccountAssetsVerificationStatusEnum? VerificationStatus { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently an opt-in field and only supported for Chase Items.</para>
+	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently only supported for Chase Items.</para>
 	/// </summary>
 	[JsonPropertyName("persistent_account_id")]
 	public string? PersistentAccountId { get; init; } = default!;

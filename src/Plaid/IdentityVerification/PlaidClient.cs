@@ -13,7 +13,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<IdentityVerification.IdentityVerificationCreateResponse>();
 
 	/// <summary>
-	/// <para>Retrieve a previously created identity verification.</para>
+	/// <para>Retrieve a previously created Identity Verification.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/identity-verification/#identity_verificationget" /></remarks>
 	public Task<IdentityVerification.IdentityVerificationGetResponse> IdentityVerificationGetAsync(IdentityVerification.IdentityVerificationGetRequest request) =>
@@ -29,11 +29,19 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<IdentityVerification.IdentityVerificationListResponse>();
 
 	/// <summary>
-	/// <para>Allow a customer to retry their identity verification</para>
+	/// <para>Allow a customer to retry their Identity Verification</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/identity-verification/#identity_verificationretry" /></remarks>
 	public Task<IdentityVerification.IdentityVerificationRetryResponse> IdentityVerificationRetryAsync(IdentityVerification.IdentityVerificationRetryRequest request) =>
 		PostAsync("/identity_verification/retry", request)
 			.ParseResponseAsync<IdentityVerification.IdentityVerificationRetryResponse>();
+
+	/// <summary>
+	/// <para>Try to autofill an Identity Verification based of the provided phone number, date of birth and country of residence.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/identity-verification/#identity_verificationautofillcreate" /></remarks>
+	public Task<IdentityVerification.IdentityVerificationAutofillCreateResponse> IdentityVerificationAutofillCreateAsync(IdentityVerification.IdentityVerificationAutofillCreateRequest request) =>
+		PostAsync("/identity_verification/autofill/create", request)
+			.ParseResponseAsync<IdentityVerification.IdentityVerificationAutofillCreateResponse>();
 
 }

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The resource ID and version number of the template configuring the behavior of a given identity verification.</para>
+/// <para>The resource ID and version number of the template configuring the behavior of a given Identity Verification.</para>
 /// </summary>
 public record IdentityVerificationTemplateReference
 {

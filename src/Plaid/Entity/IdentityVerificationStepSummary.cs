@@ -17,43 +17,43 @@ namespace Going.Plaid.Entity;
 public record IdentityVerificationStepSummary
 {
 	/// <summary>
-	/// <para>The status of a step in the identity verification process.</para>
+	/// <para>The status of a step in the Identity Verification process.</para>
 	/// </summary>
 	[JsonPropertyName("accept_tos")]
 	public Entity.IdentityVerificationStepStatus AcceptTos { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The status of a step in the identity verification process.</para>
+	/// <para>The status of a step in the Identity Verification process.</para>
 	/// </summary>
 	[JsonPropertyName("verify_sms")]
 	public Entity.IdentityVerificationStepStatus VerifySms { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The status of a step in the identity verification process.</para>
+	/// <para>The status of a step in the Identity Verification process.</para>
 	/// </summary>
 	[JsonPropertyName("kyc_check")]
 	public Entity.IdentityVerificationStepStatus KycCheck { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The status of a step in the identity verification process.</para>
+	/// <para>The status of a step in the Identity Verification process.</para>
 	/// </summary>
 	[JsonPropertyName("documentary_verification")]
 	public Entity.IdentityVerificationStepStatus DocumentaryVerification { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The status of a step in the identity verification process.</para>
+	/// <para>The status of a step in the Identity Verification process.</para>
 	/// </summary>
 	[JsonPropertyName("selfie_check")]
 	public Entity.IdentityVerificationStepStatus SelfieCheck { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The status of a step in the identity verification process.</para>
+	/// <para>The status of a step in the Identity Verification process.</para>
 	/// </summary>
 	[JsonPropertyName("watchlist_screening")]
 	public Entity.IdentityVerificationStepStatus WatchlistScreening { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The status of a step in the identity verification process.</para>
+	/// <para>The status of a step in the Identity Verification process.</para>
 	/// </summary>
 	[JsonPropertyName("risk_check")]
 	public Entity.IdentityVerificationStepStatus RiskCheck { get; init; } = default!;

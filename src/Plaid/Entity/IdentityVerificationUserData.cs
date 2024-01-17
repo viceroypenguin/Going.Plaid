@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The identity data that was either collected from the user or provided via API in order to perform an identity verification.</para>
+/// <para>The identity data that was either collected from the user or provided via API in order to perform an Identity Verification.</para>
 /// </summary>
 public record IdentityVerificationUserData
 {

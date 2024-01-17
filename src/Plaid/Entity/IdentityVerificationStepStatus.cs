@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The status of a step in the identity verification process.</para>
+/// <para>The status of a step in the Identity Verification process.</para>
 /// </summary>
 public enum IdentityVerificationStepStatus
 {

@@ -43,7 +43,7 @@ public record Holding
 	public decimal InstitutionValue { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The original total value of the holding. This field is calculated by Plaid as the sum of the purchase price of all of the shares in the holding.</para>
+	/// <para>The total cost basis of the holding (e.g., the total amount spent to acquire all assets currently in the holding).</para>
 	/// </summary>
 	[JsonPropertyName("cost_basis")]
 	public decimal? CostBasis { get; init; } = default!;

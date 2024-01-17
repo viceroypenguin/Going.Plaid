@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>The frequency at which an individual is paid.</para>
 /// </summary>
-public enum PayPeriodDetailsPayFrequencyEnum
+public enum PayPeriodDetailsPayFrequency
 {
 	/// <summary>
 	/// 

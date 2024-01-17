@@ -18,4 +18,12 @@ public sealed partial class PlaidClient
 		PostAsync("/statements/download", request)
 			.ParseResponseAsync<Statements.StatementsDownloadResponse>();
 
+	/// <summary>
+	/// <para><c>/statements/refresh</c> initiates an on-demand extraction to fetch the statements for the provided dates.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/statements#statementsrefresh" /></remarks>
+	public Task<Statements.StatementsRefreshResponse> StatementsRefreshAsync(Statements.StatementsRefreshRequest request) =>
+		PostAsync("/statements/refresh", request)
+			.ParseResponseAsync<Statements.StatementsRefreshResponse>();
+
 }

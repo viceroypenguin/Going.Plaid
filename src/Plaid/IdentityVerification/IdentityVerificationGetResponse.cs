@@ -42,13 +42,13 @@ public record IdentityVerificationGetResponse : ResponseBase
 	public string? ShareableUrl { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The resource ID and version number of the template configuring the behavior of a given identity verification.</para>
+	/// <para>The resource ID and version number of the template configuring the behavior of a given Identity Verification.</para>
 	/// </summary>
 	[JsonPropertyName("template")]
 	public Entity.IdentityVerificationTemplateReference Template { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The identity data that was either collected from the user or provided via API in order to perform an identity verification.</para>
+	/// <para>The identity data that was either collected from the user or provided via API in order to perform an Identity Verification.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.IdentityVerificationUserData User { get; init; } = default!;

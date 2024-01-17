@@ -14,6 +14,7 @@ public partial class PaymentInitiationPaymentCreateRequest : RequestBase
 	/// <summary>
 	/// <para>A reference for the payment. This must be an alphanumeric string with at most 18 characters and must not contain any special characters (since not all institutions support them).</para>
 	/// <para>In order to track settlement via Payment Confirmation, each payment must have a unique reference. If the reference provided through the API is not unique, Plaid will adjust it.</para>
+	/// <para>Some institutions may limit the reference to less than 18 characters. If necessary, Plaid will adjust the reference by truncating it to fit the institution's requirements.</para>
 	/// <para>Both the originally provided and automatically adjusted references (if any) can be found in the <c>reference</c> and <c>adjusted_reference</c> fields, respectively.</para>
 	/// </summary>
 	[JsonPropertyName("reference")]

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class BeaconUserRequestAddress
 {
 	/// <summary>
-	/// <para>The primary street portion of an address. If the user has submitted their address, this field will always be filled.</para>
+	/// <para>The primary street portion of an address. If an address is provided, this field will always be filled.</para>
 	/// </summary>
 	[JsonPropertyName("street")]
 	public string Street { get; set; } = default!;

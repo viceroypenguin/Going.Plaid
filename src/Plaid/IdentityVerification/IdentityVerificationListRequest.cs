@@ -1,7 +1,7 @@
 namespace Going.Plaid.IdentityVerification;
 
 /// <summary>
-/// <para>Request input for listing identity verifications</para>
+/// <para>Request input for listing Identity Verifications</para>
 /// </summary>
 public partial class IdentityVerificationListRequest : RequestBase
 {

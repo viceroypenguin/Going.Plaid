@@ -12,7 +12,7 @@ public class LinkTokenCreateRequestUser
 	public string ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's full legal name, used for <a href="https://plaid.com/docs/auth/coverage/">micro-deposit based verification flows</a>. For a small number of customers on legacy flows, providing this field is required to enable micro-deposit-based flows. For all other customers, this field is optional, but providing the user's name in this field when using micro-deposit-based verification will enable certain risk checks and can reduce micro-deposit fraud.</para>
+	/// <para>The user's full legal name, used for <a href="https://plaid.com/docs/auth/coverage/">micro-deposit based verification flows</a>. For a small number of customers on legacy flows, providing this field is required to enable micro-deposit-based flows. For all other customers, this field is optional. Providing the user's name in this field when using micro-deposit-based verification will streamline the end user experience, as the user will not be prompted to enter their name during the Link flow; Plaid will use the provided legal name instead.</para>
 	/// </summary>
 	[JsonPropertyName("legal_name")]
 	public string? LegalName { get; set; } = default!;

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record RiskCheckDetails
 {
 	/// <summary>
-	/// <para>The status of a step in the identity verification process.</para>
+	/// <para>The status of a step in the Identity Verification process.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.IdentityVerificationStepStatus Status { get; init; } = default!;

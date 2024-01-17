@@ -92,4 +92,15 @@ public sealed partial class PlaidClient
 		PostAsync("/beacon/user/update", request)
 			.ParseResponseAsync<Beacon.BeaconUserUpdateResponse>();
 
+	/// <summary>
+	/// <para>Returns a Beacon Duplicate for a given Beacon Duplicate id.</para>
+	/// <para>A Beacon Duplicate represents a pair of similar Beacon Users within your organization.</para>
+	/// <para>Two Beacon User revisions are returned for each Duplicate record in either the <c>beacon_user1</c> or <c>beacon_user2</c> response fields.</para>
+	/// <para>The <c>analysis</c> field in the response indicates which fields matched between <c>beacon_user1</c> and <c>beacon_user2</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconduplicateget" /></remarks>
+	public Task<Beacon.BeaconDuplicateGetResponse> BeaconDuplicateGetAsync(Beacon.BeaconDuplicateGetRequest request) =>
+		PostAsync("/beacon/duplicate/get", request)
+			.ParseResponseAsync<Beacon.BeaconDuplicateGetResponse>();
+
 }
