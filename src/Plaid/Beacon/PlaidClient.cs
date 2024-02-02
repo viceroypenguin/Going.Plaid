@@ -40,7 +40,6 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Create a fraud report for a given Beacon User.</para>
-	/// <para>Note: If you are creating users with the express purpose of providing historical fraud data, you should use the <c>/beacon/user/create</c> endpoint instead and embed the fraud report in the request. This will ensure that the Beacon User you create will not be subject to any billing costs.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreportcreate" /></remarks>
 	public Task<Beacon.BeaconReportCreateResponse> BeaconReportCreateAsync(Beacon.BeaconReportCreateRequest request) =>

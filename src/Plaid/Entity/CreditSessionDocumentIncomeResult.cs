@@ -23,4 +23,10 @@ public record CreditSessionDocumentIncomeResult
 	[JsonPropertyName("num_bank_statements_uploaded")]
 	public int NumBankStatementsUploaded { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The number of 1099s uploaded by the user</para>
+	/// </summary>
+	[JsonPropertyName("num_1099s_uploaded")]
+	public int Num1099sUploaded { get; init; } = default!;
+
 }

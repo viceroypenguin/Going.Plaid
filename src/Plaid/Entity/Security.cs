@@ -66,7 +66,9 @@ public record Security
 	public bool? IsCashEquivalent { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The security type of the holding. Valid security types are:</para>
+	/// <para>The security type of the holding.</para>
+	/// <para>In rare instances, a null value is returned when institutional data is insufficient to determine the security type.</para>
+	/// <para>Valid security types are:</para>
 	/// <para><c>cash</c>: Cash, currency, and money market funds</para>
 	/// <para><c>cryptocurrency</c>: Digital or virtual currencies</para>
 	/// <para><c>derivative</c>: Options, warrants, and other derivative instruments</para>

@@ -11,4 +11,10 @@ public partial class CreditBankStatementsUploadsGetRequest : RequestBase
 	[JsonPropertyName("user_token")]
 	public string UserToken { get; set; } = default!;
 
+	/// <summary>
+	/// <para>An optional object for <c>/credit/bank_statements/uploads/get</c> request options.</para>
+	/// </summary>
+	[JsonPropertyName("options")]
+	public Entity.CreditBankStatementsUploadsGetRequestOptions? Options { get; set; } = default!;
+
 }

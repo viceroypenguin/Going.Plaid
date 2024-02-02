@@ -248,6 +248,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "PARTNER_INSIGHTS_COMPLETE")]
+	PartnerInsightsComplete,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "INCOME_VERIFICATION_REFRESH_RECONNECT_NEEDED")]
 	IncomeVerificationRefreshReconnectNeeded,
 

@@ -83,6 +83,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>After calling <c>/processor/signal/evaluate</c>, call <c>/processor/signal/decision/report</c> to report whether the transaction was initiated.</para>
+	/// <para>If you are using the <a href="https://www.plaid.com/docs/transfer">Plaid Transfer product</a> to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was initiated.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignaldecisionreport" /></remarks>
 	public Task<Processor.ProcessorSignalDecisionReportResponse> ProcessorSignalDecisionReportAsync(Processor.ProcessorSignalDecisionReportRequest request) =>
@@ -91,6 +92,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Call the <c>/processor/signal/return/report</c> endpoint to report a returned transaction that was previously sent to the <c>/processor/signal/evaluate</c> endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.</para>
+	/// <para>If you are using the <a href="https://www.plaid.com/docs/transfer">Plaid Transfer product</a> to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was returned.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignalreturnreport" /></remarks>
 	public Task<Processor.ProcessorSignalReturnReportResponse> ProcessorSignalReturnReportAsync(Processor.ProcessorSignalReturnReportRequest request) =>

@@ -23,4 +23,10 @@ public class LinkTokenCreateHostedLink
 	[JsonPropertyName("url_lifetime_seconds")]
 	public int? UrlLifetimeSeconds { get; set; } = default!;
 
+	/// <summary>
+	/// <para>This indicates whether the client is opening hosted Link in a mobile app in an out of process web view (OOPWV).</para>
+	/// </summary>
+	[JsonPropertyName("is_mobile_app")]
+	public bool? IsMobileApp { get; set; } = default!;
+
 }

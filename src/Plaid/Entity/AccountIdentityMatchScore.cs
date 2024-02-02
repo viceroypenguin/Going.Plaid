@@ -57,7 +57,7 @@ public record AccountIdentityMatchScore
 	public Entity.AccountIdentityMatchScoreVerificationStatusEnum? VerificationStatus { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently only supported for Chase Items.</para>
+	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently only supported for Chase Items. Because Chase accounts have a different account number each time they are linked, this field may be instead of the account number to uniquely identify a Chase account across multiple Items for payments use cases, helping to reduce duplicate Items or attempted fraud.</para>
 	/// </summary>
 	[JsonPropertyName("persistent_account_id")]
 	public string? PersistentAccountId { get; init; } = default!;

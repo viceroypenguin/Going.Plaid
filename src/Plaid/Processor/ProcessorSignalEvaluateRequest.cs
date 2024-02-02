@@ -55,13 +55,13 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	public string? DefaultPaymentMethod { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Details about the end user initiating the transaction (i.e., the account holder).</para>
+	/// <para>Details about the end user initiating the transaction (i.e., the account holder). When calling <c>/signal/evaluate</c> or <c>/signal/processor/evaluate</c>, this field is optional, but strongly recommended to increase the accuracy of Signal results.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.SignalUser? User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Details about the end user's device</para>
+	/// <para>Details about the end user's device. When calling <c>/signal/evaluate</c> or <c>/signal/processor/evaluate</c>, this field is optional, but strongly recommended to increase the accuracy of Signal results.</para>
 	/// </summary>
 	[JsonPropertyName("device")]
 	public Entity.SignalEvaluateDevice? Device { get; set; } = default!;

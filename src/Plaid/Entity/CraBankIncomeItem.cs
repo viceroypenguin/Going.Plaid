@@ -9,13 +9,13 @@ public record CraBankIncomeItem
 	/// <para>The Item's accounts that have Bank Income data.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_accounts")]
-	public IReadOnlyList<Entity.CraBankIncomeAccount>? BankIncomeAccounts { get; init; } = default!;
+	public IReadOnlyList<Entity.CraBankIncomeAccount> BankIncomeAccounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The income sources for this Item. Each entry in the array is a single income source.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_sources")]
-	public IReadOnlyList<Entity.CraBankIncomeSource>? BankIncomeSources { get; init; } = default!;
+	public IReadOnlyList<Entity.CraBankIncomeSource> BankIncomeSources { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The time when this Item's data was last retrieved from the financial institution.</para>

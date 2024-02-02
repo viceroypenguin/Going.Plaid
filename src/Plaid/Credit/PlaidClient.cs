@@ -95,7 +95,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para><c>/credit/payroll_income/risk_signals/get</c> can be used as part of the Document Income flow to assess a user-uploaded document for signs of potential fraud or tampering. It returns a risk score for each uploaded document that indicates the likelihood of the document being fraudulent, in addition to details on the individual risk signals contributing to the score.</para>
-	/// <para>To trigger risk signal generation for an Item, call <c>/link/token/create</c> with <c>parsing_config</c> set to include <c>fraud_risk</c>, or call <c>/credit/payroll_income/parsing_config/update</c>. Once risk signal generation has been triggered, <c>/credit/payroll_income/risk_signals/get</c> can be called at any time after the <c>INCOME_VERIFICATION_RISK_SIGNALS</c> webhook has been fired.</para>
+	/// <para>To trigger risk signal generation for an Item, call <c>/link/token/create</c> with <c>parsing_config</c> set to include <c>risk_signals</c>, or call <c>/credit/payroll_income/parsing_config/update</c>. Once risk signal generation has been triggered, <c>/credit/payroll_income/risk_signals/get</c> can be called at any time after the <c>INCOME_VERIFICATION_RISK_SIGNALS</c> webhook has been fired.</para>
 	/// <para><c>/credit/payroll_income/risk_signals/get</c> is offered as an add-on to Document Income and is billed separately. To request access to this endpoint, submit a product access request or contact your Plaid account manager.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomerisk_signalsget" /></remarks>

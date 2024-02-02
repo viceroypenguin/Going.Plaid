@@ -62,7 +62,7 @@ public record Enrichments
 	public Entity.PaymentChannel PaymentChannel { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The phone number associated with the primary_counterparty in E. 164 format. If there is a location match (i.e. a street address is returned in the location object), the phone number will be location specific.</para>
+	/// <para>The phone number associated with the counterparty in E. 164 format. If there is a location match (i.e. a street address is returned in the location object), the phone number will be location specific.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public string? PhoneNumber { get; init; } = default!;

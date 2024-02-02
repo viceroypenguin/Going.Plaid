@@ -30,4 +30,10 @@ public class AccountsBalanceGetRequestPaymentDetails
 	[JsonPropertyName("balance_threshold_percentage")]
 	public int? BalanceThresholdPercentage { get; set; } = default!;
 
+	/// <summary>
+	/// <para>A boolean that determines whether the balance has to be refreshed in real time as part of the API call.</para>
+	/// </summary>
+	[JsonPropertyName("requires_real_time_balance_refresh")]
+	public bool? RequiresRealTimeBalanceRefresh { get; set; } = default!;
+
 }

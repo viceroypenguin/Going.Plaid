@@ -35,4 +35,10 @@ public record LinkTokenGetSessionsResponse
 	[JsonPropertyName("on_exit")]
 	public Entity.LinkSessionExit? OnExit { get; init; } = default!;
 
+	/// <summary>
+	/// <para>List of customer-related Link events</para>
+	/// </summary>
+	[JsonPropertyName("events")]
+	public IReadOnlyList<Entity.LinkEvent>? Events { get; init; } = default!;
+
 }

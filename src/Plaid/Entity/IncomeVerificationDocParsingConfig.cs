@@ -14,8 +14,8 @@ public enum IncomeVerificationDocParsingConfig
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "fraud_risk")]
-	FraudRisk,
+	[EnumMember(Value = "risk_signals")]
+	RiskSignals,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
