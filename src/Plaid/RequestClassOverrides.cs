@@ -1,4 +1,13 @@
-﻿namespace Going.Plaid.Categories
+﻿namespace Going.Plaid.BankTransfer
+{
+	public partial class BankTransferGetRequest : RequestBase
+	{
+		/// <inheritdoc />
+		protected internal override bool IncludeAccessToken => false;
+	}
+}
+
+namespace Going.Plaid.Categories
 {
 	public partial class CategoriesGetRequest : RequestBase
 	{
@@ -27,6 +36,21 @@ namespace Going.Plaid.Item
 namespace Going.Plaid.Link
 {
 	public partial class LinkTokenCreateRequest : RequestBase
+	{
+		/// <inheritdoc />
+		protected internal override bool IncludeAccessToken => false;
+	}
+}
+
+namespace Going.Plaid.Transfer
+{
+	public partial class TransferGetRequest : RequestBase
+	{
+		/// <inheritdoc />
+		protected internal override bool IncludeAccessToken => false;
+	}
+
+	public partial class TransferRecurringGetRequest : RequestBase
 	{
 		/// <inheritdoc />
 		protected internal override bool IncludeAccessToken => false;
