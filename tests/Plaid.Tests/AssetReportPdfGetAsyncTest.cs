@@ -33,7 +33,7 @@ public class AssetReportPdfGetAsyncTest(PlaidFixture fixture, ITestOutputHelper 
 
 		var createrequest = new AssetReport.AssetReportCreateRequest()
 		{
-			AccessTokens = new[] { _fixture.PlaidClient.AccessToken! },
+			AccessTokens = [_fixture.PlaidClient.AccessToken!],
 			DaysRequested = 10,
 		};
 		_fixture.PlaidClient.AccessToken = null;

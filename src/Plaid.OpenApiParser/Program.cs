@@ -646,7 +646,7 @@ internal static partial class Program
 		var template = Template.Parse(GetTemplate("EnumType"));
 		foreach (var i in enums)
 		{
-			IEnumerable<Property> list = i.Properties ?? Array.Empty<Property>();
+			IEnumerable<Property> list = i.Properties ?? [];
 			if (!list.Any(p => p.Name == "Undefined"))
 				list = list.Append(UnknownProperty);
 

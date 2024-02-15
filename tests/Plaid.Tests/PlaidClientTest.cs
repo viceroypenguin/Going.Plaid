@@ -43,13 +43,13 @@ public class PlaidFixture : IAsyncLifetime
 			new Sandbox.SandboxPublicTokenCreateRequest
 			{
 				InstitutionId = "ins_3",
-				InitialProducts = new[]
-				{
+				InitialProducts =
+				[
 					Products.Auth,
 					Products.Investments,
 					Products.Transactions,
 					Products.Assets,
-				},
+				],
 			});
 		if (!publicToken.IsSuccessStatusCode)
 			throw new InvalidOperationException("Unable to collect sandbox public token.");

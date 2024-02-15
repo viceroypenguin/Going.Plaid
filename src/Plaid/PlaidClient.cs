@@ -200,8 +200,7 @@ public sealed partial class PlaidClient
 			Logger.LogInformation("Completed file request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
 
 			var headers = response.Headers
-				.Concat(response.Content?.Headers.AsEnumerable()
-					?? Array.Empty<KeyValuePair<string, IEnumerable<string>>>())
+				.Concat(response.Content?.Headers.AsEnumerable() ?? [])
 				.SelectMany(static x => x.Value.Select(y => (key: x.Key, value: y)))
 				.ToLookup(x => x.key, x => x.value, StringComparer.OrdinalIgnoreCase);
 
