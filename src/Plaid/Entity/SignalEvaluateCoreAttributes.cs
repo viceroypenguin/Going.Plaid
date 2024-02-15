@@ -413,4 +413,76 @@ public record SignalEvaluateCoreAttributes
 	[JsonPropertyName("is_account_frozen_or_restricted")]
 	public bool? IsAccountFrozenOrRestricted { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The number of distinct IP addresses linked to the same bank account during Plaid authentication in the last 3 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_ip_addresses_count_3d")]
+	public int? DistinctIpAddressesCount3d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct IP addresses linked to the same bank account during Plaid authentication in the last 7 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_ip_addresses_count_7d")]
+	public int? DistinctIpAddressesCount7d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct IP addresses linked to the same bank account during Plaid authentication in the last 30 days (max 100)</para>
+	/// </summary>
+	[JsonPropertyName("distinct_ip_addresses_count_30d")]
+	public int? DistinctIpAddressesCount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct IP addresses linked to the same bank account during Plaid authentication in the last 90 days (max 100)</para>
+	/// </summary>
+	[JsonPropertyName("distinct_ip_addresses_count_90d")]
+	public int? DistinctIpAddressesCount90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct user agents linked to the same bank account during Plaid authentication in the last 3 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_user_agents_count_3d")]
+	public int? DistinctUserAgentsCount3d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct user agents linked to the same bank account during Plaid authentication in the last 7 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_user_agents_count_7d")]
+	public int? DistinctUserAgentsCount7d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct user agents linked to the same bank account during Plaid authentication in the last 30 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_user_agents_count_30d")]
+	public int? DistinctUserAgentsCount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct user agents linked to the same bank account during Plaid authentication in the last 90 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_user_agents_count_90d")]
+	public int? DistinctUserAgentsCount90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct SSL/TLS connection sessions linked to the same bank account during Plaid authentication in the last 3 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_ssl_tls_connection_sessions_count_3d")]
+	public int? DistinctSslTlsConnectionSessionsCount3d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct SSL/TLS connection sessions linked to the same bank account during Plaid authentication in the last 7 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_ssl_tls_connection_sessions_count_7d")]
+	public int? DistinctSslTlsConnectionSessionsCount7d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct SSL/TLS connection sessions linked to the same bank account during Plaid authentication in the last 30 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_ssl_tls_connection_sessions_count_30d")]
+	public int? DistinctSslTlsConnectionSessionsCount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of distinct SSL/TLS connection sessions linked to the same bank account during Plaid authentication in the last 90 days</para>
+	/// </summary>
+	[JsonPropertyName("distinct_ssl_tls_connection_sessions_count_90d")]
+	public int? DistinctSslTlsConnectionSessionsCount90d { get; init; } = default!;
+
 }

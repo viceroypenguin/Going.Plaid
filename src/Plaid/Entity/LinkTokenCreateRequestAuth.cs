@@ -48,6 +48,12 @@ public class LinkTokenCreateRequestAuth
 	public bool? DatabaseMatchEnabled { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specifies whether the Link session is enabled for the Database Insights flow.</para>
+	/// </summary>
+	[JsonPropertyName("database_insights_enabled")]
+	public bool? DatabaseInsightsEnabled { get; set; } = default!;
+
+	/// <summary>
 	/// <para>This field has been deprecated in favor of <c>auth_type_select_enabled</c>.</para>
 	/// </summary>
 	[JsonPropertyName("flow_type")]

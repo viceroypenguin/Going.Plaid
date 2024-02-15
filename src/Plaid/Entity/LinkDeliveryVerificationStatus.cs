@@ -48,6 +48,24 @@ public enum LinkDeliveryVerificationStatus
 	DatabaseMatched,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "database_insights_pass")]
+	DatabaseInsightsPass,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "database_insights_pass_with_caution")]
+	DatabaseInsightsPassWithCaution,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "database_insights_fail")]
+	DatabaseInsightsFail,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

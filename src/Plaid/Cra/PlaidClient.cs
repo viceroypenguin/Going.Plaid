@@ -18,4 +18,12 @@ public sealed partial class PlaidClient
 		PostAsync("/cra/bank_income/get", request)
 			.ParseResponseAsync<Cra.CraBankIncomeGetResponse>();
 
+	/// <summary>
+	/// <para><c>/cra/partner_insights/get</c> returns cash flow insights for a specified user.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#crapartner_insightsget" /></remarks>
+	public Task<Cra.CraPartnerInsightsGetResponse> CraPartnerInsightsGetAsync(Cra.CraPartnerInsightsGetRequest request) =>
+		PostAsync("/cra/partner_insights/get", request)
+			.ParseResponseAsync<Cra.CraPartnerInsightsGetResponse>();
+
 }

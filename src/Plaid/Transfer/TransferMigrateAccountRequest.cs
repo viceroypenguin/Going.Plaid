@@ -18,7 +18,7 @@ public partial class TransferMigrateAccountRequest : RequestBase
 	public string RoutingNumber { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's wire transfer routing number. This is the ABA number; for some institutions, this may differ from the ACH number used in <c>routing_number</c>.</para>
+	/// <para>The user's wire transfer routing number. This is the ABA number; for some institutions, this may differ from the ACH number used in <c>routing_number</c>. This field must be set for the created item to be eligible for wire transfers.</para>
 	/// </summary>
 	[JsonPropertyName("wire_routing_number")]
 	public string? WireRoutingNumber { get; set; } = default!;

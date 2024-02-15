@@ -48,6 +48,12 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Information specific to wire transfers.</para>
+	/// </summary>
+	[JsonPropertyName("wire_details")]
+	public Entity.TransferWireDetails? WireDetails { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The legal name and other information for the account holder. The <c>user.legal_name</c> field is required. Other fields are not currently used and are present to support planned future functionality.</para>
 	/// </summary>
 	[JsonPropertyName("user")]

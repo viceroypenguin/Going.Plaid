@@ -138,6 +138,12 @@ public enum Products
 	ProcessorPayments,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "processor_identity")]
+	ProcessorIdentity,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

@@ -84,6 +84,12 @@ public record Transfer
 	public Entity.TransferNetwork Network { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Information specific to wire transfers.</para>
+	/// </summary>
+	[JsonPropertyName("wire_details")]
+	public Entity.TransferWireDetails? WireDetails { get; init; } = default!;
+
+	/// <summary>
 	/// <para>When <c>true</c>, you can still cancel this transfer.</para>
 	/// </summary>
 	[JsonPropertyName("cancellable")]
@@ -186,7 +192,9 @@ public record Transfer
 
 	/// <summary>
 	/// <para>The trace identifier for the transfer based on its network. This will only be set after the transfer has posted.</para>
-	/// <para>For <c>ach</c> or <c>same-day-ach</c> transfers, this is the ACH trace number. Currently, the field will remain null for transfers on other rails.</para>
+	/// <para>For <c>ach</c> or <c>same-day-ach</c> transfers, this is the ACH trace number.</para>
+	/// <para>For <c>wire</c> transfers, this will be in the format of <c>&lt;IMAD&gt;/&lt;OMAD&gt;</c>.</para>
+	/// <para>The field will remain null for transfers on other rails.</para>
 	/// </summary>
 	[JsonPropertyName("network_trace_id")]
 	public string? NetworkTraceId { get; init; } = default!;

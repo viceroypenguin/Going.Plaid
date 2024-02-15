@@ -48,6 +48,24 @@ public enum AccountVerificationStatusEnum
 	DatabaseMatched,
 
 	/// <summary>
+	/// <para>The Item's ACH numbers have been verified using Plaid's data sources and have strong signal for being valid. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// </summary>
+	[EnumMember(Value = "database_insights_pass")]
+	DatabaseInsightsPass,
+
+	/// <summary>
+	/// <para>The Item's ACH numbers have been verified using Plaid's data sources and have some signal for being valid. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// </summary>
+	[EnumMember(Value = "database_insights_pass_with_caution")]
+	DatabaseInsightsPassWithCaution,
+
+	/// <summary>
+	/// <para>The Item's ACH numbers have been verified using Plaid's data sources and have signal for being invalid and/or have no signal for being valid. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// </summary>
+	[EnumMember(Value = "database_insights_fail")]
+	DatabaseInsightsFail,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

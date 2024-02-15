@@ -48,6 +48,12 @@ public record TransferAuthorizationProposedTransfer
 	public string Network { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Information specific to wire transfers.</para>
+	/// </summary>
+	[JsonPropertyName("wire_details")]
+	public Entity.TransferWireDetails? WireDetails { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Plaid's unique identifier for the origination account that was used for this transfer.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]

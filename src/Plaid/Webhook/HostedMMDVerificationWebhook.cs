@@ -14,7 +14,7 @@ public record HostedMMDVerificationWebhook : WebhookBase
 	public override WebhookCode WebhookCode => WebhookCode.HostedVerification;
 
 	/// <summary>
-	/// <para>The final status of the same-day microdeposits verification. Will always be "MANUALLY_VERIFIED" or "VERIFICATION_FAILED".</para>
+	/// <para>The final status of the same-day microdeposits verification. Will always be <c>MANUALLY_VERIFIED</c> or <c>VERIFICATION_FAILED</c>.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
 	public string Status { get; init; } = default!;
