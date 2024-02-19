@@ -30,7 +30,7 @@
 		<PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.0" />
 		<PackageVersion Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageVersion Include="System.Net.Http.Json" Version="8.0.0" />
-		<PackageVersion Include="System.Text.Json" Version="8.0.1" />
+		<PackageVersion Include="System.Text.Json" Version="8.0.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
