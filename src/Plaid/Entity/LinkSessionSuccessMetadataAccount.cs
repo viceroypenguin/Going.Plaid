@@ -38,7 +38,7 @@ public record LinkSessionSuccessMetadataAccount
 	/// <summary>
 	/// <para>Indicates an Item's micro-deposit-based verification status. Possible values are:</para>
 	/// <para><c>pending_automatic_verification</c>: The Item is pending automatic verification</para>
-	/// <para><c>pending_manual_verification</c>: The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the two amounts.</para>
+	/// <para><c>pending_manual_verification</c>: The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the code.</para>
 	/// <para><c>automatically_verified</c>: The Item has successfully been automatically verified</para>
 	/// <para><c>manually_verified</c>: The Item has successfully been manually verified</para>
 	/// <para><c>verification_expired</c>: Plaid was unable to automatically verify the deposit within 7 calendar days and will no longer attempt to validate the Item. Users may retry by submitting their information again through Link.</para>

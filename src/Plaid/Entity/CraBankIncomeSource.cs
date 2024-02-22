@@ -94,6 +94,12 @@ public record CraBankIncomeSource
 	public decimal? ForecastedAverageMonthlyIncome { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The prediction interval(s) for the forecasted average monthly income.</para>
+	/// </summary>
+	[JsonPropertyName("forecasted_average_monthly_income_prediction_interval")]
+	public IReadOnlyList<Entity.CraPredictionInterval> ForecastedAverageMonthlyIncomePredictionInterval { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The object containing employer data.</para>
 	/// </summary>
 	[JsonPropertyName("employer")]

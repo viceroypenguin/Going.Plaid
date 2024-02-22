@@ -284,8 +284,8 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "HOSTED_VERIFICATION")]
-	HostedVerification,
+	[EnumMember(Value = "SMS_MICRODEPOSITS_VERIFICATION")]
+	SmsMicrodepositsVerification,
 
 	/// <summary>
 	/// 

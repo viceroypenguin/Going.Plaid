@@ -65,7 +65,7 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 			[(WebhookType.Income, WebhookCode.BankIncomeRefreshComplete)] = typeof(BankIncomeRefreshCompleteWebhook),
 			[(WebhookType.Link, WebhookCode.Events)] = typeof(LinkEventsWebhook),
 			[(WebhookType.Link, WebhookCode.SessionFinished)] = typeof(LinkSessionFinishedWebhook),
-			[(WebhookType.Auth, WebhookCode.HostedVerification)] = typeof(HostedMMDVerificationWebhook),
+			[(WebhookType.Auth, WebhookCode.SmsMicrodepositsVerification)] = typeof(HostedMMDVerificationWebhook),
 			[(WebhookType.DashboardConfiguredAlert, WebhookCode.InstitutionStatusAlertTriggered)] = typeof(InstitutionStatusAlertWebhook),
 			[(WebhookType.Assets, WebhookCode.ProductReady)] = typeof(AssetsProductReadyWebhook),
 			[(WebhookType.Assets, WebhookCode.Error)] = typeof(AssetsErrorWebhook),

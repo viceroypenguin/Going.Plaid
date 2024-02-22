@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Contains the state of a hosted same-day microdeposits verification session.</para>
+/// <para>Contains the state of a SMS same-day microdeposits verification session.</para>
 /// </summary>
 public record HostedMMDVerificationWebhook : WebhookBase
 {
@@ -11,7 +11,7 @@ public record HostedMMDVerificationWebhook : WebhookBase
 
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]
-	public override WebhookCode WebhookCode => WebhookCode.HostedVerification;
+	public override WebhookCode WebhookCode => WebhookCode.SmsMicrodepositsVerification;
 
 	/// <summary>
 	/// <para>The final status of the same-day microdeposits verification. Will always be <c>MANUALLY_VERIFIED</c> or <c>VERIFICATION_FAILED</c>.</para>

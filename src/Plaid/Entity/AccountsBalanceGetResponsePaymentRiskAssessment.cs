@@ -6,7 +6,8 @@ namespace Going.Plaid.Entity;
 public record AccountsBalanceGetResponsePaymentRiskAssessment
 {
 	/// <summary>
-	/// <para>A five-tier risk assessment for the transaction based on the probability of return.</para>
+	/// <para>A five-tier risk assessment for the transaction, based on the probability of ACH returns,</para>
+	/// <para>measured by the incident rate.</para>
 	/// </summary>
 	[JsonPropertyName("risk_level")]
 	public string? RiskLevel { get; init; } = default!;
@@ -24,9 +25,10 @@ public record AccountsBalanceGetResponsePaymentRiskAssessment
 	public Entity.BalancePlusAttributes? Attributes { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A score from 1-99 that indicates the transaction return risk: a higher risk score suggests a higher return likelihood.</para>
-	/// <para>The score evaluates the transaction return risk because an account is overdrawn or because an ineligible account is used and covers return codes: "R01", "R02", "R03", "R04", "R06", "R08",  "R09", "R13",</para>
-	/// <para>"R16", "R17", "R20", "R23". These returns have a turnaround time of 2 banking days.</para>
+	/// <para>A risk score ranging from 1-99, reflecting the likelihood of ACH debit return.</para>
+	/// <para>A higher score indicates a greater risk of return, often due to overdrawn accounts or account</para>
+	/// <para>ineligibility to receive ACH transactions. Typical return codes include "R01", "R02", "R03",</para>
+	/// <para>"R04", "R06", "R08", "R09", "R13", "R16", "R17", "R20", "R23", etc., with a turnaround of 2 banking days.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int? Score { get; init; } = default!;
