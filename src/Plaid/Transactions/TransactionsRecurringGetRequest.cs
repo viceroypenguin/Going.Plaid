@@ -12,10 +12,10 @@ public partial class TransactionsRecurringGetRequest : RequestBase
 	public Entity.TransactionsRecurringGetRequestOptions? Options { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A list of <c>account_ids</c> to retrieve for the Item</para>
+	/// <para>An optional list of <c>account_ids</c> to retrieve for the Item. Retrieves all active accounts on item if no <c>account_id</c>s are provided.</para>
 	/// <para>Note: An error will be returned if a provided <c>account_id</c> is not associated with the Item.</para>
 	/// </summary>
 	[JsonPropertyName("account_ids")]
-	public IReadOnlyList<string> AccountIds { get; set; } = default!;
+	public IReadOnlyList<string>? AccountIds { get; set; } = default!;
 
 }

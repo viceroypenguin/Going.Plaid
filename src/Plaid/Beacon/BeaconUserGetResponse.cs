@@ -12,6 +12,12 @@ public record BeaconUserGetResponse : ResponseBase
 	public string Id { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The <c>version</c> field begins with 1 and increments each time the user is updated.</para>
+	/// </summary>
+	[JsonPropertyName("version")]
+	public int Version { get; init; } = default!;
+
+	/// <summary>
 	/// <para>An ISO8601 formatted timestamp.</para>
 	/// </summary>
 	[JsonPropertyName("created_at")]

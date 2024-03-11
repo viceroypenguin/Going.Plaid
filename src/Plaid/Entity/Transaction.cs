@@ -184,7 +184,7 @@ public record Transaction
 	public IReadOnlyList<Entity.Counterparty>? Counterparties { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique, stable, Plaid-generated ID that maps to the merchant.</para>
+	/// <para>A unique, stable, Plaid-generated ID that maps to the merchant. In the case of a merchant with multiple retail locations, this field will map to the broader merchant, not a specific location or store.</para>
 	/// </summary>
 	[JsonPropertyName("merchant_entity_id")]
 	public string? MerchantEntityId { get; init; } = default!;

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record StudentLoan
 {
 	/// <summary>
-	/// <para>The ID of the account that this liability belongs to.</para>
+	/// <para>The ID of the account that this liability belongs to. Each account can only contain one liability.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string? AccountId { get; init; } = default!;

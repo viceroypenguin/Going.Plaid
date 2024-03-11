@@ -1,9 +1,9 @@
-namespace Going.Plaid.Beacon;
+namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>A Beacon User represents an end user that has been scanned against the Beacon Network.</para>
 /// </summary>
-public record BeaconUserUpdateResponse : ResponseBase
+public record BeaconUser
 {
 	/// <summary>
 	/// <para>ID of the associated Beacon User.</para>

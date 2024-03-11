@@ -11,4 +11,10 @@ public record ProcessorAccountGetResponse : ResponseBase
 	[JsonPropertyName("account")]
 	public Entity.Account Account { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The Plaid Institution ID associated with the Account.</para>
+	/// </summary>
+	[JsonPropertyName("institution_id")]
+	public string InstitutionId { get; init; } = default!;
+
 }

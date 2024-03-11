@@ -17,4 +17,10 @@ public record BeaconAuditTrail
 	[JsonPropertyName("dashboard_user_id")]
 	public string? DashboardUserId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>An ISO8601 formatted timestamp.</para>
+	/// </summary>
+	[JsonPropertyName("timestamp")]
+	public DateTimeOffset Timestamp { get; init; } = default!;
+
 }

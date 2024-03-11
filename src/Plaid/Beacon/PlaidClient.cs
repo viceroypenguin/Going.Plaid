@@ -3,6 +3,14 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para>Use <c>/beacon/account_risk/v1/evaluate</c> to get risk insights for a linked account.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docsnone" /></remarks>
+	public Task<Beacon.BeaconAccountRiskEvaluateResponse> BeaconAccountRiskV1EvaluateAsync(Beacon.BeaconAccountRiskEvaluateRequest request) =>
+		PostAsync("/beacon/account_risk/v1/evaluate", request)
+			.ParseResponseAsync<Beacon.BeaconAccountRiskEvaluateResponse>();
+
+	/// <summary>
 	/// <para>Create and scan a Beacon User against your Beacon Program, according to your program's settings.</para>
 	/// <para>When you submit a new user to <c>/beacon/user/create</c>, several checks are performed immediately:</para>
 	/// <para>  - The user's PII (provided within the <c>user</c> object) is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of <c>pending_review</c>.</para>
@@ -101,5 +109,13 @@ public sealed partial class PlaidClient
 	public Task<Beacon.BeaconDuplicateGetResponse> BeaconDuplicateGetAsync(Beacon.BeaconDuplicateGetRequest request) =>
 		PostAsync("/beacon/duplicate/get", request)
 			.ParseResponseAsync<Beacon.BeaconDuplicateGetResponse>();
+
+	/// <summary>
+	/// <para>List all changes to the Beacon User in reverse-chronological order.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconuserhistorylist" /></remarks>
+	public Task<Beacon.BeaconUserHistoryListResponse> BeaconUserHistoryListAsync(Beacon.BeaconUserHistoryListRequest request) =>
+		PostAsync("/beacon/user/history/list", request)
+			.ParseResponseAsync<Beacon.BeaconUserHistoryListResponse>();
 
 }

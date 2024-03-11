@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record LinkSessionSuccessMetadata
 {
 	/// <summary>
-	/// <para>An institution object. If the Item was created via Same-Day micro-deposit verification, will be <c>null</c>.</para>
+	/// <para>An institution object. If the Item was created via Same-Day or Instant micro-deposit verification, will be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("institution")]
 	public Entity.LinkSessionSuccessMetadataInstitution? Institution { get; init; } = default!;
