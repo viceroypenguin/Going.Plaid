@@ -6,7 +6,7 @@
 	<ItemGroup>
 		<PackageVersion Include="CaseExtensions" Version="1.1.0" />
 		<PackageVersion Include="CommunityToolkit.Diagnostics" Version="8.2.2" />
-		<PackageVersion Include="coverlet.collector" Version="6.0.1" />
+		<PackageVersion Include="coverlet.collector" Version="6.0.2" />
 		<PackageVersion Include="coverlet.msbuild" Version="6.0.1" />
 		<PackageVersion Include="GitHubActionsTestLogger" Version="2.3.3" />
 		<PackageVersion Include="Microsoft.CodeAnalysis.PerformanceSensitiveAnalyzers" Version="3.3.1" />
