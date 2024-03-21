@@ -59,4 +59,10 @@ public class LinkTokenCreateRequestAuth
 	[JsonPropertyName("flow_type")]
 	public Entity.LinkTokenCreateRequestAuthFlowTypeEnum? FlowType { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Specifies whether the Link session is enabled for SMS microdeposits verification. If omitted, behavior defaults to as if this was set to <c>true</c>.</para>
+	/// </summary>
+	[JsonPropertyName("sms_microdeposits_verification_enabled")]
+	public bool? SmsMicrodepositsVerificationEnabled { get; set; } = default!;
+
 }

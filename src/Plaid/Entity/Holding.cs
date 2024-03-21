@@ -67,4 +67,16 @@ public record Holding
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The total quantity of vested assets held, as reported by the financial institution. Vested assets are only associated with <a href="https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-securities-type">equities</a>.</para>
+	/// </summary>
+	[JsonPropertyName("vested_quantity")]
+	public decimal? VestedQuantity { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The value of the vested holdings as reported by the institution.</para>
+	/// </summary>
+	[JsonPropertyName("vested_value")]
+	public decimal? VestedValue { get; init; } = default!;
+
 }

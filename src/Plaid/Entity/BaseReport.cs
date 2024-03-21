@@ -24,6 +24,12 @@ public record BaseReport
 	public decimal DaysRequested { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Client-generated identifier, which can be used by lenders to track loan applications.</para>
+	/// </summary>
+	[JsonPropertyName("client_report_id")]
+	public string? ClientReportId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Data returned by Plaid about each of the Items included in the Base Report.</para>
 	/// </summary>
 	[JsonPropertyName("items")]

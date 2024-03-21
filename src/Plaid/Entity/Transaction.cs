@@ -78,7 +78,7 @@ public record Transaction
 	public string? MerchantName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The string returned by the financial institution to describe the transaction. For transactions returned by <c>/transactions/sync</c> or <c>/transactions/get</c>, this field is in beta and will be omitted unless the client is both enrolled in the closed beta program and has set <c>options.include_original_description</c> to <c>true</c>.</para>
+	/// <para>The string returned by the financial institution to describe the transaction. For transactions returned by <c>/transactions/sync</c> or <c>/transactions/get</c>, this field will be omitted unless the client has set <c>options.include_original_description</c> to <c>true</c>.</para>
 	/// </summary>
 	[JsonPropertyName("original_description")]
 	public string? OriginalDescription { get; init; } = default!;

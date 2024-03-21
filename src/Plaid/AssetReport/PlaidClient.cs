@@ -44,7 +44,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>The <c>/item/remove</c> endpoint allows you to invalidate an <c>access_token</c>, meaning you will not be able to create new Asset Reports with it. Removing an Item does not affect any Asset Reports or Audit Copies you have already created, which will remain accessible until you remove them specifically.</para>
-	/// <para>The <c>/asset_report/remove</c> endpoint allows you to remove an Asset Report. Removing an Asset Report invalidates its <c>asset_report_token</c>, meaning you will no longer be able to use it to access Report data or create new Audit Copies. Removing an Asset Report does not affect the underlying Items, but does invalidate any <c>audit_copy_tokens</c> associated with the Asset Report.</para>
+	/// <para>The <c>/asset_report/remove</c> endpoint allows you to remove access to an Asset Report. Removing an Asset Report invalidates its <c>asset_report_token</c>, meaning you will no longer be able to use it to access Report data or create new Audit Copies. Removing an Asset Report does not affect the underlying Items, but does invalidate any <c>audit_copy_tokens</c> associated with the Asset Report.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#asset_reportremove" /></remarks>
 	public Task<AssetReport.AssetReportRemoveResponse> AssetReportRemoveAsync(AssetReport.AssetReportRemoveRequest request) =>

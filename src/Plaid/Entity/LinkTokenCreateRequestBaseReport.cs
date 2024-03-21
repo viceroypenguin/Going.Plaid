@@ -11,4 +11,10 @@ public class LinkTokenCreateRequestBaseReport
 	[JsonPropertyName("days_requested")]
 	public int DaysRequested { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Client-generated identifier, which can be used by lenders to track loan applications.</para>
+	/// </summary>
+	[JsonPropertyName("client_report_id")]
+	public string? ClientReportId { get; set; } = default!;
+
 }

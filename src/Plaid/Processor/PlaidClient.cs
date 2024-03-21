@@ -15,7 +15,7 @@ public sealed partial class PlaidClient
 	/// <para>This endpoint returns the account associated with a given processor token.</para>
 	/// <para>This endpoint retrieves cached information, rather than extracting fresh information from the institution. As a result, the account balance returned may not be up-to-date; for realtime balance information, use <c>/processor/balance/get</c> instead. Note that some information is nullable.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processoraccountget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processoraccountget" /></remarks>
 	public Task<Processor.ProcessorAccountGetResponse> ProcessorAccountGetAsync(Processor.ProcessorAccountGetRequest request) =>
 		PostAsync("/processor/account/get", request)
 			.ParseResponseAsync<Processor.ProcessorAccountGetResponse>();
@@ -26,9 +26,9 @@ public sealed partial class PlaidClient
 	/// <para>Due to the potentially large number of transactions associated with a processor token, results are paginated. Manipulate the <c>count</c> and <c>offset</c> parameters in conjunction with the <c>total_transactions</c> response body field to fetch all available transactions.</para>
 	/// <para>Data returned by <c>/processor/transactions/get</c> will be the data available for the processor token as of the most recent successful check for new transactions. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To force Plaid to check for new transactions, you can use the <c>/processor/transactions/refresh</c> endpoint.</para>
 	/// <para>Note that data may not be immediately available to <c>/processor/transactions/get</c>. Plaid will begin to prepare transactions data upon Item link, if Link was initialized with <c>transactions</c>, or upon the first call to <c>/processor/transactions/get</c>, if it wasn't. If no transaction history is ready when <c>/processor/transactions/get</c> is called, it will return a <c>PRODUCT_NOT_READY</c> error.</para>
-	/// <para>To receive Transactions webhooks for a processor token, set its webhook URL via the <a href="https://plaid.com/docs/api/processors/#processortokenwebhookupdate"><c>/processor/token/webhook/update</c></a> endpoint.</para>
+	/// <para>To receive Transactions webhooks for a processor token, set its webhook URL via the <a href="https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate"><c>/processor/token/webhook/update</c></a> endpoint.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortransactionsget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processortransactionsget" /></remarks>
 	public Task<Processor.ProcessorTransactionsGetResponse> ProcessorTransactionsGetAsync(Processor.ProcessorTransactionsGetRequest request) =>
 		PostAsync("/processor/transactions/get", request)
 			.ParseResponseAsync<Processor.ProcessorTransactionsGetResponse>();
@@ -43,9 +43,9 @@ public sealed partial class PlaidClient
 	/// <para>When retrieving paginated updates, track both the <c>next_cursor</c> from the latest response and the original cursor from the first call in which <c>has_more</c> was <c>true</c>; if a call to <c>/processor/transactions/sync</c> fails when retrieving a paginated update, which can occur as a result of the <a href="https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination"><c>TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION</c></a> error, the entire pagination request loop must be restarted beginning with the cursor for the first page of the update, rather than retrying only the single request that failed.</para>
 	/// <para>Whenever new or updated transaction data becomes available, <c>/processor/transactions/sync</c> will provide these updates. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To force Plaid to check for new transactions, use the <c>/processor/transactions/refresh</c> endpoint.</para>
 	/// <para>Note that for newly created processor tokens, data may not be immediately available to <c>/processor/transactions/sync</c>. Plaid begins preparing transactions data when the corresponding Item is created, but the process can take anywhere from a few seconds to several minutes to complete, depending on the number of transactions available.</para>
-	/// <para>To receive Transactions webhooks for a processor token, set its webhook URL via the <a href="https://plaid.com/docs/api/processors/#processortokenwebhookupdate"><c>/processor/token/webhook/update</c></a> endpoint.</para>
+	/// <para>To receive Transactions webhooks for a processor token, set its webhook URL via the <a href="https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate"><c>/processor/token/webhook/update</c></a> endpoint.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortransactionssync" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processortransactionssync" /></remarks>
 	public Task<Processor.ProcessorTransactionsSyncResponse> ProcessorTransactionsSyncAsync(Processor.ProcessorTransactionsSyncRequest request) =>
 		PostAsync("/processor/transactions/sync", request)
 			.ParseResponseAsync<Processor.ProcessorTransactionsSyncResponse>();
@@ -55,7 +55,7 @@ public sealed partial class PlaidClient
 	/// <para>As this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.</para>
 	/// <para><c>/processor/transactions/refresh</c> is offered as an add-on to Transactions and has a separate <a href="https://plaid.com/docs/account/billing/#per-request-flat-fee">fee model</a>. To request access to this endpoint, submit a <a href="https://dashboard.plaid.com/team/products">product access request</a> or contact your Plaid account manager.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortransactionsrefresh" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processortransactionsrefresh" /></remarks>
 	public Task<Processor.ProcessorTransactionsRefreshResponse> ProcessorTransactionsRefreshAsync(Processor.ProcessorTransactionsRefreshRequest request) =>
 		PostAsync("/processor/transactions/refresh", request)
 			.ParseResponseAsync<Processor.ProcessorTransactionsRefreshResponse>();
@@ -65,9 +65,9 @@ public sealed partial class PlaidClient
 	/// <para>This endpoint is offered as an add-on to Transactions. To request access to this endpoint, submit a <a href="https://dashboard.plaid.com/team/products">product access request</a> or contact your Plaid account manager.</para>
 	/// <para>This endpoint can only be called on a processor token that has already been initialized with Transactions (either during Link, by specifying it in <c>/link/token/create</c>; or after Link, by calling <c>/processor/transactions/get</c> or <c>/processor/transactions/sync</c>). Once all historical transactions have been fetched, call <c>/processor/transactions/recurring/get</c> to receive the Recurring Transactions streams and subscribe to the <a href="https://plaid.com/docs/api/products/transactions/#recurring_transactions_update"><c>RECURRING_TRANSACTIONS_UPDATE</c></a> webhook. To know when historical transactions have been fetched, if you are using <c>/processor/transactions/sync</c> listen for the <a href="https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete"><c>SYNC_UPDATES_AVAILABLE</c></a> webhook and check that the <c>historical_update_complete</c> field in the payload is <c>true</c>. If using <c>/processor/transactions/get</c>, listen for the <a href="https://plaid.com/docs/api/products/transactions/#historical_update"><c>HISTORICAL_UPDATE</c></a> webhook.</para>
 	/// <para>After the initial call, you can call <c>/processor/transactions/recurring/get</c> endpoint at any point in the future to retrieve the latest summary of recurring streams. Listen to the <a href="https://plaid.com/docs/api/products/transactions/#recurring_transactions_update"><c>RECURRING_TRANSACTIONS_UPDATE</c></a> webhook to be notified when new updates are available.</para>
-	/// <para>To receive Transactions webhooks for a processor token, set its webhook URL via the <a href="https://plaid.com/docs/api/processors/#processortokenwebhookupdate"><c>/processor/token/webhook/update</c></a> endpoint.</para>
+	/// <para>To receive Transactions webhooks for a processor token, set its webhook URL via the <a href="https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate"><c>/processor/token/webhook/update</c></a> endpoint.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortransactionsrecurringget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processortransactionsrecurringget" /></remarks>
 	public Task<Processor.ProcessorTransactionsRecurringGetResponse> ProcessorTransactionsRecurringGetAsync(Processor.ProcessorTransactionsRecurringGetRequest request) =>
 		PostAsync("/processor/transactions/recurring/get", request)
 			.ParseResponseAsync<Processor.ProcessorTransactionsRecurringGetResponse>();
@@ -77,7 +77,7 @@ public sealed partial class PlaidClient
 	/// <para>In order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If <c>/processor/signal/evaluate</c> is called on the same transaction multiple times within a 24-hour period, cached results may be returned. For more information please refer to our error documentation on <a href="https://plaid.com/docs/errors/item/">item errors</a> and <a href="https://plaid.com/docs/link/update-mode/">Link in Update Mode</a>.</para>
 	/// <para>Note: This request may take some time to complete if Signal is being added to an existing Item. This is because Plaid must communicate directly with the institution when retrieving the data for the first time. To reduce this latency, you can call <c>/signal/prepare</c> on the Item before you need to request Signal data.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignalevaluate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorsignalevaluate" /></remarks>
 	public Task<Processor.ProcessorSignalEvaluateResponse> ProcessorSignalEvaluateAsync(Processor.ProcessorSignalEvaluateRequest request) =>
 		PostAsync("/processor/signal/evaluate", request)
 			.ParseResponseAsync<Processor.ProcessorSignalEvaluateResponse>();
@@ -86,7 +86,7 @@ public sealed partial class PlaidClient
 	/// <para>After calling <c>/processor/signal/evaluate</c>, call <c>/processor/signal/decision/report</c> to report whether the transaction was initiated.</para>
 	/// <para>If you are using the <a href="https://www.plaid.com/docs/transfer">Plaid Transfer product</a> to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was initiated.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignaldecisionreport" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorsignaldecisionreport" /></remarks>
 	public Task<Processor.ProcessorSignalDecisionReportResponse> ProcessorSignalDecisionReportAsync(Processor.ProcessorSignalDecisionReportRequest request) =>
 		PostAsync("/processor/signal/decision/report", request)
 			.ParseResponseAsync<Processor.ProcessorSignalDecisionReportResponse>();
@@ -95,7 +95,7 @@ public sealed partial class PlaidClient
 	/// <para>Call the <c>/processor/signal/return/report</c> endpoint to report a returned transaction that was previously sent to the <c>/processor/signal/evaluate</c> endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.</para>
 	/// <para>If you are using the <a href="https://www.plaid.com/docs/transfer">Plaid Transfer product</a> to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was returned.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignalreturnreport" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorsignalreturnreport" /></remarks>
 	public Task<Processor.ProcessorSignalReturnReportResponse> ProcessorSignalReturnReportAsync(Processor.ProcessorSignalReturnReportRequest request) =>
 		PostAsync("/processor/signal/return/report", request)
 			.ParseResponseAsync<Processor.ProcessorSignalReturnReportResponse>();
@@ -104,7 +104,7 @@ public sealed partial class PlaidClient
 	/// <para>When a processor token is not initialized with Signal, call <c>/processor/signal/prepare</c> to opt-in that processor token to the Signal data collection process, which will improve the accuracy of the Signal score.</para>
 	/// <para>If this endpoint is called with a processor token that is already initialized with Signal, it will return a 200 response and will not modify the processor token.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorsignalprepare" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorsignalprepare" /></remarks>
 	public Task<Processor.ProcessorSignalPrepareResponse> ProcessorSignalPrepareAsync(Processor.ProcessorSignalPrepareRequest request) =>
 		PostAsync("/processor/signal/prepare", request)
 			.ParseResponseAsync<Processor.ProcessorSignalPrepareResponse>();
@@ -112,7 +112,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/processor/bank_transfer/create</c> endpoint to initiate a new bank transfer as a processor</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#bank_transfercreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#bank_transfercreate" /></remarks>
 	public Task<Processor.ProcessorBankTransferCreateResponse> ProcessorBankTransferCreateAsync(Processor.ProcessorBankTransferCreateRequest request) =>
 		PostAsync("/processor/bank_transfer/create", request)
 			.ParseResponseAsync<Processor.ProcessorBankTransferCreateResponse>();
@@ -122,7 +122,7 @@ public sealed partial class PlaidClient
 	/// <para>The types of information returned by Liabilities can include balances and due dates, loan terms, and account details such as original loan amount and guarantor. Data is refreshed approximately once per day; the latest data can be retrieved by calling <c>/processor/liabilities/get</c>.</para>
 	/// <para>Note: This request may take some time to complete if <c>liabilities</c> was not specified as an initial product when creating the processor token. This is because Plaid must communicate directly with the institution to retrieve the additional data.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorliabilitiesget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorliabilitiesget" /></remarks>
 	public Task<Processor.ProcessorLiabilitiesGetResponse> ProcessorLiabilitiesGetAsync(Processor.ProcessorLiabilitiesGetRequest request) =>
 		PostAsync("/processor/liabilities/get", request)
 			.ParseResponseAsync<Processor.ProcessorLiabilitiesGetResponse>();
@@ -130,7 +130,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/processor/identity/get</c> endpoint allows you to retrieve various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processoridentityget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processoridentityget" /></remarks>
 	public Task<Processor.ProcessorIdentityGetResponse> ProcessorIdentityGetAsync(Processor.ProcessorIdentityGetRequest request) =>
 		PostAsync("/processor/identity/get", request)
 			.ParseResponseAsync<Processor.ProcessorIdentityGetResponse>();
@@ -140,7 +140,7 @@ public sealed partial class PlaidClient
 	/// <para>Fields within the <c>balances</c> object will always be null when retrieved by <c>/identity/match</c>. Instead, use the free <c>/accounts/get</c> endpoint to request balance cached data, or <c>/accounts/balance/get</c> for real-time data.</para>
 	/// <para>This request may take some time to complete if Identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processoridentitymatch" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processoridentitymatch" /></remarks>
 	public Task<Processor.ProcessorIdentityMatchResponse> ProcessorIdentityMatchAsync(Processor.ProcessorIdentityMatchRequest request) =>
 		PostAsync("/processor/identity/match", request)
 			.ParseResponseAsync<Processor.ProcessorIdentityMatchResponse>();
@@ -148,7 +148,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/processor/balance/get</c> endpoint returns the real-time balance for each of an Item's accounts. While other endpoints may return a balance object, only <c>/processor/balance/get</c> forces the available and current balance fields to be refreshed rather than cached.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorbalanceget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorbalanceget" /></remarks>
 	public Task<Processor.ProcessorBalanceGetResponse> ProcessorBalanceGetAsync(Processor.ProcessorBalanceGetRequest request) =>
 		PostAsync("/processor/balance/get", request)
 			.ParseResponseAsync<Processor.ProcessorBalanceGetResponse>();
@@ -180,7 +180,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>This endpoint allows you, the processor, to update the webhook URL associated with a processor token. This request triggers a <c>WEBHOOK_UPDATE_ACKNOWLEDGED</c> webhook to the newly specified webhook URL.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortokenwebhookupdate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate" /></remarks>
 	public Task<Processor.ProcessorTokenWebhookUpdateResponse> ProcessorTokenWebhookUpdateAsync(Processor.ProcessorTokenWebhookUpdateRequest request) =>
 		PostAsync("/processor/token/webhook/update", request)
 			.ParseResponseAsync<Processor.ProcessorTokenWebhookUpdateResponse>();

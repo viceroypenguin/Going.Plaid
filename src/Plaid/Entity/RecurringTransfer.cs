@@ -58,7 +58,7 @@ public record RecurringTransfer
 	/// 
 	/// </summary>
 	[JsonPropertyName("network")]
-	public Entity.TransferNetwork Network { get; init; } = default!;
+	public Entity.TransferACHNetwork Network { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for the origination account that was used for this transfer.</para>

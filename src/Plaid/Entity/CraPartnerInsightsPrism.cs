@@ -18,10 +18,10 @@ public record CraPartnerInsightsPrism
 	public Entity.PrismCashScore? CashScore { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The data from the Detect product returned by Prism.</para>
+	/// <para>The data from the Firstdetect product returned by Prism.</para>
 	/// </summary>
-	[JsonPropertyName("detect")]
-	public Entity.PrismDetect? Detect { get; init; } = default!;
+	[JsonPropertyName("first_detect")]
+	public Entity.PrismFirstDetect? FirstDetect { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Details on whether the Prism attributes succeeded or failed to be generated.</para>

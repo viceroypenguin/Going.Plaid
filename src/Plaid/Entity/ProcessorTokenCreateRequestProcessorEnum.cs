@@ -32,12 +32,6 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "prime_trust")]
-	PrimeTrust,
-
-	/// <summary>
-	/// 
-	/// </summary>
 	[EnumMember(Value = "vesta")]
 	Vesta,
 

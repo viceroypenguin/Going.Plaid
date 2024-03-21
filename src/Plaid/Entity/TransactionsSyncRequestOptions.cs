@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class TransactionsSyncRequestOptions
 {
 	/// <summary>
-	/// <para>Include the raw unparsed transaction description from the financial institution. This field is disabled by default. If you need this information in addition to the parsed data provided, contact your Plaid Account Manager or submit a <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/product-functionality">Support request</a>.</para>
+	/// <para>Include the raw unparsed transaction description from the financial institution.</para>
 	/// </summary>
 	[JsonPropertyName("include_original_description")]
 	public bool? IncludeOriginalDescription { get; set; } = default!;

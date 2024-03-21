@@ -34,7 +34,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// 
 	/// </summary>
 	[JsonPropertyName("network")]
-	public Entity.TransferNetwork Network { get; set; } = default!;
+	public Entity.TransferACHNetwork Network { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>

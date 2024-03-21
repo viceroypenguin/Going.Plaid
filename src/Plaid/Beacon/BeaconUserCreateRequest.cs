@@ -3,9 +3,8 @@ namespace Going.Plaid.Beacon;
 /// <summary>
 /// <para>Request input for creating a Beacon User.</para>
 /// <para>The primary use for this endpoint is to add a new end user to Beacon for fraud and duplicate scanning.</para>
-/// <para>This endpoint can also be used to import historical fraud cases into the Beacon Network without being charged</para>
-/// <para>for creating a Beacon User. To import historical fraud cases, embed the fraud report in the optional <c>report</c></para>
-/// <para>section of the request payload.</para>
+/// <para>Some fields are optional, but it is recommended to provide as much information as possible to improve</para>
+/// <para>the accuracy of the fraud and duplicate scanning.</para>
 /// </summary>
 public partial class BeaconUserCreateRequest : RequestBase
 {

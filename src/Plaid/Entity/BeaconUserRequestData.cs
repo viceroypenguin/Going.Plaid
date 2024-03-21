@@ -21,7 +21,7 @@ public class BeaconUserRequestData
 	/// <para>Home address for the associated user. For more context on this field, see <a href="https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country">Input Validation by Country</a>.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.BeaconUserRequestAddress Address { get; set; } = default!;
+	public Entity.BeaconUserRequestAddress? Address { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A valid email address.</para>

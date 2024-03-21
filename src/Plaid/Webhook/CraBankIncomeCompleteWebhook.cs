@@ -23,6 +23,6 @@ public record CraBankIncomeCompleteWebhook : WebhookBase
 	/// <para>The result of the bank income report generation</para>
 	/// </summary>
 	[JsonPropertyName("result")]
-	public Entity.CraBankIncomeCompleteResult Result { get; init; } = default!;
+	public Entity.CraBankIncomeCompleteResult? Result { get; init; } = default!;
 
 }
