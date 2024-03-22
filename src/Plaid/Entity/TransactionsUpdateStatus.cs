@@ -6,10 +6,10 @@ namespace Going.Plaid.Entity;
 public enum TransactionsUpdateStatus
 {
 	/// <summary>
-	/// <para>Error, unable to fetch transactions update state for item.</para>
+	/// <para>Unable to fetch transactions update status for item.</para>
 	/// </summary>
-	[EnumMember(Value = "TRANSACTIONS_UPDATE_STATE_UNKNOWN")]
-	TransactionsUpdateStateUnknown,
+	[EnumMember(Value = "TRANSACTIONS_UPDATE_STATUS_UNKNOWN")]
+	TransactionsUpdateStatusUnknown,
 
 	/// <summary>
 	/// <para>The item is pending transaction pull.</para>

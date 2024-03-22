@@ -69,7 +69,7 @@ public record BaseReportAccount
 	/// <para>Calculated data about the historical balances on the account. Only returned by Base Report endpoints and currently not supported by <c>brokerage</c> or <c>investment</c> accounts.</para>
 	/// </summary>
 	[JsonPropertyName("historical_balances")]
-	public IReadOnlyList<Entity.HistoricalBalance> HistoricalBalances { get; init; } = default!;
+	public IReadOnlyList<Entity.HistoricalBalance>? HistoricalBalances { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Calculated insights derived from transaction-level data.</para>

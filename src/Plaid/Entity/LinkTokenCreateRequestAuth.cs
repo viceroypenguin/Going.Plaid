@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager.</para>
+/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager. The default behavior described in the documentation is the default behavior that will apply if you have not requested your account manager to apply a different default.</para>
 /// </summary>
 public class LinkTokenCreateRequestAuth
 {
@@ -12,7 +12,7 @@ public class LinkTokenCreateRequestAuth
 	public bool? AuthTypeSelectEnabled { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies whether the Link session is enabled for the Automated Micro-deposits flow.</para>
+	/// <para>Specifies whether the Link session is enabled for the Automated Micro-deposits flow. Default behavior is <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("automated_microdeposits_enabled")]
 	public bool? AutomatedMicrodepositsEnabled { get; set; } = default!;
@@ -24,13 +24,13 @@ public class LinkTokenCreateRequestAuth
 	public bool? InstantMatchEnabled { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies whether the Link session is enabled for the Same Day Micro-deposits flow.</para>
+	/// <para>Specifies whether the Link session is enabled for the Same Day Micro-deposits flow.  Default behavior is <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("same_day_microdeposits_enabled")]
 	public bool? SameDayMicrodepositsEnabled { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies whether the Link session is enabled for the Instant Micro-deposits flow.</para>
+	/// <para>Specifies whether the Link session is enabled for the Instant Micro-deposits flow.  Default behavior is <c>true</c>.</para>
 	/// </summary>
 	[JsonPropertyName("instant_microdeposits_enabled")]
 	public bool? InstantMicrodepositsEnabled { get; set; } = default!;

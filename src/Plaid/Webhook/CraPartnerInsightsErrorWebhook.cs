@@ -1,9 +1,9 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a partner insights report has finished generating and results are available</para>
+/// <para>Fired when a partner insights report has failed to generate</para>
 /// </summary>
-public record CraPartnerInsightsCompleteWebhook : WebhookBase
+public record CraPartnerInsightsErrorWebhook : WebhookBase
 {
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_type")]
@@ -11,7 +11,7 @@ public record CraPartnerInsightsCompleteWebhook : WebhookBase
 
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]
-	public override WebhookCode WebhookCode => WebhookCode.PartnerInsightsComplete;
+	public override WebhookCode WebhookCode => WebhookCode.PartnerInsightsError;
 
 	/// <summary>
 	/// <para>The <c>user_id</c> corresponding to the user the webhook has fired for.</para>
