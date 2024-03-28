@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Result summary object capturing abuse signals related to <c>identity abuse</c>, e.g. stolen and synthetic identity fraud.</para>
+/// <para>Result summary object capturing abuse signals related to <c>identity abuse</c>, e.g. stolen and synthetic identity fraud. These attributes are only available for US identities and some signals may not be available depending on what information was collected.</para>
 /// </summary>
 public record RiskCheckIdentityAbuseSignals
 {

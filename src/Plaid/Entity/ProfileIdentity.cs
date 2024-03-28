@@ -18,6 +18,12 @@ public record ProfileIdentity
 	public Entity.ProfileIdentityAddress? Address { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format</para>
+	/// </summary>
+	[JsonPropertyName("phone_number")]
+	public string? PhoneNumber { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The user's email address.</para>
 	/// </summary>
 	[JsonPropertyName("email")]

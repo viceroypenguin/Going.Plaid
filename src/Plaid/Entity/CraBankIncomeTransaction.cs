@@ -58,4 +58,10 @@ public record CraBankIncomeTransaction
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The type of bonus that this transaction represents, if it is a bonus</para>
+	/// </summary>
+	[JsonPropertyName("bonus_type")]
+	public Entity.CraBankIncomeBonusType? BonusType { get; init; } = default!;
+
 }
