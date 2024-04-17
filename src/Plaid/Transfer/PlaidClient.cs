@@ -34,7 +34,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferAuthorizationCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/balance/get</c> endpoint to view a balance held with Plaid.</para>
+	/// <para>(Deprecated) Use the <c>/transfer/balance/get</c> endpoint to view a balance held with Plaid.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/balance/#transferbalanceget" /></remarks>
 	public Task<Transfer.TransferBalanceGetResponse> TransferBalanceGetAsync(Transfer.TransferBalanceGetRequest request) =>

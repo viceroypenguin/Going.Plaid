@@ -24,6 +24,12 @@ public enum TransferStatus
 	Settled,
 
 	/// <summary>
+	/// <para>Funds from the transfer have been released from hold and applied to the ledger's available balance. (Only applicable to ACH debits.)</para>
+	/// </summary>
+	[EnumMember(Value = "funds_available")]
+	FundsAvailable,
+
+	/// <summary>
 	/// <para>The transfer was cancelled by the client.</para>
 	/// </summary>
 	[EnumMember(Value = "cancelled")]

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Configuration parameters for Hosted Link (beta). Only available for participants in the Hosted Link beta program.</para>
+/// <para>Configuration parameters for Hosted Link. To request access to Hosted Link, contact your account manager.</para>
 /// </summary>
 public class LinkTokenCreateHostedLink
 {
@@ -24,7 +24,7 @@ public class LinkTokenCreateHostedLink
 	public int? UrlLifetimeSeconds { get; set; } = default!;
 
 	/// <summary>
-	/// <para>This indicates whether the client is opening hosted Link in a mobile app in an out of process web view (OOPWV).</para>
+	/// <para>This indicates whether the client is opening hosted Link in a mobile app in an out of process web view (OOPWV) (i.e., an <c>AsWebAuthenticationSession</c> / <c>SFSafariViewController</c> or Android Custom Tab).</para>
 	/// </summary>
 	[JsonPropertyName("is_mobile_app")]
 	public bool? IsMobileApp { get; set; } = default!;

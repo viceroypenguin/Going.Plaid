@@ -31,10 +31,10 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	public Entity.TransferType Type { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Networks eligible for recurring transfers.</para>
 	/// </summary>
 	[JsonPropertyName("network")]
-	public Entity.TransferACHNetwork Network { get; set; } = default!;
+	public Entity.TransferRecurrinngNetwork Network { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>

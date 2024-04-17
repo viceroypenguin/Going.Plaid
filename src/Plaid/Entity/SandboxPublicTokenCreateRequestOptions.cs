@@ -30,6 +30,12 @@ public class SandboxPublicTokenCreateRequestOptions
 	public Entity.SandboxPublicTokenCreateRequestOptionsTransactions? Transactions { get; set; } = default!;
 
 	/// <summary>
+	/// <para>An optional set of parameters corresponding to statements options.</para>
+	/// </summary>
+	[JsonPropertyName("statements")]
+	public Entity.SandboxPublicTokenCreateRequestOptionsStatements? Statements { get; set; } = default!;
+
+	/// <summary>
 	/// <para>A set of parameters for income verification options. This field is required if <c>income_verification</c> is included in the <c>initial_products</c> array.</para>
 	/// </summary>
 	[JsonPropertyName("income_verification")]

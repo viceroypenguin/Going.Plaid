@@ -8,19 +8,19 @@ namespace Going.Plaid.Entity;
 public record BeaconUserAddress
 {
 	/// <summary>
-	/// <para>The primary street portion of an address. If an address is provided, this field will always be filled.</para>
+	/// <para>The primary street portion of an address. If an address is provided, this field will always be filled. A string with at least one non-whitespace alphabetical character, with a max length of 80 characters.</para>
 	/// </summary>
 	[JsonPropertyName("street")]
 	public string Street { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Extra street information, like an apartment or suite number.</para>
+	/// <para>Extra street information, like an apartment or suite number. If provided, a string with at least one non-whitespace character, with a max length of 20 characters.</para>
 	/// </summary>
 	[JsonPropertyName("street2")]
 	public string? Street2 { get; init; } = default!;
 
 	/// <summary>
-	/// <para>City from the end user's address</para>
+	/// <para>City from the end user's address. A string with at least one non-whitespace alphabetical character, with a max length of 100 characters."</para>
 	/// </summary>
 	[JsonPropertyName("city")]
 	public string City { get; init; } = default!;

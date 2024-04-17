@@ -79,8 +79,8 @@ public record StudentLoan
 
 	/// <summary>
 	/// <para>The minimum payment due for the next billing cycle. There are some exceptions:</para>
-	/// <para>Some institutions require a minimum payment across all loans associated with an account number. Our API presents that same minimum payment amount on each loan. The institutions that do this are: Great Lakes ( <c>ins_116861</c>), Firstmark (<c>ins_116295</c>), Commonbond Firstmark Services (<c>ins_116950</c>), Nelnet (<c>ins_116528</c>), EdFinancial Services (<c>ins_116304</c>), Granite State (<c>ins_116308</c>), and Oklahoma Student Loan Authority (<c>ins_116945</c>).</para>
-	/// <para>Firstmark (<c>ins_116295</c> ) and Navient (<c>ins_116248</c>) will display as $0 if there is an autopay program in effect.</para>
+	/// <para>Some institutions require a minimum payment across all loans associated with an account number. Our API presents that same minimum payment amount on each loan. The institutions that do this are: Great Lakes ( <c>ins_116861</c>), Firstmark (<c>ins_116295</c>), Commonbond Firstmark Services (<c>ins_116950</c>), EdFinancial Services (<c>ins_116304</c>), Granite State (<c>ins_116308</c>), and Oklahoma Student Loan Authority (<c>ins_116945</c>).</para>
+	/// <para>Firstmark (<c>ins_116295</c> ), EdFinancial Services (<c>ins_116304</c>),  and Navient (<c>ins_116248</c>) will display as $0 if there is an autopay program in effect.</para>
 	/// </summary>
 	[JsonPropertyName("minimum_payment_amount")]
 	public decimal? MinimumPaymentAmount { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object containing information about a link session. This field will only be present if your client is enabled for Hosted Link (beta). Session data will be provided for up to six hours after the session has ended.</para>
+/// <para>An object containing information about a link session.Session data will be provided for up to six hours after the session has ended.</para>
 /// </summary>
 public record LinkTokenGetSessionsResponse
 {

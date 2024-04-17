@@ -485,4 +485,10 @@ public record SignalEvaluateCoreAttributes
 	[JsonPropertyName("distinct_ssl_tls_connection_sessions_count_90d")]
 	public int? DistinctSslTlsConnectionSessionsCount90d { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The number of days since the bank account was opened, as reported by the financial institution</para>
+	/// </summary>
+	[JsonPropertyName("days_since_account_opening")]
+	public int? DaysSinceAccountOpening { get; init; } = default!;
+
 }

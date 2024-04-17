@@ -55,10 +55,10 @@ public record RecurringTransfer
 	public Entity.AchClass? AchClass { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Networks eligible for recurring transfers.</para>
 	/// </summary>
 	[JsonPropertyName("network")]
-	public Entity.TransferACHNetwork Network { get; init; } = default!;
+	public Entity.TransferRecurrinngNetwork Network { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for the origination account that was used for this transfer.</para>

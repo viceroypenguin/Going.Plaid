@@ -63,6 +63,24 @@ public record CraBankIncomeSummary
 	public IReadOnlyList<Entity.CreditAmountWithCurrency>? ForecastedAverageMonthlyIncome { get; init; } = default!;
 
 	/// <summary>
+	/// <para>An estimate of the annual gross income based on the historical net amount and income category for the income source(s).</para>
+	/// </summary>
+	[JsonPropertyName("historical_annual_gross_income")]
+	public IReadOnlyList<Entity.CreditAmountWithCurrency>? HistoricalAnnualGrossIncome { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The annual income amount estimated based on the historical data for the income source(s).</para>
+	/// </summary>
+	[JsonPropertyName("historical_annual_income")]
+	public IReadOnlyList<Entity.CreditAmountWithCurrency>? HistoricalAnnualIncome { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The predicted average annual income amount for the income source(s).</para>
+	/// </summary>
+	[JsonPropertyName("forecasted_annual_income")]
+	public IReadOnlyList<Entity.CreditAmountWithCurrency>? ForecastedAnnualIncome { get; init; } = default!;
+
+	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("historical_summary")]

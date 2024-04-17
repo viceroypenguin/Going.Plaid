@@ -17,12 +17,6 @@ public record BeaconAccountRiskEvaluateAccountAttributes
 	public int? DaysSinceFirstPlaidConnection { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The age of the account as reported by the FI, when available.</para>
-	/// </summary>
-	[JsonPropertyName("days_since_account_creation")]
-	public int? DaysSinceAccountCreation { get; init; } = default!;
-
-	/// <summary>
 	/// <para>Indicates if the account has been closed by the financial institution or the consumer, or is at risk of being closed</para>
 	/// </summary>
 	[JsonPropertyName("is_account_closed")]
@@ -171,5 +165,11 @@ public record BeaconAccountRiskEvaluateAccountAttributes
 	/// </summary>
 	[JsonPropertyName("phone_change_count_90d")]
 	public int? PhoneChangeCount90d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of days since the bank account was opened, as reported by the financial institution</para>
+	/// </summary>
+	[JsonPropertyName("days_since_account_opening")]
+	public int? DaysSinceAccountOpening { get; init; } = default!;
 
 }

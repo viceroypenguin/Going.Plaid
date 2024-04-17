@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class BeaconUserIDNumber
 {
 	/// <summary>
-	/// <para>Value of identity document value typed in by user. Alpha-numeric, with all formatting characters stripped.</para>
+	/// <para>Value of identity document value typed in by user. Alpha-numeric, with all formatting characters stripped. For specific format requirements by ID type, see <a href="https://plaid.com/docs/identity-verification/hybrid-input-validation/">Hybrid Input Validation</a>.</para>
 	/// </summary>
 	[JsonPropertyName("value")]
 	public string Value { get; set; } = default!;

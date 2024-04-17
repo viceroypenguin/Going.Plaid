@@ -29,7 +29,8 @@ public class TransferRecurringSchedule
 
 	/// <summary>
 	/// <para>A date in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD). The recurring transfer will begin on the first <c>interval_execution_day</c> on or after the <c>start_date</c>.</para>
-	/// <para>If the first <c>interval_execution_day</c> on or after the start date is also the same day that <c>/transfer/recurring/create</c> was called, the bank *may* make the first payment on that day, but it is not guaranteed to do so.</para>
+	/// <para>For <c>rtp</c> recurring transfers, <c>start_date</c> must be in the future.</para>
+	/// <para>Otherwise, if the first <c>interval_execution_day</c> on or after the start date is also the same day that <c>/transfer/recurring/create</c> was called, the bank *may* make the first payment on that day, but it is not guaranteed to do so.</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]
 	public DateOnly StartDate { get; set; } = default!;

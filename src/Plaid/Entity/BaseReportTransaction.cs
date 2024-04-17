@@ -79,4 +79,22 @@ public record BaseReportTransaction
 	[JsonPropertyName("account_owner")]
 	public string? AccountOwner { get; init; } = default!;
 
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("transaction_type")]
+	public Entity.BaseReportTransactionType? TransactionType { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
+	/// </summary>
+	[JsonPropertyName("category")]
+	public IReadOnlyList<string>? Category { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The ID of the category to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
+	/// </summary>
+	[JsonPropertyName("category_id")]
+	public Entity.BaseReportTransactionCategoryIdObject? CategoryId { get; init; } = default!;
+
 }

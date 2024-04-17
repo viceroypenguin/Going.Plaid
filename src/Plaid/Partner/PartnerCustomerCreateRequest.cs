@@ -90,7 +90,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public Entity.PartnerEndCustomerAssetsUnderManagement? AssetsUnderManagement { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A list of URIs indicating the destination(s) where a user can be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. URIs should not contain any query parameters. When used in Production or Development, URIs must use https. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. To modify redirect URIs for an end customer after creating them, go to the end customer's <a href="https://dashboard.plaid.com/team/api">API page</a> in the Dashboard.</para>
+	/// <para>A list of URIs indicating the destination(s) where a user can be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or another app. URIs should not contain any query parameters. When used in Production or Development, URIs must use https. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. To modify redirect URIs for an end customer after creating them, go to the end customer's <a href="https://dashboard.plaid.com/team/api">API page</a> in the Dashboard.</para>
 	/// </summary>
 	[JsonPropertyName("redirect_uris")]
 	public IReadOnlyList<string>? RedirectUris { get; set; } = default!;

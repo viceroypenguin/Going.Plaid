@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>The <c>/statements/list</c> endpoint retrieves a list of all statements associated with the provided item.</para>
+	/// <para>The <c>/statements/list</c> endpoint retrieves a list of all statements associated with an item.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/statements#statementslist" /></remarks>
 	public Task<Statements.StatementsListResponse> StatementsListAsync(Statements.StatementsListRequest request) =>

@@ -6,6 +6,18 @@ namespace Going.Plaid.Processor;
 public record ProcessorTransactionsSyncResponse : ResponseBase
 {
 	/// <summary>
+	/// <para>A description of the update status for transaction pulls of an Item.</para>
+	/// </summary>
+	[JsonPropertyName("transactions_update_status")]
+	public Entity.TransactionsUpdateStatus TransactionsUpdateStatus { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A single account at a financial institution.</para>
+	/// </summary>
+	[JsonPropertyName("account")]
+	public Entity.Account Account { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Transactions that have been added to the Item since <c>cursor</c> ordered by ascending last modified time.</para>
 	/// </summary>
 	[JsonPropertyName("added")]
