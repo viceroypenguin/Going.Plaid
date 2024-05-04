@@ -12,7 +12,7 @@ public partial class ProcessorBalanceGetRequest : RequestBase
 	public string ProcessorToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An optional object to filter <c>/processor/balance/get</c> results.</para>
+	/// <para>Optional parameters to <c>/processor/balance/get</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.ProcessorBalanceGetRequestOptions? Options { get; set; } = default!;

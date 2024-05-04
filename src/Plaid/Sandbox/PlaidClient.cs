@@ -23,6 +23,7 @@ public sealed partial class PlaidClient
 	/// <para><c>DEFAULT_UPDATE</c>: Transactions update webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>NEW_ACCOUNTS_AVAILABLE</c>: Webhook to be fired for a given Sandbox Item created with Account Select v2.</para>
 	/// <para><c>AUTH_DATA_UPDATE</c>: Webhook to be fired for a given Sandbox Item created with Auth as an enabled product.</para>
+	/// <para><c>SMS_MICRODEPOSITS_VERIFICATION</c>: Fired when a given same day micro-deposit item is verified via SMS verification.</para>
 	/// <para><c>LOGIN_REPAIRED</c>: Fired when an Item recovers from the <c>ITEM_LOGIN_REQUIRED</c> without the user going through update mode in your app.</para>
 	/// <para><c>RECURRING_TRANSACTIONS_UPDATE</c>: Recurring Transactions webhook to be fired for a given Sandbox Item. If the Item does not support Recurring Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>SYNC_UPDATES_AVAILABLE</c>: Transactions webhook to be fired for a given Sandbox Item.  If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>

@@ -24,7 +24,7 @@ public class LinkTokenCreateRequestUser
 	public Entity.LinkTokenCreateRequestUserNameObject? Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user">returning user experience</a>. Can also be used to prefill Link fields when used with Identity Verification.</para>
+	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. If supplied, will be used when applicable to prefill phone number fields in Link for the <a href="https://www.plaid.com/docs/link/returning/user">returning user flow</a> and the <a href="https://www.plaid.com/docs/identity-verification">Identity Verification flow</a>.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public string? PhoneNumber { get; set; } = default!;
@@ -38,7 +38,7 @@ public class LinkTokenCreateRequestUser
 	public DateTimeOffset? PhoneNumberVerifiedTime { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's email address. This field is optional, but required to enable the <a href="https://plaid.com/docs/link/returning-user/#pre-authenticated-rux">pre-authenticated returning user flow</a>. Can also be used to prefill Link fields when used with Identity Verification.</para>
+	/// <para>The user's email address. Can be used to prefill Link fields when used with <a href="https://www.plaid.com/docs/identity-verification">Identity Verification</a>.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string? EmailAddress { get; set; } = default!;

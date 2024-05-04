@@ -6,7 +6,7 @@ public sealed partial class PlaidClient
 	/// <para>The <c>/processor/auth/get</c> endpoint returns the bank account and bank identification number (such as the routing number, for US accounts), for a checking or savings account that''s associated with a given <c>processor_token</c>. The endpoint also returns high-level account data and balances when available.</para>
 	/// <para>Versioning note: API versions 2019-05-29 and earlier use a different schema for the <c>numbers</c> object returned by this endpoint. For details, see <a href="https://plaid.com/docs/api/versioning/#version-2020-09-14">Plaid API versioning</a>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorauthget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorauthget" /></remarks>
 	public Task<Processor.ProcessorAuthGetResponse> ProcessorAuthGetAsync(Processor.ProcessorAuthGetRequest request) =>
 		PostAsync("/processor/auth/get", request)
 			.ParseResponseAsync<Processor.ProcessorAuthGetResponse>();

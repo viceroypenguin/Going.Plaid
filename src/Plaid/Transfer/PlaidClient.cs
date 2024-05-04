@@ -34,6 +34,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferAuthorizationCreateResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/transfer/authorization/cancel</c> endpoint to cancel a transfer authorization. A transfer authorization is eligible for cancellation if it has not yet been used to create a transfer.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/initiating-transfers/#transferauthorizationcancel" /></remarks>
+	public Task<Transfer.TransferAuthorizationCancelResponse> TransferAuthorizationCancelAsync(Transfer.TransferAuthorizationCancelRequest request) =>
+		PostAsync("/transfer/authorization/cancel", request)
+			.ParseResponseAsync<Transfer.TransferAuthorizationCancelResponse>();
+
+	/// <summary>
 	/// <para>(Deprecated) Use the <c>/transfer/balance/get</c> endpoint to view a balance held with Plaid.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/balance/#transferbalanceget" /></remarks>

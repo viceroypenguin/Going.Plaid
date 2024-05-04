@@ -48,7 +48,7 @@ public record Institution
 	public string? Logo { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A partial list of routing numbers associated with the institution. This list is provided for the purpose of looking up institutions by routing number. It is not comprehensive and should never be used as a complete list of routing numbers for an institution.</para>
+	/// <para>A list of routing numbers known to be associated with the institution. This list is provided for the purpose of looking up institutions by routing number. It is generally comprehensive but is not guaranteed to be a complete list of routing numbers for an institution.</para>
 	/// </summary>
 	[JsonPropertyName("routing_numbers")]
 	public IReadOnlyList<string> RoutingNumbers { get; init; } = default!;

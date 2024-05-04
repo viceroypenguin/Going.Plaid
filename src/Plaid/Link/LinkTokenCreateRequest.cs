@@ -89,7 +89,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public string? LinkCustomizationName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or another app. The <c>redirect_uri</c> should not contain any query parameters. When used in Production or Development, must be an https URI. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. Note that any redirect URI must also be added to the Allowed redirect URIs list in the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>. If initializing on Android, <c>android_package_name</c> must be specified instead and <c>redirect_uri</c> should be left blank. If using Hosted Link, the <c>redirect_uri</c> must be set to <c>https://hosted.plaid.com/oauth/redirect</c>.</para>
+	/// <para>A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or another app. The <c>redirect_uri</c> should not contain any query parameters. When used in Production or Development, must be an https URI. To specify any subdomain, use <c>*</c> as a wildcard character, e.g. <c>https://*.example.com/oauth.html</c>. Note that any redirect URI must also be added to the Allowed redirect URIs list in the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>. If initializing on Android, <c>android_package_name</c> must be specified instead and <c>redirect_uri</c> should be left blank. If using Hosted Link, the <c>redirect_uri</c> must be set to <c>https://secure.plaid.com/oauth/redirect</c>.</para>
 	/// </summary>
 	[JsonPropertyName("redirect_uri")]
 	public string? RedirectUri { get; set; } = default!;
@@ -244,5 +244,17 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("identity")]
 	public Entity.LinkTokenCreateIdentity? Identity { get; set; } = default!;
+
+	/// <summary>
+	/// <para>If <c>true</c>, indicates that client supports linking FinanceKit / AppleCard items. Defaults to <c>false</c>.</para>
+	/// </summary>
+	[JsonPropertyName("financekit_supported")]
+	public bool? FinancekitSupported { get; set; } = default!;
+
+	/// <summary>
+	/// <para>If <c>true</c>, enable linking multiple items in the same Link session. Defaults to <c>false</c>.</para>
+	/// </summary>
+	[JsonPropertyName("enable_multi_item_link")]
+	public bool? EnableMultiItemLink { get; set; } = default!;
 
 }

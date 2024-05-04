@@ -36,4 +36,10 @@ public record PaymentInitiationMetadata
 	[JsonPropertyName("standing_order_metadata")]
 	public Entity.PaymentInitiationStandingOrderMetadata? StandingOrderMetadata { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Indicates whether the institution supports payment consents.</para>
+	/// </summary>
+	[JsonPropertyName("supports_payment_consents")]
+	public bool SupportsPaymentConsents { get; init; } = default!;
+
 }

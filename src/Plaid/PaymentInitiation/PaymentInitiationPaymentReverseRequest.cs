@@ -30,4 +30,16 @@ public partial class PaymentInitiationPaymentReverseRequest : RequestBase
 	[JsonPropertyName("amount")]
 	public Entity.PaymentAmountToRefund? Amount { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The counterparty's birthdate, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format.</para>
+	/// </summary>
+	[JsonPropertyName("counterparty_date_of_birth")]
+	public DateOnly? CounterpartyDateOfBirth { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The optional address of the payment recipient's bank account. Required by most institutions outside of the UK.</para>
+	/// </summary>
+	[JsonPropertyName("counterparty_address")]
+	public Entity.PaymentInitiationAddress? CounterpartyAddress { get; set; } = default!;
+
 }

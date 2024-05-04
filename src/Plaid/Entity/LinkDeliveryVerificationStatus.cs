@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Indicates an Item's micro-deposit-based verification status.</para>
+/// <para>Indicates an Item's micro-deposit-based verification or database verification status.</para>
 /// </summary>
 public enum LinkDeliveryVerificationStatus
 {
@@ -50,20 +50,8 @@ public enum LinkDeliveryVerificationStatus
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "database_insights_pass")]
-	DatabaseInsightsPass,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "database_insights_pass_with_caution")]
-	DatabaseInsightsPassWithCaution,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "database_insights_fail")]
-	DatabaseInsightsFail,
+	[EnumMember(Value = "database_insights_pending")]
+	DatabaseInsightsPending,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

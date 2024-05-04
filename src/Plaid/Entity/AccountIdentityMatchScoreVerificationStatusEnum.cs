@@ -42,7 +42,7 @@ public enum AccountIdentityMatchScoreVerificationStatusEnum
 	VerificationFailed,
 
 	/// <summary>
-	/// <para>The Item has successfully been verified using Plaid's data sources. Note: Database Match is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para>The Item has successfully been verified using Plaid's data sources.</para>
 	/// </summary>
 	[EnumMember(Value = "database_matched")]
 	DatabaseMatched,

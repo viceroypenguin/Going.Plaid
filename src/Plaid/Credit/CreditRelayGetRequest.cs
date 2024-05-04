@@ -17,4 +17,10 @@ public partial class CreditRelayGetRequest : RequestBase
 	[JsonPropertyName("report_type")]
 	public Entity.ReportType ReportType { get; set; } = default!;
 
+	/// <summary>
+	/// <para><c>true</c> if you would like to retrieve the Asset Report with Insights, <c>false</c> otherwise. This field defaults to <c>false</c> if omitted.</para>
+	/// </summary>
+	[JsonPropertyName("include_insights")]
+	public bool? IncludeInsights { get; set; } = default!;
+
 }

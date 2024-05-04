@@ -24,7 +24,7 @@ public enum TransferAuthorizationDecisionRationaleCode
 	TransferLimitReached,
 
 	/// <summary>
-	/// <para>– Item created via same-day micro deposits, limited information available.</para>
+	/// <para>– Item created via a manual entry flow (i.e. Same Day Micro-deposit, Instant Micro-deposit, Database Insights, or Database Match), limited information available.</para>
 	/// </summary>
 	[EnumMember(Value = "MANUALLY_VERIFIED_ITEM")]
 	ManuallyVerifiedItem,

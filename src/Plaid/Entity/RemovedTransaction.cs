@@ -9,12 +9,12 @@ public record RemovedTransaction
 	/// <para>The ID of the removed transaction.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_id")]
-	public string? TransactionId { get; init; } = default!;
+	public string TransactionId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ID of the account of the removed transaction.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string? AccountId { get; init; } = default!;
+	public string AccountId { get; init; } = default!;
 
 }

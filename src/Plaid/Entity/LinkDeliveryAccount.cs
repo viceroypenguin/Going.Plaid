@@ -36,7 +36,7 @@ public record LinkDeliveryAccount
 	public string? Subtype { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates an Item's micro-deposit-based verification status.</para>
+	/// <para>Indicates an Item's micro-deposit-based verification or database verification status.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]
 	public Entity.LinkDeliveryVerificationStatus? VerificationStatus { get; init; } = default!;

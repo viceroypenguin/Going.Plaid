@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public record SignalEvaluateRiskProfile
 {
 	/// <summary>
-	/// <para>The name of the risk profile used for this transaction.</para>
+	/// <para>The key of the risk profile used for this transaction.</para>
 	/// </summary>
 	[JsonPropertyName("key")]
 	public string? Key { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The name of the evaluated outcome for this transaction.</para>
+	/// <para>The key of the evaluated outcome for this transaction.</para>
 	/// </summary>
 	[JsonPropertyName("outcome")]
 	public string? Outcome { get; init; } = default!;

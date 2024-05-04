@@ -68,7 +68,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public Entity.SignalEvaluateDevice? Device { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The name of the risk profile to use for this transaction. A risk profile can be configured using via the Plaid Dashboard. If not provided, no risk profile will be used. This feature is currently in closed beta; to request access, contact your account manager.</para>
+	/// <para>The key of the risk profile to use for this transaction. A risk profile can be configured using via the Plaid Dashboard. If not provided, no risk profile will be used. This feature is currently in closed beta; to request access, contact your account manager.</para>
 	/// </summary>
 	[JsonPropertyName("risk_profile_key")]
 	public string? RiskProfileKey { get; set; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object containing information about a link session.Session data will be provided for up to six hours after the session has ended.</para>
+/// <para>An object containing information about a link session. Session data will be provided for up to six hours after the session has ended.</para>
 /// </summary>
 public record LinkTokenGetSessionsResponse
 {
@@ -30,15 +30,27 @@ public record LinkTokenGetSessionsResponse
 	public Entity.LinkSessionSuccess? OnSuccess { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link.</para>
+	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link. Note the <c>exit</c> field on the <c>/link/token/get</c> response is in beta and may not be populated.</para>
 	/// </summary>
 	[JsonPropertyName("on_exit")]
 	public Entity.LinkSessionExit? OnExit { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link. Note the <c>exit</c> field on the <c>/link/token/get</c> response is in beta and may not be populated.</para>
+	/// </summary>
+	[JsonPropertyName("exit")]
+	public Entity.LinkSessionExit? Exit { get; init; } = default!;
 
 	/// <summary>
 	/// <para>List of customer-related Link events</para>
 	/// </summary>
 	[JsonPropertyName("events")]
 	public IReadOnlyList<Entity.LinkEvent>? Events { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The set of results for a Link session.</para>
+	/// </summary>
+	[JsonPropertyName("results")]
+	public Entity.LinkSessionResults? Results { get; init; } = default!;
 
 }

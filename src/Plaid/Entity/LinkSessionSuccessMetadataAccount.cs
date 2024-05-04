@@ -36,7 +36,7 @@ public record LinkSessionSuccessMetadataAccount
 	public string? Subtype { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates an Item's micro-deposit-based verification status. Possible values are:</para>
+	/// <para>Indicates an Item's micro-deposit-based verification or database verification status. Possible values are:</para>
 	/// <para><c>pending_automatic_verification</c>: The Item is pending automatic verification</para>
 	/// <para><c>pending_manual_verification</c>: The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the code.</para>
 	/// <para><c>automatically_verified</c>: The Item has successfully been automatically verified</para>
@@ -44,10 +44,8 @@ public record LinkSessionSuccessMetadataAccount
 	/// <para><c>verification_expired</c>: Plaid was unable to automatically verify the deposit within 7 calendar days and will no longer attempt to validate the Item. Users may retry by submitting their information again through Link.</para>
 	/// <para><c>verification_failed</c>: The Item failed manual micro-deposit verification because the user exhausted all 3 verification attempts. Users may retry by submitting their information again through Link.</para>
 	/// <para><c>database_matched</c>: The Item has successfully been verified using Plaid's data sources.</para>
-	/// <para><c>database_insights_pass</c>: The Item's account and routing number pair has been verified against a known account using Plaid's data sources and has strong signal for being valid. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
-	/// <para><c>database_insights_pass_with_caution</c>: The Item's account and routing number pair was unable to be verified against a known account using Plaid's data sources. However, the routing number has strong signal for being valid, and the account number format is consistent with other known account numbers used with the given routing number. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
-	/// <para><c>database_insights_fail</c>: The Item's account and routing number pair has been checked using Plaid's data sources and has signal for being invalid and/or has no signal for being valid. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
-	/// <para><c>null</c>: micro-deposit-based verification is not being used for the Item.</para>
+	/// <para><c>database_insights_pending</c>: The Database Insights result is pending and will be available upon Auth request. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para><c>null</c>: Neither micro-deposit-based verification nor database verification are being used for the Item.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]
 	public string? VerificationStatus { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link.</para>
+/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link. Note the <c>exit</c> field on the <c>/link/token/get</c> response is in beta and may not be populated.</para>
 /// </summary>
 public record LinkSessionExit
 {
