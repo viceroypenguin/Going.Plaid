@@ -30,13 +30,13 @@ public record LinkTokenGetSessionsResponse
 	public Entity.LinkSessionSuccess? OnSuccess { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link. Note the <c>exit</c> field on the <c>/link/token/get</c> response is in beta and may not be populated.</para>
+	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link.</para>
 	/// </summary>
 	[JsonPropertyName("on_exit")]
-	public Entity.LinkSessionExit? OnExit { get; init; } = default!;
+	public Entity.LinkSessionExitDeprecated? OnExit { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link. Note the <c>exit</c> field on the <c>/link/token/get</c> response is in beta and may not be populated.</para>
+	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link.</para>
 	/// </summary>
 	[JsonPropertyName("exit")]
 	public Entity.LinkSessionExit? Exit { get; init; } = default!;

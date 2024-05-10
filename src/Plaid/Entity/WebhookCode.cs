@@ -284,6 +284,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "ITEM_ADD_RESULT")]
+	ItemAddResult,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "SESSION_FINISHED")]
 	SessionFinished,
 

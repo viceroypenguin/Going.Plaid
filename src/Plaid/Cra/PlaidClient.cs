@@ -42,4 +42,36 @@ public sealed partial class PlaidClient
 		PostAsync("/cra/partner_insights/get", request)
 			.ParseResponseAsync<Cra.CraPartnerInsightsGetResponse>();
 
+	/// <summary>
+	/// <para><c>/cra/loans/applications/register</c> registers loan applications and decisions.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraLoansApplicationsRegisterResponse> CraLoansApplicationsRegisterAsync(Cra.CraLoansApplicationsRegisterRequest request) =>
+		PostAsync("/cra/loans/applications/register", request)
+			.ParseResponseAsync<Cra.CraLoansApplicationsRegisterResponse>();
+
+	/// <summary>
+	/// <para><c>/cra/loans/register</c> registers a list of loans to their applicants.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraLoansRegisterResponse> CraLoansRegisterAsync(Cra.CRALoansRegisterRequest request) =>
+		PostAsync("/cra/loans/register", request)
+			.ParseResponseAsync<Cra.CraLoansRegisterResponse>();
+
+	/// <summary>
+	/// <para><c>/cra/loans/update</c> updates loan information such as the status and payment history.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraLoansUpdateResponse> CraLoansUpdateAsync(Cra.CraLoansUpdateRequest request) =>
+		PostAsync("/cra/loans/update", request)
+			.ParseResponseAsync<Cra.CraLoansUpdateResponse>();
+
+	/// <summary>
+	/// <para><c>/cra/loans/unregister</c> indicates the loans have reached a final status and no further updates are expected.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraLoanUnregisterResponse> CraLoansUnregisterAsync(Cra.CraLoansUnregisterRequest request) =>
+		PostAsync("/cra/loans/unregister", request)
+			.ParseResponseAsync<Cra.CraLoanUnregisterResponse>();
+
 }

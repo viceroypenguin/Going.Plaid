@@ -172,4 +172,10 @@ public record BeaconAccountRiskEvaluateAccountAttributes
 	[JsonPropertyName("days_since_account_opening")]
 	public int? DaysSinceAccountOpening { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The number of days since the oldest transaction available to Plaid for this account. This measure, combined with Plaid connection history, can be used to infer the age of the account</para>
+	/// </summary>
+	[JsonPropertyName("days_since_first_observed_transaction")]
+	public int? DaysSinceFirstObservedTransaction { get; init; } = default!;
+
 }

@@ -9,31 +9,19 @@ public record LinkSessionResults
 	/// <para>The set of Item adds for the Link session.</para>
 	/// </summary>
 	[JsonPropertyName("item_add_results")]
-	public IReadOnlyList<Entity.LinkSessionItemAddResult> ItemAddResults { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The set of CRA Item adds for the Link session.</para>
-	/// </summary>
-	[JsonPropertyName("cra_item_add_results")]
-	public IReadOnlyList<Entity.LinkSessionCRAItemAddResult> CraItemAddResults { get; init; } = default!;
+	public IReadOnlyList<Entity.LinkSessionItemAddResult>? ItemAddResults { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The set of bank income verifications for the Link session.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_results")]
-	public IReadOnlyList<Entity.LinkSessionBankIncomeResult> BankIncomeResults { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The set of bank employment verifications for the Link session.</para>
-	/// </summary>
-	[JsonPropertyName("bank_employment_results")]
-	public IReadOnlyList<Entity.LinkSessionBankEmploymentResult> BankEmploymentResults { get; init; } = default!;
+	public IReadOnlyList<Entity.LinkSessionBankIncomeResult>? BankIncomeResults { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The set of payroll income verifications for the Link session.</para>
 	/// </summary>
 	[JsonPropertyName("payroll_income_results")]
-	public IReadOnlyList<Entity.LinkSessionPayrollIncomeResult> PayrollIncomeResults { get; init; } = default!;
+	public IReadOnlyList<Entity.LinkSessionPayrollIncomeResult>? PayrollIncomeResults { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The details of a document income verification in Link</para>
