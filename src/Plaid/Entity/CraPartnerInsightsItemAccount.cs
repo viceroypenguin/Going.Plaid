@@ -6,6 +6,14 @@ namespace Going.Plaid.Entity;
 public record CraPartnerInsightsItemAccount
 {
 	/// <summary>
+	/// <para>Plaid's unique identifier for the account. This value will not change unless Plaid can't reconcile the account with the data returned by the financial institution. This may occur, for example, when the name of the account changes. If this happens a new <c>account_id</c> will be assigned to the account.</para>
+	/// <para>If an account with a specific <c>account_id</c> disappears instead of changing, the account is likely closed. Closed accounts are not returned by the Plaid API.</para>
+	/// <para>Like all Plaid identifiers, the <c>account_id</c> is case sensitive.</para>
+	/// </summary>
+	[JsonPropertyName("account_id")]
+	public string? AccountId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The last 2-4 alphanumeric characters of an account's official account number.</para>
 	/// <para>Note that the mask may be non-unique between an Item's accounts, and it may also</para>
 	/// <para>not match the mask that the bank displays to the user.</para>

@@ -6,6 +6,12 @@ namespace Going.Plaid.Entity;
 public record BaseReportTransaction
 {
 	/// <summary>
+	/// <para>The ID of the account in which this transaction occurred.</para>
+	/// </summary>
+	[JsonPropertyName("account_id")]
+	public string AccountId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The settled value of the transaction, denominated in the transaction's currency, as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
@@ -78,6 +84,12 @@ public record BaseReportTransaction
 	/// </summary>
 	[JsonPropertyName("account_owner")]
 	public string? AccountOwner { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The unique ID of the transaction. Like all Plaid identifiers, the <c>transaction_id</c> is case sensitive.</para>
+	/// </summary>
+	[JsonPropertyName("transaction_id")]
+	public string TransactionId { get; init; } = default!;
 
 	/// <summary>
 	/// 

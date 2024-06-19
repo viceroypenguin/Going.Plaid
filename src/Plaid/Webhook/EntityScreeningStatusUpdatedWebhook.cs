@@ -14,9 +14,9 @@ public record EntityScreeningStatusUpdatedWebhook : WebhookBase
 	public override WebhookCode WebhookCode => WebhookCode.StatusUpdated;
 
 	/// <summary>
-	/// <para>The ID of the associated screening.</para>
+	/// <para>The ID of the associated entity screening.</para>
 	/// </summary>
-	[JsonPropertyName("screening_id")]
-	public string ScreeningId { get; init; } = default!;
+	[JsonPropertyName("entity_screening_id")]
+	public string EntityScreeningId { get; init; } = default!;
 
 }

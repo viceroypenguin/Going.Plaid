@@ -48,7 +48,7 @@ public record Item
 	public IReadOnlyList<Entity.Products>? Products { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of products that have gone through consent collection for the Item. Only present for those enabled in the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency</a> beta. If you are not enrolled in Data Transparency, this field is not used.</para>
+	/// <para>A list of products that have gone through consent collection for the Item. If the session is not enrolled in <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency Messaging</a>, this field is not used.</para>
 	/// </summary>
 	[JsonPropertyName("consented_products")]
 	public IReadOnlyList<Entity.Products>? ConsentedProducts { get; init; } = default!;

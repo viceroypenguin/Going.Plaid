@@ -42,6 +42,12 @@ public enum WalletTransactionGetResponseTypeEnum
 	Return,
 
 	/// <summary>
+	/// <para>a transaction where the sending bank has requested the return of funds due to a fraud claim, technical error, or other issue associated with the payment.</para>
+	/// </summary>
+	[EnumMember(Value = "RECALL")]
+	Recall,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

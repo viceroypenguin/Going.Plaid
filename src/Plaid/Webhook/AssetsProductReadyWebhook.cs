@@ -26,9 +26,9 @@ public record AssetsProductReadyWebhook : WebhookBase
 	public string? UserId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The report type, indicating whether the Asset Report is a <c>full</c> or <c>fast</c> report.</para>
+	/// <para>Indicates either a Fast Asset Report, which will contain only current identity and balance information, or a Full Asset Report, which will also contain historical balance information and transaction data.</para>
 	/// </summary>
 	[JsonPropertyName("report_type")]
-	public string? ReportType { get; init; } = default!;
+	public Entity.AssetReportType? ReportType { get; init; } = default!;
 
 }

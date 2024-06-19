@@ -53,7 +53,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products>? RequiredIfSupportedProducts { get; set; } = default!;
 
 	/// <summary>
-	/// <para>List of Plaid product(s) that you may wish to use but that are not required for your use case. Plaid will attempt to fetch data for these products on a best-effort basis, and failure to support these products will not affect Item creation.</para>
+	/// <para>List of Plaid product(s) that will enhance the consumer's use case, but that your app can function without. Plaid will attempt to fetch data for these products on a best-effort basis, and failure to support these products will not affect Item creation.</para>
 	/// <para>There should be no overlap between this array and the <c>products</c>, <c>required_if_supported_products</c>, or <c>additional_consented_products</c> arrays. The <c>products</c> array must have at least one product.</para>
 	/// <para>For more details on using this feature, see <a href="https://www.plaid.com/docs/link/initializing-products/#optional-products">Optional Products</a>.</para>
 	/// </summary>
@@ -61,8 +61,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products>? OptionalProducts { get; set; } = default!;
 
 	/// <summary>
-	/// <para>(Beta) This field has no effect unless you are participating in the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency</a> beta program.</para>
-	/// <para>List of additional Plaid product(s) you wish to collect consent for. These products will not be billed until you start using them by calling the relevant endpoints.</para>
+	/// <para>List of additional Plaid product(s) you wish to collect consent for to support your use case. These products will not be billed until you start using them by calling the relevant endpoints.</para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically have consent collected.</para>
 	/// <para>Institutions that do not support these products will still be shown in Link.</para>
 	/// <para>There should be no overlap between this array and the <c>products</c> or <c>required_if_supported_products</c> arrays.</para>
@@ -168,7 +167,13 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestCreditPartnerInsights? CreditPartnerInsights { get; set; } = default!;
 
 	/// <summary>
-	/// <para>This enum describes the reason a consumer report is created for</para>
+	/// <para>Specifies options for initializing Link for use with Plaid Check products</para>
+	/// </summary>
+	[JsonPropertyName("cra_options")]
+	public Entity.LinkTokenCreateRequestCraOptions? CraOptions { get; set; } = default!;
+
+	/// <summary>
+	/// <para>This enum describes the reason you are generating a Consumer Report for this user.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
 	public Entity.ConsumerReportPermissiblePurpose? ConsumerReportPermissiblePurpose { get; set; } = default!;

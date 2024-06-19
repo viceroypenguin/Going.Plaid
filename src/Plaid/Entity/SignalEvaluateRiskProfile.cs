@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Details about the transaction result after evaluated by the requested risk profile. If a <c>risk_profile_key</c> is not provided, this field will be omitted. This feature is currently in closed beta; to request access, contact your account manager.</para>
+/// <para>RiskProfile is deprecated, use <c>ruleset</c> instead.</para>
 /// </summary>
 public record SignalEvaluateRiskProfile
 {

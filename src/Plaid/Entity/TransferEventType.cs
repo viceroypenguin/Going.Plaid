@@ -96,6 +96,54 @@ public enum TransferEventType
 	SweepFailed,
 
 	/// <summary>
+	/// <para>A new refund was created; it is in the pending state.</para>
+	/// </summary>
+	[EnumMember(Value = "refund.pending")]
+	RefundPending,
+
+	/// <summary>
+	/// <para>The refund was cancelled.</para>
+	/// </summary>
+	[EnumMember(Value = "refund.cancelled")]
+	RefundCancelled,
+
+	/// <summary>
+	/// <para>The refund failed, no funds were moved.</para>
+	/// </summary>
+	[EnumMember(Value = "refund.failed")]
+	RefundFailed,
+
+	/// <summary>
+	/// <para>The refund has been successfully submitted to the payment network.</para>
+	/// </summary>
+	[EnumMember(Value = "refund.posted")]
+	RefundPosted,
+
+	/// <summary>
+	/// <para>The refund transaction has settled in the Plaid linked account.</para>
+	/// </summary>
+	[EnumMember(Value = "refund.settled")]
+	RefundSettled,
+
+	/// <summary>
+	/// <para>A posted refund was returned.</para>
+	/// </summary>
+	[EnumMember(Value = "refund.returned")]
+	RefundReturned,
+
+	/// <summary>
+	/// <para>The refund was swept from the sweep account.</para>
+	/// </summary>
+	[EnumMember(Value = "refund.swept")]
+	RefundSwept,
+
+	/// <summary>
+	/// <para>Due to the refund being returned, funds were pushed back to the sweep account.</para>
+	/// </summary>
+	[EnumMember(Value = "refund.return_swept")]
+	RefundReturnSwept,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

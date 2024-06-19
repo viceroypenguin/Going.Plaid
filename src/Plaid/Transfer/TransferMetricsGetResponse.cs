@@ -41,4 +41,10 @@ public record TransferMetricsGetResponse : ResponseBase
 	[JsonPropertyName("iso_currency_code")]
 	public string IsoCurrencyCode { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Details regarding return rates.</para>
+	/// </summary>
+	[JsonPropertyName("return_rates")]
+	public Entity.TransferMetricsGetReturnRates? ReturnRates { get; init; } = default!;
+
 }

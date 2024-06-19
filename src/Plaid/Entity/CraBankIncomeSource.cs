@@ -6,6 +6,12 @@ namespace Going.Plaid.Entity;
 public record CraBankIncomeSource
 {
 	/// <summary>
+	/// <para>The account ID with which this income source is associated.</para>
+	/// </summary>
+	[JsonPropertyName("account_id")]
+	public string? AccountId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A unique identifier for an income source.</para>
 	/// </summary>
 	[JsonPropertyName("income_source_id")]

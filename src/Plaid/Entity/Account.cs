@@ -68,4 +68,10 @@ public record Account
 	[JsonPropertyName("persistent_account_id")]
 	public string? PersistentAccountId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Provides context as to whether the account is explicitly designated for business purposes in contrast to personal accounts. This label is orthogonal to existing account type/subtype labels (both “Business Checking” and “Personal Checking” would be labeled with a “depository” type and “checking” subtype)</para>
+	/// </summary>
+	[JsonPropertyName("holder_category")]
+	public Entity.HolderCategory? HolderCategory { get; init; } = default!;
+
 }

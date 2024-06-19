@@ -24,6 +24,12 @@ public record BaseReportItem
 	public DateTimeOffset DateLastUpdated { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The <c>item_id</c> of the Item associated with this webhook, warning, or error</para>
+	/// </summary>
+	[JsonPropertyName("item_id")]
+	public string ItemId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Data about each of the accounts open on the Item.</para>
 	/// </summary>
 	[JsonPropertyName("accounts")]

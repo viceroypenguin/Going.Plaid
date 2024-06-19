@@ -20,12 +20,6 @@ public enum SandboxItemFireWebhookRequestWebhookCodeEnum
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "AUTH_DATA_UPDATE")]
-	AuthDataUpdate,
-
-	/// <summary>
-	/// 
-	/// </summary>
 	[EnumMember(Value = "SMS_MICRODEPOSITS_VERIFICATION")]
 	SmsMicrodepositsVerification,
 

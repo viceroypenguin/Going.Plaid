@@ -38,6 +38,12 @@ public enum StudentRepaymentPlanTypeEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "income-sensitive repayment")]
+	IncomeSensitiveRepayment,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "interest-only")]
 	InterestOnly,
 

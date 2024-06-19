@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>ConsumerReportUserIdentity defines the user identity data collected for consumer report purpose. This field is required to be set if you later use the created user for consumer report purpose.</para>
+/// <para>This object defines the user identity data collected for consumer report purposes. This field is required if you are planning on using the user token with Plaid Check products.</para>
 /// </summary>
 public class ConsumerReportUserIdentity
 {

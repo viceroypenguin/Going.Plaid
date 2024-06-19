@@ -26,4 +26,10 @@ public partial class BeaconUserCreateRequest : RequestBase
 	[JsonPropertyName("user")]
 	public Entity.BeaconUserRequestData User { get; set; } = default!;
 
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("access_tokens")]
+	public IReadOnlyList<string>? AccessTokens { get; set; } = default!;
+
 }

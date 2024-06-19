@@ -11,4 +11,10 @@ public class LinkTokenCreateRequestUpdate
 	[JsonPropertyName("account_selection_enabled")]
 	public bool? AccountSelectionEnabled { get; set; } = default!;
 
+	/// <summary>
+	/// <para>If <c>true</c>, a <c>user_token</c> must also be provided, and Link will open in update mode for the given user.</para>
+	/// </summary>
+	[JsonPropertyName("user")]
+	public bool? User { get; set; } = default!;
+
 }

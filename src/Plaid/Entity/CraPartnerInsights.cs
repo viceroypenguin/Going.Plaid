@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The partner insights report of the bank data for an end user.</para>
+/// <para>The Partner Insights report of the bank data for an end user.</para>
 /// </summary>
 public record CraPartnerInsights
 {
@@ -12,13 +12,13 @@ public record CraPartnerInsights
 	public string? ReportId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The time when the partner insights report was generated.</para>
+	/// <para>The time when the Partner Insights report was generated.</para>
 	/// </summary>
 	[JsonPropertyName("generated_time")]
 	public DateTimeOffset? GeneratedTime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Prism insights for the user.</para>
+	/// <para>The Prism Data insights for the user.</para>
 	/// </summary>
 	[JsonPropertyName("prism")]
 	public Entity.CraPartnerInsightsPrism? Prism { get; init; } = default!;

@@ -1,15 +1,15 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The prism products that can be returned by the Plaid API</para>
+/// <para>The Prism products that can be returned by the Plaid API</para>
 /// </summary>
 public enum PrismProduct
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "detect")]
-	Detect,
+	[EnumMember(Value = "insights")]
+	Insights,
 
 	/// <summary>
 	/// 

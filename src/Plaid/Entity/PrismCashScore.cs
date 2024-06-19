@@ -1,18 +1,18 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The data from the Cash Score product returned by Prism.</para>
+/// <para>The data from the CashScore® product returned by Prism Data.</para>
 /// </summary>
 public record PrismCashScore
 {
 	/// <summary>
-	/// <para>The version of Prism's cash score model used.</para>
+	/// <para>The version of Prism Data's cash score model used.</para>
 	/// </summary>
 	[JsonPropertyName("version")]
 	public int Version { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The score returned by Prism. Ranges from 1-999, with higher score indicating lower risk.</para>
+	/// <para>The score returned by Prism Data. Ranges from 1-999, with higher score indicating lower risk.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int Score { get; init; } = default!;

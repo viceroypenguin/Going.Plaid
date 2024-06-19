@@ -6,7 +6,13 @@ namespace Going.Plaid.Entity;
 public record CraBankIncomeTransaction
 {
 	/// <summary>
-	/// <para>The settled value of the transaction, denominated in the transactions's currency as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>.</para>
+	/// <para>The unique ID of the transaction. Like all Plaid identifiers, the <c>transaction_id</c> is case sensitive.</para>
+	/// </summary>
+	[JsonPropertyName("transaction_id")]
+	public string? TransactionId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The settled value of the transaction, denominated in the transaction's currency as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>.</para>
 	/// <para>Positive values when money moves out of the account; negative values when money moves in.</para>
 	/// <para>For example, credit card purchases are positive; credit card payment, direct deposits, and refunds are negative.</para>
 	/// </summary>
@@ -59,7 +65,7 @@ public record CraBankIncomeTransaction
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of bonus that this transaction represents, if it is a bonus</para>
+	/// <para>The type of bonus that this transaction represents, if it is a bonus.</para>
 	/// </summary>
 	[JsonPropertyName("bonus_type")]
 	public Entity.CraBankIncomeBonusType? BonusType { get; init; } = default!;

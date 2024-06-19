@@ -9,6 +9,6 @@ public partial class CraPartnerInsightsGetRequest : RequestBase
 	/// <para>The user token associated with the User data is being requested for.</para>
 	/// </summary>
 	[JsonPropertyName("user_token")]
-	public string? UserToken { get; set; } = default!;
+	public string UserToken { get; set; } = default!;
 
 }

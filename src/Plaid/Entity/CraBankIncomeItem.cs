@@ -6,6 +6,12 @@ namespace Going.Plaid.Entity;
 public record CraBankIncomeItem
 {
 	/// <summary>
+	/// <para>The <c>item_id</c> of the Item associated with this webhook, warning, or error</para>
+	/// </summary>
+	[JsonPropertyName("item_id")]
+	public string? ItemId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The Item's accounts that have Bank Income data.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_accounts")]

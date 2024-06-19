@@ -140,6 +140,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "CHECK_REPORT")]
+	CheckReport,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "CRA_INSIGHTS")]
 	CraInsights,
 

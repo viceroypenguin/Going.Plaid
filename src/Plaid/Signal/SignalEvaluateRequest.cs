@@ -68,9 +68,15 @@ public partial class SignalEvaluateRequest : RequestBase
 	public Entity.SignalEvaluateDevice? Device { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The key of the risk profile to use for this transaction. You can configure a risk profile using the Signal dashboard located within the Plaid Dashboard. If not provided, no risk profile will be used. This feature is currently in closed beta; to request access, contact your account manager.</para>
+	/// <para>Specifying <c>risk_profile_key</c> is deprecated. Please provide <c>ruleset</c> instead.</para>
 	/// </summary>
 	[JsonPropertyName("risk_profile_key")]
 	public string? RiskProfileKey { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The key of the Ruleset to use for this transaction. You can configure a Ruleset using the Signal dashboard located within the Plaid Dashboard. If not provided, no Ruleset will be used. This feature is currently in closed beta; to request access, contact your account manager.</para>
+	/// </summary>
+	[JsonPropertyName("ruleset_key")]
+	public string? RulesetKey { get; set; } = default!;
 
 }

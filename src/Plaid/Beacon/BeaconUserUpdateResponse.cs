@@ -6,6 +6,12 @@ namespace Going.Plaid.Beacon;
 public record BeaconUserUpdateResponse : ResponseBase
 {
 	/// <summary>
+	/// <para>An array of Plaid Item IDs corresponding to the Accounts associated with this Beacon User.</para>
+	/// </summary>
+	[JsonPropertyName("item_ids")]
+	public IReadOnlyList<string> ItemIds { get; init; } = default!;
+
+	/// <summary>
 	/// <para>ID of the associated Beacon User.</para>
 	/// </summary>
 	[JsonPropertyName("id")]

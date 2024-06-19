@@ -248,6 +248,18 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "CHECK_REPORT_READY")]
+	CheckReportReady,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "CHECK_REPORT_FAILED")]
+	CheckReportFailed,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "PARTNER_INSIGHTS_COMPLETE")]
 	PartnerInsightsComplete,
 

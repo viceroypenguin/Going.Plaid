@@ -13,7 +13,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Signal.SignalEvaluateResponse>();
 
 	/// <summary>
-	/// <para>After calling <c>/signal/evaluate</c>, call <c>/signal/decision/report</c> to report whether the transaction was initiated.</para>
+	/// <para>After calling <c>/signal/evaluate</c> (or <c>/accounts/balance/get</c>, for participants in the <a href="http://plaid.com/docs/balance/balance-plus">Balance Plus</a> beta), call <c>/signal/decision/report</c> to report whether the transaction was initiated.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signaldecisionreport" /></remarks>
 	public Task<Signal.SignalDecisionReportResponse> SignalDecisionReportAsync(Signal.SignalDecisionReportRequest request) =>
@@ -21,7 +21,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Signal.SignalDecisionReportResponse>();
 
 	/// <summary>
-	/// <para>Call the <c>/signal/return/report</c> endpoint to report a returned transaction that was previously sent to the <c>/signal/evaluate</c> endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.</para>
+	/// <para>Call the <c>/signal/return/report</c> endpoint to report a returned transaction that was previously sent to the <c>/signal/evaluate</c> or (for participants in the <a href="http://plaid.com/docs/balance/balance-plus">Balance Plus</a> beta) the <c>/accounts/balance/get</c> endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signalreturnreport" /></remarks>
 	public Task<Signal.SignalReturnReportResponse> SignalReturnReportAsync(Signal.SignalReturnReportRequest request) =>

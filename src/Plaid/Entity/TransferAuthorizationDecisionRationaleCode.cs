@@ -18,7 +18,7 @@ public enum TransferAuthorizationDecisionRationaleCode
 	Risk,
 
 	/// <summary>
-	/// <para>One or several transfer limits are reached, e.g. monthly transfer limit.</para>
+	/// <para>One or several transfer limits are reached, e.g. monthly transfer limit. Check the accompanying <c>description</c> field to understand which limit has been reached.</para>
 	/// </summary>
 	[EnumMember(Value = "TRANSFER_LIMIT_REACHED")]
 	TransferLimitReached,

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The type of bonus that this transaction represents, if it is a bonus</para>
+/// <para>The type of bonus that this transaction represents, if it is a bonus.</para>
 /// </summary>
 public enum CraBankIncomeBonusType
 {

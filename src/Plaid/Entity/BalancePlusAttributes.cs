@@ -1,60 +1,54 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Contains additional data that can be used to assess the ACH return risk. Examples of data include:</para>
-/// <para><c>days_since_first_plaid_connection</c>: The number of days since the first time the Item was connected to an application via Plaid</para>
-/// <para><c>plaid_connections_count_7d</c>: The number of times the Item has been connected to applications via Plaid over the past 7 days</para>
-/// <para><c>plaid_connections_count_30d</c>: The number of times the Item has been connected to applications via Plaid over the past 30 days</para>
-/// <para><c>total_plaid_connections_count</c>: The number of times the Item has been connected to applications via Plaid</para>
-/// <para><c>is_savings_or_money_market_account</c>: Indicates whether the ACH transaction funding account is a savings/money market account</para>
-/// <para>For the full list and detailed documentation of attributes available, or to request that attributes not be returned, contact Sales or your Plaid account manager</para>
+/// <para>Contains additional data that can be used to assess the ACH return risk</para>
 /// </summary>
 public record BalancePlusAttributes
 {
 	/// <summary>
-	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 7 days from the account that will be debited.</para>
+	/// <para>The number of possible past returns due to unauthorized transactions over the past 7 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_transactions_count_7d")]
 	public int? UnauthorizedTransactionsCount7d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 30 days from the account that will be debited.</para>
+	/// <para>The number of possible past returns due to unauthorized transactions over the past 30 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_transactions_count_30d")]
 	public int? UnauthorizedTransactionsCount30d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 60 days from the account that will be debited.</para>
+	/// <para>The number of possible past returns due to unauthorized transactions over the past 60 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_transactions_count_60d")]
 	public int? UnauthorizedTransactionsCount60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 90 days from the account that will be debited.</para>
+	/// <para>The number of possible past returns due to unauthorized transactions over the past 90 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_transactions_count_90d")]
 	public int? UnauthorizedTransactionsCount90d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 7 days from the account that will be debited.</para>
+	/// <para>The number of possible past returns due to non-sufficient funds/overdrafts over the past 7 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_7d")]
 	public int? NsfOverdraftTransactionsCount7d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 30 days from the account that will be debited.</para>
+	/// <para>The number of possible past returns due to non-sufficient funds/overdrafts over the past 30 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_30d")]
 	public int? NsfOverdraftTransactionsCount30d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 60 days from the account that will be debited.</para>
+	/// <para>The number of possible past returns due to non-sufficient funds/overdrafts over the past 60 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_60d")]
 	public int? NsfOverdraftTransactionsCount60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 90 days from the account that will be debited.</para>
+	/// <para>The number of possible past returns due to non-sufficient funds/overdrafts over the past 90 days from the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_90d")]
 	public int? NsfOverdraftTransactionsCount90d { get; init; } = default!;
