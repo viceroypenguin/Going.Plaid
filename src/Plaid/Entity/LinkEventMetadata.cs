@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Metadata about an event that occured while the user was going through Link</para>
+/// <para>Metadata about an event that occurred while the user was going through Link</para>
 /// </summary>
 public record LinkEventMetadata
 {

@@ -24,7 +24,7 @@ public record LinkEvent
 	public string EventId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Metadata about an event that occured while the user was going through Link</para>
+	/// <para>Metadata about an event that occurred while the user was going through Link</para>
 	/// </summary>
 	[JsonPropertyName("event_metadata")]
 	public Entity.LinkEventMetadata EventMetadata { get; init; } = default!;

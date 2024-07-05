@@ -18,6 +18,12 @@ public enum TransferAuthorizationDecision
 	Declined,
 
 	/// <summary>
+	/// <para>– An action is required before Plaid can assess the transfer risk and make a decision. The most common scenario is to update authentication for an Item. To complete the required action, initialize Link by setting <c>transfer.authorization_id</c> in the request of <c>/link/token/create</c>.</para>
+	/// </summary>
+	[EnumMember(Value = "user_action_required")]
+	UserActionRequired,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

@@ -28,7 +28,7 @@ public sealed partial class PlaidClient
 	/// <para><c>SYNC_UPDATES_AVAILABLE</c>: Transactions webhook to be fired for a given Sandbox Item.  If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>PRODUCT_READY</c>: Assets webhook to be fired when a given asset report has been successfully generated. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>ERROR</c>: Assets webhook to be fired when asset report generation has failed. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
-	/// <para>Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development (except for webhooks of type <c>TRANSFER</c>).</para>
+	/// <para>Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production (except for webhooks of type <c>TRANSFER</c>).</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxitemfire_webhook" /></remarks>
 	public Task<Sandbox.SandboxItemFireWebhookResponse> SandboxItemFireWebhookAsync(Sandbox.SandboxItemFireWebhookRequest request) =>
@@ -52,6 +52,15 @@ public sealed partial class PlaidClient
 	public Task<Sandbox.SandboxItemSetVerificationStatusResponse> SandboxItemSetVerificationStatusAsync(Sandbox.SandboxItemSetVerificationStatusRequest request) =>
 		PostAsync("/sandbox/item/set_verification_status", request)
 			.ParseResponseAsync<Sandbox.SandboxItemSetVerificationStatusResponse>();
+
+	/// <summary>
+	/// <para><c>/sandbox/user/reset_login/</c> functions the same as <c>/sandbox/item/reset_login</c>, but will modify Items related to a User. This endpoint forces each Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/user/reset_login</c>, You can then use Plaid Link update mode to restore Items associated with the User to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
+	/// <para>In the Sandbox, Items will transition to an <c>ITEM_LOGIN_REQUIRED</c> error state automatically after 30 days, even if this endpoint is not called.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxuserreset_login" /></remarks>
+	public Task<Sandbox.SandboxUserResetLoginResponse> SandboxUserResetLoginAsync(Sandbox.SandboxUserResetLoginRequest request) =>
+		PostAsync("/sandbox/user/reset_login", request)
+			.ParseResponseAsync<Sandbox.SandboxUserResetLoginResponse>();
 
 	/// <summary>
 	/// <para>Use the <c>/sandbox/bank_transfer/simulate</c> endpoint to simulate a bank transfer event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as <c>/bank_transfer/event/sync</c> or <c>/bank_transfer/event/list</c>, no transactions will actually take place and funds will not move between accounts, even within the Sandbox.</para>

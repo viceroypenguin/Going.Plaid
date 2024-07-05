@@ -66,7 +66,7 @@ public sealed partial class PlaidClient
 	/// <para>By default, the <c>access_token</c> associated with an Item does not expire and should be stored in a persistent, secure manner.</para>
 	/// <para>You can use the <c>/item/access_token/invalidate</c> endpoint to rotate the <c>access_token</c> associated with an Item. The endpoint returns a new <c>access_token</c> and immediately invalidates the previous <c>access_token</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/tokens/#itemaccess_tokeninvalidate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/items/#itemaccess_tokeninvalidate" /></remarks>
 	public Task<Item.ItemAccessTokenInvalidateResponse> ItemAccessTokenInvalidateAsync(Item.ItemAccessTokenInvalidateRequest request) =>
 		PostAsync("/item/access_token/invalidate", request)
 			.ParseResponseAsync<Item.ItemAccessTokenInvalidateResponse>();
@@ -75,7 +75,7 @@ public sealed partial class PlaidClient
 	/// <para>Exchange a Link <c>public_token</c> for an API <c>access_token</c>. Link hands off the <c>public_token</c> client-side via the <c>onSuccess</c> callback once a user has successfully created an Item. The <c>public_token</c> is ephemeral and expires after 30 minutes. An <c>access_token</c> does not expire, but can be revoked by calling <c>/item/remove</c>.</para>
 	/// <para>The response also includes an <c>item_id</c> that should be stored with the <c>access_token</c>. The <c>item_id</c> is used to identify an Item in a webhook. The <c>item_id</c> can also be retrieved by making an <c>/item/get</c> request.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/tokens/#itempublic_tokenexchange" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/items/#itempublic_tokenexchange" /></remarks>
 	public Task<Item.ItemPublicTokenExchangeResponse> ItemPublicTokenExchangeAsync(Item.ItemPublicTokenExchangeRequest request) =>
 		PostAsync("/item/public_token/exchange", request)
 			.ParseResponseAsync<Item.ItemPublicTokenExchangeResponse>();

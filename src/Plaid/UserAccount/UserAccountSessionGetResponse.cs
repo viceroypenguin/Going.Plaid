@@ -6,7 +6,7 @@ namespace Going.Plaid.UserAccount;
 public record UserAccountSessionGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>UserAccountIdentity defines the identity data permissioned by the end user during the authorization flow.</para>
+	/// <para>The identity data permissioned by the end user during the authorization flow.</para>
 	/// </summary>
 	[JsonPropertyName("identity")]
 	public Entity.UserAccountIdentity? Identity { get; init; } = default!;

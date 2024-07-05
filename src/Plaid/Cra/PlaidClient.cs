@@ -76,6 +76,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportPartnerInsightsGetResponse>();
 
 	/// <summary>
+	/// <para>This endpoint allows you to retrieve the Network Attributes product for your user. You should call this endpoint after you've received the <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>. If the most recent consumer report for the user doesn’t have sufficient data to generate the report, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>.</para>
+	/// <para>If you did not initialize Link with the <c>cra_network_attributes</c> product or have generated a report using <c>/cra/check_report/create</c>, we will generate the attributes when you call this endpoint.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/check/api/#cracheck_reportnetwork_attributesget" /></remarks>
+	public Task<Cra.CraCheckReportNetworkAttributesGetResponse> CraCheckReportNetworkInsightsGetAsync(Cra.CraCheckReportNetworkAttributesGetRequest request) =>
+		PostAsync("/cra/check_report/network_insights/get", request)
+			.ParseResponseAsync<Cra.CraCheckReportNetworkAttributesGetResponse>();
+
+	/// <summary>
 	/// <para><c>/cra/loans/applications/register</c> registers loan applications and decisions.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>

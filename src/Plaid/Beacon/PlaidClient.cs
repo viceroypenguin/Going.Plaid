@@ -87,8 +87,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beacon.BeaconReportSyndicationGetResponse>();
 
 	/// <summary>
-	/// <para>Update the identity data for a Beacon User in your Beacon Program.</para>
-	/// <para>Similar to <c>/beacon/user/create</c>, several checks are performed immediately when you submit a change to <c>/beacon/user/update</c>:</para>
+	/// <para>Update the identity data for a Beacon User in your Beacon Program or add new accounts to the Beacon User.</para>
+	/// <para>Similar to <c>/beacon/user/create</c>, several checks are performed immediately when you submit an identity data change to <c>/beacon/user/update</c>:</para>
 	/// <para>  - The user's updated PII is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of <c>pending_review</c>.</para>
 	/// <para>  - The user's updated PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of <c>rejected</c>.</para>
 	/// <para>  - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a <c>pending_review</c> status if your program has enabled automatic flagging based on network fraud.</para>
@@ -117,5 +117,13 @@ public sealed partial class PlaidClient
 	public Task<Beacon.BeaconUserHistoryListResponse> BeaconUserHistoryListAsync(Beacon.BeaconUserHistoryListRequest request) =>
 		PostAsync("/beacon/user/history/list", request)
 			.ParseResponseAsync<Beacon.BeaconUserHistoryListResponse>();
+
+	/// <summary>
+	/// <para>Get Account Insights for all Accounts linked to this Beacon User. The insights for each account are computed based on the information that was last retrieved from the financial institution.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconuseraccount_insightsget" /></remarks>
+	public Task<Beacon.BeaconUserAccountInsightsGetResponse> BeaconUserAccountInsightsGetAsync(Beacon.BeaconUserAccountInsightsGetRequest request) =>
+		PostAsync("/beacon/user/account_insights/get", request)
+			.ParseResponseAsync<Beacon.BeaconUserAccountInsightsGetResponse>();
 
 }

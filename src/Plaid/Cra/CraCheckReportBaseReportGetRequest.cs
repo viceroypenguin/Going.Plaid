@@ -11,4 +11,10 @@ public partial class CraCheckReportBaseReportGetRequest : RequestBase
 	[JsonPropertyName("user_token")]
 	public string UserToken { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The item IDs to include in the Base Report. If not provided, all items associated with the user will be included.</para>
+	/// </summary>
+	[JsonPropertyName("item_ids")]
+	public IReadOnlyList<string>? ItemIds { get; set; } = default!;
+
 }

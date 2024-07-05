@@ -21,4 +21,21 @@ public sealed partial class PlaidClient
 		PostAsync("/user/update", request)
 			.ParseResponseAsync<User.UserUpdateResponse>();
 
+	/// <summary>
+	/// <para>This endpoint is used to remove a user and any relevant data related to the user based on the provided user token. </para>
+	/// <para>Any subsequent calls to retrieve information using the same user token will result in an error stating the user does not exist.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#userremove" /></remarks>
+	public Task<User.UserRemoveResponse> UserRemoveAsync(User.UserRemoveRequest request) =>
+		PostAsync("/user/remove", request)
+			.ParseResponseAsync<User.UserRemoveResponse>();
+
+	/// <summary>
+	/// <para>Returns Items associated with a User along with their corresponding statuses.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/income/#useritemsget" /></remarks>
+	public Task<User.UserItemsGetResponse> UserItemsGetAsync(User.UserItemsGetRequest request) =>
+		PostAsync("/user/items/get", request)
+			.ParseResponseAsync<User.UserItemsGetResponse>();
+
 }

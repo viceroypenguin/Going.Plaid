@@ -17,4 +17,10 @@ public class LinkTokenCreateIdentity
 	[JsonPropertyName("account_ids")]
 	public IReadOnlyList<string>? AccountIds { get; set; } = default!;
 
+	/// <summary>
+	/// <para>An array of parsing configurations. Valid parsing configurations are <c>ocr</c> and <c>risk_signals</c>. If parsing configurations are omitted, defaults to <c>ocr</c></para>
+	/// </summary>
+	[JsonPropertyName("parsing_configs")]
+	public IReadOnlyList<Entity.IncomeVerificationDocParsingConfig>? ParsingConfigs { get; set; } = default!;
+
 }

@@ -1,18 +1,18 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>UserAccountIdentity defines the identity data permissioned by the end user during the authorization flow.</para>
+/// <para>The identity data permissioned by the end user during the authorization flow.</para>
 /// </summary>
 public record UserAccountIdentity
 {
 	/// <summary>
-	/// <para>UserAccountIdentityName defines the user's first name and last name.</para>
+	/// <para>The user's first name and last name.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	public Entity.UserAccountIdentityName? Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>UserAccountIdentityAddress defines the user's address.</para>
+	/// <para>The user's address.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.UserAccountIdentityAddress? Address { get; init; } = default!;

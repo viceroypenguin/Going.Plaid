@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The details for the newly created end customer, including secrets for non-Production environments.</para>
+/// <para>The details for the newly created end customer, including secrets for Sandbox and Limited Production.</para>
 /// </summary>
 public record PartnerEndCustomerWithSecrets
 {
@@ -24,7 +24,7 @@ public record PartnerEndCustomerWithSecrets
 	public Entity.PartnerEndCustomerStatus? Status { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The secrets for the newly created end customer in non-Production environments.</para>
+	/// <para>The secrets for the newly created end customer.</para>
 	/// </summary>
 	[JsonPropertyName("secrets")]
 	public Entity.PartnerEndCustomerSecrets? Secrets { get; init; } = default!;

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class InstitutionsGetRequestOptions
 {
 	/// <summary>
-	/// <para>Filter the Institutions based on which products they support.</para>
+	/// <para>Filter the Institutions based on which products they support. Will only return institutions that support all listed products. When filtering based on <c>auth</c>, an institution must support Instant Auth to match the criterion.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;

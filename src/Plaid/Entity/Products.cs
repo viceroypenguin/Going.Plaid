@@ -26,6 +26,18 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "balance_plus")]
+	BalancePlus,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "beacon")]
+	Beacon,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "identity")]
 	Identity,
 

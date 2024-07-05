@@ -278,6 +278,12 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "nuvei")]
+	Nuvei,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "layer")]
 	Layer,
 

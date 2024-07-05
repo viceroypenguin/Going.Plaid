@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>UserAccountIdentityAddress defines the user's address.</para>
+/// <para>The user's address.</para>
 /// </summary>
 public record UserAccountIdentityAddress
 {

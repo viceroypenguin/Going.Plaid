@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The secrets for the newly created end customer in non-Production environments.</para>
+/// <para>The secrets for the newly created end customer.</para>
 /// </summary>
 public record PartnerEndCustomerSecrets
 {
@@ -12,7 +12,7 @@ public record PartnerEndCustomerSecrets
 	public string? Sandbox { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The end customer's secret key for the Development environment. The Development environment will be decommissioned on June 20, 2024.</para>
+	/// <para>The end customer's secret key for the Development environment. The Development environment has been removed.</para>
 	/// </summary>
 	[JsonPropertyName("development")]
 	public string? Development { get; init; } = default!;

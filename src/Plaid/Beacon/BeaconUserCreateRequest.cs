@@ -27,7 +27,8 @@ public partial class BeaconUserCreateRequest : RequestBase
 	public Entity.BeaconUserRequestData User { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Send this array of access tokens to link accounts to the Beacon User and have them evaluated for Account Insights. </para>
+	/// <para>A maximum of 50 accounts total can be added to a single Beacon User.</para>
 	/// </summary>
 	[JsonPropertyName("access_tokens")]
 	public IReadOnlyList<string>? AccessTokens { get; set; } = default!;

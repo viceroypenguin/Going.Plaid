@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A subset of a Beacon User's data which is used to patch the existing identity data associated with a Beacon User. At least one field must be provided,.</para>
+/// <para>A subset of a Beacon User's data which is used to patch the existing identity data associated with a Beacon User. At least one field must be provided. If left unset or null, user data will not be patched.</para>
 /// </summary>
 public class BeaconUserUpdateRequestData
 {

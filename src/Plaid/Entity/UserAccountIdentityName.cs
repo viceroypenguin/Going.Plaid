@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>UserAccountIdentityName defines the user's first name and last name.</para>
+/// <para>The user's first name and last name.</para>
 /// </summary>
 public record UserAccountIdentityName
 {

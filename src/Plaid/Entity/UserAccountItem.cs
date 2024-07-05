@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>UserAccountItem defines an Item created during a Layer authorization session.</para>
+/// <para>An Item created during a Layer authorization session.</para>
 /// </summary>
 public record UserAccountItem
 {
