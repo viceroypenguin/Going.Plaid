@@ -55,7 +55,8 @@ internal static partial class Program
 	{
 		["ACHClass"] = "AchClass",
 		["APR"] = "Apr",
-		["ISO Currency Code"] = "IsoCurrencyCode",
+		["ISOCurrencyCode"] = "IsoCurrencyCode",
+		["ISO Currency Code"] = "WalletIsoCurrencyCode",
 		["NumbersACH"] = "NumbersAch",
 		["NumbersEFT"] = "NumbersEft",
 		["NumbersBACS"] = "NumbersBacs",
@@ -339,7 +340,9 @@ internal static partial class Program
 
 		if (schema.AllOf.Count == 1
 			&& schema.AllOf[0].Type == "string")
+		{
 			return "string";
+		}
 
 		if (schema.Reference != null)
 		{

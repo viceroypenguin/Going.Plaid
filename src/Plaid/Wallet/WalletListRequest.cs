@@ -9,7 +9,7 @@ public partial class WalletListRequest : RequestBase
 	/// <para>An ISO-4217 currency code, used with e-wallets and transactions.</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
-	public Entity.IsoCurrencyCode? IsoCurrencyCode { get; set; } = default!;
+	public Entity.WalletIsoCurrencyCode? IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A base64 value representing the latest e-wallet that has already been requested. Set this to <c>next_cursor</c> received from the previous <c>/wallet/list</c> request. If provided, the response will only contain e-wallets created before that e-wallet. If omitted, the response will contain e-wallets starting from the most recent, and in descending order.</para>

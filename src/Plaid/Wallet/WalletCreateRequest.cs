@@ -9,6 +9,6 @@ public partial class WalletCreateRequest : RequestBase
 	/// <para>An ISO-4217 currency code, used with e-wallets and transactions.</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
-	public Entity.IsoCurrencyCode IsoCurrencyCode { get; set; } = default!;
+	public Entity.WalletIsoCurrencyCode IsoCurrencyCode { get; set; } = default!;
 
 }
