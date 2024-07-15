@@ -20,7 +20,7 @@
 		<PackageVersion Include="MinVer" Version="5.0.0" />
 		<PackageVersion Include="PolySharp" Version="1.14.1" />
 		<PackageVersion Include="Scriban" Version="5.10.0" />
-		<PackageVersion Include="xunit" Version="2.8.1" />
+		<PackageVersion Include="xunit" Version="2.9.0" />
 		<PackageVersion Include="xunit.runner.visualstudio" Version="2.8.1" />
 	</ItemGroup>
 	
