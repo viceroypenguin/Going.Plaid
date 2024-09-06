@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a user successfully adds a Plaid item during a Link session. Contains the public token for the item.</para>
+/// <para>Fired when a user successfully adds a Plaid Item during a Link session when using Hosted Link or Multi-Item Link sessions. Contains the public token for the Item.</para>
 /// </summary>
 public record ItemAddResultWebhook : WebhookBase
 {

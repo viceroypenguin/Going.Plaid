@@ -65,7 +65,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/beacon/report_syndication/list</c> endpoint to view all Beacon Reports that have been syndicated to a specific Beacon User. This endpoint returns Beacon Report Syndications which are references to Beacon Reports created either by you, or another Beacon customer, that matched the specified Beacon User. A Beacon User can have multiple active Beacon Report Syndications at once. The results from this endpoint are paginated; the <c>next_cursor</c> field will be populated if there is another page of results that can be retrieved. To fetch the next page, pass the <c>next_cursor</c> value as the <c>cursor</c> parameter in the next request.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreportsyndicationlist" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreport_syndicationlist" /></remarks>
 	public Task<Beacon.BeaconReportSyndicationListResponse> BeaconReportSyndicationListAsync(Beacon.BeaconReportSyndicationListRequest request) =>
 		PostAsync("/beacon/report_syndication/list", request)
 			.ParseResponseAsync<Beacon.BeaconReportSyndicationListResponse>();
@@ -81,7 +81,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Returns a Beacon Report Syndication for a given Beacon Report Syndication id.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreportsyndicationget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconreport_syndicationget" /></remarks>
 	public Task<Beacon.BeaconReportSyndicationGetResponse> BeaconReportSyndicationGetAsync(Beacon.BeaconReportSyndicationGetRequest request) =>
 		PostAsync("/beacon/report_syndication/get", request)
 			.ParseResponseAsync<Beacon.BeaconReportSyndicationGetResponse>();

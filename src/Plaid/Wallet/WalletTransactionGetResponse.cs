@@ -77,4 +77,10 @@ public record WalletTransactionGetResponse : ResponseBase
 	[JsonPropertyName("failure_reason")]
 	public Entity.WalletTransactionFailureReason? FailureReason { get; init; } = default!;
 
+	/// <summary>
+	/// <para>A list of wallet transactions that this transaction is associated with, if any.</para>
+	/// </summary>
+	[JsonPropertyName("related_transactions")]
+	public IReadOnlyList<Entity.WalletTransactionRelation>? RelatedTransactions { get; init; } = default!;
+
 }

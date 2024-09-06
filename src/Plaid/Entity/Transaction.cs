@@ -12,7 +12,7 @@ public record Transaction
 	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The settled value of the transaction, denominated in the transactions's currency, as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.</para>
+	/// <para>The settled value of the transaction, denominated in the transactions's currency, as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>. For all products except Income: Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative. For Income endpoints, values are positive when representing income.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public decimal? Amount { get; init; } = default!;
@@ -92,13 +92,13 @@ public record Transaction
 	public Entity.PaymentMeta? PaymentMeta { get; init; } = default!;
 
 	/// <summary>
-	/// <para>When <c>true</c>, identifies the transaction as pending or unsettled. Pending transaction details (name, type, amount, category ID) may change before they are settled.</para>
+	/// <para>When <c>true</c>, identifies the transaction as pending or unsettled. Pending transaction details (name, type, amount, category ID) may change before they are settled. Not all institutions provide pending transactions.</para>
 	/// </summary>
 	[JsonPropertyName("pending")]
 	public bool? Pending { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ID of a posted transaction's associated pending transaction, where applicable.</para>
+	/// <para>The ID of a posted transaction's associated pending transaction, where applicable. Not all institutions provide pending transactions.</para>
 	/// </summary>
 	[JsonPropertyName("pending_transaction_id")]
 	public string? PendingTransactionId { get; init; } = default!;

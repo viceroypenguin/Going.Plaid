@@ -107,6 +107,6 @@ public record BaseReportTransaction
 	/// <para>The ID of the category to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
 	/// </summary>
 	[JsonPropertyName("category_id")]
-	public Entity.BaseReportTransactionCategoryIdObject? CategoryId { get; init; } = default!;
+	public string? CategoryId { get; init; } = default!;
 
 }

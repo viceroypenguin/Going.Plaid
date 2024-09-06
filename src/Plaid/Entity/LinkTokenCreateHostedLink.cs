@@ -18,7 +18,7 @@ public class LinkTokenCreateHostedLink
 	public string? CompletionRedirectUri { get; set; } = default!;
 
 	/// <summary>
-	/// <para>How many seconds the link will be valid for. Must be positive. Cannot be longer than 21 days. The default lifetime is 4 hours.</para>
+	/// <para>How many seconds the link will be valid for. Must be positive. Cannot be longer than 21 days. The default lifetime is 7 days for links delivered by email, 1 day for links delivered via SMS, and 30 minutes for links not sent via Plaid Link delivery. This parameter will override the value of all three link types.</para>
 	/// </summary>
 	[JsonPropertyName("url_lifetime_seconds")]
 	public int? UrlLifetimeSeconds { get; set; } = default!;

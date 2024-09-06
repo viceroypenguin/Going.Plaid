@@ -30,6 +30,12 @@ public enum BeaconReportType
 	AccountTakeover,
 
 	/// <summary>
+	/// <para>If this individual's data was compromised in a breach.</para>
+	/// </summary>
+	[EnumMember(Value = "data_breach")]
+	DataBreach,
+
+	/// <summary>
 	/// <para>If you aren't sure who committed the fraud.</para>
 	/// </summary>
 	[EnumMember(Value = "unknown")]

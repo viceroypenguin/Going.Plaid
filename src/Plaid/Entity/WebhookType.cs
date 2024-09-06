@@ -44,6 +44,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "ISSUES")]
+	Issues,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "AUTH")]
 	Auth,
 
@@ -160,6 +166,12 @@ public enum WebhookType
 	/// </summary>
 	[EnumMember(Value = "DASHBOARD_CONFIGURED_ALERT")]
 	DashboardConfiguredAlert,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "CRA_MONITORING")]
+	CraMonitoring,
 
 	/// <summary>
 	/// 

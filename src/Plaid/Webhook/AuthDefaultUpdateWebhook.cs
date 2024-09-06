@@ -20,13 +20,13 @@ public record AuthDefaultUpdateWebhook : WebhookBase
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An array of <c>account_id</c>'s for accounts that contain new auth.'</para>
+	/// <para>An array of <c>account_id</c>'s for accounts that contain new auth.</para>
 	/// </summary>
 	[JsonPropertyName("account_ids_with_new_auth")]
 	public IReadOnlyList<string> AccountIdsWithNewAuth { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object with keys of <c>account_id</c>'s that are mapped to their respective auth attributes that changed.</para>
+	/// <para>An object with keys of <c>account_id</c>'s that are mapped to their respective auth attributes that changed. <c>ACCOUNT_NUMBER</c> and <c>ROUTING_NUMBER</c> are the two potential values that can be flagged as updated.</para>
 	/// <para>Example: <c>{ "XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58": ["ACCOUNT_NUMBER"] }</c></para>
 	/// </summary>
 	[JsonPropertyName("account_ids_with_updated_auth")]

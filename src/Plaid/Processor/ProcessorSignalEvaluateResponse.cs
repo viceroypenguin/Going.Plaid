@@ -24,6 +24,12 @@ public record ProcessorSignalEvaluateResponse : ResponseBase
 	public Entity.SignalEvaluateCoreAttributes? CoreAttributes { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Details about the transaction result after evaluated by the requested Ruleset. If a <c>ruleset_key</c> is not provided, this field will be omitted. This feature is currently in closed beta; to request access, contact your account manager.</para>
+	/// </summary>
+	[JsonPropertyName("ruleset")]
+	public Entity.SignalEvaluateRuleset? Ruleset { get; init; } = default!;
+
+	/// <summary>
 	/// <para>If bank information was not available to be used in the Signal model, this array contains warnings describing why bank data is missing. If you want to receive an API error instead of Signal scores in the case of missing bank data, file a support ticket or contact your Plaid account manager.</para>
 	/// </summary>
 	[JsonPropertyName("warnings")]

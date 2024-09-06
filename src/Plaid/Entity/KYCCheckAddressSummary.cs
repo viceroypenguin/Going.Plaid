@@ -23,4 +23,34 @@ public record KYCCheckAddressSummary
 	[JsonPropertyName("type")]
 	public Entity.AddressPurposeLabel Type { get; init; } = default!;
 
+	/// <summary>
+	/// <para>An enum indicating the match type between data provided by user and data checked against an external data source.</para>
+	/// </summary>
+	[JsonPropertyName("street")]
+	public Entity.MatchSummaryCode? Street { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An enum indicating the match type between data provided by user and data checked against an external data source.</para>
+	/// </summary>
+	[JsonPropertyName("city")]
+	public Entity.MatchSummaryCode? City { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An enum indicating the match type between data provided by user and data checked against an external data source.</para>
+	/// </summary>
+	[JsonPropertyName("region")]
+	public Entity.MatchSummaryCode? Region { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An enum indicating the match type between data provided by user and data checked against an external data source.</para>
+	/// </summary>
+	[JsonPropertyName("postal_code")]
+	public Entity.MatchSummaryCode? PostalCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Result summary object specifying how the <c>address</c> field matched for fields that are only present on an international KYC check.</para>
+	/// </summary>
+	[JsonPropertyName("international_details")]
+	public Entity.KYCCheckDetailsInternationalAddress? InternationalDetails { get; init; } = default!;
+
 }

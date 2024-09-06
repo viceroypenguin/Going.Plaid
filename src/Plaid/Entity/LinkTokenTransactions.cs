@@ -6,8 +6,8 @@ namespace Going.Plaid.Entity;
 public class LinkTokenTransactions
 {
 	/// <summary>
-	/// <para>The maximum number of days of transaction history to request for the Transactions product. For developer accounts created after December 3, 2023, if no value is specified, this will default to 90 days. For developer accounts created on December 3, 2023 or earlier, if no value is specified, this will default to 730 days until June 24, 2024, at which point it will default to 90 days.</para>
-	/// <para>We strongly recommend that customers utilizing <a href="https://plaid.com/docs/api/products/transactions/#transactionsrecurringget">Recurring Transactions</a> request at least 180 days of history for optimal results.</para>
+	/// <para>The maximum number of days of transaction history to request for the Transactions product. The more transaction history is requested, the longer the historical update poll will take. The default value is 90 days. If a value under 30 is provided, a minimum of 30 days of history will be requested. Once Transactions has been added to an Item, this value cannot be updated.</para>
+	/// <para>Customers using <a href="https://plaid.com/docs/api/products/transactions/#transactionsrecurringget">Recurring Transactions</a> should request at least 180 days of history for optimal results.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;

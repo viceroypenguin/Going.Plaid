@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Contains data about the connected Item.</para>
 /// </summary>
-public record CraNetworkAttributesItem
+public record CraNetworkInsightsItem
 {
 	/// <summary>
 	/// <para>The ID for the institution the user linked.</para>

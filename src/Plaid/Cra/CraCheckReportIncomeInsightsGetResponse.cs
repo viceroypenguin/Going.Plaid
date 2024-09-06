@@ -6,7 +6,7 @@ namespace Going.Plaid.Cra;
 public record CraCheckReportIncomeInsightsGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>The report of the Bank Income data for an end user.</para>
+	/// <para>The Check Income Insights Report for an end user.</para>
 	/// </summary>
 	[JsonPropertyName("report")]
 	public Entity.CraIncomeInsights? Report { get; init; } = default!;

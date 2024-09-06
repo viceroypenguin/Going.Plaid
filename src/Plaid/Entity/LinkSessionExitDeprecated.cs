@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link.</para>
+/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link. This field has been deprecated in favor of <a href="https://plaid.com/docs/api/link/#link-token-get-response-link-sessions-exit"><c>exit</c></a>, for improved naming consistency.</para>
 /// </summary>
 public record LinkSessionExitDeprecated
 {

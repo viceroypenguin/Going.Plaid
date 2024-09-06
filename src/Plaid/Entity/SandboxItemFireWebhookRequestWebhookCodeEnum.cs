@@ -38,6 +38,12 @@ public enum SandboxItemFireWebhookRequestWebhookCodeEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "LOGIN_REPAIRED")]
+	LoginRepaired,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "SYNC_UPDATES_AVAILABLE")]
 	SyncUpdatesAvailable,
 

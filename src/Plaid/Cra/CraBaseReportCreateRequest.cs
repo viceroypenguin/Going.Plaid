@@ -1,9 +1,9 @@
 namespace Going.Plaid.Cra;
 
 /// <summary>
-/// <para>BaseReportCreateRequest defines the request schema for <c>/cra/base_report/create</c></para>
+/// <para>CraBaseReportCreateRequest defines the request schema for <c>/cra/base_report/create</c></para>
 /// </summary>
-public partial class BaseReportCreateRequest : RequestBase
+public partial class CraBaseReportCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The user token associated with the User data is being requested for.</para>

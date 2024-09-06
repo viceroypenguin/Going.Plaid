@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record EntityScreeningHitEmails
 {
 	/// <summary>
-	/// <para>A valid email address.</para>
+	/// <para>A valid email address. Must not have leading or trailing spaces.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string EmailAddress { get; init; } = default!;

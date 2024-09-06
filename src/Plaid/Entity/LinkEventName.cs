@@ -44,6 +44,12 @@ public enum LinkEventName
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "ISSUE_FOLLOWED")]
+	IssueFollowed,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "OPEN")]
 	Open,
 

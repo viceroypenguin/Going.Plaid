@@ -18,6 +18,12 @@ public partial class TransferLedgerWithdrawRequest : RequestBase
 	public string? FundingAccountId { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specify which ledger balance to withdraw from. Customers can find a list of <c>ledger_id</c>s in the Accounts page of your Plaid Dashboard. If this field is left blank, this will default to id of the default ledger balance.</para>
+	/// </summary>
+	[JsonPropertyName("ledger_id")]
+	public string? LedgerId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>A positive amount of how much will be withdrawn from the ledger balance (decimal string with two digits of precision e.g. "5.50").</para>
 	/// </summary>
 	[JsonPropertyName("amount")]

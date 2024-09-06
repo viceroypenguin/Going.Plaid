@@ -19,6 +19,12 @@ public record SimulatedTransferSweep
 	public string? FundingAccountId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Plaid’s unique identifier for a Plaid Ledger Balance.</para>
+	/// </summary>
+	[JsonPropertyName("ledger_id")]
+	public string? LedgerId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The datetime when the sweep occurred, in RFC 3339 format.</para>
 	/// </summary>
 	[JsonPropertyName("created")]

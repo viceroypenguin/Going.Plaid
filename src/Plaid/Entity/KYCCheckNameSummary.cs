@@ -11,4 +11,16 @@ public record KYCCheckNameSummary
 	[JsonPropertyName("summary")]
 	public Entity.MatchSummaryCode Summary { get; init; } = default!;
 
+	/// <summary>
+	/// <para>An enum indicating the match type between data provided by user and data checked against an external data source.</para>
+	/// </summary>
+	[JsonPropertyName("given_name")]
+	public Entity.MatchSummaryCode? GivenName { get; init; } = default!;
+
+	/// <summary>
+	/// <para>An enum indicating the match type between data provided by user and data checked against an external data source.</para>
+	/// </summary>
+	[JsonPropertyName("family_name")]
+	public Entity.MatchSummaryCode? FamilyName { get; init; } = default!;
+
 }

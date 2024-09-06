@@ -18,10 +18,10 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public string Webhook { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The number of days of data to request for the report</para>
+	/// <para>The number of days of data to request for the report. If requesting Income Insights, a minimum of 90 days is recommended in order to receive both historical and forecasted income.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
-	public int? DaysRequested { get; set; } = default!;
+	public int DaysRequested { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Products that will be retrieved in this report. This configuration will determine what data types to fetch from the user's financial institution. If omitted, the data types needed to support all products will be fetched.</para>

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class LinkTokenCreateRequestCreditPartnerInsights
 {
 	/// <summary>
-	/// <para>The maximum integer number of days of history to compute Crdit Partner Insights. Defaults to 180 if not specified</para>
+	/// <para>The maximum integer number of days of history to compute Credit Partner Insights. Defaults to 180 if not specified</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;

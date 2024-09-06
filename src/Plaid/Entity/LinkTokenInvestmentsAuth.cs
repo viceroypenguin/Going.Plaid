@@ -17,4 +17,10 @@ public class LinkTokenInvestmentsAuth
 	[JsonPropertyName("masked_number_match_enabled")]
 	public bool? MaskedNumberMatchEnabled { get; set; } = default!;
 
+	/// <summary>
+	/// <para>If <c>true</c>, show institutions that use the stated account number fallback flow.</para>
+	/// </summary>
+	[JsonPropertyName("stated_account_number_enabled")]
+	public bool? StatedAccountNumberEnabled { get; set; } = default!;
+
 }

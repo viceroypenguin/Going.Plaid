@@ -66,4 +66,10 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	[JsonPropertyName("device")]
 	public Entity.SignalEvaluateDevice? Device { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The key of the Ruleset to use for this transaction. You can configure a Ruleset using the Signal dashboard located within the Plaid Dashboard. If not provided, no Ruleset will be used. This feature is currently in closed beta; to request access, contact your account manager.</para>
+	/// </summary>
+	[JsonPropertyName("ruleset_key")]
+	public string? RulesetKey { get; set; } = default!;
+
 }

@@ -122,6 +122,20 @@ public record Security
 	public string? MarketIdentifierCode { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The sector classification of the security, such as Finance, Health Technology, etc.</para>
+	/// <para>For a complete list of possible values, please refer to the <a href="https://docs.google.com/spreadsheets/d/1L7aXUdqLhxgM8qe7hK67qqKXiUdQqILpwZ0LpxvCVnc">"Sectors and Industries" spreadsheet</a>.</para>
+	/// </summary>
+	[JsonPropertyName("sector")]
+	public string? Sector { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The industry classification of the security, such as Biotechnology, Airlines, etc.</para>
+	/// <para>For a complete list of possible values, please refer to the <a href="https://docs.google.com/spreadsheets/d/1L7aXUdqLhxgM8qe7hK67qqKXiUdQqILpwZ0LpxvCVnc">"Sectors and Industries" spreadsheet</a>.</para>
+	/// </summary>
+	[JsonPropertyName("industry")]
+	public string? Industry { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Details about the option security.</para>
 	/// <para>For the Sandbox environment, this data is currently only available if the item is using a custom configuration object, and the <c>ticker</c> field of the custom security follows the <a href="https://en.wikipedia.org/wiki/Option_symbol#The_OCC_Option_Symbol">OCC Option Symbol</a> standard with no spaces.</para>
 	/// </summary>

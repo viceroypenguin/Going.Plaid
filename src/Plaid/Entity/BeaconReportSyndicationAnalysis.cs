@@ -47,4 +47,10 @@ public record BeaconReportSyndicationAnalysis
 	[JsonPropertyName("phone_number")]
 	public Entity.BeaconMatchSummaryCode PhoneNumber { get; init; } = default!;
 
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("depository_accounts")]
+	public IReadOnlyList<Entity.BeaconSyndicatedReportDepositoryAccountMatchAnalysis> DepositoryAccounts { get; init; } = default!;
+
 }

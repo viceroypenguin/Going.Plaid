@@ -86,7 +86,7 @@ public sealed partial class PlaidClient
 	/// <para>A <c>public_token</c> is one-time use and expires after 30 minutes. You use a <c>public_token</c> to initialize Link in <a href="https://plaid.com/docs/link/update-mode">update mode</a> for a particular Item. You can generate a <c>public_token</c> for an Item even if you did not use Link to create the Item originally.</para>
 	/// <para>The <c>/item/public_token/create</c> endpoint is **not** used to create your initial <c>public_token</c>. If you have not already received an <c>access_token</c> for a specific Item, use Link to obtain your <c>public_token</c> instead. See the <a href="https://plaid.com/docs/quickstart">Quickstart</a> for more information.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/tokens/#itempublic_tokencreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/link/#itempublic_tokencreate" /></remarks>
 	public Task<Item.ItemPublicTokenCreateResponse> ItemPublicTokenCreateAsync(Item.ItemPublicTokenCreateRequest request) =>
 		PostAsync("/item/public_token/create", request)
 			.ParseResponseAsync<Item.ItemPublicTokenCreateResponse>();

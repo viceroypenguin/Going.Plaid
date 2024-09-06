@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Summary for bank income across all income sources and items (max history of 730 days).</para>
+/// <para>Summary for income across all income sources and items (max history of 730 days).</para>
 /// </summary>
 public record CraBankIncomeSummary
 {

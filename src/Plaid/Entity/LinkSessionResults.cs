@@ -12,6 +12,12 @@ public record LinkSessionResults
 	public IReadOnlyList<Entity.LinkSessionItemAddResult>? ItemAddResults { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The set of Plaid Check Item adds for the Link session.</para>
+	/// </summary>
+	[JsonPropertyName("cra_item_add_results")]
+	public IReadOnlyList<Entity.LinkSessionCraItemAddResult>? CraItemAddResults { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The set of bank income verifications for the Link session.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_results")]

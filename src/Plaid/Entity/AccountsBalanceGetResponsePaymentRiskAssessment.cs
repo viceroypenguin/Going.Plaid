@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record AccountsBalanceGetResponsePaymentRiskAssessment
 {
 	/// <summary>
-	/// <para>A five-tier risk assessment for the transaction, based on the probability distribution of ACH returns,</para>
+	/// <para>A five-tier risk assessment for the transaction, based on the probability distribution of ACH returns, measured by the incident rate.</para>
 	/// </summary>
 	[JsonPropertyName("risk_level")]
 	public Entity.BalancePlusRiskLevel RiskLevel { get; init; } = default!;

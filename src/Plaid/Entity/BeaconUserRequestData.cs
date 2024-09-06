@@ -2,6 +2,7 @@ namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>A Beacon User's data which is used to check against duplicate records and the Beacon Fraud Network.</para>
+/// <para>In order to create a Beacon User, in addition to the <c>name</c>, _either_ the <c>date_of_birth</c> _or_ the <c>depository_accounts</c> field must be provided.</para>
 /// </summary>
 public class BeaconUserRequestData
 {
@@ -9,7 +10,7 @@ public class BeaconUserRequestData
 	/// <para>A date in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
 	/// </summary>
 	[JsonPropertyName("date_of_birth")]
-	public DateOnly DateOfBirth { get; set; } = default!;
+	public DateOnly? DateOfBirth { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The full name for a given Beacon User.</para>
@@ -24,7 +25,7 @@ public class BeaconUserRequestData
 	public Entity.BeaconUserRequestAddress? Address { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A valid email address.</para>
+	/// <para>A valid email address. Must not have leading or trailing spaces.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string? EmailAddress { get; set; } = default!;
@@ -46,5 +47,12 @@ public class BeaconUserRequestData
 	/// </summary>
 	[JsonPropertyName("ip_address")]
 	public string? IpAddress { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Provide a list of bank accounts that are associated with this Beacon User. These accounts will be scanned across the Beacon Network and used to find duplicate records.</para>
+	/// <para>Note: These accounts will not have Bank Account Insights. To receive Bank Account Insights please supply <c>access_tokens</c>.</para>
+	/// </summary>
+	[JsonPropertyName("depository_accounts")]
+	public IReadOnlyList<Entity.BeaconUserRequestDepositoryAccount>? DepositoryAccounts { get; set; } = default!;
 
 }

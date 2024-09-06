@@ -45,7 +45,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditFreddieMacReportsGetResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/bank_income/get</c> returns the bank income report(s) for a specified user.</para>
+	/// <para><c>/credit/bank_income/get</c> returns the bank income report(s) for a specified user. A single report corresponds to all institutions linked in a single Link session. To include multiple institutions in a single report, use <a href="https://plaid.com/docs/link/multi-item-link">Multi-Item Link</a>. To return older reports, use the <c>options.count</c> field.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomeget" /></remarks>
 	public Task<Credit.CreditBankIncomeGetResponse> CreditBankIncomeGetAsync(Credit.CreditBankIncomeGetRequest request) =>
@@ -53,7 +53,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditBankIncomeGetResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/bank_income/refresh</c> refreshes the bank income report data for a specific user.</para>
+	/// <para><c>/credit/bank_income/refresh</c> refreshes the most recent bank income report data for a specific user. If the most recent bank income report is no longer valid (i.e. deleted), the endpoint will refresh the most recent valid report instead.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomerefresh" /></remarks>
 	public Task<Credit.CreditBankIncomeRefreshResponse> CreditBankIncomeRefreshAsync(Credit.CreditBankIncomeRefreshRequest request) =>

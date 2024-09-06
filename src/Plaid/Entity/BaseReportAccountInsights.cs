@@ -30,34 +30,52 @@ public record BaseReportAccountInsights
 	public decimal? AverageDaysBetweenTransactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Longest gap between sequential transactions</para>
+	/// <para>Deprecated; use <c>longest_gaps_between_transactions</c> instead. Longest gap between sequential transactions</para>
 	/// </summary>
 	[JsonPropertyName("longest_gap_between_transactions")]
 	public IReadOnlyList<Entity.BaseReportLongestGapInsights>? LongestGapBetweenTransactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of debits into the account. This field will be null for non-depository accounts.</para>
+	/// <para>Customers must transition from <c>longest_gap_between_transactions</c> by September 30th 2024. Longest gap between sequential transactions in a time period. This array can include multiple time periods.</para>
+	/// </summary>
+	[JsonPropertyName("longest_gaps_between_transactions")]
+	public IReadOnlyList<Entity.BaseReportLongestGapInsights>? LongestGapsBetweenTransactions { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of debits into the account. This array will be empty for non-depository accounts.</para>
 	/// </summary>
 	[JsonPropertyName("number_of_inflows")]
 	public IReadOnlyList<Entity.BaseReportNumberFlowInsights>? NumberOfInflows { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Average amount of debit transactions into account. This field will be null for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+	/// <para>Deprecated; use <c>average_inflow_amounts</c> instead. Average amount of debit transactions into the account. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
 	/// </summary>
 	[JsonPropertyName("average_inflow_amount")]
 	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageInflowAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of credit into the account. This field will be null for non-depository accounts.</para>
+	/// <para>Customers must transition from <c>average_inflow_amount</c> by September 30th 2024. Average amount of debit transactions into the account in a time period. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+	/// </summary>
+	[JsonPropertyName("average_inflow_amounts")]
+	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageInflowAmounts { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of outflows from the account. This array will be empty for non-depository accounts.</para>
 	/// </summary>
 	[JsonPropertyName("number_of_outflows")]
 	public IReadOnlyList<Entity.BaseReportNumberFlowInsights>? NumberOfOutflows { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Average amount of credit transactions into account. This field will be null for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+	/// <para>Deprecated; use <c>average_outflow_amounts</c> instead. Average amount of transactions out of the account. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
 	/// </summary>
 	[JsonPropertyName("average_outflow_amount")]
 	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageOutflowAmount { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Customers must transition from <c>average_outflow_amount</c> by September 30th 2024. Average amount of transactions out of the account in a time period. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+	/// </summary>
+	[JsonPropertyName("average_outflow_amounts")]
+	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageOutflowAmounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Number of days with no transactions</para>

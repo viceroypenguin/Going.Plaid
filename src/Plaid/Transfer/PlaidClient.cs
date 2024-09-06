@@ -19,12 +19,16 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferRecurringGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to authorize a transfer. This endpoint must be called prior to calling <c>/transfer/create</c>.</para>
-	/// <para>There are three possible outcomes to calling this endpoint: If the <c>authorization.decision</c> in the response is <c>declined</c>, the proposed transfer has failed the risk check and you cannot proceed with the transfer. If the <c>authorization.decision</c> is <c>approved</c>, and the <c>authorization.rationale_code</c> is <c>null</c>, the transfer has passed the risk check and you can proceed to call <c>/transfer/create</c>. If the <c>authorization.decision</c> is <c>approved</c> and the <c>authorization.rationale_code</c> is non-<c>null</c>, the risk check could not be run: you may proceed with the transfer, but should perform your own risk evaluation. For more details, see the response schema.</para>
+	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to authorize a transfer. This endpoint must be called prior to calling <c>/transfer/create</c>. The transfer authorization will expire if not used after one hour. (You can contact your account manager to change the default authorization lifetime.) </para>
+	/// <para>There are four possible outcomes to calling this endpoint: </para>
+	/// <para>- If the <c>authorization.decision</c> in the response is <c>declined</c>, the proposed transfer has failed the risk check and you cannot proceed with the transfer. </para>
+	/// <para>- If the <c>authorization.decision</c> is <c>user_action_required</c>, additional user input is needed, usually to fix a broken bank connection, before Plaid can properly assess the risk. You need to launch Link in update mode to complete the required user action. When calling <c>/link/token/create</c> to get a new Link token, instead of providing <c>access_token</c> in the request, you should set <a href="https://plaid.com/docs/api/link/#link-token-create-request-transfer-authorization-id"><c>transfer.authorization_id</c></a> as the <c>authorization.id</c>. After the Link flow is completed, you may re-attempt the authorization.</para>
+	/// <para>- If the <c>authorization.decision</c> is <c>approved</c>, and the <c>authorization.rationale_code</c> is <c>null</c>, the transfer has passed the risk check and you can proceed to call <c>/transfer/create</c>.</para>
+	/// <para>- If the <c>authorization.decision</c> is <c>approved</c> and the <c>authorization.rationale_code</c> is non-<c>null</c>, the risk check could not be run: you may proceed with the transfer, but should perform your own risk evaluation. For more details, see the response schema.</para>
 	/// <para>In Plaid's Sandbox environment the decisions will be returned as follows:</para>
 	/// <para>  - To approve a transfer with <c>null</c> rationale code, make an authorization request with an <c>amount</c> less than the available balance in the account.</para>
 	/// <para>  - To approve a transfer with the rationale code <c>MANUALLY_VERIFIED_ITEM</c>, create an Item in Link through the <a href="https://plaid.com/docs/auth/coverage/testing/#testing-same-day-micro-deposits">Same Day Micro-deposits flow</a>.</para>
-	/// <para>  - To approve a transfer with the rationale code <c>ITEM_LOGIN_REQUIRED</c>, <a href="https://plaid.com/docs/sandbox/#item_login_required">reset the login for an Item</a>.</para>
+	/// <para>  - To get an authorization decision of <c>user_action_required</c>, <a href="https://plaid.com/docs/sandbox/#item_login_required">reset the login for an Item</a>.</para>
 	/// <para>  - To decline a transfer with the rationale code <c>NSF</c>, the available balance on the account must be less than the authorization <c>amount</c>. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
 	/// <para>  - To decline a transfer with the rationale code <c>RISK</c>, the available balance on the account must be exactly $0. See <a href="https://plaid.com/docs/sandbox/user-custom/">Create Sandbox test data</a> for details on how to customize data in Sandbox.</para>
 	/// </summary>
@@ -114,7 +118,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferMetricsGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/create</c> endpoint to initiate a new transfer.</para>
+	/// <para>Use the <c>/transfer/create</c> endpoint to initiate a new transfer. This endpoint is retryable and idempotent; if a transfer with the provided <c>transfer_id</c> has already been created, it will return the transfer details without creating a new transfer. A transfer may still be created if a 500 error is returned; to detect this scenario, use <a href="https://plaid.com/docs/transfer/reconciling-transfers/">Transfer events</a>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/initiating-transfers/#transfercreate" /></remarks>
 	public Task<Transfer.TransferCreateResponse> TransferCreateAsync(Transfer.TransferCreateRequest request) =>
@@ -194,7 +198,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferSweepListResponse>();
 
 	/// <summary>
-	/// <para>As an alternative to adding Items via Link, you can also use the <c>/transfer/migrate_account</c> endpoint to migrate known account and routing numbers to Plaid Items. If you intend to create wire transfers on this account, you must provide <c>wire_routing_number</c>. Note that Items created in this way are not compatible with endpoints for other products, such as <c>/accounts/balance/get</c>, and can only be used with Transfer endpoints.  If you require access to other endpoints, create the Item through Link instead.  Access to <c>/transfer/migrate_account</c> is not enabled by default; to obtain access, contact your Plaid Account Manager.</para>
+	/// <para>As an alternative to adding Items via Link, you can also use the <c>/transfer/migrate_account</c> endpoint to migrate known account and routing numbers to Plaid Items. This endpoint is also required when adding an Item for use with wire transfers; if you intend to create wire transfers on this account, you must provide <c>wire_routing_number</c>. Note that Items created in this way are not compatible with endpoints for other products, such as <c>/accounts/balance/get</c>, and can only be used with Transfer endpoints.  If you require access to other endpoints, create the Item through Link instead.  Access to <c>/transfer/migrate_account</c> is not enabled by default; to obtain access, contact your Plaid Account Manager.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/account-linking/#transfermigrate_account" /></remarks>
 	public Task<Transfer.TransferMigrateAccountResponse> TransferMigrateAccountAsync(Transfer.TransferMigrateAccountRequest request) =>
@@ -306,5 +310,13 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferRefundCancelResponse> TransferRefundCancelAsync(Transfer.TransferRefundCancelRequest request) =>
 		PostAsync("/transfer/refund/cancel", request)
 			.ParseResponseAsync<Transfer.TransferRefundCancelResponse>();
+
+	/// <summary>
+	/// <para>The <c>/transfer/platform/originator/create</c> endpoint allows gathering information about the originator specific to the Scaled Platform Transfer offering, including the originator's agreement to legal terms required before accepting any further information related to the originator.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform/originator/#transferplatformoriginatorcreate" /></remarks>
+	public Task<Transfer.TransferPlatformOriginatorCreateResponse> TransferPlatformOriginatorCreateAsync(Transfer.TransferPlatformOriginatorCreateRequest request) =>
+		PostAsync("/transfer/platform/originator/create", request)
+			.ParseResponseAsync<Transfer.TransferPlatformOriginatorCreateResponse>();
 
 }

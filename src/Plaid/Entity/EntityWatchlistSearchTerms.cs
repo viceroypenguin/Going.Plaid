@@ -12,19 +12,19 @@ public class EntityWatchlistSearchTerms
 	public string EntityWatchlistProgramId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The name of the organization being screened.</para>
+	/// <para>The name of the organization being screened. Must have at least one alphabetical character, have a maximum length of 100 characters, and not include leading or trailing spaces.</para>
 	/// </summary>
 	[JsonPropertyName("legal_name")]
 	public string LegalName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The numeric or alphanumeric identifier associated with this document.</para>
+	/// <para>The numeric or alphanumeric identifier associated with this document. Must be between 4 and 32 characters long, and cannot have leading or trailing spaces.</para>
 	/// </summary>
 	[JsonPropertyName("document_number")]
 	public string? DocumentNumber { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A valid email address.</para>
+	/// <para>A valid email address. Must not have leading or trailing spaces.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string? EmailAddress { get; set; } = default!;

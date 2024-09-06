@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record IdentityVerificationUserData
 {
 	/// <summary>
-	/// <para>A phone number in E.164 format.</para>
+	/// <para>A valid phone number in E.164 format.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public string? PhoneNumber { get; init; } = default!;
@@ -24,7 +24,7 @@ public record IdentityVerificationUserData
 	public string? IpAddress { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A valid email address.</para>
+	/// <para>A valid email address. Must not have leading or trailing spaces.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string? EmailAddress { get; init; } = default!;

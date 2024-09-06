@@ -12,7 +12,7 @@ public record CraBankIncomeItem
 	public string? ItemId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Item's accounts that have Bank Income data.</para>
+	/// <para>The Item's accounts that have bank income data.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_accounts")]
 	public IReadOnlyList<Entity.CraBankIncomeAccount> BankIncomeAccounts { get; init; } = default!;

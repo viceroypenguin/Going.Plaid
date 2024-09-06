@@ -92,6 +92,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "ISSUE_RESOLVED")]
+	IssueResolved,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "AUTOMATICALLY_VERIFIED")]
 	AutomaticallyVerified,
 
@@ -172,6 +178,12 @@ public enum WebhookCode
 	/// </summary>
 	[EnumMember(Value = "END_CUSTOMER_OAUTH_STATUS_UPDATED")]
 	EndCustomerOauthStatusUpdated,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "PENDING_DISCONNECT")]
+	PendingDisconnect,
 
 	/// <summary>
 	/// 

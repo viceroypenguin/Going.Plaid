@@ -18,7 +18,7 @@ public partial class CraBankIncomeCreateRequest : RequestBase
 	public string? Webhook { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The number of days of data to request for the Bank Income product</para>
+	/// <para>The number of days of data to request</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;

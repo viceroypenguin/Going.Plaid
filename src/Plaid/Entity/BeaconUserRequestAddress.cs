@@ -12,7 +12,7 @@ public class BeaconUserRequestAddress
 	public string Street { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Extra street information, like an apartment or suite number. If provided, a string with at least one non-whitespace character, with a max length of 20 characters.</para>
+	/// <para>Extra street information, like an apartment or suite number. If provided, a string with at least one non-whitespace character, with a max length of 50 characters.</para>
 	/// </summary>
 	[JsonPropertyName("street2")]
 	public string? Street2 { get; set; } = default!;

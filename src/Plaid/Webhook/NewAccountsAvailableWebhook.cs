@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when Plaid detects a new account for Items created or updated with <a href="https://plaid.com/docs/link/customization/#account-select">Account Select v2</a>. Upon receiving this webhook, you can prompt your users to share new accounts with you through <a href="https://plaid.com/docs/link/update-mode/#using-update-mode-to-request-new-accounts">Account Select v2 update mode</a> (US/CA only). For end user accounts in the EU and UK, upon receiving this webhook, you can prompt your user to re-link their account and then delete the old Item via <c>/item/remove</c>.</para>
+/// <para>Fired when Plaid detects a new account. Upon receiving this webhook, you can prompt your users to share new accounts with you through <a href="https://plaid.com/docs/link/update-mode/#using-update-mode-to-request-new-accounts">update mode</a> (US/CA only). If the end user has opted not to share new accounts with Plaid via their institution's OAuth settings, Plaid will not detect new accounts and this webhook will not fire. For end user accounts in the EU and UK, upon receiving this webhook, you can prompt your user to re-link their account and then delete the old Item via <c>/item/remove</c>.</para>
 /// </summary>
 public record NewAccountsAvailableWebhook : WebhookBase
 {

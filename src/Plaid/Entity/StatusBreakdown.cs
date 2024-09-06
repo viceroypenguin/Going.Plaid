@@ -24,7 +24,7 @@ public record StatusBreakdown
 	public decimal ErrorInstitution { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The <c>refresh_interval</c> may be <c>DELAYED</c> or <c>STOPPED</c> even when the success rate is high. This value is only returned for Transactions status breakdowns.</para>
+	/// <para>How frequently data for subscription products like Investments, Transactions, and Liabilities, is being refreshed, relative to the institution's normal scheduling. The <c>refresh_interval</c> may be <c>DELAYED</c> or <c>STOPPED</c> even when the success rate is high.</para>
 	/// </summary>
 	[JsonPropertyName("refresh_interval")]
 	public Entity.StatusBreakdownRefreshIntervalEnum? RefreshInterval { get; init; } = default!;

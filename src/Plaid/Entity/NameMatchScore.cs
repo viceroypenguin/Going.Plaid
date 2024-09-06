@@ -24,7 +24,7 @@ public record NameMatchScore
 	public bool? IsNicknameMatch { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Is <c>true</c> if the name on either of the names that was matched for the score contained strings indicative of a business name, such as "CORP", "LLC", "INC", or "LTD". A <c>true</c> result generally indicates the entity is a business. However, a <c>false</c> result does not mean the entity is not a business, as some businesses do not use these strings in the names used for their financial institution accounts.</para>
+	/// <para>Is <c>true</c> if the name on either of the names that was matched for the score contained strings indicative of a business name, such as "CORP", "LLC", "INC", or "LTD". A <c>true</c> result generally indicates that an account's name is a business name. However, a <c>false</c> result does not mean the account name is not a business name, as some businesses do not use these strings in the names used for their financial institution accounts.</para>
 	/// </summary>
 	[JsonPropertyName("is_business_name_detected")]
 	public bool? IsBusinessNameDetected { get; init; } = default!;

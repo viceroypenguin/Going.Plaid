@@ -3,20 +3,44 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>This endpoint allows the customer to retrieve a Base Report. Customers should pass in the <c>user_token</c> created in <c>/link/token/create</c>.</para>
+	/// <para>This endpoint allows the customer to retrieve a Base Report. Customers should pass in the <c>user_token</c> created in <c>/user/create</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
-	public Task<Cra.BaseReportGetResponse> CraBaseReportGetAsync(Cra.BaseReportGetRequest request) =>
+	public Task<Cra.CraBaseReportGetResponse> CraBaseReportGetAsync(Cra.CraBaseReportGetRequest request) =>
 		PostAsync("/cra/base_report/get", request)
-			.ParseResponseAsync<Cra.BaseReportGetResponse>();
+			.ParseResponseAsync<Cra.CraBaseReportGetResponse>();
 
 	/// <summary>
 	/// <para>This endpoint allows the customer to create a Base Report by passing in a user token. The Base Report will be generated based on the most recently linked item from the user token.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
-	public Task<Cra.BaseReportCreateResponse> CraBaseReportCreateAsync(Cra.BaseReportCreateRequest request) =>
+	public Task<Cra.CraBaseReportCreateResponse> CraBaseReportCreateAsync(Cra.CraBaseReportCreateRequest request) =>
 		PostAsync("/cra/base_report/create", request)
-			.ParseResponseAsync<Cra.BaseReportCreateResponse>();
+			.ParseResponseAsync<Cra.CraBaseReportCreateResponse>();
+
+	/// <summary>
+	/// <para>This endpoint allows you to subscribe to insights for a user's linked CRA items, which are updated every 14 days.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraMonitoringInsightsSubscribeResponse> CraMonitoringInsightsSubscribeAsync(Cra.CraMonitoringInsightsSubscribeRequest request) =>
+		PostAsync("/cra/monitoring_insights/subscribe", request)
+			.ParseResponseAsync<Cra.CraMonitoringInsightsSubscribeResponse>();
+
+	/// <summary>
+	/// <para>This endpoint allows you to unsubscribe from previously subscribed Monitoring Insights.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraMonitoringInsightsUnsubscribeResponse> CraMonitoringInsightsUnsubscribeAsync(Cra.CraMonitoringInsightsUnsubscribeRequest request) =>
+		PostAsync("/cra/monitoring_insights/unsubscribe", request)
+			.ParseResponseAsync<Cra.CraMonitoringInsightsUnsubscribeResponse>();
+
+	/// <summary>
+	/// <para>This endpoint allows you to retrieve a Monitoring Insights report by passing in the <c>user_token</c> referred to in the webhook you received.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraMonitoringInsightsGetResponse> CraMonitoringInsightsGetAsync(Cra.CraMonitoringInsightsGetRequest request) =>
+		PostAsync("/cra/monitoring_insights/get", request)
+			.ParseResponseAsync<Cra.CraMonitoringInsightsGetResponse>();
 
 	/// <summary>
 	/// <para><c>/cra/bank_income/get</c> returns the bank income report(s) for a specified user.</para>
@@ -67,7 +91,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportCreateResponse>();
 
 	/// <summary>
-	/// <para>This endpoint allows you to retrieve the Partner Insights product for your user. You should call this endpoint after you've received the <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>. If the most recent consumer report for the user doesn’t have sufficient data to generate the base report, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>.</para>
+	/// <para>This endpoint allows you to retrieve the Partner Insights report for your user. You should call this endpoint after you've received the <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>. If the most recent consumer report for the user doesn’t have sufficient data to generate the base report, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>.</para>
 	/// <para>If you did not initialize Link with the <c>credit_partner_insights</c> product or have generated a report using <c>/cra/check_report/create</c>, we will call our partners to generate the insights when you call this endpoint. In this case, you may optionally provide parameters under <c>options</c> to configure which insights you want to receive.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/check/api/#cracheck_reportpartner_insightsget" /></remarks>
@@ -76,13 +100,13 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportPartnerInsightsGetResponse>();
 
 	/// <summary>
-	/// <para>This endpoint allows you to retrieve the Network Attributes product for your user. You should call this endpoint after you've received the <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>. If the most recent consumer report for the user doesn’t have sufficient data to generate the report, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>.</para>
+	/// <para>This endpoint allows you to retrieve the Network Insights product for your user. You should call this endpoint after you've received the <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>. If the most recent consumer report for the user doesn’t have sufficient data to generate the report, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>.</para>
 	/// <para>If you did not initialize Link with the <c>cra_network_attributes</c> product or have generated a report using <c>/cra/check_report/create</c>, we will generate the attributes when you call this endpoint.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/check/api/#cracheck_reportnetwork_attributesget" /></remarks>
-	public Task<Cra.CraCheckReportNetworkAttributesGetResponse> CraCheckReportNetworkInsightsGetAsync(Cra.CraCheckReportNetworkAttributesGetRequest request) =>
+	/// <remarks><see href="https://plaid.com/docs/check/api/#cracheck_reportnetwork_insightsget" /></remarks>
+	public Task<Cra.CraCheckReportNetworkInsightsGetResponse> CraCheckReportNetworkInsightsGetAsync(Cra.CraCheckReportNetworkInsightsGetRequest request) =>
 		PostAsync("/cra/check_report/network_insights/get", request)
-			.ParseResponseAsync<Cra.CraCheckReportNetworkAttributesGetResponse>();
+			.ParseResponseAsync<Cra.CraCheckReportNetworkInsightsGetResponse>();
 
 	/// <summary>
 	/// <para><c>/cra/loans/applications/register</c> registers loan applications and decisions.</para>

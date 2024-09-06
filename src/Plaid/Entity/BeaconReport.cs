@@ -36,7 +36,13 @@ public record BeaconReport
 	/// <para>A date in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
 	/// </summary>
 	[JsonPropertyName("fraud_date")]
-	public DateOnly FraudDate { get; init; } = default!;
+	public DateOnly? FraudDate { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A date in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
+	/// </summary>
+	[JsonPropertyName("event_date")]
+	public DateOnly EventDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The amount and currency of the fraud or attempted fraud.</para>

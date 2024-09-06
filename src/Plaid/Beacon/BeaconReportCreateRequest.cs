@@ -15,7 +15,7 @@ public partial class BeaconReportCreateRequest : RequestBase
 	/// <para>The type of Beacon Report.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
-	public Entity.BeaconReportType Type { get; set; } = default!;
+	public Entity.BeaconReportCreateType Type { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A date in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>

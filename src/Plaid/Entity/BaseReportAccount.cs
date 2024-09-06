@@ -20,6 +20,12 @@ public record BaseReportAccount
 	public Entity.BaseReportAccountBalances Balances { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The information about previously submitted valid dispute statements by the consumer</para>
+	/// </summary>
+	[JsonPropertyName("consumer_disputes")]
+	public IReadOnlyList<Entity.ConsumerDispute> ConsumerDisputes { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.</para>
 	/// </summary>
 	[JsonPropertyName("mask")]
@@ -77,7 +83,7 @@ public record BaseReportAccount
 	/// <para>Calculated data about the historical balances on the account. Only returned by Base Report endpoints and currently not supported by <c>brokerage</c> or <c>investment</c> accounts.</para>
 	/// </summary>
 	[JsonPropertyName("historical_balances")]
-	public IReadOnlyList<Entity.HistoricalBalance>? HistoricalBalances { get; init; } = default!;
+	public IReadOnlyList<Entity.BaseReportHistoricalBalance>? HistoricalBalances { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Calculated insights derived from transaction-level data.</para>

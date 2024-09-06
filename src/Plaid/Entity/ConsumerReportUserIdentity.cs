@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>This object defines the user identity data collected for consumer report purposes. This field is required if you are planning on using the user token with Plaid Check products.</para>
+/// <para>To create a Plaid Check Consumer Report for a user, this field must be present on the user token. If this field is not provided during user token creation, you can add it to the user later by calling <c>/user/update</c>. Once the field has been added to the user, you will be able to call <c>/link/token/create</c> with a non-empty <c>consumer_report_permissible_purpose</c> (which will automatically create a Plaid Check Consumer Report), or call <c>/cra/check_report/create</c> for that user.</para>
 /// </summary>
 public class ConsumerReportUserIdentity
 {
@@ -18,7 +18,7 @@ public class ConsumerReportUserIdentity
 	public string LastName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's phone numbers. The format of phone number will be validated and for better normalization, it is expected to be in E.164 format +{countrycode}{number}, for example <c>+14151234567</c>.</para>
+	/// <para>The user's phone number, in E.164 format: +{countrycode}{number}. For example: "+14157452130". Phone numbers provided in other formats will be parsed on a best-effort basis. Phone number input is validated against valid number ranges; number strings that do not match a real-world phone numbering scheme may cause the request to fail, even in the Sandbox test environment.</para>
 	/// </summary>
 	[JsonPropertyName("phone_numbers")]
 	public IReadOnlyList<string> PhoneNumbers { get; set; } = default!;

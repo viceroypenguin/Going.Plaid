@@ -79,8 +79,8 @@ public record StudentLoan
 
 	/// <summary>
 	/// <para>The minimum payment due for the next billing cycle. There are some exceptions:</para>
-	/// <para>Some institutions require a minimum payment across all loans associated with an account number. Our API presents that same minimum payment amount on each loan. The institutions that do this are: Great Lakes ( <c>ins_116861</c>), Firstmark (<c>ins_116295</c>), Commonbond Firstmark Services (<c>ins_116950</c>), EdFinancial Services (<c>ins_116304</c>), Granite State (<c>ins_116308</c>), and Oklahoma Student Loan Authority (<c>ins_116945</c>).</para>
-	/// <para>Firstmark (<c>ins_116295</c> ), EdFinancial Services (<c>ins_116304</c>),  and Navient (<c>ins_116248</c>) will display as $0 if there is an autopay program in effect.</para>
+	/// <para>Some institutions require a minimum payment across all loans associated with an account number. Our API presents that same minimum payment amount on each loan. The institutions that do this are: Great Lakes ( <c>ins_116861</c>), Firstmark (<c>ins_116295</c>), Commonbond Firstmark Services (<c>ins_116950</c>), Granite State (<c>ins_116308</c>), and Oklahoma Student Loan Authority (<c>ins_116945</c>).</para>
+	/// <para>Firstmark (<c>ins_116295</c> ) and Navient (<c>ins_116248</c>) will display as $0 if there is an autopay program in effect.</para>
 	/// </summary>
 	[JsonPropertyName("minimum_payment_amount")]
 	public decimal? MinimumPaymentAmount { get; init; } = default!;
@@ -116,7 +116,7 @@ public record StudentLoan
 	public string? PaymentReferenceNumber { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Information about the student's eligibility in the Public Service Loan Forgiveness program. This is only returned if the institution is FedLoan (<c>ins_116527</c>).</para>
+	/// <para>Information about the student's eligibility in the Public Service Loan Forgiveness program. This is only returned if the institution is FedLoan (<c>ins_116527</c>). Since FedLoan no longer services student loans, this field is no longer returned.</para>
 	/// </summary>
 	[JsonPropertyName("pslf_status")]
 	public Entity.PSLFStatus PslfStatus { get; init; } = default!;

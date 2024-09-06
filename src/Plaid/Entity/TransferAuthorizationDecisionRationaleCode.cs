@@ -30,7 +30,7 @@ public enum TransferAuthorizationDecisionRationaleCode
 	ManuallyVerifiedItem,
 
 	/// <summary>
-	/// <para>– Unable to collect the account information due to Item staleness. Can be resolved by using Link in <a href="https://www.plaid.com/docs/link/update-mode">update mode</a>.</para>
+	/// <para>– Unable to collect the account information due to Item staleness. Can be resolved by using Link and setting <a href="https://plaid.com/docs/api/link/#link-token-create-request-transfer-authorization-id"><c>transfer.authorization_id</c></a> in the request to <c>/link/token/create</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "ITEM_LOGIN_REQUIRED")]
 	ItemLoginRequired,
@@ -48,7 +48,7 @@ public enum TransferAuthorizationDecisionRationaleCode
 	Error,
 
 	/// <summary>
-	/// <para>Item created via <c>/transfer/account_migration</c> endpoint, limited information available.</para>
+	/// <para>Item created via <c>/transfer/migrate_account</c> endpoint, limited information available.</para>
 	/// </summary>
 	[EnumMember(Value = "MIGRATED_ACCOUNT_ITEM")]
 	MigratedAccountItem,

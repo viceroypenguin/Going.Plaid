@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The warning associated with the data that was unavailable for the Bank Income Report.</para>
+/// <para>The warning associated with the data that was unavailable.</para>
 /// </summary>
 public record CraBankIncomeWarning
 {

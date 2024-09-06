@@ -9,7 +9,7 @@ public record CreditAmountWithCurrency
 	/// <para>Value of amount with up to 2 decimal places.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
-	public decimal? Amount { get; init; } = default!;
+	public decimal Amount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO 4217 currency code of the amount or balance.</para>

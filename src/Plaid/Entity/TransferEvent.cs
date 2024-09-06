@@ -36,6 +36,12 @@ public record TransferEvent
 	public string? FundingAccountId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Plaid’s unique identifier for a Plaid Ledger Balance.</para>
+	/// </summary>
+	[JsonPropertyName("ledger_id")]
+	public string? LedgerId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Plaid’s unique identifier for a transfer. This field is <c>null</c> for Plaid Ledger Sweep events.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_id")]

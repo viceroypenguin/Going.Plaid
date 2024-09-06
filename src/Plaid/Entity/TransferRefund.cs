@@ -36,6 +36,12 @@ public record TransferRefund
 	public Entity.TransferRefundFailure? FailureReason { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Plaid’s unique identifier for a Plaid Ledger Balance.</para>
+	/// </summary>
+	[JsonPropertyName("ledger_id")]
+	public string? LedgerId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The datetime when this refund was created. This will be of the form <c>2006-01-02T15:04:05Z</c></para>
 	/// </summary>
 	[JsonPropertyName("created")]

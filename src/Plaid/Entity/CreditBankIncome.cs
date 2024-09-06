@@ -12,13 +12,13 @@ public record CreditBankIncome
 	public string? BankIncomeId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The time when the Bank Income Report was generated.</para>
+	/// <para>The time when the report was generated.</para>
 	/// </summary>
 	[JsonPropertyName("generated_time")]
 	public DateTimeOffset? GeneratedTime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of days requested by the customer for the Bank Income Report.</para>
+	/// <para>The number of days requested by the customer for the report.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; init; } = default!;
@@ -36,7 +36,7 @@ public record CreditBankIncome
 	public Entity.CreditBankIncomeSummary? BankIncomeSummary { get; init; } = default!;
 
 	/// <summary>
-	/// <para>If data from the Bank Income report was unable to be retrieved, the warnings will contain information about the error that caused the data to be incomplete.</para>
+	/// <para>If data from the report was unable to be retrieved, the warnings will contain information about the error that caused the data to be incomplete.</para>
 	/// </summary>
 	[JsonPropertyName("warnings")]
 	public IReadOnlyList<Entity.CreditBankIncomeWarning>? Warnings { get; init; } = default!;

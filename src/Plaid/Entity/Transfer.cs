@@ -36,6 +36,12 @@ public record Transfer
 	public string? FundingAccountId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Plaid’s unique identifier for a Plaid Ledger Balance.</para>
+	/// </summary>
+	[JsonPropertyName("ledger_id")]
+	public string? LedgerId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
 	/// </summary>
 	[JsonPropertyName("type")]

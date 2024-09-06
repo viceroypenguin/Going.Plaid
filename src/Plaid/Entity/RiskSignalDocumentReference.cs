@@ -29,4 +29,10 @@ public record RiskSignalDocumentReference
 	[JsonPropertyName("document_type")]
 	public Entity.RiskSignalDocumentType? DocumentType { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The file type for risk signal analysis</para>
+	/// </summary>
+	[JsonPropertyName("file_type")]
+	public Entity.RiskSignalFileType? FileType { get; init; } = default!;
+
 }

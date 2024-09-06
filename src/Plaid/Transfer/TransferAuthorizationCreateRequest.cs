@@ -18,6 +18,12 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string? FundingAccountId { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specify which ledger balance used to fund the transfer. Customers can find a list of <c>ledger_id</c>s in the Accounts page of your Plaid Dashboard. If this field is left blank, this will default to id of the default ledger balance.</para>
+	/// </summary>
+	[JsonPropertyName("ledger_id")]
+	public string? LedgerId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The payment profile token associated with the Payment Profile that will be debited or credited. Required if not using <c>access_token</c>.</para>
 	/// </summary>
 	[JsonPropertyName("payment_profile_token")]
@@ -80,6 +86,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <summary>
 	/// <para>A random key provided by the client, per unique authorization, which expires after 48 hours. Maximum of 50 characters.</para>
 	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create an authorization fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single authorization is created.</para>
+	/// <para>Idempotency does not apply to authorizations whose decisions are <c>user_action_required</c>. Therefore you may re-attempt the authorization after completing the required user action without changing <c>idempotency_key</c>.</para>
 	/// <para>This idempotency key expires after 48 hours, after which the same key can be reused. Failure to provide this key may result in duplicate charges.</para>
 	/// </summary>
 	[JsonPropertyName("idempotency_key")]

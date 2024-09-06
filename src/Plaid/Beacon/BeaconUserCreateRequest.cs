@@ -22,12 +22,13 @@ public partial class BeaconUserCreateRequest : RequestBase
 
 	/// <summary>
 	/// <para>A Beacon User's data which is used to check against duplicate records and the Beacon Fraud Network.</para>
+	/// <para>In order to create a Beacon User, in addition to the <c>name</c>, _either_ the <c>date_of_birth</c> _or_ the <c>depository_accounts</c> field must be provided.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.BeaconUserRequestData User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Send this array of access tokens to link accounts to the Beacon User and have them evaluated for Account Insights. </para>
+	/// <para>Send this array of access tokens to link accounts to the Beacon User and have them evaluated for Account Insights.</para>
 	/// <para>A maximum of 50 accounts total can be added to a single Beacon User.</para>
 	/// </summary>
 	[JsonPropertyName("access_tokens")]

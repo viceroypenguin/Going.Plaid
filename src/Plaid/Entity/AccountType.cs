@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum AccountType
 {
 	/// <summary>
-	/// <para>An account type holding cash, in which funds are deposited. Supported products for <c>depository</c> accounts are: Auth (<c>checking</c> and <c>savings</c> types only), Transfer, Balance, Signal, Income, Transactions, Identity, Payment Initiation, Assets, and Investments (<c>cash management</c> type only).</para>
+	/// <para>An account type holding cash, in which funds are deposited. Supported products for <c>depository</c> accounts are: Auth (<c>checking</c> and <c>savings</c> subtypes only), Transfer, Balance, Signal, Income, Transactions, Identity, Payment Initiation, Assets, and Investments (<c>cash management</c> subtype only).</para>
 	/// </summary>
 	[EnumMember(Value = "depository")]
 	Depository,
@@ -18,19 +18,19 @@ public enum AccountType
 	Credit,
 
 	/// <summary>
-	/// <para>A loan type account. Supported products for <c>loan</c> accounts are: Balance, Liabilities, Assets, and Transactions.</para>
+	/// <para>A loan type account. Supported products for <c>loan</c> accounts are: Balance, Liabilities (<c>student</c> and <c>mortgage</c> subtypes only), Identity.</para>
 	/// </summary>
 	[EnumMember(Value = "loan")]
 	Loan,
 
 	/// <summary>
-	/// <para>An investment account. Supported products for <c>investment</c> accounts are: Balance, Assets, and Investments. In API versions 2018-05-22 and earlier, this type is called <c>brokerage</c>.</para>
+	/// <para>An investment account. Supported products for <c>investment</c> accounts are: Balance, Assets, Investments, and Investment Transactions. In API versions 2018-05-22 and earlier, this type is called <c>brokerage</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "investment")]
 	Investment,
 
 	/// <summary>
-	/// <para>Other or unknown account type. Supported products for <c>other</c> accounts are: Balance, Transactions, Identity, and Assets.</para>
+	/// <para>Other or unknown account type. Supported products for <c>other</c> accounts are: Balance, Identity.</para>
 	/// </summary>
 	[EnumMember(Value = "other")]
 	Other,

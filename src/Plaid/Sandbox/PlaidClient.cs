@@ -11,7 +11,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxProcessorTokenCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/public_token/create</c> endpoint to create a valid <c>public_token</c>  for an arbitrary institution ID, initial products, and test credentials. The created <c>public_token</c> maps to a new Sandbox Item. You can then call <c>/item/public_token/exchange</c> to exchange the <c>public_token</c> for an <c>access_token</c> and perform all API actions. <c>/sandbox/public_token/create</c> can also be used with the <a href="https://plaid.com/docs/sandbox/user-custom"><c>user_custom</c> test username</a> to generate a test account with custom data. <c>/sandbox/public_token/create</c> cannot be used with OAuth institutions.</para>
+	/// <para>Use the <c>/sandbox/public_token/create</c> endpoint to create a valid <c>public_token</c>  for an arbitrary institution ID, initial products, and test credentials. The created <c>public_token</c> maps to a new Sandbox Item. You can then call <c>/item/public_token/exchange</c> to exchange the <c>public_token</c> for an <c>access_token</c> and perform all API actions. <c>/sandbox/public_token/create</c> can also be used with the <a href="https://plaid.com/docs/sandbox/user-custom"><c>user_custom</c> test username</a> to generate a test account with custom data, or with Plaid's <a href="https://plaid.com/docs/sandbox/test-credentials/">pre-populated Sandbox test accounts</a>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxpublic_tokencreate" /></remarks>
 	public Task<Sandbox.SandboxPublicTokenCreateResponse> SandboxPublicTokenCreateAsync(Sandbox.SandboxPublicTokenCreateRequest request) =>
@@ -21,7 +21,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/sandbox/item/fire_webhook</c> endpoint is used to test that code correctly handles webhooks. This endpoint can trigger the following webhooks:</para>
 	/// <para><c>DEFAULT_UPDATE</c>: Webhook to be fired for a given Sandbox Item simulating a default update event for the respective product as specified with the <c>webhook_type</c> in the request body. Valid sandbox <c>DEFAULT_UPDATE</c> responses include: <c>AUTH</c>, <c>IDENTITY</c>, <c>TRANSACTIONS</c>, <c>INVESTMENTS_TRANSACTIONS</c>, <c>LIABILITIES</c>, <c>HOLDINGS</c>. If the Item does not support the product, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
-	/// <para><c>NEW_ACCOUNTS_AVAILABLE</c>: Webhook to be fired for a given Sandbox Item created with Account Select v2.</para>
+	/// <para><c>NEW_ACCOUNTS_AVAILABLE</c>: Fired to indicate that a new account is available on the Item and you can launch update mode to request access to it.</para>
 	/// <para><c>SMS_MICRODEPOSITS_VERIFICATION</c>: Fired when a given same day micro-deposit item is verified via SMS verification.</para>
 	/// <para><c>LOGIN_REPAIRED</c>: Fired when an Item recovers from the <c>ITEM_LOGIN_REQUIRED</c> without the user going through update mode in your app.</para>
 	/// <para><c>RECURRING_TRANSACTIONS_UPDATE</c>: Recurring Transactions webhook to be fired for a given Sandbox Item. If the Item does not support Recurring Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>

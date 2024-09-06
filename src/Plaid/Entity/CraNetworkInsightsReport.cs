@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Contains data for the CRA Network Attributes Report.</para>
 /// </summary>
-public record CraNetworkAttributesReport
+public record CraNetworkInsightsReport
 {
 	/// <summary>
 	/// <para>The unique identifier associated with the Network Attributes report object.</para>
@@ -21,12 +21,12 @@ public record CraNetworkAttributesReport
 	/// <para>A map of network attributes, where the key is a string, and the value is a float, int, or boolean.</para>
 	/// </summary>
 	[JsonPropertyName("network_attributes")]
-	public Entity.NetworkAttributes NetworkAttributes { get; init; } = default!;
+	public Entity.NetworkInsights NetworkAttributes { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The Items the end user connected in Link.</para>
 	/// </summary>
 	[JsonPropertyName("items")]
-	public IReadOnlyList<Entity.CraNetworkAttributesItem> Items { get; init; } = default!;
+	public IReadOnlyList<Entity.CraNetworkInsightsItem> Items { get; init; } = default!;
 
 }

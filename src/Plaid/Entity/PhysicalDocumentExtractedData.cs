@@ -51,4 +51,10 @@ public record PhysicalDocumentExtractedData
 	[JsonPropertyName("address")]
 	public Entity.IdentityVerificationDocumentAddressResponse? Address { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The individual's name extracted from the document.</para>
+	/// </summary>
+	[JsonPropertyName("name")]
+	public Entity.IdentityVerificationDocumentNameResponse? Name { get; init; } = default!;
+
 }

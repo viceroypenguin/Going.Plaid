@@ -9,7 +9,7 @@ public record CraBankIncomeTransaction
 	/// <para>The unique ID of the transaction. Like all Plaid identifiers, the <c>transaction_id</c> is case sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_id")]
-	public string? TransactionId { get; init; } = default!;
+	public string TransactionId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The settled value of the transaction, denominated in the transaction's currency as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>.</para>
@@ -17,14 +17,14 @@ public record CraBankIncomeTransaction
 	/// <para>For example, credit card purchases are positive; credit card payment, direct deposits, and refunds are negative.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
-	public decimal? Amount { get; init; } = default!;
+	public decimal Amount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted.</para>
 	/// <para>Both dates are returned in an ISO 8601 format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("date")]
-	public DateOnly? Date { get; init; } = default!;
+	public DateOnly Date { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The merchant name or transaction description.</para>
@@ -43,7 +43,7 @@ public record CraBankIncomeTransaction
 	/// <para>Pending transaction details (name, type, amount, category ID) may change before they are settled.</para>
 	/// </summary>
 	[JsonPropertyName("pending")]
-	public bool? Pending { get; init; } = default!;
+	public bool Pending { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The check number of the transaction. This field is only populated for check transactions.</para>

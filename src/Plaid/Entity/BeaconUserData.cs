@@ -26,7 +26,7 @@ public record BeaconUserData
 	public Entity.BeaconUserAddress Address { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A valid email address.</para>
+	/// <para>A valid email address. Must not have leading or trailing spaces.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string? EmailAddress { get; init; } = default!;
@@ -48,5 +48,11 @@ public record BeaconUserData
 	/// </summary>
 	[JsonPropertyName("ip_address")]
 	public string? IpAddress { get; init; } = default!;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("depository_accounts")]
+	public IReadOnlyList<Entity.BeaconUserDepositoryAccount> DepositoryAccounts { get; init; } = default!;
 
 }

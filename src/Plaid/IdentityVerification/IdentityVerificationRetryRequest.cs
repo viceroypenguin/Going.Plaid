@@ -48,4 +48,10 @@ public partial class IdentityVerificationRetryRequest : RequestBase
 	[JsonPropertyName("steps")]
 	public Entity.IdentityVerificationRetryRequestStepsObject? Steps { get; set; } = default!;
 
+	/// <summary>
+	/// <para>A flag specifying whether you would like Plaid to expose a shareable URL for the verification being retried.</para>
+	/// </summary>
+	[JsonPropertyName("is_shareable")]
+	public bool? IsShareable { get; set; } = default!;
+
 }

@@ -11,4 +11,10 @@ public class CraCheckReportPartnerInsightsGetOptions
 	[JsonPropertyName("prism_products")]
 	public IReadOnlyList<Entity.PrismProduct>? PrismProducts { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The versions of Prism products to evaluate</para>
+	/// </summary>
+	[JsonPropertyName("prism_versions")]
+	public Entity.PrismVersions? PrismVersions { get; set; } = default!;
+
 }

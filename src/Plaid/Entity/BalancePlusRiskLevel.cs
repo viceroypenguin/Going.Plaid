@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A five-tier risk assessment for the transaction, based on the probability distribution of ACH returns,</para>
+/// <para>A five-tier risk assessment for the transaction, based on the probability distribution of ACH returns, measured by the incident rate.</para>
 /// </summary>
 public enum BalancePlusRiskLevel
 {
@@ -12,7 +12,7 @@ public enum BalancePlusRiskLevel
 	High,
 
 	/// <summary>
-	/// <para>The mean probability of ACH return risk is 15%-25%.</para>
+	/// <para>The mean probability of ACH return risk is 15%-40%.</para>
 	/// </summary>
 	[EnumMember(Value = "MEDIUM_HIGH")]
 	MediumHigh,

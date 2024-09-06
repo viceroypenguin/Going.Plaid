@@ -47,4 +47,10 @@ public record TransferMetricsGetResponse : ResponseBase
 	[JsonPropertyName("return_rates")]
 	public Entity.TransferMetricsGetReturnRates? ReturnRates { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Details regarding authorization usage.</para>
+	/// </summary>
+	[JsonPropertyName("authorization_usage")]
+	public Entity.TransferMetricsGetAuthorizationUsage? AuthorizationUsage { get; init; } = default!;
+
 }

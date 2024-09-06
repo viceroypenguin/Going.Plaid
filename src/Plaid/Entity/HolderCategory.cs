@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Provides context as to whether the account is explicitly designated for business purposes in contrast to personal accounts. This label is orthogonal to existing account type/subtype labels (both “Business Checking” and “Personal Checking” would be labeled with a “depository” type and “checking” subtype)</para>
+/// <para>Indicates the account's categorization as either a personal or a business account. This field is currently in beta; to request access, contact your account manager.</para>
 /// </summary>
 public enum HolderCategory
 {

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum TransferAuthorizationDecision
 {
 	/// <summary>
-	/// <para>– The proposed transfer has received the end user's consent and has been approved for processing by Plaid. The <c>decision_rationale</c> field is set if Plaid was unable to fetch the account information. You may proceed with the transfer, but further review is recommended (i.e., use Link in update mode to re-authenticate your user when <c>decision_rationale.code</c> is <c>ITEM_LOGIN_REQUIRED</c>). Refer to the <c>code</c> field in the <c>decision_rationale</c> object for details.</para>
+	/// <para>– The proposed transfer has received the end user's consent and has been approved for processing by Plaid. The <c>decision_rationale</c> field is set if Plaid was unable to fetch the account information. You may proceed with the transfer, but further review is recommended. Refer to the <c>code</c> field in the <c>decision_rationale</c> object for details.</para>
 	/// </summary>
 	[EnumMember(Value = "approved")]
 	Approved,
@@ -18,7 +18,7 @@ public enum TransferAuthorizationDecision
 	Declined,
 
 	/// <summary>
-	/// <para>– An action is required before Plaid can assess the transfer risk and make a decision. The most common scenario is to update authentication for an Item. To complete the required action, initialize Link by setting <c>transfer.authorization_id</c> in the request of <c>/link/token/create</c>.</para>
+	/// <para>– An action is required before Plaid can assess the transfer risk and make a decision. The most common scenario is to update authentication for an Item. To complete the required action, initialize Link by setting <c>transfer.authorization_id</c> in the request of <c>/link/token/create</c>. After Link flow is completed, you may re-attempt the authorization request.</para>
 	/// </summary>
 	[EnumMember(Value = "user_action_required")]
 	UserActionRequired,

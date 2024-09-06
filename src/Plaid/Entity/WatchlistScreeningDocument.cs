@@ -12,7 +12,7 @@ public record WatchlistScreeningDocument
 	public Entity.WatchlistScreeningDocumentType Type { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The numeric or alphanumeric identifier associated with this document.</para>
+	/// <para>The numeric or alphanumeric identifier associated with this document. Must be between 4 and 32 characters long, and cannot have leading or trailing spaces.</para>
 	/// </summary>
 	[JsonPropertyName("number")]
 	public string Number { get; init; } = default!;

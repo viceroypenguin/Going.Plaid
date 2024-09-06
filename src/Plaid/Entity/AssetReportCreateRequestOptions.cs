@@ -41,4 +41,10 @@ public class AssetReportCreateRequestOptions
 	[JsonPropertyName("user")]
 	public Entity.AssetReportUser? User { get; set; } = default!;
 
+	/// <summary>
+	/// <para>If set to false, only 1 item must be healthy at the time of report creation. The default value is true, which would require all items to be healthy at the time of report creation.</para>
+	/// </summary>
+	[JsonPropertyName("require_all_items")]
+	public bool? RequireAllItems { get; set; } = default!;
+
 }
