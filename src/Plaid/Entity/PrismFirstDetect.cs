@@ -29,4 +29,10 @@ public record PrismFirstDetect
 	[JsonPropertyName("metadata")]
 	public Entity.PrismCashScoreMetadata? Metadata { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The error returned by Prism for this product.</para>
+	/// </summary>
+	[JsonPropertyName("error_reason")]
+	public string? ErrorReason { get; init; } = default!;
+
 }

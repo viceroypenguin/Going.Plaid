@@ -1,7 +1,7 @@
 namespace Going.Plaid.DepositSwitch;
 
 /// <summary>
-/// <para>DepositSwitchAltCreateResponse defines the response schema for <c>/deposit_switch/alt/create</c></para>
+/// <para>(Deprecated) DepositSwitchAltCreateResponse defines the response schema for <c>/deposit_switch/alt/create</c></para>
 /// </summary>
 public record DepositSwitchAltCreateResponse : ResponseBase
 {

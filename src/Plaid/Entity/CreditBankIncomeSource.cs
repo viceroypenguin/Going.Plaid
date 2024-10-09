@@ -18,7 +18,7 @@ public record CreditBankIncomeSource
 	public string? IncomeDescription { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The income category. Note that the <c>CASH</c> value has been deprecated and is used only for existing legacy implementations. It has been replaced by the new categories <c>CASH_DEPOSIT</c> (representing cash or check deposits) and <c>TRANSFER_FROM_APPLICATION</c> (representing cash transfers originating from apps, such as Zelle or Venmo).</para>
+	/// <para>The income category.</para>
 	/// </summary>
 	[JsonPropertyName("income_category")]
 	public Entity.CreditBankIncomeCategory? IncomeCategory { get; init; } = default!;

@@ -35,7 +35,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/investments/auth/get</c> endpoint allows developers to receive user-authorized data to facilitate the transfer of holdings</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/investments/#investmentsauth" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/investments-move/#investmentsauthget" /></remarks>
 	public Task<Investments.InvestmentsAuthGetResponse> InvestmentsAuthGetAsync(Investments.InvestmentsAuthGetRequest request) =>
 		PostAsync("/investments/auth/get", request)
 			.ParseResponseAsync<Investments.InvestmentsAuthGetResponse>();

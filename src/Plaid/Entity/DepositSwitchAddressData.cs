@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The user's address.</para>
+/// <para>(Deprecated) The user's address.</para>
 /// </summary>
 public class DepositSwitchAddressData
 {

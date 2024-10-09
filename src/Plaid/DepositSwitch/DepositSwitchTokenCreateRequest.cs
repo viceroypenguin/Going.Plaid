@@ -1,7 +1,7 @@
 namespace Going.Plaid.DepositSwitch;
 
 /// <summary>
-/// <para>DepositSwitchTokenCreateRequest defines the request schema for <c>/deposit_switch/token/create</c></para>
+/// <para>(Deprecated) DepositSwitchTokenCreateRequest defines the request schema for <c>/deposit_switch/token/create</c></para>
 /// </summary>
 public partial class DepositSwitchTokenCreateRequest : RequestBase
 {

@@ -32,6 +32,12 @@ public enum SandboxItemFireWebhookRequestWebhookCodeEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "PENDING_DISCONNECT")]
+	PendingDisconnect,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "RECURRING_TRANSACTIONS_UPDATE")]
 	RecurringTransactionsUpdate,
 

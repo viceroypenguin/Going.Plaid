@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when the status of a deposit switch request has changed.</para>
+/// <para>(Deprecated) Fired when the status of a deposit switch request has changed.</para>
 /// </summary>
 public record DepositSwitchStateUpdateWebhook : WebhookBase
 {

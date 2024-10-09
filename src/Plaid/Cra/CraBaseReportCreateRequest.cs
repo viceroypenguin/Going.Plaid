@@ -24,7 +24,7 @@ public partial class CraBaseReportCreateRequest : RequestBase
 	public string? Webhook { get; set; } = default!;
 
 	/// <summary>
-	/// <para>This enum describes the reason you are generating a Consumer Report for this user.</para>
+	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
 	public Entity.ConsumerReportPermissiblePurpose ConsumerReportPermissiblePurpose { get; set; } = default!;

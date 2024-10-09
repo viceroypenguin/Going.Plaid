@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The deposit switch target user</para>
+/// <para>(Deprecated) The deposit switch target user</para>
 /// </summary>
 public class DepositSwitchTargetUser
 {
@@ -30,7 +30,7 @@ public class DepositSwitchTargetUser
 	public string Email { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's address.</para>
+	/// <para>(Deprecated) The user's address.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.DepositSwitchAddressData? Address { get; set; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Configuration parameters for the Investments Auth Product</para>
+/// <para>Configuration parameters for the Investments Move product</para>
 /// </summary>
 public class LinkTokenInvestmentsAuth
 {

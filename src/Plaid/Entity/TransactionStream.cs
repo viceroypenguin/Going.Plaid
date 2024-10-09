@@ -56,6 +56,12 @@ public record TransactionStream
 	public DateOnly LastDate { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The predicted date of the next payment. This will only be set if the next payment date can be predicted.</para>
+	/// </summary>
+	[JsonPropertyName("predicted_next_date")]
+	public DateOnly? PredictedNextDate { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Describes the frequency of the transaction stream.</para>
 	/// </summary>
 	[JsonPropertyName("frequency")]

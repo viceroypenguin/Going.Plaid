@@ -13,13 +13,13 @@ public record NumbersAch
 
 	/// <summary>
 	/// <para>The ACH account number for the account.</para>
-	/// <para>Note that when using OAuth with Chase Bank (<c>ins_56</c>), Chase will issue "tokenized" routing and account numbers, which are not the user's actual account and routing numbers. These tokenized account numbers (also known as TANs) should work identically to normal account and routing numbers for ACH and RTP transfers, but are not compatible with wire transfers. The digits returned in the <c>mask</c> field will continue to reflect the actual account number, rather than the tokenized account number; for this reason, when displaying account numbers to the user to help them identify their account in your UI, always use the <c>mask</c> rather than truncating the <c>account</c> number. If a user revokes their permissions to your app, the tokenized numbers will no longer work. To be alerted when this occurs, listen for the <a href="https://plaid.com/docs/api/items/#user_permission_revoked"><c>USER_PERMISSION_REVOKED</c></a> and <a href="https://plaid.com/docs/api/items/#user_account_revoked"><c>USER_ACCOUNT_REVOKED</c></a> webhooks.</para>
+	/// <para>At certain institutions, including Chase and PNC, you will receive "tokenized" routing and account numbers, which are not the user's actual account and routing numbers. For important details on how this may impact your integration and on how to avoid fraud, user confusion, and ACH returns, see <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">Tokenized account numbers</a>.</para>
 	/// </summary>
 	[JsonPropertyName("account")]
 	public string Account { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ACH routing number for the account. If the institution is <c>ins_56</c>, this may be a tokenized routing number. For more information, see the description of the <c>account</c> field.</para>
+	/// <para>The ACH routing number for the account. This may be a tokenized routing number. For more information, see <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">Tokenized account numbers</a>.</para>
 	/// </summary>
 	[JsonPropertyName("routing")]
 	public string Routing { get; init; } = default!;

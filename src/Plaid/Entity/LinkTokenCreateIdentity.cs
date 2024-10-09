@@ -12,7 +12,7 @@ public class LinkTokenCreateIdentity
 	public bool? IsDocumentUpload { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An array of <c>account_ids</c></para>
+	/// <para>An array of <c>account_ids</c>. Currently can only contain one <c>account_id</c>. Must be populated if using Document Upload.</para>
 	/// </summary>
 	[JsonPropertyName("account_ids")]
 	public IReadOnlyList<string>? AccountIds { get; set; } = default!;

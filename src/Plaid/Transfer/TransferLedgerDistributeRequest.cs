@@ -6,16 +6,16 @@ namespace Going.Plaid.Transfer;
 public partial class TransferLedgerDistributeRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The client to pull money from. Must be the platform itself or its originator. One of <c>from_client_id</c> and <c>to_client_id</c> must be the platform's <c>client_id</c>.</para>
+	/// <para>The Ledger to pull money from.</para>
 	/// </summary>
-	[JsonPropertyName("from_client_id")]
-	public string FromClientId { get; set; } = default!;
+	[JsonPropertyName("from_ledger_id")]
+	public string FromLedgerId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The client to credit money to. Must be the platform itself or its originator. One of <c>from_client_id</c> and <c>to_client_id</c> must be the platform's <c>client_id</c>.</para>
+	/// <para>The Ledger to credit money to.</para>
 	/// </summary>
-	[JsonPropertyName("to_client_id")]
-	public string ToClientId { get; set; } = default!;
+	[JsonPropertyName("to_ledger_id")]
+	public string ToLedgerId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The amount to move (decimal string with two digits of precision e.g. "10.00"). Amount must be positive.</para>

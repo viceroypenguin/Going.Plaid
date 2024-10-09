@@ -56,7 +56,7 @@ public record BaseReportAccount
 	public Entity.AccountSubtype? Subtype { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The duration of transaction history available for this Item, typically defined as the time since the date of the earliest transaction in that account. Only returned by Base Report endpoints.</para>
+	/// <para>The duration of transaction history available within this report for this Item, typically defined as the time since the date of the earliest transaction in that account. Only returned by Base Report endpoints.</para>
 	/// </summary>
 	[JsonPropertyName("days_available")]
 	public decimal DaysAvailable { get; init; } = default!;
@@ -90,5 +90,11 @@ public record BaseReportAccount
 	/// </summary>
 	[JsonPropertyName("account_insights")]
 	public Entity.BaseReportAccountInsights? AccountInsights { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Calculated attributes derived from transaction-level data.</para>
+	/// </summary>
+	[JsonPropertyName("attributes")]
+	public Entity.BaseReportAttributes? Attributes { get; init; } = default!;
 
 }

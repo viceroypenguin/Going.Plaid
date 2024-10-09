@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when products for the Check Report are ready to be retrieved</para>
+/// <para>Fired when the Check Report are ready to be retrieved. Once this webhook has fired, the report will be available to retrieve for 24 hours.</para>
 /// </summary>
 public record CraCheckReportReadyWebhook : WebhookBase
 {

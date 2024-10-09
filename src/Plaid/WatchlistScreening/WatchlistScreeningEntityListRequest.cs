@@ -24,7 +24,7 @@ public partial class WatchlistScreeningEntityListRequest : RequestBase
 	public Entity.WatchlistScreeningStatus? Status { get; set; } = default!;
 
 	/// <summary>
-	/// <para>ID of the associated user.</para>
+	/// <para>ID of the associated user. To retrieve the email address or other details of the person corresponding to this id, use <c>/dashboard_user/get</c>.</para>
 	/// </summary>
 	[JsonPropertyName("assignee")]
 	public string? Assignee { get; set; } = default!;

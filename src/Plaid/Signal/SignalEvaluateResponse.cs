@@ -1,7 +1,7 @@
 namespace Going.Plaid.Signal;
 
 /// <summary>
-/// <para>SignalEvaluateResponse defines the response schema for <c>/signal/income/evaluate</c></para>
+/// <para>SignalEvaluateResponse defines the response schema for <c>/signal/evaluate</c></para>
 /// </summary>
 public record SignalEvaluateResponse : ResponseBase
 {

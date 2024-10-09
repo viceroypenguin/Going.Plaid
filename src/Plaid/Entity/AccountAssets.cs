@@ -69,7 +69,7 @@ public record AccountAssets
 	public Entity.HolderCategory? HolderCategory { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The duration of transaction history available for this Item, typically defined as the time since the date of the earliest transaction in that account.</para>
+	/// <para>The duration of transaction history available within this report for this Item, typically defined as the time since the date of the earliest transaction in that account.</para>
 	/// </summary>
 	[JsonPropertyName("days_available")]
 	public decimal DaysAvailable { get; init; } = default!;

@@ -14,6 +14,12 @@ public enum MonitoringItemStatusCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "FAILED")]
+	Failed,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "PENDING")]
 	Pending,
 

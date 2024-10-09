@@ -18,19 +18,13 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public string Webhook { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The number of days of data to request for the report. If requesting Income Insights, a minimum of 90 days is recommended in order to receive both historical and forecasted income.</para>
+	/// <para>The number of days of data to request for the report. Default value is 365; maximum is 731; minimum is 180. If a value lower than 180 is provided, a minimum of 180 days of history will be requested.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int DaysRequested { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Products that will be retrieved in this report. This configuration will determine what data types to fetch from the user's financial institution. If omitted, the data types needed to support all products will be fetched.</para>
-	/// </summary>
-	[JsonPropertyName("products")]
-	public IReadOnlyList<Entity.CraCheckReportProduct>? Products { get; set; } = default!;
-
-	/// <summary>
-	/// <para>This enum describes the reason you are generating a Consumer Report for this user.</para>
+	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
 	public Entity.ConsumerReportPermissiblePurpose ConsumerReportPermissiblePurpose { get; set; } = default!;

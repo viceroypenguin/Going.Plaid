@@ -83,7 +83,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportBaseReportGetResponse>();
 
 	/// <summary>
-	/// <para><c>/cra/check_report/create</c> creates a Consumer Report powered by Plaid Check. Plaid Check automatically starts creating Consumer Report data after the user completes the Link process with a Plaid Check product, so you typically would only call this endpoint if you wish to generate an updated report, some time after the initial report was generated.</para>
+	/// <para><c>/cra/check_report/create</c> creates a Consumer Report powered by Plaid Check. You can call this endpoint to create a new report if <c>consumer_report_permissible_purpose</c> was omitted during Link token creation. If you did provide a <c>consumer_report_permissible_purpose</c> during Link token creation, then Plaid Check will automatically begin creating a Consumer Report once the user completes the Link process, and it is not necessary to call <c>/cra/check_report/create</c> before retrieving the report.</para>
+	/// <para> <c>/cra/check_report/create</c> can also be used to refresh data in an existing report. A Consumer Report will last for 24 hours before expiring; you should call any <c>/get</c> endpoints on the report before it expires. If a report expires, you can call <c>/cra/check_report/create</c> again to re-generate it. Note that refreshing or regenerating a report is a billable event."</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/check/api/#cracheck_reportcreate" /></remarks>
 	public Task<Cra.CraCheckReportCreateResponse> CraCheckReportCreateAsync(Cra.CraCheckReportCreateRequest request) =>

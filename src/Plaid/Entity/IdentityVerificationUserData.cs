@@ -24,7 +24,7 @@ public record IdentityVerificationUserData
 	public string? IpAddress { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A valid email address. Must not have leading or trailing spaces.</para>
+	/// <para>A valid email address. Must not have leading or trailing spaces and address must be RFC compliant. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc3696">RFC 3696</a>.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string? EmailAddress { get; init; } = default!;

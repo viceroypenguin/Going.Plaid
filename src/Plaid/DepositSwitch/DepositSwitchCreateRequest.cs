@@ -1,7 +1,7 @@
 namespace Going.Plaid.DepositSwitch;
 
 /// <summary>
-/// <para>DepositSwitchCreateRequest defines the request schema for <c>/deposit_switch/create</c></para>
+/// <para>(Deprecated) DepositSwitchCreateRequest defines the request schema for <c>/deposit_switch/create</c></para>
 /// </summary>
 public partial class DepositSwitchCreateRequest : RequestBase
 {
@@ -24,7 +24,7 @@ public partial class DepositSwitchCreateRequest : RequestBase
 	public Entity.CountryCode? CountryCode { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Options to configure the <c>/deposit_switch/create</c> request. If provided, cannot be <c>null</c>.</para>
+	/// <para>(Deprecated) Options to configure the <c>/deposit_switch/create</c> request. If provided, cannot be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.DepositSwitchCreateRequestOptions? Options { get; set; } = default!;

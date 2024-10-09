@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when an Item is expected to be disconnected. This can be resolved by having the user go through Link’s update mode.</para>
+/// <para>Fired when an Item is expected to be disconnected. This can be resolved by having the user go through Link’s <a href="http://plaid.com/docs/link/update-mode">update mode</a>.</para>
 /// </summary>
 public record PendingDisconnectWebhook : WebhookBase
 {

@@ -6,7 +6,7 @@ namespace Going.Plaid.DashboardUser;
 public record DashboardUserGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>ID of the associated user.</para>
+	/// <para>ID of the associated user. To retrieve the email address or other details of the person corresponding to this id, use <c>/dashboard_user/get</c>.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
 	public string Id { get; init; } = default!;
@@ -18,7 +18,7 @@ public record DashboardUserGetResponse : ResponseBase
 	public DateTimeOffset CreatedAt { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A valid email address. Must not have leading or trailing spaces.</para>
+	/// <para>A valid email address. Must not have leading or trailing spaces and address must be RFC compliant. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc3696">RFC 3696</a>.</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
 	public string EmailAddress { get; init; } = default!;

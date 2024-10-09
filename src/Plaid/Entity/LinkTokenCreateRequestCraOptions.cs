@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class LinkTokenCreateRequestCraOptions
 {
 	/// <summary>
-	/// <para>The number of days of history to include in Plaid Check products. If requesting Income Insights, a minimum of 90 days is recommended in order to receive both historical and forecasted income.</para>
+	/// <para>The number of days of history to include in Plaid Check products. Default value is 365; maximum is 730; minimum is 180. If a value lower than 180 is provided, a minimum of 180 days of history will be requested.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int DaysRequested { get; set; } = default!;

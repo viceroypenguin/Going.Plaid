@@ -11,4 +11,10 @@ public partial class CraMonitoringInsightsGetRequest : RequestBase
 	[JsonPropertyName("user_token")]
 	public string UserToken { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
+	/// </summary>
+	[JsonPropertyName("consumer_report_permissible_purpose")]
+	public Entity.ConsumerReportPermissiblePurpose ConsumerReportPermissiblePurpose { get; set; } = default!;
+
 }

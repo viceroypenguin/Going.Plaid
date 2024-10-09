@@ -2,7 +2,7 @@ namespace Going.Plaid.Webhook;
 
 /// <summary>
 /// <para>The <c>USER_PERMISSION_REVOKED</c> webhook may be fired when an end user has revoked the permission that they previously granted to access an Item. If the end user revoked their permissions through Plaid (such as via the Plaid Portal or by contacting Plaid Support), the webhook will fire. If the end user revoked their permissions directly through the institution, this webhook may not always fire, since some institutions’ consent portals do not trigger this webhook. Once access to an Item has been revoked, it cannot be restored. If the user subsequently returns to your application, a new Item must be created for the user. Upon receiving this webhook, it is recommended to call <c>/item/remove</c> to delete the underlying Item and to delete any stored data from Plaid associated with the Item.</para>
-/// <para>Note that when using ACH flows with Chase Items specifically, the account number provided by Plaid will no longer work for creating transfers once user permission has been revoked. If you receive this webhook for a Chase Item, you should not create any new ACH transfers for that Item, as they will be returned.</para>
+/// <para>Note that when working with tokenized account numbers with Auth or Transfer, the account number provided by Plaid will no longer work for creating transfers once user permission has been revoked.</para>
 /// </summary>
 public record UserPermissionRevokedWebhook : WebhookBase
 {

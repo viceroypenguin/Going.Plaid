@@ -27,6 +27,6 @@ public record CraMonitoringInsightsItem
 	/// <para>An object representing the Monitoring Insights for the given Item</para>
 	/// </summary>
 	[JsonPropertyName("insights")]
-	public Entity.MonitoringInsights Insights { get; init; } = default!;
+	public Entity.MonitoringInsights? Insights { get; init; } = default!;
 
 }

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record DocumentRiskSignal
 {
 	/// <summary>
-	/// <para>The result from the risk signal check.</para>
+	/// <para>The type of risk found in the risk signal check.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public string? Type { get; init; } = default!;
@@ -48,7 +48,7 @@ public record DocumentRiskSignal
 	public string? SignalDescription { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The relevant page associated with the risk signal</para>
+	/// <para>The relevant page associated with the risk signal. If the risk signal is not associated with a specific page, the value will be 0.</para>
 	/// </summary>
 	[JsonPropertyName("page_number")]
 	public int? PageNumber { get; init; } = default!;

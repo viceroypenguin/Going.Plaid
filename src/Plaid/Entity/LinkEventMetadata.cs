@@ -51,10 +51,10 @@ public record LinkEventMetadata
 	/// <para>The request ID for the last request made by Link. This can be shared with Plaid Support to expedite investigation. Emitted by: all events.</para>
 	/// </summary>
 	[JsonPropertyName("request_id")]
-	public string RequestId { get; init; } = default!;
+	public string? RequestId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>If set, the user has encountered one of the following MFA types: code, device, questions, selections. Emitted by: <c>SUBMIT_MFA</c> and <c>TRANSITION_VIEW</c> when view_name is <c>MFA</c>.</para>
+	/// <para>If set, the user has encountered one of the following MFA types: code, device, questions, selections. Emitted by: <c>SUBMIT_MFA</c> and <c>TRANSITION_VIEW</c> when <c>view_name</c> is <c>MFA</c>.</para>
 	/// </summary>
 	[JsonPropertyName("mfa_type")]
 	public string? MfaType { get; init; } = default!;

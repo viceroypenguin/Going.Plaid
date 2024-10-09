@@ -104,12 +104,6 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "deposit_switch")]
-	DepositSwitch,
-
-	/// <summary>
-	/// 
-	/// </summary>
 	[EnumMember(Value = "standing_orders")]
 	StandingOrders,
 
@@ -190,6 +184,12 @@ public enum Products
 	/// </summary>
 	[EnumMember(Value = "layer")]
 	Layer,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "pay_by_bank")]
+	PayByBank,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

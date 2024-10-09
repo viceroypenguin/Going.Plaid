@@ -12,7 +12,7 @@ public record WatchlistScreeningAuditTrail
 	public Entity.Source Source { get; init; } = default!;
 
 	/// <summary>
-	/// <para>ID of the associated user.</para>
+	/// <para>ID of the associated user. To retrieve the email address or other details of the person corresponding to this id, use <c>/dashboard_user/get</c>.</para>
 	/// </summary>
 	[JsonPropertyName("dashboard_user_id")]
 	public string? DashboardUserId { get; init; } = default!;

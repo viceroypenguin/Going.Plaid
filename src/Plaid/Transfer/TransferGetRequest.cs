@@ -9,7 +9,13 @@ public partial class TransferGetRequest : RequestBase
 	/// <para>Plaid’s unique identifier for a transfer.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_id")]
-	public string TransferId { get; set; } = default!;
+	public string? TransferId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Plaid’s unique identifier for a transfer authorization.</para>
+	/// </summary>
+	[JsonPropertyName("authorization_id")]
+	public string? AuthorizationId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The Plaid client ID of the transfer originator. Should only be present if <c>client_id</c> is a third-party sender (TPS).</para>

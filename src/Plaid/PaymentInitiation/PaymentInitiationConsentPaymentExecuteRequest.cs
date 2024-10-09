@@ -39,4 +39,10 @@ public partial class PaymentInitiationConsentPaymentExecuteRequest : RequestBase
 	[JsonPropertyName("scope")]
 	public Entity.PaymentInitiationConsentPaymentExecuteRequestScopeObject? Scope { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Decides the mode under which the payment processing should be performed, using <c>IMMEDIATE</c> as default.</para>
+	/// </summary>
+	[JsonPropertyName("processing_mode")]
+	public Entity.PaymentInitiationConsentProcessingMode? ProcessingMode { get; set; } = default!;
+
 }

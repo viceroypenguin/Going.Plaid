@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Additional information for the <c>kyc_check</c> step. This field will be <c>null</c> unless <c>steps.kyc_check</c> has reached a terminal state of either <c>success</c> or <c>failed</c>.</para>
+/// <para>Additional information for the <c>kyc_check</c> (Data Source Verification) step. This field will be <c>null</c> unless <c>steps.kyc_check</c> has reached a terminal state of either <c>success</c> or <c>failed</c>.</para>
 /// </summary>
 public record KYCCheckDetails
 {

@@ -36,6 +36,12 @@ public record InvestmentsAuthGetResponse : ResponseBase
 	public Entity.InvestmentsAuthGetNumbers Numbers { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Object with metadata pertaining to the source of data for the account numbers, owners, and holdings that are returned.</para>
+	/// </summary>
+	[JsonPropertyName("data_sources")]
+	public Entity.InvestmentsAuthDataSources DataSources { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Metadata about the Item.</para>
 	/// </summary>
 	[JsonPropertyName("item")]

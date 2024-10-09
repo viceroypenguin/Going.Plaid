@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>This enum describes the reason you are generating a Consumer Report for this user.</para>
+/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
 /// </summary>
 public enum ConsumerReportPermissiblePurpose
 {

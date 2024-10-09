@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>The <c>/transfer/get</c> endpoint fetches information about the transfer corresponding to the given <c>transfer_id</c>.</para>
+	/// <para>The <c>/transfer/get</c> endpoint fetches information about the transfer corresponding to the given <c>transfer_id</c> or <c>authorization_id</c>. One of <c>transfer_id</c> or <c>authorization_id</c> must be populated but not both.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/reading-transfers/#transferget" /></remarks>
 	public Task<Transfer.TransferGetResponse> TransferGetAsync(Transfer.TransferGetRequest request) =>
@@ -21,10 +21,11 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to authorize a transfer. This endpoint must be called prior to calling <c>/transfer/create</c>. The transfer authorization will expire if not used after one hour. (You can contact your account manager to change the default authorization lifetime.) </para>
 	/// <para>There are four possible outcomes to calling this endpoint: </para>
-	/// <para>- If the <c>authorization.decision</c> in the response is <c>declined</c>, the proposed transfer has failed the risk check and you cannot proceed with the transfer. </para>
-	/// <para>- If the <c>authorization.decision</c> is <c>user_action_required</c>, additional user input is needed, usually to fix a broken bank connection, before Plaid can properly assess the risk. You need to launch Link in update mode to complete the required user action. When calling <c>/link/token/create</c> to get a new Link token, instead of providing <c>access_token</c> in the request, you should set <a href="https://plaid.com/docs/api/link/#link-token-create-request-transfer-authorization-id"><c>transfer.authorization_id</c></a> as the <c>authorization.id</c>. After the Link flow is completed, you may re-attempt the authorization.</para>
-	/// <para>- If the <c>authorization.decision</c> is <c>approved</c>, and the <c>authorization.rationale_code</c> is <c>null</c>, the transfer has passed the risk check and you can proceed to call <c>/transfer/create</c>.</para>
-	/// <para>- If the <c>authorization.decision</c> is <c>approved</c> and the <c>authorization.rationale_code</c> is non-<c>null</c>, the risk check could not be run: you may proceed with the transfer, but should perform your own risk evaluation. For more details, see the response schema.</para>
+	/// <para>  - If the <c>authorization.decision</c> in the response is <c>declined</c>, the proposed transfer has failed the risk check and you cannot proceed with the transfer. </para>
+	/// <para>  - If the <c>authorization.decision</c> is <c>user_action_required</c>, additional user input is needed, usually to fix a broken bank connection, before Plaid can properly assess the risk. You need to launch Link in update mode to complete the required user action. When calling <c>/link/token/create</c> to get a new Link token, instead of providing <c>access_token</c> in the request, you should set <a href="https://plaid.com/docs/api/link/#link-token-create-request-transfer-authorization-id"><c>transfer.authorization_id</c></a> as the <c>authorization.id</c>. After the Link flow is completed, you may re-attempt the authorization.</para>
+	/// <para>  - If the <c>authorization.decision</c> is <c>approved</c>, and the <c>authorization.rationale_code</c> is <c>null</c>, the transfer has passed the risk check and you can proceed to call <c>/transfer/create</c>.</para>
+	/// <para>  </para>
+	/// <para>  - If the <c>authorization.decision</c> is <c>approved</c> and the <c>authorization.rationale_code</c> is non-<c>null</c>, the risk check could not be run: you may proceed with the transfer, but should perform your own risk evaluation. For more details, see the response schema.</para>
 	/// <para>In Plaid's Sandbox environment the decisions will be returned as follows:</para>
 	/// <para>  - To approve a transfer with <c>null</c> rationale code, make an authorization request with an <c>amount</c> less than the available balance in the account.</para>
 	/// <para>  - To approve a transfer with the rationale code <c>MANUALLY_VERIFIED_ITEM</c>, create an Item in Link through the <a href="https://plaid.com/docs/auth/coverage/testing/#testing-same-day-micro-deposits">Same Day Micro-deposits flow</a>.</para>
@@ -54,7 +55,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferBalanceGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/capabilities/get</c> endpoint to determine the RTP eligibility information of a transfer. To simulate RTP eligibility in Sandbox, log in using the username <c>user_good</c> and password <c>pass_good</c> and use the first two checking and savings accounts in the "First Platypus Bank" institution (ending in 0000 or 1111), which will return <c>true</c>. Any other account will return <c>false</c>.</para>
+	/// <para>Use the <c>/transfer/capabilities/get</c> endpoint to determine the RTP eligibility information of an account to be used with Transfer. This endpoint works on all Transfer-capable Items, including those created by <c>/transfer/migrate_account</c>. To simulate RTP eligibility in Sandbox, log in using the username <c>user_good</c> and password <c>pass_good</c> and use the first two checking and savings accounts in the "First Platypus Bank" institution (ending in 0000 or 1111), which will return <c>true</c>. Any other account will return <c>false</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/account-linking/#transfercapabilitiesget" /></remarks>
 	public Task<Transfer.TransferCapabilitiesGetResponse> TransferCapabilitiesGetAsync(Transfer.TransferCapabilitiesGetRequest request) =>
@@ -238,6 +239,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferRepaymentReturnListResponse>();
 
 	/// <summary>
+	/// <para>The <c>/transfer/platform/requirement/submit</c> endpoint allows platforms to submit onboarding requirements for an originator as part of the Scaled Platform Transfer offering.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform-payments/#transferplatformrequirementsubmit" /></remarks>
+	public Task<Transfer.TransferPlatformRequirementSubmitResponse> TransferPlatformRequirementSubmitAsync(Transfer.TransferPlatformRequirementSubmitRequest request) =>
+		PostAsync("/transfer/platform/requirement/submit", request)
+			.ParseResponseAsync<Transfer.TransferPlatformRequirementSubmitResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/transfer/originator/create</c> endpoint to create a new originator and return an <c>originator_client_id</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform-payments/#transferoriginatorcreate" /></remarks>
@@ -318,5 +327,13 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferPlatformOriginatorCreateResponse> TransferPlatformOriginatorCreateAsync(Transfer.TransferPlatformOriginatorCreateRequest request) =>
 		PostAsync("/transfer/platform/originator/create", request)
 			.ParseResponseAsync<Transfer.TransferPlatformOriginatorCreateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/platform/person/create</c> endpoint to create a person record associated with an originator and optionally submit person-specific requirements.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform/#transferplatformpersoncreate" /></remarks>
+	public Task<Transfer.TransferPlatformPersonCreateResponse> TransferPlatformPersonCreateAsync(Transfer.TransferPlatformPersonCreateRequest request) =>
+		PostAsync("/transfer/platform/person/create", request)
+			.ParseResponseAsync<Transfer.TransferPlatformPersonCreateResponse>();
 
 }

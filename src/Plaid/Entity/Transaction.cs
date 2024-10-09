@@ -104,7 +104,7 @@ public record Transaction
 	public string? PendingTransactionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The name of the account owner. This field is not typically populated and only relevant when dealing with sub-accounts.</para>
+	/// <para>This field is not typically populated and only relevant when dealing with sub-accounts. A sub-account most commonly exists in cases where a single account is linked to multiple cards, each with its own card number and card holder name; each card will be considered a sub-account. If the account does have sub-accounts, this field will typically be some combination of the sub-account owner's name and/or the sub-account mask. The format of this field is not standardized and will vary based on institution.</para>
 	/// </summary>
 	[JsonPropertyName("account_owner")]
 	public string? AccountOwner { get; init; } = default!;

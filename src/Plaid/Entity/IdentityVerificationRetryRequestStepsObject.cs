@@ -16,7 +16,7 @@ public class IdentityVerificationRetryRequestStepsObject
 	public bool VerifySms { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A boolean field specifying whether the new session should require or skip the <c>kyc_check</c> step.</para>
+	/// <para>A boolean field specifying whether the new session should require or skip the <c>kyc_check</c> (Data Source Verification) step.</para>
 	/// </summary>
 	[JsonPropertyName("kyc_check")]
 	public bool KycCheck { get; set; } = default!;

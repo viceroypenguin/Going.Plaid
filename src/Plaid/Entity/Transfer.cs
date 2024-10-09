@@ -155,7 +155,7 @@ public record Transfer
 	public DateOnly? UnauthorizedReturnWindow { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The expected date when the full amount of the transfer settles at the consumers’ account, if the transfer is credit; or at the customer's business checking account, if the transfer is debit. Only set for ACH transfers and is null for non-ACH transfers. Only set for ACH transfers. This will be of the form YYYY-MM-DD.</para>
+	/// <para>The date when settlement will occur between Plaid and the receiving bank (RDFI). For ACH debits, this is the date funds will be pulled from the bank account being debited. For ACH credits, this is the date funds will be delivered to the bank account being credited. Only set for ACH transfers; <c>null</c> for non-ACH transfers. This will be of the form YYYY-MM-DD.</para>
 	/// </summary>
 	[JsonPropertyName("expected_settlement_date")]
 	public DateOnly? ExpectedSettlementDate { get; init; } = default!;

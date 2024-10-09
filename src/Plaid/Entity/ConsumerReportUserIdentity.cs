@@ -30,6 +30,20 @@ public class ConsumerReportUserIdentity
 	public IReadOnlyList<string> Emails { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The last 4 digits of the user's social security number.</para>
+	/// </summary>
+	[JsonPropertyName("ssn_last_4")]
+	public string? SsnLast4 { get; set; } = default!;
+
+	/// <summary>
+	/// <para>To be provided in the format "yyyy-mm-dd".</para>
+	/// <para>This field is required as of Oct 21, 2024 for any clients who became Plaid Check customers on or after Oct 1, 2024.</para>
+	/// <para>This field will be required for all Plaid Check customers as of Feb 1, 2025.</para>
+	/// </summary>
+	[JsonPropertyName("date_of_birth")]
+	public DateOnly? DateOfBirth { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Data about the components comprising an address.</para>
 	/// </summary>
 	[JsonPropertyName("primary_address")]

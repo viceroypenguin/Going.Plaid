@@ -132,13 +132,19 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public string? InstitutionId { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specifies options for initializing Link for use with the Pay By Bank flow. This is an optional field to configure the user experience, and currently requires the amount field to be set.</para>
+	/// </summary>
+	[JsonPropertyName("payment_configuration")]
+	public Entity.LinkTokenCreateRequestPaymentConfiguration? PaymentConfiguration { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Specifies options for initializing Link for use with the Payment Initiation (Europe) product. This field is required if <c>payment_initiation</c> is included in the <c>products</c> array. Either <c>payment_id</c> or <c>consent_id</c> must be provided.</para>
 	/// </summary>
 	[JsonPropertyName("payment_initiation")]
 	public Entity.LinkTokenCreateRequestPaymentInitiation? PaymentInitiation { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with the Deposit Switch (beta) product. This field is required if <c>deposit_switch</c> is included in the <c>products</c> array.</para>
+	/// <para>(Deprecated) Specifies options for initializing Link for use with the Deposit Switch (beta) product. This field is required if <c>deposit_switch</c> is included in the <c>products</c> array.</para>
 	/// </summary>
 	[JsonPropertyName("deposit_switch")]
 	public Entity.LinkTokenCreateRequestDepositSwitch? DepositSwitch { get; set; } = default!;
@@ -174,10 +180,10 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestCraOptions? CraOptions { get; set; } = default!;
 
 	/// <summary>
-	/// <para>This enum describes the reason you are generating a Consumer Report for this user.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
-	public Entity.ConsumerReportPermissiblePurpose? ConsumerReportPermissiblePurpose { get; set; } = default!;
+	public Entity.LinkTokenCreateRequestConsumerReportPermissiblePurposeObject? ConsumerReportPermissiblePurpose { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager. The default behavior described in the documentation is the default behavior that will apply if you have not requested your account manager to apply a different default.</para>
@@ -222,7 +228,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenInvestments? Investments { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Configuration parameters for the Investments Auth Product</para>
+	/// <para>Configuration parameters for the Investments Move product</para>
 	/// </summary>
 	[JsonPropertyName("investments_auth")]
 	public Entity.LinkTokenInvestmentsAuth? InvestmentsAuth { get; set; } = default!;

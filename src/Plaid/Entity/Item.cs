@@ -18,6 +18,12 @@ public record Item
 	public string? InstitutionId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The date and time when the Item was created, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</para>
+	/// </summary>
+	[JsonPropertyName("created_at")]
+	public DateTimeOffset? CreatedAt { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The URL registered to receive webhooks for the Item.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
@@ -48,14 +54,26 @@ public record Item
 	public IReadOnlyList<Entity.Products>? Products { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of products that have gone through consent collection for the Item. If the session is not enrolled in <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency Messaging</a>, this field is not used.</para>
+	/// <para>A list of products that the user has consented to for the Item via <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency Messaging</a>. This will consist of all products where both of the following are true: the user has consented to the required data scopes for that product and you have Production access for that product.</para>
 	/// </summary>
 	[JsonPropertyName("consented_products")]
 	public IReadOnlyList<Entity.Products>? ConsentedProducts { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The RFC 3339 timestamp after which the consent provided by the end user will expire. Upon consent expiration, the item will enter the <c>ITEM_LOGIN_REQUIRED</c> error state. To circumvent the <c>ITEM_LOGIN_REQUIRED</c> error and maintain continuous consent, the end user can reauthenticate via Link’s update mode in advance of the consent expiration time.</para>
-	/// <para>Note - This is only relevant for certain OAuth-based institutions. For all other institutions, this field will be null.</para>
+	/// <para>A list of use cases that the user has consented to for the Item via <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency Messaging</a>. </para>
+	/// <para>You can see the full list of use cases or update the list of use cases to request at any time via the Link Customization section of the <a href="https://dashboard.plaid.com/link/data-transparency-v5">Plaid Dashboard</a>.</para>
+	/// </summary>
+	[JsonPropertyName("consented_use_cases")]
+	public IReadOnlyList<string>? ConsentedUseCases { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A list of data scopes that the user has consented to for the Item via <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency Messaging</a>. These are based on the <c>consented_products</c>; see the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide/#data-scopes-by-product">full mapping</a> of data scopes and products.</para>
+	/// </summary>
+	[JsonPropertyName("consented_data_scopes")]
+	public IReadOnlyList<Entity.ConsentedDataScope>? ConsentedDataScopes { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The date and time at which the Item's access consent will expire, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format</para>
 	/// </summary>
 	[JsonPropertyName("consent_expiration_time")]
 	public DateTimeOffset? ConsentExpirationTime { get; init; } = default!;

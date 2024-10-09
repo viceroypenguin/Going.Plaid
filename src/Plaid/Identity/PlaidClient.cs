@@ -12,9 +12,9 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Identity.IdentityGetResponse>();
 
 	/// <summary>
-	/// <para>Use <c>/identity/documents/uploads/get</c> to retrieve document uploaded identity.</para>
+	/// <para>Use <c>/identity/documents/uploads/get</c> to retrieve identity details when using <a href="https://plaid.com/docs/identity/identity-document-upload/">Identity Document Upload</a>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docsnone" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/identity/#identitydocumentsuploadsget" /></remarks>
 	public Task<Identity.IdentityDocumentsUploadsGetResponse> IdentityDocumentsUploadsGetAsync(Identity.IdentityDocumentsUploadsGetRequest request) =>
 		PostAsync("/identity/documents/uploads/get", request)
 			.ParseResponseAsync<Identity.IdentityDocumentsUploadsGetResponse>();

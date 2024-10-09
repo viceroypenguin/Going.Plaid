@@ -1,7 +1,7 @@
 namespace Going.Plaid.DepositSwitch;
 
 /// <summary>
-/// <para>DepositSwitchTokenCreateResponse defines the response schema for <c>/deposit_switch/token/create</c></para>
+/// <para>(Deprecated) DepositSwitchTokenCreateResponse defines the response schema for <c>/deposit_switch/token/create</c></para>
 /// </summary>
 public record DepositSwitchTokenCreateResponse : ResponseBase
 {

@@ -24,6 +24,12 @@ public record MonitoringIncomeInsights
 	public Entity.ForecastedMonthlyIncome ForecastedMonthlyIncome { get; init; } = default!;
 
 	/// <summary>
+	/// <para>An object representing the historical annual income amount.</para>
+	/// </summary>
+	[JsonPropertyName("historical_annual_income")]
+	public Entity.HistoricalAnnualIncome HistoricalAnnualIncome { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The income sources for this Item. Each entry in the array is a single income source</para>
 	/// </summary>
 	[JsonPropertyName("income_sources")]

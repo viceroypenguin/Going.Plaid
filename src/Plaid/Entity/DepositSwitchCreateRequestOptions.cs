@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Options to configure the <c>/deposit_switch/create</c> request. If provided, cannot be <c>null</c>.</para>
+/// <para>(Deprecated) Options to configure the <c>/deposit_switch/create</c> request. If provided, cannot be <c>null</c>.</para>
 /// </summary>
 public class DepositSwitchCreateRequestOptions
 {

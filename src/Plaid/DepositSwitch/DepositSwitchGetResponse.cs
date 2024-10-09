@@ -1,7 +1,7 @@
 namespace Going.Plaid.DepositSwitch;
 
 /// <summary>
-/// <para>DepositSwitchGetResponse defines the response schema for <c>/deposit_switch/get</c></para>
+/// <para>(Deprecated) DepositSwitchGetResponse defines the response schema for <c>/deposit_switch/get</c></para>
 /// </summary>
 public record DepositSwitchGetResponse : ResponseBase
 {

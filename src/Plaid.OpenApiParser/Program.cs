@@ -55,6 +55,7 @@ internal static partial class Program
 	{
 		["ACHClass"] = "AchClass",
 		["APR"] = "Apr",
+		["Consented Data Scope"] = "ConsentedDataScope",
 		["ISOCurrencyCode"] = "IsoCurrencyCode",
 		["ISO Currency Code"] = "WalletIsoCurrencyCode",
 		["NumbersACH"] = "NumbersAch",
