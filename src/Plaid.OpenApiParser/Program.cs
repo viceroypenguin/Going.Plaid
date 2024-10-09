@@ -697,7 +697,7 @@ internal static partial class Program
 	}
 }
 
-public enum SchemaType
+internal enum SchemaType
 {
 	None,
 	Class,
@@ -705,7 +705,7 @@ public enum SchemaType
 	Enum,
 }
 
-public enum BaseType
+internal enum BaseType
 {
 	None,
 	Request,
@@ -714,10 +714,10 @@ public enum BaseType
 	ProcessorWebhook,
 }
 
-public record struct ApiCall(string Uri, string BasePath, string MethodName, string Description, string ExternalUrl, string RequestType, string ResponseType);
-public record struct Property(string JsonName, string Type, string Name, string? Description);
+internal record struct ApiCall(string Uri, string BasePath, string MethodName, string Description, string ExternalUrl, string RequestType, string ResponseType);
+internal record struct Property(string JsonName, string Type, string Name, string? Description);
 
-public class SchemaEntity
+internal sealed class SchemaEntity
 {
 	public SchemaType SchemaType { get; set; }
 	public string BasePath { get; init; } = default!;

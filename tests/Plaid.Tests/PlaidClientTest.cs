@@ -1,4 +1,5 @@
-﻿using Going.Plaid.Entity;
+﻿using System.Diagnostics.CodeAnalysis;
+using Going.Plaid.Entity;
 using Microsoft.Extensions.Configuration;
 using Xunit;
 
@@ -8,7 +9,8 @@ using DateOnly = System.DateTime;
 
 namespace Going.Plaid.Tests;
 
-public class PlaidFixture : IAsyncLifetime
+[SuppressMessage("Maintainability", "CA1515:Consider making public types internal")]
+public sealed class PlaidFixture : IAsyncLifetime
 {
 	public PlaidClient PlaidClient { get; }
 
