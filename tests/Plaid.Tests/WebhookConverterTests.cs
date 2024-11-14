@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using Going.Plaid.Converters;
 using Going.Plaid.Entity;
 using Going.Plaid.Webhook;
@@ -8,7 +8,7 @@ namespace Going.Plaid.Tests;
 
 public class WebhookConverterTests
 {
-	private static readonly JsonSerializerOptions Options = new()
+	private static readonly JsonSerializerOptions s_options = new()
 	{
 		Converters =
 		{
@@ -24,7 +24,7 @@ public class WebhookConverterTests
 			{"webhook_type":"Assets","webhook_code":"ProductReady","asset_report_id":null,"report_type":null,"environment":"sandbox"}
 			""";
 
-		var payload = JsonSerializer.Deserialize<WebhookBase>(ValidJson, Options);
+		var payload = JsonSerializer.Deserialize<WebhookBase>(ValidJson, s_options);
 		_ = Assert.IsType<AssetsProductReadyWebhook>(payload);
 		Assert.Equal(ValidJson, payload.RawJson);
 	}
@@ -36,7 +36,7 @@ public class WebhookConverterTests
 			{"webhook_type":"Assets","webhook_code":"ProductTesting","asset_report_id":null,"report_type":null,"environment":"sandbox"}
 			""";
 
-		var payload = JsonSerializer.Deserialize<WebhookBase>(InvalidJson, Options);
+		var payload = JsonSerializer.Deserialize<WebhookBase>(InvalidJson, s_options);
 		_ = Assert.IsType<UndefinedWebhook>(payload);
 		Assert.Equal(WebhookType.Assets, payload.WebhookType);
 		Assert.Equal(WebhookCode.Undefined, payload.WebhookCode);
