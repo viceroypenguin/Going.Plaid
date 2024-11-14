@@ -11,4 +11,10 @@ public class LinkTokenCreateRequestPaymentConfiguration
 	[JsonPropertyName("amount")]
 	public string Amount { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The description of the transfer that provides the payment context. The max length is 256.</para>
+	/// </summary>
+	[JsonPropertyName("description")]
+	public string? Description { get; set; } = default!;
+
 }

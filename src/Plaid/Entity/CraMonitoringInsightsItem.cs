@@ -18,7 +18,7 @@ public record CraMonitoringInsightsItem
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing the status of the Monitoring Insights Item and potential reasons in case of non-available statuses</para>
+	/// <para>An object with details of the Monitoring Insights Item's status.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.MonitoringInsightsItemStatus Status { get; init; } = default!;

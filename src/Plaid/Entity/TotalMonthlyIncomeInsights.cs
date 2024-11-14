@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object representing the insights about the total monthly income</para>
+/// <para>Details about about the total monthly income</para>
 /// </summary>
 public record TotalMonthlyIncomeInsights
 {

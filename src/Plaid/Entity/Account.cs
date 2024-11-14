@@ -51,13 +51,13 @@ public record Account
 	public Entity.AccountSubtype? Subtype { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.</para>
+	/// <para>The current verification status of an Auth Item initiated through micro-deposits or database verification. Returned for Auth Items only.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]
 	public Entity.AccountVerificationStatusEnum? VerificationStatus { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Insights from performing database verification for the account.</para>
+	/// <para>Insights from performing database verification for the account. Only returned for Auth Items created via Database Insights.</para>
 	/// </summary>
 	[JsonPropertyName("verification_insights")]
 	public Entity.VerificationInsights? VerificationInsights { get; init; } = default!;

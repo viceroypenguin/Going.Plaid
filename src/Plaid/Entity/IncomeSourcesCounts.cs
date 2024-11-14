@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object representing insights about the number of income sources</para>
+/// <para>Details about the number of income sources</para>
 /// </summary>
 public record IncomeSourcesCounts
 {

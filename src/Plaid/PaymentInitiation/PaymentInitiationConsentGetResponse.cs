@@ -42,9 +42,15 @@ public record PaymentInitiationConsentGetResponse : ResponseBase
 	public Entity.PaymentInitiationConsentConstraints? Constraints { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An array of payment consent scopes.</para>
+	/// <para>Deprecated, use the 'type' field instead.</para>
 	/// </summary>
 	[JsonPropertyName("scopes")]
 	public IReadOnlyList<Entity.PaymentInitiationConsentScope>? Scopes { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Payment consent type. Defines possible use case for payments made with the given consent.</para>
+	/// </summary>
+	[JsonPropertyName("type")]
+	public Entity.PaymentInitiationConsentType? Type { get; init; } = default!;
 
 }

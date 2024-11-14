@@ -153,7 +153,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorBalanceGetResponse>();
 
 	/// <summary>
-	/// <para>Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see <c>/processor/stripe/bank_account_token/create</c> for creating tokens for use with Stripe integrations. Once created, a processor token for a given Item cannot be modified or updated. If the account must be linked to a new or different partner resource, create a new Item by having the user go through the Link flow again; a new processor token can then be created from the new <c>access_token</c>. Processor tokens can also be revoked, using <c>/item/remove</c>.</para>
+	/// <para>Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see <c>/processor/stripe/bank_account_token/create</c> for creating tokens for use with Stripe integrations. If using multiple processors, multiple different processor tokens can be created for a single access token. Once created, a processor token for a given Item cannot be modified or updated. To revoke the processor's access, the entire Item must be deleted by calling <c>/item/remove</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortokencreate" /></remarks>
 	public Task<Processor.ProcessorTokenCreateResponse> ProcessorTokenCreateAsync(Processor.ProcessorTokenCreateRequest request) =>
@@ -187,7 +187,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Used to create a token suitable for sending to Stripe to enable Plaid-Stripe integrations. For a detailed guide on integrating Stripe, see <a href="https://plaid.com/docs/auth/partnerships/stripe/">Add Stripe to your app</a>.</para>
 	/// <para>Note that the Stripe bank account token is a one-time use token. To store bank account information for later use, you can use a Stripe customer object and create an associated bank account from the token, or you can use a Stripe Custom account and create an associated external bank account from the token. This bank account information should work indefinitely, unless the user's bank account information changes or they revoke Plaid's permissions to access their account. Stripe bank account information cannot be modified once the bank account token has been created. If you ever need to change the bank account details used by Stripe for a specific customer, have the user go through Link again and create a new bank account token from the new <c>access_token</c>.</para>
-	/// <para>Bank account tokens can also be revoked, using <c>/item/remove</c>.</para>
+	/// <para>To revoke a bank account token, the entire underlying access token must be revoked using <c>/item/remove</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processorstripebank_account_tokencreate" /></remarks>
 	public Task<Processor.ProcessorStripeBankAccountTokenCreateResponse> ProcessorStripeBankAccountTokenCreateAsync(Processor.ProcessorStripeBankAccountTokenCreateRequest request) =>

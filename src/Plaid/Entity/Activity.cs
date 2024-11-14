@@ -47,4 +47,10 @@ public record Activity
 	[JsonPropertyName("scopes")]
 	public Entity.Scopes? Scopes { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Enum representing the entity authenticating the user.</para>
+	/// </summary>
+	[JsonPropertyName("authentication")]
+	public Entity.ItemCreateAuthentication? Authentication { get; init; } = default!;
+
 }

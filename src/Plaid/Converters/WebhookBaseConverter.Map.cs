@@ -5,7 +5,7 @@ namespace Going.Plaid.Converters;
 /// <inheritdoc />
 public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 {
-	private static readonly Dictionary<(WebhookType, WebhookCode), Type> Map =
+	private static readonly Dictionary<(WebhookType, WebhookCode), Type> s_map =
 		new()
 		{
 			[(WebhookType.Screening, WebhookCode.StatusUpdated)] = typeof(ScreeningStatusUpdatedWebhook),
@@ -58,6 +58,7 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 			[(WebhookType.LinkDelivery, WebhookCode.LinkCallback)] = typeof(LinkDeliveryCallbackWebhook),
 			[(WebhookType.Item, WebhookCode.UserAccountRevoked)] = typeof(UserAccountRevokedWebhook),
 			[(WebhookType.Statements, WebhookCode.StatementsRefreshComplete)] = typeof(StatementsRefreshCompleteWebhook),
+			[(WebhookType.CraMonitoring, WebhookCode.InsightsUpdated)] = typeof(MonitoringInsightsWebhook),
 			[(WebhookType.BaseReport, WebhookCode.ProductReady)] = typeof(BaseReportsProductReadyWebhook),
 			[(WebhookType.BaseReport, WebhookCode.Error)] = typeof(BaseReportsErrorWebhook),
 			[(WebhookType.CraIncome, WebhookCode.BankIncomeComplete)] = typeof(CraBankIncomeCompleteWebhook),
@@ -75,7 +76,6 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 			[(WebhookType.Link, WebhookCode.SessionFinished)] = typeof(LinkSessionFinishedWebhook),
 			[(WebhookType.Auth, WebhookCode.SmsMicrodepositsVerification)] = typeof(HostedMMDVerificationWebhook),
 			[(WebhookType.DashboardConfiguredAlert, WebhookCode.InstitutionStatusAlertTriggered)] = typeof(InstitutionStatusAlertWebhook),
-			[(WebhookType.CraMonitoring, WebhookCode.InsightsUpdated)] = typeof(MonitoringInsightsWebhook),
 			[(WebhookType.Assets, WebhookCode.ProductReady)] = typeof(AssetsProductReadyWebhook),
 			[(WebhookType.Assets, WebhookCode.Error)] = typeof(AssetsErrorWebhook),
 		};

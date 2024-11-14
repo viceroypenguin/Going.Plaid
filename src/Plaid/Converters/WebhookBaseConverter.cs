@@ -16,7 +16,7 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 		enumText = element.GetProperty("webhook_code").GetString();
 		var code = EnumConverterFactory.ParseEnumValue<WebhookCode>(enumText);
 
-		if (!Map.TryGetValue((type, code), out var webhookType))
+		if (!s_map.TryGetValue((type, code), out var webhookType))
 		{
 			return new UndefinedWebhook(type, code)
 			{

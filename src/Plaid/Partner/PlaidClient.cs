@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>The <c>/partner/customer/create</c> endpoint is used by reseller partners to create end customers.</para>
+	/// <para>The <c>/partner/customer/create</c> endpoint is used by reseller partners to create end customers. To create end customers, it should be called in the Production environment only, even when creating Sandbox API keys. If called in the Sandbox environment, it will return a sample response, but no customer will be created and the API keys will not be valid.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomercreate" /></remarks>
 	public Task<Partner.PartnerCustomerCreateResponse> PartnerCustomerCreateAsync(Partner.PartnerCustomerCreateRequest request) =>

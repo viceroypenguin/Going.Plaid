@@ -9,7 +9,7 @@ public record ProcessorSignalEvaluateResponse : ResponseBase
 	/// <para>Risk scoring details broken down by risk category.</para>
 	/// </summary>
 	[JsonPropertyName("scores")]
-	public Entity.SignalEvaluateScores Scores { get; init; } = default!;
+	public Entity.SignalEvaluateScores? Scores { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The core attributes object contains additional data that can be used to assess the ACH return risk. Examples of data include:</para>

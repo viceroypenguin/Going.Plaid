@@ -176,6 +176,12 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "cra_network_insights")]
+	CraNetworkInsights,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "cra_cashflow_insights")]
 	CraCashflowInsights,
 

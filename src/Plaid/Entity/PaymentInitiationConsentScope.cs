@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Payment consent scope. Defines possible directions for payments made with the given consent.</para>
+/// <para>This field is deprecated in favor of the consent <c>type</c> field. Consents are required to have a single type.</para>
 /// </summary>
 public enum PaymentInitiationConsentScope
 {

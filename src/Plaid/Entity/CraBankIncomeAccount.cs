@@ -21,6 +21,12 @@ public record CraBankIncomeAccount
 	public string? Mask { get; init; } = default!;
 
 	/// <summary>
+	/// <para>An object containing metadata about the extracted account.</para>
+	/// </summary>
+	[JsonPropertyName("metadata")]
+	public Entity.CraBankIncomeAccountMetadata Metadata { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The name of the bank account.</para>
 	/// </summary>
 	[JsonPropertyName("name")]

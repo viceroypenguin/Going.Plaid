@@ -6,7 +6,7 @@ namespace Going.Plaid.Cra;
 public partial class CraMonitoringInsightsUnsubscribeRequest : RequestBase
 {
 	/// <summary>
-	/// <para>A unique identifier for the subscription, which can be used for troubleshooting</para>
+	/// <para>A unique identifier for the subscription.</para>
 	/// </summary>
 	[JsonPropertyName("subscription_id")]
 	public string SubscriptionId { get; set; } = default!;

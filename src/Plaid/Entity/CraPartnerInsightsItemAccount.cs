@@ -22,6 +22,12 @@ public record CraPartnerInsightsItemAccount
 	public string? Mask { get; init; } = default!;
 
 	/// <summary>
+	/// <para>An object containing metadata about the extracted account.</para>
+	/// </summary>
+	[JsonPropertyName("metadata")]
+	public Entity.CraPartnerInsightsItemAccountMetadata Metadata { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The name of the account</para>
 	/// </summary>
 	[JsonPropertyName("name")]

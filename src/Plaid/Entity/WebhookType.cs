@@ -134,6 +134,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "CRA_MONITORING")]
+	CraMonitoring,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "BASE_REPORT")]
 	BaseReport,
 
@@ -166,12 +172,6 @@ public enum WebhookType
 	/// </summary>
 	[EnumMember(Value = "DASHBOARD_CONFIGURED_ALERT")]
 	DashboardConfiguredAlert,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "CRA_MONITORING")]
-	CraMonitoring,
 
 	/// <summary>
 	/// 

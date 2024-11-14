@@ -5,7 +5,7 @@ namespace Going.Plaid.Converters;
 /// <inheritdoc />
 public partial class ProcessorWebhookBaseConverter : JsonConverter<ProcessorWebhookBase>
 {
-	private static readonly Dictionary<(ProcessorWebhookType, ProcessorWebhookCode), Type> Map =
+	private static readonly Dictionary<(ProcessorWebhookType, ProcessorWebhookCode), Type> s_map =
 		new()
 		{
 			[(ProcessorWebhookType.Transactions, ProcessorWebhookCode.TransactionsRemoved)] = typeof(ProcessorTransactionsRemovedWebhook),

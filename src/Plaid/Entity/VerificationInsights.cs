@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Insights from performing database verification for the account.</para>
+/// <para>Insights from performing database verification for the account. Only returned for Auth Items created via Database Insights.</para>
 /// </summary>
 public record VerificationInsights
 {

@@ -17,4 +17,10 @@ public partial class SandboxTransferLedgerSimulateAvailableRequest : RequestBase
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The webhook URL to which a <c>TRANSFER_EVENTS_UPDATE</c> webhook should be sent.</para>
+	/// </summary>
+	[JsonPropertyName("webhook")]
+	public string? Webhook { get; set; } = default!;
+
 }

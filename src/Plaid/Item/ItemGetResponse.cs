@@ -6,10 +6,10 @@ namespace Going.Plaid.Item;
 public record ItemGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Metadata about the Item.</para>
+	/// <para>Metadata about the Item</para>
 	/// </summary>
 	[JsonPropertyName("item")]
-	public Entity.Item Item { get; init; } = default!;
+	public Entity.ItemWithConsentFields Item { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Information about the last successful and failed transactions update for the Item.</para>

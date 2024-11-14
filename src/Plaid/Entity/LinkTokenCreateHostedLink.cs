@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Configuration parameters for Hosted Link. To request access to Hosted Link, contact your account manager.</para>
+/// <para>Configuration parameters for Hosted Link. To enable the session for Hosted Link, send this object in the request. It can be empty.</para>
 /// </summary>
 public class LinkTokenCreateHostedLink
 {

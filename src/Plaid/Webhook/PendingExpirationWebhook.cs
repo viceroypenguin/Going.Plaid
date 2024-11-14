@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when an Item’s access consent is expiring in 7 days. Some Items have explicit expiration times and we try to relay this when possible to reduce service disruption. This can be resolved by having the user go through Link’s update mode.</para>
+/// <para>Fired when an Item’s access consent is expiring in 7 days. This can be resolved by having the user go through Link’s update mode. This webhook is fired only for Items associated with institutions in Europe (including the UK); for Items associated with institutions in the US or Canada, see <a href="https://plaid.com/docs/api/items/#pending_disconnect"><c>PENDING_DISCONNECT</c></a> instead.</para>
 /// </summary>
 public record PendingExpirationWebhook : WebhookBase
 {

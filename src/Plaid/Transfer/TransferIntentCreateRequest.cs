@@ -42,7 +42,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	public string Description { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network.</para>
+	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network. For more details, see <a href="https://plaid.com/docs/transfer/creating-transfers/#ach-sec-codes">ACH SEC codes</a>.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
 	public Entity.AchClass? AchClass { get; set; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when an Item is expected to be disconnected. This can be resolved by having the user go through Link’s <a href="http://plaid.com/docs/link/update-mode">update mode</a>.</para>
+/// <para>Fired when an Item is expected to be disconnected. The webhook will currently be fired 7 days before the existing Item is scheduled for disconnection. This can be resolved by having the user go through Link’s <a href="http://plaid.com/docs/link/update-mode">update mode</a>. Currently, this webhook is fired only for US or Canadian institutions; in the UK or EU, you should continue to listed for the <a href="https://plaid.com/docs/api/items/#pending_expiration"><c>PENDING_EXPIRATION</c></a> webhook instead.</para>
 /// </summary>
 public record PendingDisconnectWebhook : WebhookBase
 {

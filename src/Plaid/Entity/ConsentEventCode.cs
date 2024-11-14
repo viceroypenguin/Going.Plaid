@@ -8,8 +8,8 @@ public enum ConsentEventCode
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "PLAID_END_USER_PRIVACY_POLICY")]
-	PlaidEndUserPrivacyPolicy,
+	[EnumMember(Value = "USER_AGREEMENT")]
+	UserAgreement,
 
 	/// <summary>
 	/// 

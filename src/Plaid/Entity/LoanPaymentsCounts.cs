@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object representing the insights in the number of loan payments</para>
+/// <para>Details regarding the number of loan payments</para>
 /// </summary>
 public record LoanPaymentsCounts
 {

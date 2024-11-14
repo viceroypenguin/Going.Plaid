@@ -24,7 +24,7 @@ public class InstitutionsGetRequestOptions
 	public bool? Oauth { get; set; } = default!;
 
 	/// <summary>
-	/// <para>When <c>true</c>, return the institution's homepage URL, logo and primary brand color.</para>
+	/// <para>When <c>true</c>, return the institution's homepage URL, logo and primary brand color. Not all institutions' logos are available.</para>
 	/// <para>Note that Plaid does not own any of the logos shared by the API, and that by accessing or using these logos, you agree that you are doing so at your own risk and will, if necessary, obtain all required permissions from the appropriate rights holders and adhere to any applicable usage guidelines. Plaid disclaims all express or implied warranties with respect to the logos.</para>
 	/// </summary>
 	[JsonPropertyName("include_optional_metadata")]

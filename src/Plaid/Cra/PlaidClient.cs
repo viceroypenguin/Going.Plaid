@@ -21,7 +21,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>This endpoint allows you to subscribe to insights for a user's linked CRA items, which are updated every 14 days.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/check/api/#cramonitoring_insightssubscribe" /></remarks>
 	public Task<Cra.CraMonitoringInsightsSubscribeResponse> CraMonitoringInsightsSubscribeAsync(Cra.CraMonitoringInsightsSubscribeRequest request) =>
 		PostAsync("/cra/monitoring_insights/subscribe", request)
 			.ParseResponseAsync<Cra.CraMonitoringInsightsSubscribeResponse>();
@@ -29,7 +29,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>This endpoint allows you to unsubscribe from previously subscribed Monitoring Insights.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/check/api/#cramonitoring_insightsunsubscribe" /></remarks>
 	public Task<Cra.CraMonitoringInsightsUnsubscribeResponse> CraMonitoringInsightsUnsubscribeAsync(Cra.CraMonitoringInsightsUnsubscribeRequest request) =>
 		PostAsync("/cra/monitoring_insights/unsubscribe", request)
 			.ParseResponseAsync<Cra.CraMonitoringInsightsUnsubscribeResponse>();
@@ -37,7 +37,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>This endpoint allows you to retrieve a Monitoring Insights report by passing in the <c>user_token</c> referred to in the webhook you received.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/check/api/#cramonitoring_insightsget" /></remarks>
 	public Task<Cra.CraMonitoringInsightsGetResponse> CraMonitoringInsightsGetAsync(Cra.CraMonitoringInsightsGetRequest request) =>
 		PostAsync("/cra/monitoring_insights/get", request)
 			.ParseResponseAsync<Cra.CraMonitoringInsightsGetResponse>();
@@ -84,7 +84,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para><c>/cra/check_report/create</c> creates a Consumer Report powered by Plaid Check. You can call this endpoint to create a new report if <c>consumer_report_permissible_purpose</c> was omitted during Link token creation. If you did provide a <c>consumer_report_permissible_purpose</c> during Link token creation, then Plaid Check will automatically begin creating a Consumer Report once the user completes the Link process, and it is not necessary to call <c>/cra/check_report/create</c> before retrieving the report.</para>
-	/// <para> <c>/cra/check_report/create</c> can also be used to refresh data in an existing report. A Consumer Report will last for 24 hours before expiring; you should call any <c>/get</c> endpoints on the report before it expires. If a report expires, you can call <c>/cra/check_report/create</c> again to re-generate it. Note that refreshing or regenerating a report is a billable event."</para>
+	/// <para> <c>/cra/check_report/create</c> can also be used to refresh data in an existing report. A Consumer Report will last for 24 hours before expiring; you should call any <c>/get</c> endpoints on the report before it expires. If a report expires, you can call <c>/cra/check_report/create</c> again to re-generate it. Note that refreshing or regenerating a report is a billable event.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/check/api/#cracheck_reportcreate" /></remarks>
 	public Task<Cra.CraCheckReportCreateResponse> CraCheckReportCreateAsync(Cra.CraCheckReportCreateRequest request) =>

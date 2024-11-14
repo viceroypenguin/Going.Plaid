@@ -101,10 +101,22 @@ public record IdentityVerificationCreateResponse : ResponseBase
 	public Entity.RiskCheckDetails? RiskCheck { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Additional information for the <c>verify_sms</c> step.</para>
+	/// </summary>
+	[JsonPropertyName("verify_sms")]
+	public Entity.VerifySMSDetails? VerifySms { get; init; } = default!;
+
+	/// <summary>
 	/// <para>ID of the associated screening.</para>
 	/// </summary>
 	[JsonPropertyName("watchlist_screening_id")]
 	public string? WatchlistScreeningId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>ID of the associated Beacon User.</para>
+	/// </summary>
+	[JsonPropertyName("beacon_user_id")]
+	public string? BeaconUserId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An ISO8601 formatted timestamp.</para>

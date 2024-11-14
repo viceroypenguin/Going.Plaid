@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Every 14 days, the webhook will be fired per item enabled for Monitoring Insights.</para>
+/// <para>For each user enabled for Cash Flow Updates, this webhook will fire every 14 days with information on the status of the update. Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
 /// </summary>
 public record MonitoringInsightsWebhook : WebhookBase
 {

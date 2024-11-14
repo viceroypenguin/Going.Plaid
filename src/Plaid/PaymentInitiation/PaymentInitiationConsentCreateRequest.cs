@@ -21,7 +21,13 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	/// <para>An array of payment consent scopes.</para>
 	/// </summary>
 	[JsonPropertyName("scopes")]
-	public IReadOnlyList<Entity.PaymentInitiationConsentScope> Scopes { get; set; } = default!;
+	public IReadOnlyList<Entity.PaymentInitiationConsentScope>? Scopes { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Payment consent type. Defines possible use case for payments made with the given consent.</para>
+	/// </summary>
+	[JsonPropertyName("type")]
+	public Entity.PaymentInitiationConsentType? Type { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Limitations that will be applied to payments initiated using the payment consent.</para>
@@ -30,9 +36,16 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	public Entity.PaymentInitiationConsentConstraints Constraints { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Additional payment consent options</para>
+	/// <para>(Deprecated) Additional payment consent options</para>
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.ExternalPaymentInitiationConsentOptions? Options { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An object representing the payment consent payer details. </para>
+	/// <para>Payer <c>name</c> and account <c>numbers</c> are required to lock the account to which the consent can be created.</para>
+	/// </summary>
+	[JsonPropertyName("payer_details")]
+	public Entity.PaymentInitiationConsentPayerDetails? PayerDetails { get; set; } = default!;
 
 }

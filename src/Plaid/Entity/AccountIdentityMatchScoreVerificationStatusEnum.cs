@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.</para>
+/// <para>The current verification status of an Auth Item initiated through micro-deposits or database verification. Returned for Auth Items only.</para>
 /// </summary>
 public enum AccountIdentityMatchScoreVerificationStatusEnum
 {
@@ -42,25 +42,25 @@ public enum AccountIdentityMatchScoreVerificationStatusEnum
 	VerificationFailed,
 
 	/// <summary>
-	/// <para>The Item has successfully been verified using Plaid's data sources.</para>
+	/// <para>The Item has successfully been verified using Plaid's data sources. Only returned for Auth Items created via Database Match.</para>
 	/// </summary>
 	[EnumMember(Value = "database_matched")]
 	DatabaseMatched,
 
 	/// <summary>
-	/// <para>The Item's ACH numbers have been verified using Plaid's data sources and have strong signal for being valid. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para>The Item's numbers have been verified using Plaid's data sources and have strong signal for being valid. Only returned for Auth Items created via Database Insights. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
 	/// </summary>
 	[EnumMember(Value = "database_insights_pass")]
 	DatabaseInsightsPass,
 
 	/// <summary>
-	/// <para>The Item's ACH numbers have been verified using Plaid's data sources and have some signal for being valid. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para>The Item's numbers have been verified using Plaid's data sources and have some signal for being valid. Only returned for Auth Items created via Database Insights. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
 	/// </summary>
 	[EnumMember(Value = "database_insights_pass_with_caution")]
 	DatabaseInsightsPassWithCaution,
 
 	/// <summary>
-	/// <para>The Item's ACH numbers have been verified using Plaid's data sources and have signal for being invalid and/or have no signal for being valid. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para>The Item's numbers have been verified using Plaid's data sources and have signal for being invalid and/or have no signal for being valid. Only returned for Auth Items created via Database Insights. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
 	/// </summary>
 	[EnumMember(Value = "database_insights_fail")]
 	DatabaseInsightsFail,

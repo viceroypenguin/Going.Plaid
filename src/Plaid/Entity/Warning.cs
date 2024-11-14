@@ -21,6 +21,6 @@ public record Warning
 	/// <para>An error object and associated <c>item_id</c> used to identify a specific Item and error when a batch operation operating on multiple Items has encountered an error in one of the Items.</para>
 	/// </summary>
 	[JsonPropertyName("cause")]
-	public Entity.Cause Cause { get; init; } = default!;
+	public Entity.Cause? Cause { get; init; } = default!;
 
 }

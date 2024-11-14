@@ -2,7 +2,7 @@ namespace Going.Plaid.Webhook;
 
 /// <summary>
 /// <para>Contains the state of a completed Link session, along with the public token(s) if available.</para>
-/// <para>By default, the <c>SESSION_FINISHED</c> webhook is enabled only for clients that are enabled for Hosted Link, or in sessions that are enabled for Multi-Item Link. If you would like to receive this webhook and are not using Hosted Link or Multi-Item Link, contact your Account Manager.</para>
+/// <para>By default, the <c>EVENTS</c> webhook is sent only for sessions where the end user goes through a Hosted Link flow (including Link Recovery flows) or a Multi-Item Link flow. If you would like to receive this webhook for other sessions, contact your Account Manager or Support.</para>
 /// </summary>
 public record LinkSessionFinishedWebhook : WebhookBase
 {

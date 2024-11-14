@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record MonitoringLoanInsights
 {
 	/// <summary>
-	/// <para>An object representing the insights in the number of loan payments</para>
+	/// <para>Details regarding the number of loan payments</para>
 	/// </summary>
 	[JsonPropertyName("loan_payments_counts")]
 	public Entity.LoanPaymentsCounts LoanPaymentsCounts { get; init; } = default!;
@@ -18,7 +18,7 @@ public record MonitoringLoanInsights
 	public decimal LoanDisbursementsCount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing the insights in the number of unique loan payment merchants</para>
+	/// <para>Details regarding the number of unique loan payment merchants</para>
 	/// </summary>
 	[JsonPropertyName("loan_payment_merchants_counts")]
 	public Entity.LoanPaymentsMerchantCounts LoanPaymentMerchantsCounts { get; init; } = default!;

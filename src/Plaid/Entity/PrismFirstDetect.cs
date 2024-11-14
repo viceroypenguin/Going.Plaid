@@ -6,10 +6,16 @@ namespace Going.Plaid.Entity;
 public record PrismFirstDetect
 {
 	/// <summary>
-	/// <para>The version of Prism Data's FirstDetect model used.</para>
+	/// <para>The version of Prism Data's FirstDetect model used. This field is deprecated in favor of <c>model_version</c>.</para>
 	/// </summary>
 	[JsonPropertyName("version")]
 	public int Version { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The version of Prism Data's FirstDetect model used.</para>
+	/// </summary>
+	[JsonPropertyName("model_version")]
+	public string? ModelVersion { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The score returned by Prism Data. Ranges from 1-999, with higher score indicating lower risk.</para>

@@ -35,4 +35,10 @@ public partial class SandboxTransferRefundSimulateRequest : RequestBase
 	[JsonPropertyName("failure_reason")]
 	public Entity.TransferFailure? FailureReason { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The webhook URL to which a <c>TRANSFER_EVENTS_UPDATE</c> webhook should be sent.</para>
+	/// </summary>
+	[JsonPropertyName("webhook")]
+	public string? Webhook { get; set; } = default!;
+
 }

@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public record MonitoringIncomeInsights
 {
 	/// <summary>
-	/// <para>An object representing the insights about the total monthly income</para>
+	/// <para>Details about about the total monthly income</para>
 	/// </summary>
 	[JsonPropertyName("total_monthly_income")]
 	public Entity.TotalMonthlyIncomeInsights TotalMonthlyIncome { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing insights about the number of income sources</para>
+	/// <para>Details about the number of income sources</para>
 	/// </summary>
 	[JsonPropertyName("income_sources_counts")]
 	public Entity.IncomeSourcesCounts IncomeSourcesCounts { get; init; } = default!;

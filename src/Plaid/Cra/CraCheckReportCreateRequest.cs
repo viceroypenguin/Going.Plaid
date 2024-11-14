@@ -24,6 +24,12 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public int DaysRequested { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The minimum number of days of data required for the report to be successfully generated.</para>
+	/// </summary>
+	[JsonPropertyName("days_required")]
+	public int? DaysRequired { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]

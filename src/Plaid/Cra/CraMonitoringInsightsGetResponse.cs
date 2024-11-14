@@ -6,7 +6,7 @@ namespace Going.Plaid.Cra;
 public record CraMonitoringInsightsGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>An array of the Monitoring Insights Item</para>
+	/// <para>An array of Monitoring Insights Items associated with the user.</para>
 	/// </summary>
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.CraMonitoringInsightsItem> Items { get; init; } = default!;

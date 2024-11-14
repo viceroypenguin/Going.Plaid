@@ -5,7 +5,7 @@ namespace Going.Plaid.Converters;
 /// <inheritdoc />
 public partial class {{ prefix }}WebhookBaseConverter : JsonConverter<{{ prefix }}WebhookBase>
 {
-	private static readonly Dictionary<({{ prefix }}WebhookType, {{ prefix }}WebhookCode), Type> Map =
+	private static readonly Dictionary<({{ prefix }}WebhookType, {{ prefix }}WebhookCode), Type> s_map =
 		new()
 		{
 			{{~ for hook in hooks ~}}

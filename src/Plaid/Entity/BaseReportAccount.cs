@@ -32,6 +32,12 @@ public record BaseReportAccount
 	public string? Mask { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Base Report metadata about the extracted account.</para>
+	/// </summary>
+	[JsonPropertyName("metadata")]
+	public Entity.BaseReportAccountMetadata Metadata { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The name of the account, either assigned by the user or by the financial institution itself</para>
 	/// </summary>
 	[JsonPropertyName("name")]

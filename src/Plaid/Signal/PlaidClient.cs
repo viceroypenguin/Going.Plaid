@@ -13,7 +13,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Signal.SignalEvaluateResponse>();
 
 	/// <summary>
-	/// <para>After calling <c>/signal/evaluate</c> (or <c>/accounts/balance/get</c>, for participants in the <a href="http://plaid.com/docs/balance/balance-plus">Balance Plus</a> beta), call <c>/signal/decision/report</c> to report whether the transaction was initiated.</para>
+	/// <para>After calling <c>/signal/evaluate</c>, call <c>/signal/decision/report</c> to report whether the transaction was initiated.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signaldecisionreport" /></remarks>
 	public Task<Signal.SignalDecisionReportResponse> SignalDecisionReportAsync(Signal.SignalDecisionReportRequest request) =>
@@ -21,7 +21,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Signal.SignalDecisionReportResponse>();
 
 	/// <summary>
-	/// <para>Call the <c>/signal/return/report</c> endpoint to report a returned transaction that was previously sent to the <c>/signal/evaluate</c> or (for participants in the <a href="http://plaid.com/docs/balance/balance-plus">Balance Plus</a> beta) the <c>/accounts/balance/get</c> endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.</para>
+	/// <para>Call the <c>/signal/return/report</c> endpoint to report a returned transaction that was previously sent to the <c>/signal/evaluate</c> endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signalreturnreport" /></remarks>
 	public Task<Signal.SignalReturnReportResponse> SignalReturnReportAsync(Signal.SignalReturnReportRequest request) =>
@@ -29,7 +29,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Signal.SignalReturnReportResponse>();
 
 	/// <summary>
-	/// <para>When Link is not initialized with Signal, call <c>/signal/prepare</c> to opt-in that Item to the Signal data collection process, developing a Signal score.</para>
+	/// <para>When an Item is not initialized with Signal, call <c>/signal/prepare</c> to opt-in that Item to the Signal data collection process, developing a Signal score. This should be done on Items where Signal was added in the <c>additional_consented_products</c> array but not in the <c>products</c>, <c>optional_products</c>, or <c>required_if_supported_products</c> array. If <c>/signal/prepare</c> is skipped on an Item that is not initialized with Signal, the initial call to <c>/signal/evaluate</c> on that Item will be less accurate, because Signal will have access to less data for computing the Signal score.</para>
 	/// <para>If run on an Item that is already initialized with Signal, this endpoint will return a 200 response and will not modify the Item.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signalprepare" /></remarks>
