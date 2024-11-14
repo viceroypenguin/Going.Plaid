@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Diagnostics;
-
-namespace Going.Plaid.Converters;
+﻿namespace Going.Plaid.Converters;
 
 /// <summary>
 /// Plaid-specific extension methods for <see cref="JsonSerializerOptions"/>
@@ -14,7 +12,8 @@ public static class PlaidExtensions
 	/// <returns>The object passed in, with the Plaid converters added</returns>
 	public static JsonSerializerOptions AddPlaidConverters(this JsonSerializerOptions options)
 	{
-		Guard.IsNotNull(options);
+		if (options is null)
+			throw new ArgumentNullException(nameof(options));
 
 		options.Converters.Add(new DateTimeConverter());
 		options.Converters.Add(new DateTimeOffsetConverter());

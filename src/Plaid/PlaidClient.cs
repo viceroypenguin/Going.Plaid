@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Diagnostics;
-using Going.Plaid.Converters;
+﻿using Going.Plaid.Converters;
 
 namespace Going.Plaid;
 
@@ -8,8 +7,6 @@ namespace Going.Plaid;
 /// </summary>
 public sealed partial class PlaidClient
 {
-	#region Initialization
-
 	/// <summary>
 	/// Initializes a new instance of the <see cref="PlaidClient"/> class using parameters that can all come from Dependency Injextion.
 	/// </summary>
@@ -123,13 +120,11 @@ public sealed partial class PlaidClient
 	/// Additional request headers used for all API calls.
 	/// </summary>
 	public Dictionary<string, string>? AdditionalHeaders { get; } = [];
-	#endregion
-
-	#region Private Members
 
 	private ResponseParser PostAsync<TRequest>(string path, TRequest request) where TRequest : RequestBase
 	{
-		Guard.IsNotNull(request);
+		if (request is null)
+			throw new ArgumentNullException(nameof(request));
 
 		request.SetCredentials(_secret, _clientId, AccessToken);
 
@@ -297,6 +292,4 @@ public sealed partial class PlaidClient
 			}
 		}
 	}
-
-	#endregion Private Members
 }

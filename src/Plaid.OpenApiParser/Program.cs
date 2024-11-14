@@ -49,9 +49,9 @@ internal static partial class Program
 		return path;
 	}
 
-	private static readonly List<ApiCall> ApiCalls = [];
-	private static readonly Dictionary<string, SchemaEntity> SchemaEntities = [];
-	private static readonly Dictionary<string, string> NameFixups = new()
+	private static readonly List<ApiCall> s_apiCalls = [];
+	private static readonly Dictionary<string, SchemaEntity> s_schemaEntities = [];
+	private static readonly Dictionary<string, string> s_nameFixups = new()
 	{
 		["ACHClass"] = "AchClass",
 		["APR"] = "Apr",
@@ -70,7 +70,7 @@ internal static partial class Program
 		["WebhookType"] = "SandboxItemFireWebhookRequestWebhookTypeEnum",
 		["purpose"] = "TransferDocumentPurpose",
 	};
-	private static readonly string[] Excludes =
+	private static readonly string[] s_excludes =
 	[
 		"PlaidException",
 		"Error",
@@ -89,7 +89,7 @@ internal static partial class Program
 		"InvestmentAccountSubtypes",
 		"AccountSubtype",
 	];
-	private static readonly string[] ExcludeApis =
+	private static readonly string[] s_excludeApis =
 	[
 		"/credit/asset_report/freddie_mac/get",
 	];
@@ -98,7 +98,7 @@ internal static partial class Program
 	{
 		foreach (var (uri, item) in doc.Paths)
 		{
-			if (ExcludeApis.Contains(uri))
+			if (s_excludeApis.Contains(uri))
 				continue;
 
 			var basePath = uri[1..].Split('/')[0].ToPascalCase();
@@ -123,7 +123,7 @@ internal static partial class Program
 			var responseType = $"{responsePath}.{responseSchema.Reference.Id}";
 			AddSchemaEntity(responsePath, responseSchema.Reference.Id, BaseType.Response, responseSchema, SchemaType.Record);
 
-			ApiCalls.Add(new(
+			s_apiCalls.Add(new(
 				uri,
 				basePath,
 				string.Concat(uri[1..].Split('/').Select(s => s.ToPascalCase())),
@@ -136,9 +136,9 @@ internal static partial class Program
 
 	private static void AddSchemaEntity(string basePath, string name, BaseType baseType, OpenApiSchema schema, SchemaType type)
 	{
-		if (Excludes.Contains(name)) return;
+		if (s_excludes.Contains(name)) return;
 
-		if (SchemaEntities.TryGetValue(name, out var value))
+		if (s_schemaEntities.TryGetValue(name, out var value))
 		{
 			if (value.SchemaType == SchemaType.Record
 				&& type == SchemaType.Class)
@@ -159,7 +159,7 @@ internal static partial class Program
 			static string GetEnumName(string name) =>
 				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.Replace(".", "_", StringComparison.Ordinal).ToLower(null).ToPascalCase()}";
 
-			SchemaEntities[name] = new()
+			s_schemaEntities[name] = new()
 			{
 				SchemaType = type,
 				BasePath = basePath,
@@ -177,7 +177,7 @@ internal static partial class Program
 		}
 		else
 		{
-			var e = SchemaEntities[name] = new()
+			var e = s_schemaEntities[name] = new()
 			{
 				SchemaType = type,
 				BasePath = basePath,
@@ -256,8 +256,6 @@ internal static partial class Program
 		string.IsNullOrWhiteSpace(description) ? string.Empty :
 		FixCodeBlocks(FixLinkBlocks(FixBrackets(FixAmpersands(description)))).TrimEnd();
 
-	private static readonly string[] NewLineSplits = ["\r\n", "\r", "\n"];
-
 	[GeneratedRegex("^`\"?(.+?)\"?:?`\\s*:?-?\\s*(.*)$")]
 	private static partial Regex EnumDescriptionRegex();
 
@@ -268,7 +266,7 @@ internal static partial class Program
 		if (description.StartsWith("The asynchronous event to be simulated.", StringComparison.OrdinalIgnoreCase))
 			return (FixupDescription(description), new Dictionary<string, string>());
 
-		var lines = description.Split(NewLineSplits, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+		var lines = description.Split(["\r\n", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
 		if (lines.Length == 1)
 			return (FixCodeBlocks(lines[0]), new Dictionary<string, string>());
@@ -368,7 +366,7 @@ internal static partial class Program
 				+ (entityType == SchemaType.Enum ? "Enum" : "Object");
 		}
 
-		entityName = NameFixups.GetValueOrDefault(entityName, entityName);
+		entityName = s_nameFixups.GetValueOrDefault(entityName, entityName);
 		AddSchemaEntity("Entity", entityName, BaseType.None, schema, entityType);
 		return entityName == "PlaidException"
 			? "Exceptions.PlaidException"
@@ -395,7 +393,7 @@ internal static partial class Program
 					.Properties["other"].Description),
 		};
 
-		SchemaEntities["AccountType"] = new()
+		s_schemaEntities["AccountType"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -426,7 +424,7 @@ internal static partial class Program
 		foreach (var p in doc.Components.Schemas["InvestmentAccountSubtypeStandalone"].Properties)
 			pd[p.Key] = FixupDescription(p.Value.Description).TrimEnd();
 
-		SchemaEntities["AccountSubtype"] = new()
+		s_schemaEntities["AccountSubtype"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -461,10 +459,10 @@ internal static partial class Program
 
 		foreach (var (schema, name) in schemas)
 		{
-			var entityName = NameFixups.GetValueOrDefault(name, name);
+			var entityName = s_nameFixups.GetValueOrDefault(name, name);
 			AddSchemaEntity("Webhook", entityName, baseType, schema, SchemaType.Record);
 
-			var se = SchemaEntities[entityName];
+			var se = s_schemaEntities[entityName];
 			var type = se.Properties!
 				.Single(p => p.Name == "WebhookType");
 			var code = se.Properties!
@@ -475,7 +473,7 @@ internal static partial class Program
 			_ = codes.Add((code.JsonName, code.Description!));
 		}
 
-		SchemaEntities[prefix + "WebhookType"] = new()
+		s_schemaEntities[prefix + "WebhookType"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -490,7 +488,7 @@ internal static partial class Program
 				.ToList(),
 		};
 
-		SchemaEntities[prefix + "WebhookCode"] = new()
+		s_schemaEntities[prefix + "WebhookCode"] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -510,7 +508,7 @@ internal static partial class Program
 	{
 		var schema = doc.Components.Schemas[subtypeName];
 		var descriptions = doc.Components.Schemas[descriptionSchemaName].Properties;
-		SchemaEntities[subtypeName] = new()
+		s_schemaEntities[subtypeName] = new()
 		{
 			SchemaType = SchemaType.Enum,
 			BasePath = "Entity",
@@ -532,7 +530,7 @@ internal static partial class Program
 		var prefix = "/// ".PadLeft(index + 4, '\t');
 		description ??= string.Empty;
 		return string.Join(Environment.NewLine,
-			description.Split(NewLineSplits, StringSplitOptions.RemoveEmptyEntries)
+			description.Split(["\r\n", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries)
 				.Select(l => $"{prefix}<para>{l}</para>")
 				.DefaultIfEmpty(prefix));
 	}
@@ -540,7 +538,7 @@ internal static partial class Program
 	private static void SaveApis(string plaidSrcPath)
 	{
 		var template = Template.Parse(GetTemplate("Api"));
-		foreach (var g in ApiCalls.GroupBy(a => a.BasePath))
+		foreach (var g in s_apiCalls.GroupBy(a => a.BasePath))
 		{
 			var source = template.Render(new
 			{
@@ -564,7 +562,7 @@ internal static partial class Program
 
 	private static void SaveSchemas(string plaidSrcPath)
 	{
-		var l = SchemaEntities.Values
+		var l = s_schemaEntities.Values
 			.ToLookup(i => i.SchemaType);
 
 		SaveClasses(plaidSrcPath, l[SchemaType.Class]);
@@ -644,7 +642,14 @@ internal static partial class Program
 		}
 	}
 
-	private static readonly Property UnknownProperty = new("undefined", string.Empty, "Undefined", "Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.");
+	private static readonly Property s_unknownProperty =
+		new(
+			"undefined",
+			string.Empty,
+			"Undefined",
+			"Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library."
+		);
+
 	private static void SaveEnums(string plaidSrcPath, IEnumerable<SchemaEntity> enums)
 	{
 		var template = Template.Parse(GetTemplate("EnumType"));
@@ -652,7 +657,7 @@ internal static partial class Program
 		{
 			IEnumerable<Property> list = i.Properties ?? [];
 			if (!list.Any(p => p.Name == "Undefined"))
-				list = list.Append(UnknownProperty);
+				list = list.Append(s_unknownProperty);
 
 			var source = template.Render(new
 			{
