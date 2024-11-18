@@ -117,10 +117,14 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string? OriginatorClientId { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>This field is now deprecated. You may ignore it for transfers created on and after 12/01/2023.</para>
+	/// <para>Specifies the source of funds for the transfer. Only valid for <c>credit</c> transfers, and defaults to <c>sweep</c> if not specified. This field is not specified for <c>debit</c> transfers.</para>
+	/// <para><c>sweep</c> - Sweep funds from your funding account</para>
+	/// <para><c>prefunded_rtp_credits</c> - Use your prefunded RTP credit balance with Plaid</para>
+	/// <para><c>prefunded_ach_credits</c> - Use your prefunded ACH credit balance with Plaid</para>
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
-	public string? CreditFundsSource { get; set; } = default!;
+	public Entity.TransferCreditFundsSource? CreditFundsSource { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>authorization</c> is created at the <c>virtual_time</c> on the provided test clock.</para>

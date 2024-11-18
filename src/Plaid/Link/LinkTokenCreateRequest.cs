@@ -181,10 +181,18 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestCraOptions? CraOptions { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Describes the reason you are generating a Consumer Report for this user. This parameter is required if you want to generate a Consumer Report for the user automatically after the Link session. If you omit this parameter during Link token creation, you can later call the <c>/cra/check_report/create</c> endpoint to generate a report.</para>
+	/// <para><c>ACCOUNT_REVIEW_CREDIT</c>: In connection with a consumer credit transaction for the review or collection of an account pursuant to FCRA Section 604(a)(3)(A).</para>
+	/// <para><c>ACCOUNT_REVIEW_NON_CREDIT</c>: For a legitimate business need of the information to review a non-credit account provided primarily for personal, family, or household purposes to determine whether the consumer continues to meet the terms of the account pursuant to FCRA Section 604(a)(3)(F)(2).</para>
+	/// <para><c>EMPLOYMENT</c>: For employment purposes pursuant to FCRA 604(a)(3)(B), including hiring, retention and promotion purposes.</para>
+	/// <para><c>EXTENSION_OF_CREDIT</c>: In connection with a credit transaction initiated by and involving the consumer pursuant to FCRA Section 604(a)(3)(A).</para>
+	/// <para><c>LEGITIMATE_BUSINESS_NEED_TENANT_SCREENING</c>: For a legitimate business need in connection with a business transaction initiated by the consumer primarily for personal, family, or household purposes in connection with a property rental assessment pursuant to FCRA Section 604(a)(3)(F)(i).</para>
+	/// <para><c>LEGITIMATE_BUSINESS_NEED_OTHER</c>: For a legitimate business need in connection with a business transaction made primarily for personal, family, or household initiated by the consumer pursuant to FCRA Section 604(a)(3)(F)(i).</para>
+	/// <para><c>WRITTEN_INSTRUCTION_PREQUALIFICATION</c>: In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), to evaluate an application’s profile to make an offer to the consumer.</para>
+	/// <para><c>WRITTEN_INSTRUCTION_OTHER</c>: In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), such as when an individual agrees to act as a guarantor or assumes personal liability for a consumer, business, or commercial loan.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
-	public Entity.LinkTokenCreateRequestConsumerReportPermissiblePurposeObject? ConsumerReportPermissiblePurpose { get; set; } = default!;
+	public Entity.ConsumerReportPermissiblePurpose? ConsumerReportPermissiblePurpose { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager. The default behavior described in the documentation is the default behavior that will apply if you have not requested your account manager to apply a different default.</para>

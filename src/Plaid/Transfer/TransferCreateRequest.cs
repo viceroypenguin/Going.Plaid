@@ -26,16 +26,20 @@ public partial class TransferCreateRequest : RequestBase
 	public string AuthorizationId { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
-	public string? Type { get; set; } = default!;
+	public Entity.TransferType? Type { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The network or rails used for the transfer.</para>
+	/// <para>For transfers submitted as <c>ach</c>, the next-day cutoff is 8:30 PM Eastern Time.</para>
+	/// <para>For transfers submitted as <c>same-day-ach</c>, the same-day cutoff is 3:30 PM Eastern Time. If the transfer is submitted after this cutoff but before the next-day cutoff, it will be sent over next-day rails and will not incur same-day charges; this will apply to both legs of the transfer if applicable.</para>
+	/// <para>For transfers submitted as <c>rtp</c>,  Plaid will automatically route between Real Time Payment rail by TCH or FedNow rails as necessary. If a transfer is submitted as <c>rtp</c> and the counterparty account is not eligible for RTP, the <c>/transfer/authorization/create</c> request will fail with an <c>INVALID_FIELD</c> error code. To pre-check to determine whether a counterparty account can support RTP, call <c>/transfer/capabilities/get</c> before calling <c>/transfer/authorization/create</c>.</para>
+	/// <para>Wire transfers are currently in early availability. To request access to <c>wire</c> as a payment network, contact your Account Manager. For transfers submitted as <c>wire</c>, the <c>type</c> must be <c>credit</c>; wire debits are not supported.</para>
 	/// </summary>
 	[JsonPropertyName("network")]
-	public string? Network { get; set; } = default!;
+	public Entity.TransferNetwork? Network { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00"). When calling <c>/transfer/authorization/create</c>, specify the maximum amount to authorize. When calling <c>/transfer/create</c>, specify the exact amount of the transfer, up to a maximum of the amount authorized. If this field is left blank when calling <c>/transfer/create</c>, the maximum amount authorized in the <c>authorization_id</c> will be sent.</para>
@@ -50,10 +54,16 @@ public partial class TransferCreateRequest : RequestBase
 	public string Description { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network. For more details, see <a href="https://plaid.com/docs/transfer/creating-transfers/#ach-sec-codes">ACH SEC codes</a>.</para>
+	/// <para>Codes supported for credits: <c>ccd</c>, <c>ppd</c></para>
+	/// <para>Codes supported for debits: <c>ccd</c>, <c>tel</c>, <c>web</c></para>
+	/// <para><c>"ccd"</c> - Corporate Credit or Debit - fund transfer between two corporate bank accounts</para>
+	/// <para><c>"ppd"</c> - Prearranged Payment or Deposit - the transfer is part of a pre-existing relationship with a consumer, e.g. bill payment</para>
+	/// <para><c>"tel"</c> - Telephone-Initiated Entry</para>
+	/// <para><c>"web"</c> - Internet-Initiated Entry - debits from a consumer’s account where their authorization is obtained over the Internet</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
-	public string? AchClass { get; set; } = default!;
+	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The legal name and other information for the account holder.</para>

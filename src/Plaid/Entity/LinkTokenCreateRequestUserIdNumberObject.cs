@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>The user's ID number. Used only for Identity Verification. If provided, the user will not be shown fields to enter their ID number in the Identity Verification flow. May be omitted, but if not omitted, all fields marked as required must be provided.</para>
 /// </summary>
 public class LinkTokenCreateRequestUserIdNumberObject
 {

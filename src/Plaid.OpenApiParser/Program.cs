@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using CaseExtensions;
 using Microsoft.OpenApi.Any;
@@ -165,13 +165,14 @@ internal static partial class Program
 				BasePath = basePath,
 				Name = name,
 				Description = pd,
-				Properties = schema.Enum
+				Properties = GetEnumValues(schema)
 					.OfType<OpenApiString>()
 					.Select(e => new Property(
 						e.Value,
 						string.Empty,
 						GetEnumName(e.Value),
-						ed.GetValueOrDefault(e.Value)))
+						ed.GetValueOrDefault(e.Value)
+					))
 					.ToList(),
 			};
 		}
@@ -292,20 +293,19 @@ internal static partial class Program
 
 	private static string GetPropertyDescription(OpenApiSchema type)
 	{
-		var entityType = (type.Enum?.Any() ?? false) ? 2 : 1;
-		return
-			entityType == 2
-			? ParseEnumDescription(type.Description)
-				.enumDescription
-			: FixupDescription(type.Description);
+		var description = string.IsNullOrWhiteSpace(type.Description)
+			? type.AllOf.LastOrDefault()?.Description ?? ""
+			: type.Description;
+
+		return type.Enum is { Count: > 0 }
+			? ParseEnumDescription(description).enumDescription
+			: FixupDescription(description);
 	}
 
 	private static string GetPropertyType(string className, string propertyName, OpenApiSchema schema, SchemaType type)
 	{
 		if (schema.Type == "array")
-		{
 			return $"IReadOnlyList<{GetPropertyType(className, propertyName, schema.Items, type)}>";
-		}
 
 		if (schema.Type == "boolean")
 			return "bool";
@@ -333,25 +333,22 @@ internal static partial class Program
 			}
 		}
 
-		var entityType = (schema.Enum?.Any() ?? false) ? SchemaType.Enum : type;
-		if (schema.Type == "string" && entityType != SchemaType.Enum)
+		if (schema.AllOf.FirstOrDefault(s => s.Enum is { Count: > 0 }) is { } enumSchema)
+			return GetPropertyType(className, propertyName, enumSchema, type);
+
+		var entityType = schema.Enum is { Count: > 0 } ? SchemaType.Enum : type;
+		if (schema.Type is "string" && entityType != SchemaType.Enum)
 			return "string";
 
-		if (schema.AllOf.Count == 1
-			&& schema.AllOf[0].Type == "string")
-		{
+		if (schema.AllOf is [{ Type: "string" }])
 			return "string";
-		}
 
 		if (schema.Reference != null)
 		{
 			if (schema.Reference.Id.EndsWith("Nullable", StringComparison.OrdinalIgnoreCase))
 			{
-				if (schema.AllOf.Count > 0)
-				{
-					var realType = schema.AllOf.First();
+				if (schema.AllOf is [{ } realType, ..])
 					return GetPropertyType(className, propertyName, realType, entityType);
-				}
 			}
 			else if (schema.AdditionalProperties != null)
 				return $"IReadOnlyDictionary<string, {GetPropertyType(className, propertyName, schema.AdditionalProperties, type)}>";
@@ -700,6 +697,36 @@ internal static partial class Program
 
 		using var reader = new StreamReader(stream);
 		return reader.ReadToEnd();
+	}
+
+	private static bool IsEnum(OpenApiSchema schema)
+	{
+		if (schema.Enum is { Count: > 0 })
+			return true;
+
+		foreach (var s in schema.AllOf)
+		{
+			if (IsEnum(s))
+				return true;
+		}
+
+		return false;
+	}
+
+	private static IList<IOpenApiAny> GetEnumValues(OpenApiSchema schema)
+	{
+		if (schema.Enum is not null)
+		{
+			return schema.Enum;
+		}
+
+		foreach (var s in schema.AllOf)
+		{
+			if (GetEnumValues(s) is { Count: > 0 } values)
+				return values;
+		}
+
+		return [];
 	}
 }
 

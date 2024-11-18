@@ -18,7 +18,7 @@ public class LinkTokenCreateRequestUser
 	public string? LegalName { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The user's full name. Optional if using the <a href="https://plaid.com/docs/api/products/identity-verification">Identity Verification</a> product; if not using Identity Verification, this field is not allowed. Users will not be asked for their name when this field is provided.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	public Entity.LinkTokenCreateRequestUserNameObject? Name { get; set; } = default!;
@@ -64,13 +64,13 @@ public class LinkTokenCreateRequestUser
 	public DateOnly? DateOfBirth { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The user's address. Used only for Identity Verification. If provided, the user will not be shown fields to enter their address in the Identity Verification flow. May be omitted, but if not omitted, all fields marked as required must be provided.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.LinkTokenCreateRequestUserAddressObject? Address { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The user's ID number. Used only for Identity Verification. If provided, the user will not be shown fields to enter their ID number in the Identity Verification flow. May be omitted, but if not omitted, all fields marked as required must be provided.</para>
 	/// </summary>
 	[JsonPropertyName("id_number")]
 	public Entity.LinkTokenCreateRequestUserIdNumberObject? IdNumber { get; set; } = default!;
