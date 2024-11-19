@@ -699,20 +699,6 @@ internal static partial class Program
 		return reader.ReadToEnd();
 	}
 
-	private static bool IsEnum(OpenApiSchema schema)
-	{
-		if (schema.Enum is { Count: > 0 })
-			return true;
-
-		foreach (var s in schema.AllOf)
-		{
-			if (IsEnum(s))
-				return true;
-		}
-
-		return false;
-	}
-
 	private static IList<IOpenApiAny> GetEnumValues(OpenApiSchema schema)
 	{
 		if (schema.Enum is not null)
