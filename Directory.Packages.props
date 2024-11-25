@@ -51,6 +51,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<GlobalPackageReference Include="PolySharp" Version="1.14.1" />
+		<GlobalPackageReference Include="PolySharp" Version="1.15.0" />
 	</ItemGroup>
 </Project>
