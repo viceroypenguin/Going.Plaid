@@ -94,4 +94,10 @@ public enum Language
 	/// </summary>
 	[EnumMember(Value = "sv")]
 	Swedish,
+
+	/// <summary>
+	/// Use Vietnamese in the Plaid Link Tool.
+	/// </summary>
+	[EnumMember(Value = "vi")]
+	Vietnamese,
 }
