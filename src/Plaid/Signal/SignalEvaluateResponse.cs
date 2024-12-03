@@ -27,6 +27,7 @@ public record SignalEvaluateResponse : ResponseBase
 	/// <para>RiskProfile is deprecated, use <c>ruleset</c> instead.</para>
 	/// </summary>
 	[JsonPropertyName("risk_profile")]
+	[Obsolete]
 	public Entity.SignalEvaluateRiskProfile? RiskProfile { get; init; } = default!;
 
 	/// <summary>

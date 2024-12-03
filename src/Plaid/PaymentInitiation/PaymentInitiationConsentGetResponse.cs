@@ -45,6 +45,7 @@ public record PaymentInitiationConsentGetResponse : ResponseBase
 	/// <para>Deprecated, use the 'type' field instead.</para>
 	/// </summary>
 	[JsonPropertyName("scopes")]
+	[Obsolete]
 	public IReadOnlyList<Entity.PaymentInitiationConsentScope>? Scopes { get; init; } = default!;
 
 	/// <summary>

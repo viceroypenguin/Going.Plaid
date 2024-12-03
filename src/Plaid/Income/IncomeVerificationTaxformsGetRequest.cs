@@ -9,6 +9,7 @@ public partial class IncomeVerificationTaxformsGetRequest : RequestBase
 	/// <para>The ID of the verification.</para>
 	/// </summary>
 	[JsonPropertyName("income_verification_id")]
+	[Obsolete]
 	public string? IncomeVerificationId { get; set; } = default!;
 
 }

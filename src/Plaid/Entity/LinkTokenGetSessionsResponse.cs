@@ -27,12 +27,14 @@ public record LinkTokenGetSessionsResponse
 	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onsuccess">onSuccess</a> callback from Link. This object has been deprecated in favor of the newer <a href="https://plaid.com/docs/api/link/#link-token-get-response-link-sessions-results-item-add-results"><c>results.item_add_result</c></a>, which can support multiple public tokens in a single Link session.</para>
 	/// </summary>
 	[JsonPropertyName("on_success")]
+	[Obsolete]
 	public Entity.LinkSessionSuccess? OnSuccess { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link. This field has been deprecated in favor of <a href="https://plaid.com/docs/api/link/#link-token-get-response-link-sessions-exit"><c>exit</c></a>, for improved naming consistency.</para>
 	/// </summary>
 	[JsonPropertyName("on_exit")]
+	[Obsolete]
 	public Entity.LinkSessionExitDeprecated? OnExit { get; init; } = default!;
 
 	/// <summary>

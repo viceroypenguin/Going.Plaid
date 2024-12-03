@@ -28,6 +28,7 @@ public record Enrichments
 	/// <para>We recommend using the <c>personal_finance_category</c> for transaction categorization to obtain the best results.</para>
 	/// </summary>
 	[JsonPropertyName("legacy_category_id")]
+	[Obsolete]
 	public string? LegacyCategoryId { get; init; } = default!;
 
 	/// <summary>
@@ -35,6 +36,7 @@ public record Enrichments
 	/// <para>We recommend using the <c>personal_finance_category</c> for transaction categorization to obtain the best results.</para>
 	/// </summary>
 	[JsonPropertyName("legacy_category")]
+	[Obsolete]
 	public IReadOnlyList<string>? LegacyCategory { get; init; } = default!;
 
 	/// <summary>

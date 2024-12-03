@@ -52,6 +52,7 @@ public record DistributionBreakdown
 	/// <para>An object representing a monetary amount.</para>
 	/// </summary>
 	[JsonPropertyName("current_pay")]
+	[Obsolete]
 	public Entity.Pay? CurrentPay { get; init; } = default!;
 
 }

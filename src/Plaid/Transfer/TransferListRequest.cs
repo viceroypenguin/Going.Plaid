@@ -33,6 +33,7 @@ public partial class TransferListRequest : RequestBase
 	/// <para>Filter transfers to only those originated through the specified origination account.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
+	[Obsolete]
 	public string? OriginationAccountId { get; set; } = default!;
 
 	/// <summary>

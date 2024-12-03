@@ -64,6 +64,7 @@ public record RecurringTransfer
 	/// <para>Plaid’s unique identifier for the origination account that was used for this transfer.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
+	[Obsolete]
 	public string OriginationAccountId { get; init; } = default!;
 
 	/// <summary>

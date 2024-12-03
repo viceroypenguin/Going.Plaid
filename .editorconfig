@@ -309,3 +309,6 @@ dotnet_diagnostic.CA1056.severity = none				# CA1056: URI-like properties should
 # ns2.0 check for this is overly strict
 dotnet_diagnostic.CA1062.severity = none				# CA1062: Validate arguments of public methods
 dotnet_diagnostic.CA1510.severity = none
+
+# Allow [Obsolete] without description; commentary is in the xmldoc
+dotnet_diagnostic.CA1041.severity = none                # CA1041: Provide ObsoleteAttribute message

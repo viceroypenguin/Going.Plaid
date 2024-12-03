@@ -39,6 +39,7 @@ public partial class PaymentInitiationConsentPaymentExecuteRequest : RequestBase
 	/// <para>Optional if the appropriate consent has only one scope defined, required otherwise.</para>
 	/// </summary>
 	[JsonPropertyName("scope")]
+	[Obsolete]
 	public Entity.PaymentInitiationConsentScope? Scope { get; set; } = default!;
 
 	/// <summary>

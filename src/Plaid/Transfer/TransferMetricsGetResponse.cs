@@ -21,6 +21,7 @@ public record TransferMetricsGetResponse : ResponseBase
 	/// <para>Sum of dollar amount of credit and debit transfers in current calendar month (decimal string with two digits of precision e.g. "10.00").</para>
 	/// </summary>
 	[JsonPropertyName("monthly_transfer_volume")]
+	[Obsolete]
 	public string MonthlyTransferVolume { get; init; } = default!;
 
 	/// <summary>

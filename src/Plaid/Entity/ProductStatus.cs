@@ -9,6 +9,7 @@ public record ProductStatus
 	/// <para>This field is deprecated in favor of the <c>breakdown</c> object, which provides more granular institution health data.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
+	[Obsolete]
 	public Entity.ProductStatusStatusEnum Status { get; init; } = default!;
 
 	/// <summary>

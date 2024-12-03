@@ -71,6 +71,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	/// <para>Specifying <c>risk_profile_key</c> is deprecated. Please provide <c>ruleset</c> instead.</para>
 	/// </summary>
 	[JsonPropertyName("risk_profile_key")]
+	[Obsolete]
 	public string? RiskProfileKey { get; set; } = default!;
 
 	/// <summary>

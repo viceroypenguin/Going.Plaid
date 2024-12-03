@@ -56,6 +56,7 @@ public class IdentityVerificationCreateRequestUser
 	/// <para>Specifying <c>user.client_user_id</c> is deprecated. Please provide <c>client_user_id</c> at the root level instead.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
+	[Obsolete]
 	public string? ClientUserId { get; set; } = default!;
 
 }

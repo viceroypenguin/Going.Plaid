@@ -22,6 +22,7 @@ public record TransactionStream
 	/// <para>All implementations are encouraged to use the new <c>personal_finance_category</c> instead of <c>category</c>. <c>personal_finance_category</c> provides more meaningful categorization and greater accuracy.</para>
 	/// </summary>
 	[JsonPropertyName("category")]
+	[Obsolete]
 	public IReadOnlyList<string> Category { get; init; } = default!;
 
 	/// <summary>
@@ -29,6 +30,7 @@ public record TransactionStream
 	/// <para>All implementations are encouraged to use the new <c>personal_finance_category</c> instead of <c>category</c>. <c>personal_finance_category</c> provides more meaningful categorization and greater accuracy.</para>
 	/// </summary>
 	[JsonPropertyName("category_id")]
+	[Obsolete]
 	public string CategoryId { get; init; } = default!;
 
 	/// <summary>

@@ -21,6 +21,7 @@ public partial class TransferGetRequest : RequestBase
 	/// <para>The Plaid client ID of the transfer originator. Should only be present if <c>client_id</c> is a third-party sender (TPS).</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
+	[Obsolete]
 	public string? OriginatorClientId { get; set; } = default!;
 
 }

@@ -51,6 +51,7 @@ public record TransferEvent
 	/// <para>The ID of the origination account that this balance belongs to.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
+	[Obsolete]
 	public string? OriginationAccountId { get; init; } = default!;
 
 	/// <summary>

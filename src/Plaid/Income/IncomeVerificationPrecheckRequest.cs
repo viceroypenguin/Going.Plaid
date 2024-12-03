@@ -27,6 +27,7 @@ public partial class IncomeVerificationPrecheckRequest : RequestBase
 	/// <para>The access token associated with the Item data is being requested for.</para>
 	/// </summary>
 	[JsonPropertyName("transactions_access_token")]
+	[Obsolete]
 	public string? TransactionsAccessToken { get; set; } = default!;
 
 	/// <summary>

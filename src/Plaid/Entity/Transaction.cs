@@ -36,6 +36,7 @@ public record Transaction
 	/// <para>If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("category")]
+	[Obsolete]
 	public IReadOnlyList<string>? Category { get; init; } = default!;
 
 	/// <summary>
@@ -44,6 +45,7 @@ public record Transaction
 	/// <para>If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("category_id")]
+	[Obsolete]
 	public string? CategoryId { get; init; } = default!;
 
 	/// <summary>
@@ -119,6 +121,7 @@ public record Transaction
 	/// <para>Please use the <c>payment_channel</c> field, <c>transaction_type</c> will be deprecated in the future.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_type")]
+	[Obsolete]
 	public Entity.TransactionTransactionTypeEnum? TransactionType { get; init; } = default!;
 
 	/// <summary>

@@ -220,7 +220,13 @@ internal static partial class Program
 						typeName += "?";
 					}
 
-					return new Property(p.Key, typeName, propertyName, GetPropertyDescription(p.Value));
+					return new Property(
+						p.Key,
+						typeName,
+						propertyName,
+						GetPropertyDescription(p.Value),
+						IsDeprecated: p.Value.Deprecated
+					);
 				})
 				.ToList();
 		}
@@ -590,6 +596,7 @@ internal static partial class Program
 						p.Name,
 						p.JsonName,
 						Description = FormatDescription(p.Description, 0),
+						p.IsDeprecated,
 					})
 					?? [],
 			});
@@ -634,6 +641,7 @@ internal static partial class Program
 						p.Name,
 						p.JsonName,
 						Description = FormatDescription(p.Description, 0),
+						p.IsDeprecated,
 					})
 					?? [],
 			});
@@ -739,7 +747,7 @@ internal enum BaseType
 }
 
 internal record struct ApiCall(string Uri, string BasePath, string MethodName, string Description, string ExternalUrl, string RequestType, string ResponseType);
-internal record struct Property(string JsonName, string Type, string Name, string? Description);
+internal record struct Property(string JsonName, string Type, string Name, string? Description, bool IsDeprecated = false);
 
 internal sealed class SchemaEntity
 {

@@ -11,6 +11,7 @@ public record CreditBankIncomeSummary
 	/// <para>Please use <a href="https://plaid.com/docs/api/products/income/#credit-bank_income-get-response-bank-income-bank-income-summary-total-amounts"><c>total_amounts</c></a> instead.</para>
 	/// </summary>
 	[JsonPropertyName("total_amount")]
+	[Obsolete]
 	public decimal? TotalAmount { get; init; } = default!;
 
 	/// <summary>
@@ -18,6 +19,7 @@ public record CreditBankIncomeSummary
 	/// <para>Please use <a href="https://plaid.com/docs/api/products/income/#credit-bank_income-get-response-bank-income-bank-income-summary-total-amounts"><c>total_amounts</c></a> instead.</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
+	[Obsolete]
 	public string? IsoCurrencyCode { get; init; } = default!;
 
 	/// <summary>
@@ -26,6 +28,7 @@ public record CreditBankIncomeSummary
 	/// <para>Please use <a href="https://plaid.com/docs/api/products/income/#credit-bank_income-get-response-bank-income-bank-income-summary-total-amounts"><c>total_amounts</c></a> instead.</para>
 	/// </summary>
 	[JsonPropertyName("unofficial_currency_code")]
+	[Obsolete]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
 	/// <summary>

@@ -45,6 +45,7 @@ public record PayPeriodDetails
 	/// <para>The date on which the paystub was issued, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ("yyyy-mm-dd").</para>
 	/// </summary>
 	[JsonPropertyName("pay_day")]
+	[Obsolete]
 	public DateOnly? PayDay { get; init; } = default!;
 
 	/// <summary>

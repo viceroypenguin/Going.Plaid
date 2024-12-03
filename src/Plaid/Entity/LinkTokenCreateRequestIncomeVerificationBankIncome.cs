@@ -15,6 +15,7 @@ public class LinkTokenCreateRequestIncomeVerificationBankIncome
 	/// <para>Whether to enable multiple Items to be added in the Link session. This setting is deprecated and has been replaced by the more general <c>enable_multi_item_link</c> setting, which supports all products.</para>
 	/// </summary>
 	[JsonPropertyName("enable_multiple_items")]
+	[Obsolete]
 	public bool? EnableMultipleItems { get; set; } = default!;
 
 }

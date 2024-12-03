@@ -21,6 +21,7 @@ public record TaxpayerID
 	/// <para>Last 4 digits of unique number of ID.</para>
 	/// </summary>
 	[JsonPropertyName("last_4_digits")]
+	[Obsolete]
 	public string? Last4Digits { get; init; } = default!;
 
 }

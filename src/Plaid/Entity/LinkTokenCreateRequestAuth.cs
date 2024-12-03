@@ -57,6 +57,7 @@ public class LinkTokenCreateRequestAuth
 	/// <para>This field has been deprecated in favor of <c>auth_type_select_enabled</c>.</para>
 	/// </summary>
 	[JsonPropertyName("flow_type")]
+	[Obsolete]
 	public Entity.LinkTokenCreateRequestAuthFlowTypeEnum? FlowType { get; set; } = default!;
 
 	/// <summary>

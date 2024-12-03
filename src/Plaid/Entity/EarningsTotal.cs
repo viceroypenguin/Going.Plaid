@@ -15,12 +15,14 @@ public record EarningsTotal
 	/// <para>An object representing a monetary amount.</para>
 	/// </summary>
 	[JsonPropertyName("current_pay")]
+	[Obsolete]
 	public Entity.Pay? CurrentPay { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An object representing a monetary amount.</para>
 	/// </summary>
 	[JsonPropertyName("ytd_pay")]
+	[Obsolete]
 	public Entity.Pay? YtdPay { get; init; } = default!;
 
 	/// <summary>

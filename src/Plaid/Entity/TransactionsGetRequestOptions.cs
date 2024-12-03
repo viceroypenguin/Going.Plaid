@@ -34,18 +34,21 @@ public class TransactionsGetRequestOptions
 	/// <para>Personal finance categories are now returned by default.</para>
 	/// </summary>
 	[JsonPropertyName("include_personal_finance_category_beta")]
+	[Obsolete]
 	public bool? IncludePersonalFinanceCategoryBeta { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Personal finance categories are now returned by default.</para>
 	/// </summary>
 	[JsonPropertyName("include_personal_finance_category")]
+	[Obsolete]
 	public bool? IncludePersonalFinanceCategory { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Counterparties and extra merchant fields are now returned by default.</para>
 	/// </summary>
 	[JsonPropertyName("include_logo_and_counterparty_beta")]
+	[Obsolete]
 	public bool? IncludeLogoAndCounterpartyBeta { get; set; } = default!;
 
 	/// <summary>

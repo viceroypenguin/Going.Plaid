@@ -9,6 +9,7 @@ public record PrismFirstDetect
 	/// <para>The version of Prism Data's FirstDetect model used. This field is deprecated in favor of <c>model_version</c>.</para>
 	/// </summary>
 	[JsonPropertyName("version")]
+	[Obsolete]
 	public int Version { get; init; } = default!;
 
 	/// <summary>

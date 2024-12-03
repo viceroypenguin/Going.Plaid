@@ -21,12 +21,14 @@ public class AssetReportCreateRequestOptions
 	/// <para>true to return balance and identity earlier as a fast report. Defaults to false if omitted.</para>
 	/// </summary>
 	[JsonPropertyName("include_fast_report")]
+	[Obsolete]
 	public bool? IncludeFastReport { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Additional information that can be included in the asset report. Possible values: <c>"investments"</c></para>
 	/// </summary>
 	[JsonPropertyName("products")]
+	[Obsolete]
 	public IReadOnlyList<string>? Products { get; set; } = default!;
 
 	/// <summary>

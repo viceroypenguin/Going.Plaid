@@ -9,6 +9,7 @@ public record TransferConfigurationGetResponse : ResponseBase
 	/// <para>The max limit of dollar amount of a single transfer (decimal string with two digits of precision e.g. "10.00").</para>
 	/// </summary>
 	[JsonPropertyName("max_single_transfer_amount")]
+	[Obsolete]
 	public string MaxSingleTransferAmount { get; init; } = default!;
 
 	/// <summary>
@@ -39,6 +40,7 @@ public record TransferConfigurationGetResponse : ResponseBase
 	/// <para>The max limit of sum of dollar amount of credit and debit transfers in one calendar month (decimal string with two digits of precision e.g. "10.00").</para>
 	/// </summary>
 	[JsonPropertyName("max_monthly_amount")]
+	[Obsolete]
 	public string MaxMonthlyAmount { get; init; } = default!;
 
 	/// <summary>

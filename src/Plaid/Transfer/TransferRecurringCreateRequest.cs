@@ -22,6 +22,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// <para>Specify the account used to fund the transfer. Customers can find a list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column. If this field is left blank, it will default to the default <c>funding_account_id</c> specified during onboarding.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
+	[Obsolete]
 	public string? FundingAccountId { get; set; } = default!;
 
 	/// <summary>
@@ -58,6 +59,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// <para>The currency of the transfer amount. The default value is "USD".</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
+	[Obsolete]
 	public string? IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>

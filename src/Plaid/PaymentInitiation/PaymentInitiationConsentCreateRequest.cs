@@ -21,6 +21,7 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	/// <para>An array of payment consent scopes.</para>
 	/// </summary>
 	[JsonPropertyName("scopes")]
+	[Obsolete]
 	public IReadOnlyList<Entity.PaymentInitiationConsentScope>? Scopes { get; set; } = default!;
 
 	/// <summary>
@@ -39,6 +40,7 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	/// <para>(Deprecated) Additional payment consent options</para>
 	/// </summary>
 	[JsonPropertyName("options")]
+	[Obsolete]
 	public Entity.ExternalPaymentInitiationConsentOptions? Options { get; set; } = default!;
 
 	/// <summary>

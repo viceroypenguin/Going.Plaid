@@ -9,6 +9,7 @@ public class LinkTokenCreateRequestIncomeVerification
 	/// <para>The <c>income_verification_id</c> of the verification instance, as provided by <c>/income/verification/create</c>. Replaced by the user token.</para>
 	/// </summary>
 	[JsonPropertyName("income_verification_id")]
+	[Obsolete]
 	public string? IncomeVerificationId { get; set; } = default!;
 
 	/// <summary>

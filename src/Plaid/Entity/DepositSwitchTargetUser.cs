@@ -33,6 +33,7 @@ public class DepositSwitchTargetUser
 	/// <para>(Deprecated) The user's address.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
+	[Obsolete]
 	public Entity.DepositSwitchAddressData? Address { get; set; } = default!;
 
 	/// <summary>

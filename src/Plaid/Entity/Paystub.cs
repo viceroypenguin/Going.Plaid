@@ -39,6 +39,7 @@ public record Paystub
 	/// <para>An object representing employment details found on a paystub.</para>
 	/// </summary>
 	[JsonPropertyName("employment_details")]
+	[Obsolete]
 	public Entity.EmploymentDetails? EmploymentDetails { get; init; } = default!;
 
 	/// <summary>
@@ -57,18 +58,21 @@ public record Paystub
 	/// <para>An object representing details that can be found on the paystub.</para>
 	/// </summary>
 	[JsonPropertyName("paystub_details")]
+	[Obsolete]
 	public Entity.PaystubDetails? PaystubDetails { get; init; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("income_breakdown")]
+	[Obsolete]
 	public IReadOnlyList<Entity.IncomeBreakdown>? IncomeBreakdown { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The amount of income earned year to date, as based on paystub data.</para>
 	/// </summary>
 	[JsonPropertyName("ytd_earnings")]
+	[Obsolete]
 	public Entity.PaystubYTDDetails? YtdEarnings { get; init; } = default!;
 
 }

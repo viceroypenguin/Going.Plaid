@@ -27,6 +27,7 @@ public partial class DepositSwitchCreateRequest : RequestBase
 	/// <para>(Deprecated) Options to configure the <c>/deposit_switch/create</c> request. If provided, cannot be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
+	[Obsolete]
 	public Entity.DepositSwitchCreateRequestOptions? Options { get; set; } = default!;
 
 }

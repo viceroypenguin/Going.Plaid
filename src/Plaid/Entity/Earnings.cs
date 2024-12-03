@@ -9,12 +9,14 @@ public record Earnings
 	/// 
 	/// </summary>
 	[JsonPropertyName("subtotals")]
+	[Obsolete]
 	public IReadOnlyList<Entity.EarningsTotal>? Subtotals { get; init; } = default!;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("totals")]
+	[Obsolete]
 	public IReadOnlyList<Entity.EarningsTotal>? Totals { get; init; } = default!;
 
 	/// <summary>

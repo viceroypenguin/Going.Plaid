@@ -15,6 +15,7 @@ public record PartnerEndCustomerSecrets
 	/// <para>The end customer's secret key for the Development environment. The Development environment has been removed.</para>
 	/// </summary>
 	[JsonPropertyName("development")]
+	[Obsolete]
 	public string? Development { get; init; } = default!;
 
 	/// <summary>

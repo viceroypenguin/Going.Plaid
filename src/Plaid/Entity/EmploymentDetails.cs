@@ -9,6 +9,7 @@ public record EmploymentDetails
 	/// <para>An object representing a monetary amount.</para>
 	/// </summary>
 	[JsonPropertyName("annual_salary")]
+	[Obsolete]
 	public Entity.Pay? AnnualSalary { get; init; } = default!;
 
 	/// <summary>

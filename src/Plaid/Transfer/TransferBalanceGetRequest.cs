@@ -9,6 +9,7 @@ public partial class TransferBalanceGetRequest : RequestBase
 	/// <para>Client ID of the end customer.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
+	[Obsolete]
 	public string? OriginatorClientId { get; set; } = default!;
 
 	/// <summary>

@@ -11,6 +11,7 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create a transfer fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single transfer is created.</para>
 	/// </summary>
 	[JsonPropertyName("idempotency_key")]
+	[Obsolete]
 	public string? IdempotencyKey { get; set; } = default!;
 
 	/// <summary>
@@ -29,6 +30,7 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para>The type of transfer. This will be either <c>debit</c> or <c>credit</c>.  A <c>debit</c> indicates a transfer of money into the origination account; a <c>credit</c> indicates a transfer of money out of the origination account.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
+	[Obsolete]
 	public Entity.TransferType? Type { get; set; } = default!;
 
 	/// <summary>
@@ -39,6 +41,7 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para>Wire transfers are currently in early availability. To request access to <c>wire</c> as a payment network, contact your Account Manager. For transfers submitted as <c>wire</c>, the <c>type</c> must be <c>credit</c>; wire debits are not supported.</para>
 	/// </summary>
 	[JsonPropertyName("network")]
+	[Obsolete]
 	public Entity.TransferNetwork? Network { get; set; } = default!;
 
 	/// <summary>
@@ -63,12 +66,14 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para><c>"web"</c> - Internet-Initiated Entry - debits from a consumer’s account where their authorization is obtained over the Internet</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
+	[Obsolete]
 	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The legal name and other information for the account holder.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
+	[Obsolete]
 	public Entity.TransferUserInRequestDeprecated? User { get; set; } = default!;
 
 	/// <summary>
@@ -86,12 +91,14 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para>Plaid’s unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified. Otherwise, this field should be left blank.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
+	[Obsolete]
 	public string? OriginationAccountId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The currency of the transfer amount. The default value is "USD".</para>
 	/// </summary>
 	[JsonPropertyName("iso_currency_code")]
+	[Obsolete]
 	public string? IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>

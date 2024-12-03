@@ -63,6 +63,7 @@ public partial class TransferEventListRequest : RequestBase
 	/// <para>The origination account ID to get events for transfers from a specific origination account.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
+	[Obsolete]
 	public string? OriginationAccountId { get; set; } = default!;
 
 	/// <summary>

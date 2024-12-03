@@ -9,6 +9,7 @@ public class TransactionsRecurringGetRequestOptions
 	/// <para>Personal finance categories are now returned by default.</para>
 	/// </summary>
 	[JsonPropertyName("include_personal_finance_category")]
+	[Obsolete]
 	public bool? IncludePersonalFinanceCategory { get; set; } = default!;
 
 }

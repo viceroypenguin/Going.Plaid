@@ -35,6 +35,7 @@ public class LinkTokenCreateRequestUser
 	/// <para> Example: <c>2020-01-01T00:00:00Z</c></para>
 	/// </summary>
 	[JsonPropertyName("phone_number_verified_time")]
+	[Obsolete]
 	public DateTimeOffset? PhoneNumberVerifiedTime { get; set; } = default!;
 
 	/// <summary>
@@ -49,12 +50,14 @@ public class LinkTokenCreateRequestUser
 	/// <para> Example: <c>2020-01-01T00:00:00Z</c></para>
 	/// </summary>
 	[JsonPropertyName("email_address_verified_time")]
+	[Obsolete]
 	public DateTimeOffset? EmailAddressVerifiedTime { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Deprecated and not currently used, use the <c>id_number</c> field instead.</para>
 	/// </summary>
 	[JsonPropertyName("ssn")]
+	[Obsolete]
 	public string? Ssn { get; set; } = default!;
 
 	/// <summary>

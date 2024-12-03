@@ -9,6 +9,7 @@ public partial class IncomeVerificationPaystubsGetRequest : RequestBase
 	/// <para>The ID of the verification for which to get paystub information.</para>
 	/// </summary>
 	[JsonPropertyName("income_verification_id")]
+	[Obsolete]
 	public string? IncomeVerificationId { get; set; } = default!;
 
 }

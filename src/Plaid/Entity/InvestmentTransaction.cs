@@ -15,6 +15,7 @@ public record InvestmentTransaction
 	/// <para>A legacy field formerly used internally by Plaid to identify certain canceled transactions.</para>
 	/// </summary>
 	[JsonPropertyName("cancel_transaction_id")]
+	[Obsolete]
 	public string? CancelTransactionId { get; init; } = default!;
 
 	/// <summary>

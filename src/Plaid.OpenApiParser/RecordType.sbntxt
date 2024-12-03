@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.{{ base_path }};
+namespace Going.Plaid.{{ base_path }};
 
 /// <summary>
 {{ description }}
@@ -30,6 +30,9 @@ public record {{ name }}{{ if !string.empty base }} : {{ base }}Base{{ end }}
 	{{ p.description }}
 	/// </summary>
 	[JsonPropertyName("{{ p.json_name }}")]
+	{{~ if p.is_deprecated ~}}
+	[Obsolete]
+	{{~ end ~}}
 	public {{ p.type }} {{ p.name }} { get; init; } = default!;
 
 	{{~ end ~}}

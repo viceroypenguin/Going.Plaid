@@ -63,6 +63,7 @@ public record TransferAuthorizationProposedTransfer
 	/// <para>Plaid's unique identifier for the origination account that was used for this transfer.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
+	[Obsolete]
 	public string OriginationAccountId { get; init; } = default!;
 
 	/// <summary>
@@ -85,6 +86,7 @@ public record TransferAuthorizationProposedTransfer
 	/// <para><c>prefunded_ach_credits</c> - Use your prefunded ACH credit balance with Plaid</para>
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
+	[Obsolete]
 	public Entity.TransferCreditFundsSource? CreditFundsSource { get; init; } = default!;
 
 }

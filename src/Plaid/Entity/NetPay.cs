@@ -40,6 +40,7 @@ public record NetPay
 	/// <para>An object representing both the current pay period and year to date amount for a category.</para>
 	/// </summary>
 	[JsonPropertyName("total")]
+	[Obsolete]
 	public Entity.Total? Total { get; init; } = default!;
 
 }

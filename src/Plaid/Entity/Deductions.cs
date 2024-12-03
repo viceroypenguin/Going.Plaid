@@ -9,6 +9,7 @@ public record Deductions
 	/// 
 	/// </summary>
 	[JsonPropertyName("subtotals")]
+	[Obsolete]
 	public IReadOnlyList<Entity.Total>? Subtotals { get; init; } = default!;
 
 	/// <summary>
@@ -21,6 +22,7 @@ public record Deductions
 	/// 
 	/// </summary>
 	[JsonPropertyName("totals")]
+	[Obsolete]
 	public IReadOnlyList<Entity.Total>? Totals { get; init; } = default!;
 
 	/// <summary>

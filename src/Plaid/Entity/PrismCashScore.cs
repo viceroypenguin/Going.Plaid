@@ -9,6 +9,7 @@ public record PrismCashScore
 	/// <para>The version of Prism Data's cash score model used. This field is deprecated in favor of <c>model_version</c>.</para>
 	/// </summary>
 	[JsonPropertyName("version")]
+	[Obsolete]
 	public int Version { get; init; } = default!;
 
 	/// <summary>

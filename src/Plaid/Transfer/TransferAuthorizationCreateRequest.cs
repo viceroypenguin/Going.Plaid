@@ -75,6 +75,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <para>Plaid's unique identifier for the origination account for this authorization. If not specified, the default account will be used.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
+	[Obsolete]
 	public string? OriginationAccountId { get; set; } = default!;
 
 	/// <summary>
@@ -124,6 +125,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <para><c>prefunded_ach_credits</c> - Use your prefunded ACH credit balance with Plaid</para>
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
+	[Obsolete]
 	public Entity.TransferCreditFundsSource? CreditFundsSource { get; set; } = default!;
 
 	/// <summary>

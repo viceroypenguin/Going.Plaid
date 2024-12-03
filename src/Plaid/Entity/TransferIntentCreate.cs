@@ -33,6 +33,7 @@ public record TransferIntentCreate
 	/// <para>Plaid’s unique identifier for the origination account for the intent. If not provided, the default account will be used.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
+	[Obsolete]
 	public string OriginationAccountId { get; init; } = default!;
 
 	/// <summary>
