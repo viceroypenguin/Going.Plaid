@@ -85,6 +85,6 @@ public record TransferAuthorizationProposedTransfer
 	/// <para><c>prefunded_ach_credits</c> - Use your prefunded ACH credit balance with Plaid</para>
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
-	public Entity.TransferCreditFundsSource CreditFundsSource { get; init; } = default!;
+	public Entity.TransferCreditFundsSource? CreditFundsSource { get; init; } = default!;
 
 }

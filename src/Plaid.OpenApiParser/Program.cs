@@ -213,8 +213,13 @@ internal static partial class Program
 					}
 
 					var typeName = GetPropertyType(name, propertyName, p.Value, type);
-					if (p.Value.Nullable || !schema.Required.Contains(p.Key))
+					if (p.Value.Nullable
+						|| p.Value is { AllOf: [{ Nullable: true }] }
+						|| !schema.Required.Contains(p.Key))
+					{
 						typeName += "?";
+					}
+
 					return new Property(p.Key, typeName, propertyName, GetPropertyDescription(p.Value));
 				})
 				.ToList();

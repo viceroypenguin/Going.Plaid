@@ -192,7 +192,7 @@ public record Transfer
 	/// <para><c>prefunded_ach_credits</c> - Use your prefunded ACH credit balance with Plaid</para>
 	/// </summary>
 	[JsonPropertyName("credit_funds_source")]
-	public Entity.TransferCreditFundsSource CreditFundsSource { get; init; } = default!;
+	public Entity.TransferCreditFundsSource? CreditFundsSource { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform’s Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer’s Ledger balance. This must be less than or equal to the <c>transfer.amount</c>.</para>
