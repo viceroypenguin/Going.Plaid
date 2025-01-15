@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
 
-		<TargetFrameworks>net8.0</TargetFrameworks>
+		<TargetFrameworks>net9.0</TargetFrameworks>
 		<RootNamespace>Going.Plaid.Tests</RootNamespace>
 	</PropertyGroup>
 
