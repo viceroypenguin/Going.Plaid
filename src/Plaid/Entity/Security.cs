@@ -142,4 +142,10 @@ public record Security
 	[JsonPropertyName("option_contract")]
 	public Entity.OptionContract? OptionContract { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Details about the fixed income security.</para>
+	/// </summary>
+	[JsonPropertyName("fixed_income")]
+	public Entity.FixedIncome? FixedIncome { get; init; } = default!;
+
 }

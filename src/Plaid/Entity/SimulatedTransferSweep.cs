@@ -76,4 +76,10 @@ public record SimulatedTransferSweep
 	[JsonPropertyName("network_trace_id")]
 	public string? NetworkTraceId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The failure reason if the status for a sweep is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
+	/// </summary>
+	[JsonPropertyName("failure_reason")]
+	public Entity.SweepFailure? FailureReason { get; init; } = default!;
+
 }

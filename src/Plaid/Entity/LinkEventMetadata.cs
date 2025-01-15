@@ -78,7 +78,7 @@ public record LinkEventMetadata
 	public string? BrandName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The reason this institution was matched, which will be either <c>returning_user</c> or <c>routing_number</c>. Emitted by: <c>MATCHED_SELECT_INSTITUTION</c>.</para>
+	/// <para>The reason this institution was matched. This will be either <c>returning_user</c> or <c>routing_number</c> if emitted by <c>MATCHED_SELECT_INSTITUTION</c>. Otherwise, this will be <c>SAVED_INSTITUTION</c> or <c>AUTO_SELECT_SAVED_INSTITUTION</c> if emitted by <c>SELECT_INSTITUTION</c>.</para>
 	/// </summary>
 	[JsonPropertyName("match_reason")]
 	public string? MatchReason { get; init; } = default!;

@@ -6,9 +6,9 @@ namespace Going.Plaid.Profile;
 public partial class ProfileNetworkStatusGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>An object specifying information about the end user for the network status check</para>
+	/// <para>An object specifying information about the end user for the network status check.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
-	public Entity.ProfileNetworkStatusGetUser User { get; set; } = default!;
+	public Entity.NetworkStatusGetUser User { get; set; } = default!;
 
 }

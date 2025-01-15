@@ -53,10 +53,4 @@ public record LinkTokenGetMetadataResponse
 	[JsonPropertyName("client_name")]
 	public string? ClientName { get; init; } = default!;
 
-	/// <summary>
-	/// <para>The user token associated with the User data is being requested for.</para>
-	/// </summary>
-	[JsonPropertyName("user_token")]
-	public string? UserToken { get; init; } = default!;
-
 }

@@ -128,6 +128,12 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "transactions_refresh")]
+	TransactionsRefresh,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "signal")]
 	Signal,
 

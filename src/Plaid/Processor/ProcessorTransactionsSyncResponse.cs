@@ -6,7 +6,7 @@ namespace Going.Plaid.Processor;
 public record ProcessorTransactionsSyncResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A description of the update status for transaction pulls of an Item.</para>
+	/// <para>A description of the update status for transaction pulls of an Item. This field contains the same information provided by transactions webhooks, and may be helpful for webhook troubleshooting or when recovering from missed webhooks.</para>
 	/// </summary>
 	[JsonPropertyName("transactions_update_status")]
 	public Entity.TransactionsUpdateStatus TransactionsUpdateStatus { get; init; } = default!;

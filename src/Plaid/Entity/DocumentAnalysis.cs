@@ -23,4 +23,16 @@ public record DocumentAnalysis
 	[JsonPropertyName("extracted_data")]
 	public Entity.PhysicalDocumentExtractedDataAnalysis? ExtractedData { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Details about the fraud analysis performed on the document.</para>
+	/// </summary>
+	[JsonPropertyName("fraud_analysis_details")]
+	public Entity.FraudAnalysisDetails? FraudAnalysisDetails { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Details about the image quality of the document.</para>
+	/// </summary>
+	[JsonPropertyName("image_quality_details")]
+	public Entity.ImageQualityDetails? ImageQualityDetails { get; init; } = default!;
+
 }

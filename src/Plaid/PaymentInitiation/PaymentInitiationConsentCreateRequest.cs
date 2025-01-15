@@ -37,7 +37,7 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	public Entity.PaymentInitiationConsentConstraints Constraints { get; set; } = default!;
 
 	/// <summary>
-	/// <para>(Deprecated) Additional payment consent options</para>
+	/// <para>(Deprecated) Additional payment consent options. Please use <c>payer_details</c> to specify the account.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
 	[Obsolete]

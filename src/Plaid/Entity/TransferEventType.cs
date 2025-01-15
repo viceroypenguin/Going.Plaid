@@ -30,7 +30,7 @@ public enum TransferEventType
 	Posted,
 
 	/// <summary>
-	/// <para>Credits are available to be withdrawn or debits have been deducted from the Plaid linked account.</para>
+	/// <para>The transfer has been successfully completed by the payment network.</para>
 	/// </summary>
 	[EnumMember(Value = "settled")]
 	Settled,

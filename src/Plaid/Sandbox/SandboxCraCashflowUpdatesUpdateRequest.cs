@@ -1,9 +1,9 @@
-namespace Going.Plaid.Cra;
+namespace Going.Plaid.Sandbox;
 
 /// <summary>
-/// <para>CraBaseReportGetRequest defines the request schema for <c>/cra/base_report/get</c></para>
+/// <para>SandboxCraCashflowUpdatesUpdateRequest defines the request schema for <c>/sandbox/cashflow_updates/update</c></para>
 /// </summary>
-public partial class CraBaseReportGetRequest : RequestBase
+public partial class SandboxCraCashflowUpdatesUpdateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The user token associated with the User data is being requested for.</para>

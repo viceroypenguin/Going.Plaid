@@ -6,9 +6,10 @@ namespace Going.Plaid.Entity;
 public record ConsumerDispute
 {
 	/// <summary>
-	/// <para>A unique identifier (UUID) of the consumer dispute that can be used for troubleshooting</para>
+	/// <para>(Deprecated) A unique identifier (UUID) of the consumer dispute that can be used for troubleshooting</para>
 	/// </summary>
 	[JsonPropertyName("consumer_dispute_id")]
+	[Obsolete]
 	public string ConsumerDisputeId { get; init; } = default!;
 
 	/// <summary>

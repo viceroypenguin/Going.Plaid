@@ -12,6 +12,24 @@ public record BaseReportAttributes
 	public int? NsfOverdraftTransactionsCount { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The number of NSF and overdraft fee transactions in the last 30 days for a given account.</para>
+	/// </summary>
+	[JsonPropertyName("nsf_overdraft_transactions_count_30d")]
+	public int? NsfOverdraftTransactionsCount30d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of NSF and overdraft fee transactions in the last 60 days for a given account.</para>
+	/// </summary>
+	[JsonPropertyName("nsf_overdraft_transactions_count_60d")]
+	public int? NsfOverdraftTransactionsCount60d { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of NSF and overdraft fee transactions in the last 90 days for a given account.</para>
+	/// </summary>
+	[JsonPropertyName("nsf_overdraft_transactions_count_90d")]
+	public int? NsfOverdraftTransactionsCount90d { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Prediction indicator of whether the account is a primary account. Only one account per account type across the items connected will have a value of true.</para>
 	/// </summary>
 	[JsonPropertyName("is_primary_account")]

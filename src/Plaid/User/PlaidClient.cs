@@ -4,7 +4,7 @@ public sealed partial class PlaidClient
 {
 	/// <summary>
 	/// <para>This endpoint should be called for each of your end users before they begin a Plaid Check or Income flow, or a Multi-Item Link flow. This provides you a single token to access all data associated with the user. You should only create one per end user.</para>
-	/// <para>The <c>consumer_report_user_identity</c> object must be present in order to create a Plaid Check Consumer Report for a user. If it is not provided during the <c>/user/create</c> call, it can be added later by calling <c>/user/update</c>.</para>
+	/// <para>The <c>consumer_report_user_identity</c> object must be present in order to create a Plaid Check Consumer Report for a user. If it is not provided during the <c>/user/create</c> call, it can be added later by calling <c>/user/update</c>. Plaid Check Consumer Reports can only be created for US-based users; the user's address country must be <c>US</c>.</para>
 	/// <para>If you call the endpoint multiple times with the same <c>client_user_id</c>, the first creation call will succeed and the rest will fail with an error message indicating that the user has been created for the given <c>client_user_id</c>.</para>
 	/// <para>Ensure that you store the <c>user_token</c> along with your user's identifier in your database, as it is not possible to retrieve a previously created <c>user_token</c>.</para>
 	/// </summary>
@@ -14,7 +14,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserCreateResponse>();
 
 	/// <summary>
-	/// <para>This endpoint is used to update user information associated with an existing <c>user_token</c>. It can also be used to enable an existing <c>user_token</c> for use with Consumer Reports by Plaid Check, by adding a <c>consumer_report_user_identity</c> object to the user.</para>
+	/// <para>This endpoint is used to update user information associated with an existing <c>user_token</c>. It can also be used to enable an existing <c>user_token</c> for use with Consumer Reports by Plaid Check, by adding a <c>consumer_report_user_identity</c> object to the user. Plaid Check Consumer Reports can only be created for US-based users; the user's address country must be <c>US</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userupdate" /></remarks>
 	public Task<User.UserUpdateResponse> UserUpdateAsync(User.UserUpdateRequest request) =>

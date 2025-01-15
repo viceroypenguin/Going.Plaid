@@ -194,6 +194,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "CONSENT_STATUS_UPDATE")]
+	ConsentStatusUpdate,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "WALLET_TRANSACTION_STATUS_UPDATE")]
 	WalletTransactionStatusUpdate,
 
@@ -208,6 +214,12 @@ public enum WebhookCode
 	/// </summary>
 	[EnumMember(Value = "SWITCH_STATE_UPDATE")]
 	SwitchStateUpdate,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "PLATFORM_ONBOARDING_UPDATE")]
+	PlatformOnboardingUpdate,
 
 	/// <summary>
 	/// 
@@ -274,6 +286,12 @@ public enum WebhookCode
 	/// </summary>
 	[EnumMember(Value = "CHECK_REPORT_FAILED")]
 	CheckReportFailed,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "UPGRADE_FAILED")]
+	UpgradeFailed,
 
 	/// <summary>
 	/// 

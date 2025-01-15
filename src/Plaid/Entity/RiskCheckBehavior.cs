@@ -23,4 +23,10 @@ public record RiskCheckBehavior
 	[JsonPropertyName("bot_detected")]
 	public Entity.RiskCheckBehaviorBotDetectedLabel BotDetected { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Risk level for the given risk check type, when available.</para>
+	/// </summary>
+	[JsonPropertyName("risk_level")]
+	public Entity.RiskLevelWithNoData? RiskLevel { get; init; } = default!;
+
 }

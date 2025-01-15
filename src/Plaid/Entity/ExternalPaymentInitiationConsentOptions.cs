@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>(Deprecated) Additional payment consent options</para>
+/// <para>(Deprecated) Additional payment consent options. Please use <c>payer_details</c> to specify the account.</para>
 /// </summary>
 public class ExternalPaymentInitiationConsentOptions
 {

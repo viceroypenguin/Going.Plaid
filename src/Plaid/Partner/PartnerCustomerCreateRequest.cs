@@ -48,7 +48,7 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public string Website { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The name of the end customer's application. This will be shown to end users when they go through the Plaid Link flow.</para>
+	/// <para>The name of the end customer's application. This will be shown to end users when they go through the Plaid Link flow. The application name must be unique and cannot match the name of another application already registered with Plaid.</para>
 	/// </summary>
 	[JsonPropertyName("application_name")]
 	public string ApplicationName { get; set; } = default!;

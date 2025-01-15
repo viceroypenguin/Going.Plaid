@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A description of the update status for transaction pulls of an Item.</para>
+/// <para>A description of the update status for transaction pulls of an Item. This field contains the same information provided by transactions webhooks, and may be helpful for webhook troubleshooting or when recovering from missed webhooks.</para>
 /// </summary>
 public enum TransactionsUpdateStatus
 {

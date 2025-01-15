@@ -3,23 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>This endpoint allows the customer to retrieve a Base Report. Customers should pass in the <c>user_token</c> created in <c>/user/create</c>.</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
-	public Task<Cra.CraBaseReportGetResponse> CraBaseReportGetAsync(Cra.CraBaseReportGetRequest request) =>
-		PostAsync("/cra/base_report/get", request)
-			.ParseResponseAsync<Cra.CraBaseReportGetResponse>();
-
-	/// <summary>
-	/// <para>This endpoint allows the customer to create a Base Report by passing in a user token. The Base Report will be generated based on the most recently linked item from the user token.</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
-	public Task<Cra.CraBaseReportCreateResponse> CraBaseReportCreateAsync(Cra.CraBaseReportCreateRequest request) =>
-		PostAsync("/cra/base_report/create", request)
-			.ParseResponseAsync<Cra.CraBaseReportCreateResponse>();
-
-	/// <summary>
-	/// <para>This endpoint allows you to subscribe to insights for a user's linked CRA items, which are updated every 14 days.</para>
+	/// <para>This endpoint allows you to subscribe to insights for a user's linked CRA items, which are updated every day (best-effort).</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/check/api/#cramonitoring_insightssubscribe" /></remarks>
 	public Task<Cra.CraMonitoringInsightsSubscribeResponse> CraMonitoringInsightsSubscribeAsync(Cra.CraMonitoringInsightsSubscribeRequest request) =>

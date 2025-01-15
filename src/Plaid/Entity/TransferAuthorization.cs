@@ -45,6 +45,7 @@ public record TransferAuthorization
 	/// <para>This object includes the scores and risk level. This response is offered as an add-on to /transfer/authorization/create. To request access to these fields please contact your Plaid account manager.</para>
 	/// </summary>
 	[JsonPropertyName("payment_risk")]
+	[Obsolete]
 	public Entity.TransferAuthorizationPaymentRisk? PaymentRisk { get; init; } = default!;
 
 	/// <summary>

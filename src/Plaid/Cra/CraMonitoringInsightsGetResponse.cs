@@ -6,6 +6,12 @@ namespace Going.Plaid.Cra;
 public record CraMonitoringInsightsGetResponse : ResponseBase
 {
 	/// <summary>
+	/// <para>A unique ID identifying a User Monitoring Insights Report. Like all Plaid identifiers, this ID is case sensitive.</para>
+	/// </summary>
+	[JsonPropertyName("user_insights_id")]
+	public string UserInsightsId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>An array of Monitoring Insights Items associated with the user.</para>
 	/// </summary>
 	[JsonPropertyName("items")]

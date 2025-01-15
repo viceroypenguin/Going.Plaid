@@ -6,13 +6,13 @@ namespace Going.Plaid.Transactions;
 public record TransactionsSyncResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A description of the update status for transaction pulls of an Item.</para>
+	/// <para>A description of the update status for transaction pulls of an Item. This field contains the same information provided by transactions webhooks, and may be helpful for webhook troubleshooting or when recovering from missed webhooks.</para>
 	/// </summary>
 	[JsonPropertyName("transactions_update_status")]
 	public Entity.TransactionsUpdateStatus TransactionsUpdateStatus { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An array of accounts at a financial institution associated with the transactions in this response.</para>
+	/// <para>An array of accounts at a financial institution associated with the transactions in this response. Only accounts that have associated transactions will be shown. For example, <c>investment</c>-type accounts will be omitted.</para>
 	/// </summary>
 	[JsonPropertyName("accounts")]
 	public IReadOnlyList<Entity.Account> Accounts { get; init; } = default!;
@@ -37,6 +37,7 @@ public record TransactionsSyncResponse : ResponseBase
 
 	/// <summary>
 	/// <para>Cursor used for fetching any future updates after the latest update provided in this response. The cursor obtained after all pages have been pulled (indicated by <c>has_more</c> being <c>false</c>) will be valid for at least 1 year. This cursor should be persisted for later calls. If transactions are not yet available, this will be an empty string.</para>
+	/// <para>If <c>account_id</c> is included in the request, the returned cursor will reflect updates for that specific account.</para>
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
 	public string NextCursor { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The legal name and other information for the account holder. The <c>user.legal_name</c> field is required. Other fields are not currently used and are present to support planned future functionality.</para>
+/// <para>The legal name and other information for the account holder.  If the account has multiple account holders, provide the information for the account holder on whose behalf the authorization is being requested. The <c>user.legal_name</c> field is required. Other fields are not currently used and are present to support planned future functionality.</para>
 /// </summary>
 public class TransferAuthorizationUserInRequest
 {

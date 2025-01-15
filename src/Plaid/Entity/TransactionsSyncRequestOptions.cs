@@ -34,4 +34,12 @@ public class TransactionsSyncRequestOptions
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;
 
+	/// <summary>
+	/// <para>If provided, the returned updates and cursor will only reflect the specified account's transactions. Omitting <c>account_id</c> returns updates for all accounts under the Item. Note that specifying an <c>account_id</c> effectively creates a separate incremental update stream—and therefore a separate cursor—for that account. If multiple accounts are queried this way, you will maintain multiple cursors, one per <c>account_id</c>. </para>
+	/// <para>If you decide to begin filtering by <c>account_id</c> after using no <c>account_id</c>, start fresh with a null cursor and maintain separate <c>(account_id, cursor)</c> pairs going forward. Do not reuse any previously saved cursors, as this can cause pagination errors or incomplete data.</para>
+	/// <para>Note: An error will be returned if a provided <c>account_id</c> is not associated with the Item.</para>
+	/// </summary>
+	[JsonPropertyName("account_id")]
+	public string? AccountId { get; set; } = default!;
+
 }

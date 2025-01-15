@@ -19,13 +19,19 @@ public record NumbersAch
 	public string Account { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Indicates whether the account number is tokenized by the institution. For important details on how tokenized account numbers may impact your integration, see <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">Tokenized account numbers</a>.</para>
+	/// </summary>
+	[JsonPropertyName("is_tokenized_account_number")]
+	public bool? IsTokenizedAccountNumber { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The ACH routing number for the account. This may be a tokenized routing number. For more information, see <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">Tokenized account numbers</a>.</para>
 	/// </summary>
 	[JsonPropertyName("routing")]
 	public string Routing { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The wire transfer routing number for the account, if available</para>
+	/// <para>The wire transfer routing number for the account. This field is only populated if the institution is known to use a separate wire transfer routing number. Many institutions do not have a separate wire routing number and use the ACH routing number for wires instead. It is recommended to have the end user manually confirm their wire routing number before sending any wires to their account, especially if this field is <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("wire_routing")]
 	public string? WireRouting { get; init; } = default!;

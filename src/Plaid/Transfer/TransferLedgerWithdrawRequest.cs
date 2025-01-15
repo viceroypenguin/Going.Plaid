@@ -12,7 +12,7 @@ public partial class TransferLedgerWithdrawRequest : RequestBase
 	public string? OriginatorClientId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify which funding account linked to this Plaid Ledger to use. Customers can find a list of <c>funding_account_id</c>s in the Accounts page of your Plaid Dashboard, under the "Account ID" column. If this field is left blank, this will default to the default <c>funding_account_id</c> specified during onboarding. If an <c>originator_client_id</c> is specified, the <c>funding_account_id</c> must belong to the specified originator, and if <c>funding_account_id</c> is left blank, the originator's default <c>funding_account_id</c> will be used.</para>
+	/// <para>Specify which funding account to use. Customers can find a list of <c>funding_account_id</c>s in the Accounts page of the Plaid Dashboard, under the "Account ID" column. If this field is left blank, the funding account associated with the specified Ledger will be used. If an <c>originator_client_id</c> is specified, the <c>funding_account_id</c> must belong to the specified originator.</para>
 	/// </summary>
 	[JsonPropertyName("funding_account_id")]
 	public string? FundingAccountId { get; set; } = default!;

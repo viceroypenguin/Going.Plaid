@@ -23,4 +23,10 @@ public class LinkTokenInvestmentsAuth
 	[JsonPropertyName("stated_account_number_enabled")]
 	public bool? StatedAccountNumberEnabled { get; set; } = default!;
 
+	/// <summary>
+	/// <para>If <c>true</c>, the fee and contribution details for 401k accounts will be returned.</para>
+	/// </summary>
+	[JsonPropertyName("rollover_401k_enabled")]
+	public bool? Rollover401kEnabled { get; set; } = default!;
+
 }

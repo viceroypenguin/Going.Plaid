@@ -13,4 +13,10 @@ public record RiskCheckStolenIdentity
 	[JsonPropertyName("score")]
 	public int Score { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Risk level for the given risk check type.</para>
+	/// </summary>
+	[JsonPropertyName("risk_level")]
+	public Entity.RiskLevel? RiskLevel { get; init; } = default!;
+
 }

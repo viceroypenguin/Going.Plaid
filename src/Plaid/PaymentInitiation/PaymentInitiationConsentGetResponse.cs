@@ -54,4 +54,10 @@ public record PaymentInitiationConsentGetResponse : ResponseBase
 	[JsonPropertyName("type")]
 	public Entity.PaymentInitiationConsentType? Type { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Details about external payment refund</para>
+	/// </summary>
+	[JsonPropertyName("payer_details")]
+	public Entity.ExternalPaymentRefundDetails? PayerDetails { get; init; } = default!;
+
 }

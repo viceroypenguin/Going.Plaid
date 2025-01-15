@@ -15,7 +15,7 @@ public record MortgageLiability
 	/// <para>The account number of the loan.</para>
 	/// </summary>
 	[JsonPropertyName("account_number")]
-	public string AccountNumber { get; init; } = default!;
+	public string? AccountNumber { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The current outstanding amount charged for late payment.</para>

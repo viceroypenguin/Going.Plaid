@@ -41,4 +41,10 @@ public record RiskCheckDetails
 	[JsonPropertyName("identity_abuse_signals")]
 	public Entity.RiskCheckIdentityAbuseSignals? IdentityAbuseSignals { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Result summary object specifying values for network attributes of risk check.</para>
+	/// </summary>
+	[JsonPropertyName("network")]
+	public Entity.RiskCheckNetwork? Network { get; init; } = default!;
+
 }

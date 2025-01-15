@@ -35,4 +35,10 @@ public record LinkSessionResults
 	[JsonPropertyName("document_income_results")]
 	public Entity.CreditSessionDocumentIncomeResult? DocumentIncomeResults { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The details of a document upload CRA session in link</para>
+	/// </summary>
+	[JsonPropertyName("cra_document_upload_results")]
+	public Entity.LinkSessionCraDocumentUploadResult? CraDocumentUploadResults { get; init; } = default!;
+
 }

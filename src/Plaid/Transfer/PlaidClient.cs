@@ -297,7 +297,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Use the <c>/transfer/refund/create</c> endpoint to create a refund for a transfer. A transfer can be refunded if the transfer was initiated in the past 180 days.</para>
-	/// <para>Processing of the refund will not occur until at least 4 business days following the transfer's settlement date, plus any hold/settlement delays. This 3-day window helps better protect your business from regular ACH returns. Consumer initiated returns (unauthorized returns) could still happen for about 60 days from the settlement date. If the original transfer is canceled, returned or failed, all pending refunds will automatically be canceled. Processed refunds cannot be revoked.</para>
+	/// <para>Refunds come out of the available balance of the ledger used for the original debit transfer. If there are not enough funds in the available balance to cover the refund amount, the refund will be rejected. You can create a refund at any time. Plaid does not impose any hold time on refunds.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/refunds/#transferrefundcreate" /></remarks>
 	public Task<Transfer.TransferRefundCreateResponse> TransferRefundCreateAsync(Transfer.TransferRefundCreateRequest request) =>

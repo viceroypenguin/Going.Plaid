@@ -6,9 +6,9 @@ namespace Going.Plaid.Profile;
 public record ProfileNetworkStatusGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Enum representing the overall network status of the user</para>
+	/// <para>Enum representing the overall network status of the user.</para>
 	/// </summary>
 	[JsonPropertyName("network_status")]
-	public Entity.ProfileNetworkStatusGetNetworkStatus NetworkStatus { get; init; } = default!;
+	public Entity.NetworkStatusGetResponseNetworkStatus NetworkStatus { get; init; } = default!;
 
 }

@@ -8,6 +8,12 @@ public enum PrismCashScoreVersion
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "3_lite")]
+	_3Lite,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "3")]
 	_3,
 

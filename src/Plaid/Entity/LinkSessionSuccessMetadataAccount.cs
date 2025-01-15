@@ -51,9 +51,10 @@ public record LinkSessionSuccessMetadataAccount
 	public string? VerificationStatus { get; init; } = default!;
 
 	/// <summary>
-	/// <para>If micro-deposit verification is being used, indicates whether the account being verified is a <c>business</c> or <c>personal</c> account.</para>
+	/// <para>If micro-deposit verification was being used, indicates the user's selection when asked if the account being verified is a <c>business</c> or <c>personal</c> account. This field is deprecated as Plaid no longer collects this information during the micro-deposit flow. To see whether an account is business or personal, use the <c>holder_category</c> field instead.</para>
 	/// </summary>
 	[JsonPropertyName("class_type")]
+	[Obsolete]
 	public string? ClassType { get; init; } = default!;
 
 }

@@ -18,7 +18,7 @@ public enum TransferStatus
 	Posted,
 
 	/// <summary>
-	/// <para>Credits are available to be withdrawn or debits have been deducted from the Plaid linked account.</para>
+	/// <para>The transfer was successfully completed by the payment network. Note that funds from received debits are not available to be moved out of the Ledger until the transfer reaches <c>funds_available</c> status. For credit transactions, <c>settled</c> means the funds have been delivered to the receiving bank account.</para>
 	/// </summary>
 	[EnumMember(Value = "settled")]
 	Settled,

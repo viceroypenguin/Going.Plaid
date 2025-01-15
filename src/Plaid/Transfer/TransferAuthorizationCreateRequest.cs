@@ -60,7 +60,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public Entity.TransferWireDetails? WireDetails { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The legal name and other information for the account holder. The <c>user.legal_name</c> field is required. Other fields are not currently used and are present to support planned future functionality.</para>
+	/// <para>The legal name and other information for the account holder.  If the account has multiple account holders, provide the information for the account holder on whose behalf the authorization is being requested. The <c>user.legal_name</c> field is required. Other fields are not currently used and are present to support planned future functionality.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.TransferAuthorizationUserInRequest User { get; set; } = default!;
@@ -133,5 +133,11 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The key of the Ruleset for the transaction. This feature is currently in closed beta; to request access, contact your account manager.</para>
+	/// </summary>
+	[JsonPropertyName("ruleset_key")]
+	public string? RulesetKey { get; set; } = default!;
 
 }

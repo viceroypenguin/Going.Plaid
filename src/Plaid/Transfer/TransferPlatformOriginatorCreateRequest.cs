@@ -23,4 +23,10 @@ public partial class TransferPlatformOriginatorCreateRequest : RequestBase
 	[JsonPropertyName("originator_reviewed_at")]
 	public DateTimeOffset OriginatorReviewedAt { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The webhook URL to which a <c>PLATFORM_ONBOARDING_UPDATE</c> webhook should be sent.</para>
+	/// </summary>
+	[JsonPropertyName("webhook")]
+	public string? Webhook { get; set; } = default!;
+
 }

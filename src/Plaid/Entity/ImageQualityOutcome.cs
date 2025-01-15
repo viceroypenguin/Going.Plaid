@@ -1,21 +1,21 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Enum representing the overall network status of the user</para>
+/// <para>The outcome of the image quality check.</para>
 /// </summary>
-public enum ProfileNetworkStatusGetNetworkStatus
+public enum ImageQualityOutcome
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "UNKNOWN")]
-	Unknown,
+	[EnumMember(Value = "success")]
+	Success,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "RETURNING_USER")]
-	ReturningUser,
+	[EnumMember(Value = "failed")]
+	Failed,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
