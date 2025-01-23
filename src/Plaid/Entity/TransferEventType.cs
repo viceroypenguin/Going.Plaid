@@ -96,6 +96,12 @@ public enum TransferEventType
 	SweepFailed,
 
 	/// <summary>
+	/// <para>Funds from the ledger sweep have been released from hold and applied to the ledger's available balance. This is only applicable to debits.</para>
+	/// </summary>
+	[EnumMember(Value = "sweep.funds_available")]
+	SweepFundsAvailable,
+
+	/// <summary>
 	/// <para>A new refund was created; it is in the pending state.</para>
 	/// </summary>
 	[EnumMember(Value = "refund.pending")]

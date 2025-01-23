@@ -14,13 +14,13 @@ public partial class SandboxPaymentSimulateRequest : RequestBase
 	/// <summary>
 	/// <para>The status to set the payment to. </para>
 	/// <para>Valid statuses include:</para>
-	/// <para>- PAYMENT_STATUS_INITIATED</para>
-	/// <para>- PAYMENT_STATUS_INSUFFICIENT_FUNDS</para>
-	/// <para>- PAYMENT_STATUS_FAILED</para>
-	/// <para>- PAYMENT_STATUS_EXECUTED</para>
-	/// <para>- PAYMENT_STATUS_SETTLED</para>
-	/// <para>- PAYMENT_STATUS_CANCELLED</para>
-	/// <para>- PAYMENT_STATUS_REJECTED</para>
+	/// <para>- <c>PAYMENT_STATUS_INITIATED</c></para>
+	/// <para>- <c>PAYMENT_STATUS_INSUFFICIENT_FUNDS</c></para>
+	/// <para>- <c>PAYMENT_STATUS_FAILED</c></para>
+	/// <para>- <c>PAYMENT_STATUS_EXECUTED</c></para>
+	/// <para>- <c>PAYMENT_STATUS_SETTLED</c></para>
+	/// <para>- <c>PAYMENT_STATUS_CANCELLED</c></para>
+	/// <para>- <c>PAYMENT_STATUS_REJECTED</c></para>
 	/// </summary>
 	[JsonPropertyName("status")]
 	public string Status { get; set; } = default!;
