@@ -13,6 +13,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Signal.SignalEvaluateResponse>();
 
 	/// <summary>
+	/// <para>Use <c>/signal/schedule</c> to schedule a planned ACH transaction.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docsnone" /></remarks>
+	public Task<Signal.SignalScheduleResponse> SignalScheduleAsync(Signal.SignalScheduleRequest request) =>
+		PostAsync("/signal/schedule", request)
+			.ParseResponseAsync<Signal.SignalScheduleResponse>();
+
+	/// <summary>
 	/// <para>After calling <c>/signal/evaluate</c>, call <c>/signal/decision/report</c> to report whether the transaction was initiated.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signaldecisionreport" /></remarks>

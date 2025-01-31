@@ -21,7 +21,7 @@ public record AccountIdentity
 	public Entity.AccountBalance? Balances { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.</para>
+	/// <para>The last 2-4 alphanumeric characters of either the account’s displayed mask or the account’s official account number. Note that the mask may be non-unique between an Item’s accounts.</para>
 	/// </summary>
 	[JsonPropertyName("mask")]
 	public string? Mask { get; init; } = default!;

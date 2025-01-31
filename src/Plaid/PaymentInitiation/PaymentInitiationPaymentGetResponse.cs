@@ -113,4 +113,11 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	[JsonPropertyName("transaction_id")]
 	public string? TransactionId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>A unique identifier assigned by Plaid to each payment for tracking and reconcilliation purposes.</para>
+	/// <para>Note: Not all banks handle end_to_end_id consistently. To ensure accurate matching, clients should convert both the incoming end_to_end_id and the one provided by Plaid to the same case (either lower or upper) before comparison. For virtual account payments, Plaid manages this field automatically.</para>
+	/// </summary>
+	[JsonPropertyName("end_to_end_id")]
+	public string? EndToEndId { get; init; } = default!;
+
 }

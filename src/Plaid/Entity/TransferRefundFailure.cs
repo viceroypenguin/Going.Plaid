@@ -12,7 +12,7 @@ public record TransferRefundFailure
 	public string? FailureCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ACH return code, e.g. <c>R01</c>.  A return code will be provided if and only if the refund status is <c>returned</c>. For a full listing of ACH return codes, see <a href="https://plaid.com/docs/errors/transfer/#ach-return-codes">Transfer errors</a>.</para>
+	/// <para>The ACH return code, e.g. <c>R01</c>.  A return code will be provided if and only if the refund status is <c>returned</c>. For a full listing of ACH return codes, see <a href="https://plaid.com/docs/errors/transfer/#ach-return-codes">Transfer errors</a>. This field is deprecated in favor of the more versatile <c>failure_code</c>, which encompasses non-ACH failure codes as well.</para>
 	/// </summary>
 	[JsonPropertyName("ach_return_code")]
 	[Obsolete]

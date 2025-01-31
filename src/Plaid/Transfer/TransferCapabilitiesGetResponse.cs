@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public record TransferCapabilitiesGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Contains the RTP network and types supported by the linked Item's institution.</para>
+	/// <para>Contains the RTP and RfP network and types supported by the linked Item's institution.</para>
 	/// </summary>
 	[JsonPropertyName("institution_supported_networks")]
 	public Entity.InstitutionSupportedNetworks InstitutionSupportedNetworks { get; init; } = default!;

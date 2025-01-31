@@ -17,4 +17,10 @@ public record InvestmentsAuthGetNumbers
 	[JsonPropertyName("aton")]
 	public IReadOnlyList<Entity.NumbersATON>? Aton { get; init; } = default!;
 
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("retirement_401k")]
+	public IReadOnlyList<Entity.NumbersRetirement401k>? Retirement401k { get; init; } = default!;
+
 }

@@ -74,7 +74,7 @@ public record BaseReportAccount
 	public IReadOnlyList<Entity.BaseReportTransaction> Transactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Data returned by the financial institution about the account owner or owners. For business accounts, the name reported may be either the name of the individual or the name of the business, depending on the institution. Multiple owners on a single account will be represented in the same <c>owner</c> object, not in multiple owner objects within the array.</para>
+	/// <para>Data returned by the financial institution about the account owner or owners. For business accounts, the name reported may be either the name of the individual or the name of the business, depending on the institution. Multiple owners on a single account will be represented in the same <c>owner</c> object, not in multiple owner objects within the array. This array can also be empty if no owners are found.</para>
 	/// </summary>
 	[JsonPropertyName("owners")]
 	public IReadOnlyList<Entity.Owner> Owners { get; init; } = default!;
