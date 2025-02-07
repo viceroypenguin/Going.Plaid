@@ -37,4 +37,10 @@ public partial class WalletTransactionExecuteRequest : RequestBase
 	[JsonPropertyName("reference")]
 	public string Reference { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The original source of the funds. This field is required by local regulation for certain businesses (e.g. money remittance) to send payouts to recipients in the EU and UK.</para>
+	/// </summary>
+	[JsonPropertyName("originating_fund_source")]
+	public Entity.OriginatingFundSource? OriginatingFundSource { get; set; } = default!;
+
 }

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class AssetReportUser
 {
 	/// <summary>
-	/// <para>An identifier you determine and submit for the user.</para>
+	/// <para>An identifier you determine and submit for the user. If using the Credit Dashboard, Customers should pass in the <c>user_token</c> created in <c>/user/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; set; } = default!;

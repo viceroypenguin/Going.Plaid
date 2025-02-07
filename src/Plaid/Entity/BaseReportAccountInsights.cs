@@ -30,14 +30,7 @@ public record BaseReportAccountInsights
 	public decimal? AverageDaysBetweenTransactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Deprecated; use <c>longest_gaps_between_transactions</c> instead. Longest gap between sequential transactions</para>
-	/// </summary>
-	[JsonPropertyName("longest_gap_between_transactions")]
-	[Obsolete]
-	public IReadOnlyList<Entity.BaseReportLongestGapInsights>? LongestGapBetweenTransactions { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Customers must transition from <c>longest_gap_between_transactions</c> by January 31st 2025. Longest gap between sequential transactions in a time period. This array can include multiple time periods.</para>
+	/// <para>Longest gap between sequential transactions in a time period. This array can include multiple time periods.</para>
 	/// </summary>
 	[JsonPropertyName("longest_gaps_between_transactions")]
 	public IReadOnlyList<Entity.BaseReportLongestGapInsights>? LongestGapsBetweenTransactions { get; init; } = default!;
@@ -49,14 +42,7 @@ public record BaseReportAccountInsights
 	public IReadOnlyList<Entity.BaseReportNumberFlowInsights>? NumberOfInflows { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Deprecated; use <c>average_inflow_amounts</c> instead. Average amount of debit transactions into the account. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
-	/// </summary>
-	[JsonPropertyName("average_inflow_amount")]
-	[Obsolete]
-	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageInflowAmount { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Customers must transition from <c>average_inflow_amount</c> by January 31st 2025. Average amount of debit transactions into the account in a time period. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+	/// <para>Average amount of debit transactions into the account in a time period. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
 	/// </summary>
 	[JsonPropertyName("average_inflow_amounts")]
 	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageInflowAmounts { get; init; } = default!;
@@ -68,14 +54,7 @@ public record BaseReportAccountInsights
 	public IReadOnlyList<Entity.BaseReportNumberFlowInsights>? NumberOfOutflows { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Deprecated; use <c>average_outflow_amounts</c> instead. Average amount of transactions out of the account. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
-	/// </summary>
-	[JsonPropertyName("average_outflow_amount")]
-	[Obsolete]
-	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageOutflowAmount { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Customers must transition from <c>average_outflow_amount</c> by January 31st 2025. Average amount of transactions out of the account in a time period. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+	/// <para>Average amount of transactions out of the account in a time period. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
 	/// </summary>
 	[JsonPropertyName("average_outflow_amounts")]
 	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageOutflowAmounts { get; init; } = default!;

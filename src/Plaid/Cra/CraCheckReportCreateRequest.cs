@@ -30,7 +30,7 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public int? DaysRequired { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies a list of products that will be eagerly generated when creating the report. These products will be made available before a success webhook is sent. Use this option if you know which products you want in the report up-front, in order to optimize latency. The <c>cra_base_report</c> product will always be generated and needs not be specified here.</para>
+	/// <para>Specifies a list of products that will be eagerly generated when creating the report. These products will be made available before a success webhook is sent. Use this option to minimize response latency for product <c>/get</c> endpoints.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;

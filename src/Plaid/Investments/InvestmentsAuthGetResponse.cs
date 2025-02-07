@@ -42,6 +42,12 @@ public record InvestmentsAuthGetResponse : ResponseBase
 	public Entity.InvestmentsAuthDataSources DataSources { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Additional information for accounts of 401k subtype.</para>
+	/// </summary>
+	[JsonPropertyName("account_details_401k")]
+	public IReadOnlyList<Entity.InvestmentsAuthAccountDetails401k>? AccountDetails401k { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Metadata about the Item.</para>
 	/// </summary>
 	[JsonPropertyName("item")]
