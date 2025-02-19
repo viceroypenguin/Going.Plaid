@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Object containing information on contribution transactions for the 401k account.</para>
+/// <para>Object containing information on contribution transactions for the 401k account. Note that the sum fields in this object represent the total of absolute contribution values.</para>
 /// </summary>
 public record InvestmentsAuth401kContributionDetails
 {

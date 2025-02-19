@@ -43,4 +43,10 @@ public partial class SignalDecisionReportRequest : RequestBase
 	[JsonPropertyName("amount_instantly_available")]
 	public decimal? AmountInstantlyAvailable { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The date the ACH debit was submitted to the bank for processing (in ISO 8601 format: <c>YYYY-MM-DDTHH:mm:ssZ</c>). This field should correspond to the attempt initiated after the <c>/signal/schedule</c> call.</para>
+	/// </summary>
+	[JsonPropertyName("submitted_at")]
+	public DateTimeOffset? SubmittedAt { get; set; } = default!;
+
 }

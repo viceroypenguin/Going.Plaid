@@ -18,7 +18,7 @@ public record NumbersACATS
 	public string Account { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Identifiers for the clearinghouses that are associated with the account in order of relevance. This array will be empty if we can't provide any account level data. Institution level data can be retrieved from the institutions/get endpoints.</para>
+	/// <para>Identifiers for the clearinghouses that are associated with the account in order of relevance. If this array is empty, call <c>/institutions/get_by_id</c> with the <c>item.institution_id</c> to get the DTC number.</para>
 	/// </summary>
 	[JsonPropertyName("dtc_numbers")]
 	public IReadOnlyList<string> DtcNumbers { get; init; } = default!;

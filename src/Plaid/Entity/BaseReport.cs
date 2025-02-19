@@ -35,4 +35,10 @@ public record BaseReport
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.BaseReportItem> Items { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Calculated attributes derived from transaction-level data, aggregated across accounts.</para>
+	/// </summary>
+	[JsonPropertyName("attributes")]
+	public Entity.BaseReportUserAttributes? Attributes { get; init; } = default!;
+
 }

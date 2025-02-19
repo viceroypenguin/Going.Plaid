@@ -72,7 +72,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products>? AdditionalConsentedProducts { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The destination URL to which any webhooks should be sent. Note that webhooks for Payment Initiation (e-wallet transactions only), Transfer, Bank Transfer (including Auth micro-deposit notification webhooks), Monitor, Identity Verification, and Link Events are configured via the Dashboard instead. In update mode, this field will not have an effect; to update the webhook receiver endpoint for an existing Item, use <c>/item/webhook/update</c> instead.</para>
+	/// <para>The destination URL to which any webhooks should be sent. Note that webhooks for Payment Initiation (e-wallet transactions only), Transfer, Bank Transfer (including Auth micro-deposit notification webhooks), Monitor, and Identity Verification are configured via the Dashboard instead. In update mode, this field will not have an effect; to update the webhook receiver endpoint for an existing Item, use <c>/item/webhook/update</c> instead.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string? Webhook { get; set; } = default!;
@@ -254,6 +254,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("transactions")]
 	public Entity.LinkTokenTransactions? Transactions { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Configuration parameters for the Cashflow Report product. Currently in closed beta.</para>
+	/// </summary>
+	[JsonPropertyName("cashflow_report")]
+	public Entity.LinkTokenCashflowReport? CashflowReport { get; set; } = default!;
 
 	/// <summary>
 	/// <para>If <c>true</c>, request a CRA connection. Defaults to <c>false</c>.</para>

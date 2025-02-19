@@ -170,6 +170,12 @@ public record Transaction
 	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Information describing the intent of the transaction. Most relevant for business finance use cases, but not limited to such use cases.</para>
+	/// </summary>
+	[JsonPropertyName("business_finance_category")]
+	public Entity.BusinessFinanceCategory? BusinessFinanceCategory { get; init; } = default!;
+
+	/// <summary>
 	/// <para>An identifier classifying the transaction type.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_code")]

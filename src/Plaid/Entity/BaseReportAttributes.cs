@@ -6,6 +6,18 @@ namespace Going.Plaid.Entity;
 public record BaseReportAttributes
 {
 	/// <summary>
+	/// <para>Prediction indicator of whether the account is a primary account. Only one account per account type across the items connected will have a value of true.</para>
+	/// </summary>
+	[JsonPropertyName("is_primary_account")]
+	public bool? IsPrimaryAccount { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Value ranging from 0-1. The higher the score, the more confident we are of the account being the primary account.</para>
+	/// </summary>
+	[JsonPropertyName("primary_account_score")]
+	public decimal? PrimaryAccountScore { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The number of NSF and overdraft fee transactions in the time range for the report in the given account.</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count")]
@@ -28,18 +40,6 @@ public record BaseReportAttributes
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_90d")]
 	public int? NsfOverdraftTransactionsCount90d { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Prediction indicator of whether the account is a primary account. Only one account per account type across the items connected will have a value of true.</para>
-	/// </summary>
-	[JsonPropertyName("is_primary_account")]
-	public bool? IsPrimaryAccount { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Value ranging from 0-1. The higher the score, the more confident we are of the account being the primary account.</para>
-	/// </summary>
-	[JsonPropertyName("primary_account_score")]
-	public decimal? PrimaryAccountScore { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Total amount of debit transactions into the account in the time period of the report. This field will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>

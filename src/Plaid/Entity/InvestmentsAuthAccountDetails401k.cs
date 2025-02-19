@@ -18,7 +18,7 @@ public record InvestmentsAuthAccountDetails401k
 	public Entity.InvestmentsAuth401kFeeDetails? FeeDetails { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Object containing information on contribution transactions for the 401k account.</para>
+	/// <para>Object containing information on contribution transactions for the 401k account. Note that the sum fields in this object represent the total of absolute contribution values.</para>
 	/// </summary>
 	[JsonPropertyName("contribution_details")]
 	public Entity.InvestmentsAuth401kContributionDetails? ContributionDetails { get; init; } = default!;

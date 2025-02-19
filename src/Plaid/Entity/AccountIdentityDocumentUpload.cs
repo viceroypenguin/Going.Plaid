@@ -57,13 +57,19 @@ public record AccountIdentityDocumentUpload
 	public Entity.AccountIdentityDocumentUploadVerificationStatusEnum? VerificationStatus { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The account holder name that was used for micro-deposit and/or database verification. Only returned for Auth Items created via micro-deposit or database verification. This name was manually-entered by the user during Link, unless it was otherwise provided via the <c>user.legal_name</c> request field in <c>/link/token/create</c> for the Link session that created the Item.</para>
+	/// </summary>
+	[JsonPropertyName("verification_name")]
+	public string? VerificationName { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Insights from performing database verification for the account. Only returned for Auth Items created via Database Insights.</para>
 	/// </summary>
 	[JsonPropertyName("verification_insights")]
 	public Entity.VerificationInsights? VerificationInsights { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This field is currently supported only for Items at institutions that use Tokenized Account Numbers (i.e., Chase and PNC). Because these accounts have a different account number each time they are linked, this field may be used instead of the account number to uniquely identify an account across multiple Items for payments use cases, helping to reduce duplicate Items or attempted fraud. In Sandbox, this field may be populated for any account; in Production, it will only be populated for accounts at applicable institutions.</para>
+	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This field is currently supported only for Items at institutions that use Tokenized Account Numbers (i.e., Chase and PNC). Because these accounts have a different account number each time they are linked, this field may be used instead of the account number to uniquely identify an account across multiple Items for payments use cases, helping to reduce duplicate Items or attempted fraud. In Sandbox, this field is populated for TAN-based institutions (<c>ins_56</c>, <c>ins_13</c>) as well as the OAuth Sandbox institution (<c>ins_127287</c>); in Production, it will only be populated for accounts at applicable institutions.</para>
 	/// </summary>
 	[JsonPropertyName("persistent_account_id")]
 	public string? PersistentAccountId { get; init; } = default!;

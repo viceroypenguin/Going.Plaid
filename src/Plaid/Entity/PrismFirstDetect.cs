@@ -22,7 +22,7 @@ public record PrismFirstDetect
 	/// <para>The score returned by Prism Data. Ranges from 1-999, with higher score indicating lower risk.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
-	public int Score { get; init; } = default!;
+	public int? Score { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The reasons for an individual having risk according to the FirstDetect score.</para>

@@ -14,6 +14,12 @@ public record BeaconReportSyndicationGetResponse : ResponseBase
 	public string Id { get; init; } = default!;
 
 	/// <summary>
+	/// <para>ID of the associated Beacon User.</para>
+	/// </summary>
+	[JsonPropertyName("beacon_user_id")]
+	public string BeaconUserId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A subset of information from a Beacon Report that has been syndicated to a matching Beacon User in your program.</para>
 	/// <para>The <c>id</c> field in the response is the ID of the original report that was syndicated. If the original report was created by your organization, the field will be filled with the ID of the report. Otherwise, the field will be <c>null</c> indicating that the original report was created by another Beacon customer.</para>
 	/// </summary>
