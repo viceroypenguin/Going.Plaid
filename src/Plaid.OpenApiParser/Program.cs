@@ -165,15 +165,17 @@ internal static partial class Program
 				BasePath = basePath,
 				Name = name,
 				Description = pd,
-				Properties = GetEnumValues(schema)
-					.OfType<OpenApiString>()
-					.Select(e => new Property(
-						e.Value,
-						string.Empty,
-						GetEnumName(e.Value),
-						ed.GetValueOrDefault(e.Value)
-					))
-					.ToList(),
+				Properties =
+				[
+					.. GetEnumValues(schema)
+						.OfType<OpenApiString>()
+						.Select(e => new Property(
+							e.Value,
+							string.Empty,
+							GetEnumName(e.Value),
+							ed.GetValueOrDefault(e.Value)
+						))
+				],
 			};
 		}
 		else
@@ -194,41 +196,43 @@ internal static partial class Program
 				properties.AddRange(s.Properties);
 			}
 
-			e.Properties = properties
-				.Where(p => baseType switch
-				{
-					BaseType.Request => p.Key is not "client_id" and not "secret" and not "access_token",
-					BaseType.Response => p.Key is not "request_id" and not "error",
-					BaseType.Webhook or BaseType.ProcessorWebhook => p.Key is not "environment",
-					BaseType.None => true,
-					_ => true,
-				})
-				.Select(p =>
-				{
-					var propertyName = p.Key.ToLower(null).ToPascalCase();
-					if (baseType is BaseType.Webhook or BaseType.ProcessorWebhook && p.Key is "webhook_type" or "webhook_code")
+			e.Properties =
+			[
+				.. properties
+					.Where(p => baseType switch
 					{
-						var code = p.Value.Description.Trim('`', '"');
-						return new Property(code, propertyName, propertyName, code.ToLower(null).ToPascalCase());
-					}
-
-					var typeName = GetPropertyType(name, propertyName, p.Value, type);
-					if (p.Value.Nullable
-						|| p.Value is { AllOf: [{ Nullable: true }] }
-						|| !schema.Required.Contains(p.Key))
+						BaseType.Request => p.Key is not "client_id" and not "secret" and not "access_token",
+						BaseType.Response => p.Key is not "request_id" and not "error",
+						BaseType.Webhook or BaseType.ProcessorWebhook => p.Key is not "environment",
+						BaseType.None => true,
+						_ => true,
+					})
+					.Select(p =>
 					{
-						typeName += "?";
-					}
+						var propertyName = p.Key.ToLower(null).ToPascalCase();
+						if (baseType is BaseType.Webhook or BaseType.ProcessorWebhook && p.Key is "webhook_type" or "webhook_code")
+						{
+							var code = p.Value.Description.Trim('`', '"');
+							return new Property(code, propertyName, propertyName, code.ToLower(null).ToPascalCase());
+						}
 
-					return new Property(
-						p.Key,
-						typeName,
-						propertyName,
-						GetPropertyDescription(p.Value),
-						IsDeprecated: p.Value.Deprecated
-					);
-				})
-				.ToList();
+						var typeName = GetPropertyType(name, propertyName, p.Value, type);
+						if (p.Value.Nullable
+							|| p.Value is { AllOf: [{ Nullable: true }] }
+							|| !schema.Required.Contains(p.Key))
+						{
+							typeName += "?";
+						}
+
+						return new Property(
+							p.Key,
+							typeName,
+							propertyName,
+							GetPropertyDescription(p.Value),
+							IsDeprecated: p.Value.Deprecated
+						);
+					})
+			];
 		}
 	}
 
@@ -407,13 +411,16 @@ internal static partial class Program
 			BasePath = "Entity",
 			Name = "AccountType",
 			Description = "The general type of an account.",
-			Properties = pd
-				.Select(e => new Property(
-					e.Key,
-					string.Empty,
-					GetEnumName(e.Key),
-					e.Value))
-				.ToList(),
+			Properties =
+			[
+				.. pd
+					.Select(e => new Property(
+						e.Key,
+						string.Empty,
+						GetEnumName(e.Key),
+						e.Value
+					))
+			],
 		};
 		pd.Clear();
 
@@ -438,13 +445,16 @@ internal static partial class Program
 			BasePath = "Entity",
 			Name = "AccountSubtype",
 			Description = "The specific type of an account.",
-			Properties = pd
-				.Select(e => new Property(
-					e.Key,
-					string.Empty,
-					GetEnumName(e.Key),
-					e.Value))
-				.ToList(),
+			Properties =
+			[
+				.. pd
+					.Select(e => new Property(
+						e.Key,
+						string.Empty,
+						GetEnumName(e.Key),
+						e.Value
+					))
+			],
 		};
 	}
 
@@ -487,13 +497,16 @@ internal static partial class Program
 			BasePath = "Entity",
 			Name = prefix + "WebhookType",
 			Description = "A list of supported Webhook Payload types.",
-			Properties = types
-				.Select(e => new Property(
-					e.jsonName,
-					string.Empty,
-					e.name,
-					null))
-				.ToList(),
+			Properties =
+			[
+				.. types
+					.Select(e => new Property(
+						e.jsonName,
+						string.Empty,
+						e.name,
+						null
+					))
+			],
 		};
 
 		s_schemaEntities[prefix + "WebhookCode"] = new()
@@ -502,13 +515,16 @@ internal static partial class Program
 			BasePath = "Entity",
 			Name = prefix + "WebhookCode",
 			Description = "A list of supported Webhook Payload codes.",
-			Properties = codes
-				.Select(e => new Property(
-					e.jsonName,
-					string.Empty,
-					e.name,
-					null))
-				.ToList(),
+			Properties =
+			[
+				.. codes
+					.Select(e => new Property(
+						e.jsonName,
+						string.Empty,
+						e.name,
+						null
+					))
+			],
 		};
 	}
 
@@ -522,14 +538,17 @@ internal static partial class Program
 			BasePath = "Entity",
 			Name = subtypeName,
 			Description = FixupDescription(schema.Description),
-			Properties = schema.Enum
-				.OfType<OpenApiString>()
-				.Select(e => new Property(
-					e.Value,
-					string.Empty,
-					GetEnumName(e.Value),
-					e.Value == "all" ? "Allow all of the above subtypes" : descriptions[e.Value].Description))
-				.ToList(),
+			Properties =
+			[
+				.. schema.Enum
+					.OfType<OpenApiString>()
+					.Select(e => new Property(
+						e.Value,
+						string.Empty,
+						GetEnumName(e.Value),
+						e.Value == "all" ? "Allow all of the above subtypes" : descriptions[e.Value].Description
+					))
+			],
 		};
 	}
 
