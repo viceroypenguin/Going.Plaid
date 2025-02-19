@@ -5,30 +5,30 @@
 
   <ItemGroup>
 	<PackageVersion Include="CaseExtensions" Version="1.1.0" />
-	<PackageVersion Include="coverlet.collector" Version="6.0.3" />
-	<PackageVersion Include="coverlet.msbuild" Version="6.0.3" />
+	<PackageVersion Include="coverlet.collector" Version="6.0.4" />
+	<PackageVersion Include="coverlet.msbuild" Version="6.0.4" />
 	<PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
 	<PackageVersion Include="GitHubActionsTestLogger" Version="2.4.1" />
 	<PackageVersion Include="Microsoft.CodeAnalysis.PerformanceSensitiveAnalyzers" Version="3.3.1" />
-	<PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.1" />
+	<PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.2" />
 	<PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.1" />
-	<PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.1" />
-	<PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.1" />
-	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+	<PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.2" />
+	<PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.2" />
+	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
 	<PackageVersion Include="Microsoft.OpenApi.Readers" Version="1.6.23" />
 	<PackageVersion Include="MinVer" Version="6.0.0" />
 	<PackageVersion Include="Scriban" Version="5.12.1" />
 	<PackageVersion Include="xunit" Version="2.9.3" />
-	<PackageVersion Include="xunit.runner.visualstudio" Version="3.0.1" />
+	<PackageVersion Include="xunit.runner.visualstudio" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
-	<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.1" />
-	<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.1" />
-	<PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.1" />
-	<PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.1" />
-	<PackageVersion Include="System.Net.Http.Json" Version="9.0.1" />
-	<PackageVersion Include="System.Text.Json" Version="9.0.1" />
+	<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.2" />
+	<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.2" />
+	<PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.2" />
+	<PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.2" />
+	<PackageVersion Include="System.Net.Http.Json" Version="9.0.2" />
+	<PackageVersion Include="System.Text.Json" Version="9.0.2" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
