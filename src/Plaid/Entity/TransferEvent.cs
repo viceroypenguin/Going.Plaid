@@ -96,4 +96,10 @@ public record TransferEvent
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The <c>id</c> returned by the /transfer/intent/create endpoint, for transfers created via Transfer UI. For transfers not created by Transfer UI, the value is <c>null</c>. This will currently only be populated for RfP transfers.</para>
+	/// </summary>
+	[JsonPropertyName("intent_id")]
+	public string? IntentId { get; init; } = default!;
+
 }

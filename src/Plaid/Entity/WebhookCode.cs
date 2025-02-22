@@ -272,6 +272,42 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "NSF_OVERDRAFT_DETECTED")]
+	NsfOverdraftDetected,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "NEW_INCOME_STREAM_DETECTED")]
+	NewIncomeStreamDetected,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "EXPECTED_DEPOSIT_MISSED")]
+	ExpectedDepositMissed,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "LOW_BALANCE_DETECTED")]
+	LowBalanceDetected,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "LARGE_DEPOSIT_DETECTED")]
+	LargeDepositDetected,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "NEW_LOAN_PAYMENT_DETECTED")]
+	NewLoanPaymentDetected,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "BANK_INCOME_COMPLETE")]
 	BankIncomeComplete,
 

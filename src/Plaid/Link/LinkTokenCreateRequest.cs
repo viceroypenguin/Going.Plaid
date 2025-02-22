@@ -232,6 +232,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public string? UserToken { get; set; } = default!;
 
 	/// <summary>
+	/// <para>A third party user token associated with the current user.</para>
+	/// </summary>
+	[JsonPropertyName("third_party_user_token")]
+	public string? ThirdPartyUserToken { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Configuration parameters for the Investments product</para>
 	/// </summary>
 	[JsonPropertyName("investments")]
