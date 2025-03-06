@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/.root/">
+    <File Path=".editorconfig" />
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/workflows/build.yml" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="plaid-openapi/2020-09-14.yml" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Source/">
+    <Project Path="src/Plaid.OpenApiParser/Plaid.OpenApiParser.csproj" />
+    <Project Path="src/Plaid/Plaid.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="tests/Plaid.Tests/Plaid.Tests.csproj" />
+  </Folder>
+</Solution>
