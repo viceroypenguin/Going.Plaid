@@ -34,8 +34,8 @@ public partial class PaymentInitiationConsentPaymentExecuteRequest : RequestBase
 	public string? Reference { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Deprecated, payments will be executed within the type of the consent. </para>
-	/// <para>A scope of the payment. Must be one of the scopes mentioned in the consent. </para>
+	/// <para>Deprecated, payments will be executed within the type of the consent.</para>
+	/// <para>A scope of the payment. Must be one of the scopes mentioned in the consent.</para>
 	/// <para>Optional if the appropriate consent has only one scope defined, required otherwise.</para>
 	/// </summary>
 	[JsonPropertyName("scope")]

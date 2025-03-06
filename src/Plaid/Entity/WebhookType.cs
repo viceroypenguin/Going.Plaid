@@ -80,6 +80,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "LAYER")]
+	Layer,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "INVESTMENTS_TRANSACTIONS")]
 	InvestmentsTransactions,
 

@@ -21,7 +21,7 @@ public sealed partial class PlaidClient
 	/// <para>The refund will go back to the source account that initiated the payment.</para>
 	/// <para>The original payment must have been initiated to a Plaid virtual account</para>
 	/// <para>so that this account can be used to initiate the refund.</para>
-	/// <para>Providing counterparty information such as date of birth and address increases </para>
+	/// <para>Providing counterparty information such as date of birth and address increases</para>
 	/// <para>the likelihood of refund being successful without human intervention.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentreverse" /></remarks>

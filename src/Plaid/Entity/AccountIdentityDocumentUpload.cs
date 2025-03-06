@@ -63,7 +63,7 @@ public record AccountIdentityDocumentUpload
 	public string? VerificationName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Insights from performing database verification for the account. Only returned for Auth Items created via Database Insights.</para>
+	/// <para>Insights from performing database verification for the account. Only returned for Auth Items using Database Auth.</para>
 	/// </summary>
 	[JsonPropertyName("verification_insights")]
 	public Entity.VerificationInsights? VerificationInsights { get; init; } = default!;

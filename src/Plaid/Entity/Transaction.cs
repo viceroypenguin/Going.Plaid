@@ -67,7 +67,7 @@ public record Transaction
 	public Entity.Location? Location { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The merchant name or transaction description. </para>
+	/// <para>The merchant name or transaction description.</para>
 	/// <para>Note: This is a legacy field that is not actively maintained. Use <c>merchant_name</c> instead for the merchant name.</para>
 	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, this field will always appear. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>

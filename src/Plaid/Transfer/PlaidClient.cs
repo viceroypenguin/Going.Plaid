@@ -19,12 +19,11 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferRecurringGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to authorize a transfer. This endpoint must be called prior to calling <c>/transfer/create</c>. The transfer authorization will expire if not used after one hour. (You can contact your account manager to change the default authorization lifetime.) </para>
-	/// <para>There are four possible outcomes to calling this endpoint: </para>
-	/// <para>  - If the <c>authorization.decision</c> in the response is <c>declined</c>, the proposed transfer has failed the risk check and you cannot proceed with the transfer. </para>
+	/// <para>Use the <c>/transfer/authorization/create</c> endpoint to authorize a transfer. This endpoint must be called prior to calling <c>/transfer/create</c>. The transfer authorization will expire if not used after one hour. (You can contact your account manager to change the default authorization lifetime.)</para>
+	/// <para>There are four possible outcomes to calling this endpoint:</para>
+	/// <para>  - If the <c>authorization.decision</c> in the response is <c>declined</c>, the proposed transfer has failed the risk check and you cannot proceed with the transfer.</para>
 	/// <para>  - If the <c>authorization.decision</c> is <c>user_action_required</c>, additional user input is needed, usually to fix a broken bank connection, before Plaid can properly assess the risk. You need to launch Link in update mode to complete the required user action. When calling <c>/link/token/create</c> to get a new Link token, instead of providing <c>access_token</c> in the request, you should set <a href="https://plaid.com/docs/api/link/#link-token-create-request-transfer-authorization-id"><c>transfer.authorization_id</c></a> as the <c>authorization.id</c>. After the Link flow is completed, you may re-attempt the authorization.</para>
 	/// <para>  - If the <c>authorization.decision</c> is <c>approved</c>, and the <c>authorization.rationale_code</c> is <c>null</c>, the transfer has passed the risk check and you can proceed to call <c>/transfer/create</c>.</para>
-	/// <para>  </para>
 	/// <para>  - If the <c>authorization.decision</c> is <c>approved</c> and the <c>authorization.rationale_code</c> is non-<c>null</c>, the risk check could not be run: you may proceed with the transfer, but should perform your own risk evaluation. For more details, see the response schema.</para>
 	/// <para>In Plaid's Sandbox environment the decisions will be returned as follows:</para>
 	/// <para>  - To approve a transfer with <c>null</c> rationale code, make an authorization request with an <c>amount</c> less than the available balance in the account.</para>

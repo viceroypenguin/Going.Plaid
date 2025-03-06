@@ -27,22 +27,6 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraMonitoringInsightsGetResponse>();
 
 	/// <summary>
-	/// <para><c>/cra/bank_income/get</c> returns the bank income report(s) for a specified user.</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/income/#crabank_incomeget" /></remarks>
-	public Task<Cra.CraBankIncomeGetResponse> CraBankIncomeGetAsync(Cra.CraBankIncomeGetRequest request) =>
-		PostAsync("/cra/bank_income/get", request)
-			.ParseResponseAsync<Cra.CraBankIncomeGetResponse>();
-
-	/// <summary>
-	/// <para><c>/cra/bank_income/create</c> creates a CRA report for income verification</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/income/#crabank_incomecreate" /></remarks>
-	public Task<Cra.CraBankIncomeCreateResponse> CraBankIncomeCreateAsync(Cra.CraBankIncomeCreateRequest request) =>
-		PostAsync("/cra/bank_income/create", request)
-			.ParseResponseAsync<Cra.CraBankIncomeCreateResponse>();
-
-	/// <summary>
 	/// <para><c>/cra/partner_insights/get</c> returns cash flow insights for a specified user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#crapartner_insightsget" /></remarks>

@@ -12,7 +12,7 @@ public partial class SandboxPaymentSimulateRequest : RequestBase
 	public string PaymentId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The status to set the payment to. </para>
+	/// <para>The status to set the payment to.</para>
 	/// <para>Valid statuses include:</para>
 	/// <para>- <c>PAYMENT_STATUS_INITIATED</c></para>
 	/// <para>- <c>PAYMENT_STATUS_INSUFFICIENT_FUNDS</c></para>

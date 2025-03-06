@@ -60,7 +60,7 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusExecuted,
 
 	/// <summary>
-	/// <para>The payment has settled and funds are available for use. A payment will typically settle within seconds to several days, depending on which payment rail is used. This status is only available to customers using <a href="https://plaid.com/docs/virtual-accounts/">Plaid Virtual Accounts</a>.</para>
+	/// <para>The payment has settled and funds are available for use. A payment will typically settle within seconds to several days, depending on which payment rail is used. This status is only available to customers using <a href="https://plaid.com/docs/payment-initiation/virtual-accounts/">Plaid Virtual Accounts</a>.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_SETTLED")]
 	PaymentStatusSettled,

@@ -32,6 +32,18 @@ public enum SandboxItemFireWebhookRequestWebhookCodeEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "USER_PERMISSION_REVOKED")]
+	UserPermissionRevoked,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "USER_ACCOUNT_REVOKED")]
+	UserAccountRevoked,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "PENDING_DISCONNECT")]
 	PendingDisconnect,
 

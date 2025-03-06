@@ -35,4 +35,10 @@ public record DocumentAnalysis
 	[JsonPropertyName("image_quality_details")]
 	public Entity.ImageQualityDetails? ImageQualityDetails { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Details about the human review check, which refers to a check that is performed by a document specialist.</para>
+	/// </summary>
+	[JsonPropertyName("human_review")]
+	public Entity.HumanReview? HumanReview { get; init; } = default!;
+
 }

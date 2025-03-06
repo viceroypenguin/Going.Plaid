@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>The <c>USER_PERMISSION_REVOKED</c> webhook may be fired when an end user has revoked the permission that they previously granted to access an Item. If the end user revoked their permissions through Plaid (such as via the Plaid Portal or by contacting Plaid Support), the webhook will fire. If the end user revoked their permissions directly through the institution, this webhook may not always fire, since some institutions’ consent portals do not trigger this webhook. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the Item. To restore the Item, it can be sent through <a href="https://plaid.com/docs/link/update-mode">update mode</a>. </para>
+/// <para>The <c>USER_PERMISSION_REVOKED</c> webhook may be fired when an end user has revoked the permission that they previously granted to access an Item. If the end user revoked their permissions through Plaid (such as via the Plaid Portal or by contacting Plaid Support), the webhook will fire. If the end user revoked their permissions directly through the institution, this webhook may not always fire, since some institutions’ consent portals do not trigger this webhook. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the Item. To restore the Item, it can be sent through <a href="https://plaid.com/docs/link/update-mode">update mode</a>.</para>
 /// <para>Note that when working with tokenized account numbers with Auth or Transfer, the account number provided by Plaid will no longer work for creating transfers once user permission has been revoked.</para>
 /// </summary>
 public record UserPermissionRevokedWebhook : WebhookBase

@@ -39,8 +39,8 @@ public record AccountsBalanceGetResponsePaymentRiskAssessment
 	public IReadOnlyList<Entity.RiskReason>? RiskReasons { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Whether the proposed transaction exceeds the balance threshold set in the request. <c>true</c> indicates higher risk; <c>false</c> indicates lower risk. If the <c>amount</c> multiplied by the <c>balance_threshold_percentage</c> (as a percentage) exceeds the balance in the account, then <c>exceeds_balance_threshold</c> will be true, otherwise, it will be false. For example, if the <c>amount</c> is 200 and the <c>balance_threshold_percentage</c> is 90, then the account balance must be at least 180 for <c>exceeds_balance_threshold</c> to be false. </para>
-	/// <para>By default, the available balance will be used for this calculation; if it cannot be obtained, the current balance will be used. </para>
+	/// <para>Whether the proposed transaction exceeds the balance threshold set in the request. <c>true</c> indicates higher risk; <c>false</c> indicates lower risk. If the <c>amount</c> multiplied by the <c>balance_threshold_percentage</c> (as a percentage) exceeds the balance in the account, then <c>exceeds_balance_threshold</c> will be true, otherwise, it will be false. For example, if the <c>amount</c> is 200 and the <c>balance_threshold_percentage</c> is 90, then the account balance must be at least 180 for <c>exceeds_balance_threshold</c> to be false.</para>
+	/// <para>By default, the available balance will be used for this calculation; if it cannot be obtained, the current balance will be used.</para>
 	/// <para>This field is particularly useful for customers using indirect Items and who do not have direct access to raw balance data.</para>
 	/// </summary>
 	[JsonPropertyName("exceeds_balance_threshold")]

@@ -24,7 +24,7 @@ public sealed partial class PlaidClient
 	/// <para><c>NEW_ACCOUNTS_AVAILABLE</c>: Fired to indicate that a new account is available on the Item and you can launch update mode to request access to it.</para>
 	/// <para><c>SMS_MICRODEPOSITS_VERIFICATION</c>: Fired when a given same day micro-deposit item is verified via SMS verification.</para>
 	/// <para><c>LOGIN_REPAIRED</c>: Fired when an Item recovers from the <c>ITEM_LOGIN_REQUIRED</c> without the user going through update mode in your app.</para>
-	/// <para><c>PENDING_DISCONNECT</c>: Fired when an Item will stop working in the near future (e.g. due to a planned bank migration) and must be sent through update mode to continue working. </para>
+	/// <para><c>PENDING_DISCONNECT</c>: Fired when an Item will stop working in the near future (e.g. due to a planned bank migration) and must be sent through update mode to continue working.</para>
 	/// <para><c>RECURRING_TRANSACTIONS_UPDATE</c>: Recurring Transactions webhook to be fired for a given Sandbox Item. If the Item does not support Recurring Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>SYNC_UPDATES_AVAILABLE</c>: Transactions webhook to be fired for a given Sandbox Item.  If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>PRODUCT_READY</c>: Assets webhook to be fired when a given asset report has been successfully generated. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>

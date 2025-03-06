@@ -12,7 +12,7 @@ public class CraLoanRegister
 	public string UserToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A unique identifier for the loan. </para>
+	/// <para>A unique identifier for the loan.</para>
 	/// <para>Personally identifiable information, such as an email address or phone number, should not be used in the <c>loan_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("loan_id")]

@@ -22,7 +22,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserUpdateResponse>();
 
 	/// <summary>
-	/// <para><c>/user/remove</c> deletes a user token and and associated information, including any Items associated with the token. </para>
+	/// <para><c>/user/remove</c> deletes a user token and and associated information, including any Items associated with the token.</para>
 	/// <para>Any subsequent calls to retrieve information using the same user token will result in an error stating the user does not exist.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userremove" /></remarks>
@@ -48,7 +48,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserThirdPartyTokenCreateResponse>();
 
 	/// <summary>
-	/// <para>This endpoint is used to delete a third-party user token. Once removed, the token can longer be used to access data associated with the user. </para>
+	/// <para>This endpoint is used to delete a third-party user token. Once removed, the token can longer be used to access data associated with the user.</para>
 	/// <para>Any subsequent calls to retrieve information using the same third-party user token will result in an error stating the third-party user token does not exist.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userthirdpartytokenremove" /></remarks>

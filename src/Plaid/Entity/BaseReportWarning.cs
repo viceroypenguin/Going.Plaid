@@ -12,7 +12,7 @@ public record BaseReportWarning
 	public string WarningType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The warning code identifies a specific kind of warning. <c>OWNERS_UNAVAILABLE</c> indicates that account-owner information is not available. <c>TRANSACTIONS_UNAVAILABLE</c> indicates that transactions information associated with Credit and Depository accounts are unavailable. <c>USER_FRAUD_ALERT</c> indicates that the User has placed a fraud alert on their Plaid Check consumer report due to suspected fraud.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("warning_code")]
 	public Entity.BaseReportWarningCode WarningCode { get; init; } = default!;

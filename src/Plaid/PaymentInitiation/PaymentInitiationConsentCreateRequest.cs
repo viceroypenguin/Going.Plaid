@@ -44,7 +44,7 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	public Entity.ExternalPaymentInitiationConsentOptions? Options { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An object representing the payment consent payer details. </para>
+	/// <para>An object representing the payment consent payer details.</para>
 	/// <para>Payer <c>name</c> and account <c>numbers</c> are required to lock the account to which the consent can be created.</para>
 	/// </summary>
 	[JsonPropertyName("payer_details")]

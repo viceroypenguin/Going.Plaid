@@ -158,6 +158,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "LAYER_AUTHENTICATION_PASSED")]
+	LayerAuthenticationPassed,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "RECURRING_NEW_TRANSFER")]
 	RecurringNewTransfer,
 

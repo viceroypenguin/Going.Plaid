@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager. The default behavior described in the documentation is the default behavior that will apply if you have not requested your account manager to apply a different default.</para>
+/// <para>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager. The default behavior described in the documentation is the default behavior that will apply if you have not requested your account manager to apply a different default. If you have enabled the <a href="https://dashboard.plaid.com/account-verification">Dashboard Account Verification pane</a>, the settings enabled there will override any settings in this object.</para>
 /// </summary>
 public class LinkTokenCreateRequestAuth
 {
@@ -42,15 +42,17 @@ public class LinkTokenCreateRequestAuth
 	public Entity.LinkTokenCreateRequestAuthRerouteToCredentialsEnum? RerouteToCredentials { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies whether the Link session is enabled for the Database Match flow. Default behavior is <c>false</c>.</para>
+	/// <para>Database Match has been deprecated and replaced with Database Auth. Use the <a href="https://dashboard.plaid.com/account-verification">Account Verification Dashboard</a> to enable Database Auth.</para>
 	/// </summary>
 	[JsonPropertyName("database_match_enabled")]
+	[Obsolete]
 	public bool? DatabaseMatchEnabled { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies whether the Link session is enabled for the Database Insights flow. Database Insights is currently in closed beta; for access, contact your Account Manager. Default behavior is <c>false</c>.</para>
+	/// <para>Database Insights has been deprecated and replaced with Database Auth. Use the <a href="https://dashboard.plaid.com/account-verification">Account Verification Dashboard</a> to enable Database Auth.</para>
 	/// </summary>
 	[JsonPropertyName("database_insights_enabled")]
+	[Obsolete]
 	public bool? DatabaseInsightsEnabled { get; set; } = default!;
 
 	/// <summary>

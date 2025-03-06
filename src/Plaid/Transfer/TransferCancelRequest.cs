@@ -18,4 +18,10 @@ public partial class TransferCancelRequest : RequestBase
 	[Obsolete]
 	public string? OriginatorClientId { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Specifies the reason for cancelling transfer. This is required for RfP transfers, and will be ignored for other networks.</para>
+	/// </summary>
+	[JsonPropertyName("reason_code")]
+	public Entity.ReasonCode? ReasonCode { get; set; } = default!;
+
 }

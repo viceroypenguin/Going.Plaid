@@ -12,6 +12,12 @@ public record StatementsStatement
 	public string StatementId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Date when the statement was posted by the FI, if known</para>
+	/// </summary>
+	[JsonPropertyName("date_posted")]
+	public DateOnly? DatePosted { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Month of the year. Possible values: 1 through 12 (January through December).</para>
 	/// </summary>
 	[JsonPropertyName("month")]

@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>A transaction within an investment account.</para>
 /// </summary>
-public record AssetReportInvestments
+public record AssetReportInvestmentTransaction
 {
 	/// <summary>
 	/// <para>The ID of the Investment transaction, unique across all Plaid transactions. Like all Plaid identifiers, the <c>investment_transaction_id</c> is case sensitive.</para>

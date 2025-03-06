@@ -6,10 +6,10 @@ namespace Going.Plaid.Entity;
 public record PlaidCheckScore
 {
 	/// <summary>
-	/// <para>The score returned by the Plaid Check Score model.</para>
+	/// <para>The score returned by the Plaid Check Score model. Will be an integer in the range 1 to 99.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
-	public decimal? Score { get; init; } = default!;
+	public int? Score { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The reasons for an individual having risk according to the Plaid Check score.</para>

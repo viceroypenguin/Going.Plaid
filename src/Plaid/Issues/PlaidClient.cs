@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>Search for an issue associated with one of the following identifiers:  <c>item_id</c>, <c>link_session_id</c> or Link session <c>request_id</c>. </para>
+	/// <para>Search for an issue associated with one of the following identifiers:  <c>item_id</c>, <c>link_session_id</c> or Link session <c>request_id</c>.</para>
 	/// <para>This endpoint returns a list of <c>Issue</c> objects, with an empty list indicating that no issues are associated with the</para>
 	/// <para>provided identifier. At least one of the identifiers must be provided to perform the search.</para>
 	/// </summary>

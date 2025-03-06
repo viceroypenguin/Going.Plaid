@@ -48,19 +48,19 @@ public enum AccountIdentityVerificationStatusEnum
 	DatabaseMatched,
 
 	/// <summary>
-	/// <para>The Item's numbers have been verified using Plaid's data sources and have strong signal for being valid. Only returned for Auth Items created via Database Insights. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para>The Item's numbers have been verified using Plaid's data sources: the routing and account number match a routing and account number of an account recognized on the Plaid network, and the account is not known by Plaid to be frozen or closed. Only returned for Auth Items created via Database Auth.</para>
 	/// </summary>
 	[EnumMember(Value = "database_insights_pass")]
 	DatabaseInsightsPass,
 
 	/// <summary>
-	/// <para>The Item's numbers have been verified using Plaid's data sources and have some signal for being valid. Only returned for Auth Items created via Database Insights. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para>The Item's numbers have been verified using Plaid's data sources and have some signal for being valid: the routing and account number were not recognized on the Plaid network, but the routing number is valid and the account number is a potential valid account number for that routing number. Only returned for Auth Items created via Database Auth.</para>
 	/// </summary>
 	[EnumMember(Value = "database_insights_pass_with_caution")]
 	DatabaseInsightsPassWithCaution,
 
 	/// <summary>
-	/// <para>The Item's numbers have been verified using Plaid's data sources and have signal for being invalid and/or have no signal for being valid. Only returned for Auth Items created via Database Insights. Note: Database Insights is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para>The Item's numbers have been verified using Plaid's data sources and have signal for being invalid and/or have no signal for being valid. Typically this indicates that the routing number is invalid, the account number does not match the account number format associated with the routing number, or the account has been reported as closed or frozen. Only returned for Auth Items created via Database Auth.</para>
 	/// </summary>
 	[EnumMember(Value = "database_insights_fail")]
 	DatabaseInsightsFail,
