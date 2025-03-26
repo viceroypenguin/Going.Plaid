@@ -1,13 +1,13 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>For each user enabled for Cash Flow Updates, this webhook will fire when an update detects a low balance. Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
+/// <para>For each user enabled for Cash Flow Updates, this webhook will fire when an update detects a low balance (below $100). Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
 /// </summary>
-public record MonitoringInsightsLowBalanceWebhook : WebhookBase
+public record CashFlowUpdatesLowBalanceWebhook : WebhookBase
 {
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_type")]
-	public override WebhookType WebhookType => WebhookType.CraMonitoring;
+	public override WebhookType WebhookType => WebhookType.CashFlowUpdates;
 
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]

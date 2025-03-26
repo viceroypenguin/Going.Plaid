@@ -20,6 +20,18 @@ public record CraCheckReportReadyWebhook : WebhookBase
 	public string UserId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Specifies a list of products that have successfully been generated for the report.</para>
+	/// </summary>
+	[JsonPropertyName("successful_products")]
+	public IReadOnlyList<Entity.Products>? SuccessfulProducts { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Specifies a list of products that have failed to generate for the report. Additional detail on what caused the failure can be found by calling the product /get endpoint.</para>
+	/// </summary>
+	[JsonPropertyName("failed_products")]
+	public IReadOnlyList<Entity.Products>? FailedProducts { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A list of <c>item_ids</c> that is included in the Check Report.</para>
 	/// </summary>
 	[JsonPropertyName("item_ids")]

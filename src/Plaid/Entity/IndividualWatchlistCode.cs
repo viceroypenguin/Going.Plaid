@@ -102,6 +102,12 @@ public enum IndividualWatchlistCode
 	UsPlc,
 
 	/// <summary>
+	/// <para>US System for Award Management Exclusion List</para>
+	/// </summary>
+	[EnumMember(Value = "US_SAM")]
+	UsSam,
+
+	/// <summary>
 	/// <para>US OFAC Specially Designated Nationals List</para>
 	/// </summary>
 	[EnumMember(Value = "US_SDN")]

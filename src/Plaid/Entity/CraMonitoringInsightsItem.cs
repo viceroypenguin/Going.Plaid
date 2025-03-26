@@ -29,4 +29,10 @@ public record CraMonitoringInsightsItem
 	[JsonPropertyName("insights")]
 	public Entity.MonitoringInsights? Insights { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Data about each of the accounts open on the Item.</para>
+	/// </summary>
+	[JsonPropertyName("accounts")]
+	public IReadOnlyList<Entity.BaseReportAccount>? Accounts { get; init; } = default!;
+
 }

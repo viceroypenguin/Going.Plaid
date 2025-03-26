@@ -24,6 +24,12 @@ public record CraIncomeInsights
 	public int? DaysRequested { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Client-generated identifier, which can be used by lenders to track loan applications.</para>
+	/// </summary>
+	[JsonPropertyName("client_report_id")]
+	public string? ClientReportId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The list of Items in the report along with the associated metadata about the Item.</para>
 	/// </summary>
 	[JsonPropertyName("items")]

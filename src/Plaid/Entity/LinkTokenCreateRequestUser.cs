@@ -67,7 +67,7 @@ public class LinkTokenCreateRequestUser
 	public DateOnly? DateOfBirth { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's address. Used only for Identity Verification. If provided, the user will not be shown fields to enter their address in the Identity Verification flow. May be omitted, but if not omitted, all fields marked as required must be provided.</para>
+	/// <para>The user's address. Used only for Identity Verification and the Identity Match in Link workflows. If provided for Identity Verification, the user will not be shown fields to enter their address in the Identity Verification flow. If provided for Identity Match, the provided data will be used to match against the user's address. May be omitted, but if not omitted, all fields marked as required must be provided.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
 	public Entity.LinkTokenCreateRequestUserAddressObject? Address { get; set; } = default!;

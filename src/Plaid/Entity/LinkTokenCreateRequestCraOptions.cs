@@ -18,6 +18,12 @@ public class LinkTokenCreateRequestCraOptions
 	public int? DaysRequired { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Client-generated identifier, which can be used by lenders to track loan applications.</para>
+	/// </summary>
+	[JsonPropertyName("client_report_id")]
+	public string? ClientReportId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Specifies options for initializing Link for use with the Credit Partner Insights product.</para>
 	/// </summary>
 	[JsonPropertyName("partner_insights")]

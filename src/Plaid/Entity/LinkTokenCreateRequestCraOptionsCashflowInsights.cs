@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public class LinkTokenCreateRequestCraOptionsCashflowInsights
 {
 	/// <summary>
-	/// <para>The version of the Plaid Check score to return</para>
+	/// <para>The version of the Plaid Check Score</para>
 	/// </summary>
 	[JsonPropertyName("plaid_check_score_version")]
-	public string? PlaidCheckScoreVersion { get; set; } = default!;
+	public Entity.PlaidCheckScoreVersion? PlaidCheckScoreVersion { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The versions of cashflow attributes</para>
+	/// <para>The version of cashflow attributes</para>
 	/// </summary>
 	[JsonPropertyName("attributes_version")]
 	public Entity.CashflowAttributesVersion? AttributesVersion { get; set; } = default!;

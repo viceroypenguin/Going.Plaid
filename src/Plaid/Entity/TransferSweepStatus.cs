@@ -30,12 +30,6 @@ public enum TransferSweepStatus
 	ReturnSwept,
 
 	/// <summary>
-	/// <para>Funds from the transfer have been released from hold and applied to the ledger's available balance. This is only applicable to debits.</para>
-	/// </summary>
-	[EnumMember(Value = "funds_available")]
-	FundsAvailable,
-
-	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

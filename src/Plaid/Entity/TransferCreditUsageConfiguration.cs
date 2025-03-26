@@ -32,8 +32,8 @@ public class TransferCreditUsageConfiguration
 	/// <summary>
 	/// <para>Specifies the expected use cases for the originator’s credit transfers. This should be a list that contains one or more of the following codes:</para>
 	/// <para><c>"ccd"</c> - Corporate Credit or Debit - fund transfer between two corporate bank accounts</para>
-	/// <para><c>"ppd"</c> - Prearranged Payment or Deposit - the transfer is part of a pre-existing relationship with a consumer, e.g. bill payment</para>
-	/// <para><c>"web"</c> - A credit Entry initiated by or on behalf of a holder of a Consumer Account that is intended for a Consumer Account of a Receiver</para>
+	/// <para><c>"ppd"</c> - Prearranged Payment or Deposit - The transfer is part of a pre-existing relationship with a consumer. Authorization was obtained in writing either in person or via an electronic document signing, e.g. Docusign, by the consumer. Can be used for credits or debits.</para>
+	/// <para><c>"web"</c> - Internet-Initiated Entry. The transfer debits a consumer’s bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits.</para>
 	/// </summary>
 	[JsonPropertyName("sec_codes")]
 	public IReadOnlyList<Entity.CreditACHClass> SecCodes { get; set; } = default!;

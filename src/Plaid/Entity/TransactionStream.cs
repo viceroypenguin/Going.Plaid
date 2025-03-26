@@ -110,12 +110,14 @@ public record TransactionStream
 	/// <para>This will be set to <c>true</c> if the stream has been modified by request to a <c>/transactions/recurring/streams</c> endpoint. It will be <c>false</c> for all other streams.</para>
 	/// </summary>
 	[JsonPropertyName("is_user_modified")]
+	[Obsolete]
 	public bool IsUserModified { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The date and time of the most recent user modification. This will only be set if <c>is_user_modified</c> is <c>true</c>.</para>
 	/// </summary>
 	[JsonPropertyName("last_user_modified_datetime")]
+	[Obsolete]
 	public DateTimeOffset? LastUserModifiedDatetime { get; init; } = default!;
 
 }

@@ -12,19 +12,19 @@ public enum AchClass
 	Ccd,
 
 	/// <summary>
-	/// <para>Prearranged Payment or Deposit - the transfer is part of a pre-existing relationship with a consumer, e.g. bill payment</para>
+	/// <para>Prearranged Payment or Deposit - The transfer is part of a pre-existing relationship with a consumer. Authorization was obtained in writing either in person or via an electronic document signing, e.g. Docusign, by the consumer. Can be used for credits or debits.</para>
 	/// </summary>
 	[EnumMember(Value = "ppd")]
 	Ppd,
 
 	/// <summary>
-	/// <para>Telephone-Initiated Entry</para>
+	/// <para>Telephone-Initiated Entry. The transfer debits a consumer. Debit authorization has been received orally over the telephone via a recorded call.</para>
 	/// </summary>
 	[EnumMember(Value = "tel")]
 	Tel,
 
 	/// <summary>
-	/// <para>Internet-Initiated Entry - debits from a consumer’s account where their authorization is obtained over the Internet</para>
+	/// <para>Internet-Initiated Entry. The transfer debits a consumer’s bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits.</para>
 	/// </summary>
 	[EnumMember(Value = "web")]
 	Web,

@@ -17,4 +17,10 @@ public partial class CraMonitoringInsightsSubscribeRequest : RequestBase
 	[JsonPropertyName("webhook")]
 	public string Webhook { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Income categories to include in Cash Flow Updates. If empty or <c>null</c>, this field will default to including all possible categories.</para>
+	/// </summary>
+	[JsonPropertyName("income_categories")]
+	public IReadOnlyList<Entity.CreditBankIncomeCategory>? IncomeCategories { get; set; } = default!;
+
 }

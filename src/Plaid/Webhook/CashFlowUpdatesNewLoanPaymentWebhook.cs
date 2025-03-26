@@ -1,17 +1,17 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>For each user enabled for Cash Flow Updates, this webhook will fire when an update includes an NSF overdraft transaction. Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
+/// <para>For each user enabled for Cash Flow Updates, this webhook will fire when an update detects a new loan payment. Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
 /// </summary>
-public record MonitoringInsightsNSFWebhook : WebhookBase
+public record CashFlowUpdatesNewLoanPaymentWebhook : WebhookBase
 {
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_type")]
-	public override WebhookType WebhookType => WebhookType.CraMonitoring;
+	public override WebhookType WebhookType => WebhookType.CashFlowUpdates;
 
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]
-	public override WebhookCode WebhookCode => WebhookCode.NsfOverdraftDetected;
+	public override WebhookCode WebhookCode => WebhookCode.NewLoanPaymentDetected;
 
 	/// <summary>
 	/// <para>Enum for the status of the insights</para>

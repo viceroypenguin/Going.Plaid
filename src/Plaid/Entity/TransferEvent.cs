@@ -42,7 +42,7 @@ public record TransferEvent
 	public string? LedgerId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer. This field is <c>null</c> for Plaid Ledger Sweep events.</para>
+	/// <para>Plaid's unique identifier for a transfer. This field is an empty string for Plaid Ledger Sweep events.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_id")]
 	public string TransferId { get; init; } = default!;

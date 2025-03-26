@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A list of add-ons that should be included in the Asset Report.</para>
+/// <para>Add-ons that should be included in the Asset Report.</para>
 /// </summary>
 public enum AssetReportAddOns
 {

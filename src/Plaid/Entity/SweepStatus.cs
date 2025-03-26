@@ -24,6 +24,12 @@ public enum SweepStatus
 	Settled,
 
 	/// <summary>
+	/// <para>Funds from the sweep have been released from hold and applied to the ledger's available balance. (Only applicable to deposits)</para>
+	/// </summary>
+	[EnumMember(Value = "funds_available")]
+	FundsAvailable,
+
+	/// <summary>
 	/// <para>The sweep has been returned</para>
 	/// </summary>
 	[EnumMember(Value = "returned")]

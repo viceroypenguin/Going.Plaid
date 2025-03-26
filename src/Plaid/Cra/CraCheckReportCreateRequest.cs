@@ -30,7 +30,13 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public int? DaysRequired { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies a list of products that will be eagerly generated when creating the report. These products will be made available before a success webhook is sent. Use this option to minimize response latency for product <c>/get</c> endpoints.</para>
+	/// <para>Client-generated identifier, which can be used by lenders to track loan applications.</para>
+	/// </summary>
+	[JsonPropertyName("client_report_id")]
+	public string? ClientReportId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifies a list of products that will be eagerly generated when creating the report (in addition to the Base Report, which is always eagerly generated). These products will be made available before a success webhook is sent. Use this option to minimize response latency for product <c>/get</c> endpoints. Note that specifying <c>cra_partner_insights</c> in this field will trigger a billable event. Other products are not billed until the respective reports are fetched via product-specific <c>/get</c> endpoints.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;

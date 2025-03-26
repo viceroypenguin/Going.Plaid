@@ -11,4 +11,10 @@ public record CraCheckReportNetworkInsightsGetResponse : ResponseBase
 	[JsonPropertyName("report")]
 	public Entity.CraNetworkInsightsReport Report { get; init; } = default!;
 
+	/// <summary>
+	/// <para>If the Network Insights generation was successful but a subset of data could not be retrieved, this array will contain information about the errors causing information to be missing</para>
+	/// </summary>
+	[JsonPropertyName("warnings")]
+	public IReadOnlyList<Entity.CraReportWarning>? Warnings { get; init; } = default!;
+
 }

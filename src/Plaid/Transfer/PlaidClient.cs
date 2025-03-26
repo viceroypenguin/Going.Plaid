@@ -110,6 +110,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferOriginatorFundingAccountUpdateResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/transfer/originator/funding_account/create</c> endpoint to create a new funding account for the originator.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform-payments/#transferoriginatorfunding_accountcreate" /></remarks>
+	public Task<Transfer.TransferOriginatorFundingAccountCreateResponse> TransferOriginatorFundingAccountCreateAsync(Transfer.TransferOriginatorFundingAccountCreateRequest request) =>
+		PostAsync("/transfer/originator/funding_account/create", request)
+			.ParseResponseAsync<Transfer.TransferOriginatorFundingAccountCreateResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/transfer/metrics/get</c> endpoint to view your transfer product usage metrics.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/metrics/#transfermetricsget" /></remarks>

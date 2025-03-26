@@ -12,13 +12,13 @@ public enum CreditACHClass
 	Ccd,
 
 	/// <summary>
-	/// <para>Prearranged Payment or Deposit - the transfer is part of a pre-existing relationship with a consumer, eg. bill payment</para>
+	/// <para>Prearranged Payment or Deposit - The transfer is part of a pre-existing relationship with a consumer. Authorization was obtained in writing either in person or via an electronic document signing, e.g. Docusign, by the consumer. Can be used for credits or debits.</para>
 	/// </summary>
 	[EnumMember(Value = "ppd")]
 	Ppd,
 
 	/// <summary>
-	/// <para>A credit Entry initiated by or on behalf of a holder of a Consumer Account that is intended for a Consumer Account of a Receiver</para>
+	/// <para>Internet-Initiated Entry. The transfer debits a consumer’s bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits.</para>
 	/// </summary>
 	[EnumMember(Value = "web")]
 	Web,

@@ -1,17 +1,17 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>For each user enabled for Cash Flow Updates, this webhook will fire when an update includes a new income stream. Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
+/// <para>For each user enabled for Cash Flow Updates, this webhook will fire when an update detects that an expected deposit was missed. Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
 /// </summary>
-public record MonitoringInsightsNewIncomeStreamWebhook : WebhookBase
+public record CashFlowUpdatesExpectedDepositMissedWebhook : WebhookBase
 {
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_type")]
-	public override WebhookType WebhookType => WebhookType.CraMonitoring;
+	public override WebhookType WebhookType => WebhookType.CashFlowUpdates;
 
 	/// <inheritdoc />
 	[JsonPropertyName("webhook_code")]
-	public override WebhookCode WebhookCode => WebhookCode.NewIncomeStreamDetected;
+	public override WebhookCode WebhookCode => WebhookCode.ExpectedDepositMissed;
 
 	/// <summary>
 	/// <para>Enum for the status of the insights</para>

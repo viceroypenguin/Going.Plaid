@@ -78,6 +78,18 @@ public enum EntityWatchlistCode
 	UsUvl,
 
 	/// <summary>
+	/// <para>US System for Award Management Exclusion List</para>
+	/// </summary>
+	[EnumMember(Value = "US_SAM")]
+	UsSam,
+
+	/// <summary>
+	/// <para>US Terrorist Exclusion List</para>
+	/// </summary>
+	[EnumMember(Value = "US_TEL")]
+	UsTel,
+
+	/// <summary>
 	/// <para>Australia Department of Foreign Affairs and Trade Consolidated List</para>
 	/// </summary>
 	[EnumMember(Value = "AU_CON")]

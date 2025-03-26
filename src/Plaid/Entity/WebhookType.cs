@@ -146,6 +146,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "CASH_FLOW_UPDATES")]
+	CashFlowUpdates,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "BASE_REPORT")]
 	BaseReport,
 
