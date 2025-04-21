@@ -2,7 +2,7 @@ namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>Details about the option security.</para>
-/// <para>For the Sandbox environment, this data is currently only available if the item is using a custom configuration object, and the <c>ticker</c> field of the custom security follows the <a href="https://en.wikipedia.org/wiki/Option_symbol#The_OCC_Option_Symbol">OCC Option Symbol</a> standard with no spaces.</para>
+/// <para>For the Sandbox environment, this data is currently only available if the Item is using a <a href="https://plaid.com/docs/sandbox/user-custom/">custom Sandbox user</a> and the <c>ticker</c> field of the custom security follows the <a href="https://en.wikipedia.org/wiki/Option_symbol#The_OCC_Option_Symbol">OCC Option Symbol</a> standard with no spaces. For an example of simulating this in Sandbox, see the <a href="https://github.com/plaid/sandbox-custom-users">custom Sandbox GitHub</a>.</para>
 /// </summary>
 public record OptionContract
 {

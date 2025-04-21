@@ -6,13 +6,13 @@ namespace Going.Plaid.Transfer;
 public partial class TransferRecurringListRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The start datetime of recurring transfers to list. This should be in RFC 3339 format (i.e. <c>2019-12-06T22:35:49Z</c>)</para>
+	/// <para>The start <c>created</c> datetime of recurring transfers to list. This should be in RFC 3339 format (i.e. <c>2019-12-06T22:35:49Z</c>)</para>
 	/// </summary>
 	[JsonPropertyName("start_time")]
 	public DateTimeOffset? StartTime { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The end datetime of recurring transfers to list. This should be in RFC 3339 format (i.e. <c>2019-12-06T22:35:49Z</c>)</para>
+	/// <para>The end <c>created</c> datetime of recurring transfers to list. This should be in RFC 3339 format (i.e. <c>2019-12-06T22:35:49Z</c>)</para>
 	/// </summary>
 	[JsonPropertyName("end_time")]
 	public DateTimeOffset? EndTime { get; set; } = default!;

@@ -12,13 +12,13 @@ public partial class BankTransferSweepListRequest : RequestBase
 	public string? OriginationAccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The start datetime of sweeps to return (RFC 3339 format).</para>
+	/// <para>The start <c>created</c> datetime of sweeps to return (RFC 3339 format).</para>
 	/// </summary>
 	[JsonPropertyName("start_time")]
 	public DateTimeOffset? StartTime { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The end datetime of sweeps to return (RFC 3339 format).</para>
+	/// <para>The end <c>created</c> datetime of sweeps to return (RFC 3339 format).</para>
 	/// </summary>
 	[JsonPropertyName("end_time")]
 	public DateTimeOffset? EndTime { get; set; } = default!;

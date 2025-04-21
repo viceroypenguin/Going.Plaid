@@ -15,6 +15,6 @@ public partial class IssuesSubscribeRequest : RequestBase
 	/// <para>The webhook URL where notifications should be sent when the issue status changes.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
-	public string? Webhook { get; set; } = default!;
+	public string Webhook { get; set; } = default!;
 
 }

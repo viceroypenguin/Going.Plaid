@@ -122,12 +122,6 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "DEPOSIT_SWITCH")]
-	DepositSwitch,
-
-	/// <summary>
-	/// 
-	/// </summary>
 	[EnumMember(Value = "LINK_DELIVERY")]
 	LinkDelivery,
 

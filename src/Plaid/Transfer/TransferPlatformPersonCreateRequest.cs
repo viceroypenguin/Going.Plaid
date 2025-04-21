@@ -1,7 +1,7 @@
 namespace Going.Plaid.Transfer;
 
 /// <summary>
-/// <para>Defines the response schema for <c>/transfer/platform/person/create</c></para>
+/// <para>Defines the request schema for <c>/transfer/platform/person/create</c></para>
 /// </summary>
 public partial class TransferPlatformPersonCreateRequest : RequestBase
 {
@@ -52,5 +52,11 @@ public partial class TransferPlatformPersonCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("relationship_to_originator")]
 	public string? RelationshipToOriginator { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The percentage of ownership this person has in the onboarding business. Only applicable to beneficial owners with 25% or more ownership.</para>
+	/// </summary>
+	[JsonPropertyName("ownership_percentage")]
+	public int? OwnershipPercentage { get; set; } = default!;
 
 }

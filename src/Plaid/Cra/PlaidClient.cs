@@ -87,6 +87,16 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportNetworkInsightsGetResponse>();
 
 	/// <summary>
+	/// <para>This endpoint allows you to retrieve verification reports for a user. To obtain a VoA or VoE report, you need to make sure that <c>cra_base_report</c> is included in the <c>products</c> parameter when calling <c>/link/token/create</c> or <c>/cra/check_report/create</c>. </para>
+	/// <para>You should call this endpoint after you've received a <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>.</para>
+	/// <para>If the most recent consumer report for the user doesn’t have sufficient data to generate the report, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>."</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cracheck_reportverificationget" /></remarks>
+	public Task<Cra.CraCheckReportVerificationGetResponse> CraCheckReportVerificationGetAsync(Cra.CraCheckReportVerificationGetRequest request) =>
+		PostAsync("/cra/check_report/verification/get", request)
+			.ParseResponseAsync<Cra.CraCheckReportVerificationGetResponse>();
+
+	/// <summary>
 	/// <para><c>/cra/loans/applications/register</c> registers loan applications and decisions.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class TransferFailure
 {
 	/// <summary>
-	/// <para>The failure code, e.g. <c>R01</c>.  A failure code will be provided if and only if the transfer status is <c>returned</c>. See <a href="https://plaid.com/docs/errors/transfer/#ach-return-codes">ACH return codes</a> for a full listing of ACH return codes and <a href="https://plaid.com/docs/errors/transfer/#rtp-error-codes">RTP error codes</a> for RTP error codes.</para>
+	/// <para>The failure code, e.g. <c>R01</c>.  A failure code will be provided if and only if the transfer status is <c>returned</c>. See <a href="https://plaid.com/docs/errors/transfer/#ach-return-codes">ACH return codes</a> for a full listing of ACH return codes and <a href="https://plaid.com/docs/errors/transfer/#rtprfp-error-codes">RTP/RfP error codes</a> for RTP error codes.</para>
 	/// </summary>
 	[JsonPropertyName("failure_code")]
 	public string? FailureCode { get; set; } = default!;

@@ -1,27 +1,21 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Type of verification report.</para>
 /// </summary>
-public enum DepositSwitchGetResponseSwitchMethodEnum
+public enum CraCheckReportVerificationGetReportType
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "instant")]
-	Instant,
+	[EnumMember(Value = "VOA")]
+	Voa,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "mail")]
-	Mail,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "pdf")]
-	Pdf,
+	[EnumMember(Value = "VOE")]
+	Voe,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

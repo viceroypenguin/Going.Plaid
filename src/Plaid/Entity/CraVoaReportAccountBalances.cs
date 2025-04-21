@@ -1,9 +1,9 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by <c>/accounts/balance/get</c>.</para>
+/// <para>VOA Report information about an account's balances.</para>
 /// </summary>
-public record AccountBalance
+public record CraVoaReportAccountBalances
 {
 	/// <summary>
 	/// <para>The amount of funds available to be withdrawn from the account, as determined by the financial institution.</para>
@@ -20,21 +20,13 @@ public record AccountBalance
 	/// <summary>
 	/// <para>The total amount of funds in or owed by the account.</para>
 	/// <para>For <c>credit</c>-type accounts, a positive balance indicates the amount owed; a negative amount indicates the lender owing the account holder.</para>
-	/// <para>For <c>loan</c>-type accounts, the current balance is the principal remaining on the loan, except in the case of student loan accounts at Sallie Mae (<c>ins_116944</c>). For Sallie Mae student loans, the account's balance includes both principal and any outstanding interest. Similar to <c>credit</c>-type accounts, a positive balance is typically expected, while a negative amount indicates the lender owing the account holder.</para>
+	/// <para>For <c>loan</c>-type accounts, the current balance is the principal remaining on the loan, except in the case of student loan accounts at Sallie Mae (<c>ins_116944</c>). For Sallie Mae student loans, the account's balance includes both principal and any outstanding interest.</para>
 	/// <para>For <c>investment</c>-type accounts (or <c>brokerage</c>-type accounts for API versions 2018-05-22 and earlier), the current balance is the total value of assets as presented by the institution.</para>
 	/// <para>Note that balance information may be cached unless the value was returned by <c>/accounts/balance/get</c>; if the Item is enabled for Transactions, the balance will be at least as recent as the most recent Transaction update. If you require realtime balance information, use the <c>available</c> balance as provided by <c>/accounts/balance/get</c>.</para>
 	/// <para>When returned by <c>/accounts/balance/get</c>, this field may be <c>null</c>. When this happens, <c>available</c> is guaranteed not to be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("current")]
 	public decimal? Current { get; init; } = default!;
-
-	/// <summary>
-	/// <para>For <c>credit</c>-type accounts, this represents the credit limit.</para>
-	/// <para>For <c>depository</c>-type accounts, this represents the pre-arranged overdraft limit, which is common for current (checking) accounts in Europe.</para>
-	/// <para>In North America, this field is typically only available for <c>credit</c>-type accounts.</para>
-	/// </summary>
-	[JsonPropertyName("limit")]
-	public decimal? Limit { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO-4217 currency code of the balance. Always null if <c>unofficial_currency_code</c> is non-null.</para>
@@ -50,10 +42,27 @@ public record AccountBalance
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Timestamp in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) indicating the last time the balance was updated.</para>
-	/// <para>This field is returned only when the institution is <c>ins_128026</c> (Capital One).</para>
+	/// <para>Calculated data about the historical balances on the account.</para>
 	/// </summary>
-	[JsonPropertyName("last_updated_datetime")]
-	public DateTimeOffset? LastUpdatedDatetime { get; init; } = default!;
+	[JsonPropertyName("historical_balances")]
+	public IReadOnlyList<Entity.CraVoaReportAccountHistoricalBalance> HistoricalBalances { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The average balance in the account over the last 30 days. Calculated using the derived historical balances.</para>
+	/// </summary>
+	[JsonPropertyName("average_balance_30_days")]
+	public decimal? AverageBalance30Days { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The average balance in the account over the last 60 days. Calculated using the derived historical balances.</para>
+	/// </summary>
+	[JsonPropertyName("average_balance_60_days")]
+	public decimal? AverageBalance60Days { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of NSF and overdraft fee transactions in the time range for the report in the given account.</para>
+	/// </summary>
+	[JsonPropertyName("nsf_overdraft_transactions_count")]
+	public decimal NsfOverdraftTransactionsCount { get; init; } = default!;
 
 }

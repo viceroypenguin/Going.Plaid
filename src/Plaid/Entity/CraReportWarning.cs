@@ -12,7 +12,7 @@ public record CraReportWarning
 	public string WarningType { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The warning code identifies a specific kind of warning.</para>
 	/// </summary>
 	[JsonPropertyName("warning_code")]
 	public Entity.CheckReportWarningCode WarningCode { get; init; } = default!;

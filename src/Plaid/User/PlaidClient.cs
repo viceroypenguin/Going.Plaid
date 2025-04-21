@@ -24,6 +24,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/user/remove</c> deletes a user token and and associated information, including any Items associated with the token.</para>
 	/// <para>Any subsequent calls to retrieve information using the same user token will result in an error stating the user does not exist.</para>
+	/// <para>If a user is created for a given <c>client_user_id</c> using <c>/user/create</c> and that user is then deleted with <c>/user/remove</c>, the <c>client_user_id</c> cannot be reused for another <c>/user/create</c> request.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userremove" /></remarks>
 	public Task<User.UserRemoveResponse> UserRemoveAsync(User.UserRemoveRequest request) =>

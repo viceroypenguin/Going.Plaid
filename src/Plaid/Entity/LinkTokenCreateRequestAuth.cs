@@ -36,7 +36,7 @@ public class LinkTokenCreateRequestAuth
 	public bool? InstantMicrodepositsEnabled { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies what type of [Reroute to Credentials](https://plaid.com/docs/auth/coverage/same-day/#reroute-to-credentials) pane should be used in the Link session for the Same Day Micro-deposits flow. Default behavior is <c>OPTIONAL</c>.</para>
+	/// <para>Specifies what type of [Reroute to Credentials](https://plaid.com/docs/auth/coverage/flow-options/#removing-manual-verification-entry-points-with-reroute-to-credentials) pane should be used in the Link session for the Same Day Micro-deposits flow. Default behavior is <c>OPTIONAL</c>.</para>
 	/// </summary>
 	[JsonPropertyName("reroute_to_credentials")]
 	public Entity.LinkTokenCreateRequestAuthRerouteToCredentialsEnum? RerouteToCredentials { get; set; } = default!;

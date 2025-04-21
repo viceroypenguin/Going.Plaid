@@ -218,12 +218,6 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "SWITCH_STATE_UPDATE")]
-	SwitchStateUpdate,
-
-	/// <summary>
-	/// 
-	/// </summary>
 	[EnumMember(Value = "PLATFORM_ONBOARDING_UPDATE")]
 	PlatformOnboardingUpdate,
 

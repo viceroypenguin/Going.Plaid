@@ -12,9 +12,16 @@ public record SignalEvaluateRuleset
 	public string? RulesetKey { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Details about the rule that was triggered for this transaction.</para>
+	/// </summary>
+	[JsonPropertyName("triggered_rule_details")]
+	public Entity.RuleDetails? TriggeredRuleDetails { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The evaluated outcome for this transaction. You can configure a list of outcomes, such as "accept", "review", and "decline" using the Signal dashboard located within the Plaid Dashboard.</para>
 	/// </summary>
 	[JsonPropertyName("outcome")]
+	[Obsolete]
 	public string? Outcome { get; init; } = default!;
 
 }
