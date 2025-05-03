@@ -12,13 +12,19 @@ public record SignalEvaluateRuleset
 	public string? RulesetKey { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Details about the rule that was triggered for this transaction.</para>
+	/// <para>The result of the rule that was triggered for this transaction.</para>
+	/// </summary>
+	[JsonPropertyName("result")]
+	public Entity.RuleResult Result { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Rules are run in numerical order. The first rule with a logic match is triggered. These are the details of that rule.</para>
 	/// </summary>
 	[JsonPropertyName("triggered_rule_details")]
 	public Entity.RuleDetails? TriggeredRuleDetails { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The evaluated outcome for this transaction. You can configure a list of outcomes, such as "accept", "review", and "decline" using the Signal dashboard located within the Plaid Dashboard.</para>
+	/// <para>The evaluated outcome for this transaction. This field is deprecated, use <c>result</c> or <c>triggered_rule_details.custom_action_key</c> instead.</para>
 	/// </summary>
 	[JsonPropertyName("outcome")]
 	[Obsolete]

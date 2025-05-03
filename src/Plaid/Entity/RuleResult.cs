@@ -12,7 +12,7 @@ public enum RuleResult
 	Accept,
 
 	/// <summary>
-	/// <para>Reroute the transaction to a different payment method.</para>
+	/// <para>Reroute the transaction to a different payment method, as this transaction is too risky.</para>
 	/// </summary>
 	[EnumMember(Value = "REROUTE")]
 	Reroute,

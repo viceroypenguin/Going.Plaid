@@ -75,7 +75,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public string? RiskProfileKey { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The key of the Ruleset to use for this transaction. You can configure a Ruleset using the Signal dashboard located within the Plaid Dashboard. If not provided, no Ruleset will be used. This feature is currently in closed beta; to request access, contact your account manager.</para>
+	/// <para>The key of the ruleset to use for evaluating this transaction. You can configure a ruleset using the Signal dashboard located within the Plaid Dashboard. If not provided, no ruleset will be used.</para>
 	/// </summary>
 	[JsonPropertyName("ruleset_key")]
 	public string? RulesetKey { get; set; } = default!;

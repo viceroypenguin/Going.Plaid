@@ -98,10 +98,9 @@ public record BaseReportAccount
 	public Entity.BaseReportAccountInsights? AccountInsights { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Calculated attributes derived from transaction-level data. This field has been deprecated in favor of <a href="https://plaid.com/docs/api/products/check/#cra-check_report-base_report-get-response-report-attributes">Base Report attributes aggregated across accounts</a> and will be removed in a future release.</para>
+	/// <para>Calculated attributes derived from transaction-level data.</para>
 	/// </summary>
 	[JsonPropertyName("attributes")]
-	[Obsolete]
 	public Entity.BaseReportAttributes? Attributes { get; init; } = default!;
 
 }

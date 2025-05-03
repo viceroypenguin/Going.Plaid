@@ -50,6 +50,12 @@ public record SimulatedTransferSweep
 	public DateOnly? Settled { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The expected date when funds from a ledger deposit will be made available and can be withdrawn from the associated ledger balance. Only applies to deposits. This will be of the form YYYY-MM-DD.</para>
+	/// </summary>
+	[JsonPropertyName("expected_funds_available_date")]
+	public DateOnly? ExpectedFundsAvailableDate { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The status of a sweep transfer</para>
 	/// </summary>
 	[JsonPropertyName("status")]

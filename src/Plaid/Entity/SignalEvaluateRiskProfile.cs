@@ -12,7 +12,7 @@ public record SignalEvaluateRiskProfile
 	public string? Key { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The evaluated outcome for this transaction. You can configure a list of outcomes, such as "accept", "review", and "decline" using the Signal dashboard located within the Plaid Dashboard.</para>
+	/// <para>Legacy method of inspecting the result of the ruleset. New integrations should simply use the “result” property instead. This value will be omitted if you do not have a live existing integration with rules using this field.</para>
 	/// </summary>
 	[JsonPropertyName("outcome")]
 	public string? Outcome { get; init; } = default!;

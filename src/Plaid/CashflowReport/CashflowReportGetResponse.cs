@@ -9,7 +9,7 @@ public record CashflowReportGetResponse : ResponseBase
 	/// <para>An array containing the <c>accounts</c> associated with the Item for which transactions are being returned. Each transaction can be mapped to its corresponding account via the <c>account_id</c> field.</para>
 	/// </summary>
 	[JsonPropertyName("accounts")]
-	public IReadOnlyList<Entity.Account> Accounts { get; init; } = default!;
+	public IReadOnlyList<Entity.BusinessAccount> Accounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An array containing transactions from the account. Transactions are returned in reverse chronological order, with the most recent at the beginning of the array. The maximum number of transactions returned is determined by the <c>count</c> parameter.</para>

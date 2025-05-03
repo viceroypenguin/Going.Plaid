@@ -162,6 +162,12 @@ public record Transfer
 	public DateOnly? ExpectedSettlementDate { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The expected date when funds from a transfer will be made available and can be withdrawn from the associated ledger balance, assuming the debit does not return before this date. If the transfer does return before this date, this field will be null. Only applies to debit transfers. This will be of the form YYYY-MM-DD.</para>
+	/// </summary>
+	[JsonPropertyName("expected_funds_available_date")]
+	public DateOnly? ExpectedFundsAvailableDate { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The Plaid client ID that is the originator of this transfer. Only present if created on behalf of another client as a <a href="https://plaid.com/docs/transfer/application/#originators-vs-platforms">Platform customer</a>.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
