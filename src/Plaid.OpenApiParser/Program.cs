@@ -157,7 +157,7 @@ internal static partial class Program
 			var (pd, ed) = ParseEnumDescription(schema.Description);
 
 			static string GetEnumName(string name) =>
-				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.Replace(".", "_", StringComparison.Ordinal).ToLower(null).ToPascalCase()}";
+				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.Replace('.', '_').Replace(':', '_').ToLower(null).ToPascalCase()}";
 
 			s_schemaEntities[name] = new()
 			{
