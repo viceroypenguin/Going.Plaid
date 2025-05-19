@@ -92,7 +92,7 @@ public record RecurringTransfer
 	public string Description { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>The created transfer instances associated with this <c>recurring_transfer_id</c>. If the recurring transfer has been newly created, this array will be empty.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_ids")]
 	public IReadOnlyList<string> TransferIds { get; init; } = default!;

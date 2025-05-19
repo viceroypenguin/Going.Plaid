@@ -1,7 +1,7 @@
 namespace Going.Plaid.CashflowReport;
 
 /// <summary>
-/// <para>CashflowReportGetRequest defines the reqest schema for <c>/cashflow_report/get</c></para>
+/// <para>CashflowReportGetRequest defines the request schema for <c>/cashflow_report/get</c></para>
 /// </summary>
 public partial class CashflowReportGetRequest : RequestBase
 {
@@ -22,5 +22,11 @@ public partial class CashflowReportGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; set; } = default!;
+
+	/// <summary>
+	/// <para>An optional object to be used with the request. If specified, <c>options</c> must not be <c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("options")]
+	public Entity.CashflowReportGetRequestOptions? Options { get; set; } = default!;
 
 }

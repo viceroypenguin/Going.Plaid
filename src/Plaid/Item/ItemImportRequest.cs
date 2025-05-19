@@ -6,6 +6,12 @@ namespace Going.Plaid.Item;
 public partial class ItemImportRequest : RequestBase
 {
 	/// <summary>
+	/// <para>The Plaid Institution ID associated with the Item.</para>
+	/// </summary>
+	[JsonPropertyName("institution_id")]
+	public string? InstitutionId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Array of product strings</para>
 	/// </summary>
 	[JsonPropertyName("products")]

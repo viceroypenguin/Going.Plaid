@@ -1,7 +1,7 @@
 namespace Going.Plaid.CashflowReport;
 
 /// <summary>
-/// <para>CashflowReportRefreshRequest defines the reqest schema for <c>/cashflow_report/refresh</c></para>
+/// <para>CashflowReportRefreshRequest defines the request schema for <c>/cashflow_report/refresh</c></para>
 /// </summary>
 public partial class CashflowReportRefreshRequest : RequestBase
 {

@@ -12,7 +12,7 @@ public enum PaymentScheme
 	LocalDefault,
 
 	/// <summary>
-	/// <para>The instant payment scheme for the selected market and currency will be used (if applicable). Fees may be applied by the institution. If the market does not support an Instant Scheme (e.g. Denmark), the default in the region will be used.</para>
+	/// <para>The instant payment scheme for the selected market and currency will be used (if applicable). Fees may be applied by the institution.</para>
 	/// </summary>
 	[EnumMember(Value = "LOCAL_INSTANT")]
 	LocalInstant,

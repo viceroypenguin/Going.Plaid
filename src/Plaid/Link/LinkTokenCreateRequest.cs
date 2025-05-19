@@ -49,7 +49,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <summary>
 	/// <para>List of Plaid product(s) you wish to use only if the institution and account(s) selected by the user support the product. Institutions that do not support these products will still be shown in Link. The products will only be extracted and billed if the user selects an institution and account type that supports them.</para>
 	/// <para>There should be no overlap between this array and the <c>products</c>, <c>optional_products</c>, or <c>additional_consented_products</c> arrays. The <c>products</c> array must have at least one product.</para>
-	/// <para>For more details on using this feature, see <a href="https://www.plaid.com/docs/link/initializing-products/#required-if-supported-products">Required if Supported Products</a>.</para>
+	/// <para>For more details on using this feature, see <a href="https://plaid.com/docs/link/initializing-products/#required-if-supported-products">Required if Supported Products</a>.</para>
 	/// </summary>
 	[JsonPropertyName("required_if_supported_products")]
 	public IReadOnlyList<Entity.Products>? RequiredIfSupportedProducts { get; set; } = default!;
@@ -57,7 +57,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <summary>
 	/// <para>List of Plaid product(s) that will enhance the consumer's use case, but that your app can function without. Plaid will attempt to fetch data for these products on a best-effort basis, and failure to support these products will not affect Item creation.</para>
 	/// <para>There should be no overlap between this array and the <c>products</c>, <c>required_if_supported_products</c>, or <c>additional_consented_products</c> arrays. The <c>products</c> array must have at least one product.</para>
-	/// <para>For more details on using this feature, see <a href="https://www.plaid.com/docs/link/initializing-products/#optional-products">Optional Products</a>.</para>
+	/// <para>For more details on using this feature, see <a href="https://plaid.com/docs/link/initializing-products/#optional-products">Optional Products</a>.</para>
 	/// </summary>
 	[JsonPropertyName("optional_products")]
 	public IReadOnlyList<Entity.Products>? OptionalProducts { get; set; } = default!;

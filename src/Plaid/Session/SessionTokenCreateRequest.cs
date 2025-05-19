@@ -23,4 +23,10 @@ public partial class SessionTokenCreateRequest : RequestBase
 	[JsonPropertyName("redirect_uri")]
 	public string? RedirectUri { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The name of your app's Android package. Required if using the session token to initialize Layer on Android. Any package name specified here must also be added to the Allowed Android package names setting on the <a href="https://dashboard.plaid.com/team/api">developer dashboard</a>. When creating a session token for initializing Layer on other platforms, <c>android_package_name</c> must be left blank and <c>redirect_uri</c> should be used instead.</para>
+	/// </summary>
+	[JsonPropertyName("android_package_name")]
+	public string? AndroidPackageName { get; set; } = default!;
+
 }

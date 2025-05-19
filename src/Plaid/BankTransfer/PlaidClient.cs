@@ -43,7 +43,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<BankTransfer.BankTransferEventListResponse>();
 
 	/// <summary>
-	/// <para><c>/bank_transfer/event/sync</c> allows you to request up to the next 25 Plaid-initiated bank transfer events that happened after a specific <c>event_id</c>. When using Auth with micro-deposit verification enabled, this endpoint can be used to fetch status updates on ACH micro-deposits. For more details, see <a href="https://www.plaid.com/docs/auth/coverage/microdeposit-events/">micro-deposit events</a>.</para>
+	/// <para><c>/bank_transfer/event/sync</c> allows you to request up to the next 25 Plaid-initiated bank transfer events that happened after a specific <c>event_id</c>. When using Auth with micro-deposit verification enabled, this endpoint can be used to fetch status updates on ACH micro-deposits. For more details, see <a href="https://plaid.com/docs/auth/coverage/microdeposit-events/">micro-deposit events</a>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/auth/#bank_transfereventsync" /></remarks>
 	public Task<BankTransfer.BankTransferEventSyncResponse> BankTransferEventSyncAsync(BankTransfer.BankTransferEventSyncRequest request) =>

@@ -23,7 +23,7 @@ public record TransactionStream
 	/// </summary>
 	[JsonPropertyName("category")]
 	[Obsolete]
-	public IReadOnlyList<string> Category { get; init; } = default!;
+	public IReadOnlyList<string>? Category { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ID of the category to which this transaction belongs. See <a href="https://plaid.com/docs/api/products/transactions/#categoriesget">Categories</a>.</para>
@@ -31,7 +31,7 @@ public record TransactionStream
 	/// </summary>
 	[JsonPropertyName("category_id")]
 	[Obsolete]
-	public string CategoryId { get; init; } = default!;
+	public string? CategoryId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A description of the transaction stream.</para>

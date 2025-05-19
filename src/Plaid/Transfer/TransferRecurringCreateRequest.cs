@@ -69,7 +69,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	public string Description { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the created <c>recurring_transfer</c> is associated with the <c>test_clock</c>. New originations are automatically generated when the associated <c>test_clock</c> advances.</para>
+	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using the <c>sandbox</c> environment. If provided, the created <c>recurring_transfer</c> is associated with the <c>test_clock</c>. New originations are automatically generated when the associated <c>test_clock</c> advances. For more details, see <a href="https://plaid.com/docs/transfer/sandbox/#simulating-recurring-transfers">Simulating recurring transfers</a>.</para>
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;

@@ -29,8 +29,8 @@ public record CreditDocumentMetadata
 
 	/// <summary>
 	/// <para>Signed URL to retrieve the document(s). The payload will be a .zip file containing the document(s).</para>
-	/// <para>For Payroll Income, the file type of the documents will always be PDF, and the documents may not be available, in which case the field will be <c>null</c>. If you would like Plaid to generate a PDF if the original is not available, contact your Account Manager. <a href="https://www.plaid.com/documents/plaid-generated-mock-paystub.pdf">Example generated pay stub</a>.</para>
-	/// <para>For Document Income, this field will not be <c>null</c>, and the file type of the underlying document(s) will be the original file type uploaded by the user. For more details on available file types, see the <a href="https://www.plaid.com/docs/income/payroll-income">Document Income</a> documentation.</para>
+	/// <para>For Payroll Income, the file type of the documents will always be PDF, and the documents may not be available, in which case the field will be <c>null</c>. If you would like Plaid to generate a PDF if the original is not available, contact your Account Manager. <a href="https://plaid.com/documents/plaid-generated-mock-paystub.pdf">Example generated pay stub</a>.</para>
+	/// <para>For Document Income, this field will not be <c>null</c>, and the file type of the underlying document(s) will be the original file type uploaded by the user. For more details on available file types, see the <a href="https://plaid.com/docs/income/payroll-income">Document Income</a> documentation.</para>
 	/// <para>This download URL can only be used once and expires after two minutes. To generate a new download URL, call <c>/credit/payroll_income/get</c> again.</para>
 	/// </summary>
 	[JsonPropertyName("download_url")]

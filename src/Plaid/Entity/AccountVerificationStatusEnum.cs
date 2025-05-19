@@ -24,6 +24,12 @@ public enum AccountVerificationStatusEnum
 	PendingManualVerification,
 
 	/// <summary>
+	/// <para>The Item is pending micro-deposit verification, but Plaid has not yet sent the micro-deposit.</para>
+	/// </summary>
+	[EnumMember(Value = "unsent")]
+	Unsent,
+
+	/// <summary>
 	/// <para>The Item has successfully been manually verified</para>
 	/// </summary>
 	[EnumMember(Value = "manually_verified")]

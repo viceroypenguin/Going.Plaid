@@ -44,6 +44,12 @@ public enum LinkDeliveryVerificationStatus
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "unsent")]
+	Unsent,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "database_matched")]
 	DatabaseMatched,
 

@@ -342,6 +342,18 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	Loanpro,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "bloom_credit")]
+	BloomCredit,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "sfox")]
+	Sfox,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

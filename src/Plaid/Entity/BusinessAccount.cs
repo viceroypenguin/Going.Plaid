@@ -86,4 +86,10 @@ public record BusinessAccount
 	[JsonPropertyName("owners")]
 	public IReadOnlyList<Entity.Owner>? Owners { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Calculated data about the historical balances on the account.</para>
+	/// </summary>
+	[JsonPropertyName("historical_balances")]
+	public IReadOnlyList<Entity.BaseReportHistoricalBalance>? HistoricalBalances { get; init; } = default!;
+
 }

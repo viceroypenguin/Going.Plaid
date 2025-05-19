@@ -15,7 +15,7 @@ public record ProcessorTransactionsSyncResponse : ResponseBase
 	/// <para>A single account at a financial institution.</para>
 	/// </summary>
 	[JsonPropertyName("account")]
-	public Entity.Account Account { get; init; } = default!;
+	public Entity.Account? Account { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Transactions that have been added to the Item since <c>cursor</c> ordered by ascending last modified time.</para>

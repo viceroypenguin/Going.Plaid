@@ -15,7 +15,7 @@ public record CashflowReportGetResponse : ResponseBase
 	/// <para>An array containing transactions from the account. Transactions are returned in reverse chronological order, with the most recent at the beginning of the array. The maximum number of transactions returned is determined by the <c>count</c> parameter.</para>
 	/// </summary>
 	[JsonPropertyName("transactions")]
-	public IReadOnlyList<Entity.Transaction> Transactions { get; init; } = default!;
+	public IReadOnlyList<Entity.CashflowReportTransaction> Transactions { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The total number of transactions available within the date range specified. If <c>total_transactions</c> is larger than the size of the <c>transactions</c> array, more transactions are available and can be fetched via manipulating the <c>offset</c> parameter.</para>
