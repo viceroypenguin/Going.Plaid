@@ -92,9 +92,10 @@ public record BaseReportAccount
 	public IReadOnlyList<Entity.BaseReportHistoricalBalance>? HistoricalBalances { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Calculated insights derived from transaction-level data.</para>
+	/// <para>Calculated insights derived from transaction-level data. This field has been deprecated in favor of <a href="https://plaid.com/docs/api/products/check/#cra-check_report-base_report-get-response-report-attributes">Base Report attributes aggregated across accounts</a> and will be removed in a future release.</para>
 	/// </summary>
 	[JsonPropertyName("account_insights")]
+	[Obsolete]
 	public Entity.BaseReportAccountInsights? AccountInsights { get; init; } = default!;
 
 	/// <summary>

@@ -41,4 +41,10 @@ public record LinkSessionResults
 	[JsonPropertyName("cra_document_upload_results")]
 	public Entity.LinkSessionCraDocumentUploadResult? CraDocumentUploadResults { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Plaid Protect details from the Link session</para>
+	/// </summary>
+	[JsonPropertyName("protect_results")]
+	public Entity.LinkSessionProtectResult? ProtectResults { get; init; } = default!;
+
 }

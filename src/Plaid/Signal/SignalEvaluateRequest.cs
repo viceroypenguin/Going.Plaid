@@ -13,7 +13,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The unique ID that you would like to use to refer to this transaction. For your convenience mapping your internal data, you could use your internal ID/identifier for this transaction. The max length for this field is 36 characters.</para>
+	/// <para>The unique ID that you would like to use to refer to this evaluation attempt - for example, a payment attempt ID. You will use this later to debug this evaluation, and/or report an ACH return, etc. The max length for this field is 36 characters.</para>
 	/// </summary>
 	[JsonPropertyName("client_transaction_id")]
 	public string ClientTransactionId { get; set; } = default!;
@@ -37,7 +37,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public string? ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para><c>true</c> if the ACH transaction is a recurring transaction; <c>false</c> otherwise</para>
+	/// <para>Use <c>true</c> if the ACH transaction is a part of recurring schedule (for example, a monthly repayment); <c>false</c> otherwise</para>
 	/// </summary>
 	[JsonPropertyName("is_recurring")]
 	public bool? IsRecurring { get; set; } = default!;

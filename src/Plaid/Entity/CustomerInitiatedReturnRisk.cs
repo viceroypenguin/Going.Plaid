@@ -12,6 +12,7 @@ public record CustomerInitiatedReturnRisk
 	public int Score { get; init; } = default!;
 
 	/// <summary>
+	/// <para>DEPRECATED. Use Signal Rules instead to transform the <c>score</c> into a useful action. </para>
 	/// <para>A tier corresponding to the projected likelihood that the transaction, if initiated, will be subject to a return.</para>
 	/// <para>In the <c>customer_initiated_return_risk</c> object, there are five risk tiers corresponding to the scores:</para>
 	/// <para>  1: Predicted customer-initiated return incidence rate between 0.00% - 0.02%</para>

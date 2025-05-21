@@ -204,6 +204,12 @@ public enum Products
 	PayByBank,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "protect_linked_bank")]
+	ProtectLinkedBank,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

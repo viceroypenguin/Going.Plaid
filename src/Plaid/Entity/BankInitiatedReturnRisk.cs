@@ -12,6 +12,7 @@ public record BankInitiatedReturnRisk
 	public int Score { get; init; } = default!;
 
 	/// <summary>
+	/// <para>DEPRECATED. Use Signal Rules instead to transform the <c>score</c> into a useful action.  </para>
 	/// <para>In the <c>bank_initiated_return_risk</c> object, there are eight risk tiers corresponding to the scores:</para>
 	/// <para>  1: Predicted bank-initiated return incidence rate between 0.0% - 0.5%</para>
 	/// <para>  2: Predicted bank-initiated return incidence rate between 0.5% - 1.5%</para>
