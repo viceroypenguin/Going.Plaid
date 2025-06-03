@@ -1,27 +1,21 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Enum for the status of the Item's insights</para>
+/// <para>The types of GSE Reports supported by the Plaid API</para>
 /// </summary>
-public enum MonitoringItemStatusCode
+public enum GSEReportType
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "AVAILABLE")]
-	Available,
+	[EnumMember(Value = "VOA")]
+	Voa,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "FAILED")]
-	Failed,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "PENDING")]
-	Pending,
+	[EnumMember(Value = "VOE")]
+	Voe,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

@@ -18,10 +18,22 @@ public record CraPartnerInsightsPrism
 	public Entity.PrismCashScore? CashScore { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The data from the CashScore® Extend product returned by Prism Data.</para>
+	/// </summary>
+	[JsonPropertyName("extend")]
+	public Entity.PrismExtend? Extend { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The data from the FirstDetect product returned by Prism Data.</para>
 	/// </summary>
 	[JsonPropertyName("first_detect")]
 	public Entity.PrismFirstDetect? FirstDetect { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The data from the CashScore® Detect product returned by Prism Data.</para>
+	/// </summary>
+	[JsonPropertyName("detect")]
+	public Entity.PrismDetect? Detect { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Details on whether the Prism Data attributes succeeded or failed to be generated.</para>

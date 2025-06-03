@@ -3,6 +3,16 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para>Use the <c>/sandbox/transactions/create</c> endpoint to create new transactions for an existing Item. This endpoint can be used to add up to 10 transactions to any Item at a time.</para>
+	/// <para>This endpoint is only available in the Sandbox environment, thus can only be used with Items that were created in the Sandbox. You can use this to add transactions to test the <c>/transactions/get</c> and <c>/transactions/sync</c> endpoints.</para>
+	/// <para>For Items created in the Production environment, real transactions will be available once the transactions product is enabled.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransactionscreate" /></remarks>
+	public Task<Sandbox.SandboxTransactionsCreateResponse> SandboxTransactionsCreateAsync(Sandbox.SandboxTransactionsCreateRequest request) =>
+		PostAsync("/sandbox/transactions/create", request)
+			.ParseResponseAsync<Sandbox.SandboxTransactionsCreateResponse>();
+
+	/// <summary>
 	/// <para>Use the <c>/sandbox/processor_token/create</c> endpoint to create a valid <c>processor_token</c> for an arbitrary institution ID and test credentials. The created <c>processor_token</c> corresponds to a new Sandbox Item. You can then use this <c>processor_token</c> with the <c>/processor/</c> API endpoints in Sandbox. You can also use <c>/sandbox/processor_token/create</c> with the <a href="https://plaid.com/docs/sandbox/user-custom"><c>user_custom</c> test username</a> to generate a test account with custom data.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxprocessor_tokencreate" /></remarks>

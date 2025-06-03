@@ -1,27 +1,15 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Enum for the status of the Item's insights</para>
+/// <para>The version of Prism Extend</para>
 /// </summary>
-public enum MonitoringItemStatusCode
+public enum PrismExtendVersion
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "AVAILABLE")]
-	Available,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "FAILED")]
-	Failed,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "PENDING")]
-	Pending,
+	[EnumMember(Value = "4")]
+	_4,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

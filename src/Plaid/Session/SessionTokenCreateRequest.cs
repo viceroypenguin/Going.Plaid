@@ -29,4 +29,10 @@ public partial class SessionTokenCreateRequest : RequestBase
 	[JsonPropertyName("android_package_name")]
 	public string? AndroidPackageName { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The destination URL to which any webhooks should be sent. If you use the same webhook listener for all Sandbox or all Production activity, set this value in the Layer template editor in the Dashboard instead. Only provide a value in this field if you need to use multiple webhook URLs per environment (an uncommon use case). If provided, a value in this field will take priority over webhook values set in the Layer template editor.</para>
+	/// </summary>
+	[JsonPropertyName("webhook")]
+	public string? Webhook { get; set; } = default!;
+
 }

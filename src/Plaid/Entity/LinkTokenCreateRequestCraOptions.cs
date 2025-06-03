@@ -30,9 +30,10 @@ public class LinkTokenCreateRequestCraOptions
 	public Entity.LinkTokenCreateRequestCraOptionsPartnerInsights? PartnerInsights { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with the Base Report product.</para>
+	/// <para>Specifies options for initializing Link for use with the Base Report product, specifically the <c>client_report_id</c>. This object has been deprecated in favor of <a href="https://plaid.com/docs/api/link/#link-token-create-request-cra-options-client-report-id"><c>cra_options.client_report_id</c></a>.</para>
 	/// </summary>
 	[JsonPropertyName("base_report")]
+	[Obsolete]
 	public Entity.LinkTokenCreateRequestCraOptionsBaseReport? BaseReport { get; set; } = default!;
 
 	/// <summary>

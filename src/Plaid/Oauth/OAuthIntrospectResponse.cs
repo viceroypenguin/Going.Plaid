@@ -15,7 +15,7 @@ public record OAuthIntrospectResponse : ResponseBase
 	/// <para>A JSON string containing a space-separated list of scopes associated with this token, in the format described in <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-3.3">https://datatracker.ietf.org/doc/html/rfc6749#section-3.3</a>. Currently accepted values are:</para>
 	/// <para>- <c>user:read</c> allows reading user data.</para>
 	/// <para>- <c>user:write</c> allows writing user data.</para>
-	/// <para>- <c>exchange</c> allows exchanging a token using the <c>urn:plaid:params:oauth::user-token</c> grant type.</para>
+	/// <para>- <c>exchange</c> allows exchanging a token using the <c>urn:plaid:params:oauth:user-token</c> grant type.</para>
 	/// <para>- <c>mcp:dashboard</c> allows access to the MCP dashboard server.</para>
 	/// </summary>
 	[JsonPropertyName("scope")]

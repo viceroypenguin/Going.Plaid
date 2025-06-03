@@ -24,4 +24,15 @@ public sealed partial class PlaidClient
 		PostAsync("/cashflow_report/get", request)
 			.ParseResponseAsync<CashflowReport.CashflowReportGetResponse>();
 
+	/// <summary>
+	/// <para>The <c>/cashflow_report/transactions/get</c> endpoint retrieves transactions data associated with an item. Transactions data is standardized across financial institutions.</para>
+	/// <para>Transactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift. Transactions are not immutable and can also be removed altogether by the institution; a removed transaction will no longer appear in <c>/transactions/get</c>.  For more details, see <a href="https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions">Pending and posted transactions</a>.</para>
+	/// <para>Due to the potentially large number of transactions associated with an Item, results are paginated. Manipulate the <c>count</c> and <c>cursor</c> parameters in conjunction with the <c>has_more</c> response body field to fetch all available transactions.</para>
+	/// <para>Note that data isn't likely to be immediately available to <c>/cashflow_report/transactions/get</c>. Plaid will begin to prepare transactions data upon Item link, if Link was initialized with cashflow_report, or if it wasn't, upon the first call to /cashflow_report/refresh. To be alerted when transaction data is ready to be fetched, listen for the <c>CASHFLOW_REPORT_READY</c> webhook.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transactions/#cashflowReportTransactionsGet" /></remarks>
+	public Task<CashflowReport.CashflowReportTransactionsGetResponse> CashflowReportTransactionsGetAsync(CashflowReport.CashflowReportTransactionsGetRequest request) =>
+		PostAsync("/cashflow_report/transactions/get", request)
+			.ParseResponseAsync<CashflowReport.CashflowReportTransactionsGetResponse>();
+
 }

@@ -12,4 +12,10 @@ public class CraCheckReportCreateBaseReportOptions
 	[Obsolete]
 	public string? ClientReportId { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Specifies options for creating reports that can be shared with GSEs for mortgage verification.</para>
+	/// </summary>
+	[JsonPropertyName("gse_options")]
+	public Entity.CraCheckReportGSEOptions? GseOptions { get; set; } = default!;
+
 }
