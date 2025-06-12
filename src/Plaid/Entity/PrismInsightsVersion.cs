@@ -8,6 +8,12 @@ public enum PrismInsightsVersion
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "4")]
+	_4,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "3")]
 	_3,
 

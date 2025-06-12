@@ -86,6 +86,12 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "PROTECT")]
+	Protect,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "INVESTMENTS_TRANSACTIONS")]
 	InvestmentsTransactions,
 

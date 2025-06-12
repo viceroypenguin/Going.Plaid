@@ -6,43 +6,43 @@ namespace Going.Plaid.Entity;
 public enum PaymentInitiationPaymentStatus
 {
 	/// <summary>
-	/// <para>This is the initial state of all payments. It indicates that the payment is waiting on user input to continue processing. A payment may re-enter this state later on if further input is needed.</para>
+	/// <para>**Transitional.** The payment is awaiting user input to continue processing. It may re-enter this state if additional input is required.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_INPUT_NEEDED")]
 	PaymentStatusInputNeeded,
 
 	/// <summary>
-	/// <para>The payment is currently being processed. The payment will automatically exit this state when processing is complete.</para>
+	/// <para>The payment is currently being processed.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_PROCESSING")]
 	PaymentStatusProcessing,
 
 	/// <summary>
-	/// <para>The payment has been successfully authorised and accepted by the financial institution. For successful payments, this is a potential terminal status. Further status transitions can be to REJECTED and, when supported by the institution, to EXECUTED.</para>
+	/// <para>**Transitional.** The payment has been authorised and accepted by the financial institution and is now in transit. A payment should be considered complete once it reaches the <c>PAYMENT_STATUS_EXECUTED</c> state or the funds settle in the recipient account.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_INITIATED")]
 	PaymentStatusInitiated,
 
 	/// <summary>
-	/// <para>Indicates that the standing order has been successfully established. This state is only used for standing orders.</para>
+	/// <para>Indicates that the standing order has been successfully established.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_COMPLETED")]
 	PaymentStatusCompleted,
 
 	/// <summary>
-	/// <para>The payment has failed due to insufficient funds.</para>
+	/// <para>**Terminal.** The payment failed due to insufficient funds. No further retries will succeed until the payer’s balance is replenished.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_INSUFFICIENT_FUNDS")]
 	PaymentStatusInsufficientFunds,
 
 	/// <summary>
-	/// <para>The payment has failed to be initiated. This error may be caused by transient system outages and is retryable once the root cause is resolved.</para>
+	/// <para>**Terminal (retryable).** The payment could not be initiated due to a system error or outage. Retry once the root cause is resolved.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_FAILED")]
 	PaymentStatusFailed,
 
 	/// <summary>
-	/// <para>The payment has been blocked by Plaid. This can occur, for example, due to Plaid flagging the payment as potentially risky. This is a retryable error.</para>
+	/// <para>**Terminal (retryable).** The payment was blocked by Plaid (e.g., flagged as risky). Resolve any compliance or risk issues and retry.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_BLOCKED")]
 	PaymentStatusBlocked,
@@ -54,37 +54,37 @@ public enum PaymentInitiationPaymentStatus
 	PaymentStatusUnknown,
 
 	/// <summary>
-	/// <para>The funds have successfully left the payer account and payment is considered complete. Not all institutions support this status: support is more common in the UK, and less common in the EU. For institutions where this status is not supported, the terminal status for a successful payment will be <c>PAYMENT_STATUS_INITIATED</c>.</para>
+	/// <para>**Terminal.** The funds have left the payer’s account and the payment is en route to settlement. Support is more common in the UK than in the EU; where unsupported, a successful payment remains in <c>PAYMENT_STATUS_INITIATED</c> before settling. When using Plaid Virtual Accounts, <c>PAYMENT_STATUS_EXECUTED</c> is not terminal—the payment will continue to <c>PAYMENT_STATUS_SETTLED</c> once funds are available.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_EXECUTED")]
 	PaymentStatusExecuted,
 
 	/// <summary>
-	/// <para>The payment has settled and funds are available for use. A payment will typically settle within seconds to several days, depending on which payment rail is used. This status is only available to customers using <a href="https://plaid.com/docs/payment-initiation/virtual-accounts/">Plaid Virtual Accounts</a>.</para>
+	/// <para>**Terminal.** The funds are available in the recipient’s account. Only available to customers using <a href="https://plaid.com/docs/payment-initiation/virtual-accounts/">Plaid Virtual Accounts</a>.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_SETTLED")]
 	PaymentStatusSettled,
 
 	/// <summary>
-	/// <para>The payment is currently being processed. The payment will automatically exit this state when the financial institution has authorised the transaction.</para>
+	/// <para>**Transitional.** The payment is being authorised by the financial institution. It will automatically move on once authorisation completes.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_AUTHORISING")]
 	PaymentStatusAuthorising,
 
 	/// <summary>
-	/// <para>The payment was cancelled (typically by the end user) during authorisation.</para>
+	/// <para>**Terminal.** The end user cancelled the payment during authorisation.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_CANCELLED")]
 	PaymentStatusCancelled,
 
 	/// <summary>
-	/// <para>Indicates that the standing order has been successfully established. This state is only used for standing orders.</para>
+	/// <para>**Terminal.** A recurring/standing order has been successfully created.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_ESTABLISHED")]
 	PaymentStatusEstablished,
 
 	/// <summary>
-	/// <para>The payment was rejected by the financial institution.</para>
+	/// <para>**Terminal.** The payment was rejected by the financial institution. No automatic retry is possible.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_STATUS_REJECTED")]
 	PaymentStatusRejected,

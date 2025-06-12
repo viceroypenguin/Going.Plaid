@@ -12,28 +12,16 @@ public enum SignalPaymentMethod
 	SameDayAch,
 
 	/// <summary>
-	/// <para>Next Day ACH settlement for debit transactions, offered by some payment processors</para>
+	/// 
 	/// </summary>
 	[EnumMember(Value = "NEXT_DAY_ACH")]
 	NextDayAch,
 
 	/// <summary>
-	/// <para>standard ACH by NACHA</para>
+	/// <para>Standard ACH by NACHA</para>
 	/// </summary>
 	[EnumMember(Value = "STANDARD_ACH")]
 	StandardAch,
-
-	/// <summary>
-	/// <para>real-time payments such as RTP and FedNow</para>
-	/// </summary>
-	[EnumMember(Value = "REAL_TIME_PAYMENTS")]
-	RealTimePayments,
-
-	/// <summary>
-	/// <para>if the default payment is over debit card networks</para>
-	/// </summary>
-	[EnumMember(Value = "DEBIT_CARD")]
-	DebitCard,
 
 	/// <summary>
 	/// <para>if there is no default debit rail or there are multiple payment methods</para>

@@ -18,9 +18,16 @@ public partial class CraCheckReportPartnerInsightsGetRequest : RequestBase
 	public string? ThirdPartyUserToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration options to generate Partner Insights</para>
+	/// <para>Defines configuration to generate Partner Insights</para>
+	/// </summary>
+	[JsonPropertyName("partner_insights")]
+	public Entity.CraCheckReportPartnerInsightsGetPartnerInsights? PartnerInsights { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Deprecated, specify <c>partner_insights.prism_versions</c> instead.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
+	[Obsolete]
 	public Entity.CraCheckReportPartnerInsightsGetOptions? Options { get; set; } = default!;
 
 }

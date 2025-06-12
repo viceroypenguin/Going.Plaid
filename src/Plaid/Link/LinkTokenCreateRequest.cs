@@ -38,7 +38,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <para>List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted (unless you are using update mode to add Income or Assets to an Item); required otherwise.</para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically be initialized when any other product is initialized.</para>
 	/// <para>If launching Link with CRA products, <c>cra_base_reports</c> is required and must be included in the <c>products</c> array.</para>
-	/// <para>The products specified here will determine which institutions will be available to your users in Link. Only institutions that support *all* requested products can be selected; a if a user attempts to select an institution that does not support a listed product, a "Connectivity not supported" error message will appear in Link. To maximize the number of institutions available, initialize Link with the minimal product set required for your use case.</para>
+	/// <para>The products specified here will determine which institutions will be available to your users in Link. Only institutions that support *all* requested products can be selected; if a user attempts to select an institution that does not support a listed product, a "Connectivity not supported" error message will appear in Link. To maximize the number of institutions available, initialize Link with the minimal product set required for your use case.</para>
 	/// <para>Additional products can be included via the <a href="https://plaid.com/docs/api/link/#link-token-create-request-optional-products"><c>optional_products</c></a> or  <a href="https://plaid.com/docs/api/link/#link-token-create-request-required-if-supported-products"><c>required_if_supported_products</c></a> fields. Products can also be initialized by calling the endpoint after obtaining an access token; this may require the product to be listed in the <a href="https://plaid.com/docs/api/link/#link-token-create-request-additional-consented-products"><c>additional_consented_products</c></a> array. For details, see <a href="https://plaid.com/docs/link/initializing-products/">Choosing when to initialize products</a>.</para>
 	/// <para>Note that, unless you have opted to disable Instant Match support, institutions that support Instant Match will also be shown in Link if <c>auth</c> is specified as a product, even though these institutions do not contain <c>auth</c> in their product array.</para>
 	/// <para>In Production, you will be billed for each product that you specify when initializing Link. Note that a product cannot be removed from an Item once the Item has been initialized with that product. To stop billing on an Item for subscription-based products, such as Liabilities, Investments, and Transactions, remove the Item via <c>/item/remove</c>.</para>
@@ -67,7 +67,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically have consent collected.</para>
 	/// <para>Institutions that do not support these products will still be shown in Link.</para>
 	/// <para>There should be no overlap between this array and the <c>products</c> or <c>required_if_supported_products</c> arrays.</para>
-	/// <para>If you include <c>signal</c> in <c>additional_consented_products</c>, you will need to call <c>/signal/prepare</c> before calling <c>/signal/evaluate</c> for the first time on an Item in order to get the most accurate results. For more details, see <a href="https://plaid.com/docs/signal/#using-signalprepare">Using <c>/signal/prepare</c></a>.</para>
+	/// <para>If you include <c>signal</c> in <c>additional_consented_products</c>, you will need to call <a href="https://plaid.com/docs/api/products/signal/#signalprepare"><c>/signal/prepare</c></a> before calling <c>/signal/evaluate</c> for the first time on an Item in order to get the most accurate results. For more details, see <a href="https://plaid.com/docs/api/products/signal/#signalprepare"><c>/signal/prepare</c></a>.</para>
 	/// </summary>
 	[JsonPropertyName("additional_consented_products")]
 	public IReadOnlyList<Entity.Products>? AdditionalConsentedProducts { get; set; } = default!;
@@ -167,6 +167,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <para>Specifies options for initializing Link for use with the Base Report product. This field is required if <c>assets</c> is included in the <c>products</c> array and the client is CRA-enabled.</para>
 	/// </summary>
 	[JsonPropertyName("base_report")]
+	[Obsolete]
 	public Entity.LinkTokenCreateRequestBaseReport? BaseReport { get; set; } = default!;
 
 	/// <summary>

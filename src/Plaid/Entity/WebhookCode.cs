@@ -164,6 +164,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "PROTECT_USER_EVENT")]
+	ProtectUserEvent,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "RECURRING_NEW_TRANSFER")]
 	RecurringNewTransfer,
 

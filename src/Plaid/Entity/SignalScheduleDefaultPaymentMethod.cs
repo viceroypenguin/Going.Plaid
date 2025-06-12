@@ -18,18 +18,6 @@ public enum SignalScheduleDefaultPaymentMethod
 	StandardAch,
 
 	/// <summary>
-	/// <para>Real-time payments via Request for Payment through networks such as RTP (The Clearing House) and FedNow, where the consumer can authorize the payment in response to a RFP, and the transaction is processed and settled immediately.</para>
-	/// </summary>
-	[EnumMember(Value = "REAL_TIME_PAYMENTS")]
-	RealTimePayments,
-
-	/// <summary>
-	/// <para>Payments processed over debit card networks, leveraging the card-based infrastructure for real-time or near-real-time settlement.</para>
-	/// </summary>
-	[EnumMember(Value = "DEBIT_CARD")]
-	DebitCard,
-
-	/// <summary>
 	/// <para>Indicates that there is no default debit rail or multiple payment methods are available, and the transaction could use any of them based on customer policy or availability.</para>
 	/// </summary>
 	[EnumMember(Value = "MULTIPLE_PAYMENT_METHODS")]

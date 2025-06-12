@@ -6,7 +6,7 @@ namespace Going.Plaid.Oauth;
 public record OAuthIntrospectResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Boolean indicator of whether or not the presented token is currently active. A true value indicates that the token has been issued, has not been revoked, and is within the time window of validitity</para>
+	/// <para>Boolean indicator of whether or not the presented token is currently active. A <c>true</c> value indicates that the token has been issued, has not been revoked, and is within the time window of validity.</para>
 	/// </summary>
 	[JsonPropertyName("active")]
 	public bool Active { get; init; } = default!;

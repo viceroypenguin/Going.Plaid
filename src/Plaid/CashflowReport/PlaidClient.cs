@@ -35,4 +35,12 @@ public sealed partial class PlaidClient
 		PostAsync("/cashflow_report/transactions/get", request)
 			.ParseResponseAsync<CashflowReport.CashflowReportTransactionsGetResponse>();
 
+	/// <summary>
+	/// <para>The <c>/cashflow_report/insights/get</c> endpoint retrieves insights data associated with an item. Insights are only calculated on credit and depository accounts.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transactions/#cashflowReportInsightsGet" /></remarks>
+	public Task<CashflowReport.CashflowReportInsightsGetResponse> CashflowReportInsightsGetAsync(CashflowReport.CashflowReportInsightsGetRequest request) =>
+		PostAsync("/cashflow_report/insights/get", request)
+			.ParseResponseAsync<CashflowReport.CashflowReportInsightsGetResponse>();
+
 }

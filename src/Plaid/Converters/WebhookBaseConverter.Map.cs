@@ -39,6 +39,7 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 			[(WebhookType.BankTransfers, WebhookCode.BankTransfersEventsUpdate)] = typeof(BankTransfersEventsUpdateWebhook),
 			[(WebhookType.Transfer, WebhookCode.TransferEventsUpdate)] = typeof(TransferEventsUpdateWebhook),
 			[(WebhookType.Layer, WebhookCode.LayerAuthenticationPassed)] = typeof(LayerAuthenticationPassedWebhook),
+			[(WebhookType.Protect, WebhookCode.ProtectUserEvent)] = typeof(ProtectUserEventWebhook),
 			[(WebhookType.Transfer, WebhookCode.RecurringNewTransfer)] = typeof(RecurringNewTransferWebhook),
 			[(WebhookType.Transfer, WebhookCode.RecurringTransferSkipped)] = typeof(RecurringTransferSkippedWebhook),
 			[(WebhookType.Transfer, WebhookCode.RecurringCancelled)] = typeof(RecurringCancelledWebhook),

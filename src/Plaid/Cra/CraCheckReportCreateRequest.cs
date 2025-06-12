@@ -54,10 +54,10 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public Entity.CraCheckReportCashflowInsightsGetOptions? CashflowInsights { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration options to generate Partner Insights</para>
+	/// <para>Defines configuration to generate Partner Insights.</para>
 	/// </summary>
 	[JsonPropertyName("partner_insights")]
-	public Entity.CraCheckReportPartnerInsightsGetOptions? PartnerInsights { get; set; } = default!;
+	public Entity.CraCheckReportCreatePartnerInsightsOptions? PartnerInsights { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
