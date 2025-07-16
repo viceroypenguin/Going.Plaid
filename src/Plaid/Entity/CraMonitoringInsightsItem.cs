@@ -18,6 +18,18 @@ public record CraMonitoringInsightsItem
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The id of the financial institution associated with the Item.</para>
+	/// </summary>
+	[JsonPropertyName("institution_id")]
+	public string InstitutionId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The full financial institution name associated with the Item.</para>
+	/// </summary>
+	[JsonPropertyName("institution_name")]
+	public string InstitutionName { get; init; } = default!;
+
+	/// <summary>
 	/// <para>An object with details of the Monitoring Insights Item's status.</para>
 	/// </summary>
 	[JsonPropertyName("status")]

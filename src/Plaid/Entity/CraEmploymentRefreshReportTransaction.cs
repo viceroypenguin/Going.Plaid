@@ -1,9 +1,9 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A transaction on the VoE report. Note that this transaction differs from a Base Report transaction in that it will only be deposits, and the amounts will be omitted.</para>
+/// <para>A transaction on the Employment Refresh Report. Note that this transaction differs from a Base Report transaction in that it will only be deposits, and the amounts will be omitted.</para>
 /// </summary>
-public record CraVoeReportTransaction
+public record CraEmploymentRefreshReportTransaction
 {
 	/// <summary>
 	/// <para>The ID of the account in which this transaction occurred.</para>

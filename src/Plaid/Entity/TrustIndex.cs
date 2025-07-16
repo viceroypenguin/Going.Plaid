@@ -18,7 +18,7 @@ public record TrustIndex
 	public string Model { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Contains sub-score metadata. Temporary stub with no properties yet.</para>
+	/// <para>Contains sub-score metadata.</para>
 	/// </summary>
 	[JsonPropertyName("subscores")]
 	public Entity.TrustIndexSubscores? Subscores { get; init; } = default!;

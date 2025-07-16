@@ -12,7 +12,7 @@ public partial class WalletTransactionListRequest : RequestBase
 	public string WalletId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A base64 value representing the latest transaction that has already been requested. Set this to <c>next_cursor</c> received from the previous <c>/wallet/transaction/list</c> request. If provided, the response will only contain transactions created before that transaction. If omitted, the response will contain transactions starting from the most recent, and in descending order by the <c>created_at</c> time.</para>
+	/// <para>A value representing the latest transaction to be included in the response. Set this from <c>next_cursor</c> received in the previous <c>/wallet/transaction/list</c> request. If provided, the response will only contain that transaction and transactions created before it. If omitted, the response will contain transactions starting from the most recent, and in descending order by the <c>created_at</c> time.</para>
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; set; } = default!;

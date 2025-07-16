@@ -41,4 +41,10 @@ public record CashflowReportGetResponse : ResponseBase
 	[JsonPropertyName("has_more")]
 	public bool HasMore { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The last successful update time in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> )</para>
+	/// </summary>
+	[JsonPropertyName("last_successful_update_time")]
+	public DateTimeOffset LastSuccessfulUpdateTime { get; init; } = default!;
+
 }

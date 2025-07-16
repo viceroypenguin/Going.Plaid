@@ -17,4 +17,10 @@ public class LinkTokenCreateRequestCraOptionsBaseReport
 	[JsonPropertyName("gse_options")]
 	public Entity.LinkTokenCreateRequestCraOptionsBaseReportGSEOptions? GseOptions { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Indicates that the report must include identity information. If identity information is not available, the report will fail.</para>
+	/// </summary>
+	[JsonPropertyName("require_identity")]
+	public bool? RequireIdentity { get; set; } = default!;
+
 }

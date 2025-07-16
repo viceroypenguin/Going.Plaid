@@ -229,7 +229,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxBankIncomeFireWebhookResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/cra/cashflow_updates/update</c> endpoint to manually trigger an update for cashflow updates (Monitoring) in the Sandbox environment.</para>
+	/// <para>Use the <c>/sandbox/cra/cashflow_updates/update</c> endpoint to manually trigger an update for Cash Flow Updates (Monitoring) in the Sandbox environment.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxcracashflow_updatesupdate" /></remarks>
 	public Task<Sandbox.SandboxCraCashflowUpdatesUpdateResponse> SandboxCraCashflowUpdatesUpdateAsync(Sandbox.SandboxCraCashflowUpdatesUpdateRequest request) =>

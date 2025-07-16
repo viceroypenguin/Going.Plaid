@@ -6,28 +6,34 @@ namespace Going.Plaid.Entity;
 public enum AccountSubtype
 {
 	/// <summary>
-	/// <para>Checking account</para>
+	/// <para>A cash management account, typically a cash account at a brokerage</para>
 	/// </summary>
-	[EnumMember(Value = "checking")]
-	Checking,
-
-	/// <summary>
-	/// <para>Savings account</para>
-	/// </summary>
-	[EnumMember(Value = "savings")]
-	Savings,
-
-	/// <summary>
-	/// <para>Non-cash tax-advantaged medical Health Savings Account (HSA) (US)</para>
-	/// </summary>
-	[EnumMember(Value = "hsa")]
-	Hsa,
+	[EnumMember(Value = "cash management")]
+	CashManagement,
 
 	/// <summary>
 	/// <para>Certificate of deposit account</para>
 	/// </summary>
 	[EnumMember(Value = "cd")]
 	Cd,
+
+	/// <summary>
+	/// <para>Checking account</para>
+	/// </summary>
+	[EnumMember(Value = "checking")]
+	Checking,
+
+	/// <summary>
+	/// <para>An Electronic Benefit Transfer (EBT) account, used by certain public assistance programs to distribute funds (US only)</para>
+	/// </summary>
+	[EnumMember(Value = "ebt")]
+	Ebt,
+
+	/// <summary>
+	/// <para>Non-cash tax-advantaged medical Health Savings Account (HSA) (US)</para>
+	/// </summary>
+	[EnumMember(Value = "hsa")]
+	Hsa,
 
 	/// <summary>
 	/// <para>Money market account</para>
@@ -48,16 +54,10 @@ public enum AccountSubtype
 	Prepaid,
 
 	/// <summary>
-	/// <para>A cash management account, typically a cash account at a brokerage</para>
+	/// <para>Savings account</para>
 	/// </summary>
-	[EnumMember(Value = "cash management")]
-	CashManagement,
-
-	/// <summary>
-	/// <para>An Electronic Benefit Transfer (EBT) account, used by certain public assistance programs to distribute funds (US only)</para>
-	/// </summary>
-	[EnumMember(Value = "ebt")]
-	Ebt,
+	[EnumMember(Value = "savings")]
+	Savings,
 
 	/// <summary>
 	/// <para>Bank-issued credit card</para>
@@ -102,6 +102,12 @@ public enum AccountSubtype
 	HomeEquity,
 
 	/// <summary>
+	/// <para>Pre-approved line of credit</para>
+	/// </summary>
+	[EnumMember(Value = "line of credit")]
+	LineOfCredit,
+
+	/// <summary>
 	/// <para>General loan</para>
 	/// </summary>
 	[EnumMember(Value = "loan")]
@@ -114,34 +120,22 @@ public enum AccountSubtype
 	Mortgage,
 
 	/// <summary>
-	/// <para>Pre-approved overdraft account, usually tied to a checking account</para>
-	/// </summary>
-	[EnumMember(Value = "overdraft")]
-	Overdraft,
-
-	/// <summary>
-	/// <para>Pre-approved line of credit</para>
-	/// </summary>
-	[EnumMember(Value = "line of credit")]
-	LineOfCredit,
-
-	/// <summary>
-	/// <para>Student loan</para>
-	/// </summary>
-	[EnumMember(Value = "student")]
-	Student,
-
-	/// <summary>
 	/// <para>An account whose type could not be determined</para>
 	/// </summary>
 	[EnumMember(Value = "other")]
 	Other,
 
 	/// <summary>
-	/// <para>Tax-advantaged college savings and prepaid tuition 529 plans (US)</para>
+	/// <para>Pre-approved overdraft account, usually tied to a checking account</para>
 	/// </summary>
-	[EnumMember(Value = "529")]
-	_529,
+	[EnumMember(Value = "overdraft")]
+	Overdraft,
+
+	/// <summary>
+	/// <para>Student loan</para>
+	/// </summary>
+	[EnumMember(Value = "student")]
+	Student,
 
 	/// <summary>
 	/// <para>Employer-sponsored money-purchase 401(a) retirement plan (US)</para>
@@ -166,6 +160,12 @@ public enum AccountSubtype
 	/// </summary>
 	[EnumMember(Value = "457b")]
 	_457b,
+
+	/// <summary>
+	/// <para>Tax-advantaged college savings and prepaid tuition 529 plans (US)</para>
+	/// </summary>
+	[EnumMember(Value = "529")]
+	_529,
 
 	/// <summary>
 	/// <para>Standard brokerage account</para>
@@ -394,6 +394,12 @@ public enum AccountSubtype
 	/// </summary>
 	[EnumMember(Value = "tfsa")]
 	Tfsa,
+
+	/// <summary>
+	/// <para>Thrift Savings Plan, a retirement savings and investment plan for Federal employees and members of the uniformed services.</para>
+	/// </summary>
+	[EnumMember(Value = "thrift savings plan")]
+	ThriftSavingsPlan,
 
 	/// <summary>
 	/// <para>Account representing funds or assets held by a trustee for the benefit of a beneficiary. Includes both revocable and irrevocable trusts.</para>

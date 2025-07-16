@@ -46,4 +46,11 @@ public record Counterparty
 	[JsonPropertyName("confidence_level")]
 	public string? ConfidenceLevel { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Account numbers associated with the counterparty, when available.</para>
+	/// <para>This field is currently only filled in for select financial institutions in Europe.</para>
+	/// </summary>
+	[JsonPropertyName("account_numbers")]
+	public Entity.CounterpartyNumbers? AccountNumbers { get; init; } = default!;
+
 }

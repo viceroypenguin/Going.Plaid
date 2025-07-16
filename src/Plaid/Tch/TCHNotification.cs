@@ -29,4 +29,10 @@ public partial class TCHNotification : RequestBase
 	[JsonPropertyName("tokenReferenceId")]
 	public string? Tokenreferenceid { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The event timestamp of the last state change.</para>
+	/// </summary>
+	[JsonPropertyName("tokenTimestamp")]
+	public DateTimeOffset? Tokentimestamp { get; set; } = default!;
+
 }

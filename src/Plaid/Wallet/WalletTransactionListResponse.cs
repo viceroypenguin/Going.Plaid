@@ -12,7 +12,7 @@ public record WalletTransactionListResponse : ResponseBase
 	public IReadOnlyList<Entity.WalletTransaction> Transactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Cursor used for fetching transactions created before the latest transaction provided in this response</para>
+	/// <para>The value that, when used as the optional <c>cursor</c> parameter to <c>/wallet/transaction/list</c>, will return the corresponding transaction as its first entry.</para>
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
 	public string? NextCursor { get; init; } = default!;

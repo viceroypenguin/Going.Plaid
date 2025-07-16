@@ -1,9 +1,9 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>VOE Report information about an account.</para>
+/// <para>Employment Refresh Report information about an account.</para>
 /// </summary>
-public record CraVoeReportAccount
+public record CraEmploymentRefreshReportAccount
 {
 	/// <summary>
 	/// <para>Plaid’s unique identifier for the account. This value will not change unless Plaid can't reconcile the account with the data returned by the financial institution. This may occur, for example, when the name of the account changes. If this happens a new <c>account_id</c> will be assigned to the account.</para>
@@ -38,9 +38,9 @@ public record CraVoeReportAccount
 	public Entity.AccountSubtype? Subtype { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Transaction history associated with the account for the VOE Report. Note that this transaction differs from a Base Report transaction in that it will only be deposits, and the amounts will be omitted.</para>
+	/// <para>Transaction history associated with the account for the Employment Refresh Report. Note that this transaction differs from a Base Report transaction in that it will only be deposits, and the amounts will be omitted.</para>
 	/// </summary>
 	[JsonPropertyName("transactions")]
-	public IReadOnlyList<Entity.CraVoeReportTransaction> Transactions { get; init; } = default!;
+	public IReadOnlyList<Entity.CraEmploymentRefreshReportTransaction> Transactions { get; init; } = default!;
 
 }

@@ -14,7 +14,7 @@ public record BaseReportAccount
 	public string AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Base Report information about an account's balances</para>
+	/// <para>Information about an account's balances.</para>
 	/// </summary>
 	[JsonPropertyName("balances")]
 	public Entity.BaseReportAccountBalances Balances { get; init; } = default!;
@@ -32,7 +32,7 @@ public record BaseReportAccount
 	public string? Mask { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Base Report metadata about the extracted account.</para>
+	/// <para>Metadata about the extracted account.</para>
 	/// </summary>
 	[JsonPropertyName("metadata")]
 	public Entity.BaseReportAccountMetadata Metadata { get; init; } = default!;
@@ -62,13 +62,13 @@ public record BaseReportAccount
 	public Entity.AccountSubtype? Subtype { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The duration of transaction history available within this report for this Item, typically defined as the time since the date of the earliest transaction in that account. Only returned by Base Report endpoints.</para>
+	/// <para>The duration of transaction history available within this report for this Item, typically defined as the time since the date of the earliest transaction in that account.</para>
 	/// </summary>
 	[JsonPropertyName("days_available")]
 	public decimal DaysAvailable { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Transaction history associated with the account. Only returned by Base Report endpoints. Transaction history returned by endpoints such as <c>/transactions/get</c> or <c>/investments/transactions/get</c> will be returned in the top-level <c>transactions</c> field instead.</para>
+	/// <para>Transaction history associated with the account. Transaction history returned by endpoints such as <c>/transactions/get</c> or <c>/investments/transactions/get</c> will be returned in the top-level <c>transactions</c> field instead.</para>
 	/// </summary>
 	[JsonPropertyName("transactions")]
 	public IReadOnlyList<Entity.BaseReportTransaction> Transactions { get; init; } = default!;
@@ -86,7 +86,7 @@ public record BaseReportAccount
 	public Entity.OwnershipType? OwnershipType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Calculated data about the historical balances on the account. Only returned by Base Report endpoints and currently not supported by <c>brokerage</c> or <c>investment</c> accounts.</para>
+	/// <para>Calculated data about the historical balances on the account. Currently not supported by <c>brokerage</c> or <c>investment</c> accounts.</para>
 	/// </summary>
 	[JsonPropertyName("historical_balances")]
 	public IReadOnlyList<Entity.BaseReportHistoricalBalance>? HistoricalBalances { get; init; } = default!;

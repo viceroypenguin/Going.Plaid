@@ -54,7 +54,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferBalanceGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/capabilities/get</c> endpoint to determine the RTP eligibility information of an account to be used with Transfer. This endpoint works on all Transfer-capable Items, including those created by <c>/transfer/migrate_account</c>. To simulate RTP eligibility in Sandbox, log in using the username <c>user_good</c> and password <c>pass_good</c> and use the first two checking and savings accounts in the "First Platypus Bank" institution (ending in 0000 or 1111), which will return <c>true</c>. Any other account will return <c>false</c>.</para>
+	/// <para>Use the <c>/transfer/capabilities/get</c> endpoint to determine the RTP eligibility information of an account to be used with Transfer. This endpoint works on all Transfer-capable Items, including those created by <c>/transfer/migrate_account</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/account-linking/#transfercapabilitiesget" /></remarks>
 	public Task<Transfer.TransferCapabilitiesGetResponse> TransferCapabilitiesGetAsync(Transfer.TransferCapabilitiesGetRequest request) =>
@@ -78,7 +78,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferLedgerGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/ledger/distribute</c> endpoint to move available balance between the ledgers of the platform and one of its originators.</para>
+	/// <para>Use the <c>/transfer/ledger/distribute</c> endpoint to move available balance between ledgers, if you have multiple. If you’re a platform, you can move funds between one of your ledgers and one of your customer’s ledger.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/ledger/#transferledgerdistribute" /></remarks>
 	public Task<Transfer.TransferLedgerDistributeResponse> TransferLedgerDistributeAsync(Transfer.TransferLedgerDistributeRequest request) =>

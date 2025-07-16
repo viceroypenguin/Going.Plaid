@@ -31,6 +31,14 @@ public record BaseReportTransaction
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The merchant name or transaction description.</para>
+	/// <para>Note: This is a legacy field that is not actively maintained. Use <c>merchant_name</c> instead for the merchant name.</para>
+	/// </summary>
+	[JsonPropertyName("name")]
+	[Obsolete]
+	public string? Name { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The string returned by the financial institution to describe the transaction.</para>
 	/// </summary>
 	[JsonPropertyName("original_description")]

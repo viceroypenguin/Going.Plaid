@@ -18,15 +18,15 @@ public record CraVerificationReport
 	public string? ClientReportId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing a VOE report.</para>
+	/// <para>An object representing a VOA report.</para>
 	/// </summary>
 	[JsonPropertyName("voa")]
 	public Entity.CraVoaReport? Voa { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object representing a VOE report.</para>
+	/// <para>An object representing an Employment Refresh Report.</para>
 	/// </summary>
-	[JsonPropertyName("voe")]
-	public Entity.CraVoeReport? Voe { get; init; } = default!;
+	[JsonPropertyName("employment_refresh")]
+	public Entity.CraEmploymentRefreshReport? EmploymentRefresh { get; init; } = default!;
 
 }

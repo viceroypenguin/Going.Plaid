@@ -8,8 +8,8 @@ public enum OAuthSubjectTokenType
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "urn:plaid:params:tokensdb:user-token")]
-	UrnPlaidParamsTokensdbUserToken,
+	[EnumMember(Value = "urn:plaid:params:tokens:user")]
+	UrnPlaidParamsTokensUser,
 
 	/// <summary>
 	/// 

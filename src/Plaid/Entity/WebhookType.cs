@@ -140,12 +140,6 @@ public enum WebhookType
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "CRA_MONITORING")]
-	CraMonitoring,
-
-	/// <summary>
-	/// 
-	/// </summary>
 	[EnumMember(Value = "CASH_FLOW_UPDATES")]
 	CashFlowUpdates,
 

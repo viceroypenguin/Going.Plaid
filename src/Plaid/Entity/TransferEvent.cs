@@ -102,4 +102,10 @@ public record TransferEvent
 	[JsonPropertyName("intent_id")]
 	public string? IntentId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The fee amount deducted from the original transfer during a wire return, if applicable.</para>
+	/// </summary>
+	[JsonPropertyName("wire_return_fee")]
+	public string? WireReturnFee { get; init; } = default!;
+
 }

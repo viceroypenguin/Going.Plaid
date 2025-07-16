@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>For each user enabled for Cash Flow Updates, this webhook will fire when an update includes an NSF overdraft transaction. Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
+/// <para>For each user's item enabled for Cash Flow Updates, this webhook will fire when an update includes an NSF overdraft transaction. Upon receiving the webhook, call <c>/cra/monitoring_insights/get</c> to retrieve the updated insights.</para>
 /// </summary>
 public record CashFlowUpdatesNSFWebhook : WebhookBase
 {

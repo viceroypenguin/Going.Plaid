@@ -11,4 +11,10 @@ public class TransferWireDetails
 	[JsonPropertyName("message_to_beneficiary")]
 	public string? MessageToBeneficiary { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The fee amount deducted from the original transfer during a wire return, if applicable.</para>
+	/// </summary>
+	[JsonPropertyName("wire_return_fee")]
+	public string? WireReturnFee { get; set; } = default!;
+
 }

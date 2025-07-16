@@ -3,6 +3,30 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para><c>/user/transactions/refresh</c> is an optional endpoint that initiates an on-demand extraction to fetch the newest transactions for a User using the Transactions bundle.</para>
+	/// <para>This bundle refreshes only the Transactions product data.</para>
+	/// <para>This endpoint is for clients who use the Transactions Insights bundle and want to proactively update all linked Items under a user.</para>
+	/// <para>The refresh may succeed or fail on a per-Item basis. Use the <c>results</c> array in the response to understand the outcome for each Item.</para>
+	/// <para>This endpoint is distinct from <c>/transactions/refresh</c>, which triggers a refresh for a single Item. Use <c>/user/transactions/refresh</c> to target all Items for a user instead.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transactions/#usertransactionsrefresh" /></remarks>
+	public Task<User.UserTransactionsRefreshResponse> UserTransactionsRefreshAsync(User.UserTransactionsRefreshRequest request) =>
+		PostAsync("/user/transactions/refresh", request)
+			.ParseResponseAsync<User.UserTransactionsRefreshResponse>();
+
+	/// <summary>
+	/// <para><c>/user/financial_data/refresh</c> is an optional endpoint that initiates an on-demand extraction to fetch the newest transactions for a User using the Financial Insights bundle.</para>
+	/// <para>This bundle refreshes the Transactions, Investments, and Liabilities product data.</para>
+	/// <para>This endpoint is for clients who use the Transactions Insights bundle and want to proactively update all linked Items under a user.</para>
+	/// <para>The refresh may succeed or fail on a per-Item basis. Use the <c>results</c> array in the response to understand the outcome for each Item.</para>
+	/// <para>This endpoint is distinct from <c>/transactions/refresh</c>, which triggers a refresh for a single Item. Use <c>/user/financial_data/refresh</c> to target all Items for a user instead.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transactions/#userfinancialdatarefresh" /></remarks>
+	public Task<User.UserFinancialDataRefreshResponse> UserFinancialDataRefreshAsync(User.UserFinancialDataRefreshRequest request) =>
+		PostAsync("/user/financial_data/refresh", request)
+			.ParseResponseAsync<User.UserFinancialDataRefreshResponse>();
+
+	/// <summary>
 	/// <para>This endpoint should be called for each of your end users before they begin a Plaid Check or Income flow, or a Multi-Item Link flow. This provides you a single token to access all data associated with the user. You should only create one per end user.</para>
 	/// <para>The <c>consumer_report_user_identity</c> object must be present in order to create a Plaid Check Consumer Report for a user. If it is not provided during the <c>/user/create</c> call, it can be added later by calling <c>/user/update</c>. Plaid Check Consumer Reports can only be created for US-based users; the user's address country must be <c>US</c>.</para>
 	/// <para>If you call the endpoint multiple times with the same <c>client_user_id</c>, the first creation call will succeed and the rest will fail with an error message indicating that the user has been created for the given <c>client_user_id</c>.</para>

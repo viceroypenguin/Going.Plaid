@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Base Report information about an account's balances</para>
+/// <para>Information about an account's balances.</para>
 /// </summary>
 public record BaseReportAccountBalances
 {

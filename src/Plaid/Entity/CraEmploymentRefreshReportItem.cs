@@ -1,15 +1,15 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A representation of an Item within a VOE Report.</para>
+/// <para>A representation of an Item within an Employment Refresh Report.</para>
 /// </summary>
-public record CraVoeReportItem
+public record CraEmploymentRefreshReportItem
 {
 	/// <summary>
 	/// <para>Data about each of the accounts open on the Item.</para>
 	/// </summary>
 	[JsonPropertyName("accounts")]
-	public IReadOnlyList<Entity.CraVoeReportAccount> Accounts { get; init; } = default!;
+	public IReadOnlyList<Entity.CraEmploymentRefreshReportAccount> Accounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The full financial institution name associated with the Item.</para>

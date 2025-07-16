@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum PaymentInitiationConsentProcessingMode
 {
 	/// <summary>
-	/// <para>Will accept a payment execution request and schedule it for processing, immediately returning the new <c>payment_id</c>. Listen for webhooks or use the <a href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentget"><c>/payment_initiation/payment/get</c></a> endpoint to obtain updates on the payment status. This is ideal for non user-present flows.</para>
+	/// <para>Will accept a payment execution request and schedule it for processing, immediately returning the new <c>payment_id</c>. Listen for webhooks to obtain real-time updates on the payment status. This is ideal for non user-present flows.</para>
 	/// </summary>
 	[EnumMember(Value = "ASYNC")]
 	Async,

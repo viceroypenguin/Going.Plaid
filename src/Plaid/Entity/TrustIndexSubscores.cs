@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Contains sub-score metadata. Temporary stub with no properties yet.</para>
+/// <para>Contains sub-score metadata.</para>
 /// </summary>
 public record TrustIndexSubscores
 {

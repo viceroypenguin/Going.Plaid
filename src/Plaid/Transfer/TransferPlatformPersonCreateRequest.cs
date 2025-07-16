@@ -59,4 +59,10 @@ public partial class TransferPlatformPersonCreateRequest : RequestBase
 	[JsonPropertyName("ownership_percentage")]
 	public int? OwnershipPercentage { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The title of the person at the business. Only applicable to control persons - for example, "CEO", "President", "Owner", etc.</para>
+	/// </summary>
+	[JsonPropertyName("title")]
+	public string? Title { get; set; } = default!;
+
 }

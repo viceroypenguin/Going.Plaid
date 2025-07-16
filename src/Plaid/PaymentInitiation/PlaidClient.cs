@@ -99,6 +99,8 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>The <c>/payment_initiation/payment/get</c> endpoint can be used to check the status of a payment, as well as to receive basic information such as recipient and payment amount. In the case of standing orders, the <c>/payment_initiation/payment/get</c> endpoint will provide information about the status of the overall standing order itself; the API cannot be used to retrieve payment status for individual payments within a standing order.</para>
+	/// <para>Polling for status updates in Production is highly discouraged. Repeatedly calling <c>/payment_initiation/payment/get</c> to check a payment's status is unreliable and may trigger API rate limits. Only the <c>payment_status_update</c> webhook should be used to receive real-time status updates in Production.</para>
+	/// <para>In the case of standing orders, the <c>/payment_initiation/payment/get</c> endpoint will provide information about the status of the overall standing order itself; the API cannot be used to retrieve payment status for individual payments within a standing order.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentget" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentGetResponse> PaymentInitiationPaymentGetAsync(PaymentInitiation.PaymentInitiationPaymentGetRequest request) =>

@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>This endpoint allows you to subscribe to insights for a user's linked CRA items, which are updated every day (best-effort).</para>
+	/// <para>This endpoint allows you to subscribe to insights for a user's linked CRA items, which are updated between one and four times per day (best-effort).</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cramonitoring_insightssubscribe" /></remarks>
 	public Task<Cra.CraMonitoringInsightsSubscribeResponse> CraMonitoringInsightsSubscribeAsync(Cra.CraMonitoringInsightsSubscribeRequest request) =>
@@ -87,7 +87,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportNetworkInsightsGetResponse>();
 
 	/// <summary>
-	/// <para>This endpoint allows you to retrieve verification reports for a user. To obtain a VoA or VoE report, you need to make sure that <c>cra_base_report</c> is included in the <c>products</c> parameter when calling <c>/link/token/create</c> or <c>/cra/check_report/create</c>. </para>
+	/// <para>This endpoint allows you to retrieve verification reports for a user. To obtain a VoA or Employment Refresh report, you need to make sure that <c>cra_base_report</c> is included in the <c>products</c> parameter when calling <c>/link/token/create</c> or <c>/cra/check_report/create</c>. </para>
 	/// <para>You should call this endpoint after you've received a <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>.</para>
 	/// <para>If the most recent consumer report for the user doesn’t have sufficient data to generate the report, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>."</para>
 	/// </summary>

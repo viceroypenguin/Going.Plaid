@@ -12,10 +12,10 @@ public partial class CraCheckReportVerificationGetRequest : RequestBase
 	public IReadOnlyList<Entity.CraCheckReportVerificationGetReportType> ReportsRequested { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration options for the VoE report.</para>
+	/// <para>Defines configuration options for the Employment Refresh Report.</para>
 	/// </summary>
-	[JsonPropertyName("voe_options")]
-	public Entity.CraCheckReportVerificationGetVoeOptions? VoeOptions { get; set; } = default!;
+	[JsonPropertyName("employment_refresh_options")]
+	public Entity.CraCheckReportVerificationGetEmploymentRefreshOptions? EmploymentRefreshOptions { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The user token associated with the User data is being requested for.</para>

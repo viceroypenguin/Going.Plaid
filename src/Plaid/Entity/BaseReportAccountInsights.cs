@@ -6,19 +6,19 @@ namespace Going.Plaid.Entity;
 public record BaseReportAccountInsights
 {
 	/// <summary>
-	/// <para>Date of the earliest transaction in the base report for the account.</para>
+	/// <para>Date of the earliest transaction for the account.</para>
 	/// </summary>
 	[JsonPropertyName("oldest_transaction_date")]
 	public DateOnly? OldestTransactionDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Date of the most recent transaction in the base report for the account.</para>
+	/// <para>Date of the most recent transaction for the account.</para>
 	/// </summary>
 	[JsonPropertyName("most_recent_transaction_date")]
 	public DateOnly? MostRecentTransactionDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Number of days days available in the base report for the account.</para>
+	/// <para>Number of days days available for the account.</para>
 	/// </summary>
 	[JsonPropertyName("days_available")]
 	public int? DaysAvailable { get; init; } = default!;

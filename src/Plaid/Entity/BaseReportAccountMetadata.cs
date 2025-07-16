@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Base Report metadata about the extracted account.</para>
+/// <para>Metadata about the extracted account.</para>
 /// </summary>
 public record BaseReportAccountMetadata
 {

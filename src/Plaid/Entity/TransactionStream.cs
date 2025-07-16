@@ -107,7 +107,7 @@ public record TransactionStream
 	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;
 
 	/// <summary>
-	/// <para>This will be set to <c>true</c> if the stream has been modified by request to a <c>/transactions/recurring/streams</c> endpoint. It will be <c>false</c> for all other streams.</para>
+	/// <para>As the ability to modify transactions streams has been discontinued, this field will always be <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("is_user_modified")]
 	[Obsolete]

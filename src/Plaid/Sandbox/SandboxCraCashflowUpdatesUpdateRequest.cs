@@ -11,4 +11,10 @@ public partial class SandboxCraCashflowUpdatesUpdateRequest : RequestBase
 	[JsonPropertyName("user_token")]
 	public string UserToken { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Webhook codes corresponding to the Cash Flow Updates events to be simulated.</para>
+	/// </summary>
+	[JsonPropertyName("webhook_codes")]
+	public IReadOnlyList<Entity.CashFlowUpdatesEventWebhookCodes>? WebhookCodes { get; set; } = default!;
+
 }

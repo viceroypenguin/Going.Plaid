@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object representing a VOE report.</para>
+/// <para>An object representing a VOA report.</para>
 /// </summary>
 public record CraVoaReport
 {
