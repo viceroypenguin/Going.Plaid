@@ -63,12 +63,6 @@ public record AccountAssets
 	public string? PersistentAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates the account's categorization as either a personal or a business account. This field is currently in beta; to request access, contact your account manager.</para>
-	/// </summary>
-	[JsonPropertyName("holder_category")]
-	public Entity.HolderCategory? HolderCategory { get; init; } = default!;
-
-	/// <summary>
 	/// <para>The duration of transaction history available within this report for this Item, typically defined as the time since the date of the earliest transaction in that account.</para>
 	/// </summary>
 	[JsonPropertyName("days_available")]

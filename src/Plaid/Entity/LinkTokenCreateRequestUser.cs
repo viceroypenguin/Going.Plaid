@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object specifying information about the end user who will be linking their account.</para>
+/// <para>An object specifying information about the end user who will be linking their account. **Required** if <c>user_id</c> isn't included.</para>
 /// </summary>
 public class LinkTokenCreateRequestUser
 {
