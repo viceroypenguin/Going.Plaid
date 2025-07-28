@@ -15,6 +15,6 @@ public partial class CraMonitoringInsightsGetRequest : RequestBase
 	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
-	public Entity.ConsumerReportPermissiblePurpose ConsumerReportPermissiblePurpose { get; set; } = default!;
+	public Entity.MonitoringConsumerReportPermissiblePurpose ConsumerReportPermissiblePurpose { get; set; } = default!;
 
 }
