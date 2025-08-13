@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class LinkTokenCreateRequestIdentityVerification
 {
 	/// <summary>
-	/// <para>ID of the associated Identity Verification template.</para>
+	/// <para>ID of the associated Identity Verification template. Like all Plaid identifiers, this is case-sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("template_id")]
 	public string TemplateId { get; set; } = default!;

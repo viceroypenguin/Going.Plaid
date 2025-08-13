@@ -27,9 +27,10 @@ public record CraBankIncomeTransaction
 	public DateOnly Date { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The merchant name or transaction description.</para>
+	/// <para>The merchant name or transaction description. This is a legacy field that is no longer maintained. For merchant name, use the <c>merchant_name</c> field; for description, use the <c>original_description</c> field.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
+	[Obsolete]
 	public string? Name { get; init; } = default!;
 
 	/// <summary>

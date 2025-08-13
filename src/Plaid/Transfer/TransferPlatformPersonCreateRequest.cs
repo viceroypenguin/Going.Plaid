@@ -24,7 +24,7 @@ public partial class TransferPlatformPersonCreateRequest : RequestBase
 	public string? EmailAddress { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A valid phone number in E.164 format.</para>
+	/// <para>A valid phone number in E.164 format. Phone number input may be validated against valid number ranges; number strings that do not match a real-world phone numbering scheme may cause the request to fail, even in the Sandbox test environment.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public string? PhoneNumber { get; set; } = default!;

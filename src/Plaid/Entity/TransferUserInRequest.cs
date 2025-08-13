@@ -12,7 +12,7 @@ public class TransferUserInRequest
 	public string LegalName { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's phone number.</para>
+	/// <para>The user's phone number. Phone number input may be validated against valid number ranges; number strings that do not match a real-world phone numbering scheme may cause the request to fail, even in the Sandbox test environment.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public string? PhoneNumber { get; set; } = default!;

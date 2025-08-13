@@ -4,8 +4,7 @@ public sealed partial class PlaidClient
 {
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transactions/create</c> endpoint to create new transactions for an existing Item. This endpoint can be used to add up to 10 transactions to any Item at a time.</para>
-	/// <para>This endpoint is only available in the Sandbox environment, thus can only be used with Items that were created in the Sandbox. You can use this to add transactions to test the <c>/transactions/get</c> and <c>/transactions/sync</c> endpoints.</para>
-	/// <para>For Items created in the Production environment, real transactions will be available once the transactions product is enabled.</para>
+	/// <para>This endpoint can only be used with Items that were created in the Sandbox environment using the <c>user_transactions_dynamic</c> test user. You can use this to add transactions to test the <c>/transactions/get</c> and <c>/transactions/sync</c> endpoints.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransactionscreate" /></remarks>
 	public Task<Sandbox.SandboxTransactionsCreateResponse> SandboxTransactionsCreateAsync(Sandbox.SandboxTransactionsCreateRequest request) =>

@@ -12,6 +12,12 @@ public class ClientProvidedTransaction
 	public string Id { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The Plaid generated ID that identifies the end user for whom you would like to enrich transactions.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>A unique user id used to group transactions for a given user, as a unique identifier from your application. Personally identifiable information, such as an email address or phone number, should not be used in the client_user_id.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]

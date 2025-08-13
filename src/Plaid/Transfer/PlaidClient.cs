@@ -182,6 +182,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferEventListResponse>();
 
 	/// <summary>
+	/// <para>Use the <c>/transfer/ledger/event/list</c> endpoint to get a list of ledger events for a specific ledger based on specified filter criteria.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/ledger/#transferledgereventlist" /></remarks>
+	public Task<Transfer.TransferLedgerEventListResponse> TransferLedgerEventListAsync(Transfer.TransferLedgerEventListRequest request) =>
+		PostAsync("/transfer/ledger/event/list", request)
+			.ParseResponseAsync<Transfer.TransferLedgerEventListResponse>();
+
+	/// <summary>
 	/// <para><c>/transfer/event/sync</c> allows you to request up to the next 25 transfer events that happened after a specific <c>event_id</c>. Use the <c>/transfer/event/sync</c> endpoint to guarantee you have seen all transfer events.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/reading-transfers/#transfereventsync" /></remarks>

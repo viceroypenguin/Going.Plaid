@@ -13,6 +13,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>The <c>/link/token/get</c> endpoint gets information about a Link session, including all callbacks fired during the session along with their metadata, including the public token. This endpoint is used with Link flows that don't provide a public token via frontend callbacks, such as the <a href="https://plaid.com/docs/link/hosted-link/">Hosted Link flow</a> and the <a href="https://plaid.com/docs/link/multi-item-link/">Multi-Item Link flow</a>. It also can be useful for debugging purposes.</para>
+	/// <para>By default, this endpoint will only return complete event data for Hosted Link sessions. To use <c>/link/token/get</c> to retrieve event data for non-Hosted-Link sessions, contact your account manager to request that your account be enabled for Link events. If you do not have an account manager, you can submit this request via a support ticket. Enablement for Link events will also cause you to receive additional webhooks related to Link events, such as the <c>SESSION_FINISHED</c> and <c>EVENTS</c> webhook.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/link/#linktokenget" /></remarks>
 	public Task<Link.LinkTokenGetResponse> LinkTokenGetAsync(Link.LinkTokenGetRequest request) =>

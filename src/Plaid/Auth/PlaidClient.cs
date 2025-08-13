@@ -11,4 +11,12 @@ public sealed partial class PlaidClient
 		PostAsync("/auth/get", request)
 			.ParseResponseAsync<Auth.AuthGetResponse>();
 
+	/// <summary>
+	/// <para>The <c>/auth/verify</c> endpoint verifies bank account numbers against Plaid's database via Database Auth.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/auth/coverage/database-auth/" /></remarks>
+	public Task<Auth.AuthVerifyResponse> AuthVerifyAsync(Auth.AuthVerifyRequest request) =>
+		PostAsync("/auth/verify", request)
+			.ParseResponseAsync<Auth.AuthVerifyResponse>();
+
 }

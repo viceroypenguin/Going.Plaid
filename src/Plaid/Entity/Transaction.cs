@@ -68,10 +68,11 @@ public record Transaction
 
 	/// <summary>
 	/// <para>The merchant name or transaction description.</para>
-	/// <para>Note: This is a legacy field that is not actively maintained. Use <c>merchant_name</c> instead for the merchant name.</para>
+	/// <para>Note: While Plaid does not currently plan to remove this field, it is a legacy field that is not actively maintained. Use <c>merchant_name</c> instead for the merchant name.</para>
 	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, this field will always appear. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
+	[Obsolete]
 	public string? Name { get; init; } = default!;
 
 	/// <summary>
@@ -198,5 +199,11 @@ public record Transaction
 	/// </summary>
 	[JsonPropertyName("merchant_entity_id")]
 	public string? MerchantEntityId { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Custom client fields</para>
+	/// </summary>
+	[JsonPropertyName("client_customization")]
+	public Entity.ClientCustomization? ClientCustomization { get; init; } = default!;
 
 }

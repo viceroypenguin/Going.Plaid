@@ -9,6 +9,7 @@ public record AccountIdentity
 	/// <para>Plaid’s unique identifier for the account. This value will not change unless Plaid can't reconcile the account with the data returned by the financial institution. This may occur, for example, when the name of the account changes. If this happens a new <c>account_id</c> will be assigned to the account.</para>
 	/// <para>The <c>account_id</c> can also change if the <c>access_token</c> is deleted and the same credentials that were used to generate that <c>access_token</c> are used to generate a new <c>access_token</c> on a later date. In that case, the new <c>account_id</c> will be different from the old <c>account_id</c>.</para>
 	/// <para>If an account with a specific <c>account_id</c> disappears instead of changing, the account is likely closed. Closed accounts are not returned by the Plaid API.</para>
+	/// <para>When using a CRA endpoint (an endpoint associated with Plaid Check Consumer Report, i.e. any endpoint beginning with <c>/cra/</c>), the <c>account_id</c> returned will not match the <c>account_id</c> returned by a non-CRA endpoint.</para>
 	/// <para>Like all Plaid identifiers, the <c>account_id</c> is case sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]

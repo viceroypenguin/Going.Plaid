@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>SessionTokenCreateRequestUser defines per-session user-specific data for <c>/session/token/create</c></para>
+/// <para>SessionTokenCreateRequestUser defines per-session user-specific data for <c>/session/token/create</c>. **Required** if the root-level <c>user_id</c> field isn't included.</para>
 /// </summary>
 public class SessionTokenCreateRequestUser
 {

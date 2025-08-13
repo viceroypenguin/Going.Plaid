@@ -12,7 +12,7 @@ public partial class IdentityVerificationRetryRequest : RequestBase
 	public string ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>ID of the associated Identity Verification template.</para>
+	/// <para>ID of the associated Identity Verification template. Like all Plaid identifiers, this is case-sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("template_id")]
 	public string TemplateId { get; set; } = default!;

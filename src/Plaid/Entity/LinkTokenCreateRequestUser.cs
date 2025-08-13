@@ -24,7 +24,7 @@ public class LinkTokenCreateRequestUser
 	public Entity.LinkTokenCreateRequestUserNameObject? Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. If supplied, will be used when applicable to prefill phone number fields in Link for the <a href="https://plaid.com/docs/link/returning-user">returning user flow</a> and the <a href="https://plaid.com/docs/products/identity-verification">Identity Verification flow</a>.</para>
+	/// <para>The user's phone number in <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. If supplied, will be used when applicable to prefill phone number fields in Link for the <a href="https://plaid.com/docs/link/returning-user">returning user flow</a> and the <a href="https://plaid.com/docs/identity-verification">Identity Verification flow</a>. Phone number input is validated against valid number ranges; number strings that do not match a real-world phone numbering scheme may cause the request to fail, even in the Sandbox test environment.</para>
 	/// </summary>
 	[JsonPropertyName("phone_number")]
 	public string? PhoneNumber { get; set; } = default!;

@@ -51,7 +51,7 @@ public partial class TransferCreateRequest : RequestBase
 	public string? Amount { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The transfer description, maximum of 15 characters. Should represent why the money is moving, not your company name. For recommendations on setting the <c>description</c> field to avoid ACH returns, see <a href="https://www.plaid.com/docs/transfers/creating-transfers/#description-field-recommendations">Description field recommendations</a>. </para>
+	/// <para>The transfer description, maximum of 15 characters. Should represent why the money is moving, not your company name. For recommendations on setting the <c>description</c> field to avoid ACH returns, see <a href="https://www.plaid.com/docs/transfer/creating-transfers/#description-field-recommendations">Description field recommendations</a>. </para>
 	/// <para>If reprocessing a returned transfer, the <c>description</c> field must be <c>"Retry 1"</c> or <c>"Retry 2"</c>. You may retry a transfer up to 2 times, within 180 days of creating the original transfer. Only transfers that were returned with code <c>R01</c> or <c>R09</c> may be retried.</para>
 	/// </summary>
 	[JsonPropertyName("description")]

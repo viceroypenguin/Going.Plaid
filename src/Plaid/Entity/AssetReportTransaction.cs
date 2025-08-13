@@ -82,14 +82,15 @@ public record AssetReportTransaction
 	public Entity.Location? Location { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The merchant name or transaction description.</para>
+	/// <para>The merchant name or transaction description. This is a legacy field that is no longer maintained. For merchant name, use the <c>merchant_name</c> field. For description, use the <c>original_description</c> field.</para>
 	/// <para>This field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
+	[Obsolete]
 	public string? Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The merchant name, as enriched by Plaid from the <c>name</c> field. This is typically a more human-readable version of the merchant counterparty in the transaction. For some bank transactions (such as checks or account transfers) where there is no meaningful merchant name, this value will be <c>null</c>.</para>
+	/// <para>The merchant name, as enriched by Plaid. This is typically a more human-readable version of the merchant counterparty in the transaction. For some bank transactions (such as checks or account transfers) where there is no meaningful merchant name, this value will be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("merchant_name")]
 	public string? MerchantName { get; init; } = default!;

@@ -194,6 +194,12 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "cra_monitoring")]
+	CraMonitoring,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "layer")]
 	Layer,
 

@@ -45,13 +45,13 @@ public record CraBankIncomeSummary
 	public int? IncomeTransactionsCount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An estimate of the average gross monthly income based on the historical net amount and income category for the income source(s).</para>
+	/// <para>An estimate of the average gross monthly income based on the historical net amount and income category for the income source(s). The average monthly income is calculated based on the lifetime of the income stream, rather than the entire historical period included in the scope of the report.</para>
 	/// </summary>
 	[JsonPropertyName("historical_average_monthly_gross_income")]
 	public IReadOnlyList<Entity.CreditAmountWithCurrency>? HistoricalAverageMonthlyGrossIncome { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The average monthly income amount estimated based on the historical data for the income source(s).</para>
+	/// <para>The average monthly income amount estimated based on the historical data for the income source(s). The average monthly income is calculated based on the lifetime of the income stream, rather than the entire historical period included in the scope of the report.</para>
 	/// </summary>
 	[JsonPropertyName("historical_average_monthly_income")]
 	public IReadOnlyList<Entity.CreditAmountWithCurrency>? HistoricalAverageMonthlyIncome { get; init; } = default!;
@@ -63,13 +63,13 @@ public record CraBankIncomeSummary
 	public IReadOnlyList<Entity.CreditAmountWithCurrency>? ForecastedAverageMonthlyIncome { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An estimate of the annual gross income based on the historical net amount and income category for the income source(s).</para>
+	/// <para>An estimate of the annual gross income for the income source, calculated by multiplying the <c>historical_average_monthly_gross_income</c> by 12.</para>
 	/// </summary>
 	[JsonPropertyName("historical_annual_gross_income")]
 	public IReadOnlyList<Entity.CreditAmountWithCurrency>? HistoricalAnnualGrossIncome { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The annual income amount estimated based on the historical data for the income source(s).</para>
+	/// <para>An estimate of the annual net income for the income source, calculated by multiplying the <c>historical_average_monthly_income</c> by 12.</para>
 	/// </summary>
 	[JsonPropertyName("historical_annual_income")]
 	public IReadOnlyList<Entity.CreditAmountWithCurrency>? HistoricalAnnualIncome { get; init; } = default!;

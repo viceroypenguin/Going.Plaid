@@ -41,4 +41,11 @@ public record DocumentAnalysis
 	[JsonPropertyName("human_review")]
 	public Entity.HumanReview? HumanReview { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Analyzed AAMVA data for the associated hit.</para>
+	/// <para>Note: This field is only available for U.S. driver's licenses issued by participating states.</para>
+	/// </summary>
+	[JsonPropertyName("aamva_verification")]
+	public Entity.AAMVAAnalysis? AamvaVerification { get; init; } = default!;
+
 }

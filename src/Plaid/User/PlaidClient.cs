@@ -64,6 +64,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserItemsGetResponse>();
 
 	/// <summary>
+	/// <para>Returns Items associated with a User along with their corresponding statuses.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/users/#useritemslist" /></remarks>
+	public Task<User.UserItemsListResponse> UserItemsListAsync(User.UserItemsListRequest request) =>
+		PostAsync("/user/items/list", request)
+			.ParseResponseAsync<User.UserItemsListResponse>();
+
+	/// <summary>
 	/// <para>This endpoint is used to create a third-party user token. This token can be shared with and used by a specified third-party client to access data associated with the user through supported endpoints.</para>
 	/// <para>Ensure you store the <c>third_party_user_token</c> along with the <c>user_token</c> and <c>third_party_client_id</c>, as it is not possible to retrieve a previously created <c>third_party_user_token</c>.</para>
 	/// </summary>

@@ -26,6 +26,12 @@ public record CreditFreddieMacAsset
 	/// <summary>
 	/// <para>Documentation not found in the MISMO model viewer and not provided by Freddie Mac.</para>
 	/// </summary>
+	[JsonPropertyName("ASSET_HOLDINGS")]
+	public Entity.AssetHoldings? AssetHoldings { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Documentation not found in the MISMO model viewer and not provided by Freddie Mac.</para>
+	/// </summary>
 	[JsonPropertyName("ASSET_TRANSACTIONS")]
 	public Entity.CreditFreddieMacAssetTransactions AssetTransactions { get; init; } = default!;
 

@@ -65,4 +65,10 @@ public record ClientProvidedEnrichedTransaction
 	[JsonPropertyName("enrichments")]
 	public Entity.Enrichments Enrichments { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Custom client fields</para>
+	/// </summary>
+	[JsonPropertyName("client_customization")]
+	public Entity.ClientCustomization? ClientCustomization { get; init; } = default!;
+
 }

@@ -83,6 +83,14 @@ public record Security
 	public string? Type { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The security subtype of the holding.</para>
+	/// <para>In rare instances, a null value is returned when institutional data is insufficient to determine the security subtype.</para>
+	/// <para>Possible values: Possible values: asset backed security, bill, bond, bond with warrants, cash, cash management bill, common stock, convertible bond, convertible equity, cryptocurrency, depositary receipt, depositary receipt on debt, etf, float rating note, fund of funds, hedge fund, limited partnership unit, medium term note, money market debt, mortgage backed security, municipal bond, mutual fund, note, option, other, preferred convertible, preferred equity, private equity fund, real estate investment trust, structured equity product, treasury inflation protected securities, unit, warrant.</para>
+	/// </summary>
+	[JsonPropertyName("subtype")]
+	public string? Subtype { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Price of the security at the close of the previous trading session. Null for non-public securities.</para>
 	/// <para>If the security is a foreign currency this field will be updated daily and will be priced in USD.</para>
 	/// <para>If the security is a cryptocurrency, this field will be updated multiple times a day. As crypto prices can fluctuate quickly and data may become stale sooner than other asset classes, refer to <c>update_datetime</c> with the time when the price was last updated.</para>

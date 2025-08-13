@@ -12,7 +12,7 @@ public record CraBankIncomeSource
 	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique identifier for an income source.</para>
+	/// <para>A unique identifier for an income source. If the report is regenerated and a new <c>report_id</c> is created, the new report will have a new set of <c>income_source_id</c>s.</para>
 	/// </summary>
 	[JsonPropertyName("income_source_id")]
 	public string? IncomeSourceId { get; init; } = default!;

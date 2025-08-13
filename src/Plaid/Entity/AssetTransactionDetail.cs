@@ -36,16 +36,34 @@ public record AssetTransactionDetail
 	public Entity.AssetTransactionType Assettransactiontype { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Asset Investment Transaction Type Enumerated derived by Vendor.</para>
+	/// </summary>
+	[JsonPropertyName("AssetInvestmentTransactionType")]
+	public Entity.AssetInvestmentTransactionType? Assetinvestmenttransactiontype { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Populate with who did the transaction.</para>
 	/// </summary>
 	[JsonPropertyName("AssetTransactionPaidByName")]
 	public string? Assettransactionpaidbyname { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Populate with for whom the transaction is done</para>
+	/// </summary>
+	[JsonPropertyName("AssetTransactionPaidToName")]
+	public string? Assettransactionpaidtoname { get; init; } = default!;
+
+	/// <summary>
 	/// <para>FI Provided - examples are atm, cash, check, credit, debit, deposit, directDebit, directDeposit, dividend, fee, interest, other, payment, pointOfSale, repeatPayment, serviceCharge, transfer.</para>
 	/// </summary>
 	[JsonPropertyName("AssetTransactionTypeAdditionalDescription")]
 	public string? Assettransactiontypeadditionaldescription { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Asset Investment Transaction Type Description.</para>
+	/// </summary>
+	[JsonPropertyName("AssetInvestmentTransactionTypeDescription")]
+	public string? Assetinvestmenttransactiontypedescription { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Asset Transaction Category Type Enumerated derived by Vendor.</para>
