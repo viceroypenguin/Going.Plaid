@@ -24,7 +24,7 @@ public record NetworkInsightsReport
 	public Entity.NetworkInsights NetworkAttributes { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of Items associated with the provided access_tokens.</para>
+	/// <para>A list of Items associated with the provided <c>access_tokens</c>.</para>
 	/// </summary>
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.NetworkInsightsItem> Items { get; init; } = default!;

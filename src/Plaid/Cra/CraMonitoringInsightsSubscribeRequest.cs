@@ -12,6 +12,12 @@ public partial class CraMonitoringInsightsSubscribeRequest : RequestBase
 	public string UserToken { get; set; } = default!;
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>URL to which Plaid will send Monitoring Insights webhooks, for example when the requested Monitoring Insights is ready.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]

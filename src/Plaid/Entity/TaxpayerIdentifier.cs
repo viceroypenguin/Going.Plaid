@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Information about the Taxpayer identification values assigned to the individual or legal entity.Information about the Taxpayer identification values assigned to the individual or legal entity.</para>
+/// <para>Information about the Taxpayer identification values assigned to the individual or legal entity.</para>
 /// </summary>
 public record TaxpayerIdentifier
 {

@@ -72,6 +72,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserItemsListResponse>();
 
 	/// <summary>
+	/// <para>Associates Items to the target user. If an Item is already associated to another user, the Item will be disassociated with the existing user and associated to the target user. This operation supports a max of 100 Items.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/users/#useritemsassociate" /></remarks>
+	public Task<User.UserItemsAssociateResponse> UserItemsAssociateAsync(User.UserItemsAssociateRequest request) =>
+		PostAsync("/user/items/associate", request)
+			.ParseResponseAsync<User.UserItemsAssociateResponse>();
+
+	/// <summary>
 	/// <para>This endpoint is used to create a third-party user token. This token can be shared with and used by a specified third-party client to access data associated with the user through supported endpoints.</para>
 	/// <para>Ensure you store the <c>third_party_user_token</c> along with the <c>user_token</c> and <c>third_party_client_id</c>, as it is not possible to retrieve a previously created <c>third_party_user_token</c>.</para>
 	/// </summary>

@@ -18,13 +18,13 @@ public class ClientProvidedTransaction
 	public string? UserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A unique user id used to group transactions for a given user, as a unique identifier from your application. Personally identifiable information, such as an email address or phone number, should not be used in the client_user_id.</para>
+	/// <para>A unique user id used to group transactions for a given user, as a unique identifier from your application. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A unique account id used to group transactions for a given account, as a unique identifier from your application. Personally identifiable information, such as an email address or phone number, should not be used in the client_account_id.</para>
+	/// <para>A unique account id used to group transactions for a given account, as a unique identifier from your application. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_account_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_account_id")]
 	public string? ClientAccountId { get; set; } = default!;

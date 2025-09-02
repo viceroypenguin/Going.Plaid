@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The version of the Plaid Check Score</para>
+/// <para>The version of the Plaid Credit Score</para>
 /// </summary>
 public enum PlaidCheckScoreVersion
 {

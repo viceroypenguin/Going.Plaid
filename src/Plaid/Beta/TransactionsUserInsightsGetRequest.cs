@@ -6,7 +6,7 @@ namespace Going.Plaid.Beta;
 public partial class TransactionsUserInsightsGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>A unique client-provided user_id to retrieve insights for.</para>
+	/// <para>A unique client-provided <c>client_user_id</c> to retrieve insights for.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string ClientUserId { get; set; } = default!;

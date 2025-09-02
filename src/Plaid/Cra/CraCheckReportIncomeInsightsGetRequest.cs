@@ -12,6 +12,12 @@ public partial class CraCheckReportIncomeInsightsGetRequest : RequestBase
 	public string? UserToken { get; set; } = default!;
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The third-party user token associated with the requested User data.</para>
 	/// </summary>
 	[JsonPropertyName("third_party_user_token")]

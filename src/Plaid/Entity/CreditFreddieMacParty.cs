@@ -18,7 +18,7 @@ public record CreditFreddieMacParty
 	public Entity.Roles Roles { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The collection of TAXPAYER_IDENTIFICATION elements</para>
+	/// <para>The collection of <c>TAXPAYER_IDENTIFICATION</c> elements</para>
 	/// </summary>
 	[JsonPropertyName("TAXPAYER_IDENTIFIERS")]
 	public Entity.TaxpayerIdentifiers TaxpayerIdentifiers { get; init; } = default!;

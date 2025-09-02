@@ -36,9 +36,9 @@ public sealed partial class PlaidClient
 	/// <para>When updating a Beacon User's status via this endpoint, Plaid validates that the status change is consistent with the related state for this Beacon User. Specifically, we will check:</para>
 	/// <para>1. Whether there are any associated Beacon Reports connected to the Beacon User, and</para>
 	/// <para>2. Whether there are any confirmed Beacon Report Syndications connected to the Beacon User.</para>
-	/// <para>When updating a Beacon User's status to "rejected", we enforce that either a Beacon Report has been created for the Beacon User or a Beacon Report Syndication has been confirmed.</para>
-	/// <para>When updating a Beacon User's status to "cleared", we enforce that there are no active Beacon Reports or confirmed Beacon Report Syndications associated with the user. If you previously created a Beacon Report for this user, you must delete it before updating the Beacon User's status to "cleared".</para>
-	/// <para>There are no restrictions on updating a Beacon User's status to "pending_review".</para>
+	/// <para>When updating a Beacon User's status to <c>rejected</c>, we enforce that either a Beacon Report has been created for the Beacon User or a Beacon Report Syndication has been confirmed.</para>
+	/// <para>When updating a Beacon User's status to <c>cleared</c>, we enforce that there are no active Beacon Reports or confirmed Beacon Report Syndications associated with the user. If you previously created a Beacon Report for this user, you must delete it before updating the Beacon User's status to <c>cleared</c>.</para>
+	/// <para>There are no restrictions on updating a Beacon User's status to <c>pending_review</c>.</para>
 	/// <para>If these conditions are not met, the request will be rejected with an error explaining the issue.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconuserreview" /></remarks>

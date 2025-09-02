@@ -8,8 +8,8 @@ public enum ConsentedDataScope
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "account_and_balance_info")]
-	AccountAndBalanceInfo,
+	[EnumMember(Value = "account_balance_info")]
+	AccountBalanceInfo,
 
 	/// <summary>
 	/// 
@@ -20,8 +20,8 @@ public enum ConsentedDataScope
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "account_and_routing_numbers")]
-	AccountAndRoutingNumbers,
+	[EnumMember(Value = "account_routing_number")]
+	AccountRoutingNumber,
 
 	/// <summary>
 	/// 
@@ -32,14 +32,44 @@ public enum ConsentedDataScope
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "credit_and_loans")]
-	CreditAndLoans,
+	[EnumMember(Value = "credit_loan_info")]
+	CreditLoanInfo,
 
 	/// <summary>
 	/// 
 	/// </summary>
 	[EnumMember(Value = "investments")]
 	Investments,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "payroll_info")]
+	PayrollInfo,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "income_verification_paystubs_info")]
+	IncomeVerificationPaystubsInfo,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "income_verification_w2s_info")]
+	IncomeVerificationW2sInfo,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "income_verification_bank_statements")]
+	IncomeVerificationBankStatements,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "income_verification_employment_info")]
+	IncomeVerificationEmploymentInfo,
 
 	/// <summary>
 	/// 
@@ -52,6 +82,18 @@ public enum ConsentedDataScope
 	/// </summary>
 	[EnumMember(Value = "risk_info")]
 	RiskInfo,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "network_insights_lite")]
+	NetworkInsightsLite,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "fraud_info")]
+	FraudInfo,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

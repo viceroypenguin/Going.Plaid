@@ -18,6 +18,12 @@ public partial class CraCheckReportBaseReportGetRequest : RequestBase
 	public string? ThirdPartyUserToken { get; set; } = default!;
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The item IDs to include in the Base Report. If not provided, all items associated with the user will be included.</para>
 	/// </summary>
 	[JsonPropertyName("item_ids")]

@@ -29,4 +29,10 @@ public record PersonalFinanceCategory
 	[JsonPropertyName("confidence_level")]
 	public string? ConfidenceLevel { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The version of the personal finance category requested. Possible values are “v1” and “v2”</para>
+	/// </summary>
+	[JsonPropertyName("version")]
+	public string? Version { get; init; } = default!;
+
 }

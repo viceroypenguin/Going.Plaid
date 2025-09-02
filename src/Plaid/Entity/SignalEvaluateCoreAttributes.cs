@@ -491,4 +491,10 @@ public record SignalEvaluateCoreAttributes
 	[JsonPropertyName("days_since_account_opening")]
 	public int? DaysSinceAccountOpening { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Taking <c>available_or_current_balance</c> and dividing it by the transaction amount. Useful to say “10% buffer”, for example. This is a convenience function to build Signal Rules upon.</para>
+	/// </summary>
+	[JsonPropertyName("balance_to_transaction_amount_ratio")]
+	public decimal? BalanceToTransactionAmountRatio { get; init; } = default!;
+
 }

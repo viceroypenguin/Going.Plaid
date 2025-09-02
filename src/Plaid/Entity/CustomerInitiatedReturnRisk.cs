@@ -22,6 +22,7 @@ public record CustomerInitiatedReturnRisk
 	/// <para>  5: Predicted customer-initiated return incidence rate greater than 0.5%</para>
 	/// </summary>
 	[JsonPropertyName("risk_tier")]
+	[Obsolete]
 	public int RiskTier { get; init; } = default!;
 
 }

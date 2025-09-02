@@ -24,9 +24,10 @@ public record Security
 	public string? Cusip { get; init; } = default!;
 
 	/// <summary>
-	/// <para>7-character SEDOL, an identifier assigned to securities in the UK.</para>
+	/// <para>(Deprecated) 7-character SEDOL, an identifier assigned to securities in the UK.</para>
 	/// </summary>
 	[JsonPropertyName("sedol")]
+	[Obsolete]
 	public string? Sedol { get; init; } = default!;
 
 	/// <summary>
@@ -85,7 +86,7 @@ public record Security
 	/// <summary>
 	/// <para>The security subtype of the holding.</para>
 	/// <para>In rare instances, a null value is returned when institutional data is insufficient to determine the security subtype.</para>
-	/// <para>Possible values: Possible values: asset backed security, bill, bond, bond with warrants, cash, cash management bill, common stock, convertible bond, convertible equity, cryptocurrency, depositary receipt, depositary receipt on debt, etf, float rating note, fund of funds, hedge fund, limited partnership unit, medium term note, money market debt, mortgage backed security, municipal bond, mutual fund, note, option, other, preferred convertible, preferred equity, private equity fund, real estate investment trust, structured equity product, treasury inflation protected securities, unit, warrant.</para>
+	/// <para>Possible values: <c>asset backed security</c>, <c>bill</c>, <c>bond</c>, <c>bond with warrants</c>, <c>cash</c>, <c>cash management bill</c>, <c>common stock</c>, <c>convertible bond</c>, <c>convertible equity</c>, <c>cryptocurrency</c>, <c>depositary receipt</c>, <c>depositary receipt on debt</c>, <c>etf</c>, <c>float rating note</c>, <c>fund of funds</c>, <c>hedge fund</c>, <c>limited partnership unit</c>, <c>medium term note</c>, <c>money market debt</c>, <c>mortgage backed security</c>, <c>municipal bond</c>, <c>mutual fund</c>, <c>note</c>, <c>option</c>, <c>other</c>, <c>preferred convertible</c>, <c>preferred equity</c>, <c>private equity fund</c>, <c>real estate investment trust</c>, <c>structured equity product</c>, <c>treasury inflation protected securities</c>, <c>unit</c>, <c>warrant</c>.</para>
 	/// </summary>
 	[JsonPropertyName("subtype")]
 	public string? Subtype { get; init; } = default!;

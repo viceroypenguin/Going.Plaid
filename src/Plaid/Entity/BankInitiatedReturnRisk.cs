@@ -24,6 +24,7 @@ public record BankInitiatedReturnRisk
 	/// <para>  8: Predicted bank-initiated return incidence rate greater than 50%</para>
 	/// </summary>
 	[JsonPropertyName("risk_tier")]
+	[Obsolete]
 	public int RiskTier { get; init; } = default!;
 
 }

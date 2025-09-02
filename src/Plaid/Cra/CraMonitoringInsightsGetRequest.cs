@@ -12,6 +12,12 @@ public partial class CraMonitoringInsightsGetRequest : RequestBase
 	public string UserToken { get; set; } = default!;
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]

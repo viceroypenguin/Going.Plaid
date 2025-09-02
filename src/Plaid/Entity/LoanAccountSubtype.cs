@@ -54,6 +54,12 @@ public enum LoanAccountSubtype
 	Mortgage,
 
 	/// <summary>
+	/// <para>Pre-approved overdraft account, usually tied to a checking account</para>
+	/// </summary>
+	[EnumMember(Value = "overdraft")]
+	Overdraft,
+
+	/// <summary>
 	/// <para>Pre-approved line of credit</para>
 	/// </summary>
 	[EnumMember(Value = "line of credit")]

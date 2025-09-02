@@ -23,4 +23,10 @@ public partial class CraCheckReportVerificationGetRequest : RequestBase
 	[JsonPropertyName("user_token")]
 	public string? UserToken { get; set; } = default!;
 
+	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
 }

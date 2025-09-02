@@ -1,7 +1,7 @@
 namespace Going.Plaid.IdentityVerification;
 
 /// <summary>
-/// <para>Request schema for '/identity_verification/create'</para>
+/// <para>Request schema for <c>/identity_verification/create</c></para>
 /// </summary>
 public partial class IdentityVerificationCreateRequest : RequestBase
 {

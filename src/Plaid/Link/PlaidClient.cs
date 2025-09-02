@@ -21,8 +21,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Link.LinkTokenGetResponse>();
 
 	/// <summary>
-	/// <para>Exchange an OAuth <c>link_correlation_id</c> for the corresponding <c>link_token</c>. The <c>link_correlation_id</c> is only available for 'payment_initiation' products and is provided to the client via the OAuth <c>redirect_uri</c> as a query parameter.</para>
-	/// <para>The <c>link_correlation_id</c> is ephemeral and expires in a brief period, after which it can no longer be exchanged for the 'link_token'.</para>
+	/// <para>Exchange an OAuth <c>link_correlation_id</c> for the corresponding <c>link_token</c>. The <c>link_correlation_id</c> is only available for <c>payment_initiation</c> products and is provided to the client via the OAuth <c>redirect_uri</c> as a query parameter.</para>
+	/// <para>The <c>link_correlation_id</c> is ephemeral and expires in a brief period, after which it can no longer be exchanged for the <c>link_token</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/oauth/#linkcorrelationid" /></remarks>
 	public Task<Link.LinkOAuthCorrelationIdExchangeResponse> LinkOauthCorrelationIdExchangeAsync(Link.LinkOAuthCorrelationIdExchangeRequest request) =>

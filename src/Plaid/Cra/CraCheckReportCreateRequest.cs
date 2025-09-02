@@ -12,6 +12,12 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public string UserToken { get; set; } = default!;
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>The destination URL to which webhooks will be sent</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
@@ -58,6 +64,18 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("partner_insights")]
 	public Entity.CraCheckReportCreatePartnerInsightsOptions? PartnerInsights { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Defines configuration options to generate the Plaid Credit Score</para>
+	/// </summary>
+	[JsonPropertyName("plaid_credit_score")]
+	public Entity.CraCheckReportPlaidCreditScoreGetOptions? PlaidCreditScore { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Indicates that investment data should be extracted from the linked account(s).</para>
+	/// </summary>
+	[JsonPropertyName("include_investments")]
+	public bool? IncludeInvestments { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
