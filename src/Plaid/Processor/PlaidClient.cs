@@ -172,7 +172,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorBalanceGetResponse>();
 
 	/// <summary>
-	/// <para>Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see <c>/processor/stripe/bank_account_token/create</c> for creating tokens for use with Stripe integrations. If using multiple processors, multiple different processor tokens can be created for a single access token. Once created, a processor token for a given Item cannot be modified or updated. To revoke the processor's access, the entire Item must be deleted by calling <c>/item/remove</c>.</para>
+	/// <para>Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see <c>/processor/stripe/bank_account_token/create</c> for creating tokens for use with Stripe integrations. If using multiple processors, multiple different processor tokens can be created for a single access token. Once created, a processor token for a given Item can be modified by calling <c>/processor/token/permissions/set</c>. To revoke the processor's access, the entire Item must be deleted by calling <c>/item/remove</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processors/#processortokencreate" /></remarks>
 	public Task<Processor.ProcessorTokenCreateResponse> ProcessorTokenCreateAsync(Processor.ProcessorTokenCreateRequest request) =>

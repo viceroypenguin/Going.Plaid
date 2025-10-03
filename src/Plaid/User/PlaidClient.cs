@@ -38,6 +38,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserCreateResponse>();
 
 	/// <summary>
+	/// <para>Retrieve user identity and information using a Plaid generated user ID. This endpoint returns user details including the most recent Identity object that was added to the given User.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/users/#userget" /></remarks>
+	public Task<User.UserGetResponse> UserGetAsync(User.UserGetRequest request) =>
+		PostAsync("/user/get", request)
+			.ParseResponseAsync<User.UserGetResponse>();
+
+	/// <summary>
 	/// <para>This endpoint is used to update user information associated with an existing <c>user_token</c>. It can also be used to enable an existing <c>user_token</c> for use with Consumer Reports by Plaid Check, by adding a <c>consumer_report_user_identity</c> object to the user. Plaid Check Consumer Reports can only be created for US-based users; the user's address country must be <c>US</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userupdate" /></remarks>

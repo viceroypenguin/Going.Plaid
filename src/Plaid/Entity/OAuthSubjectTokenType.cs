@@ -18,6 +18,12 @@ public enum OAuthSubjectTokenType
 	UrnPlaidParamsOauthUserToken,
 
 	/// <summary>
+	/// <para>allows exchanging a Plaid-issued user token for an OAuth token. When using this token type, <c>audience</c> may be a client id or a supported CRA partner URN. <c>audience</c> supports a comma-delimited list of clients. When multiple clients are specified in the <c>audience</c> a multi-party token is created which can be used by all parties in the audience in conjunction with their <c>client_id</c> and <c>client_secret</c>.</para>
+	/// </summary>
+	[EnumMember(Value = "urn:plaid:params:credit:multi-user")]
+	UrnPlaidParamsCreditMultiUser,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

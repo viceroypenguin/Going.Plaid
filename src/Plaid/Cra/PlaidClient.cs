@@ -19,7 +19,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraMonitoringInsightsUnsubscribeResponse>();
 
 	/// <summary>
-	/// <para>This endpoint allows you to retrieve a Monitoring Insights report by passing in the <c>user_token</c> referred to in the webhook you received.</para>
+	/// <para>This endpoint allows you to retrieve a Cash Flow Updates report by passing in the <c>user_token</c> referred to in the webhook you received.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cramonitoring_insightsget" /></remarks>
 	public Task<Cra.CraMonitoringInsightsGetResponse> CraMonitoringInsightsGetAsync(Cra.CraMonitoringInsightsGetRequest request) =>
@@ -78,13 +78,13 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportCashflowInsightsGetResponse>();
 
 	/// <summary>
-	/// <para>This endpoint allows you to retrieve the Plaid Credit Score report for your user. You should call this endpoint after you've received the <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>. If the most recent consumer report for the user doesn’t have sufficient data to generate the insights, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>.</para>
-	/// <para>If you did not initialize Link with the <c>cra_plaid_credit_score</c> product or call <c>/cra/check_report/create</c> with the <c>cra_plaid_credit_score</c> product, we will generate the insights when you call this endpoint. In this case, you may optionally provide parameters under <c>options</c> to configure which insights you want to receive.</para>
+	/// <para>This endpoint allows you to retrieve the Lend Score report for your user. You should call this endpoint after you've received the <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>. If the most recent consumer report for the user doesn’t have sufficient data to generate the insights, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>.</para>
+	/// <para>If you did not initialize Link with the <c>cra_lend_score</c> product or call <c>/cra/check_report/create</c> with the <c>cra_lend_score</c> product, we will generate the insights when you call this endpoint. In this case, you may optionally provide parameters under <c>options</c> to configure which insights you want to receive.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cracheck_reportplaid_credit_scoreget" /></remarks>
-	public Task<Cra.CraCheckReportPlaidCreditScoreGetResponse> CraCheckReportPlaidCreditScoreGetAsync(Cra.CraCheckReportPlaidCreditScoreGetRequest request) =>
-		PostAsync("/cra/check_report/plaid_credit_score/get", request)
-			.ParseResponseAsync<Cra.CraCheckReportPlaidCreditScoreGetResponse>();
+	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cracheck_reportlend_scoreget" /></remarks>
+	public Task<Cra.CraCheckReportLendScoreGetResponse> CraCheckReportLendScoreGetAsync(Cra.CraCheckReportLendScoreGetRequest request) =>
+		PostAsync("/cra/check_report/lend_score/get", request)
+			.ParseResponseAsync<Cra.CraCheckReportLendScoreGetResponse>();
 
 	/// <summary>
 	/// <para>This endpoint allows you to retrieve the Network Insights product for your user. You should call this endpoint after you've received the <c>CHECK_REPORT_READY</c> webhook, either after the Link session for the user or after calling <c>/cra/check_report/create</c>. If the most recent consumer report for the user doesn’t have sufficient data to generate the report, or the consumer report has expired, you will receive an error indicating that you should create a new consumer report by calling <c>/cra/check_report/create</c>.</para>

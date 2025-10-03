@@ -1,4 +1,4 @@
-﻿namespace Going.Plaid.Entity;
+namespace Going.Plaid.Entity;
 
 /// <summary>
 /// Used to tell Plaid which language to use in the Plaid Link Tool.
@@ -40,6 +40,12 @@ public enum Language
 	/// </summary>
 	[EnumMember(Value = "de")]
 	German,
+
+	/// <summary>
+	/// Use Italian in the Plaid Link Tool.
+	/// </summary>
+	[EnumMember(Value = "hi")]
+	Hindi,
 
 	/// <summary>
 	/// Use Italian in the Plaid Link Tool.

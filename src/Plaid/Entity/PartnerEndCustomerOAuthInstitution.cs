@@ -35,4 +35,10 @@ public record PartnerEndCustomerOAuthInstitution
 	[JsonPropertyName("classic_disablement_date")]
 	public string? ClassicDisablementDate { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The errors encountered while registering the end customer's application with the institutions.</para>
+	/// </summary>
+	[JsonPropertyName("errors")]
+	public IReadOnlyList<Entity.PlaidError>? Errors { get; init; } = default!;
+
 }

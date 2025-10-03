@@ -1,21 +1,27 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The version of the Lend Score</para>
+/// <para>The outcome of the identity creation operation.</para>
 /// </summary>
-public enum PlaidCheckScoreVersion
+public enum IdentityCreationResultType
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "v1.0")]
-	V10,
+	[EnumMember(Value = "SUCCEEDED")]
+	Succeeded,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "v2.0")]
-	V20,
+	[EnumMember(Value = "FAILED")]
+	Failed,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "NOT_PROVIDED")]
+	NotProvided,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

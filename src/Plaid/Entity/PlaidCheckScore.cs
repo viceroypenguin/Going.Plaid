@@ -18,7 +18,7 @@ public record PlaidCheckScore
 	public IReadOnlyList<string>? ReasonCodes { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Human-readable description of why the Plaid Credit score could not be computed.</para>
+	/// <para>Human-readable description of why the Lend Score could not be computed.</para>
 	/// </summary>
 	[JsonPropertyName("error_reason")]
 	public string? ErrorReason { get; init; } = default!;

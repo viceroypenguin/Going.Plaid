@@ -190,7 +190,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferLedgerEventListResponse>();
 
 	/// <summary>
-	/// <para><c>/transfer/event/sync</c> allows you to request up to the next 25 transfer events that happened after a specific <c>event_id</c>. Use the <c>/transfer/event/sync</c> endpoint to guarantee you have seen all transfer events.</para>
+	/// <para><c>/transfer/event/sync</c> allows you to request up to the next 500 transfer events that happened after a specific <c>event_id</c>. Use the <c>/transfer/event/sync</c> endpoint to guarantee you have seen all transfer events.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/reading-transfers/#transfereventsync" /></remarks>
 	public Task<Transfer.TransferEventSyncResponse> TransferEventSyncAsync(Transfer.TransferEventSyncRequest request) =>
@@ -313,6 +313,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/transfer/refund/create</c> endpoint to create a refund for a transfer. A transfer can be refunded if the transfer was initiated in the past 180 days.</para>
 	/// <para>Refunds come out of the available balance of the ledger used for the original debit transfer. If there are not enough funds in the available balance to cover the refund amount, the refund will be rejected. You can create a refund at any time. Plaid does not impose any hold time on refunds.</para>
+	/// <para>A refund can still be issued even if the Item's <c>access_token</c> is no longer valid (e.g. if the user revoked OAuth consent or the Item was deleted via <c>/item/remove</c>), as long as the account and routing number pair used to make the original transaction is still valid. A refund cannot be issued if the Item has an <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">invalidated TAN</a>, which can occur at Chase or PNC.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/refunds/#transferrefundcreate" /></remarks>
 	public Task<Transfer.TransferRefundCreateResponse> TransferRefundCreateAsync(Transfer.TransferRefundCreateRequest request) =>

@@ -156,9 +156,10 @@ public record Transfer
 	public DateOnly? UnauthorizedReturnWindow { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date when settlement will occur between Plaid and the receiving bank (RDFI). For ACH debits, this is the date funds will be pulled from the bank account being debited. For ACH credits, this is the date funds will be delivered to the bank account being credited. Only set for ACH transfers; <c>null</c> for non-ACH transfers. This will be of the form YYYY-MM-DD.</para>
+	/// <para>Deprecated for Plaid Ledger clients, use <c>expected_funds_available_date</c> instead.</para>
 	/// </summary>
 	[JsonPropertyName("expected_settlement_date")]
+	[Obsolete]
 	public DateOnly? ExpectedSettlementDate { get; init; } = default!;
 
 	/// <summary>

@@ -7,6 +7,7 @@ public record CashflowAccountInsights
 {
 	/// <summary>
 	/// <para>Calculated data about the historical balances on the account.</para>
+	/// <para>Available for <c>credit</c> and <c>depository</c> type accounts.</para>
 	/// </summary>
 	[JsonPropertyName("historical_balances")]
 	public IReadOnlyList<Entity.CashflowReportHistoricalBalance> HistoricalBalances { get; init; } = default!;

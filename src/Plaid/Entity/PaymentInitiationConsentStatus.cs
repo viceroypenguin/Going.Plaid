@@ -24,7 +24,7 @@ public enum PaymentInitiationConsentStatus
 	Revoked,
 
 	/// <summary>
-	/// <para>Consent authorisation was rejected by the user and/or the bank.</para>
+	/// <para>Consent authorisation was rejected by the bank.</para>
 	/// </summary>
 	[EnumMember(Value = "REJECTED")]
 	Rejected,

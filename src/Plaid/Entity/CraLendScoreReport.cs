@@ -1,9 +1,9 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Contains data for the CRA Plaid Credit Score Report.</para>
+/// <para>Contains data for the CRA Lend Score Report.</para>
 /// </summary>
-public record CraPlaidCreditScoreReport
+public record CraLendScoreReport
 {
 	/// <summary>
 	/// <para>The unique identifier associated with the Network Attributes report object.</para>
@@ -18,9 +18,9 @@ public record CraPlaidCreditScoreReport
 	public DateTimeOffset GeneratedTime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The results of the Plaid Credit Score</para>
+	/// <para>The results of the Lend Score</para>
 	/// </summary>
-	[JsonPropertyName("plaid_credit_score")]
-	public Entity.PlaidCreditScore? PlaidCreditScore { get; init; } = default!;
+	[JsonPropertyName("lend_score")]
+	public Entity.LendScore? LendScore { get; init; } = default!;
 
 }

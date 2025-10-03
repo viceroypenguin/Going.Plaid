@@ -9,7 +9,8 @@ public record IncomeSourcesCounts
 	/// <para>The number of income sources detected at the subscription date</para>
 	/// </summary>
 	[JsonPropertyName("baseline_count")]
-	public decimal BaselineCount { get; init; } = default!;
+	[Obsolete]
+	public decimal? BaselineCount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The number of income sources currently detected</para>

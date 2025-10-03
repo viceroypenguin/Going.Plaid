@@ -9,7 +9,8 @@ public record ForecastedMonthlyIncome
 	/// <para>The forecasted monthly income at the time of subscription</para>
 	/// </summary>
 	[JsonPropertyName("baseline_amount")]
-	public decimal BaselineAmount { get; init; } = default!;
+	[Obsolete]
+	public decimal? BaselineAmount { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The current forecasted monthly income</para>

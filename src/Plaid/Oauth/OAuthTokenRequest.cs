@@ -40,7 +40,10 @@ public partial class OAuthTokenRequest : RequestBase
 	public string? Resource { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Used when exchanging a token. The meaning depends on the <c>subject_token_type</c>.</para>
+	/// <para>Used when exchanging a token. The meaning depends on the <c>subject_token_type</c>:</para>
+	/// <para>- For <c>urn:plaid:params:tokens:user</c>: Must be the same as the <c>client_id</c>.</para>
+	/// <para>- For <c>urn:plaid:params:oauth:user-token</c>: The other <c>client_id</c> to exchange tokens to.</para>
+	/// <para>- For <c>urn:plaid:params:credit:multi-user</c>:  a <c>client_id</c> or one of the supported CRA partner URNs: <c>urn:plaid:params:cra-partner:experian</c>, <c>urn:plaid:params:cra-partner:fannie-mae</c>, or <c>urn:plaid:params:cra-partner:freddie-mac</c>.</para>
 	/// </summary>
 	[JsonPropertyName("audience")]
 	public string? Audience { get; set; } = default!;

@@ -23,4 +23,10 @@ public partial class UserCreateRequest : RequestBase
 	[JsonPropertyName("consumer_report_user_identity")]
 	public Entity.ConsumerReportUserIdentity? ConsumerReportUserIdentity { get; set; } = default!;
 
+	/// <summary>
+	/// <para>ClientUserIdentity is the shared user identity construct across /user/* routes.</para>
+	/// </summary>
+	[JsonPropertyName("identity")]
+	public Entity.ClientUserIdentity? Identity { get; set; } = default!;
+
 }

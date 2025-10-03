@@ -42,10 +42,10 @@ public class LinkTokenCreateRequestCraOptions
 	public Entity.LinkTokenCreateRequestCraOptionsCashflowInsights? CashflowInsights { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with the Plaid Credit Score product.</para>
+	/// <para>Specifies options for initializing Link for use with the CRA Lend Score product.</para>
 	/// </summary>
-	[JsonPropertyName("plaid_credit_score")]
-	public Entity.LinkTokenCreateRequestCraOptionsPlaidCreditScore? PlaidCreditScore { get; set; } = default!;
+	[JsonPropertyName("lend_score")]
+	public Entity.LinkTokenCreateRequestCraOptionsLendScore? LendScore { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Indicates that investment data should be extracted from the linked account(s).</para>

@@ -1,9 +1,9 @@
 namespace Going.Plaid.Cra;
 
 /// <summary>
-/// <para>CraCheckReportPlaidCreditScoreGetRequest defines the request schema for <c>/cra/check_report/plaid_credit_score/get</c>.</para>
+/// <para>CraCheckReportLendScoreGetRequest defines the request schema for <c>/cra/check_report/lend_score/get</c>.</para>
 /// </summary>
-public partial class CraCheckReportPlaidCreditScoreGetRequest : RequestBase
+public partial class CraCheckReportLendScoreGetRequest : RequestBase
 {
 	/// <summary>
 	/// <para>The user token associated with the User data is being requested for.</para>
@@ -18,9 +18,9 @@ public partial class CraCheckReportPlaidCreditScoreGetRequest : RequestBase
 	public string? ThirdPartyUserToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration options to generate the Plaid Credit Score</para>
+	/// <para>Defines configuration options to generate the Lend Score</para>
 	/// </summary>
 	[JsonPropertyName("options")]
-	public Entity.CraCheckReportPlaidCreditScoreGetOptions? Options { get; set; } = default!;
+	public Entity.CraCheckReportLendScoreGetOptions? Options { get; set; } = default!;
 
 }

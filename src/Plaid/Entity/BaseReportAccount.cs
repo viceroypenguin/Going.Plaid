@@ -68,7 +68,7 @@ public record BaseReportAccount
 	public decimal DaysAvailable { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Transaction history associated with the account. Transaction history returned by endpoints such as <c>/transactions/get</c> or <c>/investments/transactions/get</c> will be returned in the top-level <c>transactions</c> field instead.</para>
+	/// <para>Transaction history associated with the account. Transaction history returned by endpoints such as <c>/transactions/get</c> or <c>/investments/transactions/get</c> will be returned in the top-level <c>transactions</c> field instead. Some transactions may have their details masked in accordance to FCRA.</para>
 	/// </summary>
 	[JsonPropertyName("transactions")]
 	public IReadOnlyList<Entity.BaseReportTransaction> Transactions { get; init; } = default!;

@@ -24,7 +24,7 @@ public class LinkTokenCreateHostedLink
 	public int? UrlLifetimeSeconds { get; set; } = default!;
 
 	/// <summary>
-	/// <para>This indicates whether the client is opening hosted Link in a mobile app in an out of process web view (OOPWV) (i.e., an <c>AsWebAuthenticationSession</c> / <c>SFSafariViewController</c> or Android Custom Tab).</para>
+	/// <para>This indicates whether the client is opening hosted Link in a mobile app in an <c>AsWebAuthenticationSession</c> or Chrome custom tab.</para>
 	/// </summary>
 	[JsonPropertyName("is_mobile_app")]
 	public bool? IsMobileApp { get; set; } = default!;

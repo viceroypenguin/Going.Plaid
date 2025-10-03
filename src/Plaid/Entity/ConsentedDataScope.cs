@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A data scope for the products that a user can consent to in [Data Transparency Messaging](/docs/link/data-transparency-messaging-migration-guide)</para>
+/// <para>A data scope for the products that a user can consent to in [Data Transparency Messaging](https://plaid.com/docs/link/data-transparency-messaging-migration-guide)</para>
 /// </summary>
 public enum ConsentedDataScope
 {

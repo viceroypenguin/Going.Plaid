@@ -24,7 +24,8 @@ public partial class PartnerCustomerCreateRequest : RequestBase
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If <c>true</c>, the end customer's default Link customization will be set to match the partner's. You can always change the end customer's Link customization in the Plaid Dashboard. See the <a href="https://plaid.com/docs/link/customization/">Link Customization docs</a> for more information.</para>
+	/// <para>If <c>true</c>, the end customer's default Link customization will be set to match the partner's. You can always change the end customer's Link customization in the Plaid Dashboard. See the <a href="https://plaid.com/docs/link/customization/">Link Customization docs</a> for more information. If you require the ability to programmatically create end customers using multiple different Link customization profiles, contact your Plaid Account Manager for assistance. </para>
+	/// <para>Important: Data Transparency Messaging (DTM) use cases will not be copied to the end customer's Link customization unless the **Publish changes** button is clicked after the use cases are applied. Link will not work in Production unless the end customer's DTM use cases are configured. For more details, see <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide/">Data Transparency Messaging</a>.</para>
 	/// </summary>
 	[JsonPropertyName("create_link_customization")]
 	public bool? CreateLinkCustomization { get; set; } = default!;

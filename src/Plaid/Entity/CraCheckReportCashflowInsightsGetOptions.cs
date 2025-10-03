@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class CraCheckReportCashflowInsightsGetOptions
 {
 	/// <summary>
-	/// <para>The version of the Plaid Credit Score</para>
+	/// <para>The version of the Lend Score</para>
 	/// </summary>
 	[JsonPropertyName("plaid_check_score_version")]
 	public Entity.PlaidCheckScoreVersion? PlaidCheckScoreVersion { get; set; } = default!;
