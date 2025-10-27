@@ -79,4 +79,10 @@ public record CraVoaReportAccount
 	[JsonPropertyName("ownership_type")]
 	public Entity.OwnershipType? OwnershipType { get; init; } = default!;
 
+	/// <summary>
+	/// <para>A set of fields describing the investments data on an account.</para>
+	/// </summary>
+	[JsonPropertyName("investments")]
+	public Entity.BaseReportInvestments? Investments { get; init; } = default!;
+
 }

@@ -28,7 +28,7 @@ public record TransferAuthorizationPaymentRisk
 	public Entity.TransferAuthorizationRiskLevel? RiskLevel { get; init; } = default!;
 
 	/// <summary>
-	/// <para>If bank information was not available to be used in the Signal model, this array contains warnings describing why bank data is missing. If you want to receive an API error instead of Signal scores in the case of missing bank data, file a support ticket or contact your Plaid account manager.</para>
+	/// <para>If bank information was not available to be used, this array contains warnings describing why bank data is missing. If you want to receive an API error instead of scores in the case of missing bank data, file a support ticket or contact your Plaid account manager.</para>
 	/// </summary>
 	[JsonPropertyName("warnings")]
 	public IReadOnlyList<Entity.SignalWarning> Warnings { get; init; } = default!;

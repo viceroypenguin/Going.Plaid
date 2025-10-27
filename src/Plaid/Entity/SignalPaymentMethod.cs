@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum SignalPaymentMethod
 {
 	/// <summary>
-	/// <para>Same Day ACH by NACHA. The debit transaction is processed and settled on the same day</para>
+	/// <para>Same Day ACH by Nacha. The debit transaction is processed and settled on the same day.</para>
 	/// </summary>
 	[EnumMember(Value = "SAME_DAY_ACH")]
 	SameDayAch,
@@ -18,13 +18,13 @@ public enum SignalPaymentMethod
 	NextDayAch,
 
 	/// <summary>
-	/// <para>Standard ACH by NACHA</para>
+	/// <para>Standard ACH by Nacha.</para>
 	/// </summary>
 	[EnumMember(Value = "STANDARD_ACH")]
 	StandardAch,
 
 	/// <summary>
-	/// <para>if there is no default debit rail or there are multiple payment methods</para>
+	/// <para>if there is no default debit rail or there are multiple payment methods.</para>
 	/// </summary>
 	[EnumMember(Value = "MULTIPLE_PAYMENT_METHODS")]
 	MultiplePaymentMethods,

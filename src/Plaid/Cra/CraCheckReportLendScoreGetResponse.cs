@@ -6,13 +6,13 @@ namespace Going.Plaid.Cra;
 public record CraCheckReportLendScoreGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Contains data for the CRA Lend Score Report.</para>
+	/// <para>Contains data for the CRA LendScore Report.</para>
 	/// </summary>
 	[JsonPropertyName("report")]
 	public Entity.CraLendScoreReport Report { get; init; } = default!;
 
 	/// <summary>
-	/// <para>If the Lend Score generation was successful but a subset of data could not be retrieved, this array will contain information about the errors causing information to be missing</para>
+	/// <para>If the LendScore generation was successful but a subset of data could not be retrieved, this array will contain information about the errors causing information to be missing</para>
 	/// </summary>
 	[JsonPropertyName("warnings")]
 	public IReadOnlyList<Entity.CraReportWarning>? Warnings { get; init; } = default!;

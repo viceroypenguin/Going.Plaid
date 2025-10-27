@@ -50,4 +50,36 @@ public sealed partial class PlaidClient
 		PostAsync("/beta/transactions/user_insights/v1/get", request)
 			.ParseResponseAsync<Beta.TransactionsUserInsightsGetResponse>();
 
+	/// <summary>
+	/// <para>The <c>/beta/partner/customer/v1/create</c> endpoint creates a new end customer record. You can provide as much information as you have available. If any required information is missing for the products you intend to use, it will be listed in the <c>requirements_due</c> field of the response.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomercreate" /></remarks>
+	public Task<Beta.BetaPartnerCustomerV1CreateResponse> BetaPartnerCustomerV1CreateAsync(Beta.BetaPartnerCustomerV1CreateRequest request) =>
+		PostAsync("/beta/partner/customer/v1/create", request)
+			.ParseResponseAsync<Beta.BetaPartnerCustomerV1CreateResponse>();
+
+	/// <summary>
+	/// <para>The <c>/beta/partner/customer/v1/get</c> endpoint is used by reseller partners to retrieve data about a single end customer.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomerget" /></remarks>
+	public Task<Beta.BetaPartnerCustomerV1GetResponse> BetaPartnerCustomerV1GetAsync(Beta.BetaPartnerCustomerV1GetRequest request) =>
+		PostAsync("/beta/partner/customer/v1/get", request)
+			.ParseResponseAsync<Beta.BetaPartnerCustomerV1GetResponse>();
+
+	/// <summary>
+	/// <para>The <c>/beta/partner/customer/v1/update</c> endpoint updates an existing end customer record.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomercreate" /></remarks>
+	public Task<Beta.BetaPartnerCustomerV1UpdateResponse> BetaPartnerCustomerV1UpdateAsync(Beta.BetaPartnerCustomerV1UpdateRequest request) =>
+		PostAsync("/beta/partner/customer/v1/update", request)
+			.ParseResponseAsync<Beta.BetaPartnerCustomerV1UpdateResponse>();
+
+	/// <summary>
+	/// <para>The <c>/beta/partner/customer/v1/enable</c> endpoint is used by reseller partners to enable an end customer in the full Production environment.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomerenable" /></remarks>
+	public Task<Beta.BetaPartnerCustomerV1EnableResponse> BetaPartnerCustomerV1EnableAsync(Beta.BetaPartnerCustomerV1EnableRequest request) =>
+		PostAsync("/beta/partner/customer/v1/enable", request)
+			.ParseResponseAsync<Beta.BetaPartnerCustomerV1EnableResponse>();
+
 }

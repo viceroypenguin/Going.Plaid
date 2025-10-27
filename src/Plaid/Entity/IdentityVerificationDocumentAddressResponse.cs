@@ -22,7 +22,7 @@ public record IdentityVerificationDocumentAddressResponse
 	public string City { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An ISO 3166-2 subdivision code extracted from the document. Related terms would be "state", "province", "prefecture", "zone", "subdivision", etc.</para>
+	/// <para>A subdivision code extracted from the document. Related terms would be "state", "province", "prefecture", "zone", "subdivision", etc. For a full list of valid codes, see <a href="https://plaid.com/documents/country_subdivision_codes.json">country subdivision codes</a>. Country prefixes are omitted, since they can be inferred from the <c>country</c> field.</para>
 	/// </summary>
 	[JsonPropertyName("region")]
 	public string? Region { get; init; } = default!;

@@ -24,7 +24,7 @@ public record Originator
 	public string CompanyName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>List of outstanding requirements for scaled platform originators. Only populated when <c>transfer_diligence_status</c> is <c>more_information_required</c>.</para>
+	/// <para>List of outstanding requirements that must be submitted before Plaid can approve the originator. Only populated when <c>transfer_diligence_status</c> is <c>more_information_required</c>.</para>
 	/// </summary>
 	[JsonPropertyName("outstanding_requirements")]
 	public IReadOnlyList<Entity.TransferPlatformRequirement>? OutstandingRequirements { get; init; } = default!;

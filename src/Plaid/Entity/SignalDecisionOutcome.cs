@@ -30,7 +30,7 @@ public enum SignalDecisionOutcome
 	TakeOtherRiskMeasures,
 
 	/// <summary>
-	/// <para>if only logging the Signal results without using them</para>
+	/// <para>if only logging the results without using them</para>
 	/// </summary>
 	[EnumMember(Value = "NOT_EVALUATED")]
 	NotEvaluated,

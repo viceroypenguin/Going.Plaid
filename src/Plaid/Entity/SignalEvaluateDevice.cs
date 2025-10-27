@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Details about the end user's device. When calling <c>/signal/evaluate</c> or <c>/signal/processor/evaluate</c>, this field is optional, but strongly recommended to increase the accuracy of Signal results.</para>
+/// <para>Details about the end user's device. These fields are optional, but strongly recommended to increase the accuracy of results when using Signal Transaction Scores. When using a Balance-only Ruleset, these fields are ignored if the Signal Addendum has been signed; if it has not been signed, using these fields will result in an error.</para>
 /// </summary>
 public class SignalEvaluateDevice
 {

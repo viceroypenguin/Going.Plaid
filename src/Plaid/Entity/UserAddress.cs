@@ -25,7 +25,7 @@ public class UserAddress
 	public string? City { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An ISO 3166-2 subdivision code. Related terms would be "state", "province", "prefecture", "zone", "subdivision", etc.</para>
+	/// <para>A subdivision code. "Subdivision" is a generic term for "state", "province", "prefecture", "zone", etc. For the list of valid codes, see <a href="https://plaid.com/documents/country_subdivision_codes.json">country subdivision codes</a>. Country prefixes are omitted, since they are inferred from the <c>country</c> field.</para>
 	/// </summary>
 	[JsonPropertyName("region")]
 	public string? Region { get; set; } = default!;

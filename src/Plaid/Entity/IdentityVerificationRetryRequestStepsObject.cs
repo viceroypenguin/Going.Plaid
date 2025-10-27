@@ -28,7 +28,7 @@ public class IdentityVerificationRetryRequestStepsObject
 	public bool DocumentaryVerification { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A boolean field specifying whether the new session should require or skip the <c>selfie_check</c> step.</para>
+	/// <para>A boolean field specifying whether the new session should require or skip the <c>selfie_check</c> step. If a previous session has already passed the <c>selfie_check</c> step, the new selfie check will be a Selfie Reauthentication check, in which the selfie is tested for liveness and for consistency with the previous selfie.</para>
 	/// </summary>
 	[JsonPropertyName("selfie_check")]
 	public bool SelfieCheck { get; set; } = default!;

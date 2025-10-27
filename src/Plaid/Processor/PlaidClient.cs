@@ -92,9 +92,9 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorTransactionsRecurringGetResponse>();
 
 	/// <summary>
-	/// <para>Use <c>/processor/signal/evaluate</c> to evaluate a planned ACH transaction as a processor to get a return risk assessment (such as a risk score and risk tier) and additional risk signals.</para>
-	/// <para>In order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If <c>/processor/signal/evaluate</c> is called on the same transaction multiple times within a 24-hour period, cached results may be returned. For more information please refer to our error documentation on <a href="https://plaid.com/docs/errors/item/">item errors</a> and <a href="https://plaid.com/docs/link/update-mode/">Link in Update Mode</a>.</para>
-	/// <para>Note: This request may take some time to complete if Signal is being added to an existing Item. This is because Plaid must communicate directly with the institution when retrieving the data for the first time. To reduce this latency, you can call <c>/signal/prepare</c> on the Item before you need to request Signal data.</para>
+	/// <para>Use <c>/signal/evaluate</c> to evaluate a planned ACH transaction to get a return risk assessment and additional risk signals.</para>
+	/// <para><c>/signal/evaluate</c> is used with Rulesets that are configured on the end customer Dashboard can can be used with either the Signal Transaction Scores product or the Balance product. Which product is used will be determined by the <c>ruleset_key</c> that you provide. For more details, see <a href="https://plaid.com/docs/signal/signal-rules/">Signal Rules</a>.</para>
+	/// <para>Note: This request may have higher latency if Signal Transaction Scores is being added to an existing Item for the first time, or when using a Balance-only ruleset. This is because Plaid must communicate directly with the institution to request data.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorsignalevaluate" /></remarks>
 	public Task<Processor.ProcessorSignalEvaluateResponse> ProcessorSignalEvaluateAsync(Processor.ProcessorSignalEvaluateRequest request) =>
@@ -102,8 +102,9 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorSignalEvaluateResponse>();
 
 	/// <summary>
-	/// <para>After calling <c>/processor/signal/evaluate</c>, call <c>/processor/signal/decision/report</c> to report whether the transaction was initiated.</para>
-	/// <para>If you are using the <a href="https://plaid.com/docs/transfer">Plaid Transfer product</a> to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was initiated.</para>
+	/// <para>After you call <c>/processor/signal/evaluate</c>, Plaid will normally infer the outcome from your Signal Rules. However, if you are not using Signal Rules, if the Signal Rules outcome was <c>REVIEW</c>, or if you take a different action than the one determined by the Signal Rules, you will need to call <c>/processor/signal/decision/report</c>. This helps improve Signal Transaction Score accuracy for your account and is necessary for proper functioning of the rule performance and rule tuning capabilities in the Dashboard. If your effective decision changes after calling <c>/processor/signal/decision/report</c> (for example, you indicated that you accepted a transaction, but later on, your payment processor rejected it, so it was never initiated), call <c>/processor/signal/decision/report</c> again for the transaction to correct Plaid's records.  </para>
+	/// <para>If you are using Plaid Transfer as your payment processor, you also do not need to call <c>/processor/signal/decision/report</c>, as Plaid can infer outcomes from your Transfer activity.</para>
+	/// <para>If using a Balance-only ruleset, this endpoint will not impact scores (Balance does not use scores), but is necessary to view accurate transaction outcomes and tune rule logic in the Dashboard.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorsignaldecisionreport" /></remarks>
 	public Task<Processor.ProcessorSignalDecisionReportResponse> ProcessorSignalDecisionReportAsync(Processor.ProcessorSignalDecisionReportRequest request) =>
@@ -120,8 +121,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorSignalReturnReportResponse>();
 
 	/// <summary>
-	/// <para>When a processor token is not initialized with Signal, call <c>/processor/signal/prepare</c> to opt-in that processor token to the Signal data collection process, which will improve the accuracy of the Signal score.</para>
-	/// <para>If this endpoint is called with a processor token that is already initialized with Signal, it will return a 200 response and will not modify the processor token.</para>
+	/// <para>When a processor token is not initialized with <c>signal</c>, call <c>/processor/signal/prepare</c> to opt-in that processor token to the data collection process, which will improve the accuracy of the Signal Transaction Score.</para>
+	/// <para>If this endpoint is called with a processor token that is already initialized with <c>signal</c>, it will return a 200 response and will not modify the processor token.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorsignalprepare" /></remarks>
 	public Task<Processor.ProcessorSignalPrepareResponse> ProcessorSignalPrepareAsync(Processor.ProcessorSignalPrepareRequest request) =>

@@ -12,7 +12,7 @@ public record SignalWarning
 	public string? WarningType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The warning code identifies a specific kind of warning that pertains to the error causing bank data to be missing. Safe for programmatic use. For more details on warning codes, please refer to Plaid standard error codes documentation. If you receive the <c>ITEM_LOGIN_REQUIRED</c> warning, we recommend re-authenticating your user by implementing Link's update mode. This will guide your user to fix their credentials, allowing Plaid to start fetching data again for future Signal requests.</para>
+	/// <para>The warning code identifies a specific kind of warning that pertains to the error causing bank data to be missing. Safe for programmatic use. For more details on warning codes, please refer to Plaid standard error codes documentation. If you receive the <c>ITEM_LOGIN_REQUIRED</c> warning, we recommend re-authenticating your user by implementing Link's update mode. This will guide your user to fix their credentials, allowing Plaid to start fetching data again for future requests.</para>
 	/// </summary>
 	[JsonPropertyName("warning_code")]
 	public string? WarningCode { get; init; } = default!;

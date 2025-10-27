@@ -6,9 +6,10 @@ namespace Going.Plaid.Entity;
 public class CraCheckReportCashflowInsightsGetOptions
 {
 	/// <summary>
-	/// <para>The version of the Lend Score</para>
+	/// <para>The version of the Check Score. New integrations should use <c>/cra/check_report/lend_score/get</c> and the LendScore instead.</para>
 	/// </summary>
 	[JsonPropertyName("plaid_check_score_version")]
+	[Obsolete]
 	public Entity.PlaidCheckScoreVersion? PlaidCheckScoreVersion { get; set; } = default!;
 
 	/// <summary>

@@ -134,7 +134,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/recurring/create</c> endpoint to initiate a new recurring transfer. This capability is not currently supported for Transfer UI or Platform Payments (beta) customers.</para>
+	/// <para>Use the <c>/transfer/recurring/create</c> endpoint to initiate a new recurring transfer. This capability is not currently supported for Transfer UI or Transfer for Platforms (beta) customers.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/recurring-transfers/#transferrecurringcreate" /></remarks>
 	public Task<Transfer.TransferRecurringCreateResponse> TransferRecurringCreateAsync(Transfer.TransferRecurringCreateRequest request) =>
@@ -254,7 +254,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferRepaymentReturnListResponse>();
 
 	/// <summary>
-	/// <para>The <c>/transfer/platform/requirement/submit</c> endpoint allows platforms to submit onboarding requirements for an originator as part of the Scaled Platform Transfer offering.</para>
+	/// <para>Use the <c>/transfer/platform/requirement/submit</c> endpoint to submit additional onboarding information that is needed by Plaid to approve or decline the originator.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform-payments/#transferplatformrequirementsubmit" /></remarks>
 	public Task<Transfer.TransferPlatformRequirementSubmitResponse> TransferPlatformRequirementSubmitAsync(Transfer.TransferPlatformRequirementSubmitRequest request) =>
@@ -337,17 +337,17 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferRefundCancelResponse>();
 
 	/// <summary>
-	/// <para>The <c>/transfer/platform/originator/create</c> endpoint allows gathering information about the originator specific to the Scaled Platform Transfer offering, including the originator's agreement to legal terms required before accepting any further information related to the originator.</para>
+	/// <para>Use the <c>/transfer/platform/originator/create</c> endpoint to submit information about the originator you are onboarding, including the originator's agreement to the required legal terms.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform/originator/#transferplatformoriginatorcreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform-payments/#transferplatformoriginatorcreate" /></remarks>
 	public Task<Transfer.TransferPlatformOriginatorCreateResponse> TransferPlatformOriginatorCreateAsync(Transfer.TransferPlatformOriginatorCreateRequest request) =>
 		PostAsync("/transfer/platform/originator/create", request)
 			.ParseResponseAsync<Transfer.TransferPlatformOriginatorCreateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/platform/person/create</c> endpoint to create a person record associated with an originator and optionally submit person-specific requirements.</para>
+	/// <para>Use the <c>/transfer/platform/person/create</c> endpoint to create a person associated with an originator (e.g. beneficial owner or control person) and optionally submit personal identification information for them.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform/#transferplatformpersoncreate" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform-payments/#transferplatformpersoncreate" /></remarks>
 	public Task<Transfer.TransferPlatformPersonCreateResponse> TransferPlatformPersonCreateAsync(Transfer.TransferPlatformPersonCreateRequest request) =>
 		PostAsync("/transfer/platform/person/create", request)
 			.ParseResponseAsync<Transfer.TransferPlatformPersonCreateResponse>();

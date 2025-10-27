@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Risk scoring details broken down by risk category.</para>
+/// <para>Risk scoring details broken down by risk category. When using a Balance-only ruleset, this object will not be returned.</para>
 /// </summary>
 public record SignalEvaluateScores
 {

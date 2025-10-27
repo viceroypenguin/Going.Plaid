@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The results of the Plaid Check score</para>
+/// <para>The results of the Plaid Check score. For existing customers only; for new customers, the Plaid Check Score has been replaced by the LendScore, which can be obtained by calling <c>/cra/check_report/lend_score/get</c>.</para>
 /// </summary>
 public record PlaidCheckScore
 {
@@ -18,7 +18,7 @@ public record PlaidCheckScore
 	public IReadOnlyList<string>? ReasonCodes { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Human-readable description of why the Lend Score could not be computed.</para>
+	/// <para>Human-readable description of why the score could not be computed.</para>
 	/// </summary>
 	[JsonPropertyName("error_reason")]
 	public string? ErrorReason { get; init; } = default!;

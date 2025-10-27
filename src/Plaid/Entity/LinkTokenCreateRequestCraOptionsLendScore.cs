@@ -1,14 +1,14 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Specifies options for initializing Link for use with the CRA Lend Score product.</para>
+/// <para>Specifies options for initializing Link for use with the CRA LendScore product.</para>
 /// </summary>
 public class LinkTokenCreateRequestCraOptionsLendScore
 {
 	/// <summary>
-	/// <para>The version of the Lend Score</para>
+	/// <para>The version of the LendScore</para>
 	/// </summary>
 	[JsonPropertyName("lend_score_version")]
-	public Entity.PlaidCheckScoreVersion? LendScoreVersion { get; set; } = default!;
+	public Entity.PlaidLendScoreVersion? LendScoreVersion { get; set; } = default!;
 
 }

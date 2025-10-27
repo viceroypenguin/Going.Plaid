@@ -1,7 +1,7 @@
 namespace Going.Plaid.Cra;
 
 /// <summary>
-/// <para>CraCheckReportNetworkInsightsGetRequest defines the request schema for <c>/cra/check_report/network_attributes/get</c>.</para>
+/// <para>CraCheckReportNetworkInsightsGetRequest defines the request schema for <c>/cra/check_report/network_insights/get</c>.</para>
 /// </summary>
 public partial class CraCheckReportNetworkInsightsGetRequest : RequestBase
 {
@@ -16,6 +16,12 @@ public partial class CraCheckReportNetworkInsightsGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Defines configuration options to generate Network Insights</para>
+	/// </summary>
+	[JsonPropertyName("options")]
+	public Entity.CraCheckReportNetworkInsightsGetOptions? Options { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The third-party user token associated with the requested User data.</para>

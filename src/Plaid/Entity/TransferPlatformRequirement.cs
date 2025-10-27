@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A piece of information that is outstanding for the scaled platform onboarding process.</para>
+/// <para>A piece of information that is required for originator onboarding.</para>
 /// </summary>
 public record TransferPlatformRequirement
 {

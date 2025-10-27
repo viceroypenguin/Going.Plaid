@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link.</para>
+/// <para>An object representing an <a href="https://plaid.com/docs/link/web/#onexit">onExit</a> callback from Link. If you are not receiving this field and are instead receiving the deprecated <c>on_exit</c> field, contact your Account Manager to update your integration.</para>
 /// </summary>
 public record LinkSessionExit
 {

@@ -1,24 +1,24 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The current verification status of an Auth Item initiated through micro-deposits or database verification. Returned for Auth Items only.</para>
+/// <para>Indicates an Item's micro-deposit-based verification or database verification status. This field is only populated when using Auth and falling back to micro-deposit or database verification. Possible values are:</para>
 /// </summary>
 public enum BusinessAccountVerificationStatusEnum
 {
 	/// <summary>
-	/// <para>The Item has successfully been automatically verified</para>
+	/// <para>The Item has successfully been automatically verified.</para>
 	/// </summary>
 	[EnumMember(Value = "automatically_verified")]
 	AutomaticallyVerified,
 
 	/// <summary>
-	/// <para>The Item is pending automatic verification</para>
+	/// <para>The Item is pending automatic verification.</para>
 	/// </summary>
 	[EnumMember(Value = "pending_automatic_verification")]
 	PendingAutomaticVerification,
 
 	/// <summary>
-	/// <para>The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the micro-deposit.</para>
+	/// <para>The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the code.</para>
 	/// </summary>
 	[EnumMember(Value = "pending_manual_verification")]
 	PendingManualVerification,
@@ -30,7 +30,7 @@ public enum BusinessAccountVerificationStatusEnum
 	Unsent,
 
 	/// <summary>
-	/// <para>The Item has successfully been manually verified</para>
+	/// <para>The Item has successfully been manually verified.</para>
 	/// </summary>
 	[EnumMember(Value = "manually_verified")]
 	ManuallyVerified,
@@ -48,7 +48,7 @@ public enum BusinessAccountVerificationStatusEnum
 	VerificationFailed,
 
 	/// <summary>
-	/// <para>The Item has successfully been verified using Plaid's data sources. Only returned for Auth Items created via Database Match.</para>
+	/// <para>(deprecated) The Item has successfully been verified using Plaid's data sources. Only returned for Auth Items created via Database Match.</para>
 	/// </summary>
 	[EnumMember(Value = "database_matched")]
 	DatabaseMatched,

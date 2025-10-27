@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Details about the transaction result after evaluated by the requested Ruleset. If a <c>ruleset_key</c> is not provided, this field will be omitted. This feature is currently in closed beta; to request access, contact your account manager.</para>
+/// <para>Details about the transaction result after evaluation by the requested Ruleset. If a <c>ruleset_key</c> is not provided, for customers who began using Signal Transaction Scores before October 15, 2025, by default, this field will be omitted. To learn more, see <a href="https://plaid.com/docs/signal/signal-rules/">Signal Rules</a>.</para>
 /// </summary>
 public record SignalEvaluateRuleset
 {

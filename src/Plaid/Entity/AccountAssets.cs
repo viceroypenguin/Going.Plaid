@@ -99,4 +99,10 @@ public record AccountAssets
 	[JsonPropertyName("historical_balances")]
 	public IReadOnlyList<Entity.HistoricalBalance> HistoricalBalances { get; init; } = default!;
 
+	/// <summary>
+	/// <para>This is a container object for all lending-related insights. This field will be returned only for European customers.</para>
+	/// </summary>
+	[JsonPropertyName("account_insights")]
+	public Entity.AccountInsights? AccountInsights { get; init; } = default!;
+
 }

@@ -16,7 +16,7 @@ public record BusinessAccount
 	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by <c>/accounts/balance/get</c>.</para>
+	/// <para>A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by <c>/accounts/balance/get</c> or <c>/signal/evaluate</c> (using a Balance-only ruleset).</para>
 	/// </summary>
 	[JsonPropertyName("balances")]
 	public Entity.AccountBalance? Balances { get; init; } = default!;
@@ -52,7 +52,7 @@ public record BusinessAccount
 	public Entity.AccountSubtype? Subtype { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The current verification status of an Auth Item initiated through micro-deposits or database verification. Returned for Auth Items only.</para>
+	/// <para>Indicates an Item's micro-deposit-based verification or database verification status. This field is only populated when using Auth and falling back to micro-deposit or database verification. Possible values are:</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]
 	public Entity.BusinessAccountVerificationStatusEnum? VerificationStatus { get; init; } = default!;

@@ -25,7 +25,7 @@ public partial class SignalScheduleRequest : RequestBase
 	public decimal Amount { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The payment method specified in the <c>default_payment_method</c> field directly impacts the timing recommendations provided by the API for submitting the debit entry to your processor or ODFI. If unspecified, Signal defaults to <c>STANDARD_ACH</c>.</para>
+	/// <para>The payment method specified in the <c>default_payment_method</c> field directly impacts the timing recommendations provided by the API for submitting the debit entry to your processor or ODFI. If unspecified, defaults to <c>STANDARD_ACH</c>.</para>
 	/// </summary>
 	[JsonPropertyName("default_payment_method")]
 	public Entity.SignalScheduleDefaultPaymentMethod? DefaultPaymentMethod { get; set; } = default!;

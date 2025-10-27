@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by <c>/accounts/balance/get</c>.</para>
+/// <para>A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by <c>/accounts/balance/get</c> or <c>/signal/evaluate</c> (using a Balance-only ruleset).</para>
 /// </summary>
 public record AccountBalance
 {
@@ -11,7 +11,7 @@ public record AccountBalance
 	/// <para>For <c>depository</c>-type accounts, the <c>available</c> balance typically equals the <c>current</c> balance less any pending outflows plus any pending inflows. For <c>depository</c>-type accounts, the <c>available</c> balance does not include the overdraft limit.</para>
 	/// <para>For <c>investment</c>-type accounts (or <c>brokerage</c>-type accounts for API versions 2018-05-22 and earlier), the <c>available</c> balance is the total cash available to withdraw as presented by the institution.</para>
 	/// <para>Note that not all institutions calculate the <c>available</c>  balance. In the event that <c>available</c> balance is unavailable, Plaid will return an <c>available</c> balance value of <c>null</c>.</para>
-	/// <para>Available balance may be cached and is not guaranteed to be up-to-date in realtime unless the value was returned by <c>/accounts/balance/get</c>.</para>
+	/// <para>Available balance may be cached and is not guaranteed to be up-to-date in realtime unless the value was returned by <c>/accounts/balance/get</c>, or by <c>/signal/evaluate</c> with a Balance-only ruleset.</para>
 	/// <para>If <c>current</c> is <c>null</c> this field is guaranteed not to be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("available")]
@@ -22,7 +22,7 @@ public record AccountBalance
 	/// <para>For <c>credit</c>-type accounts, a positive balance indicates the amount owed; a negative amount indicates the lender owing the account holder.</para>
 	/// <para>For <c>loan</c>-type accounts, the current balance is the principal remaining on the loan, except in the case of student loan accounts at Sallie Mae (<c>ins_116944</c>). For Sallie Mae student loans, the account's balance includes both principal and any outstanding interest. Similar to <c>credit</c>-type accounts, a positive balance is typically expected, while a negative amount indicates the lender owing the account holder.</para>
 	/// <para>For <c>investment</c>-type accounts (or <c>brokerage</c>-type accounts for API versions 2018-05-22 and earlier), the current balance is the total value of assets as presented by the institution.</para>
-	/// <para>Note that balance information may be cached unless the value was returned by <c>/accounts/balance/get</c>; if the Item is enabled for Transactions, the balance will be at least as recent as the most recent Transaction update. If you require realtime balance information, use the <c>available</c> balance as provided by <c>/accounts/balance/get</c>.</para>
+	/// <para>Note that balance information may be cached unless the value was returned by <c>/accounts/balance/get</c> or by <c>/signal/evaluate</c> with a Balance-only ruleset; if the Item is enabled for Transactions, the balance will be at least as recent as the most recent Transaction update. If you require realtime balance information, use the <c>available</c> balance as provided by <c>/accounts/balance/get</c> or <c>/signal/evaluate</c> called with a Balance-only <c>ruleset_key</c>.</para>
 	/// <para>When returned by <c>/accounts/balance/get</c>, this field may be <c>null</c>. When this happens, <c>available</c> is guaranteed not to be <c>null</c>.</para>
 	/// </summary>
 	[JsonPropertyName("current")]

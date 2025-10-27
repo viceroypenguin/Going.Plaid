@@ -42,10 +42,16 @@ public class LinkTokenCreateRequestCraOptions
 	public Entity.LinkTokenCreateRequestCraOptionsCashflowInsights? CashflowInsights { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies options for initializing Link for use with the CRA Lend Score product.</para>
+	/// <para>Specifies options for initializing Link for use with the CRA LendScore product.</para>
 	/// </summary>
 	[JsonPropertyName("lend_score")]
 	public Entity.LinkTokenCreateRequestCraOptionsLendScore? LendScore { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Specifies options for initializing Link for use with the CRA Network Insights product.</para>
+	/// </summary>
+	[JsonPropertyName("network_insights")]
+	public Entity.LinkTokenCreateRequestCraOptionsNetworkInsights? NetworkInsights { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Indicates that investment data should be extracted from the linked account(s).</para>

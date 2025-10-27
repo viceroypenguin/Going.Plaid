@@ -18,7 +18,7 @@ public partial class CraCheckReportLendScoreGetRequest : RequestBase
 	public string? ThirdPartyUserToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration options to generate the Lend Score</para>
+	/// <para>Defines configuration options to generate the LendScore</para>
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.CraCheckReportLendScoreGetOptions? Options { get; set; } = default!;

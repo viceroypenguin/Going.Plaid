@@ -104,6 +104,12 @@ public enum PlaidErrorType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "SIGNAL_ERROR")]
+	SignalError,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "TRANSACTIONS_ERROR")]
 	TransactionsError,
 

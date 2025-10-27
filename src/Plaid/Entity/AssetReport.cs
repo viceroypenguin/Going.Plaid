@@ -12,6 +12,12 @@ public record AssetReport
 	public string AssetReportId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>This is a container object for all lending-related insights. This field will be returned only for European customers.</para>
+	/// </summary>
+	[JsonPropertyName("insights")]
+	public Entity.AccountInsights? Insights { get; init; } = default!;
+
+	/// <summary>
 	/// <para>An identifier you determine and submit for the Asset Report.</para>
 	/// </summary>
 	[JsonPropertyName("client_report_id")]

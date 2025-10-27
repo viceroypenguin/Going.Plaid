@@ -1,6 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
+/// <para>This schema was for beta and is no longer populated.</para>
 /// <para>Insights relating to expenses and deposits that are predicted to occur on a scheduled basis, such as biweekly, monthly, or annually.</para>
 /// <para>Common examples include loan payments, bill payments, subscriptions, and payroll income.</para>
 /// <para>This is a beta field, available to all users.</para>

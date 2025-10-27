@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record LinkSessionResults
 {
 	/// <summary>
-	/// <para>The set of Item adds for the Link session.</para>
+	/// <para>The set of Item adds for the Link session. If you are not receiving this field and are instead receiving the deprecated <c>on_success</c> field, contact your Account Manager to update your integration.</para>
 	/// </summary>
 	[JsonPropertyName("item_add_results")]
 	public IReadOnlyList<Entity.LinkSessionItemAddResult> ItemAddResults { get; init; } = default!;

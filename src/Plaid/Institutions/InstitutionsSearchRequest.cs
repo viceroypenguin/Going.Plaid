@@ -12,7 +12,7 @@ public partial class InstitutionsSearchRequest : RequestBase
 	public string Query { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Filter the Institutions based on whether they support all products listed in <c>products</c>. Provide <c>null</c> to get institutions regardless of supported products. Note that when <c>auth</c> is specified as a product, if you are enabled for Instant Match or Automated Micro-deposits, institutions that support those products will be returned even if <c>auth</c> is not present in their product array. To search for Transfer support, use <c>auth</c>; to search for Signal support, use <c>balance</c>.</para>
+	/// <para>Filter the Institutions based on whether they support all products listed in <c>products</c>. Provide <c>null</c> to get institutions regardless of supported products. Note that when <c>auth</c> is specified as a product, if you are enabled for Instant Match or Automated Micro-deposits, institutions that support those products will be returned even if <c>auth</c> is not present in their product array. To search for Transfer support, use <c>auth</c>; to search for Signal Transaction Scores support, use <c>balance</c>.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;

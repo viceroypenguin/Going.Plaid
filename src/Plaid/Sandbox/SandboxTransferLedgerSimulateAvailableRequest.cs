@@ -12,7 +12,7 @@ public partial class SandboxTransferLedgerSimulateAvailableRequest : RequestBase
 	public string? LedgerId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Client ID of the end customer (i.e. the originator). Only applicable to Platform Payments customers.</para>
+	/// <para>Client ID of the end customer (i.e. the originator). Only applicable to Transfer for Platforms customers.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; set; } = default!;

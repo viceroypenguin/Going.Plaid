@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The version of the Lend Score</para>
+/// <para>The version of the Check Score. New integrations should use <c>/cra/check_report/lend_score/get</c> and the LendScore instead.</para>
 /// </summary>
 public enum PlaidCheckScoreVersion
 {

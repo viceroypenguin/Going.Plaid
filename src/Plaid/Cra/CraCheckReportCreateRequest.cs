@@ -66,10 +66,16 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public Entity.CraCheckReportCreatePartnerInsightsOptions? PartnerInsights { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration options to generate the Lend Score</para>
+	/// <para>Defines configuration options to generate the LendScore</para>
 	/// </summary>
 	[JsonPropertyName("lend_score")]
 	public Entity.CraCheckReportLendScoreGetOptions? LendScore { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Defines configuration options to generate Network Insights</para>
+	/// </summary>
+	[JsonPropertyName("network_insights")]
+	public Entity.CraCheckReportNetworkInsightsGetOptions? NetworkInsights { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Indicates that investment data should be extracted from the linked account(s).</para>

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Indicates that Plaid's authentication process has completed for a user and that Plaid has verified that the user owns their phone number. If you receive this webhook, you should skip your own OTP phone number verification flow for the user, even if the user does not complete the entire Link flow. If the user doesn't complete the full Link flow, it is recommended that you implement <a href="https://plaid.com/docs/api/webhooks/webhook-verification/">webhook verification</a> or another technique to avoid webhook spoofing attacks.</para>
+/// <para>Indicates that Plaid's authentication process has completed for a user and that Plaid has verified that the user owns their phone number. If you receive this webhook, you should skip your own OTP phone number verification flow for the user, even if the user does not complete the entire Link flow. If the user doesn't complete the full Link flow (as verified by your being able to successfully call <c>/user_account/session/get</c> using the <c>public_token</c> from the <c>onSuccess</c> callback) it is recommended that you implement <a href="https://plaid.com/docs/api/webhooks/webhook-verification/">webhook verification</a> or another technique to avoid webhook spoofing attacks.</para>
 /// </summary>
 public record LayerAuthenticationPassedWebhook : WebhookBase
 {
