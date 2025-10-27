@@ -49,6 +49,7 @@
 	<ItemGroup>
 		<PackageReference Include="DotNet.ReproducibleBuilds" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.CodeAnalysis.PerformanceSensitiveAnalyzers" PrivateAssets="All" />
+	<PackageReference Include="Microsoft.Extensions.Configuration" />
 		<PackageReference Include="MinVer" PrivateAssets="All" />
 	</ItemGroup>
 
