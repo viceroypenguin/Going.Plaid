@@ -20,4 +20,10 @@ public record NegativeBalanceOccurrence
 	[JsonPropertyName("end_date")]
 	public DateOnly? EndDate { get; init; } = default!;
 
+	/// <summary>
+	/// <para>A monetary amount with its associated currency information, supporting both official and unofficial currency codes.</para>
+	/// </summary>
+	[JsonPropertyName("minimum_balance")]
+	public Entity.AmountWithCurrency? MinimumBalance { get; init; } = default!;
+
 }

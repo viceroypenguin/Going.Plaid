@@ -7,7 +7,7 @@ public record CategoryExpenses
 {
 	/// <summary>
 	/// <para>The ID of the credit category.</para>
-	/// <para>See the <a href="https://plaid.com/docs/api/products/assets/#asset_report-get-response-report-items-accounts-transactions-credit-category">category taxonomy</a> for a full listing of category IDs.</para>
+	/// <para>See the <a href="https://plaid.com/documents/credit-category-taxonomy.csv">category taxonomy</a> for a full listing of category IDs.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
 	public string? Id { get; init; } = default!;

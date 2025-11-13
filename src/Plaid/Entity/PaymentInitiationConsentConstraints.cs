@@ -15,7 +15,7 @@ public class PaymentInitiationConsentConstraints
 	/// <para>Maximum amount of a single payment initiated using the payment consent.</para>
 	/// </summary>
 	[JsonPropertyName("max_payment_amount")]
-	public Entity.PaymentConsentMaxPaymentAmount MaxPaymentAmount { get; set; } = default!;
+	public Entity.PaymentAmount MaxPaymentAmount { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A list of amount limitations per period of time.</para>

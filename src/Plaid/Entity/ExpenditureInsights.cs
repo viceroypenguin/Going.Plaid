@@ -6,6 +6,12 @@ namespace Going.Plaid.Entity;
 public record ExpenditureInsights
 {
 	/// <summary>
+	/// <para>Net cash flow for the period (inflows minus outflows), including a monthly average.</para>
+	/// </summary>
+	[JsonPropertyName("cash_flow")]
+	public Entity.AmountWithCurrencyWithMonthlyAverage? CashFlow { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Summary statistics for a specific expenditure category, including total amount, monthly average, and percentage of income.</para>
 	/// </summary>
 	[JsonPropertyName("total_expenditure")]

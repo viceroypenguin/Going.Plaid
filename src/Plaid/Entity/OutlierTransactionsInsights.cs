@@ -18,7 +18,7 @@ public record OutlierTransactionsInsights
 	public Entity.AmountWithCurrency? TotalAmount { get; init; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Up to 3 top categories of expenses in this group.</para>
 	/// </summary>
 	[JsonPropertyName("top_categories")]
 	public IReadOnlyList<Entity.CategoryExpenses>? TopCategories { get; init; } = default!;

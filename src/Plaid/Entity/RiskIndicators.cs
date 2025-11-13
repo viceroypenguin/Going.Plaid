@@ -1,9 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Risk indicators focus on providing signal on the possibility of a borrower defaulting on their loan repayments</para>
-/// <para>by providing data points related to its payment behavior, debt, and other relevant financial information,</para>
-/// <para>helping lenders gauge the level of risk involved in a certain operation.</para>
+/// <para>Risk indicators focus on providing signal on the possibility of a borrower defaulting on their loan repayments by providing data points related to its payment behavior, debt, and other relevant financial information, helping lenders gauge the level of risk involved in a certain operation.</para>
 /// </summary>
 public record RiskIndicators
 {

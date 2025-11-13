@@ -48,7 +48,7 @@ public record Enhancements
 	public IReadOnlyList<string> Category { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A representation of where a transaction took place</para>
+	/// <para>A representation of where a transaction took place. Location data is provided only for transactions at physical locations, not for online transactions. Location data availability depends primarily on the merchant and is most likely to be populated for transactions at large retail chains; small, local businesses are less likely to have location data available.</para>
 	/// </summary>
 	[JsonPropertyName("location")]
 	public Entity.Location Location { get; init; } = default!;

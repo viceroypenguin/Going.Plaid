@@ -5,10 +5,4 @@ namespace Going.Plaid.User;
 /// </summary>
 public record UserUpdateResponse : ResponseBase
 {
-	/// <summary>
-	/// <para>The result of creating an identity, indicating success or failure with optional error details.</para>
-	/// </summary>
-	[JsonPropertyName("identity_creation_result")]
-	public Entity.IdentityCreationResult? IdentityCreationResult { get; init; } = default!;
-
 }

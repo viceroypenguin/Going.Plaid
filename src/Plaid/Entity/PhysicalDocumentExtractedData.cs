@@ -18,10 +18,16 @@ public record PhysicalDocumentExtractedData
 	public Entity.PhysicalDocumentCategory Category { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A date in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
+	/// <para>The expiration date of the document in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
 	/// </summary>
 	[JsonPropertyName("expiration_date")]
 	public DateOnly? ExpirationDate { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The issue date of the document in the format YYYY-MM-DD (RFC 3339 Section 5.6).</para>
+	/// </summary>
+	[JsonPropertyName("issue_date")]
+	public DateOnly? IssueDate { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Valid, capitalized, two-letter ISO code representing the country of this object. Must be in ISO 3166-1 alpha-2 form.</para>

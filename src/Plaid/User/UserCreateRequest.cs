@@ -29,4 +29,10 @@ public partial class UserCreateRequest : RequestBase
 	[JsonPropertyName("identity")]
 	public Entity.ClientUserIdentity? Identity { get; set; } = default!;
 
+	/// <summary>
+	/// <para>When <c>true</c>, a new user will be created and a <c>user_id</c> will be returned. Otherwise, a legacy user will be created and a <c>user_token</c> will be returned.</para>
+	/// </summary>
+	[JsonPropertyName("with_upgraded_user")]
+	public bool? WithUpgradedUser { get; set; } = default!;
+
 }

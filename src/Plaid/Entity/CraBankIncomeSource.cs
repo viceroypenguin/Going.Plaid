@@ -82,6 +82,12 @@ public record CraBankIncomeSource
 	public DateOnly? NextPaymentDate { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The status of the income sources.</para>
+	/// </summary>
+	[JsonPropertyName("status")]
+	public Entity.CraBankIncomeStatus? Status { get; init; } = default!;
+
+	/// <summary>
 	/// <para>An estimate of the average gross monthly income based on the historical net amount and income category for the income source(s).</para>
 	/// </summary>
 	[JsonPropertyName("historical_average_monthly_gross_income")]
@@ -110,6 +116,12 @@ public record CraBankIncomeSource
 	/// </summary>
 	[JsonPropertyName("employer")]
 	public Entity.CraBankIncomeEmployer? Employer { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The object containing data about the income provider.</para>
+	/// </summary>
+	[JsonPropertyName("income_provider")]
+	public Entity.CraBankIncomeIncomeProvider? IncomeProvider { get; init; } = default!;
 
 	/// <summary>
 	/// 

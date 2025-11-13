@@ -17,4 +17,10 @@ public record ProtectUserInsightsGetResponse : ResponseBase
 	[JsonPropertyName("latest_scored_event")]
 	public Entity.LatestScoredEvent? LatestScoredEvent { get; init; } = default!;
 
+	/// <summary>
+	/// <para>List of Protect reports associated with this user, limited to the most recent 100 reports in reverse chronological order (newest first).</para>
+	/// </summary>
+	[JsonPropertyName("reports")]
+	public IReadOnlyList<Entity.ProtectReport>? Reports { get; init; } = default!;
+
 }

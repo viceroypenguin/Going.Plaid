@@ -18,25 +18,25 @@ public record BaseReportAttributes
 	public decimal? PrimaryAccountScore { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of NSF and overdraft fee transactions in the time range for the report in the given account.</para>
+	/// <para>The number of net NSF fee transactions for a given account within the report time range (not counting any fees that were reversed within the time range).</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count")]
 	public int? NsfOverdraftTransactionsCount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of NSF and overdraft fee transactions in the last 30 days for a given account.</para>
+	/// <para>The number of net NSF fee transactions within the last 30 days for a given account (not counting any fees that were reversed within the time range).</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_30d")]
 	public int? NsfOverdraftTransactionsCount30d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of NSF and overdraft fee transactions in the last 60 days for a given account.</para>
+	/// <para>The number of net NSF fee transactions within the last 60 days for a given account (not counting any fees that were reversed within the time range).</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_60d")]
 	public int? NsfOverdraftTransactionsCount60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of NSF and overdraft fee transactions in the last 90 days for a given account.</para>
+	/// <para>The number of net NSF fee transactions within the last 90 days for a given account (not counting any fees that were reversed within the time range).</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count_90d")]
 	public int? NsfOverdraftTransactionsCount90d { get; init; } = default!;

@@ -6,10 +6,23 @@ namespace Going.Plaid.Entity;
 public record ExpenditureSummary
 {
 	/// <summary>
-	/// <para>A monetary amount with its associated currency information, supporting both official and unofficial currency codes.</para>
+	/// <para>The total value of all the aggregated transactions in this expenditure category.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
-	public Entity.AmountWithCurrency? Amount { get; init; } = default!;
+	public decimal? Amount { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The ISO-4217 currency code of the amount. Always <c>null</c> if <c>unofficial_currency_code</c> is non-<c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("iso_currency_code")]
+	public string? IsoCurrencyCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The unofficial currency code associated with the amount. Always <c>null</c> if <c>iso_currency_code</c> is non-<c>null</c>.</para>
+	/// <para>See the <a href="https://plaid.com/docs/api/accounts#currency-code-schema">currency code schema</a> for a full listing of supported <c>unofficial_currency_code</c>s.</para>
+	/// </summary>
+	[JsonPropertyName("unofficial_currency_code")]
+	public string? UnofficialCurrencyCode { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The monthly average amount calculated by dividing the total by the number of calendar months in the time period.</para>
@@ -25,8 +38,8 @@ public record ExpenditureSummary
 
 	/// <summary>
 	/// <para>The percentage of the total inflows that was spent in this expenses group, within the given time window across all the accounts in the report.</para>
-	/// <para>Valid values start and 0, with a value of 100 representing '100% of the inflows were spent on transactions that fall into this expenditure group'.</para>
-	/// <para>If there's no available income for the giving time period, this field value will be <c>-1</c></para>
+	/// <para>For example, a value of 100 represents that 100% of the inflows were spent on transactions that fall into this expenditure group.</para>
+	/// <para>If there's no available income for the giving time period, this field value will be <c>-1</c>.</para>
 	/// </summary>
 	[JsonPropertyName("percentage_of_income")]
 	public decimal? PercentageOfIncome { get; init; } = default!;
@@ -34,7 +47,7 @@ public record ExpenditureSummary
 	/// <summary>
 	/// <para>The primary credit categories of the expenses within the given time window, across all the accounts in the report.</para>
 	/// <para>The categories are sorted in descending order by the total value spent.</para>
-	/// <para>See the <a href="https://plaid.com/docs/api/products/assets/#asset_report-get-response-report-items-accounts-transactions-credit-category">category taxonomy</a> for a full listing of category IDs.</para>
+	/// <para>See the <a href="https://plaid.com/documents/credit-category-taxonomy.csv">category taxonomy</a> for a full listing of category IDs.</para>
 	/// </summary>
 	[JsonPropertyName("top_categories")]
 	public IReadOnlyList<Entity.CategoryExpenses>? TopCategories { get; init; } = default!;

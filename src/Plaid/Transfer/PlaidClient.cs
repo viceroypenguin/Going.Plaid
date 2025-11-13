@@ -254,7 +254,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferRepaymentReturnListResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/platform/requirement/submit</c> endpoint to submit additional onboarding information that is needed by Plaid to approve or decline the originator.</para>
+	/// <para>Use the <c>/transfer/platform/requirement/submit</c> endpoint to submit additional onboarding information that is needed by Plaid to approve or decline the originator. See <a href="https://docs.google.com/document/d/1NEQkTD0sVK50iAQi6xHigrexDUxZ4QxXqSEfV_FFTiU/">Requirement type schema documentation</a> for a list of requirement types and possible values.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform-payments/#transferplatformrequirementsubmit" /></remarks>
 	public Task<Transfer.TransferPlatformRequirementSubmitResponse> TransferPlatformRequirementSubmitAsync(Transfer.TransferPlatformRequirementSubmitRequest request) =>

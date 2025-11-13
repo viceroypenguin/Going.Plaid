@@ -130,4 +130,10 @@ public record IdentityVerificationRetryResponse : ResponseBase
 	[JsonPropertyName("redacted_at")]
 	public DateTimeOffset? RedactedAt { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Information about a Protect event including Trust Index score and fraud attributes.</para>
+	/// </summary>
+	[JsonPropertyName("latest_scored_protect_event")]
+	public Entity.IDVProtectEvent? LatestScoredProtectEvent { get; init; } = default!;
+
 }

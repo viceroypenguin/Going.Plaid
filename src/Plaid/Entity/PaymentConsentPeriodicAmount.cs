@@ -9,7 +9,7 @@ public class PaymentConsentPeriodicAmount
 	/// <para>Maximum cumulative amount for all payments in the specified interval.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
-	public Entity.PaymentConsentPeriodicAmountAmount Amount { get; set; } = default!;
+	public Entity.PaymentAmount Amount { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Payment consent periodic interval.</para>

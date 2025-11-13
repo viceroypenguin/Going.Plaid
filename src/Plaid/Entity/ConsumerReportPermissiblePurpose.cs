@@ -18,12 +18,6 @@ public enum ConsumerReportPermissiblePurpose
 	AccountReviewNonCredit,
 
 	/// <summary>
-	/// <para>For employment purposes pursuant to FCRA 604(a)(3)(B), including hiring, retention and promotion purposes.</para>
-	/// </summary>
-	[EnumMember(Value = "EMPLOYMENT")]
-	Employment,
-
-	/// <summary>
 	/// <para>In connection with a credit transaction initiated by and involving the consumer pursuant to FCRA Section 604(a)(3)(A).</para>
 	/// </summary>
 	[EnumMember(Value = "EXTENSION_OF_CREDIT")]

@@ -61,7 +61,7 @@ public record CraVoaReportAccountBalances
 	public decimal? AverageBalance60Days { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of NSF and overdraft fee transactions in the time range for the report in the given account.</para>
+	/// <para>The number of net NSF fee transactions in the time range for the report in the given account (not counting any fees that were reversed within the time range).</para>
 	/// </summary>
 	[JsonPropertyName("nsf_overdraft_transactions_count")]
 	public decimal NsfOverdraftTransactionsCount { get; init; } = default!;

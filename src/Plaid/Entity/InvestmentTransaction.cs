@@ -31,10 +31,16 @@ public record InvestmentTransaction
 	public string? SecurityId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> posting date for the transaction.</para>
+	/// <para>The <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> posting date for the transaction. This is typically the settlement date.</para>
 	/// </summary>
 	[JsonPropertyName("date")]
 	public DateOnly Date { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Timestamp in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) representing when the order type was initiated. This field is returned for select financial institutions and reflects the value provided by the institution.</para>
+	/// </summary>
+	[JsonPropertyName("transaction_datetime")]
+	public DateTimeOffset? TransactionDatetime { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The institution’s description of the transaction.</para>

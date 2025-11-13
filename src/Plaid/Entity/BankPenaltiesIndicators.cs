@@ -55,9 +55,8 @@ public record BankPenaltiesIndicators
 	public int? DaysSinceLastOccurrence { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The percentage of the user's monthly inflows that was spent on transactions that fall into the <c>BANK_PENALTIES</c> credit category within the given time window, across all the accounts in the report.</para>
-	/// <para>Valid values start and 0, with a value of 100 representing '100% of the inflows were spent on transactions that fall into the <c>BANK_PENALTIES</c> credit category'.</para>
-	/// <para>If there's no available income for the giving time period, this field value will be <c>-1</c></para>
+	/// <para>The percentage of the user's monthly inflows that was spent on transactions that fall into the <c>BANK_PENALTIES</c> credit category within the given time window, across all the accounts in the report. For example, a value of 100 represents that 100% of the inflows were spent on transactions that fall into the <c>BANK_PENALTIES</c> credit category.</para>
+	/// <para>If there's no available income for the given time period, this field value will be <c>-1</c>.</para>
 	/// </summary>
 	[JsonPropertyName("percentage_of_income")]
 	public decimal? PercentageOfIncome { get; init; } = default!;

@@ -28,7 +28,7 @@ public record LoanDisbursementsIndicators
 	/// <para>Detailed categories view of all the transactions that fall into the <c>LOAN_DISBURSEMENTS</c> credit category within the given time window, across all the accounts in the report.</para>
 	/// </summary>
 	[JsonPropertyName("category_details")]
-	public Entity.LoanDisbursementsIndicatorsCategoryDetailsObject? CategoryDetails { get; init; } = default!;
+	public IReadOnlyList<Entity.CategoryExpenses>? CategoryDetails { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The monthly average amount calculated by dividing the total by the number of calendar months in the time period.</para>
@@ -62,9 +62,8 @@ public record LoanDisbursementsIndicators
 	public int? DaysSinceLastOccurrence { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The percentage of the user's monthly inflows that was received on transactions that fall into the <c>LOAN_DISBURSEMENTS</c> credit category within the given time window, across all the accounts in the report.</para>
-	/// <para>Valid values start and 0, with a value of 100 representing '100% of the inflows were spent on transactions that fall into the <c>LOAN_DISBURSEMENTS</c> credit category'.</para>
-	/// <para>If there's no available income for the giving time period, this field value will be <c>-1</c></para>
+	/// <para>The percentage of the user's monthly inflows that was received on transactions that fall into the <c>LOAN_DISBURSEMENTS</c> credit category within the given time window, across all the accounts in the report. For example, a value of 100 indicates that 100% of the inflows were spent on transactions that fall into the <c>LOAN_DISBURSEMENTS</c> credit category.</para>
+	/// <para>If there's no available income for the given time period, this field value will be <c>-1</c>.</para>
 	/// </summary>
 	[JsonPropertyName("percentage_of_income")]
 	public decimal? PercentageOfIncome { get; init; } = default!;

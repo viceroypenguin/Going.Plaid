@@ -1,9 +1,9 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A monetary amount with its associated currency information, supporting both official and unofficial currency codes.</para>
+/// <para>Represents an amount and a monthly average</para>
 /// </summary>
-public record AmountWithCurrency
+public record AmountWithCurrencyWithMonthlyAverage
 {
 	/// <summary>
 	/// <para>If the parent object represents a category of transactions, such as <c>total_amount</c>, <c>transfers_in</c>, <c>total_income</c>, etc. the <c>amount</c> represents the sum of all of the transactions in the group. </para>

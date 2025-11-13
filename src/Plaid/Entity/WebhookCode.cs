@@ -314,6 +314,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "CASH_FLOW_INSIGHTS_UPDATED")]
+	CashFlowInsightsUpdated,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "BANK_INCOME_COMPLETE")]
 	BankIncomeComplete,
 
@@ -334,6 +340,18 @@ public enum WebhookCode
 	/// </summary>
 	[EnumMember(Value = "UPGRADE_FAILED")]
 	UpgradeFailed,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "USER_CHECK_REPORT_READY")]
+	UserCheckReportReady,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "USER_CHECK_REPORT_FAILED")]
+	UserCheckReportFailed,
 
 	/// <summary>
 	/// 

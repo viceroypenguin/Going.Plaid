@@ -51,6 +51,18 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beta.TransactionsUserInsightsGetResponse>();
 
 	/// <summary>
+	/// <para>The <c>/beta/ewa_report/v1/get</c> endpoint provides an Earned Wage Access (EWA) score that quantifies the delinquency risk associated with a given item. The score is derived from a combination of cashflow patterns and network-based behavioral features.</para>
+	/// <para>The response returns a list of EWA scores, where each score corresponds to a potential advance amount range. These scores estimate the likelihood of repayment for advances within that range.</para>
+	/// <para>Score range: 1–99</para>
+	/// <para>Interpretation: Higher scores indicate a greater likelihood of repayment.</para>
+	/// <para>This endpoint enables clients to assess repayment risk and make data-driven decisions when determining eligibility or limits for earned wage advances.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaewareportv1get" /></remarks>
+	public Task<Beta.BetaEwaReportV1GetResponse> BetaEwaReportV1GetAsync(Beta.BetaEwaReportV1GetRequest request) =>
+		PostAsync("/beta/ewa_report/v1/get", request)
+			.ParseResponseAsync<Beta.BetaEwaReportV1GetResponse>();
+
+	/// <summary>
 	/// <para>The <c>/beta/partner/customer/v1/create</c> endpoint creates a new end customer record. You can provide as much information as you have available. If any required information is missing for the products you intend to use, it will be listed in the <c>requirements_due</c> field of the response.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/partner/#partnercustomercreate" /></remarks>

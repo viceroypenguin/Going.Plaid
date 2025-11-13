@@ -12,7 +12,7 @@ public record CraCheckReportBaseReportGetResponse : ResponseBase
 	public Entity.BaseReport Report { get; init; } = default!;
 
 	/// <summary>
-	/// <para>If the Base Report generation was successful but identity information cannot be returned, this array will contain information about the errors causing identity information to be missing</para>
+	/// <para>This array contains any information about errors or alerts related to the Base Report that did not block generation of the report.</para>
 	/// </summary>
 	[JsonPropertyName("warnings")]
 	public IReadOnlyList<Entity.BaseReportWarning> Warnings { get; init; } = default!;

@@ -17,10 +17,4 @@ public record UserCreateResponse : ResponseBase
 	[JsonPropertyName("user_id")]
 	public string UserId { get; init; } = default!;
 
-	/// <summary>
-	/// <para>The result of creating an identity, indicating success or failure with optional error details.</para>
-	/// </summary>
-	[JsonPropertyName("identity_creation_result")]
-	public Entity.IdentityCreationResult? IdentityCreationResult { get; init; } = default!;
-
 }
