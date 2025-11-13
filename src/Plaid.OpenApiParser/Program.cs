@@ -355,6 +355,9 @@ internal static partial class Program
 		if (schema.Type is "string" && entityType != SchemaType.Enum)
 			return "string";
 
+		if (schema.AllOf.FirstOrDefault(s => s.Reference is { })?.Type is "string")
+			return "string";
+
 		if (schema.AllOf is [{ Type: "string" }])
 			return "string";
 
@@ -368,6 +371,9 @@ internal static partial class Program
 			else if (schema.AdditionalProperties != null)
 				return $"IReadOnlyDictionary<string, {GetPropertyType(className, propertyName, schema.AdditionalProperties, type)}>";
 		}
+
+		if (schema.AllOf is [{ Reference: { } } reference])
+			return GetPropertyType(className, propertyName, reference, type);
 
 		var entityName = schema.Title ?? schema.Reference?.Id;
 		if (string.IsNullOrWhiteSpace(entityName))
@@ -715,7 +721,10 @@ internal static partial class Program
 			Hooks = webhookMap
 				.Select(kvp => new { Type = kvp.Key.type, Code = kvp.Key.code, kvp.Value, })
 		});
-		File.WriteAllText(Path.Combine(plaidSrcPath, "Converters", prefix + "WebhookBaseConverter.Map.cs"), source);
+
+		var baseFolder = Path.Combine(plaidSrcPath, "Converters");
+		_ = Directory.CreateDirectory(baseFolder);
+		File.WriteAllText(Path.Combine(baseFolder, prefix + "WebhookBaseConverter.Map.cs"), source);
 	}
 
 	private static string GetTemplate(string templateName)
