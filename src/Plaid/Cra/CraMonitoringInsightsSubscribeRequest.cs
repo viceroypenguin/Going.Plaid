@@ -9,7 +9,7 @@ public partial class CraMonitoringInsightsSubscribeRequest : RequestBase
 	/// <para>The user token associated with the User data is being requested for.</para>
 	/// </summary>
 	[JsonPropertyName("user_token")]
-	public string UserToken { get; set; } = default!;
+	public string? UserToken { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The item ID to subscribe for Cash Flow Updates.</para>

@@ -18,7 +18,7 @@ public class BeaconUserRequestAddress
 	public string? Street2 { get; set; } = default!;
 
 	/// <summary>
-	/// <para>City from the end user's address. A string with at least one non-whitespace alphabetical character, with a max length of 100 characters."</para>
+	/// <para>City from the end user's address. A string with at least one non-whitespace alphabetical character, with a max length of 100 characters.</para>
 	/// </summary>
 	[JsonPropertyName("city")]
 	public string City { get; set; } = default!;
