@@ -1,16 +1,15 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Home address for the user. Supported values are: not provided, address with only country code or full address.</para>
-/// <para>For more context on this field, see <a href="https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country">Input Validation by Country</a>.</para>
+/// <para>Physical address of a business. Used for input requests and as base for response schemas.</para>
 /// </summary>
-public class UserAddress
+public class BusinessAddress
 {
 	/// <summary>
 	/// <para>The primary street portion of an address. If an address is provided, this field will always be filled. A string with at least one non-whitespace alphabetical character, with a max length of 80 characters.</para>
 	/// </summary>
 	[JsonPropertyName("street")]
-	public string? Street { get; set; } = default!;
+	public string Street { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Extra street information, like an apartment or suite number. If provided, a string with at least one non-whitespace character, with a max length of 50 characters.</para>
@@ -22,7 +21,7 @@ public class UserAddress
 	/// <para>City from the address. A string with at least one non-whitespace alphabetical character, with a max length of 100 characters.</para>
 	/// </summary>
 	[JsonPropertyName("city")]
-	public string? City { get; set; } = default!;
+	public string City { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A subdivision code. "Subdivision" is a generic term for "state", "province", "prefecture", "zone", etc. For the list of valid codes, see <a href="https://plaid.com/documents/country_subdivision_codes.json">country subdivision codes</a>. Country prefixes are omitted, since they are inferred from the <c>country</c> field.</para>

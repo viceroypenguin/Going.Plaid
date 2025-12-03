@@ -64,6 +64,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserRemoveResponse>();
 
 	/// <summary>
+	/// <para><c>/user/products/terminate</c> terminates user-based recurring subscriptions for a given client user. This will remove user-based products (Financial Management, Protect, and CRA products) from all items associated with the user.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/users/#userproductsterminate" /></remarks>
+	public Task<User.UserProductsTerminateResponse> UserProductsTerminateAsync(User.UserProductsTerminateRequest request) =>
+		PostAsync("/user/products/terminate", request)
+			.ParseResponseAsync<User.UserProductsTerminateResponse>();
+
+	/// <summary>
 	/// <para>Returns Items associated with a User along with their corresponding statuses.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#useritemsget" /></remarks>
