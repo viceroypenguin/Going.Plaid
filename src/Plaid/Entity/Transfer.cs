@@ -126,7 +126,7 @@ public record Transfer
 	public string OriginationAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guarantee customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer. If the transfer is not guaranteed, additional information will be provided in the <c>guarantee_decision_rationale</c> field. Refer to the <c>code</c> field in <c>guarantee_decision_rationale</c> for details.</para>
+	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guarantee customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer.</para>
 	/// </summary>
 	[JsonPropertyName("guarantee_decision")]
 	public Entity.TransferAuthorizationGuaranteeDecision? GuaranteeDecision { get; init; } = default!;

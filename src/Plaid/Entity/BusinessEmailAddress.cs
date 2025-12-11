@@ -9,6 +9,6 @@ public record BusinessEmailAddress
 	/// <para>Email address of the business</para>
 	/// </summary>
 	[JsonPropertyName("email_address")]
-	public string EmailAddress { get; init; } = default!;
+	public string? EmailAddress { get; init; } = default!;
 
 }

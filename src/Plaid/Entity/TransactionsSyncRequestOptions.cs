@@ -26,12 +26,10 @@ public class TransactionsSyncRequestOptions
 	public bool? IncludeLogoAndCounterpartyBeta { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Optional parameter that specifies which version of the personal finance category taxonomy to return. The v2 taxonomy is defined <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRUQR6BdYCwu7libfEUUA0U4TYfkyxpAUOSCj_unpv6OYCJMhIC0_PNrJnnki0At3LAG0PgT3aY7hRz/pubhtml">here</a>. The legacy v1 taxonomy is defined <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQb96YxbnLdHbAROh1Dx7BaSpChnAIEKp1zZZFLBBpGbiLtPR3JTtxzvQ8mF4kU0StL8Y16WEpUd5P2/pubhtml">here</a>.</para>
-	/// <para>If you enabled any Financial Insights products before October 2025 you will receive a default of <c>v1</c> taxonomy and may request <c>v2</c> by explicitly setting this field to <c>v2</c>.</para>
-	/// <para>If you enabled any Financial Insights products on or after October 2025 you may only receive <c>v2</c> taxonomy.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("personal_finance_category_version")]
-	public string? PersonalFinanceCategoryVersion { get; set; } = default!;
+	public Entity.PersonalFinanceCategoryVersion? PersonalFinanceCategoryVersion { get; set; } = default!;
 
 	/// <summary>
 	/// <para>This field only applies to calls for Items where the Transactions product has not already been initialized (i.e., by specifying <c>transactions</c> in the <c>products</c>, <c>required_if_supported_products</c>, or <c>optional_products</c> array when calling <c>/link/token/create</c> or by making a previous call to <c>/transactions/sync</c> or <c>/transactions/get</c>). In those cases, the field controls the maximum number of days of transaction history that Plaid will request from the financial institution. The more transaction history is requested, the longer the historical update poll will take. If no value is specified, 90 days of history will be requested by default.</para>

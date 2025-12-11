@@ -12,10 +12,10 @@ public class BusinessVerificationCreateRequestBusiness
 	public string Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Physical address of a business. Used for input requests and as base for response schemas.</para>
+	/// <para>Physical address of a business. Used for input requests.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.BusinessAddress Address { get; set; } = default!;
+	public Entity.RequestBusinessAddress Address { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An 'http' or 'https' URL (must begin with either of those).</para>

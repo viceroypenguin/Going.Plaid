@@ -47,4 +47,10 @@ public record RiskCheckDetails
 	[JsonPropertyName("network")]
 	public Entity.RiskCheckNetwork? Network { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The attributes related to the facial duplicates captured in risk check.</para>
+	/// </summary>
+	[JsonPropertyName("facial_duplicates")]
+	public IReadOnlyList<Entity.RiskCheckFacialDuplicate> FacialDuplicates { get; init; } = default!;
+
 }

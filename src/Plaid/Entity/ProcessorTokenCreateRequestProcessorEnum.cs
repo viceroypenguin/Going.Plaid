@@ -408,6 +408,12 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	ThreadBank,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "array")]
+	Array,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

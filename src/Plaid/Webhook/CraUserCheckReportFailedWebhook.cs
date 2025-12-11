@@ -14,7 +14,7 @@ public record CraUserCheckReportFailedWebhook : WebhookBase
 	public override WebhookCode WebhookCode => WebhookCode.UserCheckReportFailed;
 
 	/// <summary>
-	/// <para>The <c>user_id</c> corresponding to the user the webhook has fired for. Typically, this ID will come from the <c>/user/create</c> response, when the endpoint is invoked with the <c>with_upgraded_user</c> request field set to <c>true</c>.</para>
+	/// <para>The <c>user_id</c> associated with the user whose data is being requested. This is received by calling user/create.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string UserId { get; init; } = default!;

@@ -100,10 +100,17 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public bool? UserPresent { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If set to <c>false</c>, Plaid will not offer a <c>guarantee_decision</c> for this request (Guarantee customers only).</para>
+	/// <para>If set to <c>false</c>, Plaid will not offer a <c>guarantee_decision</c> for this request (Guarantee customers only). This field is deprecated in favor for <c>guarantee</c>.</para>
 	/// </summary>
 	[JsonPropertyName("with_guarantee")]
+	[Obsolete]
 	public bool? WithGuarantee { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Indicates whether the transfer should be evaluated for guarantee coverage. When set to <c>true</c>, Plaid assesses the transfer for guarantee coverage and returns a decision in the authorization response. When omitted or set to <c>false</c>, the authorization is evaluated without guarantee coverage.</para>
+	/// </summary>
+	[JsonPropertyName("request_guarantee")]
+	public bool? RequestGuarantee { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The unique identifier returned by Plaid's <a href="https://plaid.com/docs/transfer/guarantee/#using-a-beacon">beacon</a> when it is run on your webpage.</para>

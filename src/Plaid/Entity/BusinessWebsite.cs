@@ -9,6 +9,6 @@ public record BusinessWebsite
 	/// <para>URL of the business website</para>
 	/// </summary>
 	[JsonPropertyName("url")]
-	public string Url { get; init; } = default!;
+	public string? Url { get; init; } = default!;
 
 }

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>SessionTokenCreateRequestUser defines per-session user-specific data for <c>/session/token/create</c>. **Required** if the root-level <c>user_id</c> field isn't included.</para>
+/// <para>Details about the end user. Required if a root-level <c>user_id</c> is not provided.</para>
 /// </summary>
 public class SessionTokenCreateRequestUser
 {
@@ -12,7 +12,7 @@ public class SessionTokenCreateRequestUser
 	public string ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid <c>user_id</c> of the User associated with this webhook, warning, or error.</para>
+	/// <para>The <c>user_id</c> created by calling <c>/user/create</c>. Provide this field only if you are using Plaid Check Report with Layer and have a <c>user_token</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; set; } = default!;

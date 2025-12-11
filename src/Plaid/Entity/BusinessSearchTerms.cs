@@ -9,13 +9,13 @@ public record BusinessSearchTerms
 	/// <para>The name of the business. Must have at least one character and a maximum length of 500 characters.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; init; } = default!;
+	public string? Name { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Physical address of a business in response</para>
+	/// <para>Physical address of a business. Used for response schemas.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.BusinessSearchTermsAddress Address { get; init; } = default!;
+	public Entity.ResponseBusinessAddress Address { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An 'http' or 'https' URL (must begin with either of those).</para>

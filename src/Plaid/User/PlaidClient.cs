@@ -27,10 +27,12 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserFinancialDataRefreshResponse>();
 
 	/// <summary>
-	/// <para>This endpoint should be called for each of your end users before they begin a Plaid Check or Income flow, or a Multi-Item Link flow. This provides you a single token to access all data associated with the user. You should only create one per end user.</para>
-	/// <para>The <c>consumer_report_user_identity</c> object must be present in order to create a Plaid Check Consumer Report for a user. If it is not provided during the <c>/user/create</c> call, it can be added later by calling <c>/user/update</c>. Plaid Check Consumer Reports can only be created for US-based users; the user's address country must be <c>US</c>.</para>
-	/// <para>If you call the endpoint multiple times with the same <c>client_user_id</c>, the first creation call will succeed and the rest will fail with an error message indicating that the user has been created for the given <c>client_user_id</c>.</para>
-	/// <para>Ensure that you store the <c>user_token</c> along with your user's identifier in your database, as it is not possible to retrieve a previously created <c>user_token</c>.</para>
+	/// <para>For Plaid products and flows that use the user object, <c>/user/create</c> provides you a single token to access all data associated with the user. You must call this endpoint before calling <c>/link/token/create</c> if you are using any of the following: Plaid Check, Income Verification, Multi-Item Link, or Plaid Protect.</para>
+	/// <para>For customers who began using this endpoint on or after December 10, 2025, this endpoint takes a <c>client_user_id</c> and an <c>identity</c> object and will return a <c>user_id</c>. For customers who began using it before that date, the endpoint takes a <c>client_user_id</c> and a <c>consumer_report_user_identity</c> object and will return a <c>user_token</c> and <c>user_id</c>. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>.</para>
+	/// <para>In order to create a Plaid Check Consumer Report for a user, the <c>identity</c> (new) or <c>consumer_report_user_identity</c> (legacy) object must be present. If it is not provided during the <c>/user/create</c> call, it can be added later by calling <c>/user/update</c>. </para>
+	/// <para>In order to generate a Plaid Check Consumer Report, the following <c>identity</c> fields, at minimum, are required and must be non-empty: <c>name</c>, <c>date_of_birth</c>, <c>emails</c>, <c>phone_numbers</c>, and <c>addresses</c>, (with at least one email, phone number, and address designated as <c>primary</c>). Plaid Check Consumer Reports can only be created for US-based users; the user's address country must be <c>US</c>. If creating a report for sharing with a GSE such as Fannie or Freddie, the user's full SSN must be provided via the <c>id_numbers</c> field. Providing at least a partial SSN is also strongly recommended for all use cases, since it improves the accuracy of matching user records during compliance processes such as file disclosure, dispute, or security freeze requests.</para>
+	/// <para>When using Plaid Protect, it is highly recommended that you provide an <c>identity</c> object to better identify and block fraud across your Link sessions. </para>
+	/// <para>Plaid will normalize identity fields before storing them and utilize the same identity across different user-based products.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#usercreate" /></remarks>
 	public Task<User.UserCreateResponse> UserCreateAsync(User.UserCreateRequest request) =>
@@ -38,7 +40,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserCreateResponse>();
 
 	/// <summary>
-	/// <para>Retrieve user identity and information using a Plaid generated user ID. This endpoint returns user details including the most recent Identity object that was added to the given User.</para>
+	/// <para>Get user details using a <c>user_id</c>. This endpoint only supports users that were created on the new user API flow, without a <c>user_token</c>. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userget" /></remarks>
 	public Task<User.UserGetResponse> UserGetAsync(User.UserGetRequest request) =>
@@ -46,7 +48,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserGetResponse>();
 
 	/// <summary>
-	/// <para>This endpoint is used to update user information associated with an existing <c>user_token</c>. It can also be used to enable an existing <c>user_token</c> for use with Consumer Reports by Plaid Check, by adding a <c>consumer_report_user_identity</c> object to the user. Plaid Check Consumer Reports can only be created for US-based users; the user's address country must be <c>US</c>.</para>
+	/// <para>This endpoint updates user information for an existing <c>user_id</c> or <c>user_token</c>. If an existing <c>user_id</c> or <c>user_token</c> is missing fields required for a given use case (e.g. creating a Consumer Report) use <c>/user/update</c> to add values for those fields. </para>
+	/// <para>Identity updates use merge semantics: provided fields overwrite existing ones; omitted fields remain unchanged.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userupdate" /></remarks>
 	public Task<User.UserUpdateResponse> UserUpdateAsync(User.UserUpdateRequest request) =>
@@ -54,9 +57,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserUpdateResponse>();
 
 	/// <summary>
-	/// <para><c>/user/remove</c> deletes a user token and and associated information, including any Items associated with the token.</para>
-	/// <para>Any subsequent calls to retrieve information using the same user token will result in an error stating the user does not exist.</para>
-	/// <para>If a user is created for a given <c>client_user_id</c> using <c>/user/create</c> and that user is then deleted with <c>/user/remove</c>, the <c>client_user_id</c> cannot be reused for another <c>/user/create</c> request.</para>
+	/// <para><c>/user/remove</c> deletes a <c>user_id</c> or <c>user_token</c> and and associated information, including any Items associated with the user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userremove" /></remarks>
 	public Task<User.UserRemoveResponse> UserRemoveAsync(User.UserRemoveRequest request) =>
@@ -72,20 +73,12 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserProductsTerminateResponse>();
 
 	/// <summary>
-	/// <para>Returns Items associated with a User along with their corresponding statuses.</para>
+	/// <para>Returns Items associated with a <c>user_id</c>, along with their corresponding statuses. Plaid associates an Item with a User when it has been successfully connected within a Link session initialized with that <c>user_id</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#useritemsget" /></remarks>
 	public Task<User.UserItemsGetResponse> UserItemsGetAsync(User.UserItemsGetRequest request) =>
 		PostAsync("/user/items/get", request)
 			.ParseResponseAsync<User.UserItemsGetResponse>();
-
-	/// <summary>
-	/// <para>Returns Items associated with a User along with their corresponding statuses.</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/users/#useritemslist" /></remarks>
-	public Task<User.UserItemsListResponse> UserItemsListAsync(User.UserItemsListRequest request) =>
-		PostAsync("/user/items/list", request)
-			.ParseResponseAsync<User.UserItemsListResponse>();
 
 	/// <summary>
 	/// <para>Associates Items to the target user. If an Item is already associated to another user, the Item will be disassociated with the existing user and associated to the target user. This operation supports a max of 100 Items.</para>

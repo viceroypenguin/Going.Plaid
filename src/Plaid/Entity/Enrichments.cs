@@ -71,7 +71,7 @@ public record Enrichments
 
 	/// <summary>
 	/// <para>Information describing the intent of the transaction. Most relevant for personal finance use cases, but not limited to such use cases.</para>
-	/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy CSV file</c></a> for a full list of personal finance categories. If you are migrating to personal finance categories from the legacy categories, also refer to the <a href="https://plaid.com/docs/transactions/pfc-migration/"><c>migration guide</c></a>.</para>
+	/// <para>See the <a href="https://plaid.com/documents/pfc-taxonomy-all.csv">taxonomy CSV file</a> for a full list of personal finance categories. If you are migrating to personal finance categories from the legacy categories, also refer to the <a href="https://plaid.com/docs/transactions/pfc-migration/">migration guide</a>.</para>
 	/// </summary>
 	[JsonPropertyName("personal_finance_category")]
 	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;

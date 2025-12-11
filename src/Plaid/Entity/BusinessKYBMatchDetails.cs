@@ -9,13 +9,13 @@ public record BusinessKYBMatchDetails
 	/// <para>The business name from the data provider</para>
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; init; } = default!;
+	public string? Name { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The legal structure or type of business entity</para>
 	/// </summary>
 	[JsonPropertyName("entity_type")]
-	public Entity.BusinessEntityType EntityType { get; init; } = default!;
+	public Entity.BusinessEntityType? EntityType { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Addresses associated with the business</para>

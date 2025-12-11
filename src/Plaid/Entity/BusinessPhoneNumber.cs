@@ -9,6 +9,6 @@ public record BusinessPhoneNumber
 	/// <para>Phone number in E.164 format</para>
 	/// </summary>
 	[JsonPropertyName("number")]
-	public string Number { get; init; } = default!;
+	public string? Number { get; init; } = default!;
 
 }

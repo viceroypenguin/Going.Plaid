@@ -2,7 +2,7 @@ namespace Going.Plaid.Entity;
 
 /// <summary>
 /// <para>Information describing the intent of the transaction. Most relevant for personal finance use cases, but not limited to such use cases.</para>
-/// <para>See the <a href="https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv"><c>taxonomy CSV file</c></a> for a full list of personal finance categories. If you are migrating to personal finance categories from the legacy categories, also refer to the <a href="https://plaid.com/docs/transactions/pfc-migration/"><c>migration guide</c></a>.</para>
+/// <para>See the <a href="https://plaid.com/documents/pfc-taxonomy-all.csv">taxonomy CSV file</a> for a full list of personal finance categories. If you are migrating to personal finance categories from the legacy categories, also refer to the <a href="https://plaid.com/docs/transactions/pfc-migration/">migration guide</a>.</para>
 /// </summary>
 public record PersonalFinanceCategory
 {
@@ -30,9 +30,9 @@ public record PersonalFinanceCategory
 	public string? ConfidenceLevel { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The version of the personal finance category requested. Possible values are “v1” and “v2”</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("version")]
-	public string? Version { get; init; } = default!;
+	public Entity.PersonalFinanceCategoryVersion? Version { get; init; } = default!;
 
 }
