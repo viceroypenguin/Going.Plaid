@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
@@ -29,7 +29,7 @@ jobs:
       env:
         PLAID__CLIENTID: ${{ secrets.PLAIDCLIENTID }}
         PLAID__SECRET: ${{ secrets.PLAIDSECRET }}
-      run: dotnet test -c Release --no-build --logger GitHubActions
+      run: dotnet test -c Release --no-build
       if: github.repository == 'viceroypenguin/Going.Plaid'
 
     - name: Package
