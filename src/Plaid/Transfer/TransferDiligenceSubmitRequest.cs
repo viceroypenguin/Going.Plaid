@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferDiligenceSubmitRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Client ID of the the originator whose diligence that you want to submit.</para>
+	/// <para>Client ID of the originator whose diligence that you want to submit.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string OriginatorClientId { get; set; } = default!;

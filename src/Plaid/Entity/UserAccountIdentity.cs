@@ -25,7 +25,7 @@ public record UserAccountIdentity
 
 	/// <summary>
 	/// <para>The user's email address.</para>
-	/// <para>Note: email is currently not returned for users, and will be added later in 2025.</para>
+	/// <para>Note: email is currently not returned for users, and will be added later in 2026.</para>
 	/// </summary>
 	[JsonPropertyName("email")]
 	public string? Email { get; init; } = default!;

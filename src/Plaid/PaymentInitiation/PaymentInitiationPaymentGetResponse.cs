@@ -90,13 +90,13 @@ public record PaymentInitiationPaymentGetResponse : ResponseBase
 	public string? WalletId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Payment scheme. If not specified - the default in the region will be used (e.g. <c>SEPA_CREDIT_TRANSFER</c> for EU). Using unsupported values will result in a failed payment.</para>
+	/// <para>Payment scheme. If not specified - the default in the region will be used (e.g. <c>SEPA_CREDIT_TRANSFER</c> for EU). In responses, if the scheme is not explicitly specified in the request, this value will be <c>null</c>. Using unsupported values will result in a failed payment.</para>
 	/// </summary>
 	[JsonPropertyName("scheme")]
 	public Entity.PaymentScheme? Scheme { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Payment scheme. If not specified - the default in the region will be used (e.g. <c>SEPA_CREDIT_TRANSFER</c> for EU). Using unsupported values will result in a failed payment.</para>
+	/// <para>Payment scheme. If not specified - the default in the region will be used (e.g. <c>SEPA_CREDIT_TRANSFER</c> for EU). In responses, if the scheme is not explicitly specified in the request, this value will be <c>null</c>. Using unsupported values will result in a failed payment.</para>
 	/// </summary>
 	[JsonPropertyName("adjusted_scheme")]
 	public Entity.PaymentScheme? AdjustedScheme { get; init; } = default!;

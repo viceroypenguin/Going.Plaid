@@ -50,6 +50,12 @@ public enum UserBasedProducts
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "cra_plaid_credit_score")]
+	CraPlaidCreditScore,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "investments")]
 	Investments,
 

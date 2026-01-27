@@ -61,7 +61,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<AssetReport.AssetReportAuditCopyCreateResponse>();
 
 	/// <summary>
-	/// <para><c>/asset_report/audit_copy/get</c> allows auditors to get a copy of an Asset Report that was previously shared via the <c>/asset_report/audit_copy/create</c> endpoint.  The caller of <c>/asset_report/audit_copy/create</c> must provide the <c>audit_copy_token</c> to the auditor.  This token can then be used to call <c>/asset_report/audit_copy/create</c>.</para>
+	/// <para><c>/asset_report/audit_copy/get</c> allows auditors to get a copy of an Asset Report that was previously shared via the <c>/asset_report/audit_copy/create</c> endpoint.  The caller of <c>/asset_report/audit_copy/create</c> must provide the <c>audit_copy_token</c> to the auditor.  This token can then be used to call <c>/asset_report/audit_copy/get</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
 	public Task<AssetReport.AssetReportGetResponse> AssetReportAuditCopyGetAsync(AssetReport.AssetReportAuditCopyGetRequest request) =>

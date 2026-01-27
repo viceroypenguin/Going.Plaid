@@ -48,6 +48,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserGetResponse>();
 
 	/// <summary>
+	/// <para>This endpoint allows customers to explicitly purge identity/PII data provided to Plaid for a given user. This is not exposed to customers by default, as it is meant for special scenarios or requests, but Plaid is obligated to enable customers to delete PII provided to us.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/users/#useridentityremove" /></remarks>
+	public Task<User.UserIdentityRemoveResponse> UserIdentityRemoveAsync(User.UserIdentityRemoveRequest request) =>
+		PostAsync("/user/identity/remove", request)
+			.ParseResponseAsync<User.UserIdentityRemoveResponse>();
+
+	/// <summary>
 	/// <para>This endpoint updates user information for an existing <c>user_id</c> or <c>user_token</c>. If an existing <c>user_id</c> or <c>user_token</c> is missing fields required for a given use case (e.g. creating a Consumer Report) use <c>/user/update</c> to add values for those fields. </para>
 	/// <para>Identity updates use merge semantics: provided fields overwrite existing ones; omitted fields remain unchanged.</para>
 	/// </summary>
@@ -87,6 +95,16 @@ public sealed partial class PlaidClient
 	public Task<User.UserItemsAssociateResponse> UserItemsAssociateAsync(User.UserItemsAssociateRequest request) =>
 		PostAsync("/user/items/associate", request)
 			.ParseResponseAsync<User.UserItemsAssociateResponse>();
+
+	/// <summary>
+	/// <para>This endpoint is used to delete Items for a given User. Either a <c>user_id</c> or <c>user_token</c> must be provided. If any of the Items are not associated with the provided User, an error will be returned, and no Items will be deleted.</para>
+	/// <para>This is equivalent to calling <c>/item/remove</c> on each Item, but this endpoint supports User-based use cases (CRA) where <c>/item/remove</c> is not supported. To obtain a list of Items associated with a User, call <c>/user/items/get</c>. After an Item is deleted, it will no longer appear in <c>/user/items/get</c>. Item deletion via <c>/user/items/remove</c> will permanently and irreversibly delete the Item; to re-create the Item, send the User back through the Link flow.</para>
+	/// <para>This endpoint is not intended to remove all data for a User, as it will only remove items and no other data for the User. In the case of a user deleting their account with your product, call <c>/user/products/terminate</c> to stop billing for unneeded services. For a user initiated data deletion request, see the <a href="https://plaid.com/check/consumer-service-center/">Consumer Service Center</a> to revoke access to data.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/users/#useritemsremove" /></remarks>
+	public Task<User.UserItemsRemoveResponse> UserItemsRemoveAsync(User.UserItemsRemoveRequest request) =>
+		PostAsync("/user/items/remove", request)
+			.ParseResponseAsync<User.UserItemsRemoveResponse>();
 
 	/// <summary>
 	/// <para>This endpoint is used to create a third-party user token. This token can be shared with and used by a specified third-party client to access data associated with the user through supported endpoints.</para>

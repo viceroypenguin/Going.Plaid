@@ -15,8 +15,7 @@ public record CraPartnerInsightsItemAccount
 
 	/// <summary>
 	/// <para>The last 2-4 alphanumeric characters of an account's official account number.</para>
-	/// <para>Note that the mask may be non-unique between an Item's accounts, and it may also</para>
-	/// <para>not match the mask that the bank displays to the user.</para>
+	/// <para>Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.</para>
 	/// </summary>
 	[JsonPropertyName("mask")]
 	public string? Mask { get; init; } = default!;

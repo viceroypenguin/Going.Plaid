@@ -27,6 +27,6 @@ public record ProcessorInvestmentsHoldingsGetResponse : ResponseBase
 	/// <para>When true, this field indicates that the Item's portfolio was manually created with the Investments Fallback flow.</para>
 	/// </summary>
 	[JsonPropertyName("is_investments_fallback_item")]
-	public bool IsInvestmentsFallbackItem { get; init; } = default!;
+	public bool? IsInvestmentsFallbackItem { get; init; } = default!;
 
 }

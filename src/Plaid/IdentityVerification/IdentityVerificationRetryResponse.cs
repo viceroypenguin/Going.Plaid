@@ -12,7 +12,7 @@ public record IdentityVerificationRetryResponse : ResponseBase
 	public string Id { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique ID that identifies the end user in your system. This ID can also be used to associate user-specific data from other Plaid products. Financial Account Matching requires this field and the <c>/link/token/create</c> <c>client_user_id</c> to be consistent. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
+	/// <para>A unique ID that identifies the end user in your system. Either a <c>user_id</c> or the <c>client_user_id</c> must be provided. This ID can also be used to associate user-specific data from other Plaid products. Financial Account Matching requires this field and the <c>/link/token/create</c> <c>client_user_id</c> to be consistent. Personally identifiable information, such as an email address or phone number, should not be used in the <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("client_user_id")]
 	public string ClientUserId { get; init; } = default!;
@@ -119,7 +119,7 @@ public record IdentityVerificationRetryResponse : ResponseBase
 	public string? BeaconUserId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique user identifier, created by <c>/user/create</c>. All integrations that began using <c>/user/create</c> after December 10, 2025 use this field to identify a user instead of the <c>user_token</c>. For more details, see <a href="https://plaid.com/docs/api/user/user-apis">new user APIs</a>.</para>
+	/// <para>Unique user identifier, created by calling <c>/user/create</c>. Either a <c>user_id</c> or the <c>client_user_id</c> must be provided. The <c>user_id</c> may only be used instead of the <c>client_user_id</c> if you were not a pre-existing user of <c>/user/create</c> as of December 10, 2025; for more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>. If both this field and a <c>client_user_id</c> are present in a request, the <c>user_id</c> must have been created from the provided <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; init; } = default!;

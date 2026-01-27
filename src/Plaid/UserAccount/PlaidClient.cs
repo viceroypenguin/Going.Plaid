@@ -10,4 +10,12 @@ public sealed partial class PlaidClient
 		PostAsync("/user_account/session/get", request)
 			.ParseResponseAsync<UserAccount.UserAccountSessionGetResponse>();
 
+	/// <summary>
+	/// <para>This endpoint allows sending client-specific events related to Layer sessions for analytics and tracking purposes.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/layer/#user_accountsessioneventsend" /></remarks>
+	public Task<UserAccount.UserAccountSessionEventSendResponse> UserAccountSessionEventSendAsync(UserAccount.UserAccountSessionEventSendRequest request) =>
+		PostAsync("/user_account/session/event/send", request)
+			.ParseResponseAsync<UserAccount.UserAccountSessionEventSendResponse>();
+
 }

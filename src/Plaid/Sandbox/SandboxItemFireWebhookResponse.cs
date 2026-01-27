@@ -6,7 +6,7 @@ namespace Going.Plaid.Sandbox;
 public record SandboxItemFireWebhookResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Value is <c>true</c>  if the test<c> webhook_code</c>  was successfully fired.</para>
+	/// <para>Value is <c>true</c> if the test <c>webhook_code</c> was successfully fired.</para>
 	/// </summary>
 	[JsonPropertyName("webhook_fired")]
 	public bool WebhookFired { get; init; } = default!;

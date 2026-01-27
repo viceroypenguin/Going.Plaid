@@ -6,7 +6,7 @@ namespace Going.Plaid.Statements;
 public partial class StatementsDownloadRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid's unique identifier for the statements.</para>
+	/// <para>Plaid's unique identifier for the statement.</para>
 	/// </summary>
 	[JsonPropertyName("statement_id")]
 	public string StatementId { get; set; } = default!;

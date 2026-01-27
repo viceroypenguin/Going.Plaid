@@ -12,7 +12,7 @@ public record SignalEvaluateScores
 	public Entity.CustomerInitiatedReturnRisk? CustomerInitiatedReturnRisk { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The object contains a risk score and a risk tier that evaluate the transaction return risk because an account is overdrawn or because an ineligible account is used. Common return codes in this category include: "R01", "R02", "R03", "R04", "R06", "R08",  "R09", "R13", "R16", "R17", "R20", "R23". These returns have a turnaround time of 2 banking days.</para>
+	/// <para>The object contains a risk score and a risk tier that evaluate the transaction return risk because an account is overdrawn or because an ineligible account is used. Common return codes in this category include: "R01", "R02", "R03", "R04", "R06", "R08", "R09", "R13", "R16", "R17", "R20", "R23". These returns have a turnaround time of 2 banking days.</para>
 	/// </summary>
 	[JsonPropertyName("bank_initiated_return_risk")]
 	public Entity.BankInitiatedReturnRisk? BankInitiatedReturnRisk { get; init; } = default!;
