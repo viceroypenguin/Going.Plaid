@@ -17,4 +17,10 @@ public record UserAccountSessionGetResponse : ResponseBase
 	[JsonPropertyName("items")]
 	public IReadOnlyList<Entity.UserAccountItem> Items { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Statistics tracking the number of edits made to identity fields over various time periods.</para>
+	/// </summary>
+	[JsonPropertyName("identity_edit_history")]
+	public Entity.UserAccountIdentityEditHistory? IdentityEditHistory { get; init; } = default!;
+
 }

@@ -53,4 +53,10 @@ public record RiskCheckDetails
 	[JsonPropertyName("facial_duplicates")]
 	public IReadOnlyList<Entity.RiskCheckFacialDuplicate> FacialDuplicates { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The trust index score for the <c>risk_check</c> step.</para>
+	/// </summary>
+	[JsonPropertyName("trust_index_score")]
+	public int? TrustIndexScore { get; init; } = default!;
+
 }

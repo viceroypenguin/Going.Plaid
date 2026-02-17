@@ -7,13 +7,13 @@ namespace Going.Plaid.Entity;
 public class ClientProvidedTransactionLocation
 {
 	/// <summary>
-	/// <para>The country where the transaction occurred.</para>
+	/// <para>The country where the transaction occurred, formatted as an ISO 3166-1 alpha-2 country code ("US" or "CA").</para>
 	/// </summary>
 	[JsonPropertyName("country")]
 	public string? Country { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The region or state where the transaction occurred.</para>
+	/// <para>The region or state where the transaction occurred, formatted as the official two-letter US state or Canadian province postal code, e.g. "CT" or "QC".</para>
 	/// </summary>
 	[JsonPropertyName("region")]
 	public string? Region { get; set; } = default!;

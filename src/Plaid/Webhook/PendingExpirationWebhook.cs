@@ -20,6 +20,12 @@ public record PendingExpirationWebhook : WebhookBase
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The Plaid <c>user_id</c> of the User associated with this webhook, warning, or error.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The date and time at which the Item's access consent will expire, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</para>
 	/// </summary>
 	[JsonPropertyName("consent_expiration_time")]

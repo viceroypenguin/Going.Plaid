@@ -12,7 +12,7 @@ public partial class CraCheckReportVerificationGetRequest : RequestBase
 	public string? UserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies which types of verification reports are expected in the response</para>
+	/// <para>Specifies which types of home lending reports are expected in the response</para>
 	/// </summary>
 	[JsonPropertyName("reports_requested")]
 	public IReadOnlyList<Entity.CraCheckReportVerificationGetReportType> ReportsRequested { get; set; } = default!;

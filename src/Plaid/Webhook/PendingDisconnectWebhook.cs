@@ -20,6 +20,12 @@ public record PendingDisconnectWebhook : WebhookBase
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The Plaid <c>user_id</c> of the User associated with this webhook, warning, or error.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Reason why the item is about to be disconnected.</para>
 	/// </summary>
 	[JsonPropertyName("reason")]

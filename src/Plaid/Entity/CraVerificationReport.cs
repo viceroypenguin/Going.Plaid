@@ -1,12 +1,12 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Contains data for the CRA Verification Report.</para>
+/// <para>Contains data for the CRA Home Lending Report.</para>
 /// </summary>
 public record CraVerificationReport
 {
 	/// <summary>
-	/// <para>The unique identifier associated with the Verification Report object. This ID will be the same as the Base Report ID.</para>
+	/// <para>The unique identifier associated with the Home Lending Report object. This ID will be the same as the Base Report ID.</para>
 	/// </summary>
 	[JsonPropertyName("report_id")]
 	public string ReportId { get; init; } = default!;

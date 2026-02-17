@@ -37,4 +37,10 @@ public record ProtectUserEventWebhook : WebhookBase
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The <c>client_user_id</c> provided by the client when the user was created via <c>/user/create</c> or Link.</para>
+	/// </summary>
+	[JsonPropertyName("client_user_id")]
+	public string? ClientUserId { get; init; } = default!;
+
 }

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Type of verification report.</para>
+/// <para>Type of home lending report.</para>
 /// </summary>
 public enum CraCheckReportVerificationGetReportType
 {

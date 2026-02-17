@@ -66,6 +66,12 @@ public record WalletTransaction
 	public DateTimeOffset LastStatusUpdate { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Result of payee verification check for EUR payouts. Payee verification checks whether the payee name provided matches the account holder name at the destination institution.</para>
+	/// </summary>
+	[JsonPropertyName("payee_verification_status")]
+	public Entity.WalletTransactionPayeeVerificationStatus? PayeeVerificationStatus { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The payment id that this transaction is associated with, if any. This is present only for transaction types <c>PIS_PAY_IN</c> and <c>REFUND</c>.</para>
 	/// </summary>
 	[JsonPropertyName("payment_id")]

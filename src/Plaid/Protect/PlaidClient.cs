@@ -23,6 +23,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Protect.ProtectReportCreateResponse>();
 
 	/// <summary>
+	/// <para>Use this endpoint to compute a Protect Trust Index score and retrieve fraud attributes</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/protect/#protectcompute" /></remarks>
+	public Task<Protect.ProtectComputeResponse> ProtectComputeAsync(Protect.ProtectComputeRequest request) =>
+		PostAsync("/protect/compute", request)
+			.ParseResponseAsync<Protect.ProtectComputeResponse>();
+
+	/// <summary>
 	/// <para>Send a new event to enrich user data and optionally get a Trust Index score for the event.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/protect/#protecteventsend" /></remarks>

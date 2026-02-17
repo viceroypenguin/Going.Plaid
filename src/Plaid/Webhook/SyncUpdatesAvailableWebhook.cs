@@ -23,6 +23,12 @@ public record SyncUpdatesAvailableWebhook : WebhookBase
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The Plaid <c>user_id</c> of the User associated with this webhook, warning, or error.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Indicates if initial pull information (most recent 30 days of transaction history) is available.</para>
 	/// </summary>
 	[JsonPropertyName("initial_update_complete")]

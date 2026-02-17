@@ -23,6 +23,12 @@ public record UserAccountRevokedWebhook : WebhookBase
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The Plaid <c>user_id</c> of the User associated with this webhook, warning, or error.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The external account ID of the affected account</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
