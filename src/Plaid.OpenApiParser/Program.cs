@@ -157,7 +157,7 @@ internal static partial class Program
 			var (pd, ed) = ParseEnumDescription(schema.Description);
 
 			static string GetEnumName(string name) =>
-				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.Replace('.', '_').Replace(':', '_').ToLower(null).ToPascalCase()}";
+				$"{(char.IsDigit(name[0]) ? "_" : "")}{name.Replace('.', '_').Replace(':', '_').ToLower().ToPascalCase()}";
 
 			s_schemaEntities[name] = new()
 			{
@@ -174,7 +174,7 @@ internal static partial class Program
 							string.Empty,
 							GetEnumName(e.Value),
 							ed.GetValueOrDefault(e.Value)
-						))
+						)),
 				],
 			};
 		}
@@ -209,11 +209,11 @@ internal static partial class Program
 					})
 					.Select(p =>
 					{
-						var propertyName = p.Key.ToLower(null).ToPascalCase();
+						var propertyName = p.Key.ToLower().ToPascalCase();
 						if (baseType is BaseType.Webhook or BaseType.ProcessorWebhook && p.Key is "webhook_type" or "webhook_code")
 						{
 							var code = p.Value.Description.Trim('`', '"');
-							return new Property(code, propertyName, propertyName, code.ToLower(null).ToPascalCase());
+							return new Property(code, propertyName, propertyName, code.ToLower().ToPascalCase());
 						}
 
 						var typeName = GetPropertyType(name, propertyName, p.Value, type);
@@ -231,7 +231,7 @@ internal static partial class Program
 							GetPropertyDescription(p.Value),
 							IsDeprecated: p.Value.Deprecated
 						);
-					})
+					}),
 			];
 		}
 	}
@@ -287,23 +287,21 @@ internal static partial class Program
 		if (lines.Length == 1)
 			return (FixCodeBlocks(lines[0]), new Dictionary<string, string>());
 
-		if (lines.Any(l => l.StartsWith('`')))
-		{
-			var ed = lines.FirstOrDefault(l => !l.StartsWith('`'))
+		if (!lines.Any(l => l.StartsWith('`')))
+			return (string.Empty, []);
+
+		var ed = lines.FirstOrDefault(l => !l.StartsWith('`'))
 				?? string.Empty;
 
-			ed = FixupDescription(ed);
+		ed = FixupDescription(ed);
 
-			var pd = lines
-				.Where(l => l.StartsWith('`'))
-				.Select(l => EnumDescriptionRegex().Match(l))
-				.ToDictionary(
-					m => m.Groups[1].Value,
-					m => FixupDescription(m.Groups[2].Value));
-			return (ed, pd);
-		}
-		else
-			return (string.Empty, new Dictionary<string, string>());
+		var pd = lines
+			.Where(l => l.StartsWith('`'))
+			.Select(l => EnumDescriptionRegex().Match(l))
+			.ToDictionary(
+				m => m.Groups[1].Value,
+				m => FixupDescription(m.Groups[2].Value));
+		return (ed, pd);
 	}
 
 	private static string GetPropertyDescription(OpenApiSchema type)
@@ -392,11 +390,11 @@ internal static partial class Program
 	}
 
 	private static string GetEnumName(string name) =>
-		$"{(char.IsDigit(name[0]) ? "_" : "")}{name.ToLower(null).ToPascalCase()}";
+		$"{(char.IsDigit(name[0]) ? "_" : "")}{name.ToLower().ToPascalCase()}";
 
 	private static void ProcessAccountTypes(OpenApiDocument doc)
 	{
-		var pd = new Dictionary<string, string>()
+		var pd = new Dictionary<string, string>(StringComparer.Ordinal)
 		{
 			["depository"] = FixupDescription(
 				doc.Components.Schemas["DepositoryAccount"].Description),
@@ -425,7 +423,7 @@ internal static partial class Program
 						string.Empty,
 						GetEnumName(e.Key),
 						e.Value
-					))
+					)),
 			],
 		};
 		pd.Clear();
@@ -459,7 +457,7 @@ internal static partial class Program
 						string.Empty,
 						GetEnumName(e.Key),
 						e.Value
-					))
+					)),
 			],
 		};
 	}
@@ -510,8 +508,8 @@ internal static partial class Program
 						e.jsonName,
 						string.Empty,
 						e.name,
-						null
-					))
+						Description: null
+					)),
 			],
 		};
 
@@ -528,8 +526,8 @@ internal static partial class Program
 						e.jsonName,
 						string.Empty,
 						e.name,
-						null
-					))
+						Description: null
+					)),
 			],
 		};
 	}
@@ -553,7 +551,7 @@ internal static partial class Program
 						string.Empty,
 						GetEnumName(e.Value),
 						e.Value == "all" ? "Allow all of the above subtypes" : descriptions[e.Value].Description
-					))
+					)),
 			],
 		};
 	}
@@ -571,7 +569,7 @@ internal static partial class Program
 	private static void SaveApis(string plaidSrcPath)
 	{
 		var template = Template.Parse(GetTemplate("Api"));
-		foreach (var g in s_apiCalls.GroupBy(a => a.BasePath))
+		foreach (var g in s_apiCalls.GroupBy(a => a.BasePath, StringComparer.Ordinal))
 		{
 			var source = template.Render(new
 			{
@@ -705,7 +703,7 @@ internal static partial class Program
 						p.JsonName,
 						p.Name,
 						Description = FormatDescription(p.Description, 0),
-					})
+					}),
 			});
 			File.WriteAllText(Path.Combine(plaidSrcPath, i.BasePath, i.Name + ".cs"), source);
 		}
@@ -719,7 +717,7 @@ internal static partial class Program
 		{
 			Prefix = prefix,
 			Hooks = webhookMap
-				.Select(kvp => new { Type = kvp.Key.type, Code = kvp.Key.code, kvp.Value, })
+				.Select(kvp => new { Type = kvp.Key.type, Code = kvp.Key.code, kvp.Value, }),
 		});
 
 		var baseFolder = Path.Combine(plaidSrcPath, "Converters");

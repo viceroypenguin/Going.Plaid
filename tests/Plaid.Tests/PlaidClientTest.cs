@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Going.Plaid.Entity;
 using Microsoft.Extensions.Configuration;
 using Xunit;
@@ -52,7 +52,9 @@ public sealed class PlaidFixture : IAsyncLifetime
 					Products.Transactions,
 					Products.Assets,
 				],
-			});
+			})
+			.ConfigureAwait(false);
+
 		if (!publicToken.IsSuccessStatusCode)
 			throw new InvalidOperationException("Unable to collect sandbox public token.");
 
@@ -60,7 +62,9 @@ public sealed class PlaidFixture : IAsyncLifetime
 			new Item.ItemPublicTokenExchangeRequest
 			{
 				PublicToken = publicToken.PublicToken,
-			});
+			})
+			.ConfigureAwait(false);
+
 		if (!accessToken.IsSuccessStatusCode)
 			throw new InvalidOperationException("Unable to collect sandbox access token.");
 

@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace Going.Plaid.Converters;
@@ -69,7 +69,7 @@ public sealed class EnumConverterFactory : JsonConverterFactory
 	{
 		public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
 			reader.TokenType == JsonTokenType.Null
-				? throw new JsonException($"Expected a non-null enum value, found null.")
+				? throw new JsonException("Expected a non-null enum value, found null.")
 				: EnumMemberEnumConverterNotNull<T>.DoRead(ref reader);
 
 		public static T DoRead(ref Utf8JsonReader reader)

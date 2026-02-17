@@ -1,4 +1,4 @@
-﻿using Going.Plaid.Converters;
+using Going.Plaid.Converters;
 
 namespace Going.Plaid;
 
@@ -130,7 +130,9 @@ public sealed partial class PlaidClient
 
 		var client = _clientFactory.CreateClient("PlaidClient");
 		var url = new Uri(_baseUrl, path);
-		_logger.LogTrace("Initiating request. Method: {Method}; Url: {Url}; Content: {@Content}", "POST", url, request);
+
+		if (_logger.IsEnabled(LogLevel.Trace))
+			_logger.LogTrace("Initiating request. Method: {Method}; Url: {Url}; Content: {@Content}", "POST", url, request);
 
 #pragma warning disable CA2000 // Dispose objects before losing scope
 		var requestMessage = new HttpRequestMessage
@@ -179,12 +181,26 @@ public sealed partial class PlaidClient
 		{
 			using var response = await Message.ConfigureAwait(false);
 
-			Logger.LogInformation("Completed request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
+			if (Logger.IsEnabled(LogLevel.Information))
+			{
+				Logger.LogInformation(
+					"Completed request. Url: {Url}, Status Code: {StatusCode}.",
+					Url,
+					response.StatusCode
+				);
+			}
 
 			var result = await BuildResponse<TResponse>(response).ConfigureAwait(false);
-			Logger.LogTrace("Completed request details. Url: {Url}; Response: {@Result}",
-				Url,
-				result);
+
+			if (Logger.IsEnabled(LogLevel.Trace))
+			{
+				Logger.LogTrace(
+					"Completed request details. Url: {Url}; Response: {@Result}",
+					Url,
+					result
+				);
+			}
+
 			return result;
 		}
 
@@ -192,7 +208,15 @@ public sealed partial class PlaidClient
 		{
 			// NOTE: We do not dispose the HttpResponseMessage here. We pass this duty onto the FileResponse
 			var response = await Message.ConfigureAwait(false);
-			Logger.LogInformation("Completed file request. Url: {Url}, Status Code: {StatusCode}.", Url, response.StatusCode);
+
+			if (Logger.IsEnabled(LogLevel.Information))
+			{
+				Logger.LogInformation(
+					"Completed file request. Url: {Url}, Status Code: {StatusCode}.",
+					Url,
+					response.StatusCode
+				);
+			}
 
 			var headers = response.Headers
 				.Concat(response.Content?.Headers.AsEnumerable() ?? [])
@@ -204,14 +228,19 @@ public sealed partial class PlaidClient
 			{
 				var requestid = headers["plaid-request-id"].FirstOrDefault();
 
-				var stream = response.Content == null ? Stream.Null : await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+				var stream = response.Content == null
+					? Stream.Null
+					: await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+
 				var result = new FileResponse(status, headers, stream, response) { RequestId = requestid };
 
 				if (Logger.IsEnabled(LogLevel.Trace))
 				{
-					Logger.LogTrace("Completed file request details. Url: {Url}; Response: {@Result}",
+					Logger.LogTrace(
+						"Completed file request details. Url: {Url}; Response: {@Result}",
 						Url,
-						new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode });
+						new { result.RequestId, result.StatusCode, result.IsSuccessStatusCode }
+					);
 				}
 
 				return result;

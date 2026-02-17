@@ -312,3 +312,44 @@ dotnet_diagnostic.CA1510.severity = none
 
 # Allow [Obsolete] without description; commentary is in the xmldoc
 dotnet_diagnostic.CA1041.severity = none                # CA1041: Provide ObsoleteAttribute message
+
+# General configs
+dotnet_diagnostic.IDE0001.severity = none               # IDE0001: Simplify Names
+dotnet_diagnostic.IDE0370.severity = none               # IDE0370: Remove unnecessary suppression
+dotnet_diagnostic.MA0016.severity = none                # MA0016: Prefer using collection abstraction instead of implementation
+dotnet_diagnostic.MA0029.severity = none                # MA0029: Combine LINQ methods
+dotnet_diagnostic.MA0048.severity = none                # MA0048: File name must match type name
+dotnet_diagnostic.MA0051.severity = none                # MA0051: Method is too long
+
+
+[src/Plaid.OpenApiParser/**.cs]
+
+# XML Documentation
+dotnet_diagnostic.CS0105.severity = none				# CS0105: Using directive is unnecessary.
+dotnet_diagnostic.CS1573.severity = none				# CS1573: Missing XML comment for parameter
+dotnet_diagnostic.CS1591.severity = none				# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1712.severity = none				# CS1712: Type parameter has no matching typeparam tag in the XML comment (but other type parameters do)
+
+# Irrelevant for self-enclosed program like this
+dotnet_diagnostic.CA1716.severity = none				# CA1716: Identifiers should not match keywords
+
+# IDE0210: Convert to top-level statements
+dotnet_diagnostic.IDE0210.severity = none
+
+dotnet_diagnostic.CA1304.severity = none                # CA1304: Specify CultureInfo
+dotnet_diagnostic.CA1311.severity = none                # CA1311: Specify a culture or use an invariant version
+dotnet_diagnostic.MA0002.severity = none                # MA0002: IEqualityComparer<string> or IComparer<string> is missing
+dotnet_diagnostic.MA0006.severity = none                # MA0006: Use String.Equals instead of equality operator
+dotnet_diagnostic.MA0009.severity = none                # MA0009: Add regex evaluation timeout
+dotnet_diagnostic.MA0011.severity = none                # MA0011: IFormatProvider is missing
+
+
+[tests/**.cs]
+
+# XML Documentation
+dotnet_diagnostic.CS0105.severity = none				# CS0105: Using directive is unnecessary.
+dotnet_diagnostic.CS1573.severity = none				# CS1573: Missing XML comment for parameter
+dotnet_diagnostic.CS1591.severity = none				# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1712.severity = none				# CS1712: Type parameter has no matching typeparam tag in the XML comment (but other type parameters do)
+
+dotnet_diagnostic.CA2007.severity = none				# CA2007: Consider calling ConfigureAwait on the awaited task
