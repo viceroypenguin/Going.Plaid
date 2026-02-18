@@ -59,4 +59,10 @@ public record BusinessVerificationGetResponse : ResponseBase
 	[JsonPropertyName("risk_check")]
 	public Entity.BusinessRiskCheck? RiskCheck { get; init; } = default!;
 
+	/// <summary>
+	/// <para>A shareable URL that can be sent directly to the user to complete verification</para>
+	/// </summary>
+	[JsonPropertyName("shareable_url")]
+	public string? ShareableUrl { get; init; } = default!;
+
 }

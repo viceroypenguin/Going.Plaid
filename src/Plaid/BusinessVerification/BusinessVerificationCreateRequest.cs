@@ -15,6 +15,6 @@ public partial class BusinessVerificationCreateRequest : RequestBase
 	/// <para>Business information provided in the verification request</para>
 	/// </summary>
 	[JsonPropertyName("business")]
-	public Entity.BusinessVerificationCreateRequestBusiness Business { get; set; } = default!;
+	public Entity.BusinessVerificationCreateRequestBusiness? Business { get; set; } = default!;
 
 }

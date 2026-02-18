@@ -9,13 +9,13 @@ public class BusinessVerificationCreateRequestBusiness
 	/// <para>The name of the business. Must have at least one character and a maximum length of 500 characters.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; set; } = default!;
+	public string? Name { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Physical address of a business. Used for input requests.</para>
 	/// </summary>
 	[JsonPropertyName("address")]
-	public Entity.RequestBusinessAddress Address { get; set; } = default!;
+	public Entity.RequestBusinessAddress? Address { get; set; } = default!;
 
 	/// <summary>
 	/// <para>An 'http' or 'https' URL (must begin with either of those).</para>

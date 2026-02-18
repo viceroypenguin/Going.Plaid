@@ -48,6 +48,12 @@ public enum ConsumerReportPermissiblePurpose
 	WrittenInstructionOther,
 
 	/// <summary>
+	/// <para>In connection with an eligibility determination for a government benefit where the entity is required to consider an applicant’s financial status pursuant to FCRA Section 604(a)(3)(D).</para>
+	/// </summary>
+	[EnumMember(Value = "ELIGIBILITY_FOR_GOVT_BENEFITS")]
+	EligibilityForGovtBenefits,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]
