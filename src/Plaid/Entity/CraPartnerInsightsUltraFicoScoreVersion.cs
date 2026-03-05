@@ -1,21 +1,15 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Transaction field for which the rule is defined.</para>
+/// <para>The version of the UltraFICO score.</para>
 /// </summary>
-public enum TransactionsRuleField
+public enum CraPartnerInsightsUltraFicoScoreVersion
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "TRANSACTION_ID")]
-	TransactionId,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "MERCHANT_NAME")]
-	MerchantName,
+	[EnumMember(Value = "1.0")]
+	_10,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

@@ -6,15 +6,21 @@ namespace Going.Plaid.Protect;
 public record ProtectComputeResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Represents a calculate Trust Index Score.</para>
+	/// <para>The trust index score.</para>
 	/// </summary>
-	[JsonPropertyName("trust_index")]
-	public Entity.TrustIndex? TrustIndex { get; init; } = default!;
+	[JsonPropertyName("score")]
+	public int? Score { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The versioned name of the Trust Index model used for scoring.</para>
+	/// </summary>
+	[JsonPropertyName("model")]
+	public string? Model { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Event fraud attributes as an arbitrary set of key-value pairs.</para>
 	/// </summary>
-	[JsonPropertyName("fraud_attributes")]
-	public Entity.FraudAttributes? FraudAttributes { get; init; } = default!;
+	[JsonPropertyName("attributes")]
+	public Entity.FraudAttributes? Attributes { get; init; } = default!;
 
 }

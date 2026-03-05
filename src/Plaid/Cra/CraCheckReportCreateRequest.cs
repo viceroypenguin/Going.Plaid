@@ -84,7 +84,7 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public bool? IncludeInvestments { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Describes the reason you are generating a Consumer Report for this user.</para>
+	/// <para>Describes the reason you are generating a Consumer Report for this user. When calling <c>/link/token/create</c>, this field is required when using Plaid Check (CRA) products; invalid if not using Plaid Check (CRA) products.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
 	public Entity.ConsumerReportPermissiblePurpose ConsumerReportPermissiblePurpose { get; set; } = default!;

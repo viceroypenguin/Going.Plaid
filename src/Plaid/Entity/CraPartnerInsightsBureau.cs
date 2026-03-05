@@ -1,21 +1,27 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Transaction field for which the rule is defined.</para>
+/// <para>The credit bureau that provided the base FICO score.</para>
 /// </summary>
-public enum TransactionsRuleField
+public enum CraPartnerInsightsBureau
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "TRANSACTION_ID")]
-	TransactionId,
+	[EnumMember(Value = "EQUIFAX")]
+	Equifax,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "MERCHANT_NAME")]
-	MerchantName,
+	[EnumMember(Value = "EXPERIAN")]
+	Experian,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "TRANSUNION")]
+	Transunion,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

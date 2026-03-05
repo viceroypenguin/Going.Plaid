@@ -11,4 +11,10 @@ public class ProtectModelInputs
 	[JsonPropertyName("link")]
 	public Entity.ProtectLinkModelInputs? Link { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Inputs for Protect SDK Trust Index models.</para>
+	/// </summary>
+	[JsonPropertyName("sdk")]
+	public Entity.ProtectSDKModelInputs? Sdk { get; set; } = default!;
+
 }

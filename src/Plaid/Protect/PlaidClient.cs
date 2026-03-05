@@ -23,7 +23,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Protect.ProtectReportCreateResponse>();
 
 	/// <summary>
-	/// <para>Use this endpoint to compute a Protect Trust Index score and retrieve fraud attributes</para>
+	/// <para>Use this endpoint to compute a Protect Trust Index score and retrieve fraud attributes.</para>
+	/// <para>For link-session models, if the Link session is not yet complete, the endpoint returns HTTP 400 with <c>error_type</c> = <c>INVALID_REQUEST</c> and <c>error_code</c> = <c>FAILED_PRECONDITION</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/protect/#protectcompute" /></remarks>
 	public Task<Protect.ProtectComputeResponse> ProtectComputeAsync(Protect.ProtectComputeRequest request) =>

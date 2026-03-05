@@ -19,7 +19,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Language Language { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/. By default, access is granted to US and CA. For Production or Limited Production access to other countries, <a href="https://plaid.com/contact/">contact Sales</a> or your account manager.  </para>
+	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/. For access to additional countries beyond what you have been approved for, <a href="https://plaid.com/contact/">contact Sales</a>, your account manager, or support.  </para>
 	/// <para>If using Identity Verification, <c>country_codes</c> should be set to the country where your company is based, not the country where your user is located. For all other products, <c>country_codes</c> represents the location of your user's financial institution.</para>
 	/// <para>If Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. While all countries are enabled by default in Sandbox, in Production only the countries you have requested access for are shown. To request access to additional countries, <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access">file a product access Support ticket</a> via the Plaid dashboard.</para>
 	/// <para>If using a Link customization, make sure the country codes in the customization match those specified in <c>country_codes</c>, or the customization may not be applied.</para>
@@ -190,15 +190,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestCraOptions? CraOptions { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Describes the reason you are generating a Consumer Report for this user. This parameter is required when using Plaid Check (CRA) products. If you omit this parameter during Link token creation, you must call the <c>/cra/check_report/create</c> endpoint to generate a report. If the Link session is not configured to use any Plaid Check (CRA) products, this parameter cannot be used and will cause an error if included.</para>
-	/// <para><c>ACCOUNT_REVIEW_CREDIT</c>: In connection with a consumer credit transaction for the review or collection of an account pursuant to FCRA Section 604(a)(3)(A).</para>
-	/// <para><c>ACCOUNT_REVIEW_NON_CREDIT</c>: For a legitimate business need of the information to review a non-credit account provided primarily for personal, family, or household purposes to determine whether the consumer continues to meet the terms of the account pursuant to FCRA Section 604(a)(3)(F)(2).</para>
-	/// <para><c>EXTENSION_OF_CREDIT</c>: In connection with a credit transaction initiated by and involving the consumer pursuant to FCRA Section 604(a)(3)(A).</para>
-	/// <para><c>LEGITIMATE_BUSINESS_NEED_TENANT_SCREENING</c>: For a legitimate business need in connection with a business transaction initiated by the consumer primarily for personal, family, or household purposes in connection with a property rental assessment pursuant to FCRA Section 604(a)(3)(F)(i).</para>
-	/// <para><c>LEGITIMATE_BUSINESS_NEED_OTHER</c>: For a legitimate business need in connection with a business transaction made primarily for personal, family, or household initiated by the consumer pursuant to FCRA Section 604(a)(3)(F)(i).</para>
-	/// <para><c>WRITTEN_INSTRUCTION_PREQUALIFICATION</c>: In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), to evaluate an application’s profile to make an offer to the consumer.</para>
-	/// <para><c>WRITTEN_INSTRUCTION_OTHER</c>: In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), such as when an individual agrees to act as a guarantor or assumes personal liability for a consumer, business, or commercial loan.</para>
-	/// <para><c>ELIGIBILITY_FOR_GOVT_BENEFITS</c>:  In connection with an eligibility determination for a government benefit where the entity is required to consider an applicant’s financial status pursuant to FCRA Section 604(a)(3)(D).</para>
+	/// <para>Describes the reason you are generating a Consumer Report for this user. When calling <c>/link/token/create</c>, this field is required when using Plaid Check (CRA) products; invalid if not using Plaid Check (CRA) products.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
 	public Entity.ConsumerReportPermissiblePurpose? ConsumerReportPermissiblePurpose { get; set; } = default!;

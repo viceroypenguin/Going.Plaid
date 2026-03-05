@@ -5,4 +5,10 @@ namespace Going.Plaid.Beta;
 /// </summary>
 public partial class TransactionsRulesListRequest : RequestBase
 {
+	/// <summary>
+	/// <para>A unique ID representing the end user whose rules should be listed.</para>
+	/// </summary>
+	[JsonPropertyName("client_user_id")]
+	public string ClientUserId { get; set; } = default!;
+
 }

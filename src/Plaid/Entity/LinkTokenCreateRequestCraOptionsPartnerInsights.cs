@@ -18,4 +18,10 @@ public class LinkTokenCreateRequestCraOptionsPartnerInsights
 	[JsonPropertyName("prism_versions")]
 	public Entity.PrismVersions? PrismVersions { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Configurations for FICO products used in the Partner Insights flow.</para>
+	/// </summary>
+	[JsonPropertyName("fico")]
+	public Entity.CraPartnerInsightsFicoInput? Fico { get; set; } = default!;
+
 }

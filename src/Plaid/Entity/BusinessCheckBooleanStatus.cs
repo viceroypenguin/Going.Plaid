@@ -1,21 +1,27 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Transaction field for which the rule is defined.</para>
+/// <para>Tri-state boolean status, where <c>no_data</c> indicates the check could not determine a value.</para>
 /// </summary>
-public enum TransactionsRuleField
+public enum BusinessCheckBooleanStatus
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "TRANSACTION_ID")]
-	TransactionId,
+	[EnumMember(Value = "yes")]
+	Yes,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "MERCHANT_NAME")]
-	MerchantName,
+	[EnumMember(Value = "no")]
+	No,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "no_data")]
+	NoData,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

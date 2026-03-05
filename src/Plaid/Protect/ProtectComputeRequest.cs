@@ -6,7 +6,7 @@ namespace Going.Plaid.Protect;
 public partial class ProtectComputeRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The name of the Trust Index model to use for calculating the Trust Index Score, with an optional version suffix. Examples include <c>ti-link-session-2.0</c>, <c>ti-identity-2.0</c>, <c>ti-link-session</c>, and <c>ti-identity</c>. If the version suffix is not included, the most recent version of that model will be used. The model specified may require certain fields within <c>model_inputs</c>. For example, <c>ti-link-session-2.0</c> requires the <c>link</c> field to be provided in <c>model_inputs</c>.</para>
+	/// <para>The name of the Trust Index model to use for calculating the Trust Index Score, with a major.minor version suffix. Examples include <c>ti-link-session-2.0</c> and <c>ti-identity-2.0</c>. The model specified may require certain fields within <c>model_inputs</c>. For example, <c>ti-link-session-2.0</c> requires the <c>link</c> field to be provided in <c>model_inputs</c>.</para>
 	/// </summary>
 	[JsonPropertyName("model")]
 	public string Model { get; set; } = default!;

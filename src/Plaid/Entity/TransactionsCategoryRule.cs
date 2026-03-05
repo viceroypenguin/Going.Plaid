@@ -12,10 +12,10 @@ public record TransactionsCategoryRule
 	public string? Id { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique identifier of the Item the rule was created for.</para>
+	/// <para>The Plaid-generated unique identifier for the end user this rule belongs to.</para>
 	/// </summary>
-	[JsonPropertyName("item_id")]
-	public string? ItemId { get; init; } = default!;
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Date and time when a rule was created in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
@@ -24,11 +24,24 @@ public record TransactionsCategoryRule
 	public DateTimeOffset? CreatedAt { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Personal finance category unique identifier.</para>
-	/// <para>In the personal finance category taxonomy, this field is represented by the detailed category field.</para>
+	/// <para>Date and time when a rule was last updated in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> ).</para>
 	/// </summary>
-	[JsonPropertyName("personal_finance_category")]
-	public string? PersonalFinanceCategory { get; init; } = default!;
+	[JsonPropertyName("updated_at")]
+	public DateTimeOffset? UpdatedAt { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A personal finance primary category.</para>
+	/// <para>See the <a href="https://plaid.com/documents/pfc-taxonomy-all.csv">taxonomy csv file</a> for a full list of personal finance categories.</para>
+	/// </summary>
+	[JsonPropertyName("pfc_primary_category")]
+	public string? PfcPrimaryCategory { get; init; } = default!;
+
+	/// <summary>
+	/// <para>A personal finance detailed category.</para>
+	/// <para>See the <a href="https://plaid.com/documents/pfc-taxonomy-all.csv">taxonomy csv file</a> for a full list of personal finance categories.</para>
+	/// </summary>
+	[JsonPropertyName("pfc_detailed_category")]
+	public string? PfcDetailedCategory { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of transactions rule details.</para>

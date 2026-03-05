@@ -17,4 +17,10 @@ public record BusinessRiskCheck
 	[JsonPropertyName("score")]
 	public int Score { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Nullable industry prediction details.</para>
+	/// </summary>
+	[JsonPropertyName("industry_prediction")]
+	public Entity.BusinessIndustryPrediction? IndustryPrediction { get; init; } = default!;
+
 }

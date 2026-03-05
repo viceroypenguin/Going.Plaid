@@ -12,7 +12,7 @@ public class ProtectLinkModelInputs
 	public string LinkSessionId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Whether to wait for data to be extracted before computing and returning a score. If set to <c>true</c> and <c>/protect/compute</c> is called before data has been extracted, an error will be returned indicating that data has not yet been extracted. If set to <c>false</c>, a score will be computed and returned regardless of whether data has been extracted. If <c>false</c> and data has been extracted, extracted data will still be included in the score computation. Defaults to <c>false</c>.</para>
+	/// <para>Controls whether transaction extraction must be complete before scoring. If <c>false</c> (default), returns a score whether or not transaction extraction is complete, as long as the link session is finished; if data has been extracted it will still be included in the score computation. If <c>true</c>, returns HTTP 400 with <c>error_type</c> = <c>INVALID_REQUEST</c> and <c>error_code</c> = <c>FAILED_PRECONDITION</c> if extraction is still in progress; once data is ready a score will be returned normally.</para>
 	/// </summary>
 	[JsonPropertyName("require_extracted_data")]
 	public bool? RequireExtractedData { get; set; } = default!;

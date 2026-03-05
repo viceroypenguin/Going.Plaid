@@ -6,12 +6,24 @@ namespace Going.Plaid.Beta;
 public partial class TransactionsRulesCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Personal finance detailed category.</para>
-	/// <para>All implementations are encouraged to use this field instead of <c>category</c>, as it provides more meaningful and accurate categorization.</para>
+	/// <para>A unique ID representing the end user. This ID is used to associate rules with a specific user.</para>
+	/// </summary>
+	[JsonPropertyName("client_user_id")]
+	public string ClientUserId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>A personal finance primary category.</para>
 	/// <para>See the <a href="https://plaid.com/documents/pfc-taxonomy-all.csv">taxonomy csv file</a> for a full list of personal finance categories.</para>
 	/// </summary>
-	[JsonPropertyName("personal_finance_category")]
-	public string PersonalFinanceCategory { get; set; } = default!;
+	[JsonPropertyName("pfc_primary_category")]
+	public string PfcPrimaryCategory { get; set; } = default!;
+
+	/// <summary>
+	/// <para>A personal finance detailed category.</para>
+	/// <para>See the <a href="https://plaid.com/documents/pfc-taxonomy-all.csv">taxonomy csv file</a> for a full list of personal finance categories.</para>
+	/// </summary>
+	[JsonPropertyName("pfc_detailed_category")]
+	public string PfcDetailedCategory { get; set; } = default!;
 
 	/// <summary>
 	/// <para>A representation of transactions rule details.</para>

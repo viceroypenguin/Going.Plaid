@@ -6,7 +6,7 @@ namespace Going.Plaid.Beta;
 public record TransactionsRulesListResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A list of the Item's transaction rules</para>
+	/// <para>A list of the user's transaction rules</para>
 	/// </summary>
 	[JsonPropertyName("rules")]
 	public IReadOnlyList<Entity.TransactionsCategoryRule> Rules { get; init; } = default!;

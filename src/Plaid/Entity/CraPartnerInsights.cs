@@ -24,6 +24,12 @@ public record CraPartnerInsights
 	public string? ClientReportId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The calculated UltraFICO scores returned as part of the Partner Insights report.</para>
+	/// </summary>
+	[JsonPropertyName("fico")]
+	public Entity.CraPartnerInsightsFicoResults? Fico { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The Prism Data insights for the user.</para>
 	/// </summary>
 	[JsonPropertyName("prism")]

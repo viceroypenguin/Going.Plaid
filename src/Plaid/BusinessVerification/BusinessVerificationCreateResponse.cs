@@ -60,6 +60,12 @@ public record BusinessVerificationCreateResponse : ResponseBase
 	public Entity.BusinessRiskCheck? RiskCheck { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Results from the digital presence check.</para>
+	/// </summary>
+	[JsonPropertyName("digital_presence_check")]
+	public Entity.BusinessDigitalPresenceCheck? DigitalPresenceCheck { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A shareable URL that can be sent directly to the user to complete verification</para>
 	/// </summary>
 	[JsonPropertyName("shareable_url")]

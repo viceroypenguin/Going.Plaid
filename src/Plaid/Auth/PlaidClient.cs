@@ -12,9 +12,10 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Auth.AuthGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/auth/verify</c> endpoint verifies bank account numbers against Plaid's database via Database Auth.</para>
+	/// <para>The <c>/auth/verify</c> endpoint verifies bank account and routing numbers and (optionally) account owner names against Plaid's database via <a href="https://plaid.com/docs/auth/coverage/database-auth/">Database Auth</a>. It can be used to verify account numbers that were not collected via the Plaid Link flow. </para>
+	/// <para>This endpoint is currently in Early Availability; contact Sales or your Plaid account manager to request access.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/auth/coverage/database-auth/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/auth/#authverify" /></remarks>
 	public Task<Auth.AuthVerifyResponse> AuthVerifyAsync(Auth.AuthVerifyRequest request) =>
 		PostAsync("/auth/verify", request)
 			.ParseResponseAsync<Auth.AuthVerifyResponse>();

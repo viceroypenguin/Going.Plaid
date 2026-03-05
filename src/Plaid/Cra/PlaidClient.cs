@@ -51,8 +51,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportBaseReportGetResponse>();
 
 	/// <summary>
-	/// <para>The primary purpose of <c>/cra/check_report/create</c> is to refresh data in an existing report. A Consumer Report will last for 24 hours before expiring; you should call any <c>/get</c> endpoints on the report before it expires. If a report expires, you can call <c>/cra/check_report/create</c> again to re-generate it and refresh the data in the report.</para>
-	/// <para><c>/cra/check_report/create</c> can also be used to create a new report if <c>consumer_report_permissible_purpose</c> was omitted during Link token creation. However, using the endpoint in this way is not recommended. Instead, <c>consumer_report_permissible_purpose</c> should always be specified when calling <c>/link/token/create</c> for Plaid CRA products; this will reduce latency and simplify the integration process. If you provide a <c>consumer_report_permissible_purpose</c> during Link token creation, then Plaid Check will automatically begin creating a Consumer Report once the user completes the Link process, and it is not necessary to call <c>/cra/check_report/create</c> before retrieving the report.</para>
+	/// <para>Use <c>/cra/check_report/create</c> to refresh data in an existing report. A Consumer Report will last for 24 hours before expiring; you should call any <c>/get</c> endpoints on the report before it expires. If a report expires, you can call <c>/cra/check_report/create</c> again to re-generate it and refresh the data in the report.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cracheck_reportcreate" /></remarks>
 	public Task<Cra.CraCheckReportCreateResponse> CraCheckReportCreateAsync(Cra.CraCheckReportCreateRequest request) =>
