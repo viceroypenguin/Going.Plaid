@@ -18,8 +18,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="coverlet.collector" PrivateAssets="All" />
-		<PackageReference Include="coverlet.msbuild" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" />
