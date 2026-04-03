@@ -15,7 +15,7 @@ public record InvestmentsTransactionsGetResponse : ResponseBase
 	/// <para>The accounts for which transaction history is being fetched.</para>
 	/// </summary>
 	[JsonPropertyName("accounts")]
-	public IReadOnlyList<Entity.Account> Accounts { get; init; } = default!;
+	public IReadOnlyList<Entity.InvestmentAccount> Accounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>All securities for which there is a corresponding transaction being fetched.</para>

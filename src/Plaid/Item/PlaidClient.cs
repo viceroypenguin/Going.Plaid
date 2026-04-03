@@ -55,6 +55,27 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Item.ItemRemoveResponse>();
 
 	/// <summary>
+	/// <para>The <c>/item/products/terminate</c> endpoint allows you to terminate an Item. Once terminated, the <c>access_token</c> associated with the Item is no longer valid, billing for the Item's products is ended, and relevant webhooks are fired.</para>
+	/// <para><c>/item/products/terminate</c> is the recommended way to offboard users or disconnect accounts linked via Plaid.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/items/#itemproductsterminate" /></remarks>
+	public Task<Item.ItemProductsTerminateResponse> ItemProductsTerminateAsync(Item.ItemProductsTerminateRequest request) =>
+		PostAsync("/item/products/terminate", request)
+			.ParseResponseAsync<Item.ItemProductsTerminateResponse>();
+
+	/// <summary>
+	/// <para>Use this endpoint to create a fraud report and terminate the associated Item. The <c>access_token</c> associated with the Item will be deactivated and billing for the Item's products will be ended.</para>
+	/// <para>This endpoint allows you to report various types of fraud incidents including account takeovers, identity fraud, unauthorized transactions, and other security events.</para>
+	/// <para>The reported data helps improve fraud detection models and provides valuable feedback to enhance the overall security of the Plaid network.</para>
+	/// <para>Reports can be created for confirmed incidents that have been fully investigated, or for suspected incidents that require further review.</para>
+	/// <para>You can associate reports with specific users, sessions, or transactions to provide comprehensive context about the incident.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/items/#itemhandlefraudreport" /></remarks>
+	public Task<Item.ItemHandleFraudReportResponse> ItemHandleFraudReportAsync(Item.ItemHandleFraudReportRequest request) =>
+		PostAsync("/item/handle_fraud_report", request)
+			.ParseResponseAsync<Item.ItemHandleFraudReportResponse>();
+
+	/// <summary>
 	/// <para>The POST <c>/item/webhook/update</c> allows you to update the webhook URL associated with an Item. This request triggers a <a href="https://plaid.com/docs/api/items/#webhook_update_acknowledged"><c>WEBHOOK_UPDATE_ACKNOWLEDGED</c></a> webhook to the newly specified webhook URL.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/items/#itemwebhookupdate" /></remarks>

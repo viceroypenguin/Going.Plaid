@@ -19,4 +19,10 @@ public record CraCheckReportFailedWebhook : WebhookBase
 	[JsonPropertyName("user_id")]
 	public string UserId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>A list of <c>item_ids</c> included in the Check Report. Access to this field is in closed beta.</para>
+	/// </summary>
+	[JsonPropertyName("item_ids")]
+	public IReadOnlyList<string>? ItemIds { get; init; } = default!;
+
 }

@@ -192,6 +192,12 @@ public enum AccountSubtype
 	EducationSavingsAccount,
 
 	/// <summary>
+	/// <para>First Home Savings Account (FHSA) (Canada)</para>
+	/// </summary>
+	[EnumMember(Value = "fhsa")]
+	Fhsa,
+
+	/// <summary>
 	/// <para>Fixed annuity</para>
 	/// </summary>
 	[EnumMember(Value = "fixed annuity")]
@@ -346,6 +352,36 @@ public enum AccountSubtype
 	/// </summary>
 	[EnumMember(Value = "roth 401k")]
 	Roth401k,
+
+	/// <summary>
+	/// <para>Roth 403(b) retirement savings account for non-profits and schools (US)</para>
+	/// </summary>
+	[EnumMember(Value = "roth 403B")]
+	Roth403b,
+
+	/// <summary>
+	/// <para>Roth 457(b) deferred-compensation retirement plan for governments and non-profits (US)</para>
+	/// </summary>
+	[EnumMember(Value = "roth 457b")]
+	Roth457b,
+
+	/// <summary>
+	/// <para>Roth version of a standard pension account</para>
+	/// </summary>
+	[EnumMember(Value = "roth pension")]
+	RothPension,
+
+	/// <summary>
+	/// <para>Roth version of a profit sharing plan</para>
+	/// </summary>
+	[EnumMember(Value = "roth profit sharing plan")]
+	RothProfitSharingPlan,
+
+	/// <summary>
+	/// <para>Roth version of the Thrift Savings Plan (US)</para>
+	/// </summary>
+	[EnumMember(Value = "roth thrift savings plan")]
+	RothThriftSavingsPlan,
 
 	/// <summary>
 	/// <para>Registered Retirement Income Fund (RRIF) (Canada)</para>

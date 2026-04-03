@@ -9,7 +9,7 @@ public record InvestmentsHoldingsGetResponse : ResponseBase
 	/// <para>The accounts associated with the Item</para>
 	/// </summary>
 	[JsonPropertyName("accounts")]
-	public IReadOnlyList<Entity.Account> Accounts { get; init; } = default!;
+	public IReadOnlyList<Entity.InvestmentAccount> Accounts { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The holdings belonging to investment accounts associated with the Item. Details of the securities in the holdings are provided in the <c>securities</c> field.</para>

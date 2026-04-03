@@ -12,7 +12,7 @@ public partial class ProcessorSignalDecisionReportRequest : RequestBase
 	public string ProcessorToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Must be the same as the <c>client_transaction_id</c> supplied when calling <c>/signal/evaluate</c></para>
+	/// <para>Must be the same as the <c>client_transaction_id</c> supplied when calling <c>/processor/signal/evaluate</c></para>
 	/// </summary>
 	[JsonPropertyName("client_transaction_id")]
 	public string ClientTransactionId { get; set; } = default!;

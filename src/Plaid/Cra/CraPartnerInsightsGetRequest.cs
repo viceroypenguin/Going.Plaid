@@ -11,4 +11,10 @@ public partial class CraPartnerInsightsGetRequest : RequestBase
 	[JsonPropertyName("user_token")]
 	public string UserToken { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The tier of the user.</para>
+	/// </summary>
+	[JsonPropertyName("user_tier")]
+	public Entity.CraUserTier? UserTier { get; set; } = default!;
+
 }

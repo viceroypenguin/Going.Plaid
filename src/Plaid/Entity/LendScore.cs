@@ -12,7 +12,7 @@ public record LendScore
 	public int? Score { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The reasons for an individual having risk according to the LendScore. For a full list of possible reason codes, contact your Plaid Account Manager. Different LendScore versions will use different sets of reason codes.</para>
+	/// <para>The reasons for an individual having risk according to the LendScore. For a full list of possible reason codes and a mapping of reason codes to human-readable reasons, contact your Plaid Account Manager. Different LendScore versions will use different sets of reason codes.</para>
 	/// </summary>
 	[JsonPropertyName("reason_codes")]
 	public IReadOnlyList<string>? ReasonCodes { get; init; } = default!;

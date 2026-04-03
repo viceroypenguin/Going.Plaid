@@ -43,4 +43,10 @@ public record ProtectUserEventWebhook : WebhookBase
 	[JsonPropertyName("client_user_id")]
 	public string? ClientUserId { get; init; } = default!;
 
+	/// <summary>
+	/// <para>An identifier for the Link session this event occurred in</para>
+	/// </summary>
+	[JsonPropertyName("link_session_id")]
+	public string? LinkSessionId { get; init; } = default!;
+
 }

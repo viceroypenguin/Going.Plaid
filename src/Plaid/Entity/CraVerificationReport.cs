@@ -12,6 +12,12 @@ public record CraVerificationReport
 	public string ReportId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>A unique token that can be shared with GSEs in order to provide them access to the report. This is automatically created during report generation when GSE options are specified.</para>
+	/// </summary>
+	[JsonPropertyName("gse_reference_id")]
+	public string? GseReferenceId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Client-generated identifier, which can be used by lenders to track loan applications.</para>
 	/// </summary>
 	[JsonPropertyName("client_report_id")]

@@ -8,6 +8,12 @@ public enum PrismDetectVersion
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "4.1")]
+	_41,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "4")]
 	_4,
 

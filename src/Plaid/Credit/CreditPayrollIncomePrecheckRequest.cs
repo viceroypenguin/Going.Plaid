@@ -12,6 +12,12 @@ public partial class CreditPayrollIncomePrecheckRequest : RequestBase
 	public string? UserToken { get; set; } = default!;
 
 	/// <summary>
+	/// <para>A unique user identifier, created by <c>/user/create</c>. Integrations that began using <c>/user/create</c> after December 10, 2025 use this field to identify a user instead of the <c>user_token</c>. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">new user APIs</a>.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>An array of access tokens corresponding to Items belonging to the user whose eligibility is being checked. Note that if the Items specified here are not already initialized with <c>transactions</c>, providing them in this field will cause these Items to be initialized with (and billed for) the Transactions product.</para>
 	/// </summary>
 	[JsonPropertyName("access_tokens")]

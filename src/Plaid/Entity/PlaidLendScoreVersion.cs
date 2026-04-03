@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The version of the LendScore</para>
+/// <para>The version of the LendScore to use. Required if using LendScore.</para>
 /// </summary>
 public enum PlaidLendScoreVersion
 {
