@@ -11,11 +11,4 @@ public class LinkTokenCreateRequestCreditPartnerInsights
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;
 
-	/// <summary>
-	/// <para>The specific Prism products to return. If none are passed in, then all products will be returned.</para>
-	/// </summary>
-	[JsonPropertyName("prism_products")]
-	[Obsolete]
-	public IReadOnlyList<Entity.PrismProduct>? PrismProducts { get; set; } = default!;
-
 }

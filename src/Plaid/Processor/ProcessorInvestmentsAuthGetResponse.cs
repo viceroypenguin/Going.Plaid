@@ -1,30 +1,30 @@
-namespace Going.Plaid.Investments;
+namespace Going.Plaid.Processor;
 
 /// <summary>
-/// <para>InvestmentsAuthGetResponse defines the response schema for <c>/investments/auth/get</c></para>
+/// <para>ProcessorInvestmentsAuthGetResponse defines the response schema for <c>/processor/investments/auth/get</c></para>
 /// </summary>
-public record InvestmentsAuthGetResponse : ResponseBase
+public record ProcessorInvestmentsAuthGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>The accounts for which data is being retrieved</para>
+	/// <para>A single account at a financial institution.</para>
 	/// </summary>
-	[JsonPropertyName("accounts")]
-	public IReadOnlyList<Entity.InvestmentAccount> Accounts { get; init; } = default!;
+	[JsonPropertyName("account")]
+	public Entity.Account Account { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The holdings belonging to investment accounts associated with the Item. Details of the securities in the holdings are provided in the <c>securities</c> field.</para>
+	/// <para>The holdings belonging to the investment account. Details of the securities in the holdings are provided in the <c>securities</c> field.</para>
 	/// </summary>
 	[JsonPropertyName("holdings")]
 	public IReadOnlyList<Entity.Holding> Holdings { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Objects describing the securities held in the accounts associated with the Item.</para>
+	/// <para>Objects describing the securities held in the account.</para>
 	/// </summary>
 	[JsonPropertyName("securities")]
 	public IReadOnlyList<Entity.Security> Securities { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Information about the account owners for the accounts associated with the Item.</para>
+	/// <para>Information about the account owners for the account.</para>
 	/// </summary>
 	[JsonPropertyName("owners")]
 	public IReadOnlyList<Entity.InvestmentsAuthOwner> Owners { get; init; } = default!;
@@ -48,9 +48,9 @@ public record InvestmentsAuthGetResponse : ResponseBase
 	public IReadOnlyList<Entity.InvestmentsAuthAccountDetails401k>? AccountDetails401k { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Metadata about the Item.</para>
+	/// <para>When true, this field indicates that the Item's portfolio was manually created with the Investments Fallback flow.</para>
 	/// </summary>
-	[JsonPropertyName("item")]
-	public Entity.Item Item { get; init; } = default!;
+	[JsonPropertyName("is_investments_fallback_item")]
+	public bool? IsInvestmentsFallbackItem { get; init; } = default!;
 
 }

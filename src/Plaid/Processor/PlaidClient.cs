@@ -29,6 +29,16 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorInvestmentsHoldingsGetResponse>();
 
 	/// <summary>
+	/// <para>The <c>/processor/investments/auth/get</c> endpoint allows you to retrieve information about the account</para>
+	/// <para>authorized by a processor token, including account numbers, account owners, holdings, and data provenance information.</para>
+	/// <para>To receive Investments Auth webhooks for a processor token, set its webhook URL via the <a href="https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate"><c>/processor/token/webhook/update</c></a> endpoint.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorinvestmentsauthget" /></remarks>
+	public Task<Processor.ProcessorInvestmentsAuthGetResponse> ProcessorInvestmentsAuthGetAsync(Processor.ProcessorInvestmentsAuthGetRequest request) =>
+		PostAsync("/processor/investments/auth/get", request)
+			.ParseResponseAsync<Processor.ProcessorInvestmentsAuthGetResponse>();
+
+	/// <summary>
 	/// <para>The <c>/processor/investments/transactions/get</c> endpoint allows developers to retrieve up to 24 months of user-authorized transaction data for the investment account associated with the processor token.</para>
 	/// <para>Transactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.</para>
 	/// <para>Due to the potentially large number of investment transactions associated with the account, results are paginated. Manipulate the count and offset parameters in conjunction with the <c>total_investment_transactions</c> response body field to fetch all available investment transactions.</para>
@@ -92,8 +102,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Processor.ProcessorTransactionsRecurringGetResponse>();
 
 	/// <summary>
-	/// <para>Use <c>/signal/evaluate</c> to evaluate a planned ACH transaction to get a return risk assessment and additional risk signals.</para>
-	/// <para><c>/signal/evaluate</c> is used with Rulesets that are configured on the end customer Dashboard can can be used with either the Signal Transaction Scores product or the Balance product. Which product is used will be determined by the <c>ruleset_key</c> that you provide. For more details, see <a href="https://plaid.com/docs/signal/signal-rules/">Signal Rules</a>.</para>
+	/// <para>Use <c>/processor/signal/evaluate</c> to evaluate a planned ACH transaction to get a return risk assessment and additional risk signals.</para>
+	/// <para><c>/processor/signal/evaluate</c> uses Rulesets that are configured on the end customer's Dashboard and can be used with either the Signal Transaction Scores product or the Balance product. Which product is used will be determined by the <c>ruleset_key</c> that you provide. Note that only customer-configured rulesets work with this endpoint; as a processor partner, you cannot create or configure your own rulesets. For more details, see <a href="https://plaid.com/docs/signal/signal-rules/">Signal Rules</a>.</para>
 	/// <para>Note: This request may have higher latency if Signal Transaction Scores is being added to an existing Item for the first time, or when using a Balance-only ruleset. This is because Plaid must communicate directly with the institution to request data.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processorsignalevaluate" /></remarks>

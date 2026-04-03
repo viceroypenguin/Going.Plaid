@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class CraCheckReportNetworkInsightsGetOptions
 {
 	/// <summary>
-	/// <para>The version of network insights</para>
+	/// <para>The version of Network Insights. Required if using Network Insights.</para>
 	/// </summary>
 	[JsonPropertyName("network_insights_version")]
 	public Entity.NetworkInsightsVersion? NetworkInsightsVersion { get; set; } = default!;

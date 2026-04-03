@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The version of cashflow attributes</para>
+/// <para>The version of cashflow attributes. Required if using Cash Flow Insights.</para>
 /// </summary>
 public enum CashflowAttributesVersion
 {

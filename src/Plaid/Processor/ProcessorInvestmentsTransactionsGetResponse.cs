@@ -6,10 +6,10 @@ namespace Going.Plaid.Processor;
 public record ProcessorInvestmentsTransactionsGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A single account at a financial institution.</para>
+	/// <para>A single account at a financial institution, with additional investment-specific balance information.</para>
 	/// </summary>
 	[JsonPropertyName("account")]
-	public Entity.Account Account { get; init; } = default!;
+	public Entity.InvestmentAccount Account { get; init; } = default!;
 
 	/// <summary>
 	/// <para>An array containing investment transactions from the account. Investments transactions are returned in reverse chronological order, with the most recent at the beginning of the array. The maximum number of transactions returned is determined by the <c>count</c> parameter.</para>

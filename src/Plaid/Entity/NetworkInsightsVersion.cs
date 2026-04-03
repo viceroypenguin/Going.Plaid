@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The version of network insights</para>
+/// <para>The version of Network Insights. Required if using Network Insights.</para>
 /// </summary>
 public enum NetworkInsightsVersion
 {

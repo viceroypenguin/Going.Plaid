@@ -74,6 +74,12 @@ public enum UserBasedProducts
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "protect_transactions")]
+	ProtectTransactions,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "transactions")]
 	Transactions,
 

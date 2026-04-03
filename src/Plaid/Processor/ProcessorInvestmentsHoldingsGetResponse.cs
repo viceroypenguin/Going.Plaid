@@ -6,10 +6,10 @@ namespace Going.Plaid.Processor;
 public record ProcessorInvestmentsHoldingsGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A single account at a financial institution.</para>
+	/// <para>A single account at a financial institution, with additional investment-specific balance information.</para>
 	/// </summary>
 	[JsonPropertyName("account")]
-	public Entity.Account Account { get; init; } = default!;
+	public Entity.InvestmentAccount Account { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The holdings belonging to investment accounts associated with the Item. Details of the securities in the holdings are provided in the <c>securities</c> field.</para>

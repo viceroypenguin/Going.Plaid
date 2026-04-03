@@ -145,6 +145,12 @@ public record Security
 	public string? Industry { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The ISO-10962 Classification of Financial Instruments Code used to classify the security based on its structure and function.</para>
+	/// </summary>
+	[JsonPropertyName("cfi_code")]
+	public string? CfiCode { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Details about the option security.</para>
 	/// <para>For the Sandbox environment, this data is currently only available if the Item is using a <a href="https://plaid.com/docs/sandbox/user-custom/">custom Sandbox user</a> and the <c>ticker</c> field of the custom security follows the <a href="https://en.wikipedia.org/wiki/Option_symbol#The_OCC_Option_Symbol">OCC Option Symbol</a> standard with no spaces. For an example of simulating this in Sandbox, see the <a href="https://github.com/plaid/sandbox-custom-users">custom Sandbox GitHub</a>.</para>
 	/// </summary>

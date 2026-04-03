@@ -31,7 +31,7 @@ public partial class UserCreateRequest : RequestBase
 	public Entity.ConsumerReportUserIdentity? ConsumerReportUserIdentity { get; set; } = default!;
 
 	/// <summary>
-	/// <para>When <c>true</c>, a new user will be created and a <c>user_id</c> will be returned. Otherwise, a legacy user will be created and a <c>user_token</c> will be returned.</para>
+	/// <para>If your integration with the User API predates December 10, 2025, set this field to <c>true</c> to opt into the <a href="https://plaid.com/docs/api/users/user-apis/">new User API</a>. When enabled, you can use the <c>identity</c> field instead of <c>consumer_report_user_identity</c>.</para>
 	/// </summary>
 	[JsonPropertyName("with_upgraded_user")]
 	public bool? WithUpgradedUser { get; set; } = default!;

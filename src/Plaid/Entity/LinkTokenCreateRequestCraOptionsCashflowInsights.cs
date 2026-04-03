@@ -6,14 +6,7 @@ namespace Going.Plaid.Entity;
 public class LinkTokenCreateRequestCraOptionsCashflowInsights
 {
 	/// <summary>
-	/// <para>The version of the Check Score. New integrations should use <c>/cra/check_report/lend_score/get</c> and the LendScore instead.</para>
-	/// </summary>
-	[JsonPropertyName("plaid_check_score_version")]
-	[Obsolete]
-	public Entity.PlaidCheckScoreVersion? PlaidCheckScoreVersion { get; set; } = default!;
-
-	/// <summary>
-	/// <para>The version of cashflow attributes</para>
+	/// <para>The version of cashflow attributes. Required if using Cash Flow Insights.</para>
 	/// </summary>
 	[JsonPropertyName("attributes_version")]
 	public Entity.CashflowAttributesVersion? AttributesVersion { get; set; } = default!;

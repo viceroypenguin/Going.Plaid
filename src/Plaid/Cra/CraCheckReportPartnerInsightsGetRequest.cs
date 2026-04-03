@@ -24,6 +24,12 @@ public partial class CraCheckReportPartnerInsightsGetRequest : RequestBase
 	public string? UserToken { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The tier of the user.</para>
+	/// </summary>
+	[JsonPropertyName("user_tier")]
+	public Entity.CraUserTier? UserTier { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Defines configuration to generate Partner Insights</para>
 	/// </summary>
 	[JsonPropertyName("partner_insights")]
