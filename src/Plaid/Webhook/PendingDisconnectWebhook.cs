@@ -31,4 +31,10 @@ public record PendingDisconnectWebhook : WebhookBase
 	[JsonPropertyName("reason")]
 	public Entity.PendingDisconnectWebhookReason Reason { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The date and time at which the Item is scheduled to disconnect, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</para>
+	/// </summary>
+	[JsonPropertyName("disconnect_time")]
+	public DateTimeOffset DisconnectTime { get; init; } = default!;
+
 }

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The details for the newly created end customer, including secrets for Sandbox and Limited Production.</para>
+/// <para>The details for the newly created end customer, including secrets for non-Production environments.</para>
 /// </summary>
 public record PartnerEndCustomerWithSecrets
 {

@@ -6,10 +6,10 @@ namespace Going.Plaid.Entity;
 public record BusinessKYBMatchDetails
 {
 	/// <summary>
-	/// <para>The business name from the data provider</para>
+	/// <para>Names associated with the business.</para>
 	/// </summary>
-	[JsonPropertyName("name")]
-	public string? Name { get; init; } = default!;
+	[JsonPropertyName("names")]
+	public IReadOnlyList<Entity.ProviderBusinessName> Names { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The legal structure or type of business entity</para>

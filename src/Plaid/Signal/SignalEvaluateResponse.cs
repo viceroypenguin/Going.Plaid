@@ -12,7 +12,7 @@ public record SignalEvaluateResponse : ResponseBase
 	public Entity.SignalEvaluateScores? Scores { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The core attributes object contains additional data that can be used to assess the ACH return risk. </para>
+	/// <para>The core attributes object contains additional data that can be used to assess the ACH return risk.</para>
 	/// <para>If using a Balance-only ruleset, only <c>available_balance</c> and <c>current_balance</c> will be returned as core attributes. If using a Signal Transaction Scores ruleset, over 80 core attributes will be returned. Examples of attributes include:</para>
 	/// <para><c>available_balance</c> and <c>current_balance</c>: The balance in the ACH transaction funding account</para>
 	/// <para><c>days_since_first_plaid_connection</c>: The number of days since the first time the Item was connected to an application via Plaid</para>

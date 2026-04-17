@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Represents a calculate Trust Index Score.</para>
+/// <para>Represents a calculated Trust Index Score.</para>
 /// </summary>
 public record TrustIndex
 {

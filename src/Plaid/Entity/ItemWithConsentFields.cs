@@ -84,7 +84,7 @@ public record ItemWithConsentFields
 	public DateTimeOffset? CreatedAt { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of use cases that the user has consented to for the Item via <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency Messaging</a>. </para>
+	/// <para>A list of use cases that the user has consented to for the Item via <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide">Data Transparency Messaging</a>.</para>
 	/// <para>You can see the full list of use cases or update the list of use cases to request at any time via the Link Customization section of the <a href="https://dashboard.plaid.com/link/data-transparency-v5">Plaid Dashboard</a>.</para>
 	/// </summary>
 	[JsonPropertyName("consented_use_cases")]

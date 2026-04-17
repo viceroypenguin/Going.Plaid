@@ -17,4 +17,10 @@ public record CraPartnerInsightsFicoResults
 	[JsonPropertyName("ultrafico_score_results")]
 	public IReadOnlyList<Entity.CraPartnerInsightsUltraFicoScoreResult> UltraficoScoreResults { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Report characteristics returned by FICO describing the banking data used to generate the UltraFICO score.</para>
+	/// </summary>
+	[JsonPropertyName("report_characteristics")]
+	public Entity.CraPartnerInsightsFicoReportCharacteristics? ReportCharacteristics { get; init; } = default!;
+
 }

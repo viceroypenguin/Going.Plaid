@@ -23,4 +23,10 @@ public class LinkTokenCreateRequestCraOptionsBaseReport
 	[JsonPropertyName("require_identity")]
 	public bool? RequireIdentity { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Options for configuring Home Lending Report (Verification Report) generation.</para>
+	/// </summary>
+	[JsonPropertyName("home_lending_report_options")]
+	public Entity.CraCheckReportHomeLendingReportOptions? HomeLendingReportOptions { get; set; } = default!;
+
 }

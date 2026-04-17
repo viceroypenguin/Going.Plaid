@@ -20,6 +20,12 @@ public enum CraPartnerInsightsBaseFicoScoreVersion
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "10")]
+	_10,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "10T")]
 	_10t,
 

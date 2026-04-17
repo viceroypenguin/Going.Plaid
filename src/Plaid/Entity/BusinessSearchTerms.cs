@@ -12,6 +12,12 @@ public record BusinessSearchTerms
 	public string? Name { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Alternative business names that were submitted as search inputs.</para>
+	/// </summary>
+	[JsonPropertyName("alternative_names")]
+	public IReadOnlyList<string> AlternativeNames { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Physical address of a business. Used for response schemas.</para>
 	/// </summary>
 	[JsonPropertyName("address")]

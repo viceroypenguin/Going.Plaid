@@ -23,4 +23,10 @@ public record BetaEwaReportV1GetResponse : ResponseBase
 	[JsonPropertyName("ewa_scores")]
 	public IReadOnlyList<Entity.EwaScore>? EwaScores { get; init; } = default!;
 
+	/// <summary>
+	/// <para>A set of attributes providing context about the factors that contributed to the EWA scores. Each key is the attribute name and the value is its numeric score, or null if the attribute could not be computed.</para>
+	/// </summary>
+	[JsonPropertyName("ewa_attributes")]
+	public IReadOnlyDictionary<string, decimal>? EwaAttributes { get; init; } = default!;
+
 }

@@ -52,7 +52,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<AssetReport.AssetReportRemoveResponse>();
 
 	/// <summary>
-	/// <para>Plaid can provide an Audit Copy of any Asset Report directly to a participating third party on your behalf. For example, Plaid can supply an Audit Copy directly to Fannie Mae on your behalf if you participate in the Day 1 Certainty™ program. An Audit Copy contains the same underlying data as the Asset Report.</para>
+	/// <para>Plaid can provide an Audit Copy of any Asset Report directly to a participating third party on your behalf. For example, Plaid can supply an Audit Copy directly to the GSEs on your behalf if you participate in Fannie Mae's Day 1 Certainty™ program or utilize Freddie Mac’s Loan Product Advisor® (LPA®) Asset and Income Modeler (AIM). An Audit Copy contains the same underlying data as the Asset Report.</para>
 	/// <para>To grant access to an Audit Copy, use the <c>/asset_report/audit_copy/create</c> endpoint to create an <c>audit_copy_token</c> and then pass that token to the third party who needs access. Each third party has its own <c>auditor_id</c>, for example <c>fannie_mae</c>. You’ll need to create a separate Audit Copy for each third party to whom you want to grant access to the Report.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#asset_reportaudit_copycreate" /></remarks>

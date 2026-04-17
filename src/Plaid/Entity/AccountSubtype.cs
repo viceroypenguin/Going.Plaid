@@ -36,6 +36,12 @@ public enum AccountSubtype
 	Hsa,
 
 	/// <summary>
+	/// <para>A checking account that is limited in its purpose or usage</para>
+	/// </summary>
+	[EnumMember(Value = "limited purpose checking")]
+	LimitedPurposeChecking,
+
+	/// <summary>
 	/// <para>Money market account</para>
 	/// </summary>
 	[EnumMember(Value = "money market")]

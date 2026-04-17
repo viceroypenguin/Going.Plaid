@@ -12,6 +12,12 @@ public class BusinessVerificationCreateRequestBusiness
 	public string? Name { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The name of the business. Must have at least one character and a maximum length of 500 characters.</para>
+	/// </summary>
+	[JsonPropertyName("alternative_name")]
+	public string? AlternativeName { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Physical address of a business. Used for input requests.</para>
 	/// </summary>
 	[JsonPropertyName("address")]

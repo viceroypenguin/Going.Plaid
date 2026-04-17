@@ -12,7 +12,7 @@ public record LinkSessionProtectResult
 	public string EventId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Represents a calculate Trust Index Score.</para>
+	/// <para>Represents a calculated Trust Index Score.</para>
 	/// </summary>
 	[JsonPropertyName("trust_index")]
 	public Entity.TrustIndex? TrustIndex { get; init; } = default!;

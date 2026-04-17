@@ -42,6 +42,30 @@ public record CraPartnerInsightsUltraFicoScore
 	public string? ReasonCode4 { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The first positive reason code associated with the score.</para>
+	/// </summary>
+	[JsonPropertyName("positive_reason_code_1")]
+	public string? PositiveReasonCode1 { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The second positive reason code associated with the score.</para>
+	/// </summary>
+	[JsonPropertyName("positive_reason_code_2")]
+	public string? PositiveReasonCode2 { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The third positive reason code associated with the score.</para>
+	/// </summary>
+	[JsonPropertyName("positive_reason_code_3")]
+	public string? PositiveReasonCode3 { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The fourth positive reason code associated with the score.</para>
+	/// </summary>
+	[JsonPropertyName("positive_reason_code_4")]
+	public string? PositiveReasonCode4 { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Whether inquiries adversely affected the score but were not represented in one of the four reason codes. Sometimes referred to as the FACTA Flag.</para>
 	/// </summary>
 	[JsonPropertyName("did_inquiries_adversely_affect_score")]

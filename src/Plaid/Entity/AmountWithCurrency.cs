@@ -6,8 +6,8 @@ namespace Going.Plaid.Entity;
 public record AmountWithCurrency
 {
 	/// <summary>
-	/// <para>If the parent object represents a category of transactions, such as <c>total_amount</c>, <c>transfers_in</c>, <c>total_income</c>, etc. the <c>amount</c> represents the sum of all of the transactions in the group. </para>
-	/// <para>If the parent object is <c>cash_flow</c>, the <c>amount</c> represents the total value of all the inflows minus all the outflows across all the accounts in the report in the given time window. </para>
+	/// <para>If the parent object represents a category of transactions, such as <c>total_amount</c>, <c>transfers_in</c>, <c>total_income</c>, etc. the <c>amount</c> represents the sum of all of the transactions in the group.</para>
+	/// <para>If the parent object is <c>cash_flow</c>, the <c>amount</c> represents the total value of all the inflows minus all the outflows across all the accounts in the report in the given time window.</para>
 	/// <para>If the parent object is <c>minimum_balance</c>, the <c>amount</c> represents the lowest balance of the account during the given time window.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]

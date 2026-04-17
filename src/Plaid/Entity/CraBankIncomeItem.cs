@@ -14,11 +14,17 @@ public record CraBankIncomeItem
 	/// <summary>
 	/// <para>The Item's accounts that have bank income data.</para>
 	/// </summary>
+	[JsonPropertyName("accounts")]
+	public IReadOnlyList<Entity.CraBankIncomeAccount>? Accounts { get; init; } = default!;
+
+	/// <summary>
+	/// <para>This is a V1 (II1) field. For the V2 (II2) equivalent, use the <c>accounts</c> field. The Item's accounts that have bank income data.</para>
+	/// </summary>
 	[JsonPropertyName("bank_income_accounts")]
 	public IReadOnlyList<Entity.CraBankIncomeAccount> BankIncomeAccounts { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The income sources for this Item. Each entry in the array is a single income source.</para>
+	/// <para>This is a V1 (II1) field. For the V2 (II2) equivalent, use the report-level <c>income_streams</c> field. The income sources for this Item. Each entry in the array is a single income source.</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_sources")]
 	public IReadOnlyList<Entity.CraBankIncomeSource> BankIncomeSources { get; init; } = default!;

@@ -60,6 +60,12 @@ public enum DepositoryAccountSubtype
 	Ebt,
 
 	/// <summary>
+	/// <para>A checking account that is limited in its purpose or usage</para>
+	/// </summary>
+	[EnumMember(Value = "limited purpose checking")]
+	LimitedPurposeChecking,
+
+	/// <summary>
 	/// <para>Allow all of the above subtypes</para>
 	/// </summary>
 	[EnumMember(Value = "all")]

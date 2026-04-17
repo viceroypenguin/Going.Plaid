@@ -23,4 +23,10 @@ public partial class CraCheckReportIncomeInsightsGetRequest : RequestBase
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Defines configuration options to generate Income Insights.</para>
+	/// </summary>
+	[JsonPropertyName("options")]
+	public Entity.CraCheckReportIncomeInsightsGetOptions? Options { get; set; } = default!;
+
 }

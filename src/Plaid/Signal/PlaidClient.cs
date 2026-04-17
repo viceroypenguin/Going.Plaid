@@ -4,7 +4,7 @@ public sealed partial class PlaidClient
 {
 	/// <summary>
 	/// <para>Use <c>/signal/evaluate</c> to evaluate a planned ACH transaction to get a return risk assessment and additional risk signals.</para>
-	/// <para>Before using <c>/signal/evaluate</c>, you must first <a href="https://plaid.com/docs/signal/signal-rules/">create a ruleset</a> in the Dashboard under <a href="https://dashboard.plaid.com/signal/risk-profiles">**Signal->Rules**</a>. </para>
+	/// <para>Before using <c>/signal/evaluate</c>, you must first <a href="https://plaid.com/docs/signal/signal-rules/">create a ruleset</a> in the Dashboard under <a href="https://dashboard.plaid.com/signal/risk-profiles">**Signal->Rules**</a>.</para>
 	/// <para><c>/signal/evaluate</c> can be used with either Signal Transaction Scores or the Balance product. Which product is used will be determined by the <c>ruleset_key</c> that you provide. For more details, see <a href="https://plaid.com/docs/signal/signal-rules/">Signal Rules</a>.</para>
 	/// <para>Note: This request may have higher latency when using a Balance-only ruleset. This is because Plaid must communicate directly with the institution to request data. Balance-only rulesets may have latency of up to 30 seconds or more; if you encounter errors, you may find it necessary to adjust your timeout period when making requests.</para>
 	/// </summary>
@@ -41,7 +41,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>When an Item is not initialized with <c>signal</c>, call <c>/signal/prepare</c> to opt-in that Item to the data collection process used to develop a Signal Transaction Score. This should be done on Items where <c>signal</c> was added in the <c>additional_consented_products</c> array but not in the <c>products</c>, <c>optional_products</c>, or <c>required_if_supported_products</c> array. If <c>/signal/prepare</c> is skipped on an Item that is not initialized with <c>signal</c>, the initial call to <c>/signal/evaluate</c> on that Item will be less accurate, because Plaid will have access to less data for computing the Signal Transaction Score.</para>
-	/// <para>If your integration is purely Balance-only, this endpoint will have no effect, as Balance-only rulesets do not calculate a Signal Transaction Score. </para>
+	/// <para>If your integration is purely Balance-only, this endpoint will have no effect, as Balance-only rulesets do not calculate a Signal Transaction Score.</para>
 	/// <para>If run on an Item that is already initialized with <c>signal</c>, this endpoint will return a 200 response and will not modify the Item.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/signal#signalprepare" /></remarks>

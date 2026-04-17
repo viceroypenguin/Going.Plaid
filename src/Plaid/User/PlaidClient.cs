@@ -29,9 +29,9 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>For Plaid products and flows that use the user object, <c>/user/create</c> provides you a single token to access all data associated with the user. You must call this endpoint before calling <c>/link/token/create</c> if you are using any of the following: Plaid Check, Income Verification, Multi-Item Link, or Plaid Protect (Identity). If you are using Plaid Protect Link session scoring, you do not need to call <c>/user/create</c> first; Plaid will resolve or create the user when <c>user.client_user_id</c> is provided in <c>/link/token/create</c>.</para>
 	/// <para>For customers who began using this endpoint on or after December 10, 2025, this endpoint takes a <c>client_user_id</c> and an <c>identity</c> object and will return a <c>user_id</c>. For customers who began using it before that date, the endpoint takes a <c>client_user_id</c> and a <c>consumer_report_user_identity</c> object and will return a <c>user_token</c> and <c>user_id</c>. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>.</para>
-	/// <para>In order to create a Plaid Check Consumer Report for a user, the <c>identity</c> (new) or <c>consumer_report_user_identity</c> (legacy) object must be present. If it is not provided during the <c>/user/create</c> call, it can be added later by calling <c>/user/update</c>. </para>
+	/// <para>In order to create a Plaid Check Consumer Report for a user, the <c>identity</c> (new) or <c>consumer_report_user_identity</c> (legacy) object must be present. If it is not provided during the <c>/user/create</c> call, it can be added later by calling <c>/user/update</c>.</para>
 	/// <para>In order to generate a Plaid Check Consumer Report, the following <c>identity</c> fields, at minimum, are required and must be non-empty: <c>name</c>, <c>date_of_birth</c>, <c>emails</c>, <c>phone_numbers</c>, and <c>addresses</c>, (with at least one email, phone number, and address designated as <c>primary</c>). Plaid Check Consumer Reports can only be created for US-based users; the user's address country must be <c>US</c>. If creating a report for sharing with a GSE such as Fannie or Freddie, the user's full SSN must be provided via the <c>id_numbers</c> field. Providing at least a partial SSN is also strongly recommended for all use cases, since it improves the accuracy of matching user records during compliance processes such as file disclosure, dispute, or security freeze requests.</para>
-	/// <para>When using Plaid Protect, it is highly recommended that you provide an <c>identity</c> object to better identify and block fraud across your Link sessions. </para>
+	/// <para>When using Plaid Protect, it is highly recommended that you provide an <c>identity</c> object to better identify and block fraud across your Link sessions.</para>
 	/// <para>Plaid will normalize identity fields before storing them and utilize the same identity across different user-based products.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#usercreate" /></remarks>
@@ -56,7 +56,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserIdentityRemoveResponse>();
 
 	/// <summary>
-	/// <para>This endpoint updates user information for an existing <c>user_id</c> or <c>user_token</c>. If an existing <c>user_id</c> or <c>user_token</c> is missing fields required for a given use case (e.g. creating a Consumer Report) use <c>/user/update</c> to add values for those fields. </para>
+	/// <para>This endpoint updates user information for an existing <c>user_id</c> or <c>user_token</c>. If an existing <c>user_id</c> or <c>user_token</c> is missing fields required for a given use case (e.g. creating a Consumer Report) use <c>/user/update</c> to add values for those fields.</para>
 	/// <para>Identity updates use merge semantics: provided fields overwrite existing ones; omitted fields remain unchanged.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userupdate" /></remarks>

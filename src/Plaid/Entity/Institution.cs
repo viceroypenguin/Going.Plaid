@@ -36,7 +36,7 @@ public record Institution
 	public string? Url { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Hexadecimal representation of the primary color used by the institution</para>
+	/// <para>Hexadecimal representation of the primary color used by the institution. If Plaid does not have primary color data for the institution, this field will be a deterministically generated fallback color.</para>
 	/// </summary>
 	[JsonPropertyName("primary_color")]
 	public string? PrimaryColor { get; init; } = default!;

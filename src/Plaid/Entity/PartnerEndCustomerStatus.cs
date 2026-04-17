@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum PartnerEndCustomerStatus
 {
 	/// <summary>
-	/// <para>The end customer has been created and enabled in Sandbox and Limited Production. The end customer must be manually reviewed by the Plaid team before it can be enabled in full production, at which point its status will automatically transition to <c>PENDING_ENABLEMENT</c> or <c>DENIED</c>.</para>
+	/// <para>The end customer has been created and enabled in the Sandbox environment. The end customer must be manually reviewed by the Plaid team before it can be enabled in Production, at which point its status will automatically transition to <c>PENDING_ENABLEMENT</c> or <c>DENIED</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "UNDER_REVIEW")]
 	UnderReview,
@@ -24,7 +24,7 @@ public enum PartnerEndCustomerStatus
 	Active,
 
 	/// <summary>
-	/// <para>The end customer has been created and enabled in Sandbox and Limited Production, but it did not pass review by the Plaid team and therefore cannot be enabled for full Production access. Talk to your Account Manager for more information.</para>
+	/// <para>The end customer has been created and enabled in the Sandbox environment, but it did not pass review by the Plaid team and therefore cannot be enabled for Production access. Talk to your Account Manager for more information.</para>
 	/// </summary>
 	[EnumMember(Value = "DENIED")]
 	Denied,

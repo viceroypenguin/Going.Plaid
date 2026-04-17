@@ -11,4 +11,10 @@ public class DepositoryFilter
 	[JsonPropertyName("account_subtypes")]
 	public IReadOnlyList<Entity.DepositoryAccountSubtype> AccountSubtypes { get; set; } = default!;
 
+	/// <summary>
+	/// <para>An array of limited purpose types. When set, it will restrict which kinds of limited purpose checking accounts may be connected in Link. Only applicable when 'limited purpose checking' is in the subtypes filter.</para>
+	/// </summary>
+	[JsonPropertyName("limited_purpose_types")]
+	public IReadOnlyList<Entity.LimitedPurposeType>? LimitedPurposeTypes { get; set; } = default!;
+
 }

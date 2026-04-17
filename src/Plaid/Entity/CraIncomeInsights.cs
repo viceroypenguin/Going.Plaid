@@ -36,7 +36,19 @@ public record CraIncomeInsights
 	public IReadOnlyList<Entity.CraBankIncomeItem>? Items { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Summary for income across all income sources and items (max history of 730 days).</para>
+	/// <para>Aggregated summary of all income streams for this user.</para>
+	/// </summary>
+	[JsonPropertyName("user_summary")]
+	public Entity.CraIncomeInsightsUserSummary? UserSummary { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The list of income streams for this user.</para>
+	/// </summary>
+	[JsonPropertyName("income_streams")]
+	public IReadOnlyList<Entity.CraIncomeStream>? IncomeStreams { get; init; } = default!;
+
+	/// <summary>
+	/// <para>This is a V1 (II1) schema. For the V2 (II2) equivalent, use <c>CraIncomeInsightsUserSummary</c>. Summary for income across all income sources and items (max history of 730 days).</para>
 	/// </summary>
 	[JsonPropertyName("bank_income_summary")]
 	public Entity.CraBankIncomeSummary? BankIncomeSummary { get; init; } = default!;

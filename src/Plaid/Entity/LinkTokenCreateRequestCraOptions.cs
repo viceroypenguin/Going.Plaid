@@ -59,4 +59,10 @@ public class LinkTokenCreateRequestCraOptions
 	[JsonPropertyName("include_investments")]
 	public bool? IncludeInvestments { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Specifies options for initializing Link for use with the CRA Income Insights product.</para>
+	/// </summary>
+	[JsonPropertyName("income_insights")]
+	public Entity.LinkTokenCreateRequestCraOptionsIncomeInsights? IncomeInsights { get; set; } = default!;
+
 }
