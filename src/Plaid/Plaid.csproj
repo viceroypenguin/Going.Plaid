@@ -27,7 +27,7 @@
 	<PropertyGroup>
 		<Copyright>
 			Copyright © 2016-2020 Ackara (and others)
-			Copyright © 2020-2024 Turning Code, LLC (and others)
+			Copyright © 2020-2026 Turning Code, LLC (and others)
 		</Copyright>
 		<Copyright>$([System.Text.RegularExpressions.Regex]::Replace($(Copyright), `\s+`, ` `).Trim())</Copyright>
 	</PropertyGroup>
