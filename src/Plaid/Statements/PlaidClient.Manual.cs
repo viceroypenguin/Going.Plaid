@@ -1,0 +1,12 @@
+namespace Going.Plaid;
+
+public sealed partial class PlaidClient
+{
+	/// <summary>
+	/// <para>The <c>/statements/download</c> endpoint retrieves a single statement PDF in binary format.  The response will contain a <c>Plaid-Content-Hash</c> header containing a SHA 256 checksum of the statement. This can be used to verify that the file being sent by Plaid is the same file that was downloaded to your system.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/statements#statementsdownload" /></remarks>
+	public Task<FileResponse> StatementsDownloadAsync(Statements.StatementsDownloadRequest request) =>
+		PostAsync("/statements/download", request)
+			.ParseFileResponseAsync();
+}
