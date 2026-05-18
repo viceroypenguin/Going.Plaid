@@ -16,7 +16,7 @@
 	<PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="$(Net10PackageVersion)" />
 	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.5.1" />
 	<PackageVersion Include="Microsoft.OpenApi.Readers" Version="1.6.29" />
-	<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="[10.0.103]" />
+	<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="[10.0.300]" />
 	<PackageVersion Include="MinVer" Version="7.0.0" />
 	<PackageVersion Include="Scriban" Version="7.2.0" />
 	<PackageVersion Include="xunit" Version="2.9.3" />
