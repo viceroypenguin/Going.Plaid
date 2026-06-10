@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Webhook containing metadata proxied over from Link callback e.g <c>onEvent</c>, <c>onExit</c>, <c>onSuccess</c>.</para>
+/// <para>Webhook containing metadata proxied over from Link callback e.g. <c>onEvent</c>, <c>onExit</c>, <c>onSuccess</c>.</para>
 /// </summary>
 public record LinkDeliveryCallbackWebhook : WebhookBase
 {

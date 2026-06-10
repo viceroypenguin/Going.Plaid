@@ -24,13 +24,13 @@ public enum CounterpartyType
 	PaymentApp,
 
 	/// <summary>
-	/// <para>a marketplace (e.g DoorDash, Google Play Store)</para>
+	/// <para>a marketplace (e.g. DoorDash, Google Play Store)</para>
 	/// </summary>
 	[EnumMember(Value = "marketplace")]
 	Marketplace,
 
 	/// <summary>
-	/// <para>a point-of-sale payment terminal (e.g Square, Toast)</para>
+	/// <para>a point-of-sale payment terminal (e.g. Square, Toast)</para>
 	/// </summary>
 	[EnumMember(Value = "payment_terminal")]
 	PaymentTerminal,

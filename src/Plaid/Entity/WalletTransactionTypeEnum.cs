@@ -48,6 +48,18 @@ public enum WalletTransactionTypeEnum
 	Recall,
 
 	/// <summary>
+	/// <para>an incoming transfer from an allowlisted account. Not automatically refunded.</para>
+	/// </summary>
+	[EnumMember(Value = "ACCOUNT_FUNDING")]
+	AccountFunding,
+
+	/// <summary>
+	/// <para>an outgoing refund automatically initiated by Plaid in response to an unexpected <c>BANK_TRANSFER</c>.</para>
+	/// </summary>
+	[EnumMember(Value = "AUTO_REFUND")]
+	AutoRefund,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

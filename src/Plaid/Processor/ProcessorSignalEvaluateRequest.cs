@@ -36,7 +36,7 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	public string? ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>**true** if the ACH transaction is a recurring transaction; **false** otherwise</para>
+	/// <para>**true** if the ACH transaction is a recurring transaction; **false** otherwise.</para>
 	/// </summary>
 	[JsonPropertyName("is_recurring")]
 	public bool? IsRecurring { get; set; } = default!;
@@ -44,8 +44,8 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	/// <summary>
 	/// <para>The default ACH or non-ACH payment method to complete the transaction.</para>
 	/// <para><c>SAME_DAY_ACH</c>: Same Day ACH by Nacha. The debit transaction is processed and settled on the same day.</para>
-	/// <para><c>STANDARD_ACH</c>: standard ACH by Nacha.</para>
-	/// <para><c>MULTIPLE_PAYMENT_METHODS</c>: if there is no default debit rail or there are multiple payment methods.</para>
+	/// <para><c>STANDARD_ACH</c>: Standard ACH by Nacha.</para>
+	/// <para><c>MULTIPLE_PAYMENT_METHODS</c>: If there is no default debit rail or there are multiple payment methods.</para>
 	/// <para>Possible values:  <c>SAME_DAY_ACH</c>, <c>STANDARD_ACH</c>, <c>MULTIPLE_PAYMENT_METHODS</c></para>
 	/// </summary>
 	[JsonPropertyName("default_payment_method")]

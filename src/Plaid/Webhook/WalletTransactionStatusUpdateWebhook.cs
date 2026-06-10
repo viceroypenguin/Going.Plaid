@@ -44,6 +44,12 @@ public record WalletTransactionStatusUpdateWebhook : WebhookBase
 	public Entity.WalletTransactionStatus OldStatus { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The error code of a failed transaction. Error codes include:</para>
+	/// </summary>
+	[JsonPropertyName("failure_reason")]
+	public Entity.WalletTransactionFailureReason? FailureReason { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The timestamp of the update, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format, e.g. <c>"2017-09-14T14:42:19.350Z"</c></para>
 	/// </summary>
 	[JsonPropertyName("timestamp")]

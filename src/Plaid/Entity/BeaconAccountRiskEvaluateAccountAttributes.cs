@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 /// <para><c>plaid_connections_count_7d</c>: The number of times the Item has been connected to applications via Plaid over the past 7 days</para>
 /// <para><c>plaid_connections_count_30d</c>: The number of times the Item has been connected to applications via Plaid over the past 30 days</para>
 /// <para><c>total_plaid_connections_count</c>: The number of times the Item has been connected to applications via Plaid</para>
-/// <para>For the full list and detailed documentation of core attributes available, or to request that core attributes not be returned, contact Sales or your Plaid account manager</para>
+/// <para>For the full list and detailed documentation of core attributes available, or to request that core attributes not be returned, contact sales or your Plaid account manager</para>
 /// </summary>
 public record BeaconAccountRiskEvaluateAccountAttributes
 {

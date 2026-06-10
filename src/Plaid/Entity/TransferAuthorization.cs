@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record TransferAuthorization
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer authorization.</para>
+	/// <para>Plaid's unique identifier for a transfer authorization.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
 	public string Id { get; init; } = default!;
@@ -42,7 +42,7 @@ public record TransferAuthorization
 	public Entity.TransferAuthorizationGuaranteeDecisionRationale? GuaranteeDecisionRationale { get; init; } = default!;
 
 	/// <summary>
-	/// <para>This object includes the scores and risk level. This response is offered as an add-on to /transfer/authorization/create. To request access to these fields please contact your Plaid account manager.</para>
+	/// <para>This object includes the scores and risk level. This response is offered as an add-on to <c>/transfer/authorization/create</c>. To request access to these fields, please contact your Plaid account manager.</para>
 	/// </summary>
 	[JsonPropertyName("payment_risk")]
 	[Obsolete]

@@ -12,7 +12,7 @@ public record AccountInsights
 	public Entity.RiskIndicators? Risk { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Affordability insights focus on providing signal on the ability of a borrower to repay their loan without experiencing financial strain. It provides insights on factors such a user's monthly income and expenses, disposable income, average expenditure, etc., helping lenders gauge the level of affordability of a borrower.</para>
+	/// <para>Affordability insights focus on providing signal on the ability of a borrower to repay their loan without experiencing financial strain. It provides insights on factors such as a user's monthly income and expenses, disposable income, average expenditure, etc., helping lenders gauge the level of affordability of a borrower.</para>
 	/// </summary>
 	[JsonPropertyName("affordability")]
 	public Entity.AffordabilityInsights? Affordability { get; init; } = default!;

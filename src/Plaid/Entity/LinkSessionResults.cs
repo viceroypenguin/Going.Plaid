@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record LinkSessionResults
 {
 	/// <summary>
-	/// <para>The set of Item adds for the Link session. If you are not receiving this field and are instead receiving the deprecated <c>on_success</c> field, contact your Account Manager to update your integration.</para>
+	/// <para>The set of Item adds for the Link session. If you are not receiving this field and are instead receiving the deprecated <c>on_success</c> field, contact your account manager to update your integration.</para>
 	/// </summary>
 	[JsonPropertyName("item_add_results")]
 	public IReadOnlyList<Entity.LinkSessionItemAddResult> ItemAddResults { get; init; } = default!;
@@ -46,11 +46,5 @@ public record LinkSessionResults
 	/// </summary>
 	[JsonPropertyName("cra_document_upload_results")]
 	public Entity.LinkSessionCraDocumentUploadResult? CraDocumentUploadResults { get; init; } = default!;
-
-	/// <summary>
-	/// <para>Plaid Protect details from the Link session</para>
-	/// </summary>
-	[JsonPropertyName("protect_results")]
-	public Entity.LinkSessionProtectResult? ProtectResults { get; init; } = default!;
 
 }

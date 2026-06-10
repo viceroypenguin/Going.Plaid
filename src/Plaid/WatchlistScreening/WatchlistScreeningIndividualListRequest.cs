@@ -1,7 +1,7 @@
 namespace Going.Plaid.WatchlistScreening;
 
 /// <summary>
-/// <para>Request input for listinging watchlist screenings for individuals</para>
+/// <para>Request input for listing watchlist screenings for individuals</para>
 /// </summary>
 public partial class WatchlistScreeningIndividualListRequest : RequestBase
 {
@@ -24,7 +24,7 @@ public partial class WatchlistScreeningIndividualListRequest : RequestBase
 	public Entity.WatchlistScreeningStatus? Status { get; set; } = default!;
 
 	/// <summary>
-	/// <para>ID of the associated user. To retrieve the email address or other details of the person corresponding to this id, use <c>/dashboard_user/get</c>.</para>
+	/// <para>ID of the associated user. To retrieve the email address or other details of the person corresponding to this ID, use <c>/dashboard_user/get</c>.</para>
 	/// </summary>
 	[JsonPropertyName("assignee")]
 	public string? Assignee { get; set; } = default!;

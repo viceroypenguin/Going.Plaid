@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when the Check Report are ready to be retrieved. Once this webhook has fired, the report will be available to retrieve for 24 hours.</para>
+/// <para>Fired when the Check Report is ready to be retrieved. Once this webhook has fired, the report will be available to retrieve for 24 hours.</para>
 /// </summary>
 public record CraUserCheckReportReadyWebhook : WebhookBase
 {
@@ -14,7 +14,7 @@ public record CraUserCheckReportReadyWebhook : WebhookBase
 	public override WebhookCode WebhookCode => WebhookCode.UserCheckReportReady;
 
 	/// <summary>
-	/// <para>The <c>user_id</c> associated with the user whose data is being requested. This is received by calling <c>user/create</c>.</para>
+	/// <para>The <c>user_id</c> associated with the user whose data is being requested. This is received by calling <c>/user/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string UserId { get; init; } = default!;

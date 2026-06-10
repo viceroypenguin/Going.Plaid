@@ -48,7 +48,7 @@ public partial class TransferIntentCreateRequest : RequestBase
 	public Entity.AchClass? AchClass { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the origination account for the intent. If not provided, the default account will be used.</para>
+	/// <para>Plaid's unique identifier for the origination account for the intent. If not provided, the default account will be used.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	[Obsolete]

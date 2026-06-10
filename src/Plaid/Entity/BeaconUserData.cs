@@ -44,7 +44,7 @@ public record BeaconUserData
 	public Entity.BeaconUserIDNumber? IdNumber { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An IPv4 or IPV6 address.</para>
+	/// <para>An IPv4 or IPv6 address.</para>
 	/// </summary>
 	[JsonPropertyName("ip_address")]
 	public string? IpAddress { get; init; } = default!;

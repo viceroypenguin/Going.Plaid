@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record BankTransfer
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a bank transfer.</para>
+	/// <para>Plaid's unique identifier for a bank transfer.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
 	public string Id { get; init; } = default!;
@@ -101,7 +101,7 @@ public record BankTransfer
 	public IReadOnlyDictionary<string, string>? Metadata { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the origination account that was used for this transfer.</para>
+	/// <para>Plaid's unique identifier for the origination account that was used for this transfer.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	public string OriginationAccountId { get; init; } = default!;

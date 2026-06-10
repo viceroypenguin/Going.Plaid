@@ -60,6 +60,18 @@ public record RiskCheckEmail
 	public Entity.RiskCheckEmailTopLevelDomainIsSuspicious TopLevelDomainIsSuspicious { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Indicates whether the email address domain is an educational institution domain if known.</para>
+	/// </summary>
+	[JsonPropertyName("is_edu")]
+	public Entity.RiskCheckEmailIsEdu IsEdu { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates whether the email address includes the date of birth or year of birth if known.</para>
+	/// </summary>
+	[JsonPropertyName("includes_date_of_birth")]
+	public Entity.RiskCheckEmailIncludesDateOfBirth IncludesDateOfBirth { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A list of online services where this email address has been detected to have accounts or other activity.</para>
 	/// </summary>
 	[JsonPropertyName("linked_services")]

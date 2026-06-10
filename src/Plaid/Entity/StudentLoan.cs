@@ -92,7 +92,7 @@ public record StudentLoan
 	public decimal? MinimumPaymentAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The due date for the next payment. The due date is <c>null</c> if a payment is not expected. A payment is not expected if <c>loan_status.type</c> is <c>deferment</c>, <c>in_school</c>, <c>consolidated</c>, <c>paid in full</c>, or <c>transferred</c>. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
+	/// <para>The due date for the next payment. The due date is <c>null</c> if a payment is not expected. A payment is not expected if <c>loan_status.type</c> is <c>deferment</c>, <c>in school</c>, <c>consolidated</c>, <c>paid in full</c>, or <c>transferred</c>. Dates are returned in an <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("next_payment_due_date")]
 	public DateOnly? NextPaymentDueDate { get; init; } = default!;

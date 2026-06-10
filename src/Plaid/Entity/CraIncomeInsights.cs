@@ -45,7 +45,7 @@ public record CraIncomeInsights
 	/// <para>The list of income streams for this user.</para>
 	/// </summary>
 	[JsonPropertyName("income_streams")]
-	public IReadOnlyList<Entity.CraIncomeStream>? IncomeStreams { get; init; } = default!;
+	public IReadOnlyList<Entity.CraIncomeStream> IncomeStreams { get; init; } = default!;
 
 	/// <summary>
 	/// <para>This is a V1 (II1) schema. For the V2 (II2) equivalent, use <c>CraIncomeInsightsUserSummary</c>. Summary for income across all income sources and items (max history of 730 days).</para>

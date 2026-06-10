@@ -24,6 +24,18 @@ public enum CreditSessionBankIncomeStatus
 	UserReportedNoIncome,
 
 	/// <summary>
+	/// <para>The user began the bank income portion of the link flow.</para>
+	/// </summary>
+	[EnumMember(Value = "STARTED")]
+	Started,
+
+	/// <summary>
+	/// <para>The user encountered an internal error.</para>
+	/// </summary>
+	[EnumMember(Value = "INTERNAL_ERROR")]
+	InternalError,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

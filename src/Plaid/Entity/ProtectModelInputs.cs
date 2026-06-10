@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Inputs for the Trust Index model. The <c>link</c> field is required for any link session model type.</para>
+/// <para>Inputs required by certain Trust Index models. The <c>link</c> field is required for link-session models. Other model families (including cash-advance) are identified by <c>user</c> alone and do not use this object.</para>
 /// </summary>
 public class ProtectModelInputs
 {

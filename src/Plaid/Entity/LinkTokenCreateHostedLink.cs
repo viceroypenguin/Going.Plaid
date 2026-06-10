@@ -24,7 +24,7 @@ public class LinkTokenCreateHostedLink
 	public int? UrlLifetimeSeconds { get; set; } = default!;
 
 	/// <summary>
-	/// <para>This indicates whether the client is opening hosted Link in a mobile app in an <c>AsWebAuthenticationSession</c> or Chrome custom tab.</para>
+	/// <para>This indicates whether the client is opening Hosted Link in a mobile app in an <c>AsWebAuthenticationSession</c> or Chrome custom tab.</para>
 	/// </summary>
 	[JsonPropertyName("is_mobile_app")]
 	public bool? IsMobileApp { get; set; } = default!;

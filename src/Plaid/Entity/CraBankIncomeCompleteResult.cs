@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum CraBankIncomeCompleteResult
 {
 	/// <summary>
-	/// <para>The bank income report was successfully generated and can be retrieved via <c>/cra/bank_income/get</c>.</para>
+	/// <para>The bank income report was successfully generated and can be retrieved via <c>/credit/bank_income/get</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "SUCCESS")]
 	Success,

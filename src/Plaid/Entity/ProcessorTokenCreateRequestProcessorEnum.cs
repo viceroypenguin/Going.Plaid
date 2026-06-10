@@ -432,6 +432,30 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	Curinos,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "frame")]
+	Frame,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "interchecks")]
+	Interchecks,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "interchange")]
+	Interchange,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "atomicfi")]
+	Atomicfi,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

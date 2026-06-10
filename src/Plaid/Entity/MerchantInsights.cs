@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Insights into a user’s top merchants.</para>
+/// <para>Insights into a user's top merchants.</para>
 /// </summary>
 public record MerchantInsights
 {

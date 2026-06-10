@@ -18,7 +18,7 @@ public enum CheckReportWarningCode
 	TransactionsUnavailable,
 
 	/// <summary>
-	/// <para>The user has placed a fraud alert on their Plaid Check consumer report due to suspected fraud. Please note that when a fraud alert is in place, the recipient of the consumer report has an obligation to verify the consumer’s identity.</para>
+	/// <para>The user has placed a fraud alert on their Plaid Check consumer report due to suspected fraud. Please note that when a fraud alert is in place, the recipient of the consumer report has an obligation to verify the consumer's identity.</para>
 	/// </summary>
 	[EnumMember(Value = "USER_FRAUD_ALERT")]
 	UserFraudAlert,

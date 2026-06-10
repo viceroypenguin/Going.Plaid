@@ -40,8 +40,8 @@ public record Counterparty
 	/// <para><c>VERY_HIGH</c>: We recognize this counterparty and we are more than 98% confident that it is involved in this transaction.</para>
 	/// <para><c>HIGH</c>: We recognize this counterparty and we are more than 90% confident that it is involved in this transaction.</para>
 	/// <para><c>MEDIUM</c>: We are moderately confident that this counterparty was involved in this transaction, but some details may differ from our records.</para>
-	/// <para><c>LOW</c>: We didn’t find a matching counterparty in our records, so we are returning a cleansed name parsed out of the request description.</para>
-	/// <para><c>UNKNOWN</c>: We don’t know the confidence level for this counterparty.</para>
+	/// <para><c>LOW</c>: We didn't find a matching counterparty in our records, so we are returning a cleansed name parsed out of the request description.</para>
+	/// <para><c>UNKNOWN</c>: We don't know the confidence level for this counterparty.</para>
 	/// </summary>
 	[JsonPropertyName("confidence_level")]
 	public string? ConfidenceLevel { get; init; } = default!;

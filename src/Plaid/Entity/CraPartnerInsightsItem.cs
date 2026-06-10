@@ -18,13 +18,13 @@ public record CraPartnerInsightsItem
 	public string? InstitutionName { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The identifier for the item.</para>
+	/// <para>The identifier for the Item.</para>
 	/// </summary>
 	[JsonPropertyName("item_id")]
 	public string? ItemId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of accounts in the item</para>
+	/// <para>A list of accounts in the Item.</para>
 	/// </summary>
 	[JsonPropertyName("accounts")]
 	public IReadOnlyList<Entity.CraPartnerInsightsItemAccount>? Accounts { get; init; } = default!;

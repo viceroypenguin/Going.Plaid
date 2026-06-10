@@ -30,13 +30,13 @@ public record ConsentEvent
 	public Entity.ConsentEventCode? EventCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Unique identifier for the institution associated with the Item. Field is <c>null</c> for Items created via Same Day Micro-deposits.</para>
+	/// <para>Unique identifier for the institution associated with the Item. Field is <c>null</c> for Items created via Same-Day Micro-deposits.</para>
 	/// </summary>
 	[JsonPropertyName("institution_id")]
 	public string? InstitutionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The full name of the institution associated with the Item. Field is <c>null</c> for Items created via Same Day Micro-deposits.</para>
+	/// <para>The full name of the institution associated with the Item. Field is <c>null</c> for Items created via Same-Day Micro-deposits.</para>
 	/// </summary>
 	[JsonPropertyName("institution_name")]
 	public string? InstitutionName { get; init; } = default!;

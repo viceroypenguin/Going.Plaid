@@ -18,13 +18,13 @@ public record AuthSupportedMethods
 	public bool InstantMatch { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates if automated microdeposits are supported.</para>
+	/// <para>Indicates if automated micro-deposits are supported.</para>
 	/// </summary>
 	[JsonPropertyName("automated_micro_deposits")]
 	public bool AutomatedMicroDeposits { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates if instant microdeposits are supported.</para>
+	/// <para>Indicates if instant micro-deposits are supported.</para>
 	/// </summary>
 	[JsonPropertyName("instant_micro_deposits")]
 	public bool InstantMicroDeposits { get; init; } = default!;

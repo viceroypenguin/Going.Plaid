@@ -22,7 +22,7 @@ public class CraLoanPaymentHistory
 
 	/// <summary>
 	/// <para>The number of days the loan was delinquent at the end of the pay period.</para>
-	/// <para>If specified, should be greater of equal to 0.</para>
+	/// <para>If specified, should be greater than or equal to 0.</para>
 	/// </summary>
 	[JsonPropertyName("days_past_due")]
 	public int DaysPastDue { get; set; } = default!;

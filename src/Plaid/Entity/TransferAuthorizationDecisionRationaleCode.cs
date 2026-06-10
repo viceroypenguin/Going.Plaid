@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum TransferAuthorizationDecisionRationaleCode
 {
 	/// <summary>
-	/// <para>– Transaction likely to result in a return due to insufficient funds.</para>
+	/// <para>Transaction likely to result in a return due to insufficient funds.</para>
 	/// </summary>
 	[EnumMember(Value = "NSF")]
 	Nsf,
@@ -24,25 +24,25 @@ public enum TransferAuthorizationDecisionRationaleCode
 	TransferLimitReached,
 
 	/// <summary>
-	/// <para>– Item created via a manual entry flow (i.e. Same Day Micro-deposit, Instant Micro-deposit, or database-based verification), limited information available.</para>
+	/// <para>Item created via a manual entry flow (i.e. Same-Day Micro-deposit, Instant Micro-deposit, or database-based verification), limited information available.</para>
 	/// </summary>
 	[EnumMember(Value = "MANUALLY_VERIFIED_ITEM")]
 	ManuallyVerifiedItem,
 
 	/// <summary>
-	/// <para>– Unable to collect the account information due to Item staleness. Can be resolved by using Link and setting <a href="https://plaid.com/docs/api/link/#link-token-create-request-transfer-authorization-id"><c>transfer.authorization_id</c></a> in the request to <c>/link/token/create</c>.</para>
+	/// <para>Unable to collect the account information due to Item staleness. Can be resolved by using Link and setting <a href="https://plaid.com/docs/api/link/#link-token-create-request-transfer-authorization-id"><c>transfer.authorization_id</c></a> in the request to <c>/link/token/create</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "ITEM_LOGIN_REQUIRED")]
 	ItemLoginRequired,
 
 	/// <summary>
-	/// 
+	/// <para>The Payment Profile associated with the call to <c>/transfer/authorization/create</c> is in a state that requires the end user to re-authenticate. Can be resolved by using Link to refresh the Payment Profile.</para>
 	/// </summary>
 	[EnumMember(Value = "PAYMENT_PROFILE_LOGIN_REQUIRED")]
 	PaymentProfileLoginRequired,
 
 	/// <summary>
-	/// <para>– Unable to collect the account information due to an unspecified error.</para>
+	/// <para>Unable to collect the account information due to an unspecified error.</para>
 	/// </summary>
 	[EnumMember(Value = "ERROR")]
 	Error,

@@ -18,7 +18,7 @@ public enum TransferSweepStatus
 	Swept,
 
 	/// <summary>
-	/// <para>Credits are available to be withdrawn or debits have been deducted from the customer’s business checking account.</para>
+	/// <para>Credits are available to be withdrawn or debits have been deducted from the customer's business checking account.</para>
 	/// </summary>
 	[EnumMember(Value = "swept_settled")]
 	SweptSettled,

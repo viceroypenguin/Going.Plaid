@@ -37,7 +37,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<IdentityVerification.IdentityVerificationRetryResponse>();
 
 	/// <summary>
-	/// <para>Try to autofill an Identity Verification based of the provided phone number, date of birth and country of residence.</para>
+	/// <para>Try to autofill an Identity Verification based on the provided phone number, date of birth and country of residence.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/identity-verification/#identity_verificationautofillcreate" /></remarks>
 	public Task<IdentityVerification.IdentityVerificationAutofillCreateResponse> IdentityVerificationAutofillCreateAsync(IdentityVerification.IdentityVerificationAutofillCreateRequest request) =>

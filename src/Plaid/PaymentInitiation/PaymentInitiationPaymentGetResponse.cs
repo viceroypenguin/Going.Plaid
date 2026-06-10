@@ -1,7 +1,7 @@
 namespace Going.Plaid.PaymentInitiation;
 
 /// <summary>
-/// <para>PaymentInitiationPaymentGetResponse defines the response schema for <c>/payment_initation/payment/get</c></para>
+/// <para>PaymentInitiationPaymentGetResponse defines the response schema for <c>/payment_initiation/payment/get</c></para>
 /// </summary>
 public record PaymentInitiationPaymentGetResponse : ResponseBase
 {

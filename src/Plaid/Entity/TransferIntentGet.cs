@@ -54,7 +54,7 @@ public record TransferIntentGet
 	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the origination account used for the transfer.</para>
+	/// <para>Plaid's unique identifier for the origination account used for the transfer.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	[Obsolete]

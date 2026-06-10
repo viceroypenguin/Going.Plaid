@@ -5,6 +5,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transactions/create</c> endpoint to create new transactions for an existing Item. This endpoint can be used to add up to 10 transactions to any Item at a time.</para>
 	/// <para>This endpoint can only be used with Items that were created in the Sandbox environment using the <c>user_transactions_dynamic</c> test user. You can use this to add transactions to test the <c>/transactions/get</c> and <c>/transactions/sync</c> endpoints.</para>
+	/// <para>Custom transactions are only applied to the depository account. Support for per-account targeting may be added in the future.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransactionscreate" /></remarks>
 	public Task<Sandbox.SandboxTransactionsCreateResponse> SandboxTransactionsCreateAsync(Sandbox.SandboxTransactionsCreateRequest request) =>
@@ -31,14 +32,14 @@ public sealed partial class PlaidClient
 	/// <para>The <c>/sandbox/item/fire_webhook</c> endpoint is used to test that code correctly handles webhooks. This endpoint can trigger the following webhooks:</para>
 	/// <para><c>DEFAULT_UPDATE</c>: Webhook to be fired for a given Sandbox Item simulating a default update event for the respective product as specified with the <c>webhook_type</c> in the request body. Valid Sandbox <c>DEFAULT_UPDATE</c> webhook types include: <c>AUTH</c>, <c>IDENTITY</c>, <c>TRANSACTIONS</c>, <c>INVESTMENTS_TRANSACTIONS</c>, <c>LIABILITIES</c>, <c>HOLDINGS</c>. If the Item does not support the product, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>NEW_ACCOUNTS_AVAILABLE</c>: Fired to indicate that a new account is available on the Item and you can launch update mode to request access to it.</para>
-	/// <para><c>SMS_MICRODEPOSITS_VERIFICATION</c>: Fired when a given same day micro-deposit item is verified via SMS verification.</para>
+	/// <para><c>SMS_MICRODEPOSITS_VERIFICATION</c>: Fired when a given Same-Day Micro-deposit Item is verified via SMS verification.</para>
 	/// <para><c>LOGIN_REPAIRED</c>: Fired when an Item recovers from the <c>ITEM_LOGIN_REQUIRED</c> without the user going through update mode in your app.</para>
 	/// <para><c>PENDING_DISCONNECT</c>: Fired when an Item will stop working in the near future (e.g. due to a planned bank migration) and must be sent through update mode to continue working.</para>
 	/// <para><c>RECURRING_TRANSACTIONS_UPDATE</c>: Recurring Transactions webhook to be fired for a given Sandbox Item. If the Item does not support Recurring Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>SYNC_UPDATES_AVAILABLE</c>: Transactions webhook to be fired for a given Sandbox Item.  If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>PRODUCT_READY</c>: Assets webhook to be fired when a given asset report has been successfully generated. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>ERROR</c>: Assets webhook to be fired when asset report generation has failed. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
-	/// <para><c>USER_PERMISSION_REVOKED</c>: Indicates an end user has revoked the permission that they previously granted to access an Item. May not always fire upon revocation, as some institutions’ consent portals do not trigger this webhook. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the account or Item.</para>
+	/// <para><c>USER_PERMISSION_REVOKED</c>: Indicates an end user has revoked the permission that they previously granted to access an Item. May not always fire upon revocation, as some institutions' consent portals do not trigger this webhook. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the account or Item.</para>
 	/// <para><c>USER_ACCOUNT_REVOKED</c>: Fired when an end user has revoked access to their account on the Data Provider's portal. This webhook is currently sent only for PNC Items, but may be sent in the future for other financial institutions. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the account or Item.</para>
 	/// <para>Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production (except for webhooks of type <c>TRANSFER</c>).</para>
 	/// </summary>
@@ -48,7 +49,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxItemFireWebhookResponse>();
 
 	/// <summary>
-	/// <para><c>/sandbox/item/reset_login/</c> forces an Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/item/reset_login</c>, You can then use Plaid Link update mode to restore the Item to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
+	/// <para><c>/sandbox/item/reset_login/</c> forces an Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/item/reset_login</c>, you can then use Plaid Link update mode to restore the Item to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
 	/// <para>In the Sandbox, Items will transition to an <c>ITEM_LOGIN_REQUIRED</c> error state automatically after 30 days, even if this endpoint is not called.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxitemreset_login" /></remarks>
@@ -57,7 +58,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxItemResetLoginResponse>();
 
 	/// <summary>
-	/// <para>The <c>/sandbox/item/set_verification_status</c> endpoint can be used to change the verification status of an Item in in the Sandbox in order to simulate the Automated Micro-deposit flow.</para>
+	/// <para><c>/sandbox/item/application/seed</c> creates a test connected application on an existing Permissions Manager Item's login. The seeded application will appear in subsequent calls to <c>/item/application/list</c>.</para>
+	/// <para>The <c>access_token</c> must belong to a Permissions Manager Item created via <c>/item/import</c> in Sandbox. The <c>application_id</c> identifies the application to seed as a connected app. To disconnect a seeded application, use <c>/item/application/unlink</c>.</para>
+	/// </summary>
+	public Task<Sandbox.SandboxItemApplicationSeedResponse> SandboxItemApplicationSeedAsync(Sandbox.SandboxItemApplicationSeedRequest request) =>
+		PostAsync("/sandbox/item/application/seed", request)
+			.ParseResponseAsync<Sandbox.SandboxItemApplicationSeedResponse>();
+
+	/// <summary>
+	/// <para>The <c>/sandbox/item/set_verification_status</c> endpoint can be used to change the verification status of an Item in the Sandbox in order to simulate the Automated Micro-deposit flow.</para>
 	/// <para>For more information on testing Automated Micro-deposits in Sandbox, see <a href="https://plaid.com/docs/auth/coverage/testing#">Auth full coverage testing</a>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxitemset_verification_status" /></remarks>
@@ -66,7 +75,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxItemSetVerificationStatusResponse>();
 
 	/// <summary>
-	/// <para><c>/sandbox/user/reset_login/</c> functions the same as <c>/sandbox/item/reset_login</c>, but will modify Items related to a User. This endpoint forces each Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/user/reset_login</c>, You can then use Plaid Link update mode to restore Items associated with the User to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
+	/// <para><c>/sandbox/user/reset_login/</c> functions the same as <c>/sandbox/item/reset_login</c>, but will modify Items related to a User. This endpoint forces each Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/user/reset_login</c>, you can then use Plaid Link update mode to restore Items associated with the User to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
 	/// <para>In the Sandbox, Items will transition to an <c>ITEM_LOGIN_REQUIRED</c> error state automatically after 30 days, even if this endpoint is not called.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxuserreset_login" /></remarks>
@@ -236,7 +245,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxCraCashflowUpdatesUpdateResponse>();
 
 	/// <summary>
-	/// <para>Save the selected accounts when connecting to the Platypus Oauth institution</para>
+	/// <para>Save the selected accounts when connecting to the Platypus OAuth institution</para>
 	/// </summary>
 	public Task<Sandbox.SandboxOauthSelectAccountsResponse> SandboxOauthSelectAccountsAsync(Sandbox.SandboxOauthSelectAccountsRequest request) =>
 		PostAsync("/sandbox/oauth/select_accounts", request)

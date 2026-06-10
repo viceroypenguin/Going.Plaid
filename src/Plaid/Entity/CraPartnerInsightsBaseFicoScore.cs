@@ -18,27 +18,37 @@ public class CraPartnerInsightsBaseFicoScore
 	public int Score { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The first reason code associated with the score.</para>
+	/// <para>Reason codes associated with the score, in priority order. May contain up to 4 items.</para>
+	/// </summary>
+	[JsonPropertyName("reason_codes")]
+	public IReadOnlyList<string>? ReasonCodes { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Deprecated. Use <c>reason_codes</c> instead. The first reason code associated with the score.</para>
 	/// </summary>
 	[JsonPropertyName("reason_code_1")]
+	[Obsolete]
 	public string? ReasonCode1 { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The second reason code associated with the score.</para>
+	/// <para>Deprecated. Use <c>reason_codes</c> instead. The second reason code associated with the score.</para>
 	/// </summary>
 	[JsonPropertyName("reason_code_2")]
+	[Obsolete]
 	public string? ReasonCode2 { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The third reason code associated with the score.</para>
+	/// <para>Deprecated. Use <c>reason_codes</c> instead. The third reason code associated with the score.</para>
 	/// </summary>
 	[JsonPropertyName("reason_code_3")]
+	[Obsolete]
 	public string? ReasonCode3 { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The fourth reason code associated with the score.</para>
+	/// <para>Deprecated. Use <c>reason_codes</c> instead. The fourth reason code associated with the score.</para>
 	/// </summary>
 	[JsonPropertyName("reason_code_4")]
+	[Obsolete]
 	public string? ReasonCode4 { get; set; } = default!;
 
 	/// <summary>

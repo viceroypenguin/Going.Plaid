@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public enum AccountAssetsVerificationStatusEnum
 {
 	/// <summary>
-	/// <para>The Item has successfully been automatically verified</para>
+	/// <para>The Item has successfully been automatically verified.</para>
 	/// </summary>
 	[EnumMember(Value = "automatically_verified")]
 	AutomaticallyVerified,
 
 	/// <summary>
-	/// <para>The Item is pending automatic verification</para>
+	/// <para>The Item is pending automatic verification.</para>
 	/// </summary>
 	[EnumMember(Value = "pending_automatic_verification")]
 	PendingAutomaticVerification,
@@ -24,7 +24,7 @@ public enum AccountAssetsVerificationStatusEnum
 	PendingManualVerification,
 
 	/// <summary>
-	/// <para>The Item has successfully been manually verified</para>
+	/// <para>The Item has successfully been manually verified.</para>
 	/// </summary>
 	[EnumMember(Value = "manually_verified")]
 	ManuallyVerified,

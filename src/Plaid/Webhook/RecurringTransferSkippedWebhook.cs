@@ -14,7 +14,7 @@ public record RecurringTransferSkippedWebhook : WebhookBase
 	public override WebhookCode WebhookCode => WebhookCode.RecurringTransferSkipped;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a recurring transfer.</para>
+	/// <para>Plaid's unique identifier for a recurring transfer.</para>
 	/// </summary>
 	[JsonPropertyName("recurring_transfer_id")]
 	public string RecurringTransferId { get; init; } = default!;

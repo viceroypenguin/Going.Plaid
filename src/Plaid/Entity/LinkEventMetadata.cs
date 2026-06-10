@@ -48,7 +48,7 @@ public record LinkEventMetadata
 	public string? InstitutionSearchQuery { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The request ID for the last request made by Link. This can be shared with Plaid Support to expedite investigation. Emitted by: all events.</para>
+	/// <para>The request ID for the last request made by Link. This can be shared with Plaid support to expedite investigation. Emitted by: all events.</para>
 	/// </summary>
 	[JsonPropertyName("request_id")]
 	public string? RequestId { get; init; } = default!;

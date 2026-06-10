@@ -1,7 +1,7 @@
 namespace Going.Plaid.Credit;
 
 /// <summary>
-/// <para>CreditFreddieMacReportsGetRequest defines the request schema for <c>credit/asset_report/freddie_mac/get</c></para>
+/// <para>CreditFreddieMacReportsGetRequest defines the request schema for <c>/credit/freddie_mac/reports/get</c></para>
 /// </summary>
 public partial class CreditFreddieMacReportsGetRequest : RequestBase
 {

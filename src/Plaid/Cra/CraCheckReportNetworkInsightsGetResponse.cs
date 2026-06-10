@@ -1,7 +1,7 @@
 namespace Going.Plaid.Cra;
 
 /// <summary>
-/// <para>CraCheckReportNetworkInsightsGetResponse defines the response schema for <c>/cra/check_report/network_attributes/get</c>.</para>
+/// <para>CraCheckReportNetworkInsightsGetResponse defines the response schema for <c>/cra/check_report/network_insights/get</c>.</para>
 /// </summary>
 public record CraCheckReportNetworkInsightsGetResponse : ResponseBase
 {

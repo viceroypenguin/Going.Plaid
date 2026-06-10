@@ -42,7 +42,7 @@ public record BaseReportInvestmentSecurity
 	public string? InstitutionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The security’s trading symbol for publicly traded securities, and otherwise a short identifier if available.</para>
+	/// <para>The security's trading symbol for publicly traded securities, and otherwise a short identifier if available.</para>
 	/// </summary>
 	[JsonPropertyName("ticker_symbol")]
 	public string? TickerSymbol { get; init; } = default!;

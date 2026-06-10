@@ -11,7 +11,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<DashboardUser.DashboardUserGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/dashboard_user/list</c> endpoint provides details (such as email address) all Dashboard users associated with your account. This can use used to audit or track the list of reviewers for Monitor, Beacon, and Identity Verification products.</para>
+	/// <para>The <c>/dashboard_user/list</c> endpoint provides details (such as email address) about all Dashboard users associated with your account. This can be used to audit or track the list of reviewers for Monitor, Beacon, and Identity Verification products.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/kyc-aml-users/#dashboard_userlist" /></remarks>
 	public Task<DashboardUser.DashboardUserListResponse> DashboardUserListAsync(DashboardUser.DashboardUserListRequest request) =>

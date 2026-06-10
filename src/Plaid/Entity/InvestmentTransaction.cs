@@ -43,7 +43,7 @@ public record InvestmentTransaction
 	public DateTimeOffset? TransactionDatetime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The institution’s description of the transaction.</para>
+	/// <para>The institution's description of the transaction.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	public string Name { get; init; } = default!;
@@ -55,7 +55,7 @@ public record InvestmentTransaction
 	public decimal Quantity { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The complete value of the transaction. Positive values when cash is debited, e.g. purchases of stock; negative values when cash is credited, e.g. sales of stock. Treatment remains the same for cash-only movements unassociated with securities.</para>
+	/// <para>The complete value of the transaction. Positive values when cash is debited, e.g. purchases of stock; negative values when cash is credited, e.g. sales of stock. Treatment remains the same for cash-only movements unassociated with securities. For transactions representing a simultaneous cash contribution and purchase of a security, the portion of the transaction representing the purchase takes precedence, and the <c>amount</c> is represented as positive.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public decimal Amount { get; init; } = default!;

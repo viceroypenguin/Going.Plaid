@@ -23,7 +23,7 @@ public record BusinessFinanceCategory
 	/// <para><c>HIGH</c>: We are more than 90% confident that this category reflects the intent of the transaction.</para>
 	/// <para><c>MEDIUM</c>: We are moderately confident that this category reflects the intent of the transaction.</para>
 	/// <para><c>LOW</c>: This category may reflect the intent, but there may be other categories that are more accurate.</para>
-	/// <para><c>UNKNOWN</c>: We don’t know the confidence level for this category.</para>
+	/// <para><c>UNKNOWN</c>: We don't know the confidence level for this category.</para>
 	/// </summary>
 	[JsonPropertyName("confidence_level")]
 	public string? ConfidenceLevel { get; init; } = default!;

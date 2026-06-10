@@ -30,7 +30,7 @@ public record LinkCallbackMetadata
 	public string? LinkSessionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The request ID for the last request made by Link. This can be shared with Plaid Support to expedite investigation.</para>
+	/// <para>The request ID for the last request made by Link. This can be shared with Plaid support to expedite investigation.</para>
 	/// </summary>
 	[JsonPropertyName("request_id")]
 	public string? RequestId { get; init; } = default!;

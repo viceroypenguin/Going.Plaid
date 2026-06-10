@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record TransferEvent
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for this event. IDs are sequential unsigned 64-bit integers.</para>
+	/// <para>Plaid's unique identifier for this event. IDs are sequential unsigned 64-bit integers.</para>
 	/// </summary>
 	[JsonPropertyName("event_id")]
 	public int EventId { get; init; } = default!;
@@ -36,7 +36,7 @@ public record TransferEvent
 	public string? FundingAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a Plaid Ledger Balance.</para>
+	/// <para>Plaid's unique identifier for a Plaid Ledger Balance.</para>
 	/// </summary>
 	[JsonPropertyName("ledger_id")]
 	public string? LedgerId { get; init; } = default!;
@@ -73,7 +73,7 @@ public record TransferEvent
 	public Entity.TransferFailure? FailureReason { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a sweep.</para>
+	/// <para>Plaid's unique identifier for a sweep.</para>
 	/// </summary>
 	[JsonPropertyName("sweep_id")]
 	public string? SweepId { get; init; } = default!;
@@ -85,7 +85,7 @@ public record TransferEvent
 	public string? SweepAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a refund. A non-null value indicates the event is for the associated refund of the transfer.</para>
+	/// <para>Plaid's unique identifier for a refund. A non-null value indicates the event is for the associated refund of the transfer.</para>
 	/// </summary>
 	[JsonPropertyName("refund_id")]
 	public string? RefundId { get; init; } = default!;
@@ -97,7 +97,7 @@ public record TransferEvent
 	public string? OriginatorClientId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The <c>id</c> returned by the /transfer/intent/create endpoint, for transfers created via Transfer UI. For transfers not created by Transfer UI, the value is <c>null</c>. This will currently only be populated for RfP transfers.</para>
+	/// <para>The <c>id</c> returned by the <c>/transfer/intent/create</c> endpoint, for transfers created via Transfer UI. For transfers not created by Transfer UI, the value is <c>null</c>. This will currently only be populated for RfP transfers.</para>
 	/// </summary>
 	[JsonPropertyName("intent_id")]
 	public string? IntentId { get; init; } = default!;

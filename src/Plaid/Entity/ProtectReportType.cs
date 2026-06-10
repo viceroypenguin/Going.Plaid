@@ -108,7 +108,7 @@ public enum ProtectReportType
 	MoneyLaundering,
 
 	/// <summary>
-	/// <para>Indicates that an investigation determined no fraudulent activity occurred on user/event (positive label)</para>
+	/// <para>Indicates that an investigation determined no fraudulent activity occurred on user/event (positive label).</para>
 	/// </summary>
 	[EnumMember(Value = "NO_FRAUD")]
 	NoFraud,

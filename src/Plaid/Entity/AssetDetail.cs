@@ -36,7 +36,7 @@ public record AssetDetail
 	public decimal Assetavailablebalanceamount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A vendor created unique Identifier</para>
+	/// <para>Asset Account Current Balance.</para>
 	/// </summary>
 	[JsonPropertyName("AssetCurrentBalanceAmount")]
 	public decimal Assetcurrentbalanceamount { get; init; } = default!;
@@ -102,7 +102,7 @@ public record AssetDetail
 	public Entity.AssetType Assettype { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Additional Asset Decription some examples are Investment Tax-Deferred , Loan, 401K, 403B, Checking, Money Market, Credit Card,ROTH,529,Biller,ROLLOVER,CD,Savings,Investment Taxable, IRA, Mortgage, Line Of Credit.</para>
+	/// <para>Additional Asset Description. Some examples are Investment Tax-Deferred, Loan, 401K, 403B, Checking, Money Market, Credit Card, ROTH, 529, Biller, ROLLOVER, CD, Savings, Investment Taxable, IRA, Mortgage, Line Of Credit.</para>
 	/// </summary>
 	[JsonPropertyName("AssetTypeAdditionalDescription")]
 	public string? Assettypeadditionaldescription { get; init; } = default!;

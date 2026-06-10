@@ -13,7 +13,7 @@ public partial class ProtectReportCreateRequest : RequestBase
 	public string? UserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>details about the incident event.</para>
+	/// <para>Details about the incident event.</para>
 	/// </summary>
 	[JsonPropertyName("incident_event")]
 	public Entity.ProtectIncidentEvent? IncidentEvent { get; set; } = default!;

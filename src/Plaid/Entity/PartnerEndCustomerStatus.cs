@@ -24,7 +24,7 @@ public enum PartnerEndCustomerStatus
 	Active,
 
 	/// <summary>
-	/// <para>The end customer has been created and enabled in the Sandbox environment, but it did not pass review by the Plaid team and therefore cannot be enabled for Production access. Talk to your Account Manager for more information.</para>
+	/// <para>The end customer has been created and enabled in the Sandbox environment, but it did not pass review by the Plaid team and therefore cannot be enabled for Production access. Talk to your account manager for more information.</para>
 	/// </summary>
 	[EnumMember(Value = "DENIED")]
 	Denied,

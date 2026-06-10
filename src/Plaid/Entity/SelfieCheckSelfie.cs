@@ -18,7 +18,7 @@ public record SelfieCheckSelfie
 	public int Attempt { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The image or video capture of a selfie. Only one of image or video URL will be populated per selfie.</para>
+	/// <para>The image or video capture of a selfie. Only one of <c>image_url</c> or <c>video_url</c> will be populated per selfie. In the vast majority of sessions Plaid records a short video of the user, so <c>video_url</c> is populated and <c>image_url</c> is <c>null</c>. <c>image_url</c> is only populated in the rare passive-liveness fallback case, where the user's device could not complete the standard video liveness capture (for example, a camera or streaming error) and submitted a single still image instead.</para>
 	/// </summary>
 	[JsonPropertyName("capture")]
 	public Entity.SelfieCapture Capture { get; init; } = default!;

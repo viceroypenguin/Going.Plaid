@@ -24,7 +24,7 @@ public partial class IncomeVerificationPrecheckRequest : RequestBase
 	public Entity.IncomeVerificationPrecheckPayrollInstitution? PayrollInstitution { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The access token associated with the Item data is being requested for.</para>
+	/// <para>The access token associated with the Item for which data is being requested.</para>
 	/// </summary>
 	[JsonPropertyName("transactions_access_token")]
 	[Obsolete]

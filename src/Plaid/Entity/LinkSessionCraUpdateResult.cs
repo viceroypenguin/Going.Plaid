@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The details of a Plaid Check Item update via Update Mode in Link.</para>
+/// <para>The details of a Plaid Check Item update via update mode in Link.</para>
 /// </summary>
 public record LinkSessionCraUpdateResult
 {

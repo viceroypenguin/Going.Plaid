@@ -1,7 +1,7 @@
 namespace Going.Plaid.Credit;
 
 /// <summary>
-/// <para>CreditAuditCopyTokenCreateResponse defines the response schema for <c>/credit/audit_copy_token/get</c></para>
+/// <para>CreditAuditCopyTokenCreateResponse defines the response schema for <c>/credit/audit_copy_token/create</c></para>
 /// </summary>
 public record CreditAuditCopyTokenCreateResponse : ResponseBase
 {

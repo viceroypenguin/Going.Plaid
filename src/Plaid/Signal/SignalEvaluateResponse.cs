@@ -20,7 +20,7 @@ public record SignalEvaluateResponse : ResponseBase
 	/// <para><c>plaid_connections_count_30d</c>: The number of times the Item has been connected to applications via Plaid over the past 30 days</para>
 	/// <para><c>total_plaid_connections_count</c>: The number of times the Item has been connected to applications via Plaid</para>
 	/// <para><c>is_savings_or_money_market_account</c>: Indicates whether the ACH transaction funding account is a savings/money market account</para>
-	/// <para>For the full list and detailed documentation of core attributes available, or to request that core attributes not be returned, contact Sales or your Plaid account manager.</para>
+	/// <para>For the full list and detailed documentation of core attributes available, or to request that core attributes not be returned, contact sales or your Plaid account manager.</para>
 	/// </summary>
 	[JsonPropertyName("core_attributes")]
 	public Entity.SignalEvaluateCoreAttributes? CoreAttributes { get; init; } = default!;

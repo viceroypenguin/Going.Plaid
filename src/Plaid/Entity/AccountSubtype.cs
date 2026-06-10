@@ -36,7 +36,7 @@ public enum AccountSubtype
 	Hsa,
 
 	/// <summary>
-	/// <para>A checking account that is limited in its purpose or usage</para>
+	/// <para>A checking account that is limited in its purpose or usage. Note that this account subtype is opt-in only, meaning it cannot be connected in Link unless it is present in the subtypes filter.</para>
 	/// </summary>
 	[EnumMember(Value = "limited purpose checking")]
 	LimitedPurposeChecking,

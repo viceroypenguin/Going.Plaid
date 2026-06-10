@@ -43,7 +43,7 @@ public record TransactionsSyncResponse : ResponseBase
 	public string NextCursor { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Represents if more than requested count of transaction updates exist. If true, the additional updates can be fetched by making an additional request with <c>cursor</c> set to <c>next_cursor</c>. If <c>has_more</c> is true, it’s important to pull all available pages, to make it less likely for underlying data changes to conflict with pagination.</para>
+	/// <para>Represents if more than requested count of transaction updates exist. If true, the additional updates can be fetched by making an additional request with <c>cursor</c> set to <c>next_cursor</c>. If <c>has_more</c> is true, it's important to pull all available pages, to make it less likely for underlying data changes to conflict with pagination.</para>
 	/// </summary>
 	[JsonPropertyName("has_more")]
 	public bool HasMore { get; init; } = default!;

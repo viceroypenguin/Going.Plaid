@@ -79,4 +79,10 @@ public record Holding
 	[JsonPropertyName("vested_value")]
 	public decimal? VestedValue { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Per-lot acquisition data for this holding. An empty array indicates the institution does not provide lot-level data.</para>
+	/// </summary>
+	[JsonPropertyName("tax_lots")]
+	public IReadOnlyList<Entity.HoldingTaxLot>? TaxLots { get; init; } = default!;
+
 }

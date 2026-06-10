@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Information about an report identifier and a report name.</para>
+/// <para>Information about a report identifier and a report name.</para>
 /// </summary>
 public record CreditFreddieMacReportingInformation
 {
@@ -12,7 +12,7 @@ public record CreditFreddieMacReportingInformation
 	public string? Reportdatetime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Documentation not found in the MISMO model viewer and not provided by Freddie Mac. The value can only be "ReportID"</para>
+	/// <para>Documentation not found in the MISMO model viewer and not provided by Freddie Mac. The value can only be "ReportID".</para>
 	/// </summary>
 	[JsonPropertyName("ReportIdentifierType")]
 	public string? Reportidentifiertype { get; init; } = default!;

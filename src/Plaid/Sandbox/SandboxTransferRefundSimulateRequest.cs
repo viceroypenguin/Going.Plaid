@@ -6,13 +6,13 @@ namespace Going.Plaid.Sandbox;
 public partial class SandboxTransferRefundSimulateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a refund.</para>
+	/// <para>Plaid's unique identifier for a refund.</para>
 	/// </summary>
 	[JsonPropertyName("refund_id")]
 	public string RefundId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a test clock. If provided, the event to be simulated is created at the <c>virtual_time</c> on the provided <c>test_clock</c>.</para>
+	/// <para>Plaid's unique identifier for a test clock. If provided, the event to be simulated is created at the <c>virtual_time</c> on the provided <c>test_clock</c>.</para>
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;

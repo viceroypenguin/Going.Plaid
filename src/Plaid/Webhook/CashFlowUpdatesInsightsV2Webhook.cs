@@ -20,7 +20,7 @@ public record CashFlowUpdatesInsightsV2Webhook : WebhookBase
 	public Entity.MonitoringInsightsStatus Status { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The <c>user_id</c> associated with the user whose data is being requested. This is received by calling <c>user/create</c>.</para>
+	/// <para>The <c>user_id</c> associated with the user whose data is being requested. This is received by calling <c>/user/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string UserId { get; init; } = default!;

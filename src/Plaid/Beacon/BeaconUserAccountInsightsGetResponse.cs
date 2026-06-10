@@ -1,7 +1,7 @@
 namespace Going.Plaid.Beacon;
 
 /// <summary>
-/// <para>The response schema for <c>/beacon/user/account/insights/get</c></para>
+/// <para>The response schema for <c>/beacon/user/account_insights/get</c></para>
 /// </summary>
 public record BeaconUserAccountInsightsGetResponse : ResponseBase
 {

@@ -136,15 +136,27 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public Entity.TransferCreditFundsSource? CreditFundsSource { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>authorization</c> is created at the <c>virtual_time</c> on the provided test clock.</para>
+	/// <para>Plaid's unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>authorization</c> is created at the <c>virtual_time</c> on the provided test clock.</para>
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The key of the Ruleset for the transaction. This feature is currently in closed beta; to request access, contact your account manager.</para>
+	/// <para>The key of the Ruleset for the transaction. If not provided, Signal will use the <c>default</c> ruleset.</para>
 	/// </summary>
 	[JsonPropertyName("ruleset_key")]
 	public string? RulesetKey { get; set; } = default!;
+
+	/// <summary>
+	/// <para>A free-form map of client-supplied risk-relevant context for this authorization. Plaid may use these attributes to inform future versions of our risk models.</para>
+	/// <para>The following limitations apply:</para>
+	/// <para>Keys must match the regular expression <c>^[A-Za-z0-9_.-]{1,40}$</c></para>
+	/// <para>Values must be strings (no nested objects, arrays, numbers, or booleans allowed; stringify non-string values client-side)</para>
+	/// <para>Maximum of 50 key/value pairs</para>
+	/// <para>Maximum value length of 500 characters</para>
+	/// <para>Do not include personally identifiable information or other sensitive data.</para>
+	/// </summary>
+	[JsonPropertyName("custom_attributes")]
+	public IReadOnlyDictionary<string, string>? CustomAttributes { get; set; } = default!;
 
 }

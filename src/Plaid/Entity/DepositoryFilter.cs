@@ -12,7 +12,7 @@ public class DepositoryFilter
 	public IReadOnlyList<Entity.DepositoryAccountSubtype> AccountSubtypes { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An array of limited purpose types. When set, it will restrict which kinds of limited purpose checking accounts may be connected in Link. Only applicable when 'limited purpose checking' is in the subtypes filter.</para>
+	/// <para>An array of limited purpose types. Restricts which kinds of limited purpose checking accounts may be connected in Link to prevent users from connecting them for unsupported use cases. Required when 'limited purpose checking' is in the subtypes filter.</para>
 	/// </summary>
 	[JsonPropertyName("limited_purpose_types")]
 	public IReadOnlyList<Entity.LimitedPurposeType>? LimitedPurposeTypes { get; set; } = default!;

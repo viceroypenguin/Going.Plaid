@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The reason for removing the item</para>
+/// <para>The reason for removing the Item</para>
 /// </summary>
 public enum ItemRemoveReasonCode
 {

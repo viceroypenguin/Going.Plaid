@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record Status
 {
 	/// <summary>
-	/// <para>Satus Code.</para>
+	/// <para>Status Code.</para>
 	/// </summary>
 	[JsonPropertyName("StatusCode")]
 	public string? Statuscode { get; init; } = default!;

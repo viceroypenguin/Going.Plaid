@@ -24,7 +24,7 @@ public record OAuthTokenResponse : ResponseBase
 	public string TokenType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Time remaining in seconds before expiration</para>
+	/// <para>Time remaining in seconds before expiration.</para>
 	/// </summary>
 	[JsonPropertyName("expires_in")]
 	public int ExpiresIn { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when identity verification has been retried, which can be triggered via the dashboard or the API.</para>
+/// <para>Fired when an identity verification has been retried, which can be triggered via the dashboard or the API.</para>
 /// </summary>
 public record IdentityVerificationRetriedWebhook : WebhookBase
 {

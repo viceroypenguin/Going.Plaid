@@ -30,6 +30,18 @@ public enum WalletTransactionFailureReason
 	Invalid,
 
 	/// <summary>
+	/// <para>The transaction could not be processed because the wallet account is invalid or inactive.</para>
+	/// </summary>
+	[EnumMember(Value = "ACCOUNT_INVALID")]
+	AccountInvalid,
+
+	/// <summary>
+	/// <para>The transaction could not be processed because authentication with the wallet provider failed.</para>
+	/// </summary>
+	[EnumMember(Value = "AUTHENTICATION_FAILED")]
+	AuthenticationFailed,
+
+	/// <summary>
 	/// <para>The transaction was unsuccessful, but the exact cause is unknown.</para>
 	/// </summary>
 	[EnumMember(Value = "UNKNOWN")]

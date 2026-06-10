@@ -24,7 +24,7 @@ public enum ItemAuthMethod
 	AutomatedMicrodeposits,
 
 	/// <summary>
-	/// <para>The Item's Auth data was provided via the Same Day Micro-deposits flow.</para>
+	/// <para>The Item's Auth data was provided via the Same-Day Micro-deposits flow.</para>
 	/// </summary>
 	[EnumMember(Value = "SAME_DAY_MICRODEPOSITS")]
 	SameDayMicrodeposits,

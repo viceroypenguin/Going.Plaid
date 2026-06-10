@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Result summary object specifying values for the <c>facial_duplicate</c> attributes of risk check.</para>
+/// <para>Result summary object specifying values for the <c>facial_duplicates</c> attributes of risk check.</para>
 /// </summary>
 public record RiskCheckFacialDuplicate
 {

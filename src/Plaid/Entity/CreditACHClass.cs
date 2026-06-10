@@ -18,7 +18,7 @@ public enum CreditACHClass
 	Ppd,
 
 	/// <summary>
-	/// <para>Internet-Initiated Entry. The transfer debits a consumer’s bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits.</para>
+	/// <para>Internet-Initiated Entry. The transfer debits a consumer's bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits.</para>
 	/// </summary>
 	[EnumMember(Value = "web")]
 	Web,

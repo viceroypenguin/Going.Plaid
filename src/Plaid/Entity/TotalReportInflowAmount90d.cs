@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Total amount of debit transactions into the report's account in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
+/// <para>Total amount of debit transactions into the report's accounts in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
 /// </summary>
 public record TotalReportInflowAmount90d
 {

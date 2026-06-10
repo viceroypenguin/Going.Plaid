@@ -6,10 +6,17 @@ namespace Going.Plaid.Entity;
 public record PrismInsights
 {
 	/// <summary>
-	/// <para>The version of Prism Data's insights model used.</para>
+	/// <para>The version of Prism Data's insights model used. This field is deprecated in favor of <c>model_version</c>.</para>
 	/// </summary>
 	[JsonPropertyName("version")]
+	[Obsolete]
 	public int Version { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The version of Prism Data's insights model used.</para>
+	/// </summary>
+	[JsonPropertyName("model_version")]
+	public string? ModelVersion { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The Insights Result object is a map of cash flow attributes, where the key is a string, and the value is a float or string. For a full list of attributes, contact your account manager. The attributes may vary depending on the Prism version used.</para>

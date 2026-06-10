@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record MonitoringIncomeInsights
 {
 	/// <summary>
-	/// <para>Details about about the total monthly income</para>
+	/// <para>Details about the total monthly income</para>
 	/// </summary>
 	[JsonPropertyName("total_monthly_income")]
 	public Entity.TotalMonthlyIncomeInsights TotalMonthlyIncome { get; init; } = default!;

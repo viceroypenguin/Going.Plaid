@@ -54,6 +54,16 @@ public record EntityWatchlistScreeningHit
 	public string? SourceUid { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Sub-program designations that may be attached to the watchlist entry by the issuing authority. For OFAC SDN</para>
+	/// <para>entries these are the program codes published in the SDN list (for example <c>SDGT</c> for Specially</para>
+	/// <para>Designated Global Terrorists, <c>SDNTK</c> for Specially Designated Narcotics Trafficking Kingpins,</para>
+	/// <para><c>IRAN</c>, <c>RUSSIA-EO14024</c>). New codes are added by sanctioning authorities without prior notice,</para>
+	/// <para>so callers should treat unknown values as opaque strings rather than enum members.</para>
+	/// </summary>
+	[JsonPropertyName("sub_programs")]
+	public IReadOnlyList<string> SubPrograms { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Analysis information describing why a screening hit matched the provided entity information</para>
 	/// </summary>
 	[JsonPropertyName("analysis")]

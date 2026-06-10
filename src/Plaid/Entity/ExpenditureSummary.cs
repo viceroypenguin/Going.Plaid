@@ -39,7 +39,7 @@ public record ExpenditureSummary
 	/// <summary>
 	/// <para>The percentage of the total inflows that was spent in this expenses group, within the given time window across all the accounts in the report.</para>
 	/// <para>For example, a value of 100 represents that 100% of the inflows were spent on transactions that fall into this expenditure group.</para>
-	/// <para>If there's no available income for the giving time period, this field value will be <c>-1</c>.</para>
+	/// <para>If there's no available income for the given time period, this field value will be <c>-1</c>.</para>
 	/// </summary>
 	[JsonPropertyName("percentage_of_income")]
 	public decimal? PercentageOfIncome { get; init; } = default!;

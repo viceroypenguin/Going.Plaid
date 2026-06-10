@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferRefundCancelRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a refund.</para>
+	/// <para>Plaid's unique identifier for a refund.</para>
 	/// </summary>
 	[JsonPropertyName("refund_id")]
 	public string RefundId { get; set; } = default!;

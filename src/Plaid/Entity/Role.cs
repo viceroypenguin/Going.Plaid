@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>ADocumentation not found in the MISMO model viewer and not provided by Freddie Mac.</para>
+/// <para>Documentation not found in the MISMO model viewer and not provided by Freddie Mac.</para>
 /// </summary>
 public record Role
 {

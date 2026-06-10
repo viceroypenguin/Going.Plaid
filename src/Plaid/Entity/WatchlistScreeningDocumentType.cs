@@ -36,7 +36,7 @@ public enum WatchlistScreeningDocumentType
 	Other,
 
 	/// <summary>
-	/// <para>An official passport issue by a government</para>
+	/// <para>An official passport issued by a government</para>
 	/// </summary>
 	[EnumMember(Value = "passport")]
 	Passport,

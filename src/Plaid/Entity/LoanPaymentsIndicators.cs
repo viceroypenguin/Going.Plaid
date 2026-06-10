@@ -63,7 +63,7 @@ public record LoanPaymentsIndicators
 
 	/// <summary>
 	/// <para>The percentage of the user's monthly inflows that was spent on transactions that fall into the <c>LOAN_PAYMENTS</c> credit category within the given time window, across all the accounts in the report. For example, a value of 100 indicates that 100% of the inflows were spent on transactions that fall into the <c>LOAN_PAYMENTS</c> credit category.</para>
-	/// <para>If there's no available income for the giving time period, this field value will be <c>-1</c></para>
+	/// <para>If there's no available income for the given time period, this field value will be <c>-1</c></para>
 	/// </summary>
 	[JsonPropertyName("percentage_of_income")]
 	public decimal? PercentageOfIncome { get; init; } = default!;

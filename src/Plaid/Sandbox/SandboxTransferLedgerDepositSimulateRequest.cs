@@ -6,7 +6,7 @@ namespace Going.Plaid.Sandbox;
 public partial class SandboxTransferLedgerDepositSimulateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a sweep.</para>
+	/// <para>Plaid's unique identifier for a sweep.</para>
 	/// </summary>
 	[JsonPropertyName("sweep_id")]
 	public string SweepId { get; set; } = default!;

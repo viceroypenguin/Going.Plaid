@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record TransferRefund
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a refund.</para>
+	/// <para>Plaid's unique identifier for a refund.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
 	public string Id { get; init; } = default!;
@@ -36,7 +36,7 @@ public record TransferRefund
 	public Entity.TransferRefundFailure? FailureReason { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a Plaid Ledger Balance.</para>
+	/// <para>Plaid's unique identifier for a Plaid Ledger Balance.</para>
 	/// </summary>
 	[JsonPropertyName("ledger_id")]
 	public string? LedgerId { get; init; } = default!;

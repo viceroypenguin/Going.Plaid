@@ -38,7 +38,7 @@ public record InvestmentsHistoricalUpdateWebhook : WebhookBase
 	public decimal NewInvestmentsTransactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of canceled transactions reported since the last time this webhook was fired.</para>
+	/// <para>The number of cancelled transactions reported since the last time this webhook was fired.</para>
 	/// </summary>
 	[JsonPropertyName("cancelled_investments_transactions")]
 	public decimal CancelledInvestmentsTransactions { get; init; } = default!;

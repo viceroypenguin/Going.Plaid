@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public record Transfer
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer.</para>
+	/// <para>Plaid's unique identifier for a transfer.</para>
 	/// </summary>
 	[JsonPropertyName("id")]
 	public string Id { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer authorization.</para>
+	/// <para>Plaid's unique identifier for a transfer authorization.</para>
 	/// </summary>
 	[JsonPropertyName("authorization_id")]
 	public string AuthorizationId { get; init; } = default!;
@@ -36,7 +36,7 @@ public record Transfer
 	public string? FundingAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a Plaid Ledger Balance.</para>
+	/// <para>Plaid's unique identifier for a Plaid Ledger Balance.</para>
 	/// </summary>
 	[JsonPropertyName("ledger_id")]
 	public string? LedgerId { get; init; } = default!;
@@ -119,7 +119,7 @@ public record Transfer
 	public IReadOnlyDictionary<string, string>? Metadata { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the origination account that was used for this transfer.</para>
+	/// <para>Plaid's unique identifier for the origination account that was used for this transfer.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	[Obsolete]
@@ -204,7 +204,7 @@ public record Transfer
 	public Entity.TransferCreditFundsSource? CreditFundsSource { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform’s Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer’s Ledger balance. This must be value greater than 0 and less than or equal to the <c>transfer.amount</c>.</para>
+	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform's Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer's Ledger balance. This must be value greater than 0 and less than or equal to the <c>transfer.amount</c>.</para>
 	/// </summary>
 	[JsonPropertyName("facilitator_fee")]
 	public string? FacilitatorFee { get; init; } = default!;

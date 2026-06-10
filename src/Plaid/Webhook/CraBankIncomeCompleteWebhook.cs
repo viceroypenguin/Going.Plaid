@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a bank income report has finished generating or failed to generate, triggered by calling <c>/cra/bank_income/get</c>.</para>
+/// <para>Fired when a bank income report has finished generating or failed to generate, triggered by calling <c>/credit/bank_income/get</c>.</para>
 /// </summary>
 public record CraBankIncomeCompleteWebhook : WebhookBase
 {

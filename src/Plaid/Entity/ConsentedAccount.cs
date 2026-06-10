@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record ConsentedAccount
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the account. Like all Plaid identifiers, the <c>account_id</c> is case sensitive.</para>
+	/// <para>Plaid's unique identifier for the account. Like all Plaid identifiers, the <c>account_id</c> is case sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
 	public string? AccountId { get; init; } = default!;

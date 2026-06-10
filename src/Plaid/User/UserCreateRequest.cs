@@ -24,14 +24,14 @@ public partial class UserCreateRequest : RequestBase
 	public string? EndCustomer { get; set; } = default!;
 
 	/// <summary>
-	/// <para>This field is only used by integrations created before December 10, 2025. All other integrations must use the <c>identity</c> object instead. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">new user APIs</a>.</para>
+	/// <para>This field is only used by integrations created before December 10, 2025. All other integrations must use the <c>identity</c> object instead. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>.</para>
 	/// <para>To create a Plaid Check Consumer Report for a user when using a <c>user_token</c>, this field must be present. If this field is not provided during user token creation, you can add it to the user later by calling <c>/user/update</c>. Once the field has been added to the user, you will be able to call <c>/link/token/create</c> with a non-empty <c>consumer_report_permissible_purpose</c> (which will automatically create a Plaid Check Consumer Report), or call <c>/cra/check_report/create</c> for that user.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_user_identity")]
 	public Entity.ConsumerReportUserIdentity? ConsumerReportUserIdentity { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If your integration with the User API predates December 10, 2025, set this field to <c>true</c> to opt into the <a href="https://plaid.com/docs/api/users/user-apis/">new User API</a>. When enabled, you can use the <c>identity</c> field instead of <c>consumer_report_user_identity</c>.</para>
+	/// <para>If your integration with the User API predates December 10, 2025, set this field to <c>true</c> to opt into the <a href="https://plaid.com/docs/api/users/user-apis/">New User APIs</a>. When enabled, you can use the <c>identity</c> field instead of <c>consumer_report_user_identity</c>.</para>
 	/// </summary>
 	[JsonPropertyName("with_upgraded_user")]
 	public bool? WithUpgradedUser { get; set; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Reason why the item is about to be disconnected.</para>
+/// <para>Reason why the Item is about to be disconnected.</para>
 /// </summary>
 public enum PendingDisconnectWebhookReason
 {

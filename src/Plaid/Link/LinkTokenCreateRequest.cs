@@ -19,11 +19,11 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Language Language { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/. For access to additional countries beyond what you have been approved for, <a href="https://plaid.com/contact/">contact Sales</a>, your account manager, or support.</para>
+	/// <para>Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/. For access to additional countries beyond what you have been approved for, <a href="https://plaid.com/contact/">contact sales</a>, your account manager, or support.</para>
 	/// <para>If using Identity Verification, <c>country_codes</c> should be set to the country where your company is based, not the country where your user is located. For all other products, <c>country_codes</c> represents the location of your user's financial institution.</para>
 	/// <para>If Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. While all countries are enabled by default in Sandbox, in Production only the countries you have requested access for are shown. To request access to additional countries, <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access">file a product access Support ticket</a> via the Plaid dashboard.</para>
 	/// <para>If using a Link customization, make sure the country codes in the customization match those specified in <c>country_codes</c>, or the customization may not be applied.</para>
-	/// <para>If using the Auth features Instant Match, Instant Micro-deposits, Same-day Micro-deposits, Automated Micro-deposits, or Database Auth, <c>country_codes</c> must be set to <c>['US']</c>.</para>
+	/// <para>If using the Auth features Instant Match, Instant Micro-deposits, Same-Day Micro-deposits, Automated Micro-deposits, or Database Auth, <c>country_codes</c> must be set to <c>['US']</c>.</para>
 	/// </summary>
 	[JsonPropertyName("country_codes")]
 	public IReadOnlyList<Entity.CountryCode> CountryCodes { get; set; } = default!;
@@ -35,7 +35,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestUser? User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A <c>user_id</c> generated using <c>/user/create</c>. Required for integrations that began using Plaid Protect, Multi-Item Link, or Plaid Check Consumer Report after December 10, 2025. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">new User APIs</a>. One of either the <c>user_id</c> or the <c>user</c> field is required.</para>
+	/// <para>A <c>user_id</c> generated using <c>/user/create</c>. Required for integrations that began using Plaid Protect, Multi-Item Link, or Plaid Check Consumer Report after December 10, 2025. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>. One of either the <c>user_id</c> or the <c>user</c> field is required.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; set; } = default!;

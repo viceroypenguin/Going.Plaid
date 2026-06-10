@@ -6,7 +6,7 @@ namespace Going.Plaid.WatchlistScreening;
 public partial class WatchlistScreeningEntityReviewCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Hits to mark as a true positive after thorough manual review. These hits will never recur or be updated once dismissed. In most cases, confirmed hits indicate that the customer should be rejected.</para>
+	/// <para>Hits to mark as a true positive after thorough manual review. These hits will never recur or be updated once confirmed. In most cases, confirmed hits indicate that the customer should be rejected.</para>
 	/// </summary>
 	[JsonPropertyName("confirmed_hits")]
 	public IReadOnlyList<string> ConfirmedHits { get; set; } = default!;

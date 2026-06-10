@@ -36,7 +36,7 @@ public enum ConsumerReportPermissiblePurpose
 	LegitimateBusinessNeedOther,
 
 	/// <summary>
-	/// <para>In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), to evaluate an application’s profile to make an offer to the consumer.</para>
+	/// <para>In accordance with the written instructions of the consumer pursuant to FCRA Section 604(a)(2), to evaluate an application's profile to make an offer to the consumer.</para>
 	/// </summary>
 	[EnumMember(Value = "WRITTEN_INSTRUCTION_PREQUALIFICATION")]
 	WrittenInstructionPrequalification,
@@ -48,7 +48,7 @@ public enum ConsumerReportPermissiblePurpose
 	WrittenInstructionOther,
 
 	/// <summary>
-	/// <para>In connection with an eligibility determination for a government benefit where the entity is required to consider an applicant’s financial status pursuant to FCRA Section 604(a)(3)(D).</para>
+	/// <para>In connection with an eligibility determination for a government benefit where the entity is required to consider an applicant's financial status pursuant to FCRA Section 604(a)(3)(D).</para>
 	/// </summary>
 	[EnumMember(Value = "ELIGIBILITY_FOR_GOVT_BENEFITS")]
 	EligibilityForGovtBenefits,

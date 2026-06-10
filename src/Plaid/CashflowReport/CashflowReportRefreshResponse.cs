@@ -1,7 +1,7 @@
 namespace Going.Plaid.CashflowReport;
 
 /// <summary>
-/// <para>CashflowReportRefreshResponse defines the response schema for <c>/cashflow_report/response</c></para>
+/// <para>CashflowReportRefreshResponse defines the response schema for <c>/cashflow_report/refresh</c></para>
 /// </summary>
 public record CashflowReportRefreshResponse : ResponseBase
 {

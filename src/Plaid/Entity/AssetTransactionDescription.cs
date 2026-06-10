@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record AssetTransactionDescription
 {
 	/// <summary>
-	/// <para>Asset Transaction Description String up to 3 occurances 1 required.</para>
+	/// <para>Asset Transaction Description String up to 3 occurrences 1 required.</para>
 	/// </summary>
 	[JsonPropertyName("AssetTransactionDescription")]
 	public string Assettransactiondescription { get; init; } = default!;

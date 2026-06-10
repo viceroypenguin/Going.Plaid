@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record BaseReport
 {
 	/// <summary>
-	/// <para>A unique ID identifying an Base Report. Like all Plaid identifiers, this ID is case sensitive.</para>
+	/// <para>A unique ID identifying a Base Report. Like all Plaid identifiers, this ID is case sensitive.</para>
 	/// </summary>
 	[JsonPropertyName("report_id")]
 	public string ReportId { get; init; } = default!;

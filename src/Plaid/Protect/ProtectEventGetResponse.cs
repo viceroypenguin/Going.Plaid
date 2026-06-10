@@ -24,7 +24,7 @@ public record ProtectEventGetResponse : ResponseBase
 	public Entity.TrustIndex? TrustIndex { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Event fraud attributes as an arbitrary set of key-value pairs.</para>
+	/// <para>Event fraud attributes as an arbitrary set of key-value pairs. The set of attributes returned varies by model.</para>
 	/// </summary>
 	[JsonPropertyName("fraud_attributes")]
 	public Entity.FraudAttributes? FraudAttributes { get; init; } = default!;

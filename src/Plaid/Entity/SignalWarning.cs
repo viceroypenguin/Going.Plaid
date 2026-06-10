@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Conveys information about the errors causing missing or stale bank data used to construct the /signal/evaluate scores and response</para>
+/// <para>Conveys information about the errors causing missing or stale bank data used to construct the <c>/signal/evaluate</c> scores and response</para>
 /// </summary>
 public record SignalWarning
 {

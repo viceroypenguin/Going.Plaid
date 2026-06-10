@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>details about the incident event.</para>
+/// <para>Details about the incident event.</para>
 /// </summary>
 public class ProtectIncidentEvent
 {

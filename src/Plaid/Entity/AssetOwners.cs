@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record AssetOwners
 {
 	/// <summary>
-	/// <para>Multiple Occurances of Account Owners Full Name up to 4.</para>
+	/// <para>A list of up to 4 account owners' full names.</para>
 	/// </summary>
 	[JsonPropertyName("ASSET_OWNER")]
 	public IReadOnlyList<Entity.AssetOwner> AssetOwner { get; init; } = default!;

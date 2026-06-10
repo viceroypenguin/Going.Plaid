@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An enum indicating the type of a linked service. Note that <c>adult_sites</c> refers' to explicit video content, and includes a number of related services.</para>
+/// <para>An enum indicating the type of a linked service. Note that <c>adult_sites</c> refers to explicit video content, and includes a number of related services.</para>
 /// </summary>
 public enum RiskCheckLinkedService
 {

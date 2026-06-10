@@ -13,7 +13,7 @@ public partial class ProcessorTransactionsSyncRequest : RequestBase
 
 	/// <summary>
 	/// <para>The cursor value represents the last update requested. Providing it will cause the response to only return changes after this update.</para>
-	/// <para>If omitted, the entire history of updates will be returned, starting with the first-added transactions on the item.</para>
+	/// <para>If omitted, the entire history of updates will be returned, starting with the first-added transactions on the Item.</para>
 	/// <para>Note: The upper-bound length of this cursor is 256 characters of base64.</para>
 	/// </summary>
 	[JsonPropertyName("cursor")]

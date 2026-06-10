@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public enum IdentityVerificationStatus
 {
 	/// <summary>
-	/// <para>The Identity Verification attempt is incomplete. The user may have completed part of the session, but has neither failed or passed.</para>
+	/// <para>The Identity Verification attempt is incomplete. The user may have completed part of the session, but has neither failed nor passed.</para>
 	/// </summary>
 	[EnumMember(Value = "active")]
 	Active,
 
 	/// <summary>
-	/// <para>The Identity Verification attempt has completed, passing all steps defined to the associated Identity Verification template</para>
+	/// <para>The Identity Verification attempt has completed, passing all steps defined to the associated Identity Verification template.</para>
 	/// </summary>
 	[EnumMember(Value = "success")]
 	Success,
@@ -30,7 +30,7 @@ public enum IdentityVerificationStatus
 	Expired,
 
 	/// <summary>
-	/// <para>The Identity Verification attempt was canceled, either via the dashboard by a user, or via API. The user may have completed part of the session, but has neither failed or passed.</para>
+	/// <para>The Identity Verification attempt was canceled, either via the dashboard by a user, or via API. The user may have completed part of the session, but has neither failed nor passed.</para>
 	/// </summary>
 	[EnumMember(Value = "canceled")]
 	Canceled,

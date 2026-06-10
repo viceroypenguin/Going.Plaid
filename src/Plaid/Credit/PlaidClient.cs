@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>The <c>/credit/audit_copy_token/update</c> endpoint updates an existing  Audit Copy Token by adding the report tokens in the <c>report_tokens</c> field to the <c>audit_copy_token</c>. If the Audit Copy Token already contains a report of a certain type, it will be replaced with the token provided in the <c>report_tokens</c> field.</para>
+	/// <para>The <c>/credit/audit_copy_token/update</c> endpoint updates an existing Audit Copy Token by adding the report tokens in the <c>report_tokens</c> field to the <c>audit_copy_token</c>. If the Audit Copy Token already contains a report of a certain type, it will be replaced with the token provided in the <c>report_tokens</c> field.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
 	public Task<Credit.CreditAuditCopyTokenUpdateResponse> CreditAuditCopyTokenUpdateAsync(Credit.CreditAuditCopyTokenUpdateRequest request) =>
@@ -37,7 +37,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditAuditCopyTokenRemoveResponse>();
 
 	/// <summary>
-	/// <para>The <c>credit/asset_report/freddie_mac/get</c> endpoint retrieves the Verification of Assets and Verification of Employment reports.</para>
+	/// <para>The <c>/credit/freddie_mac/reports/get</c> endpoint retrieves the Verification of Assets and Verification of Employment reports.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
 	public Task<Credit.CreditFreddieMacReportsGetResponse> CreditFreddieMacReportsGetAsync(Credit.CreditFreddieMacReportsGetRequest request) =>
@@ -53,7 +53,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditBankIncomeGetResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/bank_income/refresh</c> refreshes the most recent bank income report data for a specific user. If the most recent bank income report is no longer valid (i.e. deleted), the endpoint will refresh the most recent valid report instead.</para>
+	/// <para><c>/credit/bank_income/refresh</c> is deprecated. The backend implementation was removed (returns an <c>Unimplemented</c> error at runtime), and the endpoint is no longer part of the documented API surface. To refresh Bank Income data for an existing user, send the user through Link's update mode so they can confirm their income sources. For a fully backend refresh, migrate to CRA Income Insights and call <c>/cra/check_report/create</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomerefresh" /></remarks>
 	public Task<Credit.CreditBankIncomeRefreshResponse> CreditBankIncomeRefreshAsync(Credit.CreditBankIncomeRefreshRequest request) =>

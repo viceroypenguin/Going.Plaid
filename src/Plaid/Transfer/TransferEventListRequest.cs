@@ -18,7 +18,7 @@ public partial class TransferEventListRequest : RequestBase
 	public DateTimeOffset? EndDate { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer.</para>
+	/// <para>Plaid's unique identifier for a transfer.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_id")]
 	public string? TransferId { get; set; } = default!;
@@ -42,7 +42,7 @@ public partial class TransferEventListRequest : RequestBase
 	public IReadOnlyList<Entity.TransferEventType>? EventTypes { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a sweep.</para>
+	/// <para>Plaid's unique identifier for a sweep.</para>
 	/// </summary>
 	[JsonPropertyName("sweep_id")]
 	public string? SweepId { get; set; } = default!;

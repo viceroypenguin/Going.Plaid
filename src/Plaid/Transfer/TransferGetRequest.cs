@@ -6,13 +6,13 @@ namespace Going.Plaid.Transfer;
 public partial class TransferGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer.</para>
+	/// <para>Plaid's unique identifier for a transfer.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_id")]
 	public string? TransferId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer authorization.</para>
+	/// <para>Plaid's unique identifier for a transfer authorization.</para>
 	/// </summary>
 	[JsonPropertyName("authorization_id")]
 	public string? AuthorizationId { get; set; } = default!;

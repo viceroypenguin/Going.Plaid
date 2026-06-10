@@ -12,7 +12,7 @@ public partial class IdentityMatchRequest : RequestBase
 	public Entity.IdentityMatchUser? User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An optional object to filter /identity/match results</para>
+	/// <para>An optional object to filter <c>/identity/match</c> results</para>
 	/// </summary>
 	[JsonPropertyName("options")]
 	public Entity.IdentityMatchRequestOptions? Options { get; set; } = default!;

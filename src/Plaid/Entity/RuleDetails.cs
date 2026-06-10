@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record RuleDetails
 {
 	/// <summary>
-	/// <para>An optional message attached to the triggered rule, defined within the Dashboard, for your internal use. Useful for debugging, such as “Account appears to be closed.”</para>
+	/// <para>An optional message attached to the triggered rule, defined within the Dashboard, for your internal use. Useful for debugging, such as "Account appears to be closed."</para>
 	/// </summary>
 	[JsonPropertyName("internal_note")]
 	public string? InternalNote { get; init; } = default!;

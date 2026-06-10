@@ -49,7 +49,7 @@ public partial class OAuthTokenRequest : RequestBase
 	public string? Audience { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Token representing the subject. The <c>subject token</c> must be an OAuth refresh token issued from the <c>/oauth/token</c> endpoint. The meaning depends on the <c>subject_token_type</c>.</para>
+	/// <para>Token representing the subject. The meaning depends on the <c>subject_token_type</c>. For <c>urn:plaid:params:tokens:user</c>, the <c>subject_token</c> must be a Plaid-issued user token from the <c>/user/create</c> endpoint. For <c>urn:plaid:params:oauth:user-token</c>, the <c>subject_token</c> must be an OAuth refresh token issued from the <c>/oauth/token</c> endpoint.</para>
 	/// </summary>
 	[JsonPropertyName("subject_token")]
 	public string? SubjectToken { get; set; } = default!;

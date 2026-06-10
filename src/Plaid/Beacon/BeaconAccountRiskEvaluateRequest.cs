@@ -1,7 +1,7 @@
 namespace Going.Plaid.Beacon;
 
 /// <summary>
-/// <para>BeaconAccountRiskEvaluateRequest defines the request schema for <c>/v1/beacon/account_risk/risk/evaluate</c></para>
+/// <para>BeaconAccountRiskEvaluateRequest defines the request schema for <c>/beacon/account_risk/v1/evaluate</c></para>
 /// </summary>
 public partial class BeaconAccountRiskEvaluateRequest : RequestBase
 {
@@ -36,7 +36,7 @@ public partial class BeaconAccountRiskEvaluateRequest : RequestBase
 	public Entity.SignalEvaluateDevice? Device { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The time the event for evaluation has occurred. Populate this field for backfilling data. If you don’t populate this field, we’ll use the timestamp at the time of receipt. Use ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).</para>
+	/// <para>The time the event for evaluation has occurred. Populate this field for backfilling data. If you don't populate this field, we'll use the timestamp at the time of receipt. Use ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).</para>
 	/// </summary>
 	[JsonPropertyName("evaluate_time")]
 	public DateOnly? EvaluateTime { get; set; } = default!;

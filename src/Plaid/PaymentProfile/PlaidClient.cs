@@ -21,7 +21,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentProfile.PaymentProfileGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/payment_profile/remove</c> endpoint to remove a given Payment Profile. Once it’s removed, it can no longer be used to create transfers.</para>
+	/// <para>Use the <c>/payment_profile/remove</c> endpoint to remove a given Payment Profile. Once it's removed, it can no longer be used to create transfers.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#payment_profileremove" /></remarks>
 	public Task<PaymentProfile.PaymentProfileRemoveResponse> PaymentProfileRemoveAsync(PaymentProfile.PaymentProfileRemoveRequest request) =>

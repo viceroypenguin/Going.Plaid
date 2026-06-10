@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record AccountIdentityMatchScore
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the account. This value will not change unless Plaid can't reconcile the account with the data returned by the financial institution. This may occur, for example, when the name of the account changes. If this happens a new <c>account_id</c> will be assigned to the account.</para>
+	/// <para>Plaid's unique identifier for the account. This value will not change unless Plaid can't reconcile the account with the data returned by the financial institution. This may occur, for example, when the name of the account changes. If this happens a new <c>account_id</c> will be assigned to the account.</para>
 	/// <para>The <c>account_id</c> can also change if the <c>access_token</c> is deleted and the same credentials that were used to generate that <c>access_token</c> are used to generate a new <c>access_token</c> on a later date. In that case, the new <c>account_id</c> will be different from the old <c>account_id</c>.</para>
 	/// <para>If an account with a specific <c>account_id</c> disappears instead of changing, the account is likely closed. Closed accounts are not returned by the Plaid API.</para>
 	/// <para>When using a CRA endpoint (an endpoint associated with Plaid Check Consumer Report, i.e. any endpoint beginning with <c>/cra/</c>), the <c>account_id</c> returned will not match the <c>account_id</c> returned by a non-CRA endpoint.</para>
@@ -22,7 +22,7 @@ public record AccountIdentityMatchScore
 	public Entity.AccountBalance? Balances { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The last 2-4 alphanumeric characters of either the account’s displayed mask or the account’s official account number. Note that the mask may be non-unique between an Item’s accounts.</para>
+	/// <para>The last 2-4 alphanumeric characters of either the account's displayed mask or the account's official account number. Note that the mask may be non-unique between an Item's accounts.</para>
 	/// </summary>
 	[JsonPropertyName("mask")]
 	public string? Mask { get; init; } = default!;
@@ -70,7 +70,7 @@ public record AccountIdentityMatchScore
 	public Entity.VerificationInsights? VerificationInsights { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This field is currently supported only for Items at institutions that use Tokenized Account Numbers (i.e., Chase and PNC, and in May 2025 US Bank). Because these accounts have a different account number each time they are linked, this field may be used instead of the account number to uniquely identify an account across multiple Items for payments use cases, helping to reduce duplicate Items or attempted fraud. In Sandbox, this field is populated for TAN-based institutions (<c>ins_56</c>, <c>ins_13</c>) as well as the OAuth Sandbox institution (<c>ins_127287</c>); in Production, it will only be populated for accounts at applicable institutions.</para>
+	/// <para>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This field is currently supported only for Items at institutions that use Tokenized Account Numbers (i.e., Chase, PNC, and US Bank). Because these accounts have a different account number each time they are linked, this field may be used instead of the account number to uniquely identify an account across multiple Items for payments use cases, helping to reduce duplicate Items or attempted fraud. In Sandbox, this field is populated for TAN-based institutions (<c>ins_56</c>, <c>ins_13</c>, <c>ins_127990</c>) as well as the OAuth Sandbox institution (<c>ins_127287</c>); in Production, it will only be populated for accounts at applicable institutions.</para>
 	/// </summary>
 	[JsonPropertyName("persistent_account_id")]
 	public string? PersistentAccountId { get; init; } = default!;

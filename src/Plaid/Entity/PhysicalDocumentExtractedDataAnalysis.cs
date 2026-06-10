@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record PhysicalDocumentExtractedDataAnalysis
 {
 	/// <summary>
-	/// <para>A match summary describing the cross comparison between the subject's name, extracted from the document image, and the name they separately provided to identity verification attempt.</para>
+	/// <para>A match summary describing the cross comparison between the subject's name, extracted from the document image, and the name they separately provided to the identity verification attempt.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	public Entity.DocumentNameMatchCode Name { get; init; } = default!;

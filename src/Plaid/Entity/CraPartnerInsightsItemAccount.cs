@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Account data corresponding to the item from which Partner Insights were generated from</para>
+/// <para>Account data corresponding to the Item from which Partner Insights were generated.</para>
 /// </summary>
 public record CraPartnerInsightsItemAccount
 {

@@ -24,7 +24,7 @@ public record StatementsStatement
 	public int Month { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The year of statement.</para>
+	/// <para>The year of the statement, e.g. 2024.</para>
 	/// </summary>
 	[JsonPropertyName("year")]
 	public int Year { get; init; } = default!;

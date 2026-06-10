@@ -20,7 +20,7 @@ public record ProtectUserEventWebhook : WebhookBase
 	public string EventId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of user event that occurred.</para>
+	/// <para>The type of user event that occurred. Possible values include <c>LINK_COMPLETE</c> (the Link session has finished and a Trust Index score has been computed without waiting for transaction extraction) and <c>PROTECT_RUN_FINISH</c> (extraction-required scoring is complete, including transaction extraction; may arrive 30 seconds or more after Link completion).</para>
 	/// </summary>
 	[JsonPropertyName("event_type")]
 	public string EventType { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Beta;
 
 /// <summary>
-/// <para>TransactionsEnhanceGetRequest defines the request schema for <c>/transactions/enhance</c>.</para>
+/// <para>TransactionsEnhanceGetRequest defines the request schema for <c>/beta/transactions/v1/enhance</c>.</para>
 /// </summary>
 public partial class TransactionsEnhanceGetRequest : RequestBase
 {

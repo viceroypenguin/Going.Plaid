@@ -37,7 +37,7 @@ public record CreditBankIncomeSource
 	public DateOnly? StartDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Maximum of all dates within the specific income sources in the user’s bank account for days requested by the client.</para>
+	/// <para>Maximum of all dates within the specific income sources in the user's bank account for days requested by the client.</para>
 	/// <para>The date will be returned in an ISO 8601 format (YYYY-MM-DD).</para>
 	/// </summary>
 	[JsonPropertyName("end_date")]
@@ -50,7 +50,7 @@ public record CreditBankIncomeSource
 	public Entity.CreditBankIncomePayFrequency? PayFrequency { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of earnings in the user’s bank account for the specific income source for days requested by the client.</para>
+	/// <para>Total amount of earnings in the user's bank account for the specific income source for days requested by the client.</para>
 	/// </summary>
 	[JsonPropertyName("total_amount")]
 	public decimal? TotalAmount { get; init; } = default!;

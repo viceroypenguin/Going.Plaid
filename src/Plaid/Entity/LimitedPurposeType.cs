@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A limited purpose type identifying the specific use case for limited purpose checking accounts.</para>
+/// <para>A specific use case for a limited purpose checking account. Limited purpose checking accounts will reject or return ACH transactions that aren't for eligible use cases. For example, a <c>RENT_MORTGAGE</c> limited purpose checking account will reject ACH transactions that are not specifically rent or mortgage payments.</para>
 /// </summary>
 public enum LimitedPurposeType
 {

@@ -6,7 +6,7 @@ namespace Going.Plaid.BankTransfer;
 public partial class BankTransferGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a bank transfer.</para>
+	/// <para>Plaid's unique identifier for a bank transfer.</para>
 	/// </summary>
 	[JsonPropertyName("bank_transfer_id")]
 	public string BankTransferId { get; set; } = default!;

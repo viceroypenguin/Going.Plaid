@@ -18,7 +18,7 @@ public partial class BankTransferEventListRequest : RequestBase
 	public DateTimeOffset? EndDate { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a bank transfer.</para>
+	/// <para>Plaid's unique identifier for a bank transfer.</para>
 	/// </summary>
 	[JsonPropertyName("bank_transfer_id")]
 	public string? BankTransferId { get; set; } = default!;

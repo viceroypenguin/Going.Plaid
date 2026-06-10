@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para><c>/credit/bank_employment/get</c> returns the employment report(s) derived from bank transaction data for a specified user.</para>
+	/// <para><c>/beta/credit/v1/bank_employment/get</c> returns the employment report(s) derived from bank transaction data for a specified user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_employmentget" /></remarks>
 	public Task<Beta.CreditBankEmploymentGetResponse> BetaCreditV1BankEmploymentGetAsync(Beta.CreditBankEmploymentGetRequest request) =>
@@ -19,7 +19,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beta.TransactionsEnhanceGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/transactions/rules/v1/create</c> endpoint creates transaction categorization rules.</para>
+	/// <para>The <c>/beta/transactions/rules/v1/create</c> endpoint creates transaction categorization rules.</para>
 	/// <para>Rules will be applied on the Item's transactions returned in <c>/transactions/get</c> response.</para>
 	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
 	/// </summary>
@@ -28,14 +28,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beta.TransactionsRulesCreateResponse>();
 
 	/// <summary>
-	/// <para>The <c>/transactions/rules/v1/list</c> returns a list of transaction rules created for the Item associated with the access token.</para>
+	/// <para>The <c>/beta/transactions/rules/v1/list</c> returns a list of transaction rules created for the Item associated with the access token.</para>
 	/// </summary>
 	public Task<Beta.TransactionsRulesListResponse> BetaTransactionsRulesV1ListAsync(Beta.TransactionsRulesListRequest request) =>
 		PostAsync("/beta/transactions/rules/v1/list", request)
 			.ParseResponseAsync<Beta.TransactionsRulesListResponse>();
 
 	/// <summary>
-	/// <para>The <c>/transactions/rules/v1/remove</c> endpoint is used to remove a transaction rule.</para>
+	/// <para>The <c>/beta/transactions/rules/v1/remove</c> endpoint is used to remove a transaction rule.</para>
 	/// </summary>
 	public Task<Beta.TransactionsRulesRemoveResponse> BetaTransactionsRulesV1RemoveAsync(Beta.TransactionsRulesRemoveRequest request) =>
 		PostAsync("/beta/transactions/rules/v1/remove", request)
@@ -53,7 +53,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/beta/ewa_report/v1/get</c> endpoint provides an Earned Wage Access (EWA) score that quantifies the delinquency risk associated with a given item. The score is derived from a combination of cashflow patterns and network-based behavioral features.</para>
 	/// <para>The response returns a list of EWA scores, where each score corresponds to a potential advance amount range. These scores estimate the likelihood of repayment for advances within that range.</para>
-	/// <para>Score range: 1–99</para>
+	/// <para>Score range: 1-99</para>
 	/// <para>Interpretation: Higher scores indicate a greater likelihood of repayment.</para>
 	/// <para>This endpoint enables clients to assess repayment risk and make data-driven decisions when determining eligibility or limits for earned wage advances.</para>
 	/// </summary>

@@ -24,7 +24,7 @@ public record Credit1099Recipient
 	public string? Tin { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Account number number of recipient.</para>
+	/// <para>Account number of recipient.</para>
 	/// </summary>
 	[JsonPropertyName("account_number")]
 	public string? AccountNumber { get; init; } = default!;

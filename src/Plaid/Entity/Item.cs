@@ -12,13 +12,13 @@ public record Item
 	public string ItemId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid Institution ID associated with the Item. Field is <c>null</c> for Items created without an institution connection, such as Items created via Same Day Micro-deposits.</para>
+	/// <para>The Plaid Institution ID associated with the Item. Field is <c>null</c> for Items created without an institution connection, such as Items created via Same-Day Micro-deposits.</para>
 	/// </summary>
 	[JsonPropertyName("institution_id")]
 	public string? InstitutionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The name of the institution associated with the Item. Field is <c>null</c> for Items created without an institution connection, such as Items created via Same Day Micro-deposits.</para>
+	/// <para>The name of the institution associated with the Item. Field is <c>null</c> for Items created without an institution connection, such as Items created via Same-Day Micro-deposits.</para>
 	/// </summary>
 	[JsonPropertyName("institution_name")]
 	public string? InstitutionName { get; init; } = default!;

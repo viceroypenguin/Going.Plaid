@@ -60,10 +60,22 @@ public enum TransactionCode
 	Interest,
 
 	/// <summary>
+	/// <para>One-off outbound payment not classified as a bill payment, direct debit, or standing order</para>
+	/// </summary>
+	[EnumMember(Value = "payment")]
+	Payment,
+
+	/// <summary>
 	/// <para>Purchase made with a debit or credit card</para>
 	/// </summary>
 	[EnumMember(Value = "purchase")]
 	Purchase,
+
+	/// <summary>
+	/// <para>Merchant credit or return, such as a refund of a prior purchase</para>
+	/// </summary>
+	[EnumMember(Value = "refund")]
+	Refund,
 
 	/// <summary>
 	/// <para>Payment instructed by the account holder to a third party at a regular interval</para>

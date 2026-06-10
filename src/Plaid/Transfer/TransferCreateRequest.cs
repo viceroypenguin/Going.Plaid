@@ -21,7 +21,7 @@ public partial class TransferCreateRequest : RequestBase
 	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer authorization. This parameter also serves the purpose of acting as an idempotency identifier.</para>
+	/// <para>Plaid's unique identifier for a transfer authorization. This parameter also serves the purpose of acting as an idempotency identifier.</para>
 	/// </summary>
 	[JsonPropertyName("authorization_id")]
 	public string AuthorizationId { get; set; } = default!;
@@ -38,7 +38,7 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para>For transfers submitted as <c>ach</c> or <c>same-day-ach</c>, the Standard ACH cutoff is 8:30 PM Eastern Time.</para>
 	/// <para>For transfers submitted as <c>same-day-ach</c>, the Same Day ACH cutoff is 3:00 PM Eastern Time.  It is recommended to send the request 15 minutes prior to the cutoff to ensure that it will be processed in time for submission before the cutoff. If the transfer is processed after this cutoff but before the Standard ACH cutoff, it will be sent over Standard ACH rails and will not incur same-day charges; this will apply to both legs of the transfer if applicable. The transaction limit for a Same Day ACH transfer is $1,000,000. Authorization requests sent with an amount greater than $1,000,000 will fail.</para>
 	/// <para>For transfers submitted as <c>rtp</c>,  Plaid will automatically route between Real Time Payment rail by TCH or FedNow rails as necessary. If a transfer is submitted as <c>rtp</c> and the counterparty account is not eligible for RTP, the <c>/transfer/authorization/create</c> request will fail with an <c>INVALID_FIELD</c> error code. To pre-check to determine whether a counterparty account can support RTP, call <c>/transfer/capabilities/get</c> before calling <c>/transfer/authorization/create</c>.</para>
-	/// <para>Wire transfers are currently in early availability. To request access to <c>wire</c> as a payment network, contact your Account Manager. For transfers submitted as <c>wire</c>, the <c>type</c> must be <c>credit</c>; wire debits are not supported. The cutoff to submit a wire payment is 6:30 PM Eastern Time on a business day; wires submitted after that time will be processed on the next business day. The transaction limit for a wire is $999,999.99. Authorization requests sent with an amount greater than $999,999.99 will fail.</para>
+	/// <para>Wire transfers are currently in early availability. To request access to <c>wire</c> as a payment network, contact your account manager. For transfers submitted as <c>wire</c>, the <c>type</c> must be <c>credit</c>; wire debits are not supported. The cutoff to submit a wire payment is 6:30 PM Eastern Time on a business day; wires submitted after that time will be processed on the next business day. The transaction limit for a wire is $999,999.99. Authorization requests sent with an amount greater than $999,999.99 will fail.</para>
 	/// </summary>
 	[JsonPropertyName("network")]
 	[Obsolete]
@@ -63,7 +63,7 @@ public partial class TransferCreateRequest : RequestBase
 	/// <para>Codes supported for debits: <c>ccd</c>, <c>tel</c>, <c>web</c></para>
 	/// <para><c>"ccd"</c> - Corporate Credit or Debit - fund transfer between two corporate bank accounts</para>
 	/// <para><c>"ppd"</c> - Prearranged Payment or Deposit - The transfer is part of a pre-existing relationship with a consumer. Authorization was obtained in writing either in person or via an electronic document signing, e.g. Docusign, by the consumer. Can be used for credits or debits.</para>
-	/// <para><c>"web"</c> - Internet-Initiated Entry. The transfer debits a consumer’s bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits.</para>
+	/// <para><c>"web"</c> - Internet-Initiated Entry. The transfer debits a consumer's bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits.</para>
 	/// <para><c>"tel"</c> - Telephone-Initiated Entry. The transfer debits a consumer. Debit authorization has been received orally over the telephone via a recorded call.</para>
 	/// </summary>
 	[JsonPropertyName("ach_class")]
@@ -89,7 +89,7 @@ public partial class TransferCreateRequest : RequestBase
 	public IReadOnlyDictionary<string, string>? Metadata { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified. Otherwise, this field should be left blank.</para>
+	/// <para>Plaid's unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified. Otherwise, this field should be left blank.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	[Obsolete]
@@ -103,13 +103,13 @@ public partial class TransferCreateRequest : RequestBase
 	public string? IsoCurrencyCode { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>transfer</c> is created at the <c>virtual_time</c> on the provided <c>test_clock</c>.</para>
+	/// <para>Plaid's unique identifier for a test clock. This field may only be used when using <c>sandbox</c> environment. If provided, the <c>transfer</c> is created at the <c>virtual_time</c> on the provided <c>test_clock</c>.</para>
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform’s Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer’s Ledger balance. This must be value greater than 0 and less than or equal to the <c>transfer.amount</c>.</para>
+	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform's Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer's Ledger balance. This must be value greater than 0 and less than or equal to the <c>transfer.amount</c>.</para>
 	/// </summary>
 	[JsonPropertyName("facilitator_fee")]
 	public string? FacilitatorFee { get; set; } = default!;

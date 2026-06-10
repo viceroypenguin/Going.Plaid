@@ -18,7 +18,7 @@ public record BaseReportAccountInsights
 	public DateOnly? MostRecentTransactionDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Number of days days available for the account.</para>
+	/// <para>Number of days available for the account.</para>
 	/// </summary>
 	[JsonPropertyName("days_available")]
 	public int? DaysAvailable { get; init; } = default!;

@@ -48,7 +48,7 @@ public record BaseReportUserAttributes
 	public Entity.TotalReportInflowAmount60d? TotalInflowAmount60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of debit transactions into the report's account in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of debit transactions into the report's accounts in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_inflow_amount_90d")]
 	public Entity.TotalReportInflowAmount90d? TotalInflowAmount90d { get; init; } = default!;

@@ -6,13 +6,13 @@ namespace Going.Plaid.Item;
 public partial class ItemRemoveRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The reason for removing the item</para>
+	/// <para>The reason for removing the Item</para>
 	/// </summary>
 	[JsonPropertyName("reason_code")]
 	public Entity.ItemRemoveReasonCode? ReasonCode { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Additional context or details about the reason for removing the item. Personally identifiable information, such as an email address or phone number, should not be included in the <c>reason_note</c>.</para>
+	/// <para>Additional context or details about the reason for removing the Item. Personally identifiable information, such as an email address or phone number, should not be included in the <c>reason_note</c>.</para>
 	/// </summary>
 	[JsonPropertyName("reason_note")]
 	public string? ReasonNote { get; set; } = default!;

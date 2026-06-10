@@ -35,4 +35,10 @@ public record CraVerificationReport
 	[JsonPropertyName("employment_refresh")]
 	public Entity.CraEmploymentRefreshReport? EmploymentRefresh { get; init; } = default!;
 
+	/// <summary>
+	/// <para>An object representing an Income Report within the Home Lending Report.</para>
+	/// </summary>
+	[JsonPropertyName("income")]
+	public Entity.CraVerificationIncomeReport? Income { get; init; } = default!;
+
 }

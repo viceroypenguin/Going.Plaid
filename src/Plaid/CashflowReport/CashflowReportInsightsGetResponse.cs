@@ -24,7 +24,7 @@ public record CashflowReportInsightsGetResponse : ResponseBase
 	public Entity.CashflowAccountInsights AccountInsights { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Datetime of last cashflow report generation in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> )</para>
+	/// <para>Datetime of last Cashflow Report generation in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format ( <c>YYYY-MM-DDTHH:mm:ssZ</c> )</para>
 	/// </summary>
 	[JsonPropertyName("last_generated_time")]
 	public DateTimeOffset LastGeneratedTime { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Originator’s diligence status.</para>
+/// <para>Originator's diligence status.</para>
 /// </summary>
 public enum TransferDiligenceStatus
 {

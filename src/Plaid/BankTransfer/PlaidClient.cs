@@ -77,7 +77,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<BankTransfer.BankTransferBalanceGetResponse>();
 
 	/// <summary>
-	/// <para>As an alternative to adding Items via Link, you can also use the <c>/bank_transfer/migrate_account</c> endpoint to migrate known account and routing numbers to Plaid Items.  Note that Items created in this way are not compatible with endpoints for other products, such as <c>/accounts/balance/get</c>, and can only be used with Bank Transfer endpoints.  If you require access to other endpoints, create the Item through Link instead.  Access to <c>/bank_transfer/migrate_account</c> is not enabled by default; to obtain access, contact your Plaid Account Manager.</para>
+	/// <para>As an alternative to adding Items via Link, you can also use the <c>/bank_transfer/migrate_account</c> endpoint to migrate known account and routing numbers to Plaid Items.  Note that Items created in this way are not compatible with endpoints for other products, such as <c>/accounts/balance/get</c>, and can only be used with Bank Transfer endpoints.  If you require access to other endpoints, create the Item through Link instead.  Access to <c>/bank_transfer/migrate_account</c> is not enabled by default; to obtain access, contact your Plaid account manager.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/bank-transfers/reference#bank_transfermigrate_account" /></remarks>
 	public Task<BankTransfer.BankTransferMigrateAccountResponse> BankTransferMigrateAccountAsync(BankTransfer.BankTransferMigrateAccountRequest request) =>

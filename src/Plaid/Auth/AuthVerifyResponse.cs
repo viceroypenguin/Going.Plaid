@@ -6,7 +6,7 @@ namespace Going.Plaid.Auth;
 public record AuthVerifyResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>The <c>item_id</c> value of the Item created for verification. If numbers data provided is invalid, an item may not be created.</para>
+	/// <para>The <c>item_id</c> value of the Item created for verification. If numbers data provided is invalid, an Item may not be created.</para>
 	/// </summary>
 	[JsonPropertyName("item_id")]
 	public string? ItemId { get; init; } = default!;

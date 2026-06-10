@@ -18,7 +18,7 @@ public partial class ItemImportRequest : RequestBase
 	public IReadOnlyList<Entity.Products> Products { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Object of user ID and auth token pair, permitting Plaid to aggregate a user’s accounts</para>
+	/// <para>Object of user ID and auth token pair, permitting Plaid to aggregate a user's accounts</para>
 	/// </summary>
 	[JsonPropertyName("user_auth")]
 	public Entity.ItemImportRequestUserAuth UserAuth { get; set; } = default!;

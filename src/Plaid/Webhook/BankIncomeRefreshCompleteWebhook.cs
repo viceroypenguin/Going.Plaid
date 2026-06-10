@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a refreshed bank income report has finished generating or failed to generate, triggered by calling <c>/credit/bank_income/refresh</c>. To get this webhook, subscribe via the <a href="https://dashboard.plaid.com/developers/webhooks">Dashboard</a>.</para>
+/// <para>Fired when a refreshed bank income report has finished generating or failed to generate. The <c>/credit/bank_income/refresh</c> endpoint that previously triggered this webhook is deprecated; to refresh Bank Income data, send the user through Link's update mode, or migrate to CRA Income Insights and call <c>/cra/check_report/create</c> for a backend refresh. To get this webhook, subscribe via the <a href="https://dashboard.plaid.com/developers/webhooks">Dashboard</a>.</para>
 /// </summary>
 public record BankIncomeRefreshCompleteWebhook : WebhookBase
 {

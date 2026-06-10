@@ -6,13 +6,13 @@ namespace Going.Plaid.Entity;
 public enum ImageQualityOutcome
 {
 	/// <summary>
-	/// 
+	/// <para>The check passed.</para>
 	/// </summary>
 	[EnumMember(Value = "success")]
 	Success,
 
 	/// <summary>
-	/// 
+	/// <para>The check did not pass.</para>
 	/// </summary>
 	[EnumMember(Value = "failed")]
 	Failed,

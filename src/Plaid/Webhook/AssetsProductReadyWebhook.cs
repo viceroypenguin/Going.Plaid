@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when the Asset Report has been generated and <c>/asset_report/get</c> is ready to be called.  If you attempt to retrieve an Asset Report before this webhook has fired, you’ll receive a response with the HTTP status code 400 and a Plaid error code of <c>PRODUCT_NOT_READY</c>.</para>
+/// <para>Fired when the Asset Report has been generated and <c>/asset_report/get</c> is ready to be called.  If you attempt to retrieve an Asset Report before this webhook has fired, you'll receive a response with the HTTP status code 400 and a Plaid error code of <c>PRODUCT_NOT_READY</c>.</para>
 /// </summary>
 public record AssetsProductReadyWebhook : WebhookBase
 {

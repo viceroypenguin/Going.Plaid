@@ -40,13 +40,13 @@ public class AssetReportCreateRequestOptions
 	public IReadOnlyList<Entity.AssetReportAddOns>? AddOns { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user object allows you to provide additional information about the user to be appended to the Asset Report. All fields are optional. The <c>first_name</c>, <c>last_name</c>, and <c>ssn</c> fields are required if you would like the Report to be eligible for Fannie Mae’s Day 1 Certainty™ program.</para>
+	/// <para>The user object allows you to provide additional information about the user to be appended to the Asset Report. All fields are optional. The <c>first_name</c>, <c>last_name</c>, and <c>ssn</c> fields are required if you would like the Report to be eligible for Fannie Mae's Day 1 Certainty™ program.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.AssetReportUser? User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If set to false, only 1 item must be healthy at the time of report creation. The default value is true, which would require all items to be healthy at the time of report creation.</para>
+	/// <para>By default (<c>true</c>), the asynchronous report generation fails unless all Items extract successfully. If set to <c>false</c>, the report will still be generated as long as at least one Item extracts successfully; extraction failures on the remaining Items are tolerated. This setting applies only to failures that occur during asynchronous extraction. It does not relax the synchronous check at call time: if any Item is already unhealthy when <c>/asset_report/create</c> is invoked, the request fails immediately regardless of this value.</para>
 	/// </summary>
 	[JsonPropertyName("require_all_items")]
 	public bool? RequireAllItems { get; set; } = default!;

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record RecurringTransfer
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a recurring transfer.</para>
+	/// <para>Plaid's unique identifier for a recurring transfer.</para>
 	/// </summary>
 	[JsonPropertyName("recurring_transfer_id")]
 	public string RecurringTransferId { get; init; } = default!;
@@ -25,7 +25,7 @@ public record RecurringTransfer
 	public DateOnly? NextOriginationDate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a test clock.</para>
+	/// <para>Plaid's unique identifier for a test clock.</para>
 	/// </summary>
 	[JsonPropertyName("test_clock_id")]
 	public string? TestClockId { get; init; } = default!;
@@ -61,7 +61,7 @@ public record RecurringTransfer
 	public Entity.TransferRecurrinngNetwork Network { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for the origination account that was used for this transfer.</para>
+	/// <para>Plaid's unique identifier for the origination account that was used for this transfer.</para>
 	/// </summary>
 	[JsonPropertyName("origination_account_id")]
 	[Obsolete]

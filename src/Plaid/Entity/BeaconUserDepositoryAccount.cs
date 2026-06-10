@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record BeaconUserDepositoryAccount
 {
 	/// <summary>
-	/// <para>The last 2-4 numeric characters of this account’s account number.</para>
+	/// <para>The last 2-4 numeric characters of this account's account number.</para>
 	/// </summary>
 	[JsonPropertyName("account_mask")]
 	public string AccountMask { get; init; } = default!;

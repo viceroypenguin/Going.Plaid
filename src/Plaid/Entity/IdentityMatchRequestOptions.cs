@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An optional object to filter /identity/match results</para>
+/// <para>An optional object to filter <c>/identity/match</c> results</para>
 /// </summary>
 public class IdentityMatchRequestOptions
 {

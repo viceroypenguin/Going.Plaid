@@ -29,6 +29,6 @@ public record IncomeVerificationRiskSignalsStatusWebhook : WebhookBase
 	/// <para><c>RISK_SIGNALS_PROCESSING_COMPLETE</c>: The income verification fraud detection processing has completed. If the user uploaded multiple documents, this webhook will fire when all documents have finished processing. Call the <c>/credit/payroll_income/risk_signals/get</c> endpoint to get all risk signal data.</para>
 	/// </summary>
 	[JsonPropertyName("risk_signals_status")]
-	public string? RiskSignalsStatus { get; init; } = default!;
+	public string RiskSignalsStatus { get; init; } = default!;
 
 }

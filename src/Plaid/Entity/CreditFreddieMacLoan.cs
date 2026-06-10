@@ -12,7 +12,7 @@ public record CreditFreddieMacLoan
 	public Entity.CreditFreddieMacLoanIdentifiers LoanIdentifiers { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Type of loan. The value can only be "SubjectLoan"</para>
+	/// <para>Type of loan. The value can only be "SubjectLoan".</para>
 	/// </summary>
 	[JsonPropertyName("LoanRoleType")]
 	public string Loanroletype { get; init; } = default!;

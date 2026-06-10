@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferCancelRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer.</para>
+	/// <para>Plaid's unique identifier for a transfer.</para>
 	/// </summary>
 	[JsonPropertyName("transfer_id")]
 	public string TransferId { get; set; } = default!;

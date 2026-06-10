@@ -20,13 +20,13 @@ public record ItemAddResultWebhook : WebhookBase
 	public string LinkSessionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The link token used to create the Link session.</para>
+	/// <para>The <c>link_token</c> used to create the Link session.</para>
 	/// </summary>
 	[JsonPropertyName("link_token")]
 	public string LinkToken { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The public token corresponding to the item that was added.</para>
+	/// <para>The <c>public_token</c> corresponding to the Item that was added.</para>
 	/// </summary>
 	[JsonPropertyName("public_token")]
 	public string PublicToken { get; init; } = default!;

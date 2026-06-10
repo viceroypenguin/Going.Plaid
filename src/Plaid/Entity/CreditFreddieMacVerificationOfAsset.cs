@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record CreditFreddieMacVerificationOfAsset
 {
 	/// <summary>
-	/// <para>Information about an report identifier and a report name.</para>
+	/// <para>Information about a report identifier and a report name.</para>
 	/// </summary>
 	[JsonPropertyName("REPORTING_INFORMATION")]
 	public Entity.CreditFreddieMacReportingInformation ReportingInformation { get; init; } = default!;

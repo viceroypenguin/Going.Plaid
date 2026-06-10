@@ -1,7 +1,7 @@
 namespace Going.Plaid.Transfer;
 
 /// <summary>
-/// <para>Defines the response schema for <c>/transfer/repayments/return/list</c></para>
+/// <para>Defines the response schema for <c>/transfer/repayment/return/list</c></para>
 /// </summary>
 public record TransferRepaymentReturnListResponse : ResponseBase
 {

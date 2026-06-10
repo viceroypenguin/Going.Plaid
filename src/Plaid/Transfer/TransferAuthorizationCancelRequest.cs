@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferAuthorizationCancelRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a transfer authorization.</para>
+	/// <para>Plaid's unique identifier for a transfer authorization.</para>
 	/// </summary>
 	[JsonPropertyName("authorization_id")]
 	public string AuthorizationId { get; set; } = default!;

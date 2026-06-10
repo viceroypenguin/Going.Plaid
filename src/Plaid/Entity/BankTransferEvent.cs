@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record BankTransferEvent
 {
 	/// <summary>
-	/// <para>Plaid’s unique identifier for this event. IDs are sequential unsigned 64-bit integers.</para>
+	/// <para>Plaid's unique identifier for this event. IDs are sequential unsigned 64-bit integers.</para>
 	/// </summary>
 	[JsonPropertyName("event_id")]
 	public int EventId { get; init; } = default!;
@@ -30,7 +30,7 @@ public record BankTransferEvent
 	public string AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Plaid’s unique identifier for a bank transfer.</para>
+	/// <para>Plaid's unique identifier for a bank transfer.</para>
 	/// </summary>
 	[JsonPropertyName("bank_transfer_id")]
 	public string BankTransferId { get; init; } = default!;

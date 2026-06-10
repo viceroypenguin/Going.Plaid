@@ -1,15 +1,21 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The reason for terminating products on the Item.</para>
+/// <para>The inquiry type of credit profile report.</para>
 /// </summary>
-public enum ItemProductsTerminateReasonCode
+public enum CraCreditProfileInquiryType
 {
 	/// <summary>
-	/// <para>Any other reason for terminating products not covered by the above categories</para>
+	/// 
 	/// </summary>
-	[EnumMember(Value = "OTHER")]
-	Other,
+	[EnumMember(Value = "SOFT_INQUIRY")]
+	SoftInquiry,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "STANDARD_INQUIRY")]
+	StandardInquiry,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when an error is encountered with an Item. The error can be resolved by having the user go through Link’s update mode.</para>
+/// <para>Fired when an error is encountered with an Item. The error can be resolved by having the user go through Link's update mode.</para>
 /// </summary>
 public record ItemErrorWebhook : WebhookBase
 {
