@@ -53,4 +53,10 @@ public class ProtectIncidentEvent
 	[JsonPropertyName("access_token")]
 	public string? AccessToken { get; set; } = default!;
 
+	/// <summary>
+	/// <para>An <c>item_id</c> associated with the Item related to this incident. To identify an Item when creating a report, provide <c>access_token</c>.</para>
+	/// </summary>
+	[JsonPropertyName("item_id")]
+	public string? ItemId { get; set; } = default!;
+
 }

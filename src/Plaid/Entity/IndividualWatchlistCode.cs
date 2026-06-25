@@ -54,7 +54,7 @@ public enum IndividualWatchlistCode
 	IzWbk,
 
 	/// <summary>
-	/// <para>UK HM Treasury Consolidated List</para>
+	/// <para>Foreign, Commonwealth &amp; Development Office UK Sanctions List</para>
 	/// </summary>
 	[EnumMember(Value = "UK_HMC")]
 	UkHmc,

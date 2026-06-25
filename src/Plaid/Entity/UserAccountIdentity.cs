@@ -37,13 +37,13 @@ public record UserAccountIdentity
 	public string? DateOfBirth { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The user's social security number.</para>
+	/// <para>The user's Social Security number.</para>
 	/// </summary>
 	[JsonPropertyName("ssn")]
 	public string? Ssn { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The last 4 digits of the user's social security number.</para>
+	/// <para>The last 4 digits of the user's Social Security number.</para>
 	/// </summary>
 	[JsonPropertyName("ssn_last_4")]
 	public string? SsnLast4 { get; init; } = default!;

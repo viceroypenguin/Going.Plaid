@@ -13,7 +13,7 @@ public class PaymentInitiationConsentPayerDetails
 	public string Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The counterparty's bank account numbers. Exactly one of IBAN or BACS data is required.</para>
+	/// <para>The counterparty's bank account numbers. Exactly one of IBAN or Bacs data is required.</para>
 	/// </summary>
 	[JsonPropertyName("numbers")]
 	public Entity.PaymentInitiationConsentPayerNumbers Numbers { get; set; } = default!;

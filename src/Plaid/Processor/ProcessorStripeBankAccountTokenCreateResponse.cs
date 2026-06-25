@@ -1,7 +1,7 @@
 namespace Going.Plaid.Processor;
 
 /// <summary>
-/// <para>ProcessorStripeBankAccountTokenCreateResponse defines the response schema for <c>/processor/stripe/bank_account/create</c></para>
+/// <para>ProcessorStripeBankAccountTokenCreateResponse defines the response schema for <c>/processor/stripe/bank_account_token/create</c></para>
 /// </summary>
 public record ProcessorStripeBankAccountTokenCreateResponse : ResponseBase
 {

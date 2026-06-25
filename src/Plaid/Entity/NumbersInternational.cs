@@ -18,7 +18,7 @@ public record NumbersInternational
 	public string Iban { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Bank Identifier Code (BIC) for the account</para>
+	/// <para>The Business Identifier Code (BIC) for the account</para>
 	/// </summary>
 	[JsonPropertyName("bic")]
 	public string Bic { get; init; } = default!;

@@ -12,13 +12,13 @@ public partial class PaymentInitiationRecipientCreateRequest : RequestBase
 	public string Name { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The International Bank Account Number (IBAN) for the recipient. If BACS data is not provided, an IBAN is required.</para>
+	/// <para>The International Bank Account Number (IBAN) for the recipient. If Bacs data is not provided, an IBAN is required.</para>
 	/// </summary>
 	[JsonPropertyName("iban")]
 	public string? Iban { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An object containing a BACS account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, BACS data is required.</para>
+	/// <para>An object containing a Bacs account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, Bacs data is required.</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.RecipientBACS? Bacs { get; set; } = default!;

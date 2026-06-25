@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Report characteristics returned by FICO describing the banking data used to generate the UltraFICO score.</para>
+/// <para>Report characteristics returned by FICO describing the banking data used to generate the UltraFICO® score.</para>
 /// </summary>
 public record CraPartnerInsightsFicoReportCharacteristics
 {

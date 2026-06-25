@@ -129,12 +129,14 @@ public record TransferIntentGet
 	/// <para>Indicates whether the transfer is guaranteed by Plaid (Guarantee customers only). This field will contain either <c>GUARANTEED</c> or <c>NOT_GUARANTEED</c> indicating whether Plaid will guarantee the transfer.</para>
 	/// </summary>
 	[JsonPropertyName("guarantee_decision")]
+	[Obsolete]
 	public Entity.TransferAuthorizationGuaranteeDecision? GuaranteeDecision { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The rationale for Plaid's decision to not guarantee a transfer. Will be <c>null</c> unless <c>guarantee_decision</c> is <c>NOT_GUARANTEED</c>.</para>
 	/// </summary>
 	[JsonPropertyName("guarantee_decision_rationale")]
+	[Obsolete]
 	public Entity.TransferAuthorizationGuaranteeDecisionRationale? GuaranteeDecisionRationale { get; init; } = default!;
 
 }

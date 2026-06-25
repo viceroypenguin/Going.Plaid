@@ -13,7 +13,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>This endpoint returns the account associated with a given processor token.</para>
-	/// <para>This endpoint retrieves cached information, rather than extracting fresh information from the institution. As a result, the account balance returned may not be up-to-date; for realtime balance information, use <c>/processor/balance/get</c> instead. Note that some information is nullable.</para>
+	/// <para>This endpoint retrieves cached information, rather than extracting fresh information from the institution. As a result, the account balance returned may not be up-to-date; for real-time balance information, use <c>/processor/balance/get</c> instead. Note that some information is nullable.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/processor-partners/#processoraccountget" /></remarks>
 	public Task<Processor.ProcessorAccountGetResponse> ProcessorAccountGetAsync(Processor.ProcessorAccountGetRequest request) =>

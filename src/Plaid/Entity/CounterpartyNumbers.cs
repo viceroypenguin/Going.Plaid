@@ -7,7 +7,7 @@ namespace Going.Plaid.Entity;
 public record CounterpartyNumbers
 {
 	/// <summary>
-	/// <para>Identifying information for a UK bank account via BACS.</para>
+	/// <para>Identifying information for a UK bank account via Bacs.</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.CounterpartyNumbersBACS? Bacs { get; init; } = default!;

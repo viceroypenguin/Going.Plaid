@@ -212,6 +212,12 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "cra_qualify")]
+	CraQualify,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "layer")]
 	Layer,
 

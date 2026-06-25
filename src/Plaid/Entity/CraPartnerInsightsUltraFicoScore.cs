@@ -1,18 +1,18 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The calculated UltraFICO score.</para>
+/// <para>The calculated UltraFICO® score.</para>
 /// </summary>
 public record CraPartnerInsightsUltraFicoScore
 {
 	/// <summary>
-	/// <para>The version of the UltraFICO score.</para>
+	/// <para>The version of the UltraFICO® score.</para>
 	/// </summary>
 	[JsonPropertyName("ultrafico_score_version")]
 	public Entity.CraPartnerInsightsUltraFicoScoreVersion UltraficoScoreVersion { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Numeric value of the UltraFICO score.</para>
+	/// <para>Numeric value of the UltraFICO® score.</para>
 	/// </summary>
 	[JsonPropertyName("score")]
 	public int Score { get; init; } = default!;

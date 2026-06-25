@@ -12,7 +12,7 @@ public record CounterpartyNumbersInternational
 	public string? Iban { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Bank identifier code (BIC) for this counterparty.</para>
+	/// <para>Business Identifier Code (BIC) for this counterparty.</para>
 	/// </summary>
 	[JsonPropertyName("bic")]
 	public string? Bic { get; init; } = default!;

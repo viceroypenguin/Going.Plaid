@@ -12,7 +12,7 @@ public record AuthGetResponse : ResponseBase
 	public IReadOnlyList<Entity.Account> Accounts { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object containing identifying numbers used for making electronic transfers to and from the <c>accounts</c>. The identifying number type (ACH, EFT, IBAN, or BACS) used will depend on the country of the account. An account may have more than one number type. If a particular identifying number type is not used by any <c>accounts</c> for which data has been requested, the array for that type will be empty.</para>
+	/// <para>An object containing identifying numbers used for making electronic transfers to and from the <c>accounts</c>. The identifying number type (ACH, EFT, IBAN, or Bacs) used will depend on the country of the account. An account may have more than one number type. If a particular identifying number type is not used by any <c>accounts</c> for which data has been requested, the array for that type will be empty.</para>
 	/// </summary>
 	[JsonPropertyName("numbers")]
 	public Entity.AuthGetNumbers Numbers { get; init; } = default!;

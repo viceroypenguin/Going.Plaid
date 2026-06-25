@@ -72,6 +72,12 @@ public record RiskCheckEmail
 	public Entity.RiskCheckEmailIncludesDateOfBirth IncludesDateOfBirth { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Indicates whether the provided name matches the email address according to the KYC name-matches-email inference result if known.</para>
+	/// </summary>
+	[JsonPropertyName("name")]
+	public Entity.RiskCheckEmailName Name { get; init; } = default!;
+
+	/// <summary>
 	/// <para>A list of online services where this email address has been detected to have accounts or other activity.</para>
 	/// </summary>
 	[JsonPropertyName("linked_services")]

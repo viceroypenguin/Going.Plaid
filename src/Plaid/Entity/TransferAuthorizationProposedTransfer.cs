@@ -48,6 +48,12 @@ public record TransferAuthorizationProposedTransfer
 	public string Amount { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The amount originally requested by the client when creating the authorization (decimal string with two digits of precision e.g. "800.00"). This may differ from <c>amount</c>, the amount Plaid proposes to transfer, when only a partial amount is offered as part of an Adaptive Guarantee.</para>
+	/// </summary>
+	[JsonPropertyName("requested_amount")]
+	public string RequestedAmount { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The network or rails used for the transfer.</para>
 	/// </summary>
 	[JsonPropertyName("network")]

@@ -30,7 +30,7 @@ public partial class CraCheckReportPartnerInsightsGetRequest : RequestBase
 	public Entity.CraUserTier? UserTier { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration to generate Partner Insights</para>
+	/// <para>Defines configuration to generate Partner Insights.</para>
 	/// </summary>
 	[JsonPropertyName("partner_insights")]
 	public Entity.CraCheckReportPartnerInsightsGetPartnerInsights? PartnerInsights { get; set; } = default!;

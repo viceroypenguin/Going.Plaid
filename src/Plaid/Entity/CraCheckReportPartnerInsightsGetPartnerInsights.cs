@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Defines configuration to generate Partner Insights</para>
+/// <para>Defines configuration to generate Partner Insights.</para>
 /// </summary>
 public class CraCheckReportPartnerInsightsGetPartnerInsights
 {
@@ -12,7 +12,7 @@ public class CraCheckReportPartnerInsightsGetPartnerInsights
 	public Entity.PrismVersions? PrismVersions { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Configurations for FICO products used in the Partner Insights flow.</para>
+	/// <para>Configuration for the FICO products used in the Partner Insights product.</para>
 	/// </summary>
 	[JsonPropertyName("fico")]
 	public Entity.CraPartnerInsightsFicoInput? Fico { get; set; } = default!;

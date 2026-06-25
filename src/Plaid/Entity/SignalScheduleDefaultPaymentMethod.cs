@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum SignalScheduleDefaultPaymentMethod
 {
 	/// <summary>
-	/// <para>Same Day ACH (as defined by Nacha). The API assumes the settlement will occur on the same business day if the <c>/signal/schedule</c> request is submitted by 6:00 PM UTC. Note: The actual cutoff time can vary depending on your payment processor or ODFI. Nacha has established three processing windows for Same Day ACH (UTC): 2:30 PM, 6:45 PM, and 8:45 PM.</para>
+	/// <para>Same Day ACH (as defined by Nacha). The API assumes the settlement will occur on the same business day if the <c>/signal/schedule</c> request is submitted by 6:00 PM UTC. Note: The actual cutoff time can vary depending on your payment processor or ODFI. Nacha has established three processing windows for Same Day ACH (Eastern Time): 10:30 AM, 2:45 PM, and 4:45 PM.</para>
 	/// </summary>
 	[EnumMember(Value = "SAME_DAY_ACH")]
 	SameDayAch,

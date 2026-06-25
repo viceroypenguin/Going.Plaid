@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The version of the UltraFICO score.</para>
+/// <para>The version of the UltraFICO® score.</para>
 /// </summary>
 public enum CraPartnerInsightsUltraFicoScoreVersion
 {

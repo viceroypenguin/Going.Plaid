@@ -456,6 +456,24 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	Atomicfi,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "pay")]
+	Pay,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "natural")]
+	Natural,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "kanmon")]
+	Kanmon,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

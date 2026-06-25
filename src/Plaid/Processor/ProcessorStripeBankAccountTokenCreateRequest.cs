@@ -1,7 +1,7 @@
 namespace Going.Plaid.Processor;
 
 /// <summary>
-/// <para>ProcessorStripeBankAccountTokenCreateRequest defines the request schema for <c>/processor/stripe/bank_account/create</c></para>
+/// <para>ProcessorStripeBankAccountTokenCreateRequest defines the request schema for <c>/processor/stripe/bank_account_token/create</c></para>
 /// </summary>
 public partial class ProcessorStripeBankAccountTokenCreateRequest : RequestBase
 {

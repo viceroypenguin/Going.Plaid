@@ -31,14 +31,14 @@ public class ConsumerReportUserIdentity
 	public IReadOnlyList<string> Emails { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The user's full social security number. This field should only be provided by lenders intending to share the resulting consumer report with a Government-Sponsored Enterprise (GSE), such as Fannie Mae or Freddie Mac.</para>
+	/// <para>The user's full Social Security number. This field should only be provided by lenders intending to share the resulting consumer report with a Government-Sponsored Enterprise (GSE), such as Fannie Mae or Freddie Mac.</para>
 	/// <para>Format: "ddd-dd-dddd"</para>
 	/// </summary>
 	[JsonPropertyName("ssn_full")]
 	public string? SsnFull { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The last 4 digits of the user's social security number.</para>
+	/// <para>The last 4 digits of the user's Social Security number.</para>
 	/// </summary>
 	[JsonPropertyName("ssn_last_4")]
 	public string? SsnLast4 { get; set; } = default!;

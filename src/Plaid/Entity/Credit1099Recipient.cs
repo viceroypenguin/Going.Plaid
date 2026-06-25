@@ -30,7 +30,7 @@ public record Credit1099Recipient
 	public string? AccountNumber { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Checked if FACTA is a filing requirement.</para>
+	/// <para>Checked if FATCA is a filing requirement.</para>
 	/// </summary>
 	[JsonPropertyName("facta_filing_requirement")]
 	public string? FactaFilingRequirement { get; init; } = default!;

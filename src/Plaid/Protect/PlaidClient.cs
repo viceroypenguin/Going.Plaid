@@ -16,6 +16,7 @@ public sealed partial class PlaidClient
 	/// <para>The reported data helps improve fraud detection models and provides valuable feedback to enhance the overall security of the Plaid network.</para>
 	/// <para>Reports can be created for confirmed incidents that have been fully investigated, or for suspected incidents that require further review.</para>
 	/// <para>You can associate reports with specific users, sessions, or transactions to provide comprehensive context about the incident.</para>
+	/// <para>Each report must include <c>user_id</c>, or an <c>incident_event</c> with at least one supported identifier: <c>link_session_id</c>, <c>idv_session_id</c>, <c>protect_event_id</c>, <c>signal_client_transaction_id</c>, or <c>access_token</c>. Context fields such as <c>internal_reference</c>, <c>time</c>, <c>amount</c>, and <c>bank_account</c> do not satisfy this identifier requirement.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/protect/#protectreportcreate" /></remarks>
 	public Task<Protect.ProtectReportCreateResponse> ProtectReportCreateAsync(Protect.ProtectReportCreateRequest request) =>

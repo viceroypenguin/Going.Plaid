@@ -12,7 +12,7 @@ public class CraCheckReportCreatePartnerInsightsOptions
 	public Entity.PrismVersions? PrismVersions { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Configurations for FICO products used in the Partner Insights flow.</para>
+	/// <para>Configuration for the FICO products used in the Partner Insights product.</para>
 	/// </summary>
 	[JsonPropertyName("fico")]
 	public Entity.CraPartnerInsightsFicoInput? Fico { get; set; } = default!;

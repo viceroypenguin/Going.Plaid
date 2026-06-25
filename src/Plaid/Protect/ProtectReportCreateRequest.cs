@@ -2,7 +2,7 @@ namespace Going.Plaid.Protect;
 
 /// <summary>
 /// <para>Request object for <c>/protect/report/create</c>.</para>
-/// <para>Must provide either <c>user_id</c> or at least one of the following identifiers in <c>incident_event</c>: <c>link_session_id</c>, <c>idv_session_id</c>, <c>protect_event_id</c>, or <c>signal_client_transaction_id</c>.</para>
+/// <para>You must provide either <c>user_id</c>, or an <c>incident_event</c> with at least one supported identifier: <c>link_session_id</c>, <c>idv_session_id</c>, <c>protect_event_id</c>, <c>signal_client_transaction_id</c>, or <c>access_token</c>. Context fields such as <c>internal_reference</c>, <c>time</c>, <c>amount</c>, and <c>bank_account</c> do not satisfy this identifier requirement.</para>
 /// </summary>
 public partial class ProtectReportCreateRequest : RequestBase
 {

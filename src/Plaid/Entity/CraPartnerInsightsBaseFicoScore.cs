@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Details about the base FICO score associated with an UltraFICO scoring request.</para>
+/// <para>Details about the base FICO score associated with an UltraFICO® scoring request.</para>
 /// </summary>
 public class CraPartnerInsightsBaseFicoScore
 {
@@ -52,7 +52,7 @@ public class CraPartnerInsightsBaseFicoScore
 	public string? ReasonCode4 { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Whether inquiries adversely affected this score but were not represented in one of the four reason codes. Sometimes referred to as the FACTA Flag.</para>
+	/// <para>Whether inquiries adversely affected the score but were not represented in one of the four reason codes. Sometimes referred to as the FACTA Flag.</para>
 	/// </summary>
 	[JsonPropertyName("did_inquiries_adversely_affect_score")]
 	public bool? DidInquiriesAdverselyAffectScore { get; set; } = default!;

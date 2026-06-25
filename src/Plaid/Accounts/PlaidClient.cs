@@ -6,7 +6,7 @@ public sealed partial class PlaidClient
 	/// <para>The <c>/accounts/get</c> endpoint can be used to retrieve a list of accounts associated with any linked Item. Plaid will only return active bank accounts -- that is, accounts that are not closed and are capable of carrying a balance.</para>
 	/// <para>To return new accounts that were created after the user linked their Item, you can listen for the <a href="https://plaid.com/docs/api/items/#new_accounts_available"><c>NEW_ACCOUNTS_AVAILABLE</c></a> webhook and then use Link's <a href="https://plaid.com/docs/link/update-mode/">update mode</a> to request that the user share this new account with you.</para>
 	/// <para><c>/accounts/get</c> is free to use and retrieves cached information, rather than extracting fresh information from the institution. The balance returned will reflect the balance at the time of the last successful Item update. If the Item is enabled for a regularly updating product, such as Transactions, Investments, or Liabilities, the balance will typically update about once a day, as long as the Item is healthy. If the Item is enabled only for products that do not frequently update, such as Auth or Identity, balance data may be much older.</para>
-	/// <para>For realtime balance information, use the paid endpoints <c>/accounts/balance/get</c> or <c>/signal/evaluate</c> instead.</para>
+	/// <para>For real-time balance information, use the paid endpoints <c>/accounts/balance/get</c> or <c>/signal/evaluate</c> instead.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/accounts/#accountsget" /></remarks>
 	public Task<Accounts.AccountsGetResponse> AccountsGetAsync(Accounts.AccountsGetRequest request) =>

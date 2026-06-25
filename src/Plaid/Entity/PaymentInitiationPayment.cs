@@ -60,7 +60,7 @@ public record PaymentInitiationPayment
 	public Entity.ExternalPaymentRefundDetails? RefundDetails { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object containing a BACS account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, BACS data is required.</para>
+	/// <para>An object containing a Bacs account number and sort code. If an IBAN is not provided or if this recipient needs to accept domestic GBP-denominated payments, Bacs data is required.</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.RecipientBACS? Bacs { get; init; } = default!;

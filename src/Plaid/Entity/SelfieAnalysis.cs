@@ -18,6 +18,12 @@ public record SelfieAnalysis
 	public Entity.SelfieAnalysisLivenessCheck LivenessCheck { get; init; } = default!;
 
 	/// <summary>
+	/// <para>Age-estimation results from the selfie capture. This field is <c>null</c> when an age range could not be estimated from the selfie capture.</para>
+	/// </summary>
+	[JsonPropertyName("age_check")]
+	public Entity.SelfieAgeCheck? AgeCheck { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Analysis of the facial features of the selfie when compared to the face in the uploaded document, if one is present.</para>
 	/// </summary>
 	[JsonPropertyName("facial_analysis")]

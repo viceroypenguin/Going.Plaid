@@ -54,13 +54,13 @@ public record CreditW2
 	public string? FederalIncomeTaxWithheld { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Wages from social security.</para>
+	/// <para>Wages from Social Security.</para>
 	/// </summary>
 	[JsonPropertyName("social_security_wages")]
 	public string? SocialSecurityWages { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Social security tax withheld for the tax year.</para>
+	/// <para>Social Security tax withheld for the tax year.</para>
 	/// </summary>
 	[JsonPropertyName("social_security_tax_withheld")]
 	public string? SocialSecurityTaxWithheld { get; init; } = default!;
@@ -78,7 +78,7 @@ public record CreditW2
 	public string? MedicareTaxWithheld { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Tips from social security.</para>
+	/// <para>Tips from Social Security.</para>
 	/// </summary>
 	[JsonPropertyName("social_security_tips")]
 	public string? SocialSecurityTips { get; init; } = default!;

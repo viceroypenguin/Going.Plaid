@@ -30,6 +30,12 @@ public enum ProductsTerminateReasonCode
 	FraudOther,
 
 	/// <summary>
+	/// <para>Fraud occurred at the transaction level, such as an unauthorized transaction, card testing, chargeback, ACH return, or dispute</para>
+	/// </summary>
+	[EnumMember(Value = "FRAUD_TRANSACTION")]
+	FraudTransaction,
+
+	/// <summary>
 	/// <para>The end user paid off their loan and no longer needs the product</para>
 	/// </summary>
 	[EnumMember(Value = "CONSUMER_LOAN_PAID_OFF")]

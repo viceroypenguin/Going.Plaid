@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The calculated UltraFICO scores returned as part of the Partner Insights report.</para>
+/// <para>The calculated UltraFICO® scores returned as part of the Partner Insights report.</para>
 /// </summary>
 public record CraPartnerInsightsFicoResults
 {
@@ -12,13 +12,13 @@ public record CraPartnerInsightsFicoResults
 	public string LenderApplicationId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>UltraFICO scoring results, one per provided base FICO score request.</para>
+	/// <para>UltraFICO® scoring results, one per provided UltraFICO scoring request.</para>
 	/// </summary>
 	[JsonPropertyName("ultrafico_score_results")]
 	public IReadOnlyList<Entity.CraPartnerInsightsUltraFicoScoreResult> UltraficoScoreResults { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Report characteristics returned by FICO describing the banking data used to generate the UltraFICO score.</para>
+	/// <para>Report characteristics returned by FICO describing the banking data used to generate the UltraFICO® score.</para>
 	/// </summary>
 	[JsonPropertyName("report_characteristics")]
 	public Entity.CraPartnerInsightsFicoReportCharacteristics? ReportCharacteristics { get; init; } = default!;

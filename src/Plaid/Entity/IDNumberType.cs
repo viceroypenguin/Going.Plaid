@@ -92,6 +92,12 @@ public enum IDNumberType
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "in_epic")]
+	InEpic,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "it_cf")]
 	ItCf,
 

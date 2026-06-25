@@ -204,7 +204,7 @@ public enum InvestmentAccountSubtype
 	Qshr,
 
 	/// <summary>
-	/// <para>Registered Disability Savings Plan (RSDP) (Canada)</para>
+	/// <para>Registered Disability Savings Plan (RDSP) (Canada)</para>
 	/// </summary>
 	[EnumMember(Value = "rdsp")]
 	Rdsp,
