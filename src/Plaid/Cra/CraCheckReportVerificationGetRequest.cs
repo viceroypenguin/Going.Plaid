@@ -18,9 +18,10 @@ public partial class CraCheckReportVerificationGetRequest : RequestBase
 	public IReadOnlyList<Entity.CraCheckReportVerificationGetReportType> ReportsRequested { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration options for the Employment Refresh Report.</para>
+	/// <para>Deprecated. This field is no longer accepted for new clients (created on or after 2026-07-01). New clients should specify required products when creating the Consumer Report. Existing integrations may continue to pass <c>employment_refresh_options</c>.</para>
 	/// </summary>
 	[JsonPropertyName("employment_refresh_options")]
+	[Obsolete]
 	public Entity.CraCheckReportVerificationGetEmploymentRefreshOptions? EmploymentRefreshOptions { get; set; } = default!;
 
 	/// <summary>

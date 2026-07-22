@@ -36,6 +36,12 @@ public enum TransactionCode
 	Cash,
 
 	/// <summary>
+	/// <para>Cash advance drawn against a credit card or line of credit</para>
+	/// </summary>
+	[EnumMember(Value = "cash advance")]
+	CashAdvance,
+
+	/// <summary>
 	/// <para>Cash withdrawal while making a debit card purchase</para>
 	/// </summary>
 	[EnumMember(Value = "cashback")]
@@ -60,6 +66,18 @@ public enum TransactionCode
 	Interest,
 
 	/// <summary>
+	/// <para>Fee associated with a late or past-due payment</para>
+	/// </summary>
+	[EnumMember(Value = "late fee")]
+	LateFee,
+
+	/// <summary>
+	/// <para>Annual or recurring membership fee</para>
+	/// </summary>
+	[EnumMember(Value = "membership fee")]
+	MembershipFee,
+
+	/// <summary>
 	/// <para>One-off outbound payment not classified as a bill payment, direct debit, or standing order</para>
 	/// </summary>
 	[EnumMember(Value = "payment")]
@@ -76,6 +94,12 @@ public enum TransactionCode
 	/// </summary>
 	[EnumMember(Value = "refund")]
 	Refund,
+
+	/// <summary>
+	/// <para>Fee for a returned item, such as a returned check or stop payment</para>
+	/// </summary>
+	[EnumMember(Value = "returned item fee")]
+	ReturnedItemFee,
 
 	/// <summary>
 	/// <para>Payment instructed by the account holder to a third party at a regular interval</para>

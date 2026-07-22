@@ -6,7 +6,7 @@ namespace Going.Plaid.Processor;
 public record ProcessorTransactionsRecurringGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>An array of depository transaction streams.</para>
+	/// <para>An array of inflow transaction streams.</para>
 	/// </summary>
 	[JsonPropertyName("inflow_streams")]
 	public IReadOnlyList<Entity.TransactionStream> InflowStreams { get; init; } = default!;

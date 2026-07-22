@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Identifying information for transferring holdings to an investments account via ACATS.</para>
+/// <para>Identifying information for transferring holdings to an investment account via ACATS.</para>
 /// </summary>
 public record NumbersACATS
 {

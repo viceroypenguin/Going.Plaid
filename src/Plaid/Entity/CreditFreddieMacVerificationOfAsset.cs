@@ -21,6 +21,6 @@ public record CreditFreddieMacVerificationOfAsset
 	/// <para>Documentation not found in the MISMO model viewer and not provided by Freddie Mac.</para>
 	/// </summary>
 	[JsonPropertyName("VERIFICATION_OF_ASSET_RESPONSE")]
-	public Entity.VerificationOfAssetResponse VerificationOfAssetResponse { get; init; } = default!;
+	public Entity.CreditFreddieMacVerificationOfAssetResponse VerificationOfAssetResponse { get; init; } = default!;
 
 }

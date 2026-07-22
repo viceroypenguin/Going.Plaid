@@ -12,7 +12,7 @@ public record Transaction
 	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The settled value of the transaction, denominated in the transactions's currency, as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>. For all products except Income: Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative. For Income endpoints, values are positive when representing income.</para>
+	/// <para>The settled value of the transaction, denominated in the transaction's currency, as stated in <c>iso_currency_code</c> or <c>unofficial_currency_code</c>. For all products except Income: Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative. For Income endpoints, values are positive when representing income.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public decimal? Amount { get; init; } = default!;
@@ -25,7 +25,7 @@ public record Transaction
 
 	/// <summary>
 	/// <para>The unofficial currency code associated with the transaction. Always <c>null</c> if <c>iso_currency_code</c> is non-<c>null</c>. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.</para>
-	/// <para>See the <a href="https://plaid.com/docs/api/accounts#currency-code-schema">currency code schema</a> for a full listing of supported <c>iso_currency_code</c>s.</para>
+	/// <para>See the <a href="https://plaid.com/docs/api/accounts#currency-code-schema">currency code schema</a> for a full listing of supported <c>unofficial_currency_code</c>s.</para>
 	/// </summary>
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
@@ -33,7 +33,7 @@ public record Transaction
 	/// <summary>
 	/// <para>A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
 	/// <para>All Transactions implementations are recommended to use the new <c>personal_finance_category</c> instead of <c>category</c>, as it provides greater accuracy and more meaningful categorization.</para>
-	/// <para>If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
+	/// <para>If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("category")]
 	[Obsolete]
@@ -42,7 +42,7 @@ public record Transaction
 	/// <summary>
 	/// <para>The ID of the category to which this transaction belongs. For a full list of categories, see <a href="https://plaid.com/docs/api/products/transactions/#categoriesget"><c>/categories/get</c></a>.</para>
 	/// <para>All Transactions implementations are recommended to use the new <c>personal_finance_category</c> instead of <c>category</c>, as it provides greater accuracy and more meaningful categorization.</para>
-	/// <para>If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
+	/// <para>If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("category_id")]
 	[Obsolete]
@@ -69,7 +69,7 @@ public record Transaction
 	/// <summary>
 	/// <para>The merchant name or transaction description.</para>
 	/// <para>Note: While Plaid does not currently plan to remove this field, it is a legacy field that is not actively maintained. Use <c>merchant_name</c> instead for the merchant name.</para>
-	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, this field will always appear. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
+	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, this field will always appear. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("name")]
 	[Obsolete]
@@ -89,7 +89,7 @@ public record Transaction
 
 	/// <summary>
 	/// <para>Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be <c>null</c>.</para>
-	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, the <c>payment_meta</c> key will always appear, but no data elements are guaranteed. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
+	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, the <c>payment_meta</c> key will always appear, but no data elements are guaranteed. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("payment_meta")]
 	public Entity.PaymentMeta? PaymentMeta { get; init; } = default!;
@@ -126,7 +126,7 @@ public record Transaction
 	public Entity.TransactionTransactionTypeEnum? TransactionType { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The URL of a logo associated with this transaction, if available. The logo will always be 100×100 pixel PNG file.</para>
+	/// <para>The URL of a logo associated with this transaction, if available. The logo will always be a 100×100 pixel PNG file.</para>
 	/// </summary>
 	[JsonPropertyName("logo_url")]
 	public string? LogoUrl { get; init; } = default!;
@@ -183,7 +183,7 @@ public record Transaction
 	public Entity.TransactionCode? TransactionCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The URL of an icon associated with the primary personal finance category. The icon will always be 100×100 pixel PNG file.</para>
+	/// <para>The URL of an icon associated with the primary personal finance category. The icon will always be a 100×100 pixel PNG file.</para>
 	/// </summary>
 	[JsonPropertyName("personal_finance_category_icon_url")]
 	public string? PersonalFinanceCategoryIconUrl { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Item;
 
 /// <summary>
-/// <para>ItemApplicationUnlinkRequest defines the request schema for <c>/item/application/unlink/</c></para>
+/// <para>ItemApplicationUnlinkRequest defines the request schema for <c>/item/application/unlink</c></para>
 /// </summary>
 public partial class ItemApplicationUnlinkRequest : RequestBase
 {

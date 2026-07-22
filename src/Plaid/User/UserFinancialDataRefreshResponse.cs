@@ -1,7 +1,7 @@
 namespace Going.Plaid.User;
 
 /// <summary>
-/// <para>UserFinancialDataRefreshResponse defines the response schema for <c>user/financial_data/refresh</c></para>
+/// <para>UserFinancialDataRefreshResponse defines the response schema for <c>/user/financial_data/refresh</c></para>
 /// </summary>
 public record UserFinancialDataRefreshResponse : ResponseBase
 {

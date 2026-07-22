@@ -6,7 +6,7 @@ namespace Going.Plaid.Issues;
 public record IssuesGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Information on an issue encountered with financial institutions interactions with financial institutions during Linking.</para>
+	/// <para>Information on an issue encountered with financial institution interactions during Linking.</para>
 	/// </summary>
 	[JsonPropertyName("issue")]
 	public Entity.Issue? Issue { get; init; } = default!;

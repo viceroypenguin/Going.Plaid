@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>It is possible for a Check Report product to be returned with missing information. In such cases, the product will contain warning data in the response, indicating why obtaining the owner information failed.</para>
+/// <para>It is possible for a Check Report product to be returned with missing information. In such cases, the product will contain warning data in the response, indicating why some of the requested information could not be retrieved.</para>
 /// </summary>
 public record CraReportWarning
 {

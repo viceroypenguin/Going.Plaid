@@ -12,7 +12,7 @@ public partial class UserProductsTerminateRequest : RequestBase
 	public string UserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The reason for terminating user-based products.</para>
+	/// <para>The reason for terminating products.</para>
 	/// </summary>
 	[JsonPropertyName("reason_code")]
 	public Entity.ProductsTerminateReasonCode ReasonCode { get; set; } = default!;

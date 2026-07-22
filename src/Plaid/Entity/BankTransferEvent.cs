@@ -71,4 +71,10 @@ public record BankTransferEvent
 	[JsonPropertyName("direction")]
 	public Entity.BankTransferDirection? Direction { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Additional details for receiver events. Currently always <c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("receiver_details")]
+	public Entity.ReceiverDetails? ReceiverDetails { get; init; } = default!;
+
 }

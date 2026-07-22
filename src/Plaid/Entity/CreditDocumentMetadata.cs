@@ -16,6 +16,9 @@ public record CreditDocumentMetadata
 	/// <para><c>PAYSTUB</c>: A paystub.</para>
 	/// <para><c>BANK_STATEMENT</c>: A bank statement.</para>
 	/// <para><c>US_TAX_W2</c>: A W-2 wage and tax statement provided by a US employer reflecting wages earned by the employee.</para>
+	/// <para><c>US_TAX_1099_MISC</c>: A 1099-MISC tax form reporting miscellaneous income.</para>
+	/// <para><c>US_TAX_1099_K</c>: A 1099-K tax form reporting payment card and third-party network transactions.</para>
+	/// <para><c>US_STUDENT_I20</c>: A Certificate of Eligibility for Nonimmigrant Student Status (Form I-20) issued by a US school.</para>
 	/// <para><c>US_MILITARY_ERAS</c>: An electronic Retirement Account Statement (eRAS) issued by the US military.</para>
 	/// <para><c>US_MILITARY_LES</c>: A Leave and Earnings Statement (LES) issued by the US military.</para>
 	/// <para><c>US_MILITARY_CLES</c>: A Civilian Leave and Earnings Statement (CLES) issued by the US military.</para>
@@ -30,7 +33,7 @@ public record CreditDocumentMetadata
 	/// <summary>
 	/// <para>Signed URL to retrieve the document(s). The payload will be a .zip file containing the document(s).</para>
 	/// <para>For Payroll Income, the file type of the documents will always be PDF, and the documents may not be available, in which case the field will be <c>null</c>. If you would like Plaid to generate a PDF if the original is not available, contact your account manager. <a href="https://plaid.com/documents/plaid-generated-mock-paystub.pdf">Example generated pay stub</a>.</para>
-	/// <para>For Document Income, this field will not be <c>null</c>, and the file type of the underlying document(s) will be the original file type uploaded by the user. For more details on available file types, see the <a href="https://plaid.com/docs/income/payroll-income">Document Income</a> documentation.</para>
+	/// <para>For Document Income, this field will not be <c>null</c>, and the file type of the underlying document(s) will be the original file type uploaded by the user. For more details on available file types, see the <a href="https://plaid.com/docs/income/document-income">Document Income</a> documentation.</para>
 	/// <para>This download URL can only be used once and expires after two minutes. To generate a new download URL, call <c>/credit/payroll_income/get</c> again.</para>
 	/// </summary>
 	[JsonPropertyName("download_url")]

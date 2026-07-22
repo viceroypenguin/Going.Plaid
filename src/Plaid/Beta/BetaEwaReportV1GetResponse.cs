@@ -18,7 +18,7 @@ public record BetaEwaReportV1GetResponse : ResponseBase
 	public DateTimeOffset? GenerationTime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of earned wage access (EWA) scoring entries that map potential advance amounts to repayment likelihood scores. The predefined advance amount ranges are <c>[0, 25]</c>, <c>[25, 50]</c>, <c>[50, 100]</c>, <c>[100, 200]</c>, <c>[200, 300]</c>, <c>[300, 400]</c>, and <c>[400, 500]</c>.</para>
+	/// <para>A list of earned wage access (EWA) scoring entries that map potential advance amounts to repayment likelihood scores. The predefined advance amount ranges are <c>[0, 25)</c>, <c>[25, 50)</c>, <c>[50, 100)</c>, <c>[100, 200)</c>, <c>[200, 300)</c>, <c>[300, 400)</c>, and <c>[400, 500)</c>.</para>
 	/// </summary>
 	[JsonPropertyName("ewa_scores")]
 	public IReadOnlyList<Entity.EwaScore>? EwaScores { get; init; } = default!;

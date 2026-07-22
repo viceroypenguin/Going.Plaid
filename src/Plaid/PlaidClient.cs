@@ -313,7 +313,7 @@ public sealed partial class PlaidClient
 				return new PlaidError
 				{
 					StatusCode = statusCode,
-					ErrorType = "API_UNAVAILABLE",
+					ErrorType = PlaidErrorType.ApiError,
 					ErrorCode = "API_UNAVAILABLE",
 					ErrorMessage = ex.Message,
 					DisplayMessage = "An error condition has occurred outside of Plaid. Please check your network conditions and try again at a different time.",

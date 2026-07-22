@@ -29,4 +29,10 @@ public record ProtectComputeResponse : ResponseBase
 	[JsonPropertyName("subscores")]
 	public Entity.ProtectComputeSubscores? Subscores { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The timestamp when the Trust Index score and fraud attributes were computed, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format, e.g. <c>"2017-09-14T14:42:19.350Z"</c></para>
+	/// </summary>
+	[JsonPropertyName("timestamp")]
+	public DateTimeOffset? Timestamp { get; init; } = default!;
+
 }

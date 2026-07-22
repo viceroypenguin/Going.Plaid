@@ -97,7 +97,7 @@ public record TransferIntentGet
 	public Entity.TransferUserInResponse User { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A description for the underlying transfer. Maximum of 8 characters.</para>
+	/// <para>A description for the underlying transfer. Maximum of 15 characters.</para>
 	/// </summary>
 	[JsonPropertyName("description")]
 	public string Description { get; init; } = default!;

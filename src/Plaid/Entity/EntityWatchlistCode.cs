@@ -54,7 +54,7 @@ public enum EntityWatchlistCode
 	UsMbs,
 
 	/// <summary>
-	/// <para>US Specially Designated Nationals List</para>
+	/// <para>US OFAC Specially Designated Nationals List</para>
 	/// </summary>
 	[EnumMember(Value = "US_SDN")]
 	UsSdn,

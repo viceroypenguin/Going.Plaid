@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired after an asynchronous extraction on an investments account.</para>
+/// <para>Fired after an asynchronous extraction on an investment account.</para>
 /// </summary>
 public record InvestmentsHistoricalUpdateWebhook : WebhookBase
 {

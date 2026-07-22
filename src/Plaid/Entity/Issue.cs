@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Information on an issue encountered with financial institutions interactions with financial institutions during Linking.</para>
+/// <para>Information on an issue encountered with financial institution interactions during Linking.</para>
 /// </summary>
 public record Issue
 {

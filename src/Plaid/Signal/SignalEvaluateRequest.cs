@@ -13,7 +13,7 @@ public partial class SignalEvaluateRequest : RequestBase
 	public string AccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The unique ID that you would like to use to refer to this evaluation attempt - for example, a payment attempt ID. You will use this later to debug this evaluation, and/or report an ACH return, etc. The max length for this field is 36 characters.</para>
+	/// <para>The unique ID that you would like to use to refer to this evaluation attempt - for example, a payment attempt ID. You will use this later to debug this evaluation, and/or report an ACH return, etc. The max length for this field is 36 characters. The <c>client_transaction_id</c> also functions as an idempotency key; calling <c>/signal/evaluate</c> with a previously used <c>client_transaction_id</c> will return the results of the previous evaluation rather than triggering a fresh evaluation.</para>
 	/// </summary>
 	[JsonPropertyName("client_transaction_id")]
 	public string ClientTransactionId { get; set; } = default!;

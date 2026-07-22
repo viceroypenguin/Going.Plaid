@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record WatchlistScreeningAuditTrail
 {
 	/// <summary>
-	/// <para>A type indicating whether a dashboard user, an API-based user, or Plaid last touched this object.</para>
+	/// <para>A type indicating who or what last touched this object. <c>dashboard</c>, <c>link</c>, and <c>api</c> indicate the originating surface; <c>system</c> indicates Plaid. <c>retro</c> indicates a screening created retroactively via a bulk screening creation.</para>
 	/// </summary>
 	[JsonPropertyName("source")]
 	public Entity.Source Source { get; init; } = default!;

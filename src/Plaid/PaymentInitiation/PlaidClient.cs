@@ -38,7 +38,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/payment_initiation/recipient/list</c> endpoint list the payment recipients that you have previously created.</para>
+	/// <para>The <c>/payment_initiation/recipient/list</c> endpoint lists the payment recipients that you have previously created.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationrecipientlist" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationRecipientListResponse> PaymentInitiationRecipientListAsync(PaymentInitiation.PaymentInitiationRecipientListRequest request) =>
@@ -46,7 +46,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<PaymentInitiation.PaymentInitiationRecipientListResponse>();
 
 	/// <summary>
-	/// <para>After creating a payment recipient, you can use the <c>/payment_initiation/payment/create</c> endpoint to create a payment to that recipient.  Payments can be one-time or standing order (recurring) and can be denominated in either EUR, GBP or other chosen <a href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency">currency</a>.  If making domestic GBP-denominated payments, your recipient must have been created with Bacs numbers. In general, EUR-denominated payments will be sent via SEPA Credit Transfer, GBP-denominated payments will be sent via the Faster Payments network and for non-Eurozone markets typically via the local payment scheme, but the payment network used will be determined by the institution. Payments sent via Faster Payments will typically arrive immediately, while payments sent via SEPA Credit Transfer or other local payment schemes will typically arrive in one business day.</para>
+	/// <para>After creating a payment recipient, you can use the <c>/payment_initiation/payment/create</c> endpoint to create a payment to that recipient.  Payments can be one-time or standing order (recurring) and can be denominated in EUR, GBP, or another chosen <a href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency">currency</a>.  If making domestic GBP-denominated payments, your recipient must have been created with Bacs numbers. In general, EUR-denominated payments will be sent via SEPA Credit Transfer, GBP-denominated payments will be sent via the Faster Payments network and for non-Eurozone markets typically via the local payment scheme, but the payment network used will be determined by the institution. Payments sent via Faster Payments will typically arrive immediately, while payments sent via SEPA Credit Transfer or other local payment schemes will typically arrive in one business day.</para>
 	/// <para>Standing orders (recurring payments) must be denominated in GBP and can only be sent to recipients in the UK. Once created, standing order payments cannot be modified or canceled via the API. An end user can cancel or modify a standing order directly on their banking application or website, or by contacting the bank. Standing orders will follow the payment rules of the underlying rails (Faster Payments in UK). Payments can be sent Monday to Friday, excluding bank holidays. If the pre-arranged date falls on a weekend or bank holiday, the payment is made on the next working day. It is not possible to guarantee the exact time the payment will reach the recipient's account, although at least 90% of standing order payments are sent by 6am.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentcreate" /></remarks>
@@ -56,7 +56,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>The <c>/payment_initiation/payment/token/create</c> endpoint has been deprecated. New Plaid customers will be unable to use this endpoint, and existing customers are encouraged to migrate to the newer, <c>link_token</c>-based flow. The recommended flow is to provide the <c>payment_id</c> to <c>/link/token/create</c>, which returns a <c>link_token</c> used to initialize Link.</para>
-	/// <para>The <c>/payment_initiation/payment/token/create</c> is used to create a <c>payment_token</c>, which can then be used in Link initialization to enter a payment initiation flow. You can only use a <c>payment_token</c> once. If this attempt fails, the end user aborts the flow, or the token expires, you will need to create a new payment token. Creating a new payment token does not require end user input.</para>
+	/// <para>The <c>/payment_initiation/payment/token/create</c> endpoint is used to create a <c>payment_token</c>, which can then be used in Link initialization to enter a payment initiation flow. You can only use a <c>payment_token</c> once. If this attempt fails, the end user aborts the flow, or the token expires, you will need to create a new payment token. Creating a new payment token does not require end user input.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/link/maintain-legacy-integration/#creating-a-payment-token" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentTokenCreateResponse> PaymentInitiationPaymentTokenCreateAsync(PaymentInitiation.PaymentInitiationPaymentTokenCreateRequest request) =>
@@ -99,7 +99,6 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>The <c>/payment_initiation/payment/get</c> endpoint can be used to check the status of a payment, as well as to receive basic information such as recipient and payment amount. In the case of standing orders, the <c>/payment_initiation/payment/get</c> endpoint will provide information about the status of the overall standing order itself; the API cannot be used to retrieve payment status for individual payments within a standing order.</para>
 	/// <para>Polling for status updates in Production is highly discouraged. Repeatedly calling <c>/payment_initiation/payment/get</c> to check a payment's status is unreliable and may trigger API rate limits. Only the <c>payment_status_update</c> webhook should be used to receive real-time status updates in Production.</para>
-	/// <para>In the case of standing orders, the <c>/payment_initiation/payment/get</c> endpoint will provide information about the status of the overall standing order itself; the API cannot be used to retrieve payment status for individual payments within a standing order.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentget" /></remarks>
 	public Task<PaymentInitiation.PaymentInitiationPaymentGetResponse> PaymentInitiationPaymentGetAsync(PaymentInitiation.PaymentInitiationPaymentGetRequest request) =>

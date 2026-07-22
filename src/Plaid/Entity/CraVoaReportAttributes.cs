@@ -12,7 +12,7 @@ public record CraVoaReportAttributes
 	public Entity.TotalReportInflowAmount? TotalInflowAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions into the report's accounts in the time period of the report. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of credit transactions out of the report's accounts in the time period of the report. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount")]
 	public Entity.TotalReportOutflowAmount? TotalOutflowAmount { get; init; } = default!;

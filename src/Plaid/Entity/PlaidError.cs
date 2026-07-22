@@ -15,7 +15,7 @@ public record PlaidError
 	/// See also: <seealso href="https://plaid.com/docs/errors/"/> for more information regarding individual values.
 	/// </remarks>
 	[JsonPropertyName("error_type")]
-	public string ErrorType { get; init; } = null!;
+	public PlaidErrorType ErrorType { get; init; }
 
 	/// <summary>
 	/// The particular error code. Safe for programmatic use.

@@ -15,6 +15,6 @@ public class CraCheckReportHomeLendingReportOptions
 	/// <para>Defines configuration options for the Employment Refresh Report.</para>
 	/// </summary>
 	[JsonPropertyName("employment_refresh_options")]
-	public Entity.CraCheckReportVerificationGetEmploymentRefreshOptions? EmploymentRefreshOptions { get; set; } = default!;
+	public Entity.CraCheckReportCreateEmploymentRefreshOptions? EmploymentRefreshOptions { get; set; } = default!;
 
 }

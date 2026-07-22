@@ -6,7 +6,7 @@ namespace Going.Plaid.AssetReport;
 public partial class AssetReportCreateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>An array of access tokens corresponding to the Items that will be included in the report. The <c>assets</c> product must have been initialized for the Items during link; the Assets product cannot be added after initialization.</para>
+	/// <para>An array of access tokens corresponding to the Items that will be included in the report. The <c>assets</c> product must have been initialized for the Items during Link; the Assets product cannot be added after initialization.</para>
 	/// </summary>
 	[JsonPropertyName("access_tokens")]
 	public IReadOnlyList<string>? AccessTokens { get; set; } = default!;

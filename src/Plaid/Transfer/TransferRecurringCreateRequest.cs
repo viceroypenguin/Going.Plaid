@@ -7,7 +7,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 {
 	/// <summary>
 	/// <para>A random key provided by the client, per unique recurring transfer. Maximum of 50 characters.</para>
-	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create a recurring fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single recurring transfer is created.</para>
+	/// <para>The API supports idempotency for safely retrying requests without accidentally performing the same operation twice. For example, if a request to create a recurring transfer fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single recurring transfer is created.</para>
 	/// </summary>
 	[JsonPropertyName("idempotency_key")]
 	public string IdempotencyKey { get; set; } = default!;
@@ -35,7 +35,7 @@ public partial class TransferRecurringCreateRequest : RequestBase
 	/// <para>Networks eligible for recurring transfers.</para>
 	/// </summary>
 	[JsonPropertyName("network")]
-	public Entity.TransferRecurrinngNetwork Network { get; set; } = default!;
+	public Entity.TransferRecurringNetwork Network { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Specifies the use case of the transfer. Required for transfers on an ACH network. For more details, see <a href="https://plaid.com/docs/transfer/creating-transfers/#ach-sec-codes">ACH SEC codes</a>.</para>

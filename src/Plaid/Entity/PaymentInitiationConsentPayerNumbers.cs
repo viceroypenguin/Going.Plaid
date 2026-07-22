@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The counterparty's bank account numbers. Exactly one of IBAN or Bacs data is required.</para>
+/// <para>The payer's bank account numbers. Exactly one of IBAN or Bacs data is required.</para>
 /// </summary>
 public class PaymentInitiationConsentPayerNumbers
 {

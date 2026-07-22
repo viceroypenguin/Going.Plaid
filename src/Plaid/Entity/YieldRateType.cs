@@ -24,7 +24,7 @@ public enum YieldRateType
 	Discount,
 
 	/// <summary>
-	/// <para>the total predicted rate of return factoring in both the discount rate and the coupon rate, applicable to securities such as exchange-traded bonds which can both be interest-bearing as well as sold at a discount off its face value.</para>
+	/// <para>the total predicted rate of return factoring in both the discount rate and the coupon rate, applicable to securities such as exchange-traded bonds which can both be interest-bearing as well as sold at a discount off their face value.</para>
 	/// </summary>
 	[EnumMember(Value = "yield")]
 	Yield,

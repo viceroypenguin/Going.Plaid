@@ -38,7 +38,7 @@ public record LoanDisbursementsIndicators
 
 	/// <summary>
 	/// <para>Up to 3 top service providers that the user had the most transactions for in the given time window, in descending order of total spend.</para>
-	/// <para>If the user has received money from any provider in the given time window, this list will be empty.</para>
+	/// <para>If the user has not received money from any provider in the given time window, this list will be empty.</para>
 	/// </summary>
 	[JsonPropertyName("top_providers")]
 	public IReadOnlyList<string>? TopProviders { get; init; } = default!;

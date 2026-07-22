@@ -6,25 +6,25 @@ namespace Going.Plaid.Entity;
 public enum ProductsTerminateReasonCode
 {
 	/// <summary>
-	/// <para>The end user who owns the connected bank account committed fraud</para>
+	/// <para>The end user who owns the connected bank account committed fraud using their real identity</para>
 	/// </summary>
 	[EnumMember(Value = "FRAUD_FIRST_PARTY")]
 	FraudFirstParty,
 
 	/// <summary>
-	/// <para>The end user created the connection using false identity information or stolen credentials</para>
+	/// <para>The connection was created using a false or stolen identity</para>
 	/// </summary>
 	[EnumMember(Value = "FRAUD_FALSE_IDENTITY")]
 	FraudFalseIdentity,
 
 	/// <summary>
-	/// <para>The end user is abusing the client's service or platform through their connected account</para>
+	/// <para>The end user is abusing the client's service or platform (for example, automation or excessive retries) through their connected account</para>
 	/// </summary>
 	[EnumMember(Value = "FRAUD_ABUSE")]
 	FraudAbuse,
 
 	/// <summary>
-	/// <para>Other fraud-related reasons involving the end user not covered by the specific fraud categories</para>
+	/// <para>Fraud-related, but not covered by the specific fraud categories above; <c>reason_note</c> should clarify</para>
 	/// </summary>
 	[EnumMember(Value = "FRAUD_OTHER")]
 	FraudOther,
@@ -60,25 +60,25 @@ public enum ProductsTerminateReasonCode
 	ConsumerPaymentMethodSwitched,
 
 	/// <summary>
-	/// <para>The user is offboarding from the service or platform</para>
+	/// <para>The user is offboarding from the client's service or platform</para>
 	/// </summary>
 	[EnumMember(Value = "USER_OFFBOARDING")]
 	UserOffboarding,
 
 	/// <summary>
-	/// <para>The connection is a duplicate of another existing connection for the same user</para>
+	/// <para>This Item is a duplicate of another active Item for the same user</para>
 	/// </summary>
 	[EnumMember(Value = "DUPLICATE_ITEM")]
 	DuplicateItem,
 
 	/// <summary>
-	/// <para>The user's billing or subscription relationship has ended</para>
+	/// <para>The client's billing or subscription relationship with the end user has ended</para>
 	/// </summary>
 	[EnumMember(Value = "BILLING_TERMINATION")]
 	BillingTermination,
 
 	/// <summary>
-	/// <para>Any other reason for terminating products not covered by the above categories</para>
+	/// <para>None of the above; <c>reason_note</c> should clarify</para>
 	/// </summary>
 	[EnumMember(Value = "OTHER")]
 	Other,

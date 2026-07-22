@@ -18,7 +18,7 @@ public record OAuthTokenResponse : ResponseBase
 	public string RefreshToken { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Type of token the access token is. Currently it is always Bearer</para>
+	/// <para>The type of the returned token. <c>Bearer</c> for OAuth access tokens.</para>
 	/// </summary>
 	[JsonPropertyName("token_type")]
 	public string TokenType { get; init; } = default!;

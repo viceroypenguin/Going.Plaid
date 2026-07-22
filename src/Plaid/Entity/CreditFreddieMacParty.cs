@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A collection of information about a single party to a transaction. Included direct participants like the borrower and seller as well as indirect participants such as the flood certificate provider.</para>
+/// <para>A collection of information about a single party to a transaction. Includes direct participants like the borrower and seller as well as indirect participants such as the flood certificate provider.</para>
 /// </summary>
 public record CreditFreddieMacParty
 {

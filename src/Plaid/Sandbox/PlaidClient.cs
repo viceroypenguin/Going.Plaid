@@ -49,7 +49,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxItemFireWebhookResponse>();
 
 	/// <summary>
-	/// <para><c>/sandbox/item/reset_login/</c> forces an Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/item/reset_login</c>, you can then use Plaid Link update mode to restore the Item to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
+	/// <para><c>/sandbox/item/reset_login</c> forces an Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/item/reset_login</c>, you can then use Plaid Link update mode to restore the Item to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
 	/// <para>In the Sandbox, Items will transition to an <c>ITEM_LOGIN_REQUIRED</c> error state automatically after 30 days, even if this endpoint is not called.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxitemreset_login" /></remarks>
@@ -66,6 +66,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxItemApplicationSeedResponse>();
 
 	/// <summary>
+	/// <para><c>/sandbox/fdx/consent/seed</c> creates a test FDX consent grant (and a backing Item) for a data provider's customer in Sandbox, so the FDX Consent API endpoints can be exercised end-to-end without a live data provider connection.</para>
+	/// <para><c>customer_id</c> is the data provider's identifier for the end user and <c>application_id</c> identifies the data recipient application the consent is granted to; both are required. Optionally provide <c>consent_id</c> (a UUIDv4) to control the seeded grant's identifier; one is generated when omitted. The seeded grant is returned by <c>/fdx/consents</c> and <c>/fdx/consents/{consentId}</c>, and can be revoked via <c>/fdx/consents/{consentId}/revocation</c>.</para>
+	/// </summary>
+	public Task<Sandbox.SandboxFdxConsentSeedResponse> SandboxFdxConsentSeedAsync(Sandbox.SandboxFdxConsentSeedRequest request) =>
+		PostAsync("/sandbox/fdx/consent/seed", request)
+			.ParseResponseAsync<Sandbox.SandboxFdxConsentSeedResponse>();
+
+	/// <summary>
 	/// <para>The <c>/sandbox/item/set_verification_status</c> endpoint can be used to change the verification status of an Item in the Sandbox in order to simulate the Automated Micro-deposit flow.</para>
 	/// <para>For more information on testing Automated Micro-deposits in Sandbox, see <a href="https://plaid.com/docs/auth/coverage/testing#">Auth full coverage testing</a>.</para>
 	/// </summary>
@@ -75,7 +83,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxItemSetVerificationStatusResponse>();
 
 	/// <summary>
-	/// <para><c>/sandbox/user/reset_login/</c> functions the same as <c>/sandbox/item/reset_login</c>, but will modify Items related to a User. This endpoint forces each Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/user/reset_login</c>, you can then use Plaid Link update mode to restore Items associated with the User to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
+	/// <para><c>/sandbox/user/reset_login</c> functions the same as <c>/sandbox/item/reset_login</c>, but will modify Items related to a User. This endpoint forces each Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/user/reset_login</c>, you can then use Plaid Link update mode to restore Items associated with the User to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
 	/// <para>In the Sandbox, Items will transition to an <c>ITEM_LOGIN_REQUIRED</c> error state automatically after 30 days, even if this endpoint is not called.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxuserreset_login" /></remarks>
@@ -140,7 +148,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferLedgerWithdrawSimulateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/transfer/repayment/simulate</c> endpoint to trigger the creation of a repayment. As a side effect of calling this route, a repayment is created that includes all unreimbursed returns of guaranteed transfers. If there are no such returns, an 400 error is returned.</para>
+	/// <para>Use the <c>/sandbox/transfer/repayment/simulate</c> endpoint to trigger the creation of a repayment. As a side effect of calling this route, a repayment is created that includes all unreimbursed returns of guaranteed transfers. If there are no such returns, a 400 error is returned.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferrepaymentsimulate" /></remarks>
 	public Task<Sandbox.SandboxTransferRepaymentSimulateResponse> SandboxTransferRepaymentSimulateAsync(Sandbox.SandboxTransferRepaymentSimulateRequest request) =>
@@ -195,7 +203,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferTestClockListResponse>();
 
 	/// <summary>
-	/// <para><c>/sandbox/payment_profile/reset_login/</c> forces a Payment Profile into a state where the login is no longer valid. This makes it easy to test update mode for Payment Profile in the Sandbox environment.</para>
+	/// <para><c>/sandbox/payment_profile/reset_login</c> forces a Payment Profile into a state where the login is no longer valid. This makes it easy to test update mode for Payment Profile in the Sandbox environment.</para>
 	/// <para> After calling <c>/sandbox/payment_profile/reset_login</c>, calls to the <c>/transfer/authorization/create</c> with the Payment Profile will result in a <c>decision_rationale</c> <c>PAYMENT_PROFILE_LOGIN_REQUIRED</c>. You can then use update mode for Payment Profile to restore it into a good state.</para>
 	/// <para> In order to invoke this endpoint, you must first <a href="https://plaid.com/docs/transfer/add-to-app/#create-a-payment-profile-optional">create a Payment Profile</a> and <a href="https://plaid.com/docs/transfer/add-to-app/#create-a-link-token">go through the Link flow</a>.</para>
 	/// </summary>

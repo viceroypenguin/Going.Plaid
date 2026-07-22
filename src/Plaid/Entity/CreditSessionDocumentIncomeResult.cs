@@ -29,4 +29,10 @@ public record CreditSessionDocumentIncomeResult
 	[JsonPropertyName("num_1099s_uploaded")]
 	public int Num1099sUploaded { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The number of I-20s uploaded by the user</para>
+	/// </summary>
+	[JsonPropertyName("num_i20s_uploaded")]
+	public int NumI20sUploaded { get; init; } = default!;
+
 }

@@ -12,7 +12,7 @@ public class ProtectEvent
 	public DateTimeOffset Timestamp { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If present, contains the current Protect Session ID from the Plaid Pixel SDK.</para>
+	/// <para>If present, contains the current Protect Session ID from the Protect SDK.</para>
 	/// </summary>
 	[JsonPropertyName("protect_session_id")]
 	public string? ProtectSessionId { get; set; } = default!;

@@ -60,13 +60,13 @@ public enum DocType
 	DocumentTypeNone,
 
 	/// <summary>
-	/// 
+	/// <para>A Form 1099-MISC information return reporting miscellaneous income.</para>
 	/// </summary>
 	[EnumMember(Value = "DOCUMENT_TYPE_US_TAX_1099_MISC")]
 	DocumentTypeUsTax1099Misc,
 
 	/// <summary>
-	/// 
+	/// <para>A Form 1099-K information return reporting payment card and third-party network transactions.</para>
 	/// </summary>
 	[EnumMember(Value = "DOCUMENT_TYPE_US_TAX_1099_K")]
 	DocumentTypeUsTax1099K,
@@ -76,6 +76,12 @@ public enum DocType
 	/// </summary>
 	[EnumMember(Value = "DOCUMENT_TYPE_PLAID_GENERATED_PAYSTUB_PDF")]
 	DocumentTypePlaidGeneratedPaystubPdf,
+
+	/// <summary>
+	/// <para>A Form I-20 Certificate of Eligibility for Nonimmigrant Student Status.</para>
+	/// </summary>
+	[EnumMember(Value = "DOCUMENT_TYPE_US_STUDENT_I20")]
+	DocumentTypeUsStudentI20,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

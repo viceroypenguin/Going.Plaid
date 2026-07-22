@@ -1,7 +1,7 @@
 namespace Going.Plaid.User;
 
 /// <summary>
-/// <para>UserThirdPartyTokenCreateResponse defines the response schema for <c>/user/third_party_token/remove</c></para>
+/// <para>UserThirdPartyTokenRemoveResponse defines the response schema for <c>/user/third_party_token/remove</c></para>
 /// </summary>
 public record UserThirdPartyTokenRemoveResponse : ResponseBase
 {

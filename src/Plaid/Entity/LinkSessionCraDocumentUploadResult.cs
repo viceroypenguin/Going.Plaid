@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The details of a document upload CRA session in link</para>
+/// <para>The details of a document upload CRA session in Link</para>
 /// </summary>
 public record LinkSessionCraDocumentUploadResult
 {

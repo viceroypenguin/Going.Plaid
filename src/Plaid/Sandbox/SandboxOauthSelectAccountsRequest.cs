@@ -1,7 +1,7 @@
 namespace Going.Plaid.Sandbox;
 
 /// <summary>
-/// <para>Defines the request schema for <c>sandbox/oauth/select_accounts</c></para>
+/// <para>Defines the request schema for <c>/sandbox/oauth/select_accounts</c></para>
 /// </summary>
 public partial class SandboxOauthSelectAccountsRequest : RequestBase
 {

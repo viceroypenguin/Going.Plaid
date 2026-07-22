@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Defines configuration options to generate Income Insights.</para>
+/// <para>Deprecated. This field is no longer accepted for new clients (created on or after 2026-07-01). New clients should specify required products when creating the Consumer Report. Existing integrations may continue to pass <c>options</c>.</para>
 /// </summary>
 public class CraCheckReportIncomeInsightsGetOptions
 {
@@ -21,7 +21,7 @@ public class CraCheckReportIncomeInsightsGetOptions
 	public Entity.IncomeInsightsFilter? IncomeInsightsFilter { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The version of Income Insights to use.</para>
+	/// <para>The version of Income Insights to use. This value is not shared across API calls for the same resource. If it is omitted from a request, the default version is used, even if a version was set in an earlier call such as <c>/link/token/create</c> or <c>/cra/check_report/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("income_insights_version")]
 	public Entity.IncomeInsightsVersion? IncomeInsightsVersion { get; set; } = default!;

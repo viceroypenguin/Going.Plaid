@@ -1,7 +1,7 @@
 namespace Going.Plaid.WatchlistScreening;
 
 /// <summary>
-/// <para>Request input for creating an entity screening review</para>
+/// <para>Request input for creating an entity watchlist screening</para>
 /// </summary>
 public partial class WatchlistScreeningEntityCreateRequest : RequestBase
 {

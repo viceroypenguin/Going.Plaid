@@ -29,4 +29,10 @@ public record PayrollIncomeObject
 	[JsonPropertyName("form1099s")]
 	public IReadOnlyList<Entity.Credit1099> Form1099s { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Array of Form I-20 US immigration student documents.</para>
+	/// </summary>
+	[JsonPropertyName("i20s")]
+	public IReadOnlyList<Entity.CreditI20> I20s { get; init; } = default!;
+
 }

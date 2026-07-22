@@ -18,7 +18,7 @@ public class ClientProvidedRawTransaction
 	public string Description { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The value of the transaction with direction. (NOTE: this will affect enrichment results, so directions are important):.</para>
+	/// <para>The value of the transaction with direction. (NOTE: this will affect enrichment results, so directions are important).</para>
 	/// <para>  Negative (-) for credits (e.g., incoming transfers, refunds)</para>
 	/// <para>  Positive (+) for debits (e.g., purchases, fees, outgoing transfers)</para>
 	/// </summary>

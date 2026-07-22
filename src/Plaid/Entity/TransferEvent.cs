@@ -18,7 +18,7 @@ public record TransferEvent
 	public DateTimeOffset Timestamp { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of event that this transfer represents. Event types with prefix <c>sweep</c> represents events for Plaid Ledger sweeps.</para>
+	/// <para>The type of event that this transfer represents. Event types with prefix <c>sweep</c> represent events for Plaid Ledger sweeps.</para>
 	/// </summary>
 	[JsonPropertyName("event_type")]
 	public Entity.TransferEventType EventType { get; init; } = default!;

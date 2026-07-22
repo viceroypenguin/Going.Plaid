@@ -158,7 +158,7 @@ public record Transfer
 	public DateOnly? StandardReturnWindow { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date 61 business days from settlement date indicating the following ACH returns can no longer happen: R05, R07, R10, R11, R51, R33, R37, R38, R51, R52, R53. This will be of the form YYYY-MM-DD.</para>
+	/// <para>The date 61 business days from settlement date indicating the following ACH returns can no longer happen: R05, R07, R10, R11, R51, R33, R37, R38, R52, R53. This will be of the form YYYY-MM-DD.</para>
 	/// </summary>
 	[JsonPropertyName("unauthorized_return_window")]
 	public DateOnly? UnauthorizedReturnWindow { get; init; } = default!;

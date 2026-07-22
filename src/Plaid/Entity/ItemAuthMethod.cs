@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The method used to populate Auth data for the Item. This field is only populated for Items that have had Auth numbers data set on at least one of its accounts, and will be <c>null</c> otherwise. For info about the various flows, see our <a href="https://plaid.com/docs/auth/coverage/">Auth coverage documentation</a>.</para>
+/// <para>The method used to populate Auth data for the Item. This field is only populated for Items that have had Auth numbers data set on at least one of their accounts, and will be <c>null</c> otherwise. For info about the various flows, see our <a href="https://plaid.com/docs/auth/coverage/">Auth coverage documentation</a>.</para>
 /// </summary>
 public enum ItemAuthMethod
 {

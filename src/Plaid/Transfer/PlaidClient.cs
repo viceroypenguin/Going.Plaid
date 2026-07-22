@@ -46,7 +46,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferAuthorizationCancelResponse>();
 
 	/// <summary>
-	/// <para>(Deprecated) Use the <c>/transfer/balance/get</c> endpoint to view a balance held with Plaid.</para>
+	/// <para>(Deprecated) Use the <c>/transfer/ledger/get</c> endpoint to view a balance held with Plaid.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/balance/#transferbalanceget" /></remarks>
 	public Task<Transfer.TransferBalanceGetResponse> TransferBalanceGetAsync(Transfer.TransferBalanceGetRequest request) =>
@@ -78,7 +78,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferLedgerGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/ledger/distribute</c> endpoint to move available balance between ledgers, if you have multiple. If you're a platform, you can move funds between one of your ledgers and one of your customer's ledger.</para>
+	/// <para>Use the <c>/transfer/ledger/distribute</c> endpoint to move available balance between ledgers, if you have multiple. If you're a platform, you can move funds between one of your ledgers and one of your customer's ledgers.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/ledger/#transferledgerdistribute" /></remarks>
 	public Task<Transfer.TransferLedgerDistributeResponse> TransferLedgerDistributeAsync(Transfer.TransferLedgerDistributeRequest request) =>
@@ -167,7 +167,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferCancelResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/recurring/cancel</c> endpoint to cancel a recurring transfer.  Scheduled transfer that hasn't been submitted to bank will be cancelled.</para>
+	/// <para>Use the <c>/transfer/recurring/cancel</c> endpoint to cancel a recurring transfer.  A scheduled transfer that hasn't been submitted to the bank will be cancelled.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/recurring-transfers/#transferrecurringcancel" /></remarks>
 	public Task<Transfer.TransferRecurringCancelResponse> TransferRecurringCancelAsync(Transfer.TransferRecurringCancelRequest request) =>
@@ -287,7 +287,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferDiligenceSubmitResponse>();
 
 	/// <summary>
-	/// <para>Third-party sender customers can use <c>/transfer/diligence/document/upload</c> endpoint to upload a document on behalf of its end customer (i.e. originator) to Plaid. You'll need to send a request of type <c>multipart/form-data</c>.</para>
+	/// <para>Third-party sender customers can use the <c>/transfer/diligence/document/upload</c> endpoint to upload a document on behalf of their end customer (i.e. originator) to Plaid. You'll need to send a request of type <c>multipart/form-data</c>.</para>
 	/// <para>You must provide the <c>client_id</c> in the <c>PLAID-CLIENT-ID</c> header and <c>secret</c> in the <c>PLAID-SECRET</c> header.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/platform-payments/#transferdiligencedocumentupload" /></remarks>

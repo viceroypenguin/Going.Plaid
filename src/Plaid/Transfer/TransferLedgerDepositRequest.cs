@@ -6,7 +6,7 @@ namespace Going.Plaid.Transfer;
 public partial class TransferLedgerDepositRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Client ID of the customer that owns the Ledger balance. This is so Plaid knows which of your customers to payout or collect funds. Only applicable for <a href="https://plaid.com/docs/transfer/application/#originators-vs-platforms">Platform customers</a>. Do not include if you're paying out to yourself.</para>
+	/// <para>Client ID of the customer that owns the Ledger balance. This is so Plaid knows which of your customers to pay out to or collect funds from. Only applicable for <a href="https://plaid.com/docs/transfer/application/#originators-vs-platforms">Platform customers</a>. Do not include if you're paying out to yourself.</para>
 	/// </summary>
 	[JsonPropertyName("originator_client_id")]
 	public string? OriginatorClientId { get; set; } = default!;
@@ -18,7 +18,7 @@ public partial class TransferLedgerDepositRequest : RequestBase
 	public string? FundingAccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify which ledger balance to deposit to. Customers can find a list of <c>ledger_id</c>s in the Accounts page of your Plaid Dashboard. If this field is left blank, this will default to id of the default ledger balance.</para>
+	/// <para>Specify which ledger balance to deposit to. Customers can find a list of <c>ledger_id</c>s in the Accounts page of your Plaid Dashboard. If this field is left blank, this will default to the id of the default ledger balance.</para>
 	/// </summary>
 	[JsonPropertyName("ledger_id")]
 	public string? LedgerId { get; set; } = default!;

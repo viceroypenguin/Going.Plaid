@@ -1,7 +1,7 @@
 namespace Going.Plaid.LinkDelivery;
 
 /// <summary>
-/// <para>LinkDeliveryGetRequest defines the response schema for <c>/link_delivery/get</c></para>
+/// <para>LinkDeliveryGetResponse defines the response schema for <c>/link_delivery/get</c></para>
 /// </summary>
 public record LinkDeliveryGetResponse : ResponseBase
 {

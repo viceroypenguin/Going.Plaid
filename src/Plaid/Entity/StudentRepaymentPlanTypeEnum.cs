@@ -44,7 +44,7 @@ public enum StudentRepaymentPlanTypeEnum
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "interest-only")]
+	[EnumMember(Value = "interest only")]
 	InterestOnly,
 
 	/// <summary>

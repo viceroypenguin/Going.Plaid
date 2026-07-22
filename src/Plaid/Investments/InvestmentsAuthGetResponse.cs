@@ -30,7 +30,7 @@ public record InvestmentsAuthGetResponse : ResponseBase
 	public IReadOnlyList<Entity.InvestmentsAuthOwner> Owners { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Identifying information for transferring holdings to an investments account.</para>
+	/// <para>Identifying information for transferring holdings to an investment account.</para>
 	/// </summary>
 	[JsonPropertyName("numbers")]
 	public Entity.InvestmentsAuthGetNumbers Numbers { get; init; } = default!;

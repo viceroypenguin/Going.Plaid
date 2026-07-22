@@ -21,7 +21,7 @@ public record VerificationInsights
 	/// <para>Information about known ACH returns for the account and routing number.</para>
 	/// </summary>
 	[JsonPropertyName("previous_returns")]
-	public Entity.VerificationInsightsNetworkStatus? PreviousReturns { get; init; } = default!;
+	public Entity.AccountVerificationInsightsPreviousReturns? PreviousReturns { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Indicator of account number format validity for institution.</para>

@@ -30,7 +30,7 @@ public record Counterparty
 	public string? Website { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The URL of a logo associated with the counterparty, if available. The logo will always be 100×100 pixel PNG file.</para>
+	/// <para>The URL of a logo associated with the counterparty, if available. The logo will always be a 100×100 pixel PNG file.</para>
 	/// </summary>
 	[JsonPropertyName("logo_url")]
 	public string? LogoUrl { get; init; } = default!;

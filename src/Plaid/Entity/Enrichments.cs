@@ -46,7 +46,7 @@ public record Enrichments
 	public Entity.Location Location { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The URL of a logo associated with this transaction, if available. The logo will always be 100×100 pixel PNG file.</para>
+	/// <para>The URL of a logo associated with this transaction, if available. The logo will always be a 100×100 pixel PNG file.</para>
 	/// </summary>
 	[JsonPropertyName("logo_url")]
 	public string? LogoUrl { get; init; } = default!;
@@ -77,7 +77,7 @@ public record Enrichments
 	public Entity.PersonalFinanceCategory? PersonalFinanceCategory { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The URL of an icon associated with the primary personal finance category. The icon will always be 100×100 pixel PNG file.</para>
+	/// <para>The URL of an icon associated with the primary personal finance category. The icon will always be a 100×100 pixel PNG file.</para>
 	/// </summary>
 	[JsonPropertyName("personal_finance_category_icon_url")]
 	public string PersonalFinanceCategoryIconUrl { get; init; } = default!;

@@ -42,7 +42,7 @@ public record PaymentInitiationPayment
 	public string? AdjustedReference { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date and time of the last time the <c>status</c> was updated, in IS0 8601 format</para>
+	/// <para>The date and time of the last time the <c>status</c> was updated, in ISO 8601 format</para>
 	/// </summary>
 	[JsonPropertyName("last_status_update")]
 	public DateTimeOffset LastStatusUpdate { get; init; } = default!;

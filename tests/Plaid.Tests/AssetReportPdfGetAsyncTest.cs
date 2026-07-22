@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -20,7 +20,7 @@ public class AssetReportPdfGetAsyncTest(PlaidFixture fixture, ITestOutputHelper 
 
 		Assert.NotNull(pdf);
 		Assert.NotNull(pdf.Error);
-		Assert.Equal("INVALID_INPUT", pdf.Error!.ErrorType);
+		Assert.Equal(Entity.PlaidErrorType.InvalidInput, pdf.Error!.ErrorType);
 		Assert.Equal("INVALID_ASSET_REPORT_TOKEN", pdf.Error!.ErrorCode);
 
 		_fixture.PlaidClient.AccessToken = oldToken;

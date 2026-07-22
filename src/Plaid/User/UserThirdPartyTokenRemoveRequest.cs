@@ -1,7 +1,7 @@
 namespace Going.Plaid.User;
 
 /// <summary>
-/// <para>UserThirdPartyTokenCreateRequest defines the request schema for <c>/user/third_party_token/remove</c></para>
+/// <para>UserThirdPartyTokenRemoveRequest defines the request schema for <c>/user/third_party_token/remove</c></para>
 /// </summary>
 public partial class UserThirdPartyTokenRemoveRequest : RequestBase
 {

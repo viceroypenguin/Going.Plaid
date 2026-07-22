@@ -42,7 +42,7 @@ public record ConnectedApplication
 	public string? ReasonForAccess { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date this application was linked in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> (YYYY-MM-DD) format in UTC.</para>
+	/// <para>The date and time this application was linked, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC (e.g. <c>"2020-01-01T00:00:00Z"</c>). Note that older, legacy integrations instead receive this value as a date only, in <c>YYYY-MM-DD</c> format (e.g. <c>"2020-01-01"</c>).</para>
 	/// </summary>
 	[JsonPropertyName("created_at")]
 	public DateTimeOffset CreatedAt { get; init; } = default!;

@@ -30,7 +30,7 @@ public record TransferRefund
 	public Entity.TransferRefundStatus Status { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The failure reason if the event type for a refund is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
+	/// <para>The failure reason if the status for a refund is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.TransferRefundFailure? FailureReason { get; init; } = default!;

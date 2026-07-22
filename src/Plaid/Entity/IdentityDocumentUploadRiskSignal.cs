@@ -12,7 +12,7 @@ public record IdentityDocumentUploadRiskSignal
 	public string? Type { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates whether fraud risk was detected on the field.</para>
+	/// <para>Indicates whether fraud risk was detected for this risk signal.</para>
 	/// </summary>
 	[JsonPropertyName("has_fraud_risk")]
 	public bool? HasFraudRisk { get; init; } = default!;

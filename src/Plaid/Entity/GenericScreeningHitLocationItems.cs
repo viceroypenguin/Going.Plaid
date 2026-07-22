@@ -12,7 +12,7 @@ public record GenericScreeningHitLocationItems
 	public Entity.MatchSummary? Analysis { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Location information for the associated individual watchlist hit</para>
+	/// <para>Location information for the associated watchlist hit</para>
 	/// </summary>
 	[JsonPropertyName("data")]
 	public Entity.WatchlistScreeningHitLocations? Data { get; init; } = default!;

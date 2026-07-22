@@ -1,7 +1,7 @@
 namespace Going.Plaid.AssetReport;
 
 /// <summary>
-/// <para>AssetReportAuditCopyCreateRequest defines the request schema for <c>/asset_report/audit_copy/get</c></para>
+/// <para>AssetReportAuditCopyCreateRequest defines the request schema for <c>/asset_report/audit_copy/create</c></para>
 /// </summary>
 public partial class AssetReportAuditCopyCreateRequest : RequestBase
 {

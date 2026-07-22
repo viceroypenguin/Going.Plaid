@@ -36,7 +36,7 @@ public record CreditW2
 	public string? TaxYear { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An employee identification number or EIN.</para>
+	/// <para>An employer identification number or EIN.</para>
 	/// </summary>
 	[JsonPropertyName("employer_id_number")]
 	public string? EmployerIdNumber { get; init; } = default!;

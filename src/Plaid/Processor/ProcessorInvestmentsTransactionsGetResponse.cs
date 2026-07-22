@@ -1,7 +1,7 @@
 namespace Going.Plaid.Processor;
 
 /// <summary>
-/// <para>ProcessorInvestmentsTransactionsGetRequest defines the response schema for <c>/processor/investments/transactions/get</c></para>
+/// <para>ProcessorInvestmentsTransactionsGetResponse defines the response schema for <c>/processor/investments/transactions/get</c></para>
 /// </summary>
 public record ProcessorInvestmentsTransactionsGetResponse : ResponseBase
 {

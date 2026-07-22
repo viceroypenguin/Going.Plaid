@@ -18,7 +18,7 @@ public record CashflowReportGetResponse : ResponseBase
 	public IReadOnlyList<Entity.CashflowReportTransaction> Transactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The total number of transactions available within the date range specified. If <c>total_transactions</c> is larger than the size of the <c>transactions</c> array, more transactions are available and can be fetched via manipulating the <c>offset</c> parameter.</para>
+	/// <para>The total number of transactions available within the date range specified. If <c>total_transactions</c> is larger than the size of the <c>transactions</c> array, more transactions are available and can be fetched using the <c>cursor</c> parameter.</para>
 	/// </summary>
 	[JsonPropertyName("total_transactions")]
 	public int TotalTransactions { get; init; } = default!;

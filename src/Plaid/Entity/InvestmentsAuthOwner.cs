@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Information on the ownership of an investments account</para>
+/// <para>Information on the ownership of an investment account</para>
 /// </summary>
 public record InvestmentsAuthOwner
 {

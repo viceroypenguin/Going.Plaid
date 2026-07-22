@@ -1,7 +1,7 @@
 namespace Going.Plaid.Credit;
 
 /// <summary>
-/// <para>CreditPayrollIncomeRiskSignalsGetRequest defines the response schema for <c>/credit/payroll_income/risk_signals/get</c></para>
+/// <para>CreditPayrollIncomeRiskSignalsGetResponse defines the response schema for <c>/credit/payroll_income/risk_signals/get</c></para>
 /// </summary>
 public record CreditPayrollIncomeRiskSignalsGetResponse : ResponseBase
 {

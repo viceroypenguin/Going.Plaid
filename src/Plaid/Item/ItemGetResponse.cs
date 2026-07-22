@@ -12,7 +12,7 @@ public record ItemGetResponse : ResponseBase
 	public Entity.ItemWithConsentFields Item { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Information about the last successful and failed transactions update for the Item.</para>
+	/// <para>An object with information about the status of the Item.</para>
 	/// </summary>
 	[JsonPropertyName("status")]
 	public Entity.ItemStatus? Status { get; init; } = default!;

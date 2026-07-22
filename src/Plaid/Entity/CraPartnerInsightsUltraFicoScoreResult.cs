@@ -29,4 +29,10 @@ public record CraPartnerInsightsUltraFicoScoreResult
 	[JsonPropertyName("error_reason")]
 	public string? ErrorReason { get; init; } = default!;
 
+	/// <summary>
+	/// <para>FICO exclusion code indicating why an UltraFICO® score could not be computed due to consumer-data conditions (e.g. insufficient account history). <c>null</c> when the exclusion code is not set; "0" when a score was produced.</para>
+	/// </summary>
+	[JsonPropertyName("exclusion_code")]
+	public string? ExclusionCode { get; init; } = default!;
+
 }

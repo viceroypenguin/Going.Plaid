@@ -42,7 +42,7 @@ public partial class ProcessorSignalEvaluateRequest : RequestBase
 	public bool? IsRecurring { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The default ACH or non-ACH payment method to complete the transaction.</para>
+	/// <para>The default ACH payment method to complete the transaction.</para>
 	/// <para><c>SAME_DAY_ACH</c>: Same Day ACH by Nacha. The debit transaction is processed and settled on the same day.</para>
 	/// <para><c>STANDARD_ACH</c>: Standard ACH by Nacha.</para>
 	/// <para><c>MULTIPLE_PAYMENT_METHODS</c>: If there is no default debit rail or there are multiple payment methods.</para>

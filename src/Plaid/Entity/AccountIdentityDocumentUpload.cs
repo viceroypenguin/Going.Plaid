@@ -16,7 +16,7 @@ public record AccountIdentityDocumentUpload
 	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A set of fields describing the balance for an account. Balance information may be cached unless the balance object was returned by <c>/accounts/balance/get</c> or <c>/signal/evaluate</c> (using a Balance-only ruleset).</para>
+	/// <para>A set of fields describing the balance for an account. For real-time values, use <c>/accounts/balance/get</c> or <c>/signal/evaluate</c> (with a Balance-only ruleset), which are fetched live from the institution at request time. Values returned by other endpoints may be cached, or adjusted by Plaid to reflect transaction activity received since the last refresh.</para>
 	/// </summary>
 	[JsonPropertyName("balances")]
 	public Entity.AccountBalance? Balances { get; init; } = default!;

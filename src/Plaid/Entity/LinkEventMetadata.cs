@@ -84,7 +84,7 @@ public record LinkEventMetadata
 	public string? MatchReason { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The routing number submitted by user at the micro-deposits routing number pane. Emitted by <c>SUBMIT_ROUTING_NUMBER</c>.</para>
+	/// <para>The routing number submitted by the user at the micro-deposits routing number pane. Emitted by <c>SUBMIT_ROUTING_NUMBER</c>.</para>
 	/// </summary>
 	[JsonPropertyName("routing_number")]
 	public string? RoutingNumber { get; init; } = default!;

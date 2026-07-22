@@ -119,7 +119,7 @@ public record Security
 
 	/// <summary>
 	/// <para>The unofficial currency code associated with the security. Always <c>null</c> if <c>iso_currency_code</c> is non-<c>null</c>. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.</para>
-	/// <para>See the <a href="https://plaid.com/docs/api/accounts#currency-code-schema">currency code schema</a> for a full listing of supported <c>iso_currency_code</c>s.</para>
+	/// <para>See the <a href="https://plaid.com/docs/api/accounts#currency-code-schema">currency code schema</a> for a full listing of supported <c>unofficial_currency_code</c>s.</para>
 	/// </summary>
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
@@ -149,6 +149,12 @@ public record Security
 	/// </summary>
 	[JsonPropertyName("cfi_code")]
 	public string? CfiCode { get; init; } = default!;
+
+	/// <summary>
+	/// <para>12-character FIGI, a unique Financial Instrument Global Identifier assigned to securities that is immutable and stays consistent across most corporate actions. This is an open data standard issued by the Object Management Group and administered by Bloomberg L.P.</para>
+	/// </summary>
+	[JsonPropertyName("figi")]
+	public string? Figi { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Details about the option security.</para>

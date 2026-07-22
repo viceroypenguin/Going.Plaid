@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class Scopes
 {
 	/// <summary>
-	/// <para>The product access being requested. Used to or disallow product access across all accounts. If unset, defaults to all products allowed.</para>
+	/// <para>The product access being requested. Used to allow or disallow product access across all accounts. If unset, defaults to all products allowed.</para>
 	/// </summary>
 	[JsonPropertyName("product_access")]
 	public Entity.ProductAccess? ProductAccess { get; set; } = default!;

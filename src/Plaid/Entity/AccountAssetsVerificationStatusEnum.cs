@@ -42,7 +42,7 @@ public enum AccountAssetsVerificationStatusEnum
 	VerificationFailed,
 
 	/// <summary>
-	/// <para>The Item has successfully been verified using Plaid's data sources. Note: Database Match is currently a beta feature, please contact your account manager for more information.</para>
+	/// <para>(deprecated) The Item has successfully been verified using Plaid's data sources. Only returned for Auth Items created via Database Match.</para>
 	/// </summary>
 	[EnumMember(Value = "database_matched")]
 	DatabaseMatched,

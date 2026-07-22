@@ -12,7 +12,7 @@ public record WalletTransaction
 	public string TransactionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.</para>
+	/// <para>The ID of the e-wallet that this transaction is associated with.</para>
 	/// </summary>
 	[JsonPropertyName("wallet_id")]
 	public string WalletId { get; init; } = default!;
@@ -60,7 +60,7 @@ public record WalletTransaction
 	public DateTimeOffset CreatedAt { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date and time of the last time the <c>status</c> was updated, in IS0 8601 format</para>
+	/// <para>The date and time of the last time the <c>status</c> was updated, in ISO 8601 format</para>
 	/// </summary>
 	[JsonPropertyName("last_status_update")]
 	public DateTimeOffset LastStatusUpdate { get; init; } = default!;

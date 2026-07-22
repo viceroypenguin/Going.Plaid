@@ -54,25 +54,25 @@ public record BaseReportUserAttributes
 	public Entity.TotalReportInflowAmount90d? TotalInflowAmount90d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions into the report's accounts in the time period of the report. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of credit transactions out of the report's accounts in the time period of the report. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount")]
 	public Entity.TotalReportOutflowAmount? TotalOutflowAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions into the report's accounts in the last 30 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of credit transactions out of the report's accounts in the last 30 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount_30d")]
 	public Entity.TotalReportOutflowAmount30d? TotalOutflowAmount30d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions into the report's accounts in the last 60 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of credit transactions out of the report's accounts in the last 60 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount_60d")]
 	public Entity.TotalReportOutflowAmount60d? TotalOutflowAmount60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions into the report's accounts in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of credit transactions out of the report's accounts in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount_90d")]
 	public Entity.TotalReportOutflowAmount90d? TotalOutflowAmount90d { get; init; } = default!;

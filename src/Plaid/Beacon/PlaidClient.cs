@@ -15,7 +15,7 @@ public sealed partial class PlaidClient
 	/// <para>When you submit a new user to <c>/beacon/user/create</c>, several checks are performed immediately:</para>
 	/// <para>  - The user's PII (provided within the <c>user</c> object) is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of <c>pending_review</c>.</para>
 	/// <para>  - The user's PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of <c>rejected</c>.</para>
-	/// <para>  - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a <c>pending_review</c> status if your program has enabled automatic flagging based on network fraud.</para>
+	/// <para>  - Finally, the user's PII is searched against all fraud reports shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a <c>pending_review</c> status if your program has enabled automatic flagging based on network fraud.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconusercreate" /></remarks>
 	public Task<Beacon.BeaconUserCreateResponse> BeaconUserCreateAsync(Beacon.BeaconUserCreateRequest request) =>
@@ -91,7 +91,7 @@ public sealed partial class PlaidClient
 	/// <para>Similar to <c>/beacon/user/create</c>, several checks are performed immediately when you submit an identity data change to <c>/beacon/user/update</c>:</para>
 	/// <para>  - The user's updated PII is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of <c>pending_review</c>.</para>
 	/// <para>  - The user's updated PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of <c>rejected</c>.</para>
-	/// <para>  - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a <c>pending_review</c> status if your program has enabled automatic flagging based on network fraud.</para>
+	/// <para>  - Finally, the user's PII is searched against all fraud reports shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a <c>pending_review</c> status if your program has enabled automatic flagging based on network fraud.</para>
 	/// <para>Plaid maintains a version history for each Beacon User, so the Beacon User's identity data before and after the update is retained as separate versions.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/beacon/#beaconuserupdate" /></remarks>

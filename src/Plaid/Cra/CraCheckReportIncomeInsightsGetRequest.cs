@@ -24,9 +24,22 @@ public partial class CraCheckReportIncomeInsightsGetRequest : RequestBase
 	public string? UserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Defines configuration options to generate Income Insights.</para>
+	/// <para>Deprecated. This field is no longer accepted for new clients (created on or after 2026-07-01). New clients should specify required products when creating the Consumer Report. Existing integrations may continue to pass <c>options</c>.</para>
 	/// </summary>
 	[JsonPropertyName("options")]
+	[Obsolete]
 	public Entity.CraCheckReportIncomeInsightsGetOptions? Options { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The CRA report token (formatted <c>cra-report-&lt;env&gt;-&lt;uuid&gt;</c>) identifying a specific consumer report. When provided alongside <c>consumer_report_permissible_purpose</c>, pins retrieval to that report and stamps its permissible purpose. If omitted, the most recently generated report for the user is returned.</para>
+	/// </summary>
+	[JsonPropertyName("report_id")]
+	public string? ReportId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The permissible purpose under the FCRA for retrieving this consumer report. Restricted to permissible purposes related to loan servicing only. Required when <c>report_id</c> is provided.</para>
+	/// </summary>
+	[JsonPropertyName("consumer_report_permissible_purpose")]
+	public Entity.CraCheckReportPermissiblePurpose? ConsumerReportPermissiblePurpose { get; set; } = default!;
 
 }

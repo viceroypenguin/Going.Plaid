@@ -6,7 +6,7 @@ namespace Going.Plaid.Item;
 public partial class ItemProductsTerminateRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The reason for terminating products on the Item.</para>
+	/// <para>The reason for terminating products.</para>
 	/// </summary>
 	[JsonPropertyName("reason_code")]
 	public Entity.ProductsTerminateReasonCode ReasonCode { get; set; } = default!;

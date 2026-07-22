@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The type of event that this transfer represents. Event types with prefix <c>sweep</c> represents events for Plaid Ledger sweeps.</para>
+/// <para>The type of event that this transfer represents. Event types with prefix <c>sweep</c> represent events for Plaid Ledger sweeps.</para>
 /// </summary>
 public enum TransferEventType
 {
@@ -40,6 +40,12 @@ public enum TransferEventType
 	/// </summary>
 	[EnumMember(Value = "funds_available")]
 	FundsAvailable,
+
+	/// <summary>
+	/// <para>The transfer has been fully guaranteed by Plaid.</para>
+	/// </summary>
+	[EnumMember(Value = "guaranteed")]
+	Guaranteed,
 
 	/// <summary>
 	/// <para>A posted transfer was returned.</para>

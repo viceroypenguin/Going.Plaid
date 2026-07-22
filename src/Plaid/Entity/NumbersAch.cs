@@ -13,7 +13,7 @@ public record NumbersAch
 
 	/// <summary>
 	/// <para>The ACH account number for the account.</para>
-	/// <para>At certain institutions, including Chase, PNC, and US Bank, you will receive "tokenized" routing and account numbers, which are not the user's actual account and routing numbers. For important details on how this may impact your integration and on how to avoid fraud, user confusion, and ACH returns, see <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">Tokenized account numbers</a>.</para>
+	/// <para>At certain institutions, including Chase, PNC, and US Bank, you will receive a "tokenized" account number, which is not the user's actual account number. For important details on how this may impact your integration and on how to avoid fraud, user confusion, and ACH returns, see <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">Tokenized account numbers</a>.</para>
 	/// </summary>
 	[JsonPropertyName("account")]
 	public string Account { get; init; } = default!;
@@ -25,7 +25,7 @@ public record NumbersAch
 	public bool? IsTokenizedAccountNumber { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The ACH routing number for the account. This may be a tokenized routing number. For more information, see <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">Tokenized account numbers</a>.</para>
+	/// <para>The ACH routing number for the account. For more information, see <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">Tokenized account numbers</a>.</para>
 	/// </summary>
 	[JsonPropertyName("routing")]
 	public string Routing { get; init; } = default!;

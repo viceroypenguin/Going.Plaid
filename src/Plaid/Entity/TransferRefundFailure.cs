@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The failure reason if the event type for a refund is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
+/// <para>The failure reason if the status for a refund is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
 /// </summary>
 public record TransferRefundFailure
 {

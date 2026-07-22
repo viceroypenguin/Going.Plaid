@@ -90,7 +90,7 @@ public enum IndividualWatchlistCode
 	UsIsn,
 
 	/// <summary>
-	/// 
+	/// <para>US Non-SDN Menu-Based Sanctions</para>
 	/// </summary>
 	[EnumMember(Value = "US_MBS")]
 	UsMbs,

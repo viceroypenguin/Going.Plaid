@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Location information for the associated individual watchlist hit</para>
+/// <para>Location information for the associated watchlist hit</para>
 /// </summary>
 public record WatchlistScreeningHitLocations
 {

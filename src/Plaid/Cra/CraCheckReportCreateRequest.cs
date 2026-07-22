@@ -42,7 +42,7 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public string? ClientReportId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies a list of products that will be eagerly generated when creating the report (in addition to the Base Report, which is always eagerly generated). These products will be made available before a success webhook is sent. Use this option to minimize response latency for product <c>/get</c> endpoints. Note that specifying <c>cra_partner_insights</c> in this field will trigger a billable event. Other products are not billed until the respective reports are fetched via product-specific <c>/get</c> endpoints.</para>
+	/// <para>Specifies a list of products to generate when creating the report (in addition to the Base Report, which is always generated). These products will be made available before a success webhook is sent. Note that specifying <c>cra_partner_insights</c> in this field will trigger a billable event. Other products are not billed until the respective reports are retrieved via their product-specific <c>/get</c> endpoints.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;
@@ -57,7 +57,7 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	/// <para>Defines configuration options to generate Cashflow Insights</para>
 	/// </summary>
 	[JsonPropertyName("cashflow_insights")]
-	public Entity.CraCheckReportCashflowInsightsGetOptions? CashflowInsights { get; set; } = default!;
+	public Entity.CraCheckReportCreateCashflowInsightsOptions? CashflowInsights { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Defines configuration to generate Partner Insights.</para>
@@ -69,13 +69,13 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	/// <para>Defines configuration options to generate the LendScore</para>
 	/// </summary>
 	[JsonPropertyName("lend_score")]
-	public Entity.CraCheckReportLendScoreGetOptions? LendScore { get; set; } = default!;
+	public Entity.CraCheckReportCreateLendScoreOptions? LendScore { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Defines configuration options to generate Network Insights</para>
 	/// </summary>
 	[JsonPropertyName("network_insights")]
-	public Entity.CraCheckReportNetworkInsightsGetOptions? NetworkInsights { get; set; } = default!;
+	public Entity.CraCheckReportCreateNetworkInsightsOptions? NetworkInsights { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Indicates that investment data should be extracted from the linked account(s).</para>
@@ -87,7 +87,7 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	/// <para>Defines configuration options to generate Income Insights.</para>
 	/// </summary>
 	[JsonPropertyName("income_insights")]
-	public Entity.CraCheckReportIncomeInsightsGetOptions? IncomeInsights { get; set; } = default!;
+	public Entity.CraCheckReportCreateIncomeInsightsOptions? IncomeInsights { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Describes the reason you are generating a Consumer Report for this user. When calling <c>/link/token/create</c>, this field is required when using Plaid Check (CRA) products; invalid if not using Plaid Check (CRA) products.</para>

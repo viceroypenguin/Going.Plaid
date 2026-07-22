@@ -1,7 +1,7 @@
 namespace Going.Plaid.User;
 
 /// <summary>
-/// <para>UserTransactionsRefreshRequest defines the request schema for <c>user/transactions/refresh</c></para>
+/// <para>UserTransactionsRefreshRequest defines the request schema for <c>/user/transactions/refresh</c></para>
 /// </summary>
 public partial class UserTransactionsRefreshRequest : RequestBase
 {

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Cra;
 
 /// <summary>
-/// <para>BaseReportGetRequest defines the request schema for <c>/cra/check_report/base_report/get</c></para>
+/// <para>CraCheckReportBaseReportGetRequest defines the request schema for <c>/cra/check_report/base_report/get</c></para>
 /// </summary>
 public partial class CraCheckReportBaseReportGetRequest : RequestBase
 {
@@ -34,5 +34,17 @@ public partial class CraCheckReportBaseReportGetRequest : RequestBase
 	/// </summary>
 	[JsonPropertyName("user_tier")]
 	public Entity.CraUserTier? UserTier { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The CRA report token (formatted <c>cra-report-&lt;env&gt;-&lt;uuid&gt;</c>) identifying a specific consumer report. When provided alongside <c>consumer_report_permissible_purpose</c>, pins retrieval to that report and stamps its permissible purpose. If omitted, the most recently generated report for the user is returned.</para>
+	/// </summary>
+	[JsonPropertyName("report_id")]
+	public string? ReportId { get; set; } = default!;
+
+	/// <summary>
+	/// <para>The permissible purpose under the FCRA for retrieving this consumer report. Restricted to permissible purposes related to loan servicing only. Required when <c>report_id</c> is provided.</para>
+	/// </summary>
+	[JsonPropertyName("consumer_report_permissible_purpose")]
+	public Entity.CraCheckReportPermissiblePurpose? ConsumerReportPermissiblePurpose { get; set; } = default!;
 
 }

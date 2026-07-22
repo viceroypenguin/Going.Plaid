@@ -26,7 +26,7 @@ public record LinkUserDeliveryStatusWebhook : WebhookBase
 	public DateTimeOffset Timestamp { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Information related to the related to the delivery of the link session to users</para>
+	/// <para>Information related to the delivery of the link session to users</para>
 	/// </summary>
 	[JsonPropertyName("link_delivery_metadata")]
 	public Entity.LinkDeliveryMetadata LinkDeliveryMetadata { get; init; } = default!;

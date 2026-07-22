@@ -18,7 +18,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public string? FundingAccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specify which ledger balance should be used to fund the transfer. You can find a list of <c>ledger_id</c>s in the Accounts page of your Plaid Dashboard. If this field is left blank, this will default to id of the default ledger balance.</para>
+	/// <para>Specify which ledger balance should be used to fund the transfer. You can find a list of <c>ledger_id</c>s in the Accounts page of your Plaid Dashboard. If this field is left blank, this will default to the id of the default ledger balance.</para>
 	/// </summary>
 	[JsonPropertyName("ledger_id")]
 	public string? LedgerId { get; set; } = default!;
@@ -100,7 +100,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	public bool? UserPresent { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If set to <c>false</c>, Plaid will not offer a <c>guarantee_decision</c> for this request (Guarantee customers only). This field is deprecated in favor for <c>guarantee</c>.</para>
+	/// <para>If set to <c>false</c>, Plaid will not offer a <c>guarantee_decision</c> for this request (Guarantee customers only). This field is deprecated in favor of <c>guarantee</c>.</para>
 	/// </summary>
 	[JsonPropertyName("with_guarantee")]
 	[Obsolete]

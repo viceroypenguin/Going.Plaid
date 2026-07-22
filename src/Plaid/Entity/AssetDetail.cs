@@ -108,7 +108,7 @@ public record AssetDetail
 	public string? Assettypeadditionaldescription { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Number of days requested made to the Financial Institution. Example When looking for 3 months of data from the FI, pass in 90 days.</para>
+	/// <para>The number of days requested from the Financial Institution. Example: When looking for 3 months of data from the FI, pass in 90 days.</para>
 	/// </summary>
 	[JsonPropertyName("AssetDaysRequestedCount")]
 	public int Assetdaysrequestedcount { get; init; } = default!;

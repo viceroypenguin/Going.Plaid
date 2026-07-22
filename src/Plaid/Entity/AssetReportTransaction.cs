@@ -70,10 +70,10 @@ public record AssetReportTransaction
 	public DateOnly Date { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date on which the transaction took place, in IS0 8601 format.</para>
+	/// <para>The date on which the transaction took place, in ISO 8601 format.</para>
 	/// </summary>
 	[JsonPropertyName("date_transacted")]
-	public string? DateTransacted { get; init; } = default!;
+	public DateTimeOffset? DateTransacted { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of where a transaction took place. Location data is provided only for transactions at physical locations, not for online transactions. Location data availability depends primarily on the merchant and is most likely to be populated for transactions at large retail chains; small, local businesses are less likely to have location data available.</para>
@@ -97,7 +97,7 @@ public record AssetReportTransaction
 
 	/// <summary>
 	/// <para>Transaction information specific to inter-bank transfers. If the transaction was not an inter-bank transfer, all fields will be <c>null</c>.</para>
-	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, the <c>payment_meta</c> key will always appear, but no data elements are guaranteed. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get/</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
+	/// <para>If the <c>transactions</c> object was returned by a Transactions endpoint such as <c>/transactions/sync</c> or <c>/transactions/get</c>, the <c>payment_meta</c> key will always appear, but no data elements are guaranteed. If the <c>transactions</c> object was returned by an Assets endpoint such as <c>/asset_report/get</c> or <c>/asset_report/pdf/get</c>, this field will only appear in an Asset Report with Insights.</para>
 	/// </summary>
 	[JsonPropertyName("payment_meta")]
 	public Entity.PaymentMeta? PaymentMeta { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Information related to the related to the delivery of the link session to users</para>
+/// <para>Information related to the delivery of the link session to users</para>
 /// </summary>
 public record LinkDeliveryMetadata
 {

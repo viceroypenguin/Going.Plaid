@@ -1,7 +1,7 @@
 namespace Going.Plaid.AssetReport;
 
 /// <summary>
-/// <para>AssetReportAuditCopyCreateResponse defines the response schema for <c>/asset_report/audit_copy/get</c></para>
+/// <para>AssetReportAuditCopyCreateResponse defines the response schema for <c>/asset_report/audit_copy/create</c></para>
 /// </summary>
 public record AssetReportAuditCopyCreateResponse : ResponseBase
 {

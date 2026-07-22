@@ -368,7 +368,7 @@ public record SignalEvaluateCoreAttributes
 	public decimal? P50EodBalance31dTo60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The 50th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited</para>
+	/// <para>The 50th percentile of the end-of-day available balance between day 61 and day 90 over the past 90 days of the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("p50_eod_balance_61d_to_90d")]
 	public decimal? P50EodBalance61dTo90d { get; init; } = default!;
@@ -380,7 +380,7 @@ public record SignalEvaluateCoreAttributes
 	public decimal? P90EodBalance31dTo60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The 90th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited</para>
+	/// <para>The 90th percentile of the end-of-day available balance between day 61 and day 90 over the past 90 days of the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("p90_eod_balance_61d_to_90d")]
 	public decimal? P90EodBalance61dTo90d { get; init; } = default!;
@@ -392,7 +392,7 @@ public record SignalEvaluateCoreAttributes
 	public decimal? P10EodBalance31dTo60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The 10th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited</para>
+	/// <para>The 10th percentile of the end-of-day available balance between day 61 and day 90 over the past 90 days of the account that will be debited</para>
 	/// </summary>
 	[JsonPropertyName("p10_eod_balance_61d_to_90d")]
 	public decimal? P10EodBalance61dTo90d { get; init; } = default!;
@@ -404,13 +404,13 @@ public record SignalEvaluateCoreAttributes
 	public DateTimeOffset? TransactionsLastUpdated { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates if the receiver bank account is closed</para>
+	/// <para>Indicates if the account that will be debited is closed</para>
 	/// </summary>
 	[JsonPropertyName("is_account_closed")]
 	public bool? IsAccountClosed { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates if the receiver bank account is either frozen or restricted</para>
+	/// <para>Indicates if the account that will be debited is either frozen or restricted</para>
 	/// </summary>
 	[JsonPropertyName("is_account_frozen_or_restricted")]
 	public bool? IsAccountFrozenOrRestricted { get; init; } = default!;

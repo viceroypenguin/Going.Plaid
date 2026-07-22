@@ -12,7 +12,7 @@ public partial class IdentityVerificationCreateRequest : RequestBase
 	public string? ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Unique user identifier, created by calling <c>/user/create</c>. Either a <c>user_id</c> or the <c>client_user_id</c> must be provided. The <c>user_id</c> may only be used instead of the <c>client_user_id</c> if you were not a pre-existing user of <c>/user/create</c> as of December 10, 2025; for more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>. If both this field and a <c>client_user_id</c> are present in a request, the <c>user_id</c> must have been created from the provided <c>client_user_id</c>.</para>
+	/// <para>Unique user identifier, created by calling <c>/user/create</c>. Either a <c>user_id</c> or the <c>client_user_id</c> must be provided. The <c>user_id</c> may only be used instead of the <c>client_user_id</c> if you were not a pre-existing user of <c>/user/create</c> as of December 10, 2025, or if you have since <a href="https://plaid.com/docs/api/users/migrate-to-new-user-apis">migrated to the new User APIs</a>; for more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>. If both this field and a <c>client_user_id</c> are present in a request, the <c>user_id</c> must have been created from the provided <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; set; } = default!;
@@ -48,13 +48,14 @@ public partial class IdentityVerificationCreateRequest : RequestBase
 	/// <para>Specifically, these fields are optional in that they can either be fully provided (satisfying every required field in their subschema) or omitted from the request entirely by not providing the key or value.</para>
 	/// <para>Providing these fields via the API will result in Link skipping the data collection process for the associated user. All verification steps enabled in the associated Identity Verification Template will still be run. Verification steps will either be run immediately, or once the user completes the <c>accept_tos</c> step, depending on the value provided to the <c>gave_consent</c> field.</para>
 	/// <para>If you are not using the shareable URL feature, you can optionally provide these fields via <c>/link/token/create</c> instead; both <c>/identity_verification/create</c> and <c>/link/token/create</c> are valid ways to provide this information. Note that if you provide a non-<c>null</c> user data object via <c>/identity_verification/create</c>, any user data fields entered via <c>/link/token/create</c> for the same <c>client_user_id</c> will be ignored when prefilling Link.</para>
+	/// <para>The <c>ip_address</c> field is optional. Provide the end user's IP address to enable IP-based risk checks for backend-only integrations that do not use the Link SDK; when the Link SDK is used, the IP address is collected automatically. Unlike the identity fields above, <c>ip_address</c> cannot be provided via <c>/link/token/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user")]
 	public Entity.IdentityVerificationCreateRequestUser? User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An optional flag specifying how you would like Plaid to handle attempts to create an Identity Verification when an Identity Verification already exists for the provided <c>client_user_id</c> and <c>template_id</c>.</para>
-	/// <para>If idempotency is enabled, Plaid will return the existing Identity Verification. If idempotency is disabled, Plaid will reject the request with a <c>400 Bad Request</c> status code if an Identity Verification already exists for the supplied <c>client_user_id</c> and <c>template_id</c>.</para>
+	/// <para>An optional flag specifying how you would like Plaid to handle attempts to create an Identity Verification when an Identity Verification already exists for the provided <c>client_user_id</c> and/or <c>user_id</c>, and <c>template_id</c>.</para>
+	/// <para>If idempotency is enabled, Plaid will return the existing Identity Verification. If idempotency is disabled, Plaid will reject the request with a <c>400 Bad Request</c> status code if an Identity Verification already exists for the supplied <c>client_user_id</c> and/or <c>user_id</c>, and <c>template_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("is_idempotent")]
 	public bool? IsIdempotent { get; set; } = default!;

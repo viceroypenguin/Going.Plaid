@@ -16,7 +16,7 @@ public record TransferAuthorizationPaymentRisk
 	/// <summary>
 	/// <para>A score from 1-99 that indicates the transaction return risk: a higher risk score suggests a higher return likelihood.</para>
 	/// <para>The score evaluates the transaction return risk of an unauthorized debit and covers return codes: "R05", "R07", "R10", "R11", "R29".</para>
-	/// <para>These returns typically have a return time frame of up to 60 calendar days. During this period, the customer of financial institutions can dispute a transaction as unauthorized.</para>
+	/// <para>These returns typically have a return time frame of up to 60 calendar days. During this period, customers of financial institutions can dispute a transaction as unauthorized.</para>
 	/// </summary>
 	[JsonPropertyName("customer_initiated_return_score")]
 	public int? CustomerInitiatedReturnScore { get; init; } = default!;

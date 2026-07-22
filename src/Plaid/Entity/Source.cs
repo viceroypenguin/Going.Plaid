@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A type indicating whether a dashboard user, an API-based user, or Plaid last touched this object.</para>
+/// <para>A type indicating who or what last touched this object. <c>dashboard</c>, <c>link</c>, and <c>api</c> indicate the originating surface; <c>system</c> indicates Plaid. <c>retro</c> indicates a screening created retroactively via a bulk screening creation.</para>
 /// </summary>
 public enum Source
 {
@@ -28,6 +28,12 @@ public enum Source
 	/// </summary>
 	[EnumMember(Value = "system")]
 	System,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "retro")]
+	Retro,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

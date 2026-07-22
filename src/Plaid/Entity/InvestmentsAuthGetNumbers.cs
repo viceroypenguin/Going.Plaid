@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Identifying information for transferring holdings to an investments account.</para>
+/// <para>Identifying information for transferring holdings to an investment account.</para>
 /// </summary>
 public record InvestmentsAuthGetNumbers
 {

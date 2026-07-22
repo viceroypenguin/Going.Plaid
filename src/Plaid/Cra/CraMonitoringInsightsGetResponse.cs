@@ -1,7 +1,7 @@
 namespace Going.Plaid.Cra;
 
 /// <summary>
-/// <para>CraMonitoringInsightsGetResponse defines the response schema for <c>cra/monitoring_insights/get</c></para>
+/// <para>CraMonitoringInsightsGetResponse defines the response schema for <c>/cra/monitoring_insights/get</c></para>
 /// </summary>
 public record CraMonitoringInsightsGetResponse : ResponseBase
 {

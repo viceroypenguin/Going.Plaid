@@ -18,7 +18,7 @@ public partial class IdentityVerificationListRequest : RequestBase
 	public string? ClientUserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A unique user identifier, created by calling <c>/user/create</c>. Either a <c>user_id</c> or the <c>client_user_id</c> must be provided. The <c>user_id</c> may only be used instead of the <c>client_user_id</c> if you were not a pre-existing user of <c>/user/create</c> as of December 10, 2025; for more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>. If both this field and the <c>client_user_id</c> are present in the request, the <c>user_id</c> must have been created from the provided <c>client_user_id</c>.</para>
+	/// <para>A unique user identifier, created by calling <c>/user/create</c>. Either a <c>user_id</c> or the <c>client_user_id</c> must be provided. The <c>user_id</c> may only be used instead of the <c>client_user_id</c> if you were not a pre-existing user of <c>/user/create</c> as of December 10, 2025, or if you have since <a href="https://plaid.com/docs/api/users/migrate-to-new-user-apis">migrated to the new User APIs</a>; for more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>. If both this field and the <c>client_user_id</c> are present in the request, the <c>user_id</c> must have been created from the provided <c>client_user_id</c>.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; set; } = default!;

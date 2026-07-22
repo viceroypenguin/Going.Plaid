@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum StatementsRefreshCompleteResult
 {
 	/// <summary>
-	/// <para>The statements were successfully extracted and can be listed via <c>/statements/list/</c> and downloaded via <c>/statements/download/</c>.</para>
+	/// <para>The statements were successfully extracted and can be listed via <c>/statements/list</c> and downloaded via <c>/statements/download</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "SUCCESS")]
 	Success,

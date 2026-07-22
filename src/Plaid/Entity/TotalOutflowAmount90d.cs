@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Total amount of credit transactions into the account in the last 90 days. This field will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+/// <para>Total amount of credit transactions out of the account in the last 90 days. This field will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
 /// </summary>
 public record TotalOutflowAmount90d
 {

@@ -64,10 +64,10 @@ public record BaseReportTransaction
 	public DateOnly Date { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The date on which the transaction took place, in IS0 8601 format.</para>
+	/// <para>The date on which the transaction took place, in ISO 8601 format.</para>
 	/// </summary>
 	[JsonPropertyName("date_transacted")]
-	public string? DateTransacted { get; init; } = default!;
+	public DateTimeOffset? DateTransacted { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A representation of where a transaction took place. Location data is provided only for transactions at physical locations, not for online transactions. Location data availability depends primarily on the merchant and is most likely to be populated for transactions at large retail chains; small, local businesses are less likely to have location data available.</para>
