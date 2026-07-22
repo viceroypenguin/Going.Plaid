@@ -320,7 +320,7 @@ dotnet_diagnostic.MA0016.severity = none                # MA0016: Prefer using c
 dotnet_diagnostic.MA0029.severity = none                # MA0029: Combine LINQ methods
 dotnet_diagnostic.MA0048.severity = none                # MA0048: File name must match type name
 dotnet_diagnostic.MA0051.severity = none                # MA0051: Method is too long
-
+dotnet_diagnostic.MA0206.severity = none                # MA0206: Remove unnecessary braces in type declaration
 
 [src/Plaid.OpenApiParser/**.cs]
 
