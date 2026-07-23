@@ -54,6 +54,24 @@ public enum TransferEventType
 	Returned,
 
 	/// <summary>
+	/// <para>Plaid reimbursed the client for the loss on a returned guaranteed transfer. The <c>event_amount</c> is the reimbursed amount.</para>
+	/// </summary>
+	[EnumMember(Value = "guarantee_reimbursed")]
+	GuaranteeReimbursed,
+
+	/// <summary>
+	/// <para>The client reported recovering the loss on a returned transfer via <c>/transfer/return/recover</c>, and Plaid debited the recovered amount from the client's ledger. The <c>event_amount</c> is the recovered amount.</para>
+	/// </summary>
+	[EnumMember(Value = "client_return_recovered")]
+	ClientReturnRecovered,
+
+	/// <summary>
+	/// <para>Plaid recovered the loss on a returned transfer by successfully reinitiating it. The <c>event_amount</c> is the recovered amount. Client should stop their return recovery effort.</para>
+	/// </summary>
+	[EnumMember(Value = "plaid_return_recovered")]
+	PlaidReturnRecovered,
+
+	/// <summary>
 	/// <para>The transfer was swept to / from the sweep account.</para>
 	/// </summary>
 	[EnumMember(Value = "swept")]

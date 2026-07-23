@@ -113,9 +113,10 @@ public record IdentityVerificationGetResponse : ResponseBase
 	public string? WatchlistScreeningId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>ID of the associated Beacon User.</para>
+	/// <para>Beacon is deprecated in favor of Plaid Protect. This field is only populated for users of the deprecated Beacon product.</para>
 	/// </summary>
 	[JsonPropertyName("beacon_user_id")]
+	[Obsolete]
 	public string? BeaconUserId { get; init; } = default!;
 
 	/// <summary>

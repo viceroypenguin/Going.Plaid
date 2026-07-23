@@ -18,16 +18,16 @@ public record CraReportGetResponseProduct
 	public string Version { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A map of product report metadata, where the key is a string and the value varies by product. For a full list of metadata fields per product, see the data dictionary.</para>
+	/// <para>A map of product report metadata, where the key is a string and the value varies by product. For a full list of metadata fields per product, see the data dictionary. May be <c>null</c> if metadata was not available.</para>
 	/// </summary>
 	[JsonPropertyName("metadata")]
-	public Entity.CraReportGetProductMetadata Metadata { get; init; } = default!;
+	public Entity.CraReportGetProductMetadata? Metadata { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A map of product attributes, where the key is a string and the value is a float, int, or boolean. The specific list of attributes depends on the product and version. For a full list, see the data dictionary.</para>
+	/// <para>A map of product attributes, where the key is a string and the value is a float, int, or boolean. The specific list of attributes depends on the product and version. For a full list, see the data dictionary. May be <c>null</c> if attributes were not available.</para>
 	/// </summary>
 	[JsonPropertyName("attributes")]
-	public Entity.CraReportGetProductAttributes Attributes { get; init; } = default!;
+	public Entity.CraReportGetProductAttributes? Attributes { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Product-level errors. Non-empty when this product failed to generate; empty on success.</para>

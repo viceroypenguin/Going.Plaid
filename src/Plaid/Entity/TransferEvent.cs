@@ -85,6 +85,12 @@ public record TransferEvent
 	public string? SweepAmount { get; init; } = default!;
 
 	/// <summary>
+	/// <para>A signed amount associated with this event (decimal string with two digits of precision e.g. "10.00" or "-10.00").</para>
+	/// </summary>
+	[JsonPropertyName("event_amount")]
+	public string? EventAmount { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Plaid's unique identifier for a refund. A non-null value indicates the event is for the associated refund of the transfer.</para>
 	/// </summary>
 	[JsonPropertyName("refund_id")]

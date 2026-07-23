@@ -48,7 +48,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>(Deprecated) Use the <c>/transfer/ledger/get</c> endpoint to view a balance held with Plaid.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/balance/#transferbalanceget" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
 	public Task<Transfer.TransferBalanceGetResponse> TransferBalanceGetAsync(Transfer.TransferBalanceGetRequest request) =>
 		PostAsync("/transfer/balance/get", request)
 			.ParseResponseAsync<Transfer.TransferBalanceGetResponse>();
@@ -320,6 +320,15 @@ public sealed partial class PlaidClient
 	public Task<Transfer.TransferRefundCreateResponse> TransferRefundCreateAsync(Transfer.TransferRefundCreateRequest request) =>
 		PostAsync("/transfer/refund/create", request)
 			.ParseResponseAsync<Transfer.TransferRefundCreateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/transfer/return/recover</c> endpoint to notify Plaid that you have recovered some or all of the loss on a returned guaranteed transfer.</para>
+	/// <para>Recovery can be reported in full or in parts; the sum of recovered amounts across calls cannot exceed the original transfer's amount.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferreturnrecover" /></remarks>
+	public Task<Transfer.TransferReturnRecoverResponse> TransferReturnRecoverAsync(Transfer.TransferReturnRecoverRequest request) =>
+		PostAsync("/transfer/return/recover", request)
+			.ParseResponseAsync<Transfer.TransferReturnRecoverResponse>();
 
 	/// <summary>
 	/// <para>The <c>/transfer/refund/get</c> endpoint fetches information about the refund corresponding to the given <c>refund_id</c>.</para>

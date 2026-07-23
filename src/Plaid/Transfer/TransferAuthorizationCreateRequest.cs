@@ -116,6 +116,7 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	/// <para>The unique identifier returned by Plaid's <a href="https://plaid.com/docs/transfer/guarantee/#using-a-beacon">beacon</a> when it is run on your webpage.</para>
 	/// </summary>
 	[JsonPropertyName("beacon_session_id")]
+	[Obsolete]
 	public string? BeaconSessionId { get; set; } = default!;
 
 	/// <summary>
