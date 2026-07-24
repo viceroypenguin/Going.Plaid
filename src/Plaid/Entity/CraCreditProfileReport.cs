@@ -30,16 +30,16 @@ public record CraCreditProfileReport
 	public IReadOnlyList<Entity.CraCreditProfileLendScore> LendScores { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A map of cash flow attributes, where the key is a string, and the value is a float, int, or boolean. The specific list of attributes will depend on the cash flow attributes version used. For a full list of attributes, contact your account manager.</para>
+	/// <para>A map of cash flow attributes, where the key is a string, and the value is a string, float, int, or boolean. The specific list of attributes will depend on the cash flow attributes version used. For a full list of attributes, contact your account manager.</para>
 	/// </summary>
 	[JsonPropertyName("cashflow_insights_attributes")]
-	public Entity.CraCreditProfileCashflowAttributes? CashflowInsightsAttributes { get; init; } = default!;
+	public IReadOnlyDictionary<string, Entity.CraCreditProfileReportCashflowInsightsAttributesObject>? CashflowInsightsAttributes { get; init; } = default!;
 
 	/// <summary>
 	/// <para>A map of network attributes, where the key is a string, and the value is a float, int, or boolean. For a full list of attributes, contact your account manager.</para>
 	/// </summary>
 	[JsonPropertyName("network_insights_attributes")]
-	public Entity.CraCreditProfileNetworkInsights? NetworkInsightsAttributes { get; init; } = default!;
+	public IReadOnlyDictionary<string, Entity.CraCreditProfileReportNetworkInsightsAttributesObject>? NetworkInsightsAttributes { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Metadata about the CRA Credit Profile Report.</para>
