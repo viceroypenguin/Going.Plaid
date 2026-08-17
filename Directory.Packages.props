@@ -3,7 +3,7 @@
 	<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 
 	<Net9PackageVersion>9.0.18</Net9PackageVersion>
-	<Net10PackageVersion>10.0.10</Net10PackageVersion>
+	<Net10PackageVersion>10.0.11</Net10PackageVersion>
   </PropertyGroup>
   
   <ItemGroup>
