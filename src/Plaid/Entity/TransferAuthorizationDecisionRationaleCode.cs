@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum TransferAuthorizationDecisionRationaleCode
 {
 	/// <summary>
-	/// <para>Transaction has an elevated probability of resulting in a return due to insufficient funds.</para>
+	/// <para>Transaction has an elevated risk of resulting in a return due to insufficient funds.</para>
 	/// </summary>
 	[EnumMember(Value = "NSF")]
 	Nsf,
@@ -54,13 +54,13 @@ public enum TransferAuthorizationDecisionRationaleCode
 	MigratedAccountItem,
 
 	/// <summary>
-	/// <para>Transaction has an elevated probability of resulting in an administrative return (for example a closed, invalid, or unauthorized account).</para>
+	/// <para>Transaction has an elevated risk of resulting in an administrative return (for example a closed, invalid, or unauthorized account).</para>
 	/// </summary>
 	[EnumMember(Value = "ADMIN")]
 	Admin,
 
 	/// <summary>
-	/// <para>Transaction has an elevated probability of being fraudulent.</para>
+	/// <para>Transaction has an elevated risk of being fraudulent.</para>
 	/// </summary>
 	[EnumMember(Value = "FRAUD")]
 	Fraud,

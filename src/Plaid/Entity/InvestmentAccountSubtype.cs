@@ -186,6 +186,12 @@ public enum InvestmentAccountSubtype
 	Pension,
 
 	/// <summary>
+	/// <para>Account used to hold positions in prediction markets</para>
+	/// </summary>
+	[EnumMember(Value = "prediction market")]
+	PredictionMarket,
+
+	/// <summary>
 	/// <para>Prescribed Registered Retirement Income Fund (Canada)</para>
 	/// </summary>
 	[EnumMember(Value = "prif")]

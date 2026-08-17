@@ -76,13 +76,19 @@ public record AccountIdentity
 	public string? PersistentAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates the account's categorization as either a personal or a business account. This field is currently in beta; to request access, contact your account manager.</para>
+	/// <para>The annual percentage yield (APY) on an interest-bearing deposit account, expressed as a percentage (e.g. <c>4.25</c> means 4.25%). In the event that the APY is not provided by the financial institution, Plaid will return a value of <c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("apy")]
+	public decimal? Apy { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates the account's categorization as either a personal or a business account. This field is currently in beta; to request access, contact your account manager. Coverage varies by institution, with approximately 70% of accounts populated overall.</para>
 	/// </summary>
 	[JsonPropertyName("holder_category")]
 	public Entity.HolderCategory? HolderCategory { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Data returned by the financial institution about the account owner or owners. Only returned by Identity or Assets endpoints. For business accounts, the name reported may be either the name of the individual or the name of the business, depending on the institution; detecting whether the linked account is a business account is not currently supported. Multiple owners on a single account will be represented in the same <c>owner</c> object, not in multiple owner objects within the array. In API versions 2018-05-22 and earlier, the <c>owners</c> object is not returned, and instead identity information is returned in the top level <c>identity</c> object. For more details, see <a href="https://plaid.com/docs/api/versioning/#version-2019-05-29">Plaid API versioning</a></para>
+	/// <para>Data returned by the financial institution about the account owner or owners. Only returned by Identity or Assets endpoints. For business accounts, the name reported may be either the name of the individual or the name of the business, depending on the institution. To determine whether the linked account is a business account, use the <c>holder_category</c> field on the account object. Multiple owners on a single account will be represented in the same <c>owner</c> object, not in multiple owner objects within the array. In API versions 2018-05-22 and earlier, the <c>owners</c> object is not returned, and instead identity information is returned in the top level <c>identity</c> object. For more details, see <a href="https://plaid.com/docs/api/versioning/#version-2019-05-29">Plaid API versioning</a></para>
 	/// </summary>
 	[JsonPropertyName("owners")]
 	public IReadOnlyList<Entity.Owner>? Owners { get; init; } = default!;

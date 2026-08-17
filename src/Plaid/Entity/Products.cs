@@ -218,6 +218,12 @@ public enum Products
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "cra_home_lending")]
+	CraHomeLending,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "layer")]
 	Layer,
 

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Indicates the account's categorization as either a personal or a business account. This field is currently in beta; to request access, contact your account manager.</para>
+/// <para>Indicates the account's categorization as either a personal or a business account. This field is currently in beta; to request access, contact your account manager. Coverage varies by institution, with approximately 70% of accounts populated overall.</para>
 /// </summary>
 public enum HolderCategory
 {

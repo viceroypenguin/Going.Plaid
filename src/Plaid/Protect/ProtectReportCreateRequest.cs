@@ -49,7 +49,7 @@ public partial class ProtectReportCreateRequest : RequestBase
 	public string? AchReturnCode { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Additional context or details about the report, required if <c>report_type</c> is <c>OTHER</c>.</para>
+	/// <para>Additional context or details about the report.</para>
 	/// </summary>
 	[JsonPropertyName("notes")]
 	public string? Notes { get; set; } = default!;

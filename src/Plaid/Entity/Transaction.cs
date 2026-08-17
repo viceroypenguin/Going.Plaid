@@ -201,6 +201,12 @@ public record Transaction
 	public string? MerchantEntityId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The merchant category code for the transaction, typically a four-digit <a href="https://www.iso.org/standard/33365.html">ISO 18245</a> string. Not populated for every transaction.</para>
+	/// </summary>
+	[JsonPropertyName("merchant_category_code")]
+	public string? MerchantCategoryCode { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Custom client fields</para>
 	/// </summary>
 	[JsonPropertyName("client_customization")]

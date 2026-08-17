@@ -31,6 +31,12 @@ public partial class WalletTransactionExecuteRequest : RequestBase
 	public Entity.WalletTransactionAmount Amount { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The <c>user_id</c> of the end user the transaction is for, as returned by <a href="https://plaid.com/docs/api/users/#usercreate"><c>/user/create</c></a>. The user must have a <c>name</c> and either an email address or a phone number. Required for new integrations.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>A reference for the transaction. This must be an alphanumeric string with 6 to 18 characters and must not contain any special characters or spaces.</para>
 	/// <para>Ensure that the <c>reference</c> field is unique for each transaction.</para>
 	/// </summary>

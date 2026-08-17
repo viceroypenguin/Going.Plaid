@@ -35,4 +35,10 @@ public partial class CraReportGetRequest : RequestBase
 	[JsonPropertyName("consumer_report_permissible_purpose")]
 	public Entity.ConsumerReportPermissiblePurpose ConsumerReportPermissiblePurpose { get; set; } = default!;
 
+	/// <summary>
+	/// <para>A unique ID identifying a CRA report. Like all Plaid identifiers, this ID is case sensitive. When provided, that specific report is returned; when omitted, the most recent report matching the request is returned.</para>
+	/// </summary>
+	[JsonPropertyName("report_id")]
+	public string? ReportId { get; set; } = default!;
+
 }

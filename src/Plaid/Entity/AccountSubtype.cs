@@ -66,6 +66,12 @@ public enum AccountSubtype
 	Savings,
 
 	/// <summary>
+	/// <para>Bank-issued charge card</para>
+	/// </summary>
+	[EnumMember(Value = "charge card")]
+	ChargeCard,
+
+	/// <summary>
 	/// <para>Bank-issued credit card</para>
 	/// </summary>
 	[EnumMember(Value = "credit card")]
@@ -90,6 +96,12 @@ public enum AccountSubtype
 	Commercial,
 
 	/// <summary>
+	/// <para>Commercial line of credit</para>
+	/// </summary>
+	[EnumMember(Value = "commercial line of credit")]
+	CommercialLineOfCredit,
+
+	/// <summary>
 	/// <para>Construction loan</para>
 	/// </summary>
 	[EnumMember(Value = "construction")]
@@ -106,6 +118,18 @@ public enum AccountSubtype
 	/// </summary>
 	[EnumMember(Value = "home equity")]
 	HomeEquity,
+
+	/// <summary>
+	/// <para>Home equity loan</para>
+	/// </summary>
+	[EnumMember(Value = "home equity loan")]
+	HomeEquityLoan,
+
+	/// <summary>
+	/// <para>Installment loan</para>
+	/// </summary>
+	[EnumMember(Value = "installment")]
+	Installment,
 
 	/// <summary>
 	/// <para>Pre-approved line of credit</para>
@@ -304,6 +328,12 @@ public enum AccountSubtype
 	/// </summary>
 	[EnumMember(Value = "pension")]
 	Pension,
+
+	/// <summary>
+	/// <para>Account used to hold positions in prediction markets</para>
+	/// </summary>
+	[EnumMember(Value = "prediction market")]
+	PredictionMarket,
 
 	/// <summary>
 	/// <para>Prescribed Registered Retirement Income Fund (Canada)</para>

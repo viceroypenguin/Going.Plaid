@@ -66,4 +66,10 @@ public record AssetReportInvestmentHolding
 	[JsonPropertyName("unofficial_currency_code")]
 	public string? UnofficialCurrencyCode { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Per-lot acquisition data for this holding. This field is absent when lot-level data is not available for the holding — either the institution does not provide it, or the report was generated before lot-level data was supported. Refresh the report if you expect lots.</para>
+	/// </summary>
+	[JsonPropertyName("tax_lots")]
+	public IReadOnlyList<Entity.HoldingTaxLot>? TaxLots { get; init; } = default!;
+
 }

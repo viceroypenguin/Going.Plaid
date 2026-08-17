@@ -3,6 +3,31 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
+	/// <para>The <c>/beta/webhook_events/list</c> endpoint returns webhook events Plaid sent to the calling</para>
+	/// <para>client within the last 7 days. Results are ordered by <c>sent_time</c> ascending and cursor</para>
+	/// <para>paginated so clients can recover missed webhook deliveries and deduplicate on</para>
+	/// <para><c>webhook_message_id</c>.</para>
+	/// <para>Filtering is optional. When multiple filter fields are set (<c>webhook_types</c>,</para>
+	/// <para><c>webhook_codes</c>, <c>item_ids</c>, <c>delivery_statuses</c>), they are combined with AND across fields</para>
+	/// <para>and OR within each array (for example, <c>webhook_types: ["TRANSACTIONS", "ITEM"]</c> matches</para>
+	/// <para>either type).</para>
+	/// <para>Recommended pagination workflow:</para>
+	/// <para>1. First call: omit <c>cursor</c>, and optionally set <c>start_time</c> within the last 7 days (or</para>
+	/// <para>   omit <c>start_time</c> to begin at the oldest retained event).</para>
+	/// <para>2. Subsequent calls: pass <c>next_cursor</c> as <c>cursor</c>. Do not send <c>start_time</c> with</para>
+	/// <para>   <c>cursor</c> — the two fields are mutually exclusive.</para>
+	/// <para>3. Persist <c>next_cursor</c> even when <c>has_more</c> is <c>false</c>, then reuse it on the next poll so</para>
+	/// <para>   you only receive events newer than what you have already seen.</para>
+	/// <para>4. If a stored cursor is older than the 7-day retention window, the API returns</para>
+	/// <para>   <c>WEBHOOK_EVENTS_CURSOR_EXPIRED</c>; restart with a <c>start_time</c> within the last 7 days.</para>
+	/// <para>   Events older than the retention window are no longer available.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docsnone" /></remarks>
+	public Task<Beta.BetaWebhookEventsListResponse> BetaWebhookEventsListAsync(Beta.BetaWebhookEventsListRequest request) =>
+		PostAsync("/beta/webhook_events/list", request)
+			.ParseResponseAsync<Beta.BetaWebhookEventsListResponse>();
+
+	/// <summary>
 	/// <para><c>/beta/credit/v1/bank_employment/get</c> returns the employment report(s) derived from bank transaction data for a specified user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_employmentget" /></remarks>
@@ -61,6 +86,46 @@ public sealed partial class PlaidClient
 	public Task<Beta.BetaEwaReportV1GetResponse> BetaEwaReportV1GetAsync(Beta.BetaEwaReportV1GetRequest request) =>
 		PostAsync("/beta/ewa_report/v1/get", request)
 			.ParseResponseAsync<Beta.BetaEwaReportV1GetResponse>();
+
+	/// <summary>
+	/// <para>Retrieve the latest public details for a specific institution issue.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaissuesv1get" /></remarks>
+	public Task<Beta.BetaIssuesV1GetResponse> BetaIssuesV1GetAsync(Beta.BetaIssuesV1GetRequest request) =>
+		PostAsync("/beta/issues/v1/get", request)
+			.ParseResponseAsync<Beta.BetaIssuesV1GetResponse>();
+
+	/// <summary>
+	/// <para>Retrieve high-severity issues for an institution.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaissuesv1list" /></remarks>
+	public Task<Beta.BetaIssuesV1ListResponse> BetaIssuesV1ListAsync(Beta.BetaIssuesV1ListRequest request) =>
+		PostAsync("/beta/issues/v1/list", request)
+			.ParseResponseAsync<Beta.BetaIssuesV1ListResponse>();
+
+	/// <summary>
+	/// <para>Match a Plaid identifier to institution issues that affect it.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaissuesv1match" /></remarks>
+	public Task<Beta.BetaIssuesV1MatchResponse> BetaIssuesV1MatchAsync(Beta.BetaIssuesV1MatchRequest request) =>
+		PostAsync("/beta/issues/v1/match", request)
+			.ParseResponseAsync<Beta.BetaIssuesV1MatchResponse>();
+
+	/// <summary>
+	/// <para>Subscribe a webhook URL to resolution notifications for an institution issue.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaissuesv1subscribe" /></remarks>
+	public Task<Beta.BetaIssuesV1SubscribeResponse> BetaIssuesV1SubscribeAsync(Beta.BetaIssuesV1SubscribeRequest request) =>
+		PostAsync("/beta/issues/v1/subscribe", request)
+			.ParseResponseAsync<Beta.BetaIssuesV1SubscribeResponse>();
+
+	/// <summary>
+	/// <para>Remove the client's subscription to resolution notifications for an institution issue.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaissuesv1unsubscribe" /></remarks>
+	public Task<Beta.BetaIssuesV1UnsubscribeResponse> BetaIssuesV1UnsubscribeAsync(Beta.BetaIssuesV1UnsubscribeRequest request) =>
+		PostAsync("/beta/issues/v1/unsubscribe", request)
+			.ParseResponseAsync<Beta.BetaIssuesV1UnsubscribeResponse>();
 
 	/// <summary>
 	/// <para>The <c>/beta/partner/customer/v1/create</c> endpoint creates a new end customer record. You can provide as much information as you have available. If any required information is missing for the products you intend to use, it will be listed in the <c>requirements_due</c> field of the response.</para>

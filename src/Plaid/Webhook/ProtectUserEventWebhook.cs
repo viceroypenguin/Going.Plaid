@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when there has been a new user event. The webhook payload contains limited information about the event. For full event details, call <a href="https://plaid.com/docs/api/products/protect/#protecteventget"><c>/protect/event/get</c></a>.</para>
+/// <para>Fired when there has been a new user event. The webhook payload contains limited information about the event.</para>
 /// </summary>
 public record ProtectUserEventWebhook : WebhookBase
 {

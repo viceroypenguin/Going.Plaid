@@ -15,7 +15,7 @@ public record ItemActivityListResponse : ResponseBase
 	/// <para>An array of objects containing timestamps for the last time each data type was accessed per application.</para>
 	/// </summary>
 	[JsonPropertyName("last_data_access_times")]
-	public IReadOnlyList<Entity.LastDataAccessTimes> LastDataAccessTimes { get; init; } = default!;
+	public IReadOnlyList<Entity.ApplicationLastDataAccessTimes> LastDataAccessTimes { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Cursor used for pagination.</para>

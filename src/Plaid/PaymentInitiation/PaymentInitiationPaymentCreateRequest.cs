@@ -12,6 +12,12 @@ public partial class PaymentInitiationPaymentCreateRequest : RequestBase
 	public string RecipientId { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The <c>user_id</c> of the end user the payment is initiated for, as returned by <a href="https://plaid.com/docs/api/users/#usercreate"><c>/user/create</c></a>. The user must have a <c>name</c> and either an email address or a phone number. Required for new integrations.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>A reference for the payment. This must be an alphanumeric string with at most 18 characters and must not contain any special characters (since not all institutions support them).</para>
 	/// <para>In order to track settlement via Payment Confirmation, each payment must have a unique reference. If the reference provided through the API is not unique, Plaid will adjust it.</para>
 	/// <para>Some institutions may limit the reference to less than 18 characters. If necessary, Plaid will adjust the reference by truncating it to fit the institution's requirements.</para>

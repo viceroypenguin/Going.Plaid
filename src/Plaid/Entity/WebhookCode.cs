@@ -236,8 +236,20 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "USER_INCOME_VERIFICATION")]
+	UserIncomeVerification,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "INCOME_VERIFICATION_RISK_SIGNALS")]
 	IncomeVerificationRiskSignals,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "USER_INCOME_VERIFICATION_RISK_SIGNALS")]
+	UserIncomeVerificationRiskSignals,
 
 	/// <summary>
 	/// 
@@ -370,6 +382,12 @@ public enum WebhookCode
 	/// </summary>
 	[EnumMember(Value = "INCOME_VERIFICATION_REFRESH_RECONNECT_NEEDED")]
 	IncomeVerificationRefreshReconnectNeeded,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "USER_INCOME_VERIFICATION_REFRESH_RECONNECT_NEEDED")]
+	UserIncomeVerificationRefreshReconnectNeeded,
 
 	/// <summary>
 	/// 

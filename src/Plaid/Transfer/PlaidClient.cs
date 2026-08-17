@@ -325,7 +325,7 @@ public sealed partial class PlaidClient
 	/// <para>Use the <c>/transfer/return/recover</c> endpoint to notify Plaid that you have recovered some or all of the loss on a returned guaranteed transfer.</para>
 	/// <para>Recovery can be reported in full or in parts; the sum of recovered amounts across calls cannot exceed the original transfer's amount.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferreturnrecover" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/guaranteed-ach/#transferreturnrecover" /></remarks>
 	public Task<Transfer.TransferReturnRecoverResponse> TransferReturnRecoverAsync(Transfer.TransferReturnRecoverRequest request) =>
 		PostAsync("/transfer/return/recover", request)
 			.ParseResponseAsync<Transfer.TransferReturnRecoverResponse>();

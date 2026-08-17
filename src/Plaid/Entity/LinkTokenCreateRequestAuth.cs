@@ -49,7 +49,7 @@ public class LinkTokenCreateRequestAuth
 	public bool? DatabaseMatchEnabled { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Database Insights has been deprecated and replaced with Database Auth. Use the <a href="https://dashboard.plaid.com/account-verification">Account Verification Dashboard</a> to enable Database Auth. In Canada, Database Auth is in early availability and cannot yet be managed via the Dashboard; it must be enabled by passing <c>database_insights_enabled: true</c> in <c>/link/token/create</c>.</para>
+	/// <para>Database Insights has been deprecated and replaced with Database Auth. Use the <a href="https://dashboard.plaid.com/account-verification">Account Verification Dashboard</a> to enable Database Auth.</para>
 	/// </summary>
 	[JsonPropertyName("database_insights_enabled")]
 	[Obsolete]

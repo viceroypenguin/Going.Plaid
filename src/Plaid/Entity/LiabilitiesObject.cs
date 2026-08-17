@@ -23,4 +23,16 @@ public record LiabilitiesObject
 	[JsonPropertyName("student")]
 	public IReadOnlyList<Entity.StudentLoan>? Student { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The closed-end loan accounts returned.</para>
+	/// </summary>
+	[JsonPropertyName("loan")]
+	public IReadOnlyList<Entity.LoanLiability>? Loan { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The line of credit accounts returned.</para>
+	/// </summary>
+	[JsonPropertyName("line_of_credit")]
+	public IReadOnlyList<Entity.LineOfCreditLiability>? LineOfCredit { get; init; } = default!;
+
 }

@@ -24,6 +24,12 @@ public enum LoanAccountSubtype
 	Commercial,
 
 	/// <summary>
+	/// <para>Commercial line of credit</para>
+	/// </summary>
+	[EnumMember(Value = "commercial line of credit")]
+	CommercialLineOfCredit,
+
+	/// <summary>
 	/// <para>Construction loan</para>
 	/// </summary>
 	[EnumMember(Value = "construction")]
@@ -40,6 +46,18 @@ public enum LoanAccountSubtype
 	/// </summary>
 	[EnumMember(Value = "home equity")]
 	HomeEquity,
+
+	/// <summary>
+	/// <para>Home equity loan</para>
+	/// </summary>
+	[EnumMember(Value = "home equity loan")]
+	HomeEquityLoan,
+
+	/// <summary>
+	/// <para>Installment loan</para>
+	/// </summary>
+	[EnumMember(Value = "installment")]
+	Installment,
 
 	/// <summary>
 	/// <para>General loan</para>

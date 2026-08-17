@@ -114,7 +114,7 @@ public enum ProtectReportType
 	NoFraud,
 
 	/// <summary>
-	/// <para>Indicates that the case involves fraud or financial risk not covered by other report types. Requires notes describing the report.</para>
+	/// <para>Indicates that the case involves fraud or financial risk not covered by other report types.</para>
 	/// </summary>
 	[EnumMember(Value = "OTHER")]
 	Other,

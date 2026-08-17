@@ -486,6 +486,30 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	Increase,
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "airwallex")]
+	Airwallex,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "cybrid")]
+	Cybrid,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "bizcap")]
+	Bizcap,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "webull")]
+	Webull,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

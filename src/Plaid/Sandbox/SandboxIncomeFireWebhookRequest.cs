@@ -12,7 +12,7 @@ public partial class SandboxIncomeFireWebhookRequest : RequestBase
 	public string ItemId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The Plaid <c>user_id</c> of the User associated with this webhook, warning, or error.</para>
+	/// <para>The user identifier to include in the test webhook. For <c>USER_INCOME_VERIFICATION</c> and <c>USER_INCOME_VERIFICATION_RISK_SIGNALS</c>, use the <c>user_id</c> returned by <c>/user/create</c>, which begins with <c>usr_</c>. For <c>INCOME_VERIFICATION</c> and <c>INCOME_VERIFICATION_RISK_SIGNALS</c>, use the legacy webhook <c>user_id</c> associated with the user token.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; set; } = default!;

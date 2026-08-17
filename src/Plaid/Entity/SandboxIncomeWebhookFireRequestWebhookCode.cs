@@ -14,8 +14,20 @@ public enum SandboxIncomeWebhookFireRequestWebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "USER_INCOME_VERIFICATION")]
+	UserIncomeVerification,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "INCOME_VERIFICATION_RISK_SIGNALS")]
 	IncomeVerificationRiskSignals,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "USER_INCOME_VERIFICATION_RISK_SIGNALS")]
+	UserIncomeVerificationRiskSignals,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

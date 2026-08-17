@@ -24,6 +24,12 @@ public record LinkSessionSuccessMetadata
 	public string? LinkSessionId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>An identifier used to group related Layer sessions.</para>
+	/// </summary>
+	[JsonPropertyName("session_group_id")]
+	public string? SessionGroupId { get; init; } = default!;
+
+	/// <summary>
 	/// 
 	/// </summary>
 	[JsonPropertyName("transfer_status")]

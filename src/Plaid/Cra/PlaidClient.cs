@@ -52,7 +52,8 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraCheckReportBaseReportGetResponse>();
 
 	/// <summary>
-	/// <para>Use <c>/cra/check_report/create</c> to refresh data in an existing report. A Consumer Report will last for 24 hours before expiring; you should call any <c>/get</c> endpoints on the report before it expires. If a report expires, you can call <c>/cra/check_report/create</c> again to re-generate it and refresh the data in the report.</para>
+	/// <para>Use <c>/cra/check_report/create</c> to refresh data in an existing report. A Consumer Report will last for 24 hours before expiring; you should call any <c>/get</c> endpoints on the report before it expires. If a report expires, you can call <c>/cra/check_report/create</c> again to re-generate it and refresh the data in the report. The report is generated from all Items associated with the user, excluding <a href="https://plaid.com/docs/check/add-to-app/#duplicate-items">duplicate Items</a> and Items that cannot supply data.</para>
+	/// <para>Each call to <c>/cra/check_report/create</c> creates a new, independent report. <c>/get</c> endpoints will retrieve the most recently created report for the requested user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cracheck_reportcreate" /></remarks>
 	public Task<Cra.CraCheckReportCreateResponse> CraCheckReportCreateAsync(Cra.CraCheckReportCreateRequest request) =>
@@ -132,6 +133,46 @@ public sealed partial class PlaidClient
 	public Task<Cra.CraLoanUnregisterResponse> CraLoansUnregisterAsync(Cra.CraLoansUnregisterRequest request) =>
 		PostAsync("/cra/loans/unregister", request)
 			.ParseResponseAsync<Cra.CraLoanUnregisterResponse>();
+
+	/// <summary>
+	/// <para><c>/cra/servicing/subscription/create</c> subscribes a user to CRA report-update webhooks for a given scope.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraServicingSubscriptionCreateResponse> CraServicingSubscriptionCreateAsync(Cra.CraServicingSubscriptionCreateRequest request) =>
+		PostAsync("/cra/servicing/subscription/create", request)
+			.ParseResponseAsync<Cra.CraServicingSubscriptionCreateResponse>();
+
+	/// <summary>
+	/// <para><c>/cra/servicing/subscription/delete</c> removes the CRA servicing subscription identified by <c>subscription_id</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraServicingSubscriptionDeleteResponse> CraServicingSubscriptionDeleteAsync(Cra.CraServicingSubscriptionDeleteRequest request) =>
+		PostAsync("/cra/servicing/subscription/delete", request)
+			.ParseResponseAsync<Cra.CraServicingSubscriptionDeleteResponse>();
+
+	/// <summary>
+	/// <para><c>/cra/servicing/subscription/get</c> returns the CRA servicing subscription identified by <c>subscription_id</c>.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraServicingSubscriptionGetResponse> CraServicingSubscriptionGetAsync(Cra.CraServicingSubscriptionGetRequest request) =>
+		PostAsync("/cra/servicing/subscription/get", request)
+			.ParseResponseAsync<Cra.CraServicingSubscriptionGetResponse>();
+
+	/// <summary>
+	/// <para><c>/cra/servicing/subscription/list</c> returns all CRA servicing subscriptions for a user, across scopes.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraServicingSubscriptionListResponse> CraServicingSubscriptionListAsync(Cra.CraServicingSubscriptionListRequest request) =>
+		PostAsync("/cra/servicing/subscription/list", request)
+			.ParseResponseAsync<Cra.CraServicingSubscriptionListResponse>();
+
+	/// <summary>
+	/// <para><c>/cra/servicing/subscription/update</c> modifies an existing CRA servicing subscription. Fields left blank are unchanged; provided fields overwrite the current value. Use <c>reset_fields</c> to clear fields.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Cra.CraServicingSubscriptionUpdateResponse> CraServicingSubscriptionUpdateAsync(Cra.CraServicingSubscriptionUpdateRequest request) =>
+		PostAsync("/cra/servicing/subscription/update", request)
+			.ParseResponseAsync<Cra.CraServicingSubscriptionUpdateResponse>();
 
 	/// <summary>
 	/// <para><c>/cra/report/get</c> retrieves a CRA Report for a user.</para>

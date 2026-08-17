@@ -6,15 +6,16 @@ namespace Going.Plaid.Entity;
 public class ItemImportRequestUserAuth
 {
 	/// <summary>
-	/// <para>Opaque user identifier</para>
+	/// <para>Your persistent, unique identifier for the customer.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string UserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Authorization token Plaid will use to aggregate this user's accounts</para>
+	/// <para>Authorization token used by the legacy Plaid Exchange integration; not required for Permissions Manager callers.</para>
 	/// </summary>
 	[JsonPropertyName("auth_token")]
-	public string AuthToken { get; set; } = default!;
+	[Obsolete]
+	public string? AuthToken { get; set; } = default!;
 
 }

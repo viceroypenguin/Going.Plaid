@@ -25,6 +25,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>An Asset Report is an immutable snapshot of a user's assets. In order to "refresh" an Asset Report you created previously, you can use the <c>/asset_report/refresh</c> endpoint to create a new Asset Report based on the old one, but with the most recent data available.</para>
 	/// <para>The new Asset Report will contain the same Items as the original Report, as well as the same filters applied by any call to <c>/asset_report/filter</c>. By default, the new Asset Report will also use the same parameters you submitted with your original <c>/asset_report/create</c> request, but the original <c>days_requested</c> value and the values of any parameters in the <c>options</c> object can be overridden with new values. To change these arguments, simply supply new values for them in your request to <c>/asset_report/refresh</c>. Submit an empty string ("") for any previously-populated fields you would like set as empty.</para>
+	/// <para>Note: Asset Report refresh is not supported in Canada.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/assets/#asset_reportrefresh" /></remarks>
 	public Task<AssetReport.AssetReportRefreshResponse> AssetReportRefreshAsync(AssetReport.AssetReportRefreshRequest request) =>

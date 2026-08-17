@@ -20,6 +20,12 @@ public enum AprAprTypeEnum
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "penalty_apr")]
+	PenaltyApr,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "purchase_apr")]
 	PurchaseApr,
 

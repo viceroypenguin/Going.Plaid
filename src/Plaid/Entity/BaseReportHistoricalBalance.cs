@@ -13,7 +13,7 @@ public record BaseReportHistoricalBalance
 
 	/// <summary>
 	/// <para>The total amount of funds in the account, calculated from the <c>current</c> balance in the <c>balance</c> object by subtracting inflows and adding back outflows according to the posted date of each transaction.</para>
-	/// <para>If the account has any pending transactions, historical balance amounts on or after the date of the earliest pending transaction may differ if retrieved in subsequent Asset Reports as a result of those pending transactions posting.</para>
+	/// <para>If the account has any pending transactions, historical balance amounts on or before the date of the earliest pending transaction may differ if retrieved in subsequent Asset Reports as a result of those pending transactions posting.</para>
 	/// </summary>
 	[JsonPropertyName("current")]
 	public decimal Current { get; init; } = default!;

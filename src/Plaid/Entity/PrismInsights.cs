@@ -19,7 +19,7 @@ public record PrismInsights
 	public string? ModelVersion { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The Insights Result object is a map of cash flow attributes, where the key is a string, and the value is a float or string. For a full list of attributes, contact your account manager. The attributes may vary depending on the Prism version used.</para>
+	/// <para>The Insights Result object is a map of cash flow attributes, where the key is a string, and the value is a float or string. For a full list of all ~2,000 attributes, contact your account manager. The attributes may vary depending on the Prism version used.</para>
 	/// </summary>
 	[JsonPropertyName("result")]
 	public Entity.PrismInsightsResult? Result { get; init; } = default!;

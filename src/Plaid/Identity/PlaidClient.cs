@@ -29,6 +29,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Identity.IdentityMatchResponse>();
 
 	/// <summary>
+	/// <para>Returns a chronological history of Link-originated Identity Match attempts for a client, ordered by creation time with the oldest attempt first.</para>
+	/// <para>Results are retained for up to one year. Attempts for deleted Items are omitted.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/identity/#identitymatchlist" /></remarks>
+	public Task<Identity.IdentityMatchListResponse> IdentityMatchListAsync(Identity.IdentityMatchListRequest request) =>
+		PostAsync("/identity/match/list", request)
+			.ParseResponseAsync<Identity.IdentityMatchListResponse>();
+
+	/// <summary>
 	/// <para><c>/identity/refresh</c> is an optional endpoint for users of the Identity product. It initiates an on-demand extraction to fetch the most up to date Identity information from the Financial Institution. This on-demand extraction takes place in addition to the periodic extractions that automatically occur for any Identity-enabled Item. If changes to Identity are discovered after calling <c>/identity/refresh</c>, Plaid will fire a webhook <a href="https://plaid.com/docs/api/products/identity/#default_update"><c>DEFAULT_UPDATE</c></a>.</para>
 	/// <para>As this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.</para>
 	/// <para><c>/identity/refresh</c> is offered as an add-on to Identity and has a separate <a href="https://plaid.com/docs/account/billing/#per-request-flat-fee">fee model</a>. To request access to this endpoint, submit a <a href="https://dashboard.plaid.com/team/products">product access request</a> or contact your Plaid account manager.</para>

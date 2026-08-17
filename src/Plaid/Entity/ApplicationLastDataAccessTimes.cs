@@ -3,7 +3,7 @@ namespace Going.Plaid.Entity;
 /// <summary>
 /// <para>Describes the last time each datatype was accessed by an application.</para>
 /// </summary>
-public record LastDataAccessTimes
+public record ApplicationLastDataAccessTimes
 {
 	/// <summary>
 	/// <para>ID of the application accessing data.</para>
@@ -24,10 +24,10 @@ public record LastDataAccessTimes
 	public DateTimeOffset? AccountRoutingNumber { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The last time <c>contact_details</c> was accessed by this application in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC. null if never accessed.</para>
+	/// <para>The last time <c>contact_info</c> was accessed by this application in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC. null if never accessed.</para>
 	/// </summary>
-	[JsonPropertyName("contact_details")]
-	public DateTimeOffset? ContactDetails { get; init; } = default!;
+	[JsonPropertyName("contact_info")]
+	public DateTimeOffset? ContactInfo { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The last time <c>transactions</c> was accessed by this application in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC. null if never accessed.</para>
@@ -36,27 +36,15 @@ public record LastDataAccessTimes
 	public DateTimeOffset? Transactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The last time <c>credit_and_loans</c> was accessed by this application in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC. null if never accessed.</para>
+	/// <para>The last time <c>credit_loan_info</c> was accessed by this application in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC. null if never accessed.</para>
 	/// </summary>
-	[JsonPropertyName("credit_and_loans")]
-	public DateTimeOffset? CreditAndLoans { get; init; } = default!;
+	[JsonPropertyName("credit_loan_info")]
+	public DateTimeOffset? CreditLoanInfo { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The last time <c>investments</c> was accessed by this application in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC. null if never accessed.</para>
 	/// </summary>
 	[JsonPropertyName("investments")]
 	public DateTimeOffset? Investments { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The last time <c>payroll_info</c> was accessed by this application in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC. null if never accessed.</para>
-	/// </summary>
-	[JsonPropertyName("payroll_info")]
-	public DateTimeOffset? PayrollInfo { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The last time <c>transaction_risk_info</c> was accessed by this application in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format in UTC. null if never accessed.</para>
-	/// </summary>
-	[JsonPropertyName("transaction_risk_info")]
-	public DateTimeOffset? TransactionRiskInfo { get; init; } = default!;
 
 }

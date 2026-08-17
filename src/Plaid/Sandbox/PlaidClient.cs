@@ -40,13 +40,25 @@ public sealed partial class PlaidClient
 	/// <para><c>PRODUCT_READY</c>: Assets webhook to be fired when a given asset report has been successfully generated. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>ERROR</c>: Assets webhook to be fired when asset report generation has failed. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>USER_PERMISSION_REVOKED</c>: Indicates an end user has revoked the permission that they previously granted to access an Item. May not always fire upon revocation, as some institutions' consent portals do not trigger this webhook. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the account or Item.</para>
-	/// <para><c>USER_ACCOUNT_REVOKED</c>: Fired when an end user has revoked access to their account on the Data Provider's portal. This webhook is currently sent only for PNC Items, but may be sent in the future for other financial institutions. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the account or Item.</para>
+	/// <para><c>USER_ACCOUNT_REVOKED</c>: Fired when an end user has revoked access to their account on the Data Provider's portal. This webhook is currently sent only for Chase, PNC, and Truist Items, but may be sent in the future for other financial institutions. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the account or Item.</para>
 	/// <para>Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production (except for webhooks of type <c>TRANSFER</c>).</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxitemfire_webhook" /></remarks>
 	public Task<Sandbox.SandboxItemFireWebhookResponse> SandboxItemFireWebhookAsync(Sandbox.SandboxItemFireWebhookRequest request) =>
 		PostAsync("/sandbox/item/fire_webhook", request)
 			.ParseResponseAsync<Sandbox.SandboxItemFireWebhookResponse>();
+
+	/// <summary>
+	/// <para><c>/sandbox/user/fire_webhook</c> functions the same as <c>/sandbox/item/fire_webhook</c>, but fires webhooks associated with a user rather than an Item. This endpoint can trigger the following webhooks:</para>
+	/// <para><c>USER_CHECK_REPORT_READY</c>: Fired when a Check Report is ready to be retrieved.</para>
+	/// <para><c>USER_CHECK_REPORT_FAILED</c>: Fired when a Check Report has failed to generate.</para>
+	/// <para><c>CHECK_REPORT_READY</c> / <c>CHECK_REPORT_FAILED</c>: The equivalents of the above for integrations that predate the <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>.</para>
+	/// <para>Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxuserfire_webhook" /></remarks>
+	public Task<Sandbox.SandboxUserFireWebhookResponse> SandboxUserFireWebhookAsync(Sandbox.SandboxUserFireWebhookRequest request) =>
+		PostAsync("/sandbox/user/fire_webhook", request)
+			.ParseResponseAsync<Sandbox.SandboxUserFireWebhookResponse>();
 
 	/// <summary>
 	/// <para><c>/sandbox/item/reset_login</c> forces an Item into an <c>ITEM_LOGIN_REQUIRED</c> state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's <a href="https://plaid.com/docs/link/update-mode">update mode</a> flow in the Sandbox environment.  After calling <c>/sandbox/item/reset_login</c>, you can then use Plaid Link update mode to restore the Item to a good state. An <c>ITEM_LOGIN_REQUIRED</c> webhook will also be fired after a call to this endpoint, if one is associated with the Item.</para>
@@ -251,6 +263,14 @@ public sealed partial class PlaidClient
 	public Task<Sandbox.SandboxCraCashflowUpdatesUpdateResponse> SandboxCraCashflowUpdatesUpdateAsync(Sandbox.SandboxCraCashflowUpdatesUpdateRequest request) =>
 		PostAsync("/sandbox/cra/cashflow_updates/update", request)
 			.ParseResponseAsync<Sandbox.SandboxCraCashflowUpdatesUpdateResponse>();
+
+	/// <summary>
+	/// <para>Use the <c>/sandbox/cra/servicing/simulate</c> endpoint to synchronously seed a CRA Servicing report in the Sandbox environment and return a <c>report_id</c> that can be fetched via <c>/cra/check_report/base_report/get</c> or <c>/cra/check_report/income_insights/get</c>. This endpoint also fires a <c>CRA_REPORT_UPDATED</c> webhook, mirroring the notification a live subscription would emit.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	public Task<Sandbox.SandboxCraServicingSimulateResponse> SandboxCraServicingSimulateAsync(Sandbox.SandboxCraServicingSimulateRequest request) =>
+		PostAsync("/sandbox/cra/servicing/simulate", request)
+			.ParseResponseAsync<Sandbox.SandboxCraServicingSimulateResponse>();
 
 	/// <summary>
 	/// <para>Save the selected accounts when connecting to the Platypus OAuth institution</para>

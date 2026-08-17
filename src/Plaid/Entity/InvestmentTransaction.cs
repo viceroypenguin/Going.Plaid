@@ -37,7 +37,7 @@ public record InvestmentTransaction
 	public DateOnly Date { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Timestamp in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) representing when the order type was initiated. This field is returned for select financial institutions and reflects the value provided by the institution.</para>
+	/// <para>Timestamp in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) representing when the order was initiated. This field is returned for select financial institutions and reflects the value provided by the institution. When the institution only provides a date without time-of-day information, this field will reflect the date that the order was initiated with a time component that defaults to <c>T00:00:00Z</c>. This does not indicate that the order was initiated at midnight UTC.</para>
 	/// </summary>
 	[JsonPropertyName("transaction_datetime")]
 	public DateTimeOffset? TransactionDatetime { get; init; } = default!;

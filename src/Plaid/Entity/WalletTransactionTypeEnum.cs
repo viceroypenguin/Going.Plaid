@@ -60,6 +60,12 @@ public enum WalletTransactionTypeEnum
 	AutoRefund,
 
 	/// <summary>
+	/// <para>a transaction that debits an e-wallet and cannot be classified under another category, typically initiated by a non-Plaid flow due to technical errors, FPS timeouts, or other payment-related issues.</para>
+	/// </summary>
+	[EnumMember(Value = "TRANSFER_OUT")]
+	TransferOut,
+
+	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>
 	/// </summary>
 	[EnumMember(Value = "undefined")]

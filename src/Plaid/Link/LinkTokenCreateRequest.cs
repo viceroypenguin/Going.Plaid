@@ -35,7 +35,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestUser? User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A <c>user_id</c> generated using <c>/user/create</c>. Required for integrations that began using Plaid Protect, Multi-Item Link, or Plaid Check Consumer Report after December 10, 2025. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>. One of either the <c>user_id</c> or the <c>user</c> field is required.</para>
+	/// <para>A <c>user_id</c> generated using <c>/user/create</c>. Required for integrations that began using Plaid Protect, Multi-Item Link, or Plaid Check Consumer Report after December 10, 2025. Required for new integrations that use Payment Initiation, Variable Recurring Payments, or Virtual Accounts. For more details, see <a href="https://plaid.com/docs/api/users/user-apis">New User APIs</a>. One of either the <c>user_id</c> or the <c>user</c> field is required.</para>
 	/// </summary>
 	[JsonPropertyName("user_id")]
 	public string? UserId { get; set; } = default!;

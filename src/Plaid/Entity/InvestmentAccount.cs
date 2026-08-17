@@ -76,7 +76,13 @@ public record InvestmentAccount
 	public string? PersistentAccountId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Indicates the account's categorization as either a personal or a business account. This field is currently in beta; to request access, contact your account manager.</para>
+	/// <para>The annual percentage yield (APY) on an interest-bearing deposit account, expressed as a percentage (e.g. <c>4.25</c> means 4.25%). In the event that the APY is not provided by the financial institution, Plaid will return a value of <c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("apy")]
+	public decimal? Apy { get; init; } = default!;
+
+	/// <summary>
+	/// <para>Indicates the account's categorization as either a personal or a business account. This field is currently in beta; to request access, contact your account manager. Coverage varies by institution, with approximately 70% of accounts populated overall.</para>
 	/// </summary>
 	[JsonPropertyName("holder_category")]
 	public Entity.HolderCategory? HolderCategory { get; init; } = default!;

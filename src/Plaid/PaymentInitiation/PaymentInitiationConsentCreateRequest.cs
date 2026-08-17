@@ -12,6 +12,12 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	public string RecipientId { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The <c>user_id</c> of the end user the payment consent is for, as returned by <a href="https://plaid.com/docs/api/users/#usercreate"><c>/user/create</c></a>. The user must have a <c>name</c> and either an email address or a phone number. Payments created from this consent inherit this <c>user_id</c>. Required for new integrations.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>A reference for the payment consent. This must be an alphanumeric string with at most 18 characters and must not contain any special characters.</para>
 	/// </summary>
 	[JsonPropertyName("reference")]
