@@ -3,7 +3,7 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>This endpoint allows you to subscribe to insights for a user's linked CRA Item, which are updated between one and four times per day (best-effort). In the current Cash Flow Updates beta experience, only one Item per user may be subscribed for monitoring updates.</para>
+	/// <para>This endpoint allows you to subscribe to insights for a user's linked CRA Item, which are updated between one and four times per day (best-effort). Only one Item per user may be subscribed. This endpoint is part of the legacy Cash Flow Updates product and is available only to integrations already using it; other integrations should use <c>/cra/servicing/subscription/create</c> instead.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cramonitoring_insightssubscribe" /></remarks>
 	public Task<Cra.CraMonitoringInsightsSubscribeResponse> CraMonitoringInsightsSubscribeAsync(Cra.CraMonitoringInsightsSubscribeRequest request) =>
@@ -11,7 +11,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraMonitoringInsightsSubscribeResponse>();
 
 	/// <summary>
-	/// <para>This endpoint allows you to unsubscribe from previously subscribed Monitoring Insights.</para>
+	/// <para>This endpoint allows you to remove a subscription created by <c>/cra/monitoring_insights/subscribe</c>. This endpoint is part of the legacy Cash Flow Updates product and is available only to integrations already using it; other integrations should use <c>/cra/servicing/subscription/delete</c> instead.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cramonitoring_insightsunsubscribe" /></remarks>
 	public Task<Cra.CraMonitoringInsightsUnsubscribeResponse> CraMonitoringInsightsUnsubscribeAsync(Cra.CraMonitoringInsightsUnsubscribeRequest request) =>
@@ -19,7 +19,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraMonitoringInsightsUnsubscribeResponse>();
 
 	/// <summary>
-	/// <para>This endpoint allows you to retrieve a Cash Flow Updates report by passing in the <c>user_id</c> referred to in the webhook you received.</para>
+	/// <para>This endpoint allows you to retrieve a Cash Flow Updates report by passing in the <c>user_id</c> referred to in the webhook you received. This endpoint is part of the legacy Cash Flow Updates product and is available only to integrations already using it. CRA Servicing has no direct equivalent; other integrations should handle the <c>CRA_REPORT_UPDATED</c> webhook and pass its <c>report_id</c> to the relevant product <c>/get</c> endpoint, such as <c>/cra/check_report/base_report/get</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#cramonitoring_insightsget" /></remarks>
 	public Task<Cra.CraMonitoringInsightsGetResponse> CraMonitoringInsightsGetAsync(Cra.CraMonitoringInsightsGetRequest request) =>
@@ -137,7 +137,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/cra/servicing/subscription/create</c> subscribes a user to CRA report-update webhooks for a given scope.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/check/#craservicingsubscriptioncreate" /></remarks>
 	public Task<Cra.CraServicingSubscriptionCreateResponse> CraServicingSubscriptionCreateAsync(Cra.CraServicingSubscriptionCreateRequest request) =>
 		PostAsync("/cra/servicing/subscription/create", request)
 			.ParseResponseAsync<Cra.CraServicingSubscriptionCreateResponse>();
@@ -145,7 +145,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/cra/servicing/subscription/delete</c> removes the CRA servicing subscription identified by <c>subscription_id</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/check/#craservicingsubscriptiondelete" /></remarks>
 	public Task<Cra.CraServicingSubscriptionDeleteResponse> CraServicingSubscriptionDeleteAsync(Cra.CraServicingSubscriptionDeleteRequest request) =>
 		PostAsync("/cra/servicing/subscription/delete", request)
 			.ParseResponseAsync<Cra.CraServicingSubscriptionDeleteResponse>();
@@ -153,7 +153,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/cra/servicing/subscription/get</c> returns the CRA servicing subscription identified by <c>subscription_id</c>.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/check/#craservicingsubscriptionget" /></remarks>
 	public Task<Cra.CraServicingSubscriptionGetResponse> CraServicingSubscriptionGetAsync(Cra.CraServicingSubscriptionGetRequest request) =>
 		PostAsync("/cra/servicing/subscription/get", request)
 			.ParseResponseAsync<Cra.CraServicingSubscriptionGetResponse>();
@@ -161,7 +161,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/cra/servicing/subscription/list</c> returns all CRA servicing subscriptions for a user, across scopes.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/check/#craservicingsubscriptionlist" /></remarks>
 	public Task<Cra.CraServicingSubscriptionListResponse> CraServicingSubscriptionListAsync(Cra.CraServicingSubscriptionListRequest request) =>
 		PostAsync("/cra/servicing/subscription/list", request)
 			.ParseResponseAsync<Cra.CraServicingSubscriptionListResponse>();
@@ -169,7 +169,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/cra/servicing/subscription/update</c> modifies an existing CRA servicing subscription. Fields left blank are unchanged; provided fields overwrite the current value. Use <c>reset_fields</c> to clear fields.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/products/check/#craservicingsubscriptionupdate" /></remarks>
 	public Task<Cra.CraServicingSubscriptionUpdateResponse> CraServicingSubscriptionUpdateAsync(Cra.CraServicingSubscriptionUpdateRequest request) =>
 		PostAsync("/cra/servicing/subscription/update", request)
 			.ParseResponseAsync<Cra.CraServicingSubscriptionUpdateResponse>();

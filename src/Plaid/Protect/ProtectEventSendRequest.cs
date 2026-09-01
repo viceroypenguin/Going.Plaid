@@ -18,10 +18,10 @@ public partial class ProtectEventSendRequest : RequestBase
 	public Entity.ProtectEvent? Event { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Protect Session ID should be provided for any event correlated with a frontend user session started via the Protect SDK.</para>
+	/// <para>Device Session ID should be provided for any event correlated with a frontend user session started via the Protect SDK.</para>
 	/// </summary>
-	[JsonPropertyName("protect_session_id")]
-	public string? ProtectSessionId { get; set; } = default!;
+	[JsonPropertyName("device_session_id")]
+	public string? DeviceSessionId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Whether this event should be scored with Trust Index. The default is false.</para>

@@ -12,9 +12,9 @@ public class ProtectModelInputs
 	public Entity.ProtectLinkModelInputs? Link { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Inputs for Protect SDK Trust Index models.</para>
+	/// <para>Inputs for device Trust Index models.</para>
 	/// </summary>
-	[JsonPropertyName("sdk")]
-	public Entity.ProtectSDKModelInputs? Sdk { get; set; } = default!;
+	[JsonPropertyName("device")]
+	public Entity.ProtectDeviceModelInputs? Device { get; set; } = default!;
 
 }

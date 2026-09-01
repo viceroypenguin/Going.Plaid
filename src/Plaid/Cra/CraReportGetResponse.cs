@@ -18,6 +18,12 @@ public record CraReportGetResponse : ResponseBase
 	public string UserId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The unique ID representing the end user that you supplied as <c>client_user_id</c> when creating the user via <c>/user/create</c>. <c>null</c> if the user has no <c>client_user_id</c> on record.</para>
+	/// </summary>
+	[JsonPropertyName("client_user_id")]
+	public string? ClientUserId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>User or report-level errors that affected the overall report but do not map to a specific product failure.</para>
 	/// </summary>
 	[JsonPropertyName("warnings")]

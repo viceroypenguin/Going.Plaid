@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Result of payee verification check for EUR payouts. Payee verification checks whether the payee name provided matches the account holder name at the destination institution.</para>
+/// <para>Result of payee verification check for EUR and GBP payouts. Payee verification checks whether the payee name provided matches the account holder name at the destination institution.</para>
 /// </summary>
 public enum WalletTransactionPayeeVerificationStatus
 {

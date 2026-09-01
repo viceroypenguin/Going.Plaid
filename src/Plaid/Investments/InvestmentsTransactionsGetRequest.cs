@@ -6,7 +6,7 @@ namespace Going.Plaid.Investments;
 public partial class InvestmentsTransactionsGetRequest : RequestBase
 {
 	/// <summary>
-	/// <para>The earliest date for which to fetch transaction history. Dates should be formatted as YYYY-MM-DD.</para>
+	/// <para>The earliest date for which to fetch transaction history. Dates should be formatted as YYYY-MM-DD. Plaid returns all investment transaction history stored for the Item (up to 2 years prior to the initial linking of the Item).</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]
 	public DateOnly StartDate { get; set; } = default!;

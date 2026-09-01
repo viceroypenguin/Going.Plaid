@@ -24,7 +24,7 @@ public partial class ProtectCashAdvanceRepaymentCreateRequest : RequestBase
 	public Entity.CashAdvanceRepaymentStatus Status { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The time the repayment occurred, in ISO 8601 / RFC 3339 format (<c>YYYY-MM-DDTHH:mm:ssZ</c>).</para>
+	/// <para>The time the repayment occurred. Required when <c>status</c> is <c>REPAID</c> or <c>PARTIAL_PAYMENT</c>. In ISO 8601 / RFC 3339 format (<c>YYYY-MM-DDTHH:mm:ssZ</c>).</para>
 	/// </summary>
 	[JsonPropertyName("repayment_time")]
 	public DateTimeOffset? RepaymentTime { get; set; } = default!;

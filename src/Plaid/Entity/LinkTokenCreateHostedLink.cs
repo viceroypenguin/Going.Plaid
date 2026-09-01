@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class LinkTokenCreateHostedLink
 {
 	/// <summary>
-	/// 
+	/// <para>How Plaid should deliver the Plaid Link session to the customer. Only available to customers enabled for Link Delivery (beta). To request Link Delivery access, contact your account manager.</para>
 	/// </summary>
 	[JsonPropertyName("delivery_method")]
 	public Entity.HostedLinkDeliveryMethod? DeliveryMethod { get; set; } = default!;

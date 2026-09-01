@@ -12,6 +12,12 @@ public partial class SandboxCraServicingSimulateRequest : RequestBase
 	public string SubscriptionId { get; set; } = default!;
 
 	/// <summary>
+	/// <para>The user to simulate an update for, in place of a <c>subscription_id</c>.</para>
+	/// </summary>
+	[JsonPropertyName("user_id")]
+	public string? UserId { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Optional parameters controlling the simulated report.</para>
 	/// </summary>
 	[JsonPropertyName("options")]

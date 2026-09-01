@@ -60,7 +60,7 @@ public partial class BankTransferEventListRequest : RequestBase
 	public string? OriginationAccountId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Indicates the direction of the transfer: <c>outbound</c>: for API-initiated transfers</para>
+	/// <para>Indicates the direction of the transfer:</para>
 	/// </summary>
 	[JsonPropertyName("direction")]
 	public Entity.BankTransferDirection? Direction { get; set; } = default!;

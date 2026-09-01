@@ -313,7 +313,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Use the <c>/transfer/refund/create</c> endpoint to create a refund for a transfer. A transfer can be refunded if the transfer was initiated in the past 180 days.</para>
-	/// <para>Refunds come out of the available balance of the ledger used for the original debit transfer. If there are not enough funds in the available balance to cover the refund amount, the refund will be rejected. You can create a refund at any time. Plaid does not impose any hold time on refunds.</para>
+	/// <para>Refunds come out of the available balance of the ledger used for the original debit transfer. If there are not enough funds in the available balance to cover the refund amount, the refund will be rejected. Plaid does not impose a hold time before a refund can be created; you do not need to wait for the original transfer to settle.</para>
 	/// <para>A refund can still be issued even if the Item's <c>access_token</c> is no longer valid (e.g. if the user revoked OAuth consent or the Item was deleted via <c>/item/remove</c>), as long as the account and routing number pair used to make the original transaction is still valid. A refund cannot be issued if the Item has an <a href="https://plaid.com/docs/auth/#tokenized-account-numbers">invalidated TAN</a>, which can occur at Chase or PNC.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/refunds/#transferrefundcreate" /></remarks>

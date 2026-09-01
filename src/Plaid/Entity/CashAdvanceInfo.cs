@@ -1,9 +1,9 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The details of a cash-advance associated with an approved cash-advance decision. Required when a cash-advance has been approved.</para>
+/// <para>The details of a cash-advance associated with the decision. Required when <c>is_taken</c> is <c>true</c>.</para>
 /// </summary>
-public class CashAdvanceDetails
+public class CashAdvanceInfo
 {
 	/// <summary>
 	/// <para>The amount a user was approved for in a cash-advance.</para>
@@ -22,11 +22,5 @@ public class CashAdvanceDetails
 	/// </summary>
 	[JsonPropertyName("due_date")]
 	public DateOnly? DueDate { get; set; } = default!;
-
-	/// <summary>
-	/// <para>Whether the end user took the approved cash-advance. <c>True</c> if taken, <c>False</c> if not.</para>
-	/// </summary>
-	[JsonPropertyName("is_taken")]
-	public bool IsTaken { get; set; } = default!;
 
 }

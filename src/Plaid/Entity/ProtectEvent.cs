@@ -12,10 +12,10 @@ public class ProtectEvent
 	public DateTimeOffset Timestamp { get; set; } = default!;
 
 	/// <summary>
-	/// <para>If present, contains the current Protect Session ID from the Protect SDK.</para>
+	/// <para>If present, contains the current Device Session ID from the Protect SDK.</para>
 	/// </summary>
-	[JsonPropertyName("protect_session_id")]
-	public string? ProtectSessionId { get; set; } = default!;
+	[JsonPropertyName("device_session_id")]
+	public string? DeviceSessionId { get; set; } = default!;
 
 	/// <summary>
 	/// <para>This event type represents a user visiting the client application.</para>

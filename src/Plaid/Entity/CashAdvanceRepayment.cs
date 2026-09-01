@@ -6,10 +6,10 @@ namespace Going.Plaid.Entity;
 public class CashAdvanceRepayment
 {
 	/// <summary>
-	/// <para>The amount a user paid.</para>
+	/// <para>The amount a user paid. Required if there was a payment made.</para>
 	/// </summary>
 	[JsonPropertyName("amount_paid")]
-	public Entity.Amount AmountPaid { get; set; } = default!;
+	public Entity.Amount? AmountPaid { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The amount a user is required to pay, including any fees or additional amounts.</para>

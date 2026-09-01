@@ -296,8 +296,8 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "paynote")]
-	Paynote,
+	[EnumMember(Value = "seamlessach")]
+	Seamlessach,
 
 	/// <summary>
 	/// 
@@ -508,6 +508,12 @@ public enum ProcessorTokenCreateRequestProcessorEnum
 	/// </summary>
 	[EnumMember(Value = "webull")]
 	Webull,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "kikoff_enterprise")]
+	KikoffEnterprise,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

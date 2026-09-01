@@ -37,7 +37,7 @@ public partial class CraCheckReportIncomeInsightsGetRequest : RequestBase
 	public string? ReportId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The permissible purpose under the FCRA for retrieving this consumer report. Restricted to permissible purposes related to loan servicing only. Required when <c>report_id</c> is provided.</para>
+	/// <para>The permissible purpose under which the consumer report is being retrieved.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]
 	public Entity.CraCheckReportPermissiblePurpose? ConsumerReportPermissiblePurpose { get; set; } = default!;

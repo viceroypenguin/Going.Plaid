@@ -12,10 +12,10 @@ public enum CashAdvanceRepaymentStatus
 	Repaid,
 
 	/// <summary>
-	/// <para>The cash-advance has been disbursed to the user and is still outstanding, but its due date has not yet passed.</para>
+	/// <para>A payment has been made on the cash-advance, but there is still an outstanding balance.</para>
 	/// </summary>
-	[EnumMember(Value = "DELIVERED")]
-	Delivered,
+	[EnumMember(Value = "PARTIAL_PAYMENT")]
+	PartialPayment,
 
 	/// <summary>
 	/// <para>The cash-advance is past its due date and has not been repaid; the user is delinquent.</para>

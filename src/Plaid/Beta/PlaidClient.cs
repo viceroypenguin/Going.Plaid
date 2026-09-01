@@ -9,18 +9,27 @@ public sealed partial class PlaidClient
 	/// <para><c>webhook_message_id</c>.</para>
 	/// <para>Filtering is optional. When multiple filter fields are set (<c>webhook_types</c>,</para>
 	/// <para><c>webhook_codes</c>, <c>item_ids</c>, <c>delivery_statuses</c>), they are combined with AND across fields</para>
-	/// <para>and OR within each array (for example, <c>webhook_types: ["TRANSACTIONS", "ITEM"]</c> matches</para>
+	/// <para>and OR within each array (for example, <c>webhook_types: ["ITEM", "AUTH"]</c> matches</para>
 	/// <para>either type).</para>
 	/// <para>Recommended pagination workflow:</para>
 	/// <para>1. First call: omit <c>cursor</c>, and optionally set <c>start_time</c> within the last 7 days (or</para>
 	/// <para>   omit <c>start_time</c> to begin at the oldest retained event).</para>
 	/// <para>2. Subsequent calls: pass <c>next_cursor</c> as <c>cursor</c>. Do not send <c>start_time</c> with</para>
-	/// <para>   <c>cursor</c> — the two fields are mutually exclusive.</para>
+	/// <para>   <c>cursor</c> — the two fields are mutually exclusive. Sending both returns <c>INVALID_FIELD</c>.</para>
 	/// <para>3. Persist <c>next_cursor</c> even when <c>has_more</c> is <c>false</c>, then reuse it on the next poll so</para>
 	/// <para>   you only receive events newer than what you have already seen.</para>
 	/// <para>4. If a stored cursor is older than the 7-day retention window, the API returns</para>
 	/// <para>   <c>WEBHOOK_EVENTS_CURSOR_EXPIRED</c>; restart with a <c>start_time</c> within the last 7 days.</para>
 	/// <para>   Events older than the retention window are no longer available.</para>
+	/// <para>Errors:</para>
+	/// <para><c>WEBHOOK_EVENTS_START_TIME_OUT_OF_RANGE</c> (400) is returned when <c>start_time</c> is earlier</para>
+	/// <para>than the 7-day retention window. Retry with a <c>start_time</c> within the last 7 days, or omit</para>
+	/// <para>it.</para>
+	/// <para><c>WEBHOOK_EVENTS_CURSOR_EXPIRED</c> (400) is returned when the cursor's position is older than</para>
+	/// <para>the 7-day retention window and can no longer be resolved. Restart pagination with a</para>
+	/// <para><c>start_time</c> within the last 7 days.</para>
+	/// <para><c>INVALID_FIELD</c> (400) is returned when <c>cursor</c> is not a properly formatted string, when</para>
+	/// <para>both <c>cursor</c> and <c>start_time</c> are provided, or when the request is otherwise invalid.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docsnone" /></remarks>
 	public Task<Beta.BetaWebhookEventsListResponse> BetaWebhookEventsListAsync(Beta.BetaWebhookEventsListRequest request) =>

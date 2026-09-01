@@ -66,7 +66,7 @@ public record WalletTransaction
 	public DateTimeOffset LastStatusUpdate { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Result of payee verification check for EUR payouts. Payee verification checks whether the payee name provided matches the account holder name at the destination institution.</para>
+	/// <para>Result of payee verification check for EUR and GBP payouts. Payee verification checks whether the payee name provided matches the account holder name at the destination institution.</para>
 	/// </summary>
 	[JsonPropertyName("payee_verification_status")]
 	public Entity.WalletTransactionPayeeVerificationStatus? PayeeVerificationStatus { get; init; } = default!;

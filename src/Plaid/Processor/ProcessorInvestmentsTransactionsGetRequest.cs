@@ -18,7 +18,7 @@ public partial class ProcessorInvestmentsTransactionsGetRequest : RequestBase
 	public string ProcessorToken { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The earliest date for which data should be returned. Dates should be formatted as YYYY-MM-DD.</para>
+	/// <para>The earliest date for which data should be returned. Dates should be formatted as YYYY-MM-DD. Plaid returns all investment transaction history stored for the Item (up to 2 years prior to the initial linking of the Item).</para>
 	/// </summary>
 	[JsonPropertyName("start_date")]
 	public DateOnly StartDate { get; set; } = default!;

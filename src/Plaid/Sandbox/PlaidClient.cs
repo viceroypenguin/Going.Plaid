@@ -257,7 +257,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxBankIncomeFireWebhookResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/cra/cashflow_updates/update</c> endpoint to manually trigger an update for Cash Flow Updates (Monitoring) in the Sandbox environment.</para>
+	/// <para>Use the <c>/sandbox/cra/cashflow_updates/update</c> endpoint to manually trigger an update for the legacy Cash Flow Updates product in the Sandbox environment. To simulate a report generation for a CRA Servicing subscription, use <c>/sandbox/cra/servicing/simulate</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxcracashflow_updatesupdate" /></remarks>
 	public Task<Sandbox.SandboxCraCashflowUpdatesUpdateResponse> SandboxCraCashflowUpdatesUpdateAsync(Sandbox.SandboxCraCashflowUpdatesUpdateRequest request) =>
@@ -267,7 +267,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para>Use the <c>/sandbox/cra/servicing/simulate</c> endpoint to synchronously seed a CRA Servicing report in the Sandbox environment and return a <c>report_id</c> that can be fetched via <c>/cra/check_report/base_report/get</c> or <c>/cra/check_report/income_insights/get</c>. This endpoint also fires a <c>CRA_REPORT_UPDATED</c> webhook, mirroring the notification a live subscription would emit.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/none/" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxcraservicingsimulate" /></remarks>
 	public Task<Sandbox.SandboxCraServicingSimulateResponse> SandboxCraServicingSimulateAsync(Sandbox.SandboxCraServicingSimulateRequest request) =>
 		PostAsync("/sandbox/cra/servicing/simulate", request)
 			.ParseResponseAsync<Sandbox.SandboxCraServicingSimulateResponse>();

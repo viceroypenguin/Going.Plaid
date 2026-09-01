@@ -29,4 +29,21 @@ public class WalletTransactionCounterparty
 	[JsonPropertyName("date_of_birth")]
 	public DateOnly? DateOfBirth { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Whether the counterparty is a personal or a business account holder. Payee verification schemes match a different set of identifiers for a natural person and a legal entity.</para>
+	/// <para><c>personal</c>: the counterparty is an individual.</para>
+	/// <para><c>business</c>: the counterparty is a company.</para>
+	/// <para>If this is omitted, a payee verification check on a GBP payout returns <c>CHECK_NOT_POSSIBLE</c>. Accepted on <c>/wallet/transaction/execute</c> and not returned on read endpoints.</para>
+	/// </summary>
+	[JsonPropertyName("holder_category")]
+	public Entity.WalletTransactionCounterpartyHolderCategory? HolderCategory { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Set to <c>true</c> if you have already verified that this counterparty owns the account, either through your own checks or through Plaid Auth or Identity. Plaid then skips its payee verification check.</para>
+	/// <para>Whether Plaid runs a check is determined by Plaid configuration, so this field can only suppress a check and never request one. Only applies to GBP payouts.</para>
+	/// <para>Accepted on <c>/wallet/transaction/execute</c> and not returned on read endpoints.</para>
+	/// </summary>
+	[JsonPropertyName("is_verified")]
+	public bool? IsVerified { get; set; } = default!;
+
 }

@@ -74,7 +74,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserRemoveResponse>();
 
 	/// <summary>
-	/// <para>Terminates user-based recurring subscription bundles or products (Financial Management, Plaid Protect, and CRA Cash Flow Updates) associated with a <c>user_id</c>. After you call this endpoint, the user will no longer be billed for these products. For CRA Monitoring, the subscription is canceled but historical data remains available for future report requests.</para>
+	/// <para>Terminates user-based recurring subscription bundles or products (Financial Management, Plaid Protect, and CRA Servicing) associated with a <c>user_id</c>. After you call this endpoint, the user will no longer be billed for these products. For CRA Servicing, the subscription is canceled but historical data remains available for future report requests.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userproductsterminate" /></remarks>
 	public Task<User.UserProductsTerminateResponse> UserProductsTerminateAsync(User.UserProductsTerminateRequest request) =>
@@ -99,7 +99,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Removes specific Items associated with a user. It is equivalent to calling <c>/item/remove</c> on each Item individually, but supports use cases (such as Plaid Check) where access tokens are not available. All specified Items must belong to the user or the entire operation fails. Similar to <c>/item/remove</c>, this deletes Item product data and terminates billing on the Item's products. Once removed, Items cannot be reconnected without going through Link again.</para>
-	/// <para>This endpoint is not intended to remove all data for a user, as it will only remove Items and no other data for the user. If the user has any user-based recurring subscription products (Financial Management, Plaid Protect, or CRA Cash Flow Updates) and is deleting their account with your product, also call <c>/user/products/terminate</c> to end those subscriptions; per-Item billing is already terminated by this endpoint. For a user initiated data deletion request, see the <a href="https://plaid.com/check/consumer-service-center/">Consumer Service Center</a> to revoke access to data.</para>
+	/// <para>This endpoint is not intended to remove all data for a user, as it will only remove Items and no other data for the user. If the user has any user-based recurring subscription products (Financial Management, Plaid Protect, or CRA Servicing) and is deleting their account with your product, also call <c>/user/products/terminate</c> to end those subscriptions; per-Item billing is already terminated by this endpoint. For a user initiated data deletion request, see the <a href="https://plaid.com/check/consumer-service-center/">Consumer Service Center</a> to revoke access to data.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#useritemsremove" /></remarks>
 	public Task<User.UserItemsRemoveResponse> UserItemsRemoveAsync(User.UserItemsRemoveRequest request) =>
