@@ -2,8 +2,8 @@
   <PropertyGroup>
 	<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 
-	<Net9PackageVersion>9.0.19</Net9PackageVersion>
-	<Net10PackageVersion>10.0.11</Net10PackageVersion>
+	<Net10PackageVersion>10.0.12</Net10PackageVersion>
+	<Net11PackageVersion>11.0.0-rc.1.26425.128</Net11PackageVersion>
   </PropertyGroup>
   
   <ItemGroup>
@@ -14,12 +14,19 @@
 	<PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="$(Net10PackageVersion)" />
 	<PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="$(Net10PackageVersion)" />
 	<PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="$(Net10PackageVersion)" />
-	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
 	<PackageVersion Include="Microsoft.OpenApi.Readers" Version="1.6.31" />
-	<PackageVersion Include="MinVer" Version="7.0.0" />
-	<PackageVersion Include="Scriban" Version="7.2.6" />
+	<PackageVersion Include="MinVer" Version="8.0.0" />
+	<PackageVersion Include="Scriban" Version="7.5.0" />
 	<PackageVersion Include="xunit" Version="2.9.3" />
 	<PackageVersion Include="xunit.runner.visualstudio" Version="4.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net11.0' ">
+	<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(Net11PackageVersion)" />
+	<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(Net11PackageVersion)" />
+	<PackageVersion Include="Microsoft.Extensions.Http" Version="$(Net11PackageVersion)" />
+	<PackageVersion Include="Microsoft.Extensions.Logging" Version="$(Net11PackageVersion)" />
   </ItemGroup>
   
   <ItemGroup Condition=" '$(TargetFramework)' == 'net10.0' ">
@@ -27,13 +34,6 @@
 	<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(Net10PackageVersion)" />
 	<PackageVersion Include="Microsoft.Extensions.Http" Version="$(Net10PackageVersion)" />
 	<PackageVersion Include="Microsoft.Extensions.Logging" Version="$(Net10PackageVersion)" />
-  </ItemGroup>
-  
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
-	<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(Net9PackageVersion)" />
-	<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(Net9PackageVersion)" />
-	<PackageVersion Include="Microsoft.Extensions.Http" Version="$(Net9PackageVersion)" />
-	<PackageVersion Include="Microsoft.Extensions.Logging" Version="$(Net9PackageVersion)" />
   </ItemGroup>
   
   <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
@@ -63,6 +63,6 @@
 
   <ItemGroup>
 	<GlobalPackageReference Include="PolySharp" Version="1.16.0" />
-	<GlobalPackageReference Include="Meziantou.Analyzer" Version="3.0.200" />
+	<GlobalPackageReference Include="Meziantou.Analyzer" Version="3.0.292" />
   </ItemGroup>
 </Project>
