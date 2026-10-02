@@ -54,6 +54,12 @@ public enum TransferEventType
 	Returned,
 
 	/// <summary>
+	/// <para>An adjustment was made to the transfer due to rare activity, such as a dishonor. Refer to <c>event_amount</c> for the amount adjusted: a positive amount means funds are credited to the ledger, and a negative amount means funds are debited from the ledger. <c>failure_reason.description</c> describes the reason for the adjustment.</para>
+	/// </summary>
+	[EnumMember(Value = "adjustment")]
+	Adjustment,
+
+	/// <summary>
 	/// <para>Plaid reimbursed the client for the loss on a returned guaranteed transfer. The <c>event_amount</c> is the reimbursed amount.</para>
 	/// </summary>
 	[EnumMember(Value = "guarantee_reimbursed")]

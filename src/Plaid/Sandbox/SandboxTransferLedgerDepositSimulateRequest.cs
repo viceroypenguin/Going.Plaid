@@ -24,7 +24,7 @@ public partial class SandboxTransferLedgerDepositSimulateRequest : RequestBase
 	public Entity.TransferLedgerSweepSimulateEventType EventType { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The failure reason if the event type for a transfer is <c>"failed"</c> or <c>"returned"</c>. Null value otherwise.</para>
+	/// <para>The failure reason if the event type for a transfer is <c>"failed"</c> or <c>"returned"</c>, or the adjustment reason if the event type is <c>"adjustment"</c>. Null value otherwise.</para>
 	/// </summary>
 	[JsonPropertyName("failure_reason")]
 	public Entity.TransferFailure? FailureReason { get; set; } = default!;

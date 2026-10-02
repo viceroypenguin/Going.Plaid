@@ -59,4 +59,10 @@ public record CreditCardLiability
 	[JsonPropertyName("next_payment_due_date")]
 	public DateOnly? NextPaymentDueDate { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The credit limit for cash advances on the account.</para>
+	/// </summary>
+	[JsonPropertyName("cash_advance_limit")]
+	public decimal? CashAdvanceLimit { get; init; } = default!;
+
 }

@@ -18,7 +18,7 @@ public record CraReportGetReport
 	public Entity.CraReportScope Scope { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The stage in the lending lifecycle for which the report is being retrieved.</para>
+	/// <para>The stage in the lending lifecycle that the report is for.</para>
 	/// </summary>
 	[JsonPropertyName("decision_stage")]
 	public Entity.CraReportDecisionStage DecisionStage { get; init; } = default!;

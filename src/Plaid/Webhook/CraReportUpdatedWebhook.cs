@@ -20,6 +20,12 @@ public record CraReportUpdatedWebhook : WebhookBase
 	public string UserId { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The <c>client_user_id</c> you supplied for this user when calling <c>/user/create</c>.</para>
+	/// </summary>
+	[JsonPropertyName("client_user_id")]
+	public string ClientUserId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The identifier of the CRA report that was updated. Pass this value to the relevant product <c>/get</c> endpoint to retrieve the updated report.</para>
 	/// </summary>
 	[JsonPropertyName("report_id")]

@@ -374,6 +374,12 @@ public enum WebhookCode
 	/// <summary>
 	/// 
 	/// </summary>
+	[EnumMember(Value = "CRA_REPORT_READY")]
+	CraReportReady,
+
+	/// <summary>
+	/// 
+	/// </summary>
 	[EnumMember(Value = "PARTNER_INSIGHTS_COMPLETE")]
 	PartnerInsightsComplete,
 

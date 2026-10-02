@@ -190,6 +190,12 @@ public partial class LinkTokenCreateRequest : RequestBase
 	public Entity.LinkTokenCreateRequestCraOptions? CraOptions { get; set; } = default!;
 
 	/// <summary>
+	/// <para>Specifies the report parameters for Plaid Check products, mirroring the parameters accepted on <c>/cra/report/create</c>.</para>
+	/// </summary>
+	[JsonPropertyName("cra_report_parameter")]
+	public Entity.LinkTokenCreateRequestCraReportParameter? CraReportParameter { get; set; } = default!;
+
+	/// <summary>
 	/// <para>Describes the reason you are generating a Consumer Report for this user. When calling <c>/link/token/create</c>, this field is required when using Plaid Check (CRA) products; invalid if not using Plaid Check (CRA) products.</para>
 	/// </summary>
 	[JsonPropertyName("consumer_report_permissible_purpose")]

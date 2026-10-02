@@ -7,17 +7,18 @@ public partial class BetaWebhookEventsListRequest : RequestBase
 {
 	/// <summary>
 	/// <para>Opaque cursor from a prior <c>/beta/webhook_events/list</c> response <c>next_cursor</c>. Use this</para>
-	/// <para>on subsequent requests to continue forward. Mutually exclusive with <c>start_time</c>: sending</para>
-	/// <para>both returns <c>INVALID_FIELD</c>. Callers should send only one.</para>
+	/// <para>on subsequent requests to continue forward. If <c>start_time</c> is also provided,</para>
+	/// <para>it is ignored; <c>cursor</c> takes precedence.</para>
 	/// </summary>
 	[JsonPropertyName("cursor")]
 	public string? Cursor { get; set; } = default!;
 
 	/// <summary>
 	/// <para>ISO-8601 timestamp. Returns webhook events with <c>sent_time</c> greater than or equal to</para>
-	/// <para>this value. Must not be earlier than the 7-day retention window. Mutually exclusive with</para>
-	/// <para><c>cursor</c>: sending both returns <c>INVALID_FIELD</c>. Omit to begin from the oldest retained</para>
-	/// <para>event. Callers should send only one of <c>cursor</c> or <c>start_time</c>.</para>
+	/// <para>this value. When <c>cursor</c> is provided, this value is ignored, even if it has changed</para>
+	/// <para>or falls outside the 7-day retention window. Otherwise, it must not be earlier than</para>
+	/// <para>the 7-day retention window. Omit both <c>cursor</c> and <c>start_time</c> to begin from the</para>
+	/// <para>oldest retained event.</para>
 	/// </summary>
 	[JsonPropertyName("start_time")]
 	public DateTimeOffset? StartTime { get; set; } = default!;

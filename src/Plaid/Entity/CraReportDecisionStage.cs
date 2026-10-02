@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The stage in the lending lifecycle for which the report is being retrieved.</para>
+/// <para>The stage in the lending lifecycle that the report is for.</para>
 /// </summary>
 public enum CraReportDecisionStage
 {

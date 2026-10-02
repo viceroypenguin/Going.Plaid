@@ -54,12 +54,6 @@ public enum LoanAccountSubtype
 	HomeEquityLoan,
 
 	/// <summary>
-	/// <para>Installment loan</para>
-	/// </summary>
-	[EnumMember(Value = "installment")]
-	Installment,
-
-	/// <summary>
 	/// <para>General loan</para>
 	/// </summary>
 	[EnumMember(Value = "loan")]

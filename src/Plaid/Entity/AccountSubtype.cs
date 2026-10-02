@@ -66,12 +66,6 @@ public enum AccountSubtype
 	Savings,
 
 	/// <summary>
-	/// <para>Bank-issued charge card</para>
-	/// </summary>
-	[EnumMember(Value = "charge card")]
-	ChargeCard,
-
-	/// <summary>
 	/// <para>Bank-issued credit card</para>
 	/// </summary>
 	[EnumMember(Value = "credit card")]
@@ -124,12 +118,6 @@ public enum AccountSubtype
 	/// </summary>
 	[EnumMember(Value = "home equity loan")]
 	HomeEquityLoan,
-
-	/// <summary>
-	/// <para>Installment loan</para>
-	/// </summary>
-	[EnumMember(Value = "installment")]
-	Installment,
 
 	/// <summary>
 	/// <para>Pre-approved line of credit</para>

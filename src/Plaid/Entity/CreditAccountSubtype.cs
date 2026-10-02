@@ -6,12 +6,6 @@ namespace Going.Plaid.Entity;
 public enum CreditAccountSubtype
 {
 	/// <summary>
-	/// <para>Bank-issued charge card</para>
-	/// </summary>
-	[EnumMember(Value = "charge card")]
-	ChargeCard,
-
-	/// <summary>
 	/// <para>Bank-issued credit card</para>
 	/// </summary>
 	[EnumMember(Value = "credit card")]

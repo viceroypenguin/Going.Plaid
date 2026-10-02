@@ -1,21 +1,21 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The delivery method to be used to deliver the Hosted Link session URL.</para>
+/// <para>The kind of feedback rows the file contains.</para>
 /// </summary>
-public enum LinkDeliveryDeliveryMethod
+public enum CashAdvanceFeedbackType
 {
 	/// <summary>
-	/// <para>The URL will be delivered through SMS</para>
+	/// 
 	/// </summary>
-	[EnumMember(Value = "SMS")]
-	Sms,
+	[EnumMember(Value = "DECISION")]
+	Decision,
 
 	/// <summary>
-	/// <para>The URL will be delivered through email</para>
+	/// 
 	/// </summary>
-	[EnumMember(Value = "EMAIL")]
-	Email,
+	[EnumMember(Value = "REPAYMENT")]
+	Repayment,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

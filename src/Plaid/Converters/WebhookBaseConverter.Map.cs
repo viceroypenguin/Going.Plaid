@@ -81,6 +81,7 @@ public partial class WebhookBaseConverter : JsonConverter<WebhookBase>
 			[(WebhookType.CheckReport, WebhookCode.UserCheckReportReady)] = typeof(CraUserCheckReportReadyWebhook),
 			[(WebhookType.CheckReport, WebhookCode.UserCheckReportFailed)] = typeof(CraUserCheckReportFailedWebhook),
 			[(WebhookType.CraReport, WebhookCode.CraReportUpdated)] = typeof(CraReportUpdatedWebhook),
+			[(WebhookType.CraReport, WebhookCode.CraReportReady)] = typeof(CraReportReadyWebhook),
 			[(WebhookType.CraInsights, WebhookCode.PartnerInsightsComplete)] = typeof(CraPartnerInsightsCompleteWebhook),
 			[(WebhookType.CraInsights, WebhookCode.PartnerInsightsError)] = typeof(CraPartnerInsightsErrorWebhook),
 			[(WebhookType.Income, WebhookCode.IncomeVerificationRefreshReconnectNeeded)] = typeof(IncomeVerificationRefreshReconnectNeededWebhook),

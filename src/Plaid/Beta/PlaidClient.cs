@@ -3,35 +3,31 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para>The <c>/beta/webhook_events/list</c> endpoint returns webhook events Plaid sent to the calling</para>
-	/// <para>client within the last 7 days. Results are ordered by <c>sent_time</c> ascending and cursor</para>
-	/// <para>paginated so clients can recover missed webhook deliveries and deduplicate on</para>
-	/// <para><c>webhook_message_id</c>.</para>
-	/// <para>Filtering is optional. When multiple filter fields are set (<c>webhook_types</c>,</para>
-	/// <para><c>webhook_codes</c>, <c>item_ids</c>, <c>delivery_statuses</c>), they are combined with AND across fields</para>
-	/// <para>and OR within each array (for example, <c>webhook_types: ["ITEM", "AUTH"]</c> matches</para>
-	/// <para>either type).</para>
-	/// <para>Recommended pagination workflow:</para>
-	/// <para>1. First call: omit <c>cursor</c>, and optionally set <c>start_time</c> within the last 7 days (or</para>
-	/// <para>   omit <c>start_time</c> to begin at the oldest retained event).</para>
-	/// <para>2. Subsequent calls: pass <c>next_cursor</c> as <c>cursor</c>. Do not send <c>start_time</c> with</para>
-	/// <para>   <c>cursor</c> — the two fields are mutually exclusive. Sending both returns <c>INVALID_FIELD</c>.</para>
-	/// <para>3. Persist <c>next_cursor</c> even when <c>has_more</c> is <c>false</c>, then reuse it on the next poll so</para>
-	/// <para>   you only receive events newer than what you have already seen.</para>
-	/// <para>4. If a stored cursor is older than the 7-day retention window, the API returns</para>
-	/// <para>   <c>WEBHOOK_EVENTS_CURSOR_EXPIRED</c>; restart with a <c>start_time</c> within the last 7 days.</para>
-	/// <para>   Events older than the retention window are no longer available.</para>
-	/// <para>Errors:</para>
-	/// <para><c>WEBHOOK_EVENTS_START_TIME_OUT_OF_RANGE</c> (400) is returned when <c>start_time</c> is earlier</para>
-	/// <para>than the 7-day retention window. Retry with a <c>start_time</c> within the last 7 days, or omit</para>
-	/// <para>it.</para>
-	/// <para><c>WEBHOOK_EVENTS_CURSOR_EXPIRED</c> (400) is returned when the cursor's position is older than</para>
-	/// <para>the 7-day retention window and can no longer be resolved. Restart pagination with a</para>
-	/// <para><c>start_time</c> within the last 7 days.</para>
-	/// <para><c>INVALID_FIELD</c> (400) is returned when <c>cursor</c> is not a properly formatted string, when</para>
-	/// <para>both <c>cursor</c> and <c>start_time</c> are provided, or when the request is otherwise invalid.</para>
+	/// <para><c>/beta/webhook_events/list</c> returns webhook events for your account from the last 7</para>
+	/// <para>days, regardless of delivery outcome. Results are ordered by <c>sent_time</c>, oldest</para>
+	/// <para>first, and paginated with a cursor so you can recover deliveries your endpoint</para>
+	/// <para>missed. Each event includes a <c>webhook_message_id</c> that stays the same if that</para>
+	/// <para>event shows up again on a later poll, so you can skip events you have already</para>
+	/// <para>handled.</para>
+	/// <para><c>TRANSACTIONS</c> webhooks are not returned. Use</para>
+	/// <para><a href="https://plaid.com/docs/api/products/transactions/#transactionssync"><c>/transactions/sync</c></a></para>
+	/// <para>to recover transaction updates.</para>
+	/// <para>Filtering is optional. For <c>webhook_types</c>, <c>webhook_codes</c>, <c>item_ids</c>, and</para>
+	/// <para><c>delivery_statuses</c>, values within a field match with OR; different fields combine</para>
+	/// <para>with AND. For example, <c>webhook_types: ["ITEM", "AUTH"]</c> matches events of either</para>
+	/// <para>type.</para>
+	/// <para>To page through events:</para>
+	/// <para>- On the first request, omit <c>cursor</c>. You can set <c>start_time</c> to a time within the last 7 days, or omit <c>start_time</c> to start at the oldest retained event.</para>
+	/// <para>- On later requests, send the previous response's <c>next_cursor</c> as <c>cursor</c>. If you also send <c>start_time</c>, it is ignored; <c>cursor</c> takes precedence, even when <c>start_time</c> has changed.</para>
+	/// <para>- Save <c>next_cursor</c> even when <c>has_more</c> is <c>false</c>, and send that cursor on the next poll so you only receive events newer than the ones you have already seen.</para>
+	/// <para>A request fails with 400 in these cases:</para>
+	/// <para>- <c>WEBHOOK_EVENTS_START_TIME_OUT_OF_RANGE</c> (<c>INVALID_INPUT</c>) is returned when <c>cursor</c> is omitted and <c>start_time</c> is earlier than the 7-day retention window. Retry with a <c>start_time</c> within the last 7 days, or omit <c>start_time</c>.</para>
+	/// <para>- <c>WEBHOOK_EVENTS_CURSOR_EXPIRED</c> (<c>INVALID_INPUT</c>) is returned when the cursor is older than the 7-day retention window and can no longer be resolved. Start again with a <c>start_time</c> within the last 7 days. Events older than that window are no longer available.</para>
+	/// <para>- <c>INVALID_FIELD</c> (<c>INVALID_REQUEST</c>) is returned when <c>cursor</c> is not a properly formatted string, or when the request is otherwise invalid.</para>
+	/// <para>This endpoint is in beta and may change in backwards-incompatible ways before it</para>
+	/// <para>is generally available. Send feedback or bug reports to building@plaid.com.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docsnone" /></remarks>
+	/// <remarks><see href="https://plaid.com/docs/api/webhooks/webhook-events/#betawebhook_eventslist" /></remarks>
 	public Task<Beta.BetaWebhookEventsListResponse> BetaWebhookEventsListAsync(Beta.BetaWebhookEventsListRequest request) =>
 		PostAsync("/beta/webhook_events/list", request)
 			.ParseResponseAsync<Beta.BetaWebhookEventsListResponse>();

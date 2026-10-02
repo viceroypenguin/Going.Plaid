@@ -18,6 +18,12 @@ public record ProtectEventGetResponse : ResponseBase
 	public DateTimeOffset Timestamp { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The external event type, when one is available.</para>
+	/// </summary>
+	[JsonPropertyName("event_type")]
+	public string? EventType { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Represents a calculated Trust Index Score.</para>
 	/// </summary>
 	[JsonPropertyName("trust_index")]

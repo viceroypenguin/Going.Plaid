@@ -4,8 +4,8 @@ public sealed partial class PlaidClient
 {
 	/// <summary>
 	/// <para>Use the <c>/sandbox/transactions/create</c> endpoint to create new transactions for an existing Item. This endpoint can be used to add up to 10 transactions to any Item at a time.</para>
-	/// <para>This endpoint can only be used with Items that were created in the Sandbox environment using the <c>user_transactions_dynamic</c> test user. You can use this to add transactions to test the <c>/transactions/get</c> and <c>/transactions/sync</c> endpoints.</para>
-	/// <para>Custom transactions are only applied to the depository account. Support for per-account targeting may be added in the future.</para>
+	/// <para>This endpoint can be used with any Item created in the Sandbox environment. Added transactions persist across subsequent calls to <c>/transactions/get</c> and <c>/transactions/sync</c>.</para>
+	/// <para>Each transaction is added to the account named by its <c>account_id</c>. When <c>account_id</c> is omitted, the transaction is added to the Item's checking account, or, for a custom Sandbox user, to the first depository account listed in its <c>override_accounts</c>, or its first account if it has no depository account.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransactionscreate" /></remarks>
 	public Task<Sandbox.SandboxTransactionsCreateResponse> SandboxTransactionsCreateAsync(Sandbox.SandboxTransactionsCreateRequest request) =>

@@ -6,7 +6,7 @@ namespace Going.Plaid.Beta;
 public record BetaWebhookEventsListResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>Webhook events sent to the calling client.</para>
+	/// <para>Webhook events for your account.</para>
 	/// </summary>
 	[JsonPropertyName("webhook_events")]
 	public IReadOnlyList<Entity.WebhookEvent> WebhookEvents { get; init; } = default!;

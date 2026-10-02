@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum WebhookEventDeliveryStatus
 {
 	/// <summary>
-	/// <para>Plaid has not yet received a successful response and may still retry.</para>
+	/// <para>Plaid has not recorded a successful response and may still retry.</para>
 	/// </summary>
 	[EnumMember(Value = "PENDING")]
 	Pending,

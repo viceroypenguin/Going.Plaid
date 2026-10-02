@@ -18,7 +18,7 @@ public record LatestScoredEvent
 	public DateTimeOffset Timestamp { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of event.</para>
+	/// <para>The external event type, when one is available.</para>
 	/// </summary>
 	[JsonPropertyName("event_type")]
 	public string? EventType { get; init; } = default!;

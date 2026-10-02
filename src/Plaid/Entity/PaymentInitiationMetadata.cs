@@ -42,4 +42,10 @@ public record PaymentInitiationMetadata
 	[JsonPropertyName("supports_payment_consents")]
 	public bool SupportsPaymentConsents { get; init; } = default!;
 
+	/// <summary>
+	/// <para>Indicates whether the institution supports commercial variable recurring payment (cVRP) consents.</para>
+	/// </summary>
+	[JsonPropertyName("supports_commercial_payment_consents")]
+	public bool SupportsCommercialPaymentConsents { get; init; } = default!;
+
 }

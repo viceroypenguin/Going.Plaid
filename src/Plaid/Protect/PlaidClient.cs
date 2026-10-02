@@ -36,6 +36,14 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Protect.ProtectCashAdvanceRepaymentCreateResponse>();
 
 	/// <summary>
+	/// <para>Upload a CSV file of cash advance decision or repayment feedback. Each row is equivalent to one call to <c>/protect/cash_advance/decision/create</c> or <c>/protect/cash_advance/repayment/create</c>. Send the request as <c>multipart/form-data</c> with <c>client_id</c> and <c>secret</c> in the <c>PLAID-CLIENT-ID</c> and <c>PLAID-SECRET</c> headers. The file is accepted for asynchronous processing; the response contains a <c>request_id</c> and an <c>upload_id</c> that identifies the upload.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/protect/#protectcashadvancefeedbackupload" /></remarks>
+	public Task<Protect.ProtectCashAdvanceFeedbackUploadResponse> ProtectCashAdvanceFeedbackUploadAsync(Protect.ProtectCashAdvanceFeedbackUploadRequest request) =>
+		PostAsync("/protect/cash_advance/feedback/upload", request)
+			.ParseResponseAsync<Protect.ProtectCashAdvanceFeedbackUploadResponse>();
+
+	/// <summary>
 	/// <para>Compute a Protect Trust Index score for a user. The model selected determines what is scored and what additional fields the response contains. For example, <c>ti-link-session-3-&lt;client&gt;</c> scores a completed Link session for fraud risk; <c>cash-advance-onboarding-&lt;client&gt;-1.0</c> scores repayment risk for a first-time cash advance and <c>cash-advance-ongoing-&lt;client&gt;-1.0</c> scores subsequent advances, both additionally populating per-amount-bucket subscores. Cash-advance models require that the user have a Plaid Item with Transactions enabled, or an Assets Report, before scoring.</para>
 	/// <para>The endpoint returns HTTP 400 with <c>error_type</c> = <c>INVALID_REQUEST</c> and <c>error_code</c> = <c>FAILED_PRECONDITION</c> when a required precondition is not met: for link-session models, when the Link session has not completed; for cash-advance models, when the user has not successfully linked any Item.</para>
 	/// </summary>

@@ -160,4 +160,10 @@ public partial class TransferAuthorizationCreateRequest : RequestBase
 	[JsonPropertyName("custom_attributes")]
 	public IReadOnlyDictionary<string, string>? CustomAttributes { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Typed attributes of the end user that Plaid models directly in transfer authorization decisioning. Use <c>custom_attributes</c> for any other risk-relevant context.</para>
+	/// </summary>
+	[JsonPropertyName("user_attributes")]
+	public Entity.TransferAuthorizationUserAttributes? UserAttributes { get; set; } = default!;
+
 }

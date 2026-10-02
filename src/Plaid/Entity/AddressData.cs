@@ -23,7 +23,7 @@ public class AddressData
 	/// <para>Example: <c>"564 Main Street, APT 15"</c></para>
 	/// </summary>
 	[JsonPropertyName("street")]
-	public string Street { get; set; } = default!;
+	public string? Street { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The postal code. In API versions 2018-05-22 and earlier, this field is called <c>zip</c>.</para>

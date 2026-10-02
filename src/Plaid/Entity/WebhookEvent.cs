@@ -1,12 +1,12 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A webhook event Plaid sent to the calling client.</para>
+/// <para>A webhook event for your account.</para>
 /// </summary>
 public record WebhookEvent
 {
 	/// <summary>
-	/// <para>Stable, opaque, per-webhook ID for deduplication and support reference.</para>
+	/// <para>Stable, opaque ID for this webhook event. The same value is returned if the event appears again on a later poll. Quote it when contacting support.</para>
 	/// </summary>
 	[JsonPropertyName("webhook_message_id")]
 	public string WebhookMessageId { get; init; } = default!;

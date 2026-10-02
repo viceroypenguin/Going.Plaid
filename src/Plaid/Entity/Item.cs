@@ -77,4 +77,10 @@ public record Item
 	[JsonPropertyName("update_type")]
 	public Entity.ItemUpdateTypeEnum UpdateType { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The <c>item_id</c> of the Item that was created alongside this one in a single Link session. Only present for Items created in a hybrid Link flow that produces separate Plaid Inc and Plaid Check items; <c>null</c> for every other Item.</para>
+	/// </summary>
+	[JsonPropertyName("paired_item_id")]
+	public string? PairedItemId { get; init; } = default!;
+
 }

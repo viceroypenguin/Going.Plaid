@@ -119,7 +119,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// Additional request headers used for all API calls.
 	/// </summary>
-	public Dictionary<string, string>? AdditionalHeaders { get; } = [];
+	public Dictionary<string, string>? AdditionalHeaders { get; } = [with(StringComparer.OrdinalIgnoreCase)];
 
 	private ResponseParser PostAsync<TRequest>(string path, TRequest request) where TRequest : RequestBase
 	{

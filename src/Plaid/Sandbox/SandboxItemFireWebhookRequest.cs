@@ -17,4 +17,10 @@ public partial class SandboxItemFireWebhookRequest : RequestBase
 	[JsonPropertyName("webhook_code")]
 	public Entity.SandboxItemFireWebhookRequestWebhookCodeEnum WebhookCode { get; set; } = default!;
 
+	/// <summary>
+	/// <para>Values to set on the fired webhook's payload. Each field is named after the webhook field it sets. If specified, must not be <c>null</c>.</para>
+	/// </summary>
+	[JsonPropertyName("options")]
+	public Entity.SandboxItemFireWebhookRequestOptions? Options { get; set; } = default!;
+
 }

@@ -80,12 +80,6 @@ public enum InvestmentTransactionSubtype
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "fund fee")]
-	FundFee,
-
-	/// <summary>
-	/// 
-	/// </summary>
 	[EnumMember(Value = "interest")]
 	Interest,
 
@@ -106,12 +100,6 @@ public enum InvestmentTransactionSubtype
 	/// </summary>
 	[EnumMember(Value = "legal fee")]
 	LegalFee,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "loan payment")]
-	LoanPayment,
 
 	/// <summary>
 	/// 
@@ -178,12 +166,6 @@ public enum InvestmentTransactionSubtype
 	/// </summary>
 	[EnumMember(Value = "qualified dividend")]
 	QualifiedDividend,
-
-	/// <summary>
-	/// 
-	/// </summary>
-	[EnumMember(Value = "rebalance")]
-	Rebalance,
 
 	/// <summary>
 	/// 

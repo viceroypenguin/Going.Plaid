@@ -78,6 +78,12 @@ public record ItemWithConsentFields
 	public Entity.ItemWithConsentFieldsUpdateTypeEnum? UpdateType { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The <c>item_id</c> of the Item that was created alongside this one in a single Link session. Only present for Items created in a hybrid Link flow that produces separate Plaid Inc and Plaid Check items; <c>null</c> for every other Item.</para>
+	/// </summary>
+	[JsonPropertyName("paired_item_id")]
+	public string? PairedItemId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>The date and time when the Item was created, in <a href="https://wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</para>
 	/// </summary>
 	[JsonPropertyName("created_at")]
