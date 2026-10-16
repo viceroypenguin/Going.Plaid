@@ -12,7 +12,7 @@ public partial class TransferReturnRecoverRequest : RequestBase
 	public string TransferId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The amount being recovered (decimal string with two digits of precision e.g. "10.00"). The sum of recovered amounts across calls cannot exceed the original transfer's amount.</para>
+	/// <para>The amount being recovered (decimal string with two digits of precision e.g. "10.00"). The sum of recovered amounts across calls cannot exceed the guaranteed amount of the original transfer.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string Amount { get; set; } = default!;

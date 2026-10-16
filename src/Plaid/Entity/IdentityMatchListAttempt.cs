@@ -12,10 +12,10 @@ public record IdentityMatchListAttempt
 	public string AttemptId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The <c>item_id</c> of the Item associated with this webhook, warning, or error</para>
+	/// <para>Item ID associated with the attempt. Null if the ID is unavailable.</para>
 	/// </summary>
 	[JsonPropertyName("item_id")]
-	public string ItemId { get; init; } = default!;
+	public string? ItemId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Time at which the attempt was created.</para>
@@ -42,13 +42,13 @@ public record IdentityMatchListAttempt
 	public int RulesetRevision { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Link outcome for the Identity Match attempt.</para>
+	/// <para>The Identity Match decision for the attempt.</para>
 	/// </summary>
 	[JsonPropertyName("outcome")]
 	public Entity.IdentityMatchListOutcome Outcome { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Account ID associated with a <c>PASS</c> outcome. Null for <c>FAIL</c> or <c>UNKNOWN</c> outcomes.</para>
+	/// <para>Account ID associated with a <c>PASS</c> outcome. Null for <c>FAIL</c> or <c>UNKNOWN</c> outcomes, or if the ID is unavailable.</para>
 	/// </summary>
 	[JsonPropertyName("outcome_account_id")]
 	public string? OutcomeAccountId { get; init; } = default!;

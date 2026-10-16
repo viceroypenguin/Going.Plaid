@@ -18,10 +18,16 @@ public enum WalletStatus
 	Active,
 
 	/// <summary>
-	/// <para>The wallet is closed. Any transactions made to or from this wallet will error.</para>
+	/// <para>The wallet is closed. Transactions to or from this wallet will fail.</para>
 	/// </summary>
 	[EnumMember(Value = "CLOSED")]
 	Closed,
+
+	/// <summary>
+	/// <para>The wallet is blocked by the payment provider. Transactions to or from this wallet will fail.</para>
+	/// </summary>
+	[EnumMember(Value = "BLOCKED")]
+	Blocked,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

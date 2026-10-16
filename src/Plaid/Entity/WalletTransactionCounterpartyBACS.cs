@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The account number and sort code of the counterparty's account</para>
+/// <para>The account number and sort code of the counterparty's account. The account number must be exactly 8 characters.</para>
 /// </summary>
 public class WalletTransactionCounterpartyBACS
 {

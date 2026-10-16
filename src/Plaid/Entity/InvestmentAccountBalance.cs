@@ -51,7 +51,7 @@ public record InvestmentAccountBalance
 
 	/// <summary>
 	/// <para>Timestamp in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format (<c>YYYY-MM-DDTHH:mm:ssZ</c>) indicating the last time the balance was updated.</para>
-	/// <para>This field is returned only when the institution is <c>ins_128026</c> (Capital One).</para>
+	/// <para>This field is returned only when the institution is <c>ins_128026</c> (Capital One) or <c>ins_136439</c> (Apple Card).</para>
 	/// </summary>
 	[JsonPropertyName("last_updated_datetime")]
 	public DateTimeOffset? LastUpdatedDatetime { get; init; } = default!;

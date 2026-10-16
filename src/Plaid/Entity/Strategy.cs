@@ -18,7 +18,7 @@ public enum Strategy
 	Incomplete,
 
 	/// <summary>
-	/// <para>If the most recent Identity Verification attempt associated with the given <c>client_user_id</c> has a status of <c>failed</c> or <c>expired</c>, retry using the <c>incomplete</c> strategy. Otherwise, use the <c>reset</c> strategy.</para>
+	/// <para>If the most recent Identity Verification attempt associated with the given <c>client_user_id</c> has a status of <c>failed</c>, <c>expired</c>, or <c>canceled</c>, retry using the <c>incomplete</c> strategy, unless that attempt was created as part of a bulk import, its <c>watchlist_screening</c> step is <c>failed</c>, <c>expired</c>, or <c>canceled</c>, or its <c>risk_check</c> step is <c>failed</c>, <c>expired</c>, <c>canceled</c>, or <c>manually_rejected</c>. Otherwise, use the <c>reset</c> strategy.</para>
 	/// </summary>
 	[EnumMember(Value = "infer")]
 	Infer,

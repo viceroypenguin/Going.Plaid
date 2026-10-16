@@ -11,4 +11,10 @@ public class LinkTokenCreateInstitutionData
 	[JsonPropertyName("routing_number")]
 	public string? RoutingNumber { get; set; } = default!;
 
+	/// <summary>
+	/// <para>The Plaid institution ID of the institution to highlight in Link, such as <c>ins_56</c>. Takes precedence over <c>routing_number</c>; will fall back to <c>routing_number</c> (if provided) if the institution ID is unknown or unavailable for this Link session. This feature is in closed beta, please contact your account manager for more info.</para>
+	/// </summary>
+	[JsonPropertyName("institution_id")]
+	public string? InstitutionId { get; set; } = default!;
+
 }

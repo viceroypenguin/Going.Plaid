@@ -6,7 +6,7 @@ namespace Going.Plaid.Auth;
 public record AuthGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>The <c>accounts</c> for which numbers are being retrieved.</para>
+	/// <para>The Item's accounts, or the accounts specified in <c>options.account_ids</c>. Accounts that don't support Auth, such as credit, loan, or investment accounts, are included but have no entry in <c>numbers</c>.</para>
 	/// </summary>
 	[JsonPropertyName("accounts")]
 	public IReadOnlyList<Entity.Account> Accounts { get; init; } = default!;

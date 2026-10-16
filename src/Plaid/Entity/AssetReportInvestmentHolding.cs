@@ -42,16 +42,22 @@ public record AssetReportInvestmentHolding
 	public decimal InstitutionValue { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The original total value of the holding. This field is calculated by Plaid as the sum of the purchase price of all of the shares in the holding.</para>
-	/// </summary>
-	[JsonPropertyName("cost_basis")]
-	public decimal? CostBasis { get; init; } = default!;
-
-	/// <summary>
 	/// <para>The total quantity of the asset held, as reported by the financial institution. If the security is an option, <c>quantity</c> will reflect the total number of options (typically the number of contracts multiplied by 100), not the number of contracts.</para>
 	/// </summary>
 	[JsonPropertyName("quantity")]
 	public decimal Quantity { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The total quantity of vested assets held, as reported by the financial institution. Vested assets are only associated with <a href="https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-securities-type">equities</a>.</para>
+	/// </summary>
+	[JsonPropertyName("vested_quantity")]
+	public decimal? VestedQuantity { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The value of the vested holdings as reported by the institution.</para>
+	/// </summary>
+	[JsonPropertyName("vested_value")]
+	public decimal? VestedValue { get; init; } = default!;
 
 	/// <summary>
 	/// <para>The ISO-4217 currency code of the holding. Always <c>null</c> if <c>unofficial_currency_code</c> is non-<c>null</c>.</para>

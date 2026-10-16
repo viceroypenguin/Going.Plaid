@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// 
+/// <para>Required when <c>webhook_code</c> is <c>INCOME_VERIFICATION</c> or <c>USER_INCOME_VERIFICATION</c>.</para>
 /// </summary>
 public enum SandboxIncomeFireWebhookRequestVerificationStatusEnum
 {
@@ -18,10 +18,10 @@ public enum SandboxIncomeFireWebhookRequestVerificationStatusEnum
 	VerificationStatusProcessingFailed,
 
 	/// <summary>
-	/// <para>(deprecated) The income verification has been sent to the user for review.</para>
+	/// <para>The documentation was rejected.</para>
 	/// </summary>
-	[EnumMember(Value = "VERIFICATION_STATUS_PENDING_APPROVAL")]
-	VerificationStatusPendingApproval,
+	[EnumMember(Value = "VERIFICATION_STATUS_DOCUMENT_REJECTED")]
+	VerificationStatusDocumentRejected,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

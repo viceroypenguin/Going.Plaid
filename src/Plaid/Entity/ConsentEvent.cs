@@ -30,13 +30,13 @@ public record ConsentEvent
 	public Entity.ConsentEventCode? EventCode { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Unique identifier for the institution associated with the Item. Field is <c>null</c> for Items created via Same-Day Micro-deposits.</para>
+	/// <para>Unique identifier for the institution associated with the Item.</para>
 	/// </summary>
 	[JsonPropertyName("institution_id")]
 	public string? InstitutionId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The full name of the institution associated with the Item. Field is <c>null</c> for Items created via Same-Day Micro-deposits.</para>
+	/// <para>The full name of the institution associated with the Item.</para>
 	/// </summary>
 	[JsonPropertyName("institution_name")]
 	public string? InstitutionName { get; init; } = default!;
@@ -55,7 +55,7 @@ public record ConsentEvent
 	public IReadOnlyList<string>? ConsentedUseCases { get; init; } = default!;
 
 	/// <summary>
-	/// <para>A list of strings containing the full list of data scopes the end user has consented to for the Item. These correspond to consented products; see the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide/#data-scopes-by-product">full mapping</a> of data scopes and products.</para>
+	/// <para>A list of strings containing the full list of data scopes the end user has consented to for the Item. Each value is the data scope's display name, as shown to the end user in Link (for example, <c>account and balance info</c>, <c>contact details</c>, or <c>transactions</c>); these differ from the values returned in <c>consented_data_scopes</c> by <c>/item/get</c>. The scopes correspond to consented products; see the <a href="https://plaid.com/docs/link/data-transparency-messaging-migration-guide/#data-scopes-by-product">full mapping</a> of data scopes and products.</para>
 	/// </summary>
 	[JsonPropertyName("consented_data_scopes")]
 	public IReadOnlyList<string>? ConsentedDataScopes { get; init; } = default!;

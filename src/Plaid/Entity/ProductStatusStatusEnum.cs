@@ -6,19 +6,19 @@ namespace Going.Plaid.Entity;
 public enum ProductStatusStatusEnum
 {
 	/// <summary>
-	/// <para>the majority of requests are successful</para>
+	/// <para>nearly all requests are successful</para>
 	/// </summary>
 	[EnumMember(Value = "HEALTHY")]
 	Healthy,
 
 	/// <summary>
-	/// <para>only some requests are successful</para>
+	/// <para>a meaningful share of requests are failing, or data refreshes are delayed</para>
 	/// </summary>
 	[EnumMember(Value = "DEGRADED")]
 	Degraded,
 
 	/// <summary>
-	/// <para>all requests are failing</para>
+	/// <para>nearly all requests are failing, or data refreshes have stopped</para>
 	/// </summary>
 	[EnumMember(Value = "DOWN")]
 	Down,

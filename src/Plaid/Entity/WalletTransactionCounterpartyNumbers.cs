@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public class WalletTransactionCounterpartyNumbers
 {
 	/// <summary>
-	/// <para>The account number and sort code of the counterparty's account</para>
+	/// <para>The account number and sort code of the counterparty's account. The account number must be exactly 8 characters.</para>
 	/// </summary>
 	[JsonPropertyName("bacs")]
 	public Entity.WalletTransactionCounterpartyBACS? Bacs { get; set; } = default!;

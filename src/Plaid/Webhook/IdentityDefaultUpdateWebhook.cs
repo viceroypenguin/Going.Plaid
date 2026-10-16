@@ -21,7 +21,7 @@ public record IdentityDefaultUpdateWebhook : WebhookBase
 
 	/// <summary>
 	/// <para>An object with keys of <c>account_id</c>'s that are mapped to their respective identity attributes that changed.</para>
-	/// <para>Example: <c>{ "XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58": ["PHONES"] }</c></para>
+	/// <para>Example: <c>{ "XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58": ["phone_numbers"] }</c></para>
 	/// </summary>
 	[JsonPropertyName("account_ids_with_updated_identity")]
 	public IReadOnlyDictionary<string, IReadOnlyList<Entity.IdentityUpdateTypes>> AccountIdsWithUpdatedIdentity { get; init; } = default!;

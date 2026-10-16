@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when generation finishes for a CRA report requested via <c>/cra/report/create</c> or a Link session configured with <c>cra_report_parameter</c>, whether every requested product was generated, only some were, or none were. <c>successful_products</c> and <c>failed_products</c> indicate which products were generated, and <c>error_code</c> is populated when every product failed. Call <c>/cra/report/get</c> for the generated products and for error details on failed products.</para>
+/// <para>Fired when generation finishes for a Consumer Report requested via <c>/cra/report/create</c> or a Link session configured with <c>cra_report_parameter</c>, whether every requested product was generated, only some were, or none were. <c>successful_products</c> and <c>failed_products</c> indicate which products were generated, and <c>error_code</c> is populated when every product failed. Call <c>/cra/report/get</c> for the generated products and for error details on failed products.</para>
 /// </summary>
 public record CraReportReadyWebhook : WebhookBase
 {
@@ -26,7 +26,7 @@ public record CraReportReadyWebhook : WebhookBase
 	public string? ClientUserId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The identifier of the CRA report. Pass this value to <c>/cra/report/get</c> to retrieve the report.</para>
+	/// <para>The identifier of the Consumer Report. Pass this value to <c>/cra/report/get</c> to retrieve the report.</para>
 	/// </summary>
 	[JsonPropertyName("report_id")]
 	public string? ReportId { get; init; } = default!;
@@ -62,7 +62,7 @@ public record CraReportReadyWebhook : WebhookBase
 	public DateTimeOffset? GeneratedTime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The reason every product in a CRA report failed to generate. <c>null</c> when at least one product succeeded.</para>
+	/// <para>The reason every product in a Consumer Report failed to generate. <c>null</c> when at least one product succeeded.</para>
 	/// </summary>
 	[JsonPropertyName("error_code")]
 	public Entity.CraReportErrorCode? ErrorCode { get; init; } = default!;

@@ -175,7 +175,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraServicingSubscriptionUpdateResponse>();
 
 	/// <summary>
-	/// <para><c>/cra/report/create</c> generates a CRA Report for a user from the Items associated with that user.</para>
+	/// <para><c>/cra/report/create</c> generates a Consumer Report for a user. With <c>scope</c> set to <c>PLAID_NETWORK</c>, the report is generated from the Plaid Network view of the user's profile. With <c>CLIENT_USER</c>, the report is generated from only the Items the user linked to your client.</para>
 	/// <para>Each requested product is generated asynchronously. Use the returned <c>report_id</c> to retrieve the report once its products are ready.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#crareportcreate" /></remarks>
@@ -184,7 +184,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Cra.CraReportCreateResponse>();
 
 	/// <summary>
-	/// <para><c>/cra/report/get</c> retrieves a CRA Report for a user.</para>
+	/// <para><c>/cra/report/get</c> retrieves a Consumer Report for a user.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/check/#crareportget" /></remarks>
 	public Task<Cra.CraReportGetResponse> CraReportGetAsync(Cra.CraReportGetRequest request) =>

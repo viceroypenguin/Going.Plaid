@@ -6,16 +6,16 @@ namespace Going.Plaid.Entity;
 public class LinkTokenCreateRequestCraReportParameter
 {
 	/// <summary>
-	/// <para>Determines whose items are used. <c>PLAID_NETWORK</c> (default) uses the Plaid Network view of the user's profile. <c>CLIENT_USER</c> uses only the items linked by this client.</para>
+	/// <para>Determines whose Items are used to generate the report. Only <c>CLIENT_USER</c> is supported on <c>/link/token/create</c>; the report is generated from the Items the user links through your application. To generate a report from the user's Plaid Network profile, use <c>/cra/report/create</c> or <c>/cra/report/get</c> with a <c>scope</c> of <c>PLAID_NETWORK</c>.</para>
 	/// </summary>
 	[JsonPropertyName("scope")]
-	public Entity.CraReportScope? Scope { get; set; } = default!;
+	public Entity.CraReportScope Scope { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The stage in the lending lifecycle that the report is for.</para>
+	/// 
 	/// </summary>
 	[JsonPropertyName("decision_stage")]
-	public Entity.CraReportDecisionStage? DecisionStage { get; set; } = default!;
+	public Entity.CraReportDecisionStage DecisionStage { get; set; } = default!;
 
 	/// <summary>
 	/// <para>Client-generated identifier, which can be used by lenders to track loan applications.</para>
@@ -24,7 +24,7 @@ public class LinkTokenCreateRequestCraReportParameter
 	public string? ClientReportId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The number of days of history to include in Plaid Check products. Maximum is 731; minimum is 180. If a value lower than 180 is provided, a minimum of 180 days of history will be requested.</para>
+	/// <para>The number of days of history to include in Plaid Check products. Maximum is 731. If a value lower than 180 is provided, a minimum of 180 days of history will be requested.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int? DaysRequested { get; set; } = default!;
@@ -40,6 +40,12 @@ public class LinkTokenCreateRequestCraReportParameter
 	/// </summary>
 	[JsonPropertyName("include_investments")]
 	public bool? IncludeInvestments { get; set; } = default!;
+
+	/// <summary>
+	/// <para>Indicates that identity match results should be included for all products in the report that contain identity information. Defaults to <c>false</c>.</para>
+	/// </summary>
+	[JsonPropertyName("include_identity_match")]
+	public bool? IncludeIdentityMatch { get; set; } = default!;
 
 	/// <summary>
 	/// <para>The Plaid Check products, versions, and options to generate for the report.</para>

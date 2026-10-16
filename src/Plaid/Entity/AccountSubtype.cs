@@ -90,7 +90,7 @@ public enum AccountSubtype
 	Commercial,
 
 	/// <summary>
-	/// <para>Commercial line of credit</para>
+	/// <para>Commercial line of credit. This subtype is normalized to <c>line of credit</c> in plaid-go versions earlier than 10.1.0, plaid-java versions earlier than 44.0.0, plaid-python versions earlier than 8.3.0, and plaid-ruby versions earlier than 14.4.0.</para>
 	/// </summary>
 	[EnumMember(Value = "commercial line of credit")]
 	CommercialLineOfCredit,
@@ -114,7 +114,7 @@ public enum AccountSubtype
 	HomeEquity,
 
 	/// <summary>
-	/// <para>Home equity loan</para>
+	/// <para>Home equity loan. This subtype is normalized to <c>loan</c> in plaid-go versions earlier than 10.1.0, plaid-java versions earlier than 44.0.0, plaid-python versions earlier than 8.3.0, and plaid-ruby versions earlier than 14.4.0.</para>
 	/// </summary>
 	[EnumMember(Value = "home equity loan")]
 	HomeEquityLoan,

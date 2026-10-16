@@ -42,7 +42,13 @@ public record CraCreditProfileReportMetadata
 	public int CreditAccountTypeCount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of other accounts in the report.</para>
+	/// <para>The number of investment accounts in the report.</para>
+	/// </summary>
+	[JsonPropertyName("investment_account_type_count")]
+	public int InvestmentAccountTypeCount { get; init; } = default!;
+
+	/// <summary>
+	/// <para>The number of accounts that are neither depository, credit, nor investment.</para>
 	/// </summary>
 	[JsonPropertyName("other_account_type_count")]
 	public int OtherAccountTypeCount { get; init; } = default!;

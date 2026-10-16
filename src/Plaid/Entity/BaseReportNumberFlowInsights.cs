@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The number of credits or debits out of the account. This field will only be included for depository accounts.</para>
+/// <para>The number of inflow or outflow transactions on the account in one calendar month. This field will only be included for depository accounts.</para>
 /// </summary>
 public record BaseReportNumberFlowInsights
 {

@@ -24,7 +24,7 @@ public partial class SandboxIncomeFireWebhookRequest : RequestBase
 	public string Webhook { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Required when <c>webhook_code</c> is <c>INCOME_VERIFICATION</c> or <c>USER_INCOME_VERIFICATION</c>.</para>
 	/// </summary>
 	[JsonPropertyName("verification_status")]
 	public Entity.SandboxIncomeFireWebhookRequestVerificationStatusEnum? VerificationStatus { get; set; } = default!;

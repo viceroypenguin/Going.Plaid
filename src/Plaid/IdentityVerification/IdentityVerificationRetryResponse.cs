@@ -66,7 +66,7 @@ public record IdentityVerificationRetryResponse : ResponseBase
 	/// <para><c>failed</c> - The user failed this step. This can either cause the user to fail the session as a whole, or cause them to fall back to another step depending on how the Identity Verification template is configured. A failed step does not imply a failed session.</para>
 	/// <para><c>waiting_for_prerequisite</c> - The user needs to complete another step first, before they progress to this step. This step may never run, depending on if the user fails an earlier step or if the step is only run as a fallback.</para>
 	/// <para><c>not_applicable</c> - This step will not be run for this session.</para>
-	/// <para><c>skipped</c> - The retry instructions that created this Identity Verification attempt specified that this step should be skipped.</para>
+	/// <para><c>skipped</c> - This step was skipped, for example because the retry instructions that created this Identity Verification attempt specified that it should be skipped, because your template configuration skips it, or, for <c>accept_tos</c>, because <c>gave_consent</c> was <c>true</c>.</para>
 	/// <para><c>expired</c> - This step had not yet been completed when the Identity Verification attempt as a whole expired.</para>
 	/// <para><c>canceled</c> - The Identity Verification attempt was canceled before the user completed this step.</para>
 	/// <para><c>pending_review</c> - The Identity Verification attempt template was configured to perform a screening that had one or more hits needing review.</para>
@@ -77,19 +77,19 @@ public record IdentityVerificationRetryResponse : ResponseBase
 	public Entity.IdentityVerificationStepSummary Steps { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Data, images, analysis, and results from the <c>documentary_verification</c> step. This field will be <c>null</c> unless <c>steps.documentary_verification</c> has reached a terminal state of either <c>success</c> or <c>failed</c>.</para>
+	/// <para>Data, images, analysis, and results from the <c>documentary_verification</c> step. This field will be <c>null</c> unless <c>steps.documentary_verification</c> has reached a terminal state of <c>success</c>, <c>failed</c>, <c>manually_approved</c>, or <c>manually_rejected</c>. It is also returned while the user is being asked to retry after a failed document attempt.</para>
 	/// </summary>
 	[JsonPropertyName("documentary_verification")]
 	public Entity.DocumentaryVerification? DocumentaryVerification { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Additional information for the <c>selfie_check</c> step. This field will be <c>null</c> unless <c>steps.selfie_check</c> has reached a terminal state of either <c>success</c> or <c>failed</c>.</para>
+	/// <para>Additional information for the <c>selfie_check</c> step. This field will be <c>null</c> unless <c>steps.selfie_check</c> has reached a terminal state of <c>success</c>, <c>failed</c>, <c>manually_approved</c>, or <c>manually_rejected</c>.</para>
 	/// </summary>
 	[JsonPropertyName("selfie_check")]
 	public Entity.SelfieCheck? SelfieCheck { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Additional information for the <c>kyc_check</c> (Data Source Verification) step. This field will be <c>null</c> unless <c>steps.kyc_check</c> has reached a terminal state of either <c>success</c> or <c>failed</c>.</para>
+	/// <para>Additional information for the <c>kyc_check</c> (Data Source Verification) step. This field will be <c>null</c> unless <c>steps.kyc_check</c> has reached a terminal state of <c>success</c>, <c>failed</c>, <c>manually_approved</c>, or <c>manually_rejected</c>.</para>
 	/// </summary>
 	[JsonPropertyName("kyc_check")]
 	public Entity.KYCCheckDetails? KycCheck { get; init; } = default!;

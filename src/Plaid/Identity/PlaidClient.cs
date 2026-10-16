@@ -30,7 +30,8 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Returns a chronological history of Link-originated Identity Match attempts for a client, ordered by creation time with the oldest attempt first.</para>
-	/// <para>Results are retained for up to one year. Attempts for deleted Items are omitted.</para>
+	/// <para>This endpoint requires separate enablement in addition to access to Identity Match. To request endpoint access, contact your account manager or <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access">submit a product access support ticket</a>.</para>
+	/// <para>Results are retained for up to one year. Attempts marked as deleted are omitted.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/identity/#identitymatchlist" /></remarks>
 	public Task<Identity.IdentityMatchListResponse> IdentityMatchListAsync(Identity.IdentityMatchListRequest request) =>

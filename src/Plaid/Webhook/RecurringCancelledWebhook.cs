@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a recurring transfer is cancelled by Plaid.</para>
+/// <para>Fired when a recurring transfer is cancelled, either by Plaid or via <c>/transfer/recurring/cancel</c>.</para>
 /// </summary>
 public record RecurringCancelledWebhook : WebhookBase
 {

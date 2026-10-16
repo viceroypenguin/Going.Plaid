@@ -24,7 +24,7 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public string Webhook { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The number of days of data to request for the report. Default value is 365; maximum is 731; minimum is 180. If a value lower than 180 is provided, a minimum of 180 days of history will be requested.</para>
+	/// <para>The number of days of data to request for the report. Maximum is 731; minimum is 180. If a value lower than 180 is provided, a minimum of 180 days of history will be requested.</para>
 	/// </summary>
 	[JsonPropertyName("days_requested")]
 	public int DaysRequested { get; set; } = default!;
@@ -42,7 +42,7 @@ public partial class CraCheckReportCreateRequest : RequestBase
 	public string? ClientReportId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>Specifies a list of products to generate when creating the report (in addition to the Base Report, which is always generated). These products will be made available before a success webhook is sent. Note that specifying <c>cra_partner_insights</c> in this field will trigger a billable event. Other products are not billed until the respective reports are retrieved via their product-specific <c>/get</c> endpoints.</para>
+	/// <para>Specifies a list of products to generate when creating the report (in addition to the Base Report, which is always generated except for requests for only <c>cra_network_insights</c> or for FICO-only Partner Insights). These products will be made available before a success webhook is sent. Note that specifying <c>cra_partner_insights</c> in this field will trigger a billable event. Other products are not billed until the respective reports are retrieved via their product-specific <c>/get</c> endpoints.</para>
 	/// </summary>
 	[JsonPropertyName("products")]
 	public IReadOnlyList<Entity.Products>? Products { get; set; } = default!;

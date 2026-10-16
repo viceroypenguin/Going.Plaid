@@ -60,7 +60,7 @@ public record TransferLedgerEvent
 	public string AvailableBalance { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The type of balance that was impacted by this event.</para>
+	/// <para>The type of ledger event. One of <c>transfer</c>, <c>refund</c>, <c>deposit</c>, <c>withdrawal</c>, <c>distribution</c>, or <c>manual_adjustment</c>.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public string Type { get; init; } = default!;

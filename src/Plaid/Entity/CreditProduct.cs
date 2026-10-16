@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>A product included in a CRA report, along with the version that was generated.</para>
+/// <para>A product included in a Consumer Report, along with the version that was generated.</para>
 /// </summary>
 public record CreditProduct
 {
@@ -12,7 +12,7 @@ public record CreditProduct
 	public Entity.Products Product { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The version of the product that was generated.</para>
+	/// <para>A string that specifies a particular version of a CRA product.</para>
 	/// </summary>
 	[JsonPropertyName("version")]
 	public string Version { get; init; } = default!;

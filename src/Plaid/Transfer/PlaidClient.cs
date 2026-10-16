@@ -127,7 +127,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferMetricsGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/transfer/create</c> endpoint to initiate a new transfer. This endpoint is retryable and idempotent; if a transfer with the provided <c>transfer_id</c> has already been created, it will return the transfer details without creating a new transfer. A transfer may still be created if a 500 error is returned; to detect this scenario, use <a href="https://plaid.com/docs/transfer/reconciling-transfers/">Transfer events</a>.</para>
+	/// <para>Use the <c>/transfer/create</c> endpoint to initiate a new transfer. This endpoint is retryable and idempotent; if a transfer with the provided <c>authorization_id</c> has already been created, it will return the transfer details without creating a new transfer. A transfer may still be created if a 500 error is returned; to detect this scenario, use <a href="https://plaid.com/docs/transfer/reconciling-transfers/">Transfer events</a>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/initiating-transfers/#transfercreate" /></remarks>
 	public Task<Transfer.TransferCreateResponse> TransferCreateAsync(Transfer.TransferCreateRequest request) =>
@@ -239,7 +239,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Transfer.TransferIntentGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/transfer/repayment/list</c> endpoint fetches repayments matching the given filters. Repayments are returned in reverse-chronological order (most recent first) starting at the given <c>start_time</c>.</para>
+	/// <para>The <c>/transfer/repayment/list</c> endpoint fetches repayments matching the given filters. Repayments are returned in reverse-chronological order (most recent first) starting at the given <c>start_date</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/#transferrepaymentlist" /></remarks>
 	public Task<Transfer.TransferRepaymentListResponse> TransferRepaymentListAsync(Transfer.TransferRepaymentListRequest request) =>
@@ -323,9 +323,9 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para>Use the <c>/transfer/return/recover</c> endpoint to notify Plaid that you have recovered some or all of the loss on a returned guaranteed transfer.</para>
-	/// <para>Recovery can be reported in full or in parts; the sum of recovered amounts across calls cannot exceed the original transfer's amount.</para>
+	/// <para>Recovery can be reported in full or in parts; the sum of recovered amounts across calls cannot exceed the guaranteed amount of the original transfer.</para>
 	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/products/transfer/guaranteed-ach/#transferreturnrecover" /></remarks>
+	/// <remarks><see href="https://plaid.com/docsnone" /></remarks>
 	public Task<Transfer.TransferReturnRecoverResponse> TransferReturnRecoverAsync(Transfer.TransferReturnRecoverRequest request) =>
 		PostAsync("/transfer/return/recover", request)
 			.ParseResponseAsync<Transfer.TransferReturnRecoverResponse>();

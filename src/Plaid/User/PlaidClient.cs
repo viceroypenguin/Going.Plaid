@@ -16,7 +16,7 @@ public sealed partial class PlaidClient
 
 	/// <summary>
 	/// <para><c>/user/financial_data/refresh</c> is an optional endpoint that initiates an on-demand extraction to fetch the newest transactions for a User using the Financial Insights bundle.</para>
-	/// <para>This bundle refreshes the Transactions, Investments, and Liabilities product data.</para>
+	/// <para>This bundle refreshes the Transactions and Investments product data.</para>
 	/// <para>This endpoint is for clients who use the Financial Insights bundle and want to proactively update all linked Items under a user.</para>
 	/// <para>The refresh may succeed or fail on a per-Item basis. Use the <c>results</c> array in the response to understand the outcome for each Item.</para>
 	/// <para>This endpoint is distinct from <c>/transactions/refresh</c>, which triggers a refresh for a single Item. Use <c>/user/financial_data/refresh</c> to target all Items for a user instead.</para>
@@ -74,7 +74,10 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<User.UserRemoveResponse>();
 
 	/// <summary>
-	/// <para>Terminates user-based recurring subscription bundles or products (Financial Management, Plaid Protect, and CRA Servicing) associated with a <c>user_id</c>. After you call this endpoint, the user will no longer be billed for these products. For CRA Servicing, the subscription is canceled but historical data remains available for future report requests.</para>
+	/// <para>Terminates Financial Management, Plaid Protect, and Servicing products associated with a <c>user_id</c>. Use this endpoint when offboarding a user or ending their subscriptions. Item access tokens are not required.</para>
+	/// <para>For Financial Management products, including Transactions, Liabilities, and Investments, this endpoint removes each associated Item that contains one of these products. Removal makes the Item inaccessible, initiates deletion of its product data, and terminates its per-Item subscription billing. The entire Item is removed, including access to any other products on that Item. To connect the accounts again, the user must complete Link to create a new Item.</para>
+	/// <para>If the user has at least one associated Item and every associated Item contains a Financial Management product, this endpoint also removes the associated Plaid user. The removed <c>user_id</c> can no longer be used to access the user.</para>
+	/// <para>For Plaid Protect, this endpoint terminates Protect products. For Servicing, it cancels the subscription and preserves CRA Items and historical data for future report requests.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/users/#userproductsterminate" /></remarks>
 	public Task<User.UserProductsTerminateResponse> UserProductsTerminateAsync(User.UserProductsTerminateRequest request) =>

@@ -35,8 +35,8 @@ public sealed partial class PlaidClient
 	/// <para><c>SMS_MICRODEPOSITS_VERIFICATION</c>: Fired when a given Same-Day Micro-deposit Item is verified via SMS verification.</para>
 	/// <para><c>LOGIN_REPAIRED</c>: Fired when an Item recovers from the <c>ITEM_LOGIN_REQUIRED</c> without the user going through update mode in your app.</para>
 	/// <para><c>PENDING_DISCONNECT</c>: Fired when an Item will stop working in the near future (e.g. due to a planned bank migration) and must be sent through update mode to continue working.</para>
-	/// <para><c>RECURRING_TRANSACTIONS_UPDATE</c>: Recurring Transactions webhook to be fired for a given Sandbox Item. If the Item does not support Recurring Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
-	/// <para><c>SYNC_UPDATES_AVAILABLE</c>: Transactions webhook to be fired for a given Sandbox Item.  If the Item does not support Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
+	/// <para><c>RECURRING_TRANSACTIONS_UPDATE</c>: Recurring Transactions webhook to be fired for a given Sandbox Item. If your client is not enabled for Recurring Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
+	/// <para><c>SYNC_UPDATES_AVAILABLE</c>: Transactions webhook to be fired for a given Sandbox Item.  If your client is not enabled for Transactions, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>PRODUCT_READY</c>: Assets webhook to be fired when a given asset report has been successfully generated. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>ERROR</c>: Assets webhook to be fired when asset report generation has failed. If the Item does not support Assets, a <c>SANDBOX_PRODUCT_NOT_ENABLED</c> error will result.</para>
 	/// <para><c>USER_PERMISSION_REVOKED</c>: Indicates an end user has revoked the permission that they previously granted to access an Item. May not always fire upon revocation, as some institutions' consent portals do not trigger this webhook. Upon receiving this webhook, it is recommended to delete any stored data from Plaid associated with the account or Item.</para>
@@ -160,14 +160,6 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferLedgerWithdrawSimulateResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/transfer/repayment/simulate</c> endpoint to trigger the creation of a repayment. As a side effect of calling this route, a repayment is created that includes all unreimbursed returns of guaranteed transfers. If there are no such returns, a 400 error is returned.</para>
-	/// </summary>
-	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferrepaymentsimulate" /></remarks>
-	public Task<Sandbox.SandboxTransferRepaymentSimulateResponse> SandboxTransferRepaymentSimulateAsync(Sandbox.SandboxTransferRepaymentSimulateRequest request) =>
-		PostAsync("/sandbox/transfer/repayment/simulate", request)
-			.ParseResponseAsync<Sandbox.SandboxTransferRepaymentSimulateResponse>();
-
-	/// <summary>
 	/// <para>Use the <c>/sandbox/transfer/fire_webhook</c> endpoint to manually trigger a <c>TRANSFER_EVENTS_UPDATE</c> webhook in the Sandbox environment.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransferfire_webhook" /></remarks>
@@ -207,7 +199,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Sandbox.SandboxTransferTestClockGetResponse>();
 
 	/// <summary>
-	/// <para>Use the <c>/sandbox/transfer/test_clock/list</c> endpoint to see a list of all your test clocks in the Sandbox environment, by ascending <c>virtual_time</c>. Results are paginated; use the <c>count</c> and <c>offset</c> query parameters to retrieve the desired test clocks.</para>
+	/// <para>Use the <c>/sandbox/transfer/test_clock/list</c> endpoint to see a list of all your test clocks in the Sandbox environment, by descending <c>virtual_time</c>. Results are paginated; use the <c>count</c> and <c>offset</c> query parameters to retrieve the desired test clocks.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/sandbox/#sandboxtransfertest_clocklist" /></remarks>
 	public Task<Sandbox.SandboxTransferTestClockListResponse> SandboxTransferTestClockListAsync(Sandbox.SandboxTransferTestClockListRequest request) =>

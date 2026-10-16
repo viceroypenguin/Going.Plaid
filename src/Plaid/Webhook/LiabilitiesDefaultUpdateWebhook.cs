@@ -39,7 +39,7 @@ public record LiabilitiesDefaultUpdateWebhook : WebhookBase
 
 	/// <summary>
 	/// <para>An object with keys of <c>account_id</c>'s that are mapped to their respective liabilities fields that changed.</para>
-	/// <para>Example: <c>{ "XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58": ["past_amount_due"] }</c></para>
+	/// <para>Example: <c>{ "XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58": ["past_due_amount"] }</c></para>
 	/// </summary>
 	[JsonPropertyName("account_ids_with_updated_liabilities")]
 	public IReadOnlyDictionary<string, IReadOnlyList<string>> AccountIdsWithUpdatedLiabilities { get; init; } = default!;

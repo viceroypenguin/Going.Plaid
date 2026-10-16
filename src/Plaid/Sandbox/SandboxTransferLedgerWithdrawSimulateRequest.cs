@@ -12,7 +12,7 @@ public partial class SandboxTransferLedgerWithdrawSimulateRequest : RequestBase
 	public string SweepId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The asynchronous event to be simulated. May be: <c>posted</c>, <c>settled</c>, <c>failed</c>, or <c>returned</c>.</para>
+	/// <para>The asynchronous event to be simulated. May be: <c>sweep.posted</c>, <c>sweep.settled</c>, <c>sweep.failed</c>, <c>sweep.returned</c>, or <c>sweep.funds_available</c> (deposits only).</para>
 	/// <para>An error will be returned if the event type is incompatible with the current ledger sweep status. Compatible status --> event type transitions include:</para>
 	/// <para><c>sweep.pending</c> --> <c>sweep.posted</c></para>
 	/// <para><c>sweep.pending</c> --> <c>sweep.failed</c></para>

@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public record WebhookEvent
 {
 	/// <summary>
-	/// <para>Stable, opaque ID for this webhook event. The same value is returned if the event appears again on a later poll. Quote it when contacting support.</para>
+	/// <para>The ID of this webhook event. It stays the same across requests, so you can use it to skip events you've already handled. Include it when contacting Support.</para>
 	/// </summary>
 	[JsonPropertyName("webhook_message_id")]
 	public string WebhookMessageId { get; init; } = default!;
@@ -36,7 +36,7 @@ public record WebhookEvent
 	public string DestinationUrl { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Latest delivery state for this webhook.</para>
+	/// <para>The current delivery status of the webhook.</para>
 	/// </summary>
 	[JsonPropertyName("delivery_status")]
 	public Entity.WebhookEventDeliveryStatus DeliveryStatus { get; init; } = default!;
@@ -54,7 +54,7 @@ public record WebhookEvent
 	public int AttemptCount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The most recent delivery attempt timestamp. Null if Plaid has not yet attempted delivery.</para>
+	/// <para>The time of the most recent delivery attempt. Null if Plaid hasn't attempted delivery yet.</para>
 	/// </summary>
 	[JsonPropertyName("last_attempt_time")]
 	public DateTimeOffset? LastAttemptTime { get; init; } = default!;

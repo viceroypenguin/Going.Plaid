@@ -1,24 +1,24 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Link outcome for the Identity Match attempt.</para>
+/// <para>The Identity Match decision for the attempt.</para>
 /// </summary>
 public enum IdentityMatchListOutcome
 {
 	/// <summary>
-	/// 
+	/// <para>The decision was to allow the user to continue.</para>
 	/// </summary>
 	[EnumMember(Value = "PASS")]
 	Pass,
 
 	/// <summary>
-	/// 
+	/// <para>The decision was to block the user.</para>
 	/// </summary>
 	[EnumMember(Value = "FAIL")]
 	Fail,
 
 	/// <summary>
-	/// 
+	/// <para>The attempt's decision is unavailable or unrecognized.</para>
 	/// </summary>
 	[EnumMember(Value = "UNKNOWN")]
 	Unknown,

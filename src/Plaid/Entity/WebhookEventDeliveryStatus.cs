@@ -1,24 +1,24 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Latest delivery state for this webhook.</para>
+/// <para>The current delivery status of the webhook.</para>
 /// </summary>
 public enum WebhookEventDeliveryStatus
 {
 	/// <summary>
-	/// <para>Plaid has not recorded a successful response and may still retry.</para>
+	/// <para>Plaid hasn't recorded a successful delivery and may retry. The webhook may have been delivered even if its status is <c>PENDING</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "PENDING")]
 	Pending,
 
 	/// <summary>
-	/// <para>the destination returned a 2xx response.</para>
+	/// <para>Your endpoint returned a 2xx response.</para>
 	/// </summary>
 	[EnumMember(Value = "DELIVERED")]
 	Delivered,
 
 	/// <summary>
-	/// <para>all delivery attempts were exhausted without a 2xx response.</para>
+	/// <para>Plaid stopped retrying without receiving a 2xx response.</para>
 	/// </summary>
 	[EnumMember(Value = "FAILED")]
 	Failed,

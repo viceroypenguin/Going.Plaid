@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Total amount of debit transactions into the account in the time period of the report. This field will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+/// <para>Total amount of money into the account in the time period of the report. For non-depository accounts, or accounts with no transactions, <c>amount</c> is <c>0</c> and both currency codes are <c>null</c>. This field only takes into account USD transactions from the account.</para>
 /// </summary>
 public record TotalInflowAmount
 {

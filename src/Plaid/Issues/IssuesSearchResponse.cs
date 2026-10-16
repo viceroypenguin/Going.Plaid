@@ -6,7 +6,7 @@ namespace Going.Plaid.Issues;
 public record IssuesSearchResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>A list of issues affecting the Item, session, or request passed in, conforming to the Issues data model. An empty list indicates that no matching issues were found.</para>
+	/// <para>A list of issues affecting the Item, session, or request passed in, conforming to the Issues data model. Omitted if no matching issues were found.</para>
 	/// </summary>
 	[JsonPropertyName("issues")]
 	public IReadOnlyList<Entity.Issue>? Issues { get; init; } = default!;

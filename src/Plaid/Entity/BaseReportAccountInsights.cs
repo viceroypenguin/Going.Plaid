@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Calculated insights derived from transaction-level data. This field has been deprecated in favor of <a href="https://plaid.com/docs/api/products/check/#cra-check_report-base_report-get-response-report-attributes">Base Report attributes aggregated across accounts</a> and will be removed in a future release.</para>
+/// <para>Calculated insights derived from transaction-level data. This field has been deprecated in favor of <a href="https://plaid.com/docs/api/products/check-legacy/#cra-check_report-base_report-get-response-report-attributes">Base Report attributes aggregated across accounts</a> and will be removed in a future release.</para>
 /// </summary>
 public record BaseReportAccountInsights
 {
@@ -36,13 +36,13 @@ public record BaseReportAccountInsights
 	public IReadOnlyList<Entity.BaseReportLongestGapInsights>? LongestGapsBetweenTransactions { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The number of debits into the account. This array will be empty for non-depository accounts.</para>
+	/// <para>The number of transactions that moved money into the account. This array will be empty for non-depository accounts.</para>
 	/// </summary>
 	[JsonPropertyName("number_of_inflows")]
 	public IReadOnlyList<Entity.BaseReportNumberFlowInsights>? NumberOfInflows { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Average amount of debit transactions into the account in a time period. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
+	/// <para>Average amount of transactions that moved money into the account in a time period. This array will be empty for non-depository accounts. This field only takes into account USD transactions from the account.</para>
 	/// </summary>
 	[JsonPropertyName("average_inflow_amounts")]
 	public IReadOnlyList<Entity.BaseReportAverageFlowInsights>? AverageInflowAmounts { get; init; } = default!;

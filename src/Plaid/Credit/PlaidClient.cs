@@ -61,8 +61,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Credit.CreditBankIncomeRefreshResponse>();
 
 	/// <summary>
-	/// <para><c>/credit/bank_income/webhook/update</c> allows you to subscribe or unsubscribe a user for income webhook notifications. By default, all users start out unsubscribed.</para>
-	/// <para>If a user is subscribed, on significant changes to the user's income profile, you will receive a <c>BANK_INCOME_REFRESH_UPDATE</c> webhook, prompting you to refresh bank income data for the user.</para>
+	/// <para><c>/credit/bank_income/webhook/update</c> is deprecated and no longer available; requests return an <c>INVALID_REQUEST</c> error with code <c>NOT_FOUND</c>.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditbank_incomewebhookupdate" /></remarks>
 	public Task<Credit.CreditBankIncomeWebhookUpdateResponse> CreditBankIncomeWebhookUpdateAsync(Credit.CreditBankIncomeWebhookUpdateRequest request) =>
@@ -106,7 +105,7 @@ public sealed partial class PlaidClient
 	/// <summary>
 	/// <para><c>/credit/payroll_income/precheck</c> is an optional endpoint that can be called before initializing a Link session for income verification. It evaluates whether a given user is supportable by digital income verification. If the user is eligible for digital verification, that information will be associated with the user token, and in this way will generate a Link UI optimized for the end user and their specific employer. If the user cannot be confirmed as eligible, the user can still use the income verification flow, but they may be required to manually upload a paystub to verify their income.</para>
 	/// <para>While all request fields are optional, providing <c>employer</c> data will increase the chance of receiving a useful result.</para>
-	/// <para>When testing in Sandbox, you can control the results by providing special test values in the <c>employer</c> and <c>access_tokens</c> fields. <c>employer_good</c> and <c>employer_bad</c> will result in <c>HIGH</c> and <c>LOW</c> confidence values, respectively. <c>employer_multi</c> will result in a <c>HIGH</c> confidence with multiple payroll options. Likewise, <c>access_good</c> and <c>access_bad</c> will result in <c>HIGH</c> and <c>LOW</c> confidence values, respectively. Any other value for <c>employer</c> and <c>access_tokens</c> in Sandbox will result in <c>UNKNOWN</c> confidence.</para>
+	/// <para>When testing in Sandbox, you can control the results by providing special test values in the <c>access_tokens</c> field. <c>access_good</c> and <c>access_bad</c> will result in <c>HIGH</c> and <c>LOW</c> confidence values, respectively. Any other valid Sandbox access token will result in <c>UNKNOWN</c> confidence; other strings return an <c>INVALID_ACCESS_TOKEN</c> error.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/income/#creditpayroll_incomeprecheck" /></remarks>
 	public Task<Credit.CreditPayrollIncomePrecheckResponse> CreditPayrollIncomePrecheckAsync(Credit.CreditPayrollIncomePrecheckRequest request) =>

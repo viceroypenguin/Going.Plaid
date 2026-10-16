@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The reason every product in a CRA report failed to generate. <c>null</c> when at least one product succeeded.</para>
+/// <para>The reason every product in a Consumer Report failed to generate. <c>null</c> when at least one product succeeded.</para>
 /// </summary>
 public enum CraReportErrorCode
 {

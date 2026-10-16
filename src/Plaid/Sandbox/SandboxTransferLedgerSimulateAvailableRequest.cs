@@ -6,7 +6,7 @@ namespace Going.Plaid.Sandbox;
 public partial class SandboxTransferLedgerSimulateAvailableRequest : RequestBase
 {
 	/// <summary>
-	/// <para>Specify which ledger balance to simulate converting pending balance to available balance. If this field is left blank, this will default to the id of the default ledger balance.</para>
+	/// <para>Specify which ledger balance to simulate converting pending balance to available balance. If this field is left blank, pending balance is converted to available balance for all of your ledgers (or all of the given originator's ledgers).</para>
 	/// </summary>
 	[JsonPropertyName("ledger_id")]
 	public string? LedgerId { get; set; } = default!;

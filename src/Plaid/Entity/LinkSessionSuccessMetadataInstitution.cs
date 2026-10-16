@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>An institution object. If the Item was created via Same-Day or Instant micro-deposit verification, will be <c>null</c>.</para>
+/// <para>An institution object. If the Item was created via Same-Day or Instant micro-deposit verification, <c>name</c> and <c>institution_id</c> will be omitted.</para>
 /// </summary>
 public record LinkSessionSuccessMetadataInstitution
 {

@@ -46,7 +46,7 @@ public class IdentityVerificationRequestUser
 	public Entity.UserAddress? Address { get; set; } = default!;
 
 	/// <summary>
-	/// <para>ID number submitted by the user, currently used only for the Identity Verification product. If the user has not submitted this data yet, this field will be <c>null</c>. Otherwise, both fields are guaranteed to be filled.</para>
+	/// <para>ID number submitted by the user. If the user has not submitted this data yet, this field will be <c>null</c>. Otherwise, both fields are guaranteed to be filled.</para>
 	/// </summary>
 	[JsonPropertyName("id_number")]
 	public Entity.UserIDNumber? IdNumber { get; set; } = default!;

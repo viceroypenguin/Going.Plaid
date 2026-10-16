@@ -25,7 +25,7 @@ public class LinkTokenCreateRequestUpdate
 	public bool? User { get; set; } = default!;
 
 	/// <summary>
-	/// <para>An array of <c>item_id</c>s associated with the user to be updated in update mode. If empty or <c>null</c>, this field will default to initializing update mode for the most recent unhealthy Item associated with the user. A <c>user_token</c> must also be provided to use this field.</para>
+	/// <para>An array of <c>item_id</c>s associated with the user to be updated in update mode. If empty or <c>null</c>, this field will default to initializing update mode for the most recent unhealthy Item associated with the user. A <c>user_token</c> or <c>user_id</c> must also be provided, and <c>update.user</c> must be <c>true</c>. Only one <c>item_id</c> may currently be specified.</para>
 	/// </summary>
 	[JsonPropertyName("item_ids")]
 	public IReadOnlyList<string>? ItemIds { get; set; } = default!;

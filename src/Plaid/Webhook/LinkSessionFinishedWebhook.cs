@@ -15,7 +15,7 @@ public record LinkSessionFinishedWebhook : WebhookBase
 	public override WebhookCode WebhookCode => WebhookCode.SessionFinished;
 
 	/// <summary>
-	/// <para>The final status of the Link session. Will always be "SUCCESS" or "EXITED".</para>
+	/// <para>The final status of the Link session. Will always be "success" or "exited".</para>
 	/// </summary>
 	[JsonPropertyName("status")]
 	public string Status { get; init; } = default!;

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>The outcome status for the associated Identity Verification attempt's <c>selfie_check</c> step. This field will always have the same value as <c>steps.selfie_check</c>.</para>
+/// <para>The outcome status for the associated Identity Verification attempt's <c>selfie_check</c> step. This field will be <c>success</c> if <c>steps.selfie_check</c> is <c>success</c> or <c>manually_approved</c>, and <c>failed</c> if <c>steps.selfie_check</c> is <c>failed</c> or <c>manually_rejected</c>.</para>
 /// </summary>
 public enum SelfieCheckStatus
 {

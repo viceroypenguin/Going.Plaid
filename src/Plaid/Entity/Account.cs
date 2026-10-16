@@ -87,4 +87,10 @@ public record Account
 	[JsonPropertyName("holder_category")]
 	public Entity.HolderCategory? HolderCategory { get; init; } = default!;
 
+	/// <summary>
+	/// <para>The <c>account_id</c> of the account on the paired Item (see <c>paired_item_id</c>) that represents the same bank account as this one. For an account on a Plaid Inc Item, this is the matching account on its paired Plaid Check Item, and the reverse for an account on a Plaid Check Item. Only returned for accounts on an Item that has a paired Item. <c>null</c> means the Item has a paired Item but Plaid could not confidently match this account to an account on it. Like <c>account_id</c>, this value can change if Plaid re-creates the paired account.</para>
+	/// </summary>
+	[JsonPropertyName("paired_account_id")]
+	public string? PairedAccountId { get; init; } = default!;
+
 }

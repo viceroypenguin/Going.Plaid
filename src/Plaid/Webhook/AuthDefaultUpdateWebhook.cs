@@ -26,8 +26,8 @@ public record AuthDefaultUpdateWebhook : WebhookBase
 	public IReadOnlyList<string> AccountIdsWithNewAuth { get; init; } = default!;
 
 	/// <summary>
-	/// <para>An object with keys of <c>account_id</c>'s that are mapped to their respective auth attributes that changed. <c>ACCOUNT_NUMBER</c> and <c>ROUTING_NUMBER</c> are the two potential values that can be flagged as updated.</para>
-	/// <para>Example: <c>{ "XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58": ["ACCOUNT_NUMBER"] }</c></para>
+	/// <para>An object with keys of <c>account_id</c>'s that are mapped to their respective auth attributes that changed. Possible values are <c>account_number</c>, <c>routing_number</c>, and <c>account_number_mask</c>.</para>
+	/// <para>Example: <c>{ "XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58": ["account_number"] }</c></para>
 	/// </summary>
 	[JsonPropertyName("account_ids_with_updated_auth")]
 	public IReadOnlyDictionary<string, IReadOnlyList<Entity.AuthUpdateTypes>> AccountIdsWithUpdatedAuth { get; init; } = default!;

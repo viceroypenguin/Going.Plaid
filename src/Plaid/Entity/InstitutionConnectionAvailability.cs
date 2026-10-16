@@ -6,7 +6,7 @@ namespace Going.Plaid.Entity;
 public enum InstitutionConnectionAvailability
 {
 	/// <summary>
-	/// <para>Plaid supports new connections to the institution. Whether a given connection succeeds can still depend on your integration and account: some institutions require completing <a href="https://plaid.com/docs/link/oauth/#complete-the-registration-requirements">OAuth registration</a> before they can be used, the institution may not support every product requested in <c>/link/token/create</c>, and your Plaid account must be in good standing.</para>
+	/// <para>Plaid supports new connections to the institution. Whether a given connection succeeds can still depend on your integration and account: some institutions require completing <a href="https://plaid.com/docs/link/oauth/#complete-the-registration-requirements-in-the-compliance-center">OAuth registration</a> before they can be used, the institution may not support every product requested in <c>/link/token/create</c>, and your Plaid account must be in good standing.</para>
 	/// </summary>
 	[EnumMember(Value = "SUPPORTED")]
 	Supported,

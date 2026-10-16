@@ -3,29 +3,12 @@ namespace Going.Plaid;
 public sealed partial class PlaidClient
 {
 	/// <summary>
-	/// <para><c>/beta/webhook_events/list</c> returns webhook events for your account from the last 7</para>
-	/// <para>days, regardless of delivery outcome. Results are ordered by <c>sent_time</c>, oldest</para>
-	/// <para>first, and paginated with a cursor so you can recover deliveries your endpoint</para>
-	/// <para>missed. Each event includes a <c>webhook_message_id</c> that stays the same if that</para>
-	/// <para>event shows up again on a later poll, so you can skip events you have already</para>
-	/// <para>handled.</para>
-	/// <para><c>TRANSACTIONS</c> webhooks are not returned. Use</para>
-	/// <para><a href="https://plaid.com/docs/api/products/transactions/#transactionssync"><c>/transactions/sync</c></a></para>
-	/// <para>to recover transaction updates.</para>
-	/// <para>Filtering is optional. For <c>webhook_types</c>, <c>webhook_codes</c>, <c>item_ids</c>, and</para>
-	/// <para><c>delivery_statuses</c>, values within a field match with OR; different fields combine</para>
-	/// <para>with AND. For example, <c>webhook_types: ["ITEM", "AUTH"]</c> matches events of either</para>
-	/// <para>type.</para>
-	/// <para>To page through events:</para>
-	/// <para>- On the first request, omit <c>cursor</c>. You can set <c>start_time</c> to a time within the last 7 days, or omit <c>start_time</c> to start at the oldest retained event.</para>
-	/// <para>- On later requests, send the previous response's <c>next_cursor</c> as <c>cursor</c>. If you also send <c>start_time</c>, it is ignored; <c>cursor</c> takes precedence, even when <c>start_time</c> has changed.</para>
-	/// <para>- Save <c>next_cursor</c> even when <c>has_more</c> is <c>false</c>, and send that cursor on the next poll so you only receive events newer than the ones you have already seen.</para>
-	/// <para>A request fails with 400 in these cases:</para>
-	/// <para>- <c>WEBHOOK_EVENTS_START_TIME_OUT_OF_RANGE</c> (<c>INVALID_INPUT</c>) is returned when <c>cursor</c> is omitted and <c>start_time</c> is earlier than the 7-day retention window. Retry with a <c>start_time</c> within the last 7 days, or omit <c>start_time</c>.</para>
-	/// <para>- <c>WEBHOOK_EVENTS_CURSOR_EXPIRED</c> (<c>INVALID_INPUT</c>) is returned when the cursor is older than the 7-day retention window and can no longer be resolved. Start again with a <c>start_time</c> within the last 7 days. Events older than that window are no longer available.</para>
-	/// <para>- <c>INVALID_FIELD</c> (<c>INVALID_REQUEST</c>) is returned when <c>cursor</c> is not a properly formatted string, or when the request is otherwise invalid.</para>
-	/// <para>This endpoint is in beta and may change in backwards-incompatible ways before it</para>
-	/// <para>is generally available. Send feedback or bug reports to building@plaid.com.</para>
+	/// <para><c>/beta/webhook_events/list</c> returns the webhooks Plaid sent to your account in the last 7 days, including webhooks that weren't delivered. Use it to recover webhooks your endpoint missed. Events are returned oldest first.</para>
+	/// <para><c>TRANSACTIONS</c> webhooks are not included. To recover Transactions updates, use <a href="https://plaid.com/docs/api/products/transactions/#transactionssync"><c>/transactions/sync</c></a>.</para>
+	/// <para>To page through events, omit <c>cursor</c> on your first request, then pass the previous response's <c>next_cursor</c> on each later request. Store <c>next_cursor</c> even when <c>has_more</c> is <c>false</c>, so your next poll returns only newer events.</para>
+	/// <para>Filters are optional. An event matches a filter if it matches any of the filter's values, and must match every filter you provide.</para>
+	/// <para>Events older than 7 days are not retained. If your cursor or <c>start_time</c> is older than that, the request fails with <c>WEBHOOK_EVENTS_CURSOR_EXPIRED</c> or <c>WEBHOOK_EVENTS_START_TIME_OUT_OF_RANGE</c>.</para>
+	/// <para>This endpoint is in beta and may change in backwards-incompatible ways. Send feedback to building@plaid.com.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/webhooks/webhook-events/#betawebhook_eventslist" /></remarks>
 	public Task<Beta.BetaWebhookEventsListResponse> BetaWebhookEventsListAsync(Beta.BetaWebhookEventsListRequest request) =>
@@ -41,14 +24,6 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beta.CreditBankEmploymentGetResponse>();
 
 	/// <summary>
-	/// <para>The <c>/beta/transactions/v1/enhance</c> endpoint enriches raw transaction data provided directly by clients.</para>
-	/// <para>The product is currently in beta.</para>
-	/// </summary>
-	public Task<Beta.TransactionsEnhanceGetResponse> BetaTransactionsV1EnhanceAsync(Beta.TransactionsEnhanceGetRequest request) =>
-		PostAsync("/beta/transactions/v1/enhance", request)
-			.ParseResponseAsync<Beta.TransactionsEnhanceGetResponse>();
-
-	/// <summary>
 	/// <para>The <c>/beta/transactions/rules/v1/create</c> endpoint creates transaction categorization rules.</para>
 	/// <para>Rules will be applied on the Item's transactions returned in <c>/transactions/get</c> response.</para>
 	/// <para>The product is currently in beta. To request access, contact transactions-feedback@plaid.com.</para>
@@ -58,7 +33,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beta.TransactionsRulesCreateResponse>();
 
 	/// <summary>
-	/// <para>The <c>/beta/transactions/rules/v1/list</c> returns a list of transaction rules created for the Item associated with the access token.</para>
+	/// <para>The <c>/beta/transactions/rules/v1/list</c> returns a list of transaction rules created for the end user specified by <c>client_user_id</c>.</para>
 	/// </summary>
 	public Task<Beta.TransactionsRulesListResponse> BetaTransactionsRulesV1ListAsync(Beta.TransactionsRulesListRequest request) =>
 		PostAsync("/beta/transactions/rules/v1/list", request)
@@ -93,6 +68,15 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beta.BetaEwaReportV1GetResponse>();
 
 	/// <summary>
+	/// <para>The <c>/beta/cash_advance/income_insights/v1/get</c> endpoint returns a user's top income streams across all of the user's active Items, ranked by historical net monthly income and capped at three, along with the next payment date and amount of the highest-ranked stream.</para>
+	/// <para>Only USD income streams are returned. If some, but not all, of the user's Items could not be evaluated, the response is based on the remaining Items.</para>
+	/// </summary>
+	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betacashadvanceincomeinsightsv1get" /></remarks>
+	public Task<Beta.BetaCashAdvanceIncomeInsightsV1GetResponse> BetaCashAdvanceIncomeInsightsV1GetAsync(Beta.BetaCashAdvanceIncomeInsightsV1GetRequest request) =>
+		PostAsync("/beta/cash_advance/income_insights/v1/get", request)
+			.ParseResponseAsync<Beta.BetaCashAdvanceIncomeInsightsV1GetResponse>();
+
+	/// <summary>
 	/// <para>Retrieve the latest public details for a specific institution issue.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaissuesv1get" /></remarks>
@@ -117,7 +101,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beta.BetaIssuesV1MatchResponse>();
 
 	/// <summary>
-	/// <para>Subscribe a webhook URL to resolution notifications for an institution issue.</para>
+	/// <para>Subscribe a webhook URL to resolution notifications for an institution issue. A client has a single subscription per issue, so subscribing again for the same issue overwrites the previously registered webhook URL.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaissuesv1subscribe" /></remarks>
 	public Task<Beta.BetaIssuesV1SubscribeResponse> BetaIssuesV1SubscribeAsync(Beta.BetaIssuesV1SubscribeRequest request) =>
@@ -125,7 +109,7 @@ public sealed partial class PlaidClient
 			.ParseResponseAsync<Beta.BetaIssuesV1SubscribeResponse>();
 
 	/// <summary>
-	/// <para>Remove the client's subscription to resolution notifications for an institution issue.</para>
+	/// <para>Remove the client's subscription to resolution notifications for an institution issue. This removes the client's single subscription for that issue, identified by the issue alone.</para>
 	/// </summary>
 	/// <remarks><see href="https://plaid.com/docs/api/products/beta/#betaissuesv1unsubscribe" /></remarks>
 	public Task<Beta.BetaIssuesV1UnsubscribeResponse> BetaIssuesV1UnsubscribeAsync(Beta.BetaIssuesV1UnsubscribeRequest request) =>

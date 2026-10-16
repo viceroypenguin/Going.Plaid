@@ -24,13 +24,13 @@ public record LiabilitiesObject
 	public IReadOnlyList<Entity.StudentLoan>? Student { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The closed-end loan accounts returned.</para>
+	/// <para>The closed-end loan accounts returned. This field is omitted when using plaid-python earlier than 13.0.0 or plaid-ruby earlier than 50.0.0.</para>
 	/// </summary>
 	[JsonPropertyName("loan")]
 	public IReadOnlyList<Entity.LoanLiability>? Loan { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The line of credit accounts returned.</para>
+	/// <para>The line of credit accounts returned. This field is omitted when using plaid-python earlier than 13.0.0 or plaid-ruby earlier than 50.0.0.</para>
 	/// </summary>
 	[JsonPropertyName("line_of_credit")]
 	public IReadOnlyList<Entity.LineOfCreditLiability>? LineOfCredit { get; init; } = default!;

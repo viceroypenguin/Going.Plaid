@@ -12,13 +12,13 @@ public class CashAdvanceInfo
 	public Entity.Amount AmountApproved { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The amount a user is required to pay, including any fees or additional amounts. Required if <c>is_taken</c> is <c>true</c>.</para>
+	/// <para>The amount a user is required to pay, including any fees or additional amounts. Required when <c>cash_advance</c> is provided.</para>
 	/// </summary>
 	[JsonPropertyName("amount_due")]
 	public Entity.Amount? AmountDue { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The date the cash-advance is due, in ISO 8601 format (<c>YYYY-MM-DD</c>). Required if <c>is_taken</c> is <c>true</c>.</para>
+	/// <para>The date the cash-advance is due, in ISO 8601 format (<c>YYYY-MM-DD</c>). Required when <c>cash_advance</c> is provided.</para>
 	/// </summary>
 	[JsonPropertyName("due_date")]
 	public DateOnly? DueDate { get; set; } = default!;

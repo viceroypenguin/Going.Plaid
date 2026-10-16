@@ -24,7 +24,7 @@ public record CraServicingSubscription
 	public Entity.CraReportScope Scope { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The cadence at which products are generated and webhooks are fired. If the Qualify product is requested, cadence must be null or omitted, because Qualify's generation cadence is controlled by Plaid.</para>
+	/// <para>The cadence at which products are generated and webhooks are fired. Required when <c>scope</c> is <c>CLIENT_USER</c>; must be null or omitted when <c>scope</c> is <c>PLAID_NETWORK</c>. If the Qualify product is requested, cadence must be null or omitted, because Qualify's generation cadence is controlled by Plaid.</para>
 	/// </summary>
 	[JsonPropertyName("cadence")]
 	public Entity.CraSubscriptionCadence? Cadence { get; init; } = default!;

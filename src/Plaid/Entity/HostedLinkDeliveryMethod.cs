@@ -12,7 +12,7 @@ public enum HostedLinkDeliveryMethod
 	Sms,
 
 	/// <summary>
-	/// <para>will deliver via email. Must pass <c>user.email_address</c>. In the Sandbox environment, this field will be ignored; use the Production environment to test Link Delivery instead.</para>
+	/// <para>will deliver via email. Must pass <c>user.email_address</c>.</para>
 	/// </summary>
 	[EnumMember(Value = "email")]
 	Email,

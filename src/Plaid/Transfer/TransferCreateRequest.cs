@@ -46,13 +46,13 @@ public partial class TransferCreateRequest : RequestBase
 	public Entity.TransferNetwork? Network { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00"). When calling <c>/transfer/authorization/create</c>, specify the maximum amount to authorize. When calling <c>/transfer/create</c>, specify the exact amount of the transfer, up to a maximum of the amount authorized. If this field is left blank when calling <c>/transfer/create</c>, the maximum amount authorized in the <c>authorization_id</c> will be sent.</para>
+	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00"). When calling <c>/transfer/authorization/create</c>, specify the maximum amount to authorize. When calling <c>/transfer/create</c>, specify the exact amount of the transfer, up to a maximum of the amount authorized. If this field is left blank when calling <c>/transfer/create</c>, the maximum amount authorized in the <c>authorization_id</c> will be sent. If the authorization's <c>guarantee_details.outcome</c> is <c>PARTIAL_INSTANT_ONLY</c>, this field is required when calling <c>/transfer/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string? Amount { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The transfer description, maximum of 15 characters (RTP transactions) or 10 characters (ACH transactions). Should represent why the money is moving, not your company name. For recommendations on setting the <c>description</c> field to avoid ACH returns, see <a href="https://www.plaid.com/docs/transfer/creating-transfers/#description-field-recommendations">Description field recommendations</a>.</para>
+	/// <para>The transfer description, maximum of 15 characters. Should represent why the money is moving, not your company name. For recommendations on setting the <c>description</c> field to avoid ACH returns, see <a href="https://www.plaid.com/docs/transfer/creating-transfers/#description-field-recommendations">Description field recommendations</a>.</para>
 	/// <para>If reprocessing a returned transfer, the <c>description</c> field must be <c>"Retry 1"</c> or <c>"Retry 2"</c>. You may retry a transfer up to 2 times, within 180 days of creating the original transfer. Only transfers that were returned with code <c>R01</c> or <c>R09</c> may be retried.</para>
 	/// </summary>
 	[JsonPropertyName("description")]
@@ -110,7 +110,7 @@ public partial class TransferCreateRequest : RequestBase
 	public string? TestClockId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform's Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer's Ledger balance. This must be value greater than 0 and less than or equal to the <c>transfer.amount</c>.</para>
+	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform's Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer's Ledger balance. This must be value greater than 0 and less than the <c>transfer.amount</c>.</para>
 	/// </summary>
 	[JsonPropertyName("facilitator_fee")]
 	public string? FacilitatorFee { get; set; } = default!;

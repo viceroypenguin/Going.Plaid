@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when a subscribed CRA report has been updated. Retrieve the updated products by calling the relevant product <c>/get</c> endpoint. A single webhook covers all CRA report-update subscriptions; the <c>successful_products</c>/<c>failed_products</c> fields indicate which products were updated, and the <c>scope</c> field indicates the data the report was computed over.</para>
+/// <para>Fired when a subscribed Consumer Report has been updated. Retrieve the updated products by calling the relevant product <c>/get</c> endpoint. A single webhook covers all Consumer Report update subscriptions; the <c>successful_products</c>/<c>failed_products</c> fields indicate which products were updated, and the <c>scope</c> field indicates the data the report was computed over.</para>
 /// </summary>
 public record CraReportUpdatedWebhook : WebhookBase
 {
@@ -26,7 +26,7 @@ public record CraReportUpdatedWebhook : WebhookBase
 	public string ClientUserId { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The identifier of the CRA report that was updated. Pass this value to the relevant product <c>/get</c> endpoint to retrieve the updated report.</para>
+	/// <para>The identifier of the Consumer Report that was updated. Pass this value to the relevant product <c>/get</c> endpoint to retrieve the updated report.</para>
 	/// </summary>
 	[JsonPropertyName("report_id")]
 	public string? ReportId { get; init; } = default!;
@@ -56,7 +56,7 @@ public record CraReportUpdatedWebhook : WebhookBase
 	public DateTimeOffset? GeneratedTime { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The reason all products failed to update. Populated only when every requested product failed; null if any product succeeded. For example, <c>NO_ELIGIBLE_ITEMS</c>.</para>
+	/// <para>The reason all products failed to update. Populated only when every requested product failed; null if any product succeeded. For example, <c>PRODUCT_GENERATION_FAILED</c>.</para>
 	/// </summary>
 	[JsonPropertyName("error_code")]
 	public string? ErrorCode { get; init; } = default!;

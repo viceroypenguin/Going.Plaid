@@ -23,7 +23,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <para>If using Identity Verification, <c>country_codes</c> should be set to the country where your company is based, not the country where your user is located. For all other products, <c>country_codes</c> represents the location of your user's financial institution.</para>
 	/// <para>If Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. While all countries are enabled by default in Sandbox, in Production only the countries you have requested access for are shown. To request access to additional countries, <a href="https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access">file a product access Support ticket</a> via the Plaid dashboard.</para>
 	/// <para>If using a Link customization, make sure the country codes in the customization match those specified in <c>country_codes</c>, or the customization may not be applied.</para>
-	/// <para>If using the Auth features Instant Match, Instant Micro-deposits, Same-Day Micro-deposits, Automated Micro-deposits, or Database Auth, <c>country_codes</c> must be set to <c>['US']</c>.</para>
+	/// <para>If using the Auth features Instant Match, Instant Micro-deposits, Same-Day Micro-deposits, or Automated Micro-deposits, <c>country_codes</c> must be set to <c>['US']</c>. If using Database Auth, <c>country_codes</c> must be set to <c>['US']</c> or <c>['CA']</c>.</para>
 	/// </summary>
 	[JsonPropertyName("country_codes")]
 	public IReadOnlyList<Entity.CountryCode> CountryCodes { get; set; } = default!;
@@ -72,7 +72,7 @@ public partial class LinkTokenCreateRequest : RequestBase
 	/// <para>List of additional Plaid product(s) you wish to collect consent for to support your use case. These products will not be billed until you start using them by calling the relevant endpoints.</para>
 	/// <para><c>balance</c> is *not* a valid value, the Balance product does not require explicit initialization and will automatically have consent collected.</para>
 	/// <para>Institutions that do not support these products will still be shown in Link.</para>
-	/// <para>There should be no overlap between this array and the <c>products</c> or <c>required_if_supported_products</c> arrays.</para>
+	/// <para>There should be no overlap between this array and the <c>products</c>, <c>required_if_supported_products</c>, or <c>optional_products</c> arrays.</para>
 	/// <para>If you include <c>signal</c> in <c>additional_consented_products</c>, you will need to call <a href="https://plaid.com/docs/api/products/signal/#signalprepare"><c>/signal/prepare</c></a> before calling <c>/signal/evaluate</c> for the first time on an Item in order to get the most accurate results. For more details, see <a href="https://plaid.com/docs/api/products/signal/#signalprepare"><c>/signal/prepare</c></a>.</para>
 	/// </summary>
 	[JsonPropertyName("additional_consented_products")]

@@ -1,7 +1,7 @@
 namespace Going.Plaid.Webhook;
 
 /// <summary>
-/// <para>Fired when the status of a payment has changed. For a full explanation of payment statuses and how to handle each, see the <a href="https://plaid.com/docs/payment-initiation/payment-status/">Payment Status guide</a>.</para>
+/// <para>Fired when the status of a payment has changed. Not fired when the new status is <c>PAYMENT_STATUS_INPUT_NEEDED</c>, <c>PAYMENT_STATUS_AUTHORISING</c>, or <c>PAYMENT_STATUS_PROCESSING</c>. For a full explanation of payment statuses and how to handle each, see the <a href="https://plaid.com/docs/payment-initiation/payment-status/">Payment Status guide</a>.</para>
 /// <para>Note: For standard Payment Initiation, Plaid payment statuses do not constitute proof that funds have arrived in the recipient's account, and you should not use <c>new_payment_status</c> to confirm fund settlement. For options that provide confirmation of fund receipt, see <a href="https://plaid.com/docs/payment-initiation/virtual-accounts/payment-confirmation/">Virtual Accounts</a>.</para>
 /// </summary>
 public record PaymentStatusUpdateWebhook : WebhookBase

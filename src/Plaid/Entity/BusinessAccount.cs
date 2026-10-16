@@ -88,6 +88,12 @@ public record BusinessAccount
 	public Entity.HolderCategory? HolderCategory { get; init; } = default!;
 
 	/// <summary>
+	/// <para>The <c>account_id</c> of the account on the paired Item (see <c>paired_item_id</c>) that represents the same bank account as this one. For an account on a Plaid Inc Item, this is the matching account on its paired Plaid Check Item, and the reverse for an account on a Plaid Check Item. Only returned for accounts on an Item that has a paired Item. <c>null</c> means the Item has a paired Item but Plaid could not confidently match this account to an account on it. Like <c>account_id</c>, this value can change if Plaid re-creates the paired account.</para>
+	/// </summary>
+	[JsonPropertyName("paired_account_id")]
+	public string? PairedAccountId { get; init; } = default!;
+
+	/// <summary>
 	/// <para>Data returned by the financial institution about the account owner or owners. For business accounts, the name reported may be either the name of the individual or the name of the business, depending on the institution. Multiple owners on a single account will be represented in the same owner object, not in multiple owner objects within the array.</para>
 	/// </summary>
 	[JsonPropertyName("owners")]

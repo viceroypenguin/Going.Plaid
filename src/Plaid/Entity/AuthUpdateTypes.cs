@@ -8,14 +8,20 @@ public enum AuthUpdateTypes
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "ACCOUNT_NUMBER")]
+	[EnumMember(Value = "account_number")]
 	AccountNumber,
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[EnumMember(Value = "ROUTING_NUMBER")]
+	[EnumMember(Value = "routing_number")]
 	RoutingNumber,
+
+	/// <summary>
+	/// 
+	/// </summary>
+	[EnumMember(Value = "account_number_mask")]
+	AccountNumberMask,
 
 	/// <summary>
 	/// <para>Catch-all for unknown values returned by Plaid. If you encounter this, please check if there is a later version of the Going.Plaid library.</para>

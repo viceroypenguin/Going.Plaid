@@ -1,15 +1,15 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>Identity Match scores for one account.</para>
+/// <para>Identity Match scores for one account. Scores compare the user identity data supplied for the Link session through <c>/link/token/create</c> with the account owner information from the financial institution.</para>
 /// </summary>
 public record IdentityMatchListAttemptScore
 {
 	/// <summary>
-	/// <para>Plaid account ID for the account that was scored.</para>
+	/// <para>Account ID for the account that was scored. Null if the ID is unavailable.</para>
 	/// </summary>
 	[JsonPropertyName("account_id")]
-	public string AccountId { get; init; } = default!;
+	public string? AccountId { get; init; } = default!;
 
 	/// <summary>
 	/// <para>Score found by matching name provided by the API with the name on the account at the financial institution. If the account contains multiple owners, the maximum match score is filled.</para>

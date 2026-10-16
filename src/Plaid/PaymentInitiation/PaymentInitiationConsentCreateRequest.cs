@@ -18,7 +18,7 @@ public partial class PaymentInitiationConsentCreateRequest : RequestBase
 	public string? UserId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>A reference for the payment consent. This must be an alphanumeric string with at most 18 characters and must not contain any special characters.</para>
+	/// <para>A reference for the payment consent. This must be a string of at most 18 characters containing only letters, numbers, and spaces.</para>
 	/// </summary>
 	[JsonPropertyName("reference")]
 	public string Reference { get; set; } = default!;

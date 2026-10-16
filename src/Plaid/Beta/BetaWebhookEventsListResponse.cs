@@ -18,9 +18,7 @@ public record BetaWebhookEventsListResponse : ResponseBase
 	public bool HasMore { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Cursor to pass as <c>cursor</c> on a later <c>/beta/webhook_events/list</c> request to continue</para>
-	/// <para>forward. Persist and reuse this value even when <c>has_more</c> is <c>false</c> so the next poll</para>
-	/// <para>only returns newer events.</para>
+	/// <para>The cursor to send as <c>cursor</c> in your next request. Store it even when <c>has_more</c> is <c>false</c>.</para>
 	/// </summary>
 	[JsonPropertyName("next_cursor")]
 	public string NextCursor { get; init; } = default!;

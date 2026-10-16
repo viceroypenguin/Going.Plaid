@@ -66,7 +66,7 @@ public enum TransferEventType
 	GuaranteeReimbursed,
 
 	/// <summary>
-	/// <para>The client reported recovering the loss on a returned transfer via <c>/transfer/return/recover</c>, and Plaid debited the recovered amount from the client's ledger. The <c>event_amount</c> is the recovered amount.</para>
+	/// <para>The client reported recovering the loss on a returned transfer, and Plaid debited the recovered amount from the client's ledger. The <c>event_amount</c> is the recovered amount.</para>
 	/// </summary>
 	[EnumMember(Value = "client_return_recovered")]
 	ClientReturnRecovered,

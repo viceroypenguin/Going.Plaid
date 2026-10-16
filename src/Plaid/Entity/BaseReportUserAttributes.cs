@@ -30,49 +30,49 @@ public record BaseReportUserAttributes
 	public int? NsfOverdraftTransactionsCount90d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of debit transactions into the report's accounts in the time period of the report. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of money into the report's accounts in the time period of the report. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_inflow_amount")]
 	public Entity.TotalReportInflowAmount? TotalInflowAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of debit transactions into the report's accounts in the last 30 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of money into the report's accounts in the last 30 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_inflow_amount_30d")]
 	public Entity.TotalReportInflowAmount30d? TotalInflowAmount30d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of debit transactions into the report's accounts in the last 60 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of money into the report's accounts in the last 60 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_inflow_amount_60d")]
 	public Entity.TotalReportInflowAmount60d? TotalInflowAmount60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of debit transactions into the report's accounts in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of money into the report's accounts in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_inflow_amount_90d")]
 	public Entity.TotalReportInflowAmount90d? TotalInflowAmount90d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions out of the report's accounts in the time period of the report. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of money out of the report's accounts in the time period of the report. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount")]
 	public Entity.TotalReportOutflowAmount? TotalOutflowAmount { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions out of the report's accounts in the last 30 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of money out of the report's accounts in the last 30 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount_30d")]
 	public Entity.TotalReportOutflowAmount30d? TotalOutflowAmount30d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions out of the report's accounts in the last 60 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of money out of the report's accounts in the last 60 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount_60d")]
 	public Entity.TotalReportOutflowAmount60d? TotalOutflowAmount60d { get; init; } = default!;
 
 	/// <summary>
-	/// <para>Total amount of credit transactions out of the report's accounts in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
+	/// <para>Total amount of money out of the report's accounts in the last 90 days. This field only takes into account USD transactions from the accounts.</para>
 	/// </summary>
 	[JsonPropertyName("total_outflow_amount_90d")]
 	public Entity.TotalReportOutflowAmount90d? TotalOutflowAmount90d { get; init; } = default!;

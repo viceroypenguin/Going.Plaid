@@ -42,18 +42,6 @@ public record AssetReportInvestmentTransaction
 	public decimal Quantity { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The total quantity of vested assets held, as reported by the financial institution. Vested assets are only associated with <a href="https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-securities-type">equities</a>.</para>
-	/// </summary>
-	[JsonPropertyName("vested_quantity")]
-	public decimal VestedQuantity { get; init; } = default!;
-
-	/// <summary>
-	/// <para>The value of the vested holdings as reported by the institution.</para>
-	/// </summary>
-	[JsonPropertyName("vested_value")]
-	public decimal VestedValue { get; init; } = default!;
-
-	/// <summary>
 	/// <para>The complete value of the transaction. Positive values when cash is debited, e.g. purchases of stock; negative values when cash is credited, e.g. sales of stock. Treatment remains the same for cash-only movements unassociated with securities. For transactions representing a simultaneous cash contribution and purchase of a security, the portion of the transaction representing the purchase takes precedence, and the <c>amount</c> is represented as positive.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]

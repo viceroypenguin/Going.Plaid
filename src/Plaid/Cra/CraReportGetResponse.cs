@@ -6,7 +6,7 @@ namespace Going.Plaid.Cra;
 public record CraReportGetResponse : ResponseBase
 {
 	/// <summary>
-	/// <para>The CRA report returned by <c>/cra/report/get</c>.</para>
+	/// <para>The Consumer Report returned by <c>/cra/report/get</c>.</para>
 	/// </summary>
 	[JsonPropertyName("report")]
 	public Entity.CraReportGetReport Report { get; init; } = default!;

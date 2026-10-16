@@ -12,7 +12,7 @@ public class TransactionsRuleDetails
 	public Entity.TransactionsRuleField Field { get; set; } = default!;
 
 	/// <summary>
-	/// 
+	/// <para>Transaction rule's match type. For <c>TRANSACTION_ID</c> field, <c>EXACT_MATCH</c> is available.</para>
 	/// </summary>
 	[JsonPropertyName("type")]
 	public Entity.TransactionsRuleType Type { get; set; } = default!;

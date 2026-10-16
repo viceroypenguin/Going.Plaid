@@ -54,7 +54,7 @@ public record Transfer
 	public Entity.TransferUserInResponse User { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00"). When calling <c>/transfer/authorization/create</c>, specify the maximum amount to authorize. When calling <c>/transfer/create</c>, specify the exact amount of the transfer, up to a maximum of the amount authorized. If this field is left blank when calling <c>/transfer/create</c>, the maximum amount authorized in the <c>authorization_id</c> will be sent.</para>
+	/// <para>The amount of the transfer (decimal string with two digits of precision e.g. "10.00"). When calling <c>/transfer/authorization/create</c>, specify the maximum amount to authorize. When calling <c>/transfer/create</c>, specify the exact amount of the transfer, up to a maximum of the amount authorized. If this field is left blank when calling <c>/transfer/create</c>, the maximum amount authorized in the <c>authorization_id</c> will be sent. If the authorization's <c>guarantee_details.outcome</c> is <c>PARTIAL_INSTANT_ONLY</c>, this field is required when calling <c>/transfer/create</c>.</para>
 	/// </summary>
 	[JsonPropertyName("amount")]
 	public string Amount { get; init; } = default!;
@@ -212,7 +212,7 @@ public record Transfer
 	public Entity.TransferCreditFundsSource? CreditFundsSource { get; init; } = default!;
 
 	/// <summary>
-	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform's Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer's Ledger balance. This must be value greater than 0 and less than or equal to the <c>transfer.amount</c>.</para>
+	/// <para>The amount to deduct from <c>transfer.amount</c> and distribute to the platform's Ledger balance as a facilitator fee (decimal string with two digits of precision e.g. "10.00"). The remainder will go to the end-customer's Ledger balance. This must be value greater than 0 and less than the <c>transfer.amount</c>.</para>
 	/// </summary>
 	[JsonPropertyName("facilitator_fee")]
 	public string? FacilitatorFee { get; init; } = default!;

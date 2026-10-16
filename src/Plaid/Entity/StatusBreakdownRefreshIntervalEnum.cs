@@ -1,7 +1,7 @@
 namespace Going.Plaid.Entity;
 
 /// <summary>
-/// <para>How frequently data for subscription products like Investments, Transactions, and Liabilities, is being refreshed, relative to the institution's normal scheduling. The <c>refresh_interval</c> may be <c>DELAYED</c> or <c>STOPPED</c> even when the success rate is high.</para>
+/// <para>How frequently data for subscription products like Investments, Transactions, and Liabilities, is being refreshed. <c>NORMAL</c>: data is refreshed at least every 2 days. <c>DELAYED</c>: data is refreshed less often than every 2 days. <c>STOPPED</c>: data is refreshed less often than every 14 days, or not at all. The <c>refresh_interval</c> may be <c>DELAYED</c> or <c>STOPPED</c> even when the success rate is high.</para>
 /// </summary>
 public enum StatusBreakdownRefreshIntervalEnum
 {

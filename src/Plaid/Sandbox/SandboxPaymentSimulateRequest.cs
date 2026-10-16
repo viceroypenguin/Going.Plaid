@@ -12,7 +12,7 @@ public partial class SandboxPaymentSimulateRequest : RequestBase
 	public string PaymentId { get; set; } = default!;
 
 	/// <summary>
-	/// <para>The webhook url to use for any payment events triggered by the simulated status change.</para>
+	/// <para>The webhook URL to use for any payment events triggered by the simulated status change. Used only if the payment is not yet associated with an Item; otherwise, events are sent to the Item's webhook.</para>
 	/// </summary>
 	[JsonPropertyName("webhook")]
 	public string Webhook { get; set; } = default!;
