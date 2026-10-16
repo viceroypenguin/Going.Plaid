@@ -237,7 +237,7 @@ internal static partial class Program
 	}
 
 	private static string PrefixPlaidUrl(string url) =>
-		url.StartsWith('/')
+		url.StartsWith('/', StringComparison.Ordinal)
 			? "https://plaid.com" + url
 			: url;
 
@@ -273,7 +273,7 @@ internal static partial class Program
 		FixCodeBlocks(FixLinkBlocks(FixBrackets(FixAmpersands(description)))).TrimEnd();
 
 	[GeneratedRegex("^`\"?(.+?)\"?:?`\\s*:?-?\\s*(.*)$")]
-	private static partial Regex EnumDescriptionRegex();
+	private static partial Regex EnumDescriptionRegex { get; }
 
 	private static (string enumDescription, Dictionary<string, string> propertyDescription) ParseEnumDescription(string description)
 	{
@@ -287,20 +287,20 @@ internal static partial class Program
 		if (lines.Length == 1)
 			return (FixCodeBlocks(lines[0]), new Dictionary<string, string>());
 
-		if (!lines.Any(l => l.StartsWith('`')))
-			return (string.Empty, []);
+		var ed = lines.FirstOrDefault(l => !l.StartsWith('`', StringComparison.Ordinal));
 
-		var ed = lines.FirstOrDefault(l => !l.StartsWith('`'))
-				?? string.Empty;
+		if (ed == null)
+			return (string.Empty, []);
 
 		ed = FixupDescription(ed);
 
 		var pd = lines
-			.Where(l => l.StartsWith('`'))
-			.Select(l => EnumDescriptionRegex().Match(l))
+			.Where(l => l.StartsWith('`', StringComparison.Ordinal))
+			.Select(l => EnumDescriptionRegex.Match(l))
 			.ToDictionary(
 				m => m.Groups[1].Value,
 				m => FixupDescription(m.Groups[2].Value));
+
 		return (ed, pd);
 	}
 
