@@ -2,7 +2,7 @@
   <PropertyGroup>
 	<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 
-	<Net10PackageVersion>10.0.13</Net10PackageVersion>
+	<Net10PackageVersion>10.0.14</Net10PackageVersion>
 	<Net11PackageVersion>11.0.0-rc.2.26504.105</Net11PackageVersion>
   </PropertyGroup>
   
